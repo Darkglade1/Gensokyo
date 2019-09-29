@@ -1,0 +1,12 @@
+{
+  "modid": "Gensokyo",
+  "name": "Gensokyo",
+  "author_list": ["Darkglade"],
+  "description": "A content mod inspired by Touhou Project.",
+  "version": "0.0.1",
+  "sts_version": "01-23-2019",
+  "mts_version": "3.8.0",
+  "dependencies": ["basemod", "stslib"],
+  "update_json": ""
+}
+

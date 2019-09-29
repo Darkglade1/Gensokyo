@@ -1,0 +1,40 @@
+{
+  "Gensokyo:IdentityCrisisEvent": {
+    "NAME": "Identity Crisis",
+    "DESCRIPTIONS": [
+      "As you move through ~The~ ~City~ you come across a #pPurple #pMirror. NL You look at it, but you see no reflection.",
+      "You see no one but #g~You~ #g~wish~ #g~to~ #g~become~ #g~someone.~",
+      "#r@YOU@ #r@EXIST@ #r@AND@ #r@ARE@ #r@VALID!@",
+      "#yYou #yare #yat #ypeace #ywith #yyour #ypresence.",
+      "You have no hands."
+    ],
+    "OPTIONS": [
+      "[Inspiration] #gGain #ga #gRandom #gStarting #gRelic.",
+      "[Denial] #rLose #r",
+      " #rMax #rHP. #gRemove #ga #gCard #gfrom #gyour #gdeck.",
+      "[Acceptance] #gGain #gApotheosis.",
+      "[TOUCH THE MIRROR] TOUCH TOUCH TO#C# TOUCH TO UCH TOUCH #rTOUCH TOUCH",
+      "[Leave]",
+      "Select card to remove."
+    ]
+  },
+  "Gensokyo:ScarletDevilMansionEvent": {
+    "NAME": "Scarlet Devil Mansion",
+    "DESCRIPTIONS": [
+      "You spot a grand manor rising in the distance, its #rcrimson walls ~looming~ over its surroundings like some kind of #rscarlet master. NL NL As you approach, you see a gatekeeper napping at her post, the half-open doors of the mansion beckoning you ever forward.",
+      "Inside, you feel a wave of dizziness wash over you as you realize that the ceiling is impossibly high. NL NL \"Oh? A visitor?\" NL NL You spot a gray-haired maid walking towards you, an amused smile ~dancing~ across her lips.",
+      "\"I suppose it would be rude of me to not show some hospitality. Would you like to visit the library, perhaps? It is one of the most expansive stores of knowledge in this land, I assure you. But if that is not to your liking, I could offer you one of the antique relics we have lying around if you are willing to offer a little . . . donation.\"",
+      "The maid leads you to the library where you meet a diminutive girl in purple. Her eyes are sharp as she scrutinizes you. NL NL \"If you #rsteal or #rdamage any of the books, I will #r~incinerate~ you.\" NL NL You decide it would be best if you did not test how serious she was about that.",
+      "\"Thank you very much.\" NL NL You see something streak by your face, something ~silvery~ and ~sharp~ . A flash of #rpain erupts from your cheek, and you smell the metallic tang of #r~blood~ - NL NL You blink. The pain was gone, and a bandage now adorned your face.",
+      "You turn to see the maid holding a vial of #rblood. NL NL \"I apologize for any discomfort you may have experienced; I'm usually much more efficient than that.\" NL NL She walks off into a side room and returns with a strange #yrelic in hand. NL NL \"Here you are. Feel free to come again any time you like; we could always use more ~donations~ , after all.\" NL NL You doubt you would want to come here again anytime soon."
+    ],
+    "OPTIONS": [
+      "[Continue]",
+      "[Go to the library] #gChoose #g1 #gof #g10 #gupgraded #gcards #gto #gadd #gto #gyour #gdeck.",
+      "[Make a donation] #rLose #r",
+      " #rHP. #gObtain #ga #gRelic.",
+      "[Leave]",
+      "Add a card to your deck."
+    ]
+  }
+}
