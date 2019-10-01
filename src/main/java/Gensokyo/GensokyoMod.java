@@ -1,9 +1,10 @@
 package Gensokyo;
 
-import Gensokyo.events.IdentityCrisisEvent;
+import Gensokyo.events.BorderOfDeathEvent;
 import Gensokyo.events.ScarletDevilMansionEvent;
 import Gensokyo.relics.BottledPlaceholderRelic;
 import Gensokyo.relics.DefaultClickableRelic;
+import Gensokyo.relics.PerfectCherryBlossom;
 import Gensokyo.relics.PlaceholderRelic;
 import Gensokyo.relics.PlaceholderRelic2;
 import Gensokyo.util.IDCheckDontTouchPls;
@@ -25,7 +26,6 @@ import com.evacipated.cardcrawl.mod.stslib.Keyword;
 import com.evacipated.cardcrawl.modthespire.lib.SpireInitializer;
 import com.google.gson.Gson;
 import com.megacrit.cardcrawl.dungeons.Exordium;
-import com.megacrit.cardcrawl.dungeons.TheCity;
 import com.megacrit.cardcrawl.localization.CardStrings;
 import com.megacrit.cardcrawl.localization.EventStrings;
 import com.megacrit.cardcrawl.localization.PowerStrings;
@@ -223,6 +223,7 @@ public class GensokyoMod implements
         // Essentially, you need to patch the game and say "if a player is not playing my character class, remove the event from the pool"
         //BaseMod.addEvent(IdentityCrisisEvent.ID, IdentityCrisisEvent.class, TheCity.ID);
         BaseMod.addEvent(ScarletDevilMansionEvent.ID, ScarletDevilMansionEvent.class, Exordium.ID);
+        BaseMod.addEvent(BorderOfDeathEvent.ID, BorderOfDeathEvent.class, Exordium.ID);
         
         // =============== /EVENTS/ =================
         logger.info("Done loading badge Image and mod options");
@@ -244,6 +245,7 @@ public class GensokyoMod implements
         
         // This adds a relic to the Shared pool. Every character can find this relic.
         BaseMod.addRelic(new PlaceholderRelic2(), RelicType.SHARED);
+        BaseMod.addRelic(new PerfectCherryBlossom(), RelicType.SHARED);
         
         // Mark relics as seen (the others are all starters so they're marked as seen in the character file
         UnlockTracker.markRelicAsSeen(BottledPlaceholderRelic.ID);

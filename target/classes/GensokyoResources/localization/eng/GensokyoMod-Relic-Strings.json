@@ -30,5 +30,12 @@
       ".",
       "Select a card to bottle for "
     ]
+  },
+  "Gensokyo:PerfectCherryBlossom": {
+    "NAME": "Perfect Cherry Blossom",
+    "FLAVOR": "A favor bestowed upon you for befriending a lonely girl.",
+    "DESCRIPTIONS": [
+      "Whenever you die, kill ALL enemies."
+    ]
   }
 }
