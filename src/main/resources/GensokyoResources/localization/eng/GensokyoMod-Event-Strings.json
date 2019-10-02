@@ -2,20 +2,22 @@
   "Gensokyo:BorderOfDeathEvent": {
     "NAME": "Border of Death",
     "DESCRIPTIONS": [
-      "You spot a grand manor rising in the distance, its #rcrimson walls ~looming~ over its surroundings like some kind of #rscarlet master. NL NL As you approach, you see a gatekeeper napping at her post, the half-open doors of the mansion beckoning you ever forward.",
-      "Inside, you feel a wave of dizziness wash over you as you realize that the ceiling is impossibly high. NL NL \"Oh? A visitor?\" NL NL You spot a gray-haired maid walking towards you, an amused smile ~dancing~ across her lips.",
-      "\"I suppose it would be rude of me to not show some hospitality. Would you like to visit the library, perhaps? It is one of the most expansive stores of knowledge in this land, I assure you. But if that is not to your liking, I could offer you one of the antique relics we have lying around if you are willing to offer a little . . . donation.\"",
-      "The maid leads you to the library where you meet a diminutive girl in purple. Her eyes are sharp as she scrutinizes you. NL NL \"If you #rsteal or #rdamage any of the books, I will #r~incinerate~ you.\" NL NL You decide it would be best if you did not test how serious she was about that.",
-      "\"Thank you very much.\" NL NL You see something streak by your face, something ~silvery~ and ~sharp~ . A flash of #rpain erupts from your cheek, and you smell the metallic tang of #r~blood~ - NL NL You blink. The pain was gone, and a bandage now adorned your face.",
-      "You turn to see the maid holding a vial of #rblood. NL NL \"I apologize for any discomfort you may have experienced; I'm usually much more efficient than that.\" NL NL She walks off into a side room and returns with a strange #yrelic in hand. NL NL \"Here you are. Feel free to come again any time you like; we could always use more ~donations~ , after all.\" NL NL You doubt you would want to come here again anytime soon."
+      "A thick ~fog~ descends upon you, enveloping you in a ~murky~ shroud. You are tempted to disperse the nuisance with a gust of #rflame, but the ~fog~ lifts just as quickly as it came, leaving you in an ~otherworldly~ place. NL NL You see two women standing near a tree, a ~beautiful~ tree with boughs stretched out like a #ygrand invitation. You see the blond one murmur something to her companion before stepping away, leaving the pink-haired woman alone with the tree.",
+      "You find yourself stepping forward, drawn by the overwhelming presence of ~something~ you had long since forgotten. NL NL \"You probably shouldn't come any closer.\" NL NL You couldn't help but notice the #rbitterness in the woman’s voice as you ask her why. NL NL \"I was born a #p~cursed~ child. Born with hands stained #rred by something outside my control, #p~cursed~ with an ability that makes everyone around me perpetually #pfear for their lives.\"",
+      "You can ~smell~ it in the air, the stench of #rdeath. You had thought it was coming from the #pyoukai tree, but now you can tell it had been ~emanating~ from the woman all along. NL NL \"No one wants me. No one wants to even ~be~ around me. It would probably be for the best if I just . . . disappeared.\" NL NL You see the slim #rdagger in the other woman’s hands. You see her raise it, its ~trembling,~ silver point pressed ~precariously~ against her chest - ",
+      "She ~freezes~ as your voice reaches her, her head ~slowly~ ~swiveling~ towards you like she couldn't believe you had honestly proposed the notion that you would be her friend. NL NL \"You . . . you would #r@abandon@ me before long, just like the others! They always do, once they’re fed up with living in perpetual fear of my ability!\" NL NL You tell her that you are #gimmortal, that you had long since forgotten what it meant to #pfear #pdeath.",
+      "She gives you an incredulous look. NL NL ~\"Prove~ ~it!\"~ NL NL She holds out a hand.",
+      "You take her hand. NL NL #rSearing #rpain flows through your body, every single one of your cells @screaming@ in #r~agony~ as the essence of #pdeath invaded ~every~ fiber of your being - NL NL The #rpain faded to a dull throb, and you felt your body #grestore itself as the ~world~ corrected the error that was your deceased self. NL NL You see her ~staring~ at you, tears ~trickling~ down her face, ~dumbfounded~ that you were still upright instead of a #pcrumpled #pcorpse.",
+      "\"You’re . . . you’re ~still~ #galive!\" NL NL She embraces you, burying her face in your chest as she ~sobbed.~ NL NL You #gcomfort her awkwardly, unused to this kind of ~intimate~ gesture. NL NL You glance up and notice the other woman from before standing there, observing the two of you. NL NL She smiles, ~whispering~ something only you could hear. NL NL #g\"Thank #gyou.\"",
+      "#pDespair clouds her face as you stand there, unmoving. NL NL \"You . . . ~you’re~ just like the ~rest~ of them!\" NL NL The dagger rises, glinting ~silver~ in the moonlight. NL NL @\"I@ #r@hate@ @all@ @of@ @you!\"@ NL NL #rBlood sprays across the tree’s trunk.",
+      "Her body ~crumples~ to the ground, finally at peace. NL NL It was nothing you haven't seen before. She was simply ~another~ #rvictim in a long line of #ptragedies you had witnessed over the eons. NL NL You would forget about this before long. NL NL You always did."
     ],
     "OPTIONS": [
       "[Continue]",
-      "[Stop]",
+      "[Refuse]",
       "[Prove it] #rDie. #gObtain #ga #gspecial #gRelic.",
-      " #rHP. #gObtain #ga #gRelic.",
-      "[Leave]",
-      "Add a card to your deck."
+      "[Stop her]",
+      "[Leave]"
     ]
   },
   "Gensokyo:ScarletDevilMansionEvent": {
