@@ -21,50 +21,51 @@ public class Mercy extends CustomRelic {
     private static final Texture OUTLINE = TextureLoader.getTexture(makeRelicOutlinePath("Mercy.png"));
 
     private boolean gainBlock = false;
-    private static int BLOCK = 6;
+    private static int TRIGGER_COUNT = 2;
+    private static int BLOCK = 4;
 
     public Mercy() {
         super(ID, IMG, OUTLINE, RelicTier.SPECIAL, LandingSound.MAGICAL);
     }
 
     @Override
-    public void atPreBattle() {
-        this.flash();
-        this.gainBlock = true;
-        if (!this.pulse) {
-            this.beginPulse();
-            this.pulse = true;
-        }
-    }
-
-    @Override
     public void onPlayerEndTurn() {
-        this.beginPulse();
-        this.pulse = true;
         if (this.gainBlock) {
             this.flash();
             AbstractDungeon.actionManager.addToBottom(new RelicAboveCreatureAction(AbstractDungeon.player, this));
             AbstractDungeon.actionManager.addToBottom(new GainBlockAction(AbstractDungeon.player, AbstractDungeon.player, BLOCK));
         }
-        this.gainBlock = true;
+        this.gainBlock = false;
+        this.pulse = false;
+        this.counter = 0;
+    }
+
+    @Override
+    public void atTurnStart() {
+        this.counter = 0;
     }
 
     @Override
     public void onUseCard(AbstractCard card, UseCardAction action) {
-        if (card.type == AbstractCard.CardType.ATTACK) {
-            this.gainBlock = false;
-            this.pulse = false;
+        if (card.type == AbstractCard.CardType.SKILL && !gainBlock) {
+            ++this.counter;
+            if (this.counter % TRIGGER_COUNT == 0) {
+                this.beginPulse();
+                this.pulse = true;
+                this.gainBlock = true;
+            }
         }
     }
 
-    @Override
     public void onVictory() {
+        this.counter = -1;
         this.pulse = false;
+        this.gainBlock = false;
     }
 
     @Override
     public String getUpdatedDescription() {
-        return DESCRIPTIONS[0] + BLOCK + DESCRIPTIONS[1];
+        return DESCRIPTIONS[0] + TRIGGER_COUNT + DESCRIPTIONS[1] + BLOCK + DESCRIPTIONS[2];
     }
 
 }
