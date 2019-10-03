@@ -3,6 +3,7 @@ package Gensokyo;
 import Gensokyo.events.BorderOfDeath;
 import Gensokyo.events.ScarletDevilMansion;
 import Gensokyo.events.TheEnmasDilemma;
+import Gensokyo.monsters.Komachi;
 import Gensokyo.relics.CelestialsFlawlessClothing;
 import Gensokyo.relics.Justice;
 import Gensokyo.relics.Mercy;
@@ -28,6 +29,7 @@ import com.google.gson.Gson;
 import com.megacrit.cardcrawl.dungeons.Exordium;
 import com.megacrit.cardcrawl.localization.CardStrings;
 import com.megacrit.cardcrawl.localization.EventStrings;
+import com.megacrit.cardcrawl.localization.MonsterStrings;
 import com.megacrit.cardcrawl.localization.PowerStrings;
 import com.megacrit.cardcrawl.localization.RelicStrings;
 import com.megacrit.cardcrawl.unlock.UnlockTracker;
@@ -214,6 +216,8 @@ public class GensokyoMod implements
         
         BaseMod.registerModBadge(badgeTexture, MODNAME, AUTHOR, DESCRIPTION, settingsPanel);
 
+        BaseMod.addMonster(Komachi.ID, (BaseMod.GetMonster)Komachi::new);
+
         
         // =============== EVENTS =================
         
@@ -294,6 +298,10 @@ public class GensokyoMod implements
         // Event Strings
         BaseMod.loadCustomStringsFile(EventStrings.class,
                 getModID() + "Resources/localization/eng/GensokyoMod-Event-Strings.json");
+
+        //Monster Strings
+        BaseMod.loadCustomStringsFile(MonsterStrings.class,
+                getModID() + "Resources/localization/eng/GensokyoMod-Monster-Strings.json");
         
         logger.info("Done edittting strings");
     }
