@@ -3,13 +3,10 @@ package Gensokyo;
 import Gensokyo.events.BorderOfDeath;
 import Gensokyo.events.ScarletDevilMansion;
 import Gensokyo.events.TheEnmasDilemma;
-import Gensokyo.relics.BottledPlaceholderRelic;
-import Gensokyo.relics.DefaultClickableRelic;
+import Gensokyo.relics.CelestialsFlawlessClothing;
 import Gensokyo.relics.Justice;
 import Gensokyo.relics.Mercy;
 import Gensokyo.relics.PerfectCherryBlossom;
-import Gensokyo.relics.PlaceholderRelic;
-import Gensokyo.relics.PlaceholderRelic2;
 import Gensokyo.util.IDCheckDontTouchPls;
 import Gensokyo.util.TextureLoader;
 import Gensokyo.variables.DefaultCustomVariable;
@@ -242,19 +239,12 @@ public class GensokyoMod implements
     public void receiveEditRelics() {
         logger.info("Adding relics");
         
-        // This adds a character specific relic. Only when you play with the mentioned color, will you get this relic.
-        BaseMod.addRelic(new PlaceholderRelic(), RelicType.SHARED);
-        BaseMod.addRelic(new BottledPlaceholderRelic(), RelicType.SHARED);
-        BaseMod.addRelic(new DefaultClickableRelic(), RelicType.SHARED);
-        
         // This adds a relic to the Shared pool. Every character can find this relic.
-        BaseMod.addRelic(new PlaceholderRelic2(), RelicType.SHARED);
         BaseMod.addRelic(new PerfectCherryBlossom(), RelicType.SHARED);
         BaseMod.addRelic(new Mercy(), RelicType.SHARED);
         BaseMod.addRelic(new Justice(), RelicType.SHARED);
-        
-        // Mark relics as seen (the others are all starters so they're marked as seen in the character file
-        UnlockTracker.markRelicAsSeen(BottledPlaceholderRelic.ID);
+        BaseMod.addRelic(new CelestialsFlawlessClothing(), RelicType.SHARED);
+
         logger.info("Done adding relics!");
     }
     
