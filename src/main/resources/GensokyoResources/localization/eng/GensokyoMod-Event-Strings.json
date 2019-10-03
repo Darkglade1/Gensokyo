@@ -1,5 +1,5 @@
 {
-  "Gensokyo:BorderOfDeathEvent": {
+  "Gensokyo:BorderOfDeath": {
     "NAME": "Border of Death",
     "DESCRIPTIONS": [
       "A thick ~fog~ descends upon you, enveloping you in a ~murky~ shroud. You are tempted to disperse the nuisance with a gust of #rflame, but the ~fog~ lifts just as quickly as it came, leaving you in an ~otherworldly~ place. NL NL You see two women standing near a tree, a ~beautiful~ tree with boughs stretched out like a #ygrand invitation. You see the blond one murmur something to her companion before stepping away, leaving the pink-haired woman alone with the tree.",
@@ -15,12 +15,12 @@
     "OPTIONS": [
       "[Continue]",
       "[Refuse]",
-      "[Prove it] #rDie. #gObtain #ga #gspecial #gRelic.",
+      "[Prove it] #rDie. #gObtain #ga #gSpecial #gRelic.",
       "[Stop her]",
       "[Leave]"
     ]
   },
-  "Gensokyo:ScarletDevilMansionEvent": {
+  "Gensokyo:ScarletDevilMansion": {
     "NAME": "Scarlet Devil Mansion",
     "DESCRIPTIONS": [
       "You spot a grand manor rising in the distance, its #rcrimson walls ~looming~ over its surroundings like some kind of #rscarlet master. NL NL As you approach, you see a gatekeeper napping at her post, the half-open doors of the mansion beckoning you ever forward.",
@@ -37,6 +37,25 @@
       " #rHP. #gObtain #ga #gRelic.",
       "[Leave]",
       "Add a card to your deck."
+    ]
+  },
+  "Gensokyo:TheEnmasDilemma": {
+    "NAME": "The Enma's Dilemma",
+    "DESCRIPTIONS": [
+      "You find yourself next to a ~mist-shrouded~ river, a ~desolate~ place tinged with the lingering #pregrets of many. NL NL You see a woman ahead, a ~ghostly~ figure kneeling before her. NL NL \"Tell me.\" NL NL Her voice is stern, laced with authority, yet underlain with a current of #psadness. She does not turn to face you, but somehow it feels as if she were speaking directly into your very ~soul.~",
+      "\"Here is a man, a ~thief,~ a #rkiller, a @criminal,@ someone who has #rruined @countless@ lives. Yet he did it all for the sake of his #gkin, to support his #gfamily when no one else would. And in the end, he #rdied protecting his #gchild from an even more ~despicable~ #psinner.\" NL NL She paused, breathing out a ~tired~ sigh. NL NL \"What do you think his #yfate should be?\"",
+      "\"You are a #gkind soul.\" NL NL She waved her rod, and the soul before her ~vanished~ in a flicker of #ylight. NL NL \"But I do not have the ~privilege~ of being #gkind like you.\" NL NL The woman ~vanished,~ leaving you alone next to a riverbank, unsure of what exactly had just transpired.",
+      "\"You are right, I suppose.\" NL NL She waved her rod, and the soul before her ~vanished~ in a flicker of #ylight. NL NL \"It is a shame that even #rvictims of circumstance such as he must be #ppunished so. But I do not make the rules.\" NL NL The woman ~vanished,~ leaving you alone next to a riverbank, unsure of what exactly had just transpired."
+    ],
+    "OPTIONS": [
+      "[Continue]",
+      "[Mercy] #rLose ",
+      "[Locked] Requires: non-Strike Attack Card",
+      "[Justice] #rLose ",
+      "[Locked] Requires: non-Defend Skill Card",
+      " #gObtain #ga #gSpecial #gRelic.",
+      "[It is not my place to say]",
+      "[Leave]"
     ]
   }
 }
