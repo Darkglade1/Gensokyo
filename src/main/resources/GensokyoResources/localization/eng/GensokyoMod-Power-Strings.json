@@ -1,10 +1,6 @@
 {
-"Gensokyo:CommonPower": {
-        "NAME": "Placeholder Power",
-        "DESCRIPTIONS": ["You applied #b", " keyword.", " keywords."]
-},
-"Gensokyo:RarePower": {
-        "NAME": "Placeholder Power",
-        "DESCRIPTIONS": ["At the start of your turn, TOUCH #b", " enemy." , " enemies."]
+"Gensokyo:DeathMark": {
+        "NAME": "Death Mark",
+        "DESCRIPTIONS": ["Dies in #b", " turns."]
 }
 }

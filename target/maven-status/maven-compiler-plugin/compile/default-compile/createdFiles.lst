@@ -11,6 +11,7 @@ Gensokyo\relics\PerfectCherryBlossom.class
 Gensokyo\patches\relics\PerfectCherryBlossomPatch.class
 Gensokyo\patches\DefaultInsertPatch.class
 Gensokyo\patches\relics\CelestialsFlawlessClothingPatch$Locator.class
+Gensokyo\powers\DeathMark.class
 Gensokyo\variables\DefaultSecondMagicNumber.class
 Gensokyo\events\TheEnmasDilemma.class
 Gensokyo\relics\CelestialsFlawlessClothing.class

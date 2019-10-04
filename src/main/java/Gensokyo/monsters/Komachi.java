@@ -1,6 +1,6 @@
 package Gensokyo.monsters;
 
-import Gensokyo.relics.CelestialsFlawlessClothing;
+import Gensokyo.powers.DeathMark;
 import basemod.abstracts.CustomMonster;
 import basemod.animations.SpriterAnimation;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
@@ -25,14 +25,15 @@ public class Komachi extends CustomMonster
     public static final String[] MOVES;
     public static final String[] DIALOG;
     private boolean firstMove = true;
+    private boolean secondMove = true;
     private static final byte SCYTHE = 1;
     private static final byte DEBUFF = 2;
     private static final byte DEATH = 3;
     private static final int SCYTHE_DAMAGE = 15;
     private static final int SCYTHE_ACT_DAMAGE_BONUS = 5;
-    private static final int DEATH_COUNTER = 5;
+    private static final int DEATH_COUNTER = 7;
     private static final int A_2_SCYTHE_DAMAGE = 18;
-    private static final int A_2_DEATH_COUNTER = 4;
+    private static final int A_2_DEATH_COUNTER = 6;
     private int scytheDmg;
     private int deathCounter;
     private static final int WEAK_AMT = 2;
@@ -84,10 +85,6 @@ public class Komachi extends CustomMonster
     public void takeTurn() {
         switch (this.nextMove) {
             case 1: {
-                if (this.firstMove) {
-                    AbstractDungeon.actionManager.addToBottom(new TalkAction(this, Komachi.DIALOG[0]));
-                    this.firstMove = false;
-                }
                 AbstractDungeon.actionManager.addToBottom(new DamageAction(AbstractDungeon.player, this.damage.get(0), AbstractGameAction.AttackEffect.SLASH_HEAVY));
                 break;
             }
@@ -97,66 +94,30 @@ public class Komachi extends CustomMonster
                 break;
             }
             case 3: {
-//                AbstractDungeon.actionManager.addToBottom(new AnimateFastAttackAction(this));
-//                AbstractDungeon.actionManager.addToBottom(new DamageAction(AbstractDungeon.player, this.damage.get(1), AbstractGameAction.AttackEffect.SLASH_DIAGONAL));
-//                AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(AbstractDungeon.player, this, new WeakPower(AbstractDungeon.player, 2, true), 2));
-//                break;
+                AbstractDungeon.actionManager.addToBottom(new TalkAction(this, Komachi.DIALOG[0]));
+                AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(AbstractDungeon.player, this, new DeathMark(AbstractDungeon.player, this, deathCounter), 0));
+                break;
             }
         }
         AbstractDungeon.actionManager.addToBottom(new RollMoveAction(this));
     }
 
     @Override
-    public void usePreBattleAction() {
-        //AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(this, this, new ColorShiftPower(this, (AbstractDungeon.ascensionLevel >= 18) ? 2 : 1)));
-    }
-    
-//    @Override
-//    public void changeState(final String stateName) {
-//        switch (stateName) {
-//            case "ATTACK": {
-//                this.state.setAnimation(0, "Attack", false);
-//                this.state.addAnimation(0, "Idle", true, 0.0f);
-//                break;
-//            }
-//            case "ATTACK_2": {
-//                this.state.setAnimation(0, "Attack_2", false);
-//                this.state.addAnimation(0, "Idle", true, 0.0f);
-//                break;
-//            }
-//        }
-//    }
-//
-//    @Override
-//    public void damage(final DamageInfo info) {
-//        super.damage(info);
-//        if (info.owner != null && info.type != DamageInfo.DamageType.THORNS && info.output > 0) {
-//            this.state.setAnimation(0, "Hit", false);
-//            this.state.addAnimation(0, "Idle", true, 0.0f);
-//        }
-//    }
-
-    @Override
     protected void getMove(final int num) {
         if (this.firstMove) {
-            this.setMove(Komachi.MOVES[0], (byte) 1, Intent.ATTACK, (this.damage.get(0)).base);
+            this.setMove(Komachi.MOVES[2], DEATH, Intent.STRONG_DEBUFF);
+            this.firstMove = false;
+        } else if (this.secondMove){
+            this.setMove(Komachi.MOVES[1], DEBUFF, Intent.DEBUFF);
+            this.secondMove = false;
         } else {
-            if (this.lastMove((byte) 1)) {
-                this.setMove(Komachi.MOVES[1], (byte) 2, Intent.DEBUFF);
+            if (this.lastTwoMoves(SCYTHE)) {
+                this.setMove(Komachi.MOVES[1], DEBUFF, Intent.DEBUFF);
             } else {
-                this.setMove(Komachi.MOVES[0], (byte) 1, Intent.ATTACK, (this.damage.get(0)).base);
+                this.setMove(Komachi.MOVES[0], SCYTHE, Intent.ATTACK, (this.damage.get(0)).base);
             }
         }
     }
-    
-//    @Override
-//    public void die() {
-//        super.die();
-//        if (AbstractDungeon.player.hasRelic(CelestialsFlawlessClothing.ID)) {
-//            CelestialsFlawlessClothing relic = (CelestialsFlawlessClothing)AbstractDungeon.player.getRelic(CelestialsFlawlessClothing.ID);
-//            relic.elite = null;
-//        }
-//    }
     
     static {
         monsterStrings = CardCrawlGame.languagePack.getMonsterStrings("Gensokyo:Komachi");
