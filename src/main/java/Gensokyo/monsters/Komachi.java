@@ -1,12 +1,15 @@
 package Gensokyo.monsters;
 
 import Gensokyo.powers.DeathMark;
+import Gensokyo.powers.Vengeance;
+import Gensokyo.relics.CelestialsFlawlessClothing;
 import basemod.abstracts.CustomMonster;
 import basemod.animations.SpriterAnimation;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.animations.TalkAction;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.actions.common.DamageAction;
+import com.megacrit.cardcrawl.actions.common.RemoveSpecificPowerAction;
 import com.megacrit.cardcrawl.actions.common.RollMoveAction;
 import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
@@ -14,7 +17,9 @@ import com.megacrit.cardcrawl.core.Settings;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.localization.MonsterStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
+import com.megacrit.cardcrawl.powers.AbstractPower;
 import com.megacrit.cardcrawl.powers.FrailPower;
+import com.megacrit.cardcrawl.powers.IntangiblePlayerPower;
 import com.megacrit.cardcrawl.powers.WeakPower;
 
 public class Komachi extends CustomMonster
@@ -24,8 +29,10 @@ public class Komachi extends CustomMonster
     public static final String NAME;
     public static final String[] MOVES;
     public static final String[] DIALOG;
+    private int tier = 0;
     private boolean firstMove = true;
     private boolean secondMove = true;
+    private Intent scytheIntent = Intent.ATTACK;
     private static final byte SCYTHE = 1;
     private static final byte DEBUFF = 2;
     private static final byte DEATH = 3;
@@ -80,11 +87,39 @@ public class Komachi extends CustomMonster
         }
         this.damage.add(new DamageInfo(this, this.scytheDmg));
     }
+
+    @Override
+    public void usePreBattleAction() {
+        if (AbstractDungeon.player.hasRelic(CelestialsFlawlessClothing.ID)) {
+            CelestialsFlawlessClothing relic = (CelestialsFlawlessClothing)AbstractDungeon.player.getRelic(CelestialsFlawlessClothing.ID);
+            tier = relic.triggerCount;
+        }
+        if (tier != 0) {
+            AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(this, this, new Vengeance(this, tier)));
+        }
+        if (tier >= 2) {
+            AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(this, this, new IntangiblePlayerPower(this, tier), tier));
+        }
+        if (tier >= 3) {
+            this.scytheDmg = this.scytheDmg * (tier - 1);
+            this.damage.set(0, new DamageInfo(this, this.scytheDmg));
+        }
+        if (tier >= 4) {
+            this.scytheIntent = Intent.ATTACK_DEBUFF;
+        }
+    }
     
     @Override
     public void takeTurn() {
         switch (this.nextMove) {
             case 1: {
+                if (scytheIntent == Intent.ATTACK_DEBUFF) {
+                    for (AbstractPower power : AbstractDungeon.player.powers) {
+                        if (power.type == AbstractPower.PowerType.BUFF) {
+                            AbstractDungeon.actionManager.addToBottom(new RemoveSpecificPowerAction(AbstractDungeon.player, AbstractDungeon.player, power.ID));
+                        }
+                    }
+                }
                 AbstractDungeon.actionManager.addToBottom(new DamageAction(AbstractDungeon.player, this.damage.get(0), AbstractGameAction.AttackEffect.SLASH_HEAVY));
                 break;
             }
@@ -94,7 +129,9 @@ public class Komachi extends CustomMonster
                 break;
             }
             case 3: {
-                AbstractDungeon.actionManager.addToBottom(new TalkAction(this, Komachi.DIALOG[0]));
+                if (tier >= 0 && tier - 1 < DIALOG.length) {
+                    AbstractDungeon.actionManager.addToBottom(new TalkAction(this, Komachi.DIALOG[tier - 1]));
+                }
                 AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(AbstractDungeon.player, this, new DeathMark(AbstractDungeon.player, this, deathCounter), 0));
                 break;
             }
@@ -114,7 +151,7 @@ public class Komachi extends CustomMonster
             if (this.lastTwoMoves(SCYTHE)) {
                 this.setMove(Komachi.MOVES[1], DEBUFF, Intent.DEBUFF);
             } else {
-                this.setMove(Komachi.MOVES[0], SCYTHE, Intent.ATTACK, (this.damage.get(0)).base);
+                this.setMove(Komachi.MOVES[0], SCYTHE, scytheIntent, (this.damage.get(0)).base);
             }
         }
     }

@@ -1,5 +1,6 @@
 Gensokyo\util\IDCheckDontTouchPls.class
 Gensokyo\util\TextureLoader.class
+Gensokyo\powers\Vengeance.class
 Gensokyo\patches\relics\CelestialsFlawlessClothingPatch.class
 Gensokyo\GensokyoMod.class
 Gensokyo\actions\KillAction.class

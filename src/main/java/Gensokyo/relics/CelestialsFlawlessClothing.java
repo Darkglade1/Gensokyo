@@ -21,6 +21,7 @@ public class CelestialsFlawlessClothing extends CustomRelic {
     private static final Texture OUTLINE = TextureLoader.getTexture(makeRelicOutlinePath("CelestialsFlawlessClothing.png"));
 
     public AbstractMonster elite;
+    public int triggerCount = 0;
 
     public CelestialsFlawlessClothing() {
         super(ID, IMG, OUTLINE, RelicTier.SPECIAL, LandingSound.MAGICAL);
@@ -36,9 +37,10 @@ public class CelestialsFlawlessClothing extends CustomRelic {
         }
 
         AbstractDungeon.player.heal(healAmt, true);
-
+        triggerCount++;
         elite = new Komachi(-600.0f, 0);
-        AbstractDungeon.actionManager.addToTop(new SpawnMonsterAction(elite, false, 0));
+        AbstractDungeon.actionManager.addToTop(new SpawnMonsterAction(elite, false));
+        elite.usePreBattleAction();
     }
 
     @Override

@@ -2,5 +2,9 @@
 "Gensokyo:DeathMark": {
         "NAME": "Death Mark",
         "DESCRIPTIONS": ["Dies in #b", " turns."]
+},
+"Gensokyo:Vengeance": {
+        "NAME": "Vengeance",
+        "DESCRIPTIONS": ["The #rAvatar #rof #rDeath grows stronger in each successive encounter . . ."]
 }
 }
