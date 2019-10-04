@@ -22,7 +22,7 @@ public class Justice extends CustomRelic {
     private static final Texture IMG = TextureLoader.getTexture(makeRelicPath("Justice.png"));
     private static final Texture OUTLINE = TextureLoader.getTexture(makeRelicOutlinePath("Justice.png"));
 
-    private boolean dealDamage = false;
+    private boolean triggered = false;
     private static int TRIGGER_COUNT = 2;
     private static int DAMAGE = 6;
 
@@ -31,38 +31,26 @@ public class Justice extends CustomRelic {
     }
 
     @Override
-    public void onPlayerEndTurn() {
-        if (this.dealDamage) {
-            this.flash();
-            AbstractDungeon.actionManager.addToBottom(new RelicAboveCreatureAction(AbstractDungeon.player, this));
-            AbstractDungeon.actionManager.addToBottom(new DamageAllEnemiesAction(null, DamageInfo.createDamageMatrix(DAMAGE, true), DamageInfo.DamageType.THORNS, AbstractGameAction.AttackEffect.SLASH_HEAVY));
-        }
-        this.dealDamage = false;
-        this.pulse = false;
-        this.counter = 0;
-    }
-
-    @Override
     public void atTurnStart() {
         this.counter = 0;
+        this.triggered = false;
     }
 
     @Override
     public void onUseCard(AbstractCard card, UseCardAction action) {
-        if (card.type == AbstractCard.CardType.ATTACK && !dealDamage) {
+        if (card.type == AbstractCard.CardType.ATTACK && !triggered) {
             ++this.counter;
             if (this.counter % TRIGGER_COUNT == 0) {
-                this.beginPulse();
-                this.pulse = true;
-                this.dealDamage = true;
+                AbstractDungeon.actionManager.addToBottom(new RelicAboveCreatureAction(AbstractDungeon.player, this));
+                AbstractDungeon.actionManager.addToBottom(new DamageAllEnemiesAction(null, DamageInfo.createDamageMatrix(DAMAGE, true), DamageInfo.DamageType.THORNS, AbstractGameAction.AttackEffect.SLASH_HEAVY));
+                this.triggered = true;
             }
         }
     }
 
     public void onVictory() {
         this.counter = -1;
-        this.pulse = false;
-        this.dealDamage = false;
+        this.triggered = false;
     }
 
     @Override

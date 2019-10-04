@@ -10,14 +10,14 @@
     "NAME": "Mercy",
     "FLAVOR": "It is mercy, not justice or courage or even heroism, that alone can defeat evil.",
     "DESCRIPTIONS": [
-      "If you play #b", " #ySkills in a turn, gain #b", " #yBlock at the end of your turn."
+      "The first time you play #b", " #ySkills in a single turn, gain #b", " #yBlock."
     ]
   },
   "Gensokyo:Justice": {
     "NAME": "Justice",
     "FLAVOR": "The dead cannot cry out for justice. It is a duty of the living to do so for them.",
     "DESCRIPTIONS": [
-      "If you play #b", " #yAttacks in a turn, deal #b", " damage to ALL enemies at the end of your turn."
+      "The first time you play #b", " #yAttacks in a single turn, deal #b", " damage to ALL enemies."
     ]
   },
   "Gensokyo:CelestialsFlawlessClothing": {

@@ -20,7 +20,7 @@ public class Mercy extends CustomRelic {
     private static final Texture IMG = TextureLoader.getTexture(makeRelicPath("Mercy.png"));
     private static final Texture OUTLINE = TextureLoader.getTexture(makeRelicOutlinePath("Mercy.png"));
 
-    private boolean gainBlock = false;
+    private boolean triggered = false;
     private static int TRIGGER_COUNT = 2;
     private static int BLOCK = 4;
 
@@ -29,38 +29,26 @@ public class Mercy extends CustomRelic {
     }
 
     @Override
-    public void onPlayerEndTurn() {
-        if (this.gainBlock) {
-            this.flash();
-            AbstractDungeon.actionManager.addToBottom(new RelicAboveCreatureAction(AbstractDungeon.player, this));
-            AbstractDungeon.actionManager.addToBottom(new GainBlockAction(AbstractDungeon.player, AbstractDungeon.player, BLOCK));
-        }
-        this.gainBlock = false;
-        this.pulse = false;
-        this.counter = 0;
-    }
-
-    @Override
     public void atTurnStart() {
         this.counter = 0;
+        this.triggered = false;
     }
 
     @Override
     public void onUseCard(AbstractCard card, UseCardAction action) {
-        if (card.type == AbstractCard.CardType.SKILL && !gainBlock) {
+        if (card.type == AbstractCard.CardType.SKILL && !triggered) {
             ++this.counter;
             if (this.counter % TRIGGER_COUNT == 0) {
-                this.beginPulse();
-                this.pulse = true;
-                this.gainBlock = true;
+                AbstractDungeon.actionManager.addToBottom(new RelicAboveCreatureAction(AbstractDungeon.player, this));
+                AbstractDungeon.actionManager.addToBottom(new GainBlockAction(AbstractDungeon.player, AbstractDungeon.player, BLOCK));
+                this.triggered = true;
             }
         }
     }
 
     public void onVictory() {
         this.counter = -1;
-        this.pulse = false;
-        this.gainBlock = false;
+        this.triggered = false;
     }
 
     @Override
