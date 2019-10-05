@@ -92,7 +92,7 @@ public class Komachi extends CustomMonster
     public void usePreBattleAction() {
         if (AbstractDungeon.player.hasRelic(CelestialsFlawlessClothing.ID)) {
             CelestialsFlawlessClothing relic = (CelestialsFlawlessClothing)AbstractDungeon.player.getRelic(CelestialsFlawlessClothing.ID);
-            tier = relic.triggerCount;
+            tier = relic.counter;
         }
         if (tier != 0) {
             AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(this, this, new Vengeance(this, tier)));
