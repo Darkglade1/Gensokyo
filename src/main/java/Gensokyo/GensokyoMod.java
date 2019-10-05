@@ -1,5 +1,6 @@
 package Gensokyo;
 
+import Gensokyo.events.ACelestialsPlight;
 import Gensokyo.events.BorderOfDeath;
 import Gensokyo.events.ScarletDevilMansion;
 import Gensokyo.events.TheEnmasDilemma;
@@ -229,6 +230,7 @@ public class GensokyoMod implements
         BaseMod.addEvent(ScarletDevilMansion.ID, ScarletDevilMansion.class, Exordium.ID);
         BaseMod.addEvent(BorderOfDeath.ID, BorderOfDeath.class, Exordium.ID);
         BaseMod.addEvent(TheEnmasDilemma.ID, TheEnmasDilemma.class, Exordium.ID);
+        BaseMod.addEvent(ACelestialsPlight.ID, ACelestialsPlight.class, Exordium.ID);
         
         // =============== /EVENTS/ =================
         logger.info("Done loading badge Image and mod options");

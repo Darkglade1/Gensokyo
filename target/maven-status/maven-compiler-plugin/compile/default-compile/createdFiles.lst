@@ -5,6 +5,7 @@ Gensokyo\patches\relics\CelestialsFlawlessClothingPatch.class
 Gensokyo\GensokyoMod.class
 Gensokyo\actions\KillAction.class
 Gensokyo\events\ScarletDevilMansion.class
+Gensokyo\events\ACelestialsPlight.class
 Gensokyo\variables\DefaultCustomVariable.class
 Gensokyo\cards\AbstractDefaultCard.class
 Gensokyo\relics\Justice.class

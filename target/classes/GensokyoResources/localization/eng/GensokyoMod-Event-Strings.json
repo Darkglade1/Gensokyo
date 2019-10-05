@@ -57,5 +57,23 @@
       "[It is not my place to say]",
       "[Leave]"
     ]
+  },
+  "Gensokyo:ACelestialsPlight": {
+    "NAME": "A Celestial's Plight",
+    "DESCRIPTIONS": [
+      "You see a #bblue-haired girl lounging on a stone in front of you, ~lazing~ around without a care in the world. NL NL Out of the corner of your eye, you see a #pshadowy figure materialize behind her, wielding a #p~menacing~ scythe that glinted darkly. NL NL The figure approaches the unsuspecting girl, raising their weapon high into the air . . .",
+      "You dash forward, throwing yourself in front of the girl just as the scythe comes swinging down - NL NL #r@SCHING!@ NL NL #rPain erupts from your chest as the sinister weapon cuts a nasty #rgash along your body. NL NL You see the attacker reel backward in surprise, right before a flying rock smacks into them and sends them hurtling away. NL NL \"Now, why did you have to go and do that?\"",
+      "You turn to see the girl regarding you with an ~annoyed~ look. NL NL \"I’ve been waiting for that one to muster up the courage to attack me for ~weeks!~ It was going to be a #y~glorious~ battle, one where I fight for my life against an #p@evil@ shinigami before finally prevailing! But you just had to go and ruin it.\" NL NL She sighs, looking you over with a critical eye. NL NL \"Well, I appreciate the thought, at least. While it was wholly #runnecessary and #runwelcome, I suppose I should try to return the #yfavor. Here.\"",
+      "She pushes a bundle of cloth into your arms. NL NL \"Since your clothes got #rshredded from that attack, you can have these, I guess.\" NL NL Her piece said, the girl spins around and walks away, mumbling under her breath about how it would be a long, #pboring two weeks while she waited for the next one to show up.",
+      "A #rred blur shoots past you, smacking into the #pshadowy figure and sending them flying into the distance. The blur coalesces into a #rscarlet-clothed woman, who proceeds to get into an ~argument~ with the girl. As the argument grows more #rheated, you see the girl @stomp@ her foot and fly away, upon which the woman shakes her head and follows in pursuit. NL NL As you watch them leave, you notice many #ycoins scattered about the area, dropped by that #pshadowy figure. NL NL You decide to collect the #ycoins before moving on."
+    ],
+    "OPTIONS": [
+      "[Continue]",
+      "[Intervene] #rLose #r",
+      " #rHP. #gObtain #ga #gSpecial #gRelic.",
+      "[Let events transpire] #gGain #g",
+      " #gGold",
+      "[Leave]"
+    ]
   }
 }

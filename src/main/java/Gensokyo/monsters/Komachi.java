@@ -63,7 +63,7 @@ public class Komachi extends CustomMonster
         this.animation = new SpriterAnimation("GensokyoResources/images/monsters/Komachi/Spriter/KomachiAnimations.scml");
         this.type = AbstractMonster.EnemyType.ELITE;
         this.dialogX = (this.hb_x - 70.0F) * Settings.scale;
-        this.dialogY -= (this.hb_y + 75.0F) * Settings.scale;
+        this.dialogY -= (this.hb_y - 55.0F) * Settings.scale;
         if (AbstractDungeon.actNum == 2) {
             actMultiplier = ACT_2_MULTIPLIER;
         } else if (AbstractDungeon.actNum == 3) {
