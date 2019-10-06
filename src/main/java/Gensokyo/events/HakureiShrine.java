@@ -2,7 +2,6 @@ package Gensokyo.events;
 
 import Gensokyo.GensokyoMod;
 import com.megacrit.cardcrawl.cards.AbstractCard;
-import com.megacrit.cardcrawl.cards.CardGroup;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.core.Settings;
@@ -10,6 +9,13 @@ import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.events.AbstractImageEvent;
 import com.megacrit.cardcrawl.localization.EventStrings;
 import com.megacrit.cardcrawl.vfx.UpgradeShineEffect;
+import com.megacrit.cardcrawl.vfx.cardManip.ShowCardBrieflyEffect;
+
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Iterator;
+import java.util.List;
+import java.util.Random;
 
 import static Gensokyo.GensokyoMod.makeEventPath;
 
@@ -25,8 +31,6 @@ public class HakureiShrine extends AbstractImageEvent {
     public static final String IMG = makeEventPath("HakureiShrine.png");
 
     private int screenNum = 0;
-
-    private boolean pickCard;
 
     private boolean hasEnoughMoney;
     private boolean hasMoney;
@@ -57,10 +61,14 @@ public class HakureiShrine extends AbstractImageEvent {
         }
 
         //Lose gold and upgrade cards
-        if (this.hasEnoughMoney) {
-            this.imageEventText.setDialogOption(OPTIONS[1] + upgradeCost + OPTIONS[2] + upgradeAmount + OPTIONS[3]);
+        if (AbstractDungeon.player.masterDeck.hasUpgradableCards()) {
+            if (this.hasEnoughMoney) {
+                this.imageEventText.setDialogOption(OPTIONS[1] + upgradeCost + OPTIONS[2] + upgradeAmount + OPTIONS[3]);
+            } else {
+                this.imageEventText.setDialogOption(OPTIONS[4] + upgradeCost + OPTIONS[5], true);
+            }
         } else {
-            this.imageEventText.setDialogOption(OPTIONS[4] + upgradeCost + OPTIONS[5], true);
+            this.imageEventText.setDialogOption(OPTIONS[10], true);
         }
 
         //Lose gold and gain HP
@@ -88,10 +96,7 @@ public class HakureiShrine extends AbstractImageEvent {
                         this.imageEventText.updateDialogOption(0, OPTIONS[0]);
                         this.imageEventText.clearRemainingOptions();
                         AbstractDungeon.player.loseGold(this.upgradeCost);
-                        if (CardGroup.getGroupWithoutBottledCards(AbstractDungeon.player.masterDeck.getPurgeableCards()).size() > 0) {
-                            AbstractDungeon.gridSelectScreen.open(AbstractDungeon.player.masterDeck.getUpgradableCards(), upgradeAmount, OPTIONS[10], true, false, false, false);
-                        }
-                        this.pickCard = true;
+                        this.upgradeCards();
 
                         break;
                     case 1: // Gain HP
@@ -126,21 +131,36 @@ public class HakureiShrine extends AbstractImageEvent {
         }
     }
 
-    @Override
-    public void update() {
-        super.update();
-        if (this.pickCard && !AbstractDungeon.isScreenUp && !AbstractDungeon.gridSelectScreen.selectedCards.isEmpty()) {
+    private void upgradeCards() {
+        AbstractDungeon.topLevelEffects.add(new UpgradeShineEffect((float)Settings.WIDTH / 2.0F, (float)Settings.HEIGHT / 2.0F));
+        ArrayList<AbstractCard> upgradableCards = new ArrayList();
+        Iterator var2 = AbstractDungeon.player.masterDeck.group.iterator();
 
-            AbstractDungeon.effectsQueue.add(new UpgradeShineEffect((float) Settings.WIDTH / 2.0F, (float) Settings.HEIGHT / 2.0F));
-            for (int i = 0; i < AbstractDungeon.gridSelectScreen.selectedCards.size(); i++) {
-                AbstractDungeon.gridSelectScreen.selectedCards.get(i).upgrade();
-                AbstractCard upgCard = AbstractDungeon.gridSelectScreen.selectedCards.get(i);
-                AbstractDungeon.player.bottledCardUpgradeCheck(upgCard);
+        while(var2.hasNext()) {
+            AbstractCard c = (AbstractCard)var2.next();
+            if (c.canUpgrade()) {
+                upgradableCards.add(c);
             }
-
-            AbstractDungeon.gridSelectScreen.selectedCards.clear();
-            this.pickCard = false;
         }
 
+        List<String> cardMetrics = new ArrayList();
+        Collections.shuffle(upgradableCards, new Random(AbstractDungeon.miscRng.randomLong()));
+        if (!upgradableCards.isEmpty()) {
+            if (upgradableCards.size() == 1) {
+                upgradableCards.get(0).upgrade();
+                cardMetrics.add(upgradableCards.get(0).cardID);
+                AbstractDungeon.player.bottledCardUpgradeCheck(upgradableCards.get(0));
+                AbstractDungeon.effectList.add(new ShowCardBrieflyEffect(upgradableCards.get(0).makeStatEquivalentCopy()));
+            } else {
+                upgradableCards.get(0).upgrade();
+                upgradableCards.get(1).upgrade();
+                cardMetrics.add(upgradableCards.get(0).cardID);
+                cardMetrics.add(upgradableCards.get(1).cardID);
+                AbstractDungeon.player.bottledCardUpgradeCheck(upgradableCards.get(0));
+                AbstractDungeon.player.bottledCardUpgradeCheck(upgradableCards.get(1));
+                AbstractDungeon.effectList.add(new ShowCardBrieflyEffect(upgradableCards.get(0).makeStatEquivalentCopy(), (float)Settings.WIDTH / 2.0F - 190.0F * Settings.scale, (float)Settings.HEIGHT / 2.0F));
+                AbstractDungeon.effectList.add(new ShowCardBrieflyEffect(upgradableCards.get(1).makeStatEquivalentCopy(), (float)Settings.WIDTH / 2.0F + 190.0F * Settings.scale, (float)Settings.HEIGHT / 2.0F));
+            }
+        }
     }
 }

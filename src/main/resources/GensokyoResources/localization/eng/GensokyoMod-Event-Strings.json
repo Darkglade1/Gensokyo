@@ -88,16 +88,17 @@
       "[Continue]",
       "[Donate] #rLose #r",
       " #rGold. #gUpgrade #g",
-      " #gcards.",
+      " #grandom #gcards.",
       "[Locked] Requires: ",
       " Gold",
       "[Donate] #rLose #r",
       " #rGold. #gHeal #g",
       " #gHP.",
       "[Locked] Requires: Gold",
-      "Choose 2 Cards to Upgrade",
+      "[Locked] Requires: Upgradable Cards",
       "[Leave]",
       "[Locked] Requires: Missing HP"
+
     ]
   }
 }

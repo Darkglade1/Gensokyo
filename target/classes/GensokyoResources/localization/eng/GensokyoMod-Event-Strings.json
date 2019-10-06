@@ -95,9 +95,10 @@
       " #rGold. #gHeal #g",
       " #gHP.",
       "[Locked] Requires: Gold",
-      "Choose 2 Cards to Upgrade",
+      "[Locked] Requires: Upgradable Cards",
       "[Leave]",
       "[Locked] Requires: Missing HP"
+
     ]
   }
 }
