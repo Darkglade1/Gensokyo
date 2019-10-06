@@ -2,6 +2,7 @@ package Gensokyo;
 
 import Gensokyo.events.ACelestialsPlight;
 import Gensokyo.events.BorderOfDeath;
+import Gensokyo.events.HakureiShrine;
 import Gensokyo.events.ScarletDevilMansion;
 import Gensokyo.events.TheEnmasDilemma;
 import Gensokyo.monsters.Komachi;
@@ -221,16 +222,12 @@ public class GensokyoMod implements
 
         
         // =============== EVENTS =================
-        
-        // This event will be exclusive to the City (act 2). If you want an event that's present at any
-        // part of the game, simply don't include the dungeon ID
-        // If you want to have a character-specific event, look at slimebound (CityRemoveEventPatch).
-        // Essentially, you need to patch the game and say "if a player is not playing my character class, remove the event from the pool"
-        //BaseMod.addEvent(IdentityCrisisEvent.ID, IdentityCrisisEvent.class, TheCity.ID);
+
         BaseMod.addEvent(ScarletDevilMansion.ID, ScarletDevilMansion.class, Exordium.ID);
         BaseMod.addEvent(BorderOfDeath.ID, BorderOfDeath.class, Exordium.ID);
         BaseMod.addEvent(TheEnmasDilemma.ID, TheEnmasDilemma.class, Exordium.ID);
         BaseMod.addEvent(ACelestialsPlight.ID, ACelestialsPlight.class, Exordium.ID);
+        BaseMod.addEvent(HakureiShrine.ID, HakureiShrine.class, Exordium.ID);
         
         // =============== /EVENTS/ =================
         logger.info("Done loading badge Image and mod options");

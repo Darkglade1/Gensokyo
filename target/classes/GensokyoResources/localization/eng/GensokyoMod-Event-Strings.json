@@ -75,5 +75,29 @@
       " #gGold",
       "[Leave]"
     ]
+  },
+  "Gensokyo:HakureiShrine": {
+    "NAME": "Hakurei Shrine",
+    "DESCRIPTIONS": [
+      "After a ~long~ trek up a mountain, you find yourself standing before a small, run-down shrine. A girl clad in red and white is sweeping the shrine’s grounds, giving you only a ~cursory~ glance before pointing to a large wooden box. NL NL #y\"Donations go in there.\" NL NL She resumes sweeping, leaving you with only those words.",
+      "The sound of #ycoins @clanging@ against the bottom of the box is almost deafening in the silent clearing. NL NL The girl’s ears ~twitch,~ like she couldn't believe what she was hearing, before she finally spins around with a #yradiant smile. NL NL \"Welcome to the Hakurei Shrine! What can I do for you?\" NL NL You explain that you are seeking a #yblessing. NL NL \"A #yblessing? I don’t actually know who the god enshrined here is, but I’m sure whoever it is can handle a simple #yblessing at least.\"",
+      "The girl puts her hands together and closes her eyes, mumbling something under her breath. A #y~glowing~ aura appears around her, @pulsing@ for a moment before #r@exploding@ outwards and ~enveloping~ you. NL NL For just a moment, it was as if your body was a ~cloud,~ and you could simply ~float~ away from all your #pworries and #ptroubles. NL NL Eventually, you come down from cloud nine to see the girl smiling smugly at you. NL NL \"That should do it. If you want another one, feel free to come back anytime! If you have the #ymoney, of course.\"",
+      "You decide that you didn't particularly care for #ydonating to a shrine with a caretaker so dismissive of visitors."
+    ],
+    "OPTIONS": [
+      "[Continue]",
+      "[Donate] #rLose #r",
+      " #rGold. #gUpgrade #g",
+      " #gcards.",
+      "[Locked] Requires: ",
+      " Gold",
+      "[Donate] #rLose #r",
+      " #rGold. #gHeal #g",
+      " #gHP.",
+      "[Locked] Requires: Gold",
+      "Choose 2 Cards to Upgrade",
+      "[Leave]",
+      "[Locked] Requires: Missing HP"
+    ]
   }
 }

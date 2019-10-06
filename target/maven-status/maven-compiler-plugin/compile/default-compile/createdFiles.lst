@@ -22,3 +22,4 @@ Gensokyo\patches\relics\PerfectCherryBlossomPatch$Locator.class
 Gensokyo\relics\Mercy.class
 Gensokyo\monsters\Komachi.class
 Gensokyo\patches\DefaultInsertPatch$Locator.class
+Gensokyo\events\HakureiShrine.class
