@@ -1,5 +1,6 @@
 package Gensokyo;
 
+import Gensokyo.cards.CrescentMoonSlash;
 import Gensokyo.events.ACelestialsPlight;
 import Gensokyo.events.BorderOfDeath;
 import Gensokyo.events.HakureiShrine;
@@ -266,6 +267,8 @@ public class GensokyoMod implements
         // Add the Custom Dynamic variabls
         BaseMod.addDynamicVariable(new DefaultCustomVariable());
         BaseMod.addDynamicVariable(new DefaultSecondMagicNumber());
+
+        BaseMod.addCard(new CrescentMoonSlash());
     }
     
     // There are better ways to do this than listing every single individual card, but I do not want to complicate things

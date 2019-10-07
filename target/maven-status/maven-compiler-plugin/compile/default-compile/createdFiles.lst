@@ -1,11 +1,13 @@
 Gensokyo\util\IDCheckDontTouchPls.class
 Gensokyo\util\TextureLoader.class
 Gensokyo\powers\Vengeance.class
+Gensokyo\actions\CrescentMoonSlashAction.class
 Gensokyo\GensokyoMod.class
 Gensokyo\actions\KillAction.class
 Gensokyo\patches\relics\RezItemPatch.class
 Gensokyo\events\ScarletDevilMansion.class
 Gensokyo\events\ACelestialsPlight.class
+Gensokyo\cards\CrescentMoonSlash.class
 Gensokyo\variables\DefaultCustomVariable.class
 Gensokyo\cards\AbstractDefaultCard.class
 Gensokyo\relics\Justice.class
