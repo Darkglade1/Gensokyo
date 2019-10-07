@@ -2,6 +2,7 @@ package Gensokyo;
 
 import Gensokyo.cards.CrescentMoonSlash;
 import Gensokyo.events.ACelestialsPlight;
+import Gensokyo.events.ASwiftSlash;
 import Gensokyo.events.BorderOfDeath;
 import Gensokyo.events.HakureiShrine;
 import Gensokyo.events.ScarletDevilMansion;
@@ -229,6 +230,7 @@ public class GensokyoMod implements
         BaseMod.addEvent(TheEnmasDilemma.ID, TheEnmasDilemma.class, Exordium.ID);
         BaseMod.addEvent(ACelestialsPlight.ID, ACelestialsPlight.class, Exordium.ID);
         BaseMod.addEvent(HakureiShrine.ID, HakureiShrine.class, Exordium.ID);
+        BaseMod.addEvent(ASwiftSlash.ID, ASwiftSlash.class, Exordium.ID);
         
         // =============== /EVENTS/ =================
         logger.info("Done loading badge Image and mod options");

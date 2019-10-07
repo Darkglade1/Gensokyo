@@ -101,5 +101,23 @@
       "[Locked] Requires: Missing HP"
 
     ]
+  },
+  "Gensokyo:ASwiftSlash": {
+    "NAME": "A Swift Slash",
+    "DESCRIPTIONS": [
+      "You spot a young swordswoman training in a garden, ~sweeping~ slashes and ~rapid~ thrusts flying through the air while a white blob curiously ~follows~ her movements. NL NL Her technique seems a little #rrigid, but you’re sure you could find a way to incorporate her movements into your own fighting style if you watched a little longer. NL NL Alternatively, it is possible that you would learn more if you were to go down there and ask her for a #yspar.",
+      "You watch, mesmerized, as the swordswoman @dashes@ from position to position like a #bwaterfall @crashing@ downstream, bursts of movement interspersed with ~quick~ slashes and thrusts. NL NL The style had its flaws, but you could certainly see the value of surprising an opponent with a burst of speed and ending the fight right then and there. NL NL The girl halts, sheathing her blade and wiping her brow. The display is over, it seems. NL NL You nod to yourself before turning away, ~musing~ over what you had learned.",
+      "The girl seems ~surprised~ at your sudden appearance and your request for a spar, but she swiftly regains her composure. NL NL \"Alright. Don’t expect me to hold back, though.\" NL NL @CLANG!@ NL NL The sound of your blades striking each other ~reverberate~ throughout the clearing. You both dash to-and-fro, looking for any #pweaknesses in the other’s guard to #rexploit. NL NL @CLANG!@ @CLANG!@",
+      "After what seems like an ~eternity~ but could’ve been no more than a few minutes, the two of you break apart, regarding each other with renewed #grespect. NL NL \"You’re pretty good. Not many people can keep up with me in an honest fight like that.\" NL NL You thank her for both the #ypraise and the spar. NL NL Sure enough, a spar had been enough to allow you to see techniques the other girl might not have used while simply training. NL NL Such techniques are sure to come in handy later."
+    ],
+    "OPTIONS": [
+      "[Continue]",
+      "[Observe] #gUpgrade #ga #gcard #gin #gyour #gdeck.",
+      "[Spar] #gObtain Crescent Moon Slash. #rLose #r",
+      " #rHP.",
+      "[Leave]",
+      "Choose a Card to Upgrade",
+      "[Locked] Requires: Upgradeable Cards"
+    ]
   }
 }

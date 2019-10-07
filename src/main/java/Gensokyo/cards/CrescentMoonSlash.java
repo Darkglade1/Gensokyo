@@ -19,9 +19,9 @@ public class CrescentMoonSlash extends AbstractDefaultCard {
     private static final CardType TYPE = CardType.ATTACK;
     public static final CardColor COLOR = CardColor.COLORLESS;
 
-    private static final int COST = 2;
-    private static final int DAMAGE = 13;
-    private static final int UPGRADE_PLUS_DMG = 5;
+    private static final int COST = 1;
+    private static final int DAMAGE = 9;
+    private static final int UPGRADE_PLUS_DMG = 3;
 
     public CrescentMoonSlash() {
         super(ID, IMG, COST, TYPE, COLOR, RARITY, TARGET);
