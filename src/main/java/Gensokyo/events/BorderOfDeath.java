@@ -2,7 +2,6 @@ package Gensokyo.events;
 
 import Gensokyo.GensokyoMod;
 import Gensokyo.relics.PerfectCherryBlossom;
-import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.events.AbstractImageEvent;
@@ -27,10 +26,20 @@ public class BorderOfDeath extends AbstractImageEvent {
 
     private int screenNum = 0; // The initial screen we will see when encountering the event - screen 0;
 
+    private int maxHpLoss;
+    private float MAX_HP_PERCENT = 0.12F;
+    private float MAX_HP_PERCENT_HIGH_ASC = 0.15F;
+
     public BorderOfDeath() {
         super(NAME, DESCRIPTIONS[0], IMG);
         // The first dialogue options available to us.
         imageEventText.setDialogOption(OPTIONS[0]);
+
+        if (AbstractDungeon.ascensionLevel >= 15) {
+            this.maxHpLoss = (int)((float)AbstractDungeon.player.maxHealth * MAX_HP_PERCENT_HIGH_ASC);
+        } else {
+            this.maxHpLoss = (int)((float)AbstractDungeon.player.maxHealth * MAX_HP_PERCENT);
+        }
 
     }
 
@@ -54,13 +63,13 @@ public class BorderOfDeath extends AbstractImageEvent {
             case 3:
                 this.imageEventText.updateBodyText(DESCRIPTIONS[4]);
                 this.imageEventText.clearAllDialogs();
-                this.imageEventText.setDialogOption(OPTIONS[2]); // Die
+                this.imageEventText.setDialogOption(OPTIONS[2] + this.maxHpLoss + OPTIONS[5]); // Prove it
                 this.imageEventText.setDialogOption(OPTIONS[1]); //Refuse
                 screenNum = 4;
                 break;
             case 4:
                 switch (buttonPressed) {
-                    case 0: // Die
+                    case 0: // Prove it
                         this.imageEventText.updateBodyText(DESCRIPTIONS[5]);
                         screenNum = 5;
                         this.imageEventText.updateDialogOption(0, OPTIONS[0]);
@@ -68,7 +77,7 @@ public class BorderOfDeath extends AbstractImageEvent {
                         CardCrawlGame.screenShake.shake(ScreenShake.ShakeIntensity.MED, ScreenShake.ShakeDur.MED, false);
                         // Shake the screen
                         CardCrawlGame.sound.play("BLUNT_FAST");  // Play a hit sound
-                        AbstractDungeon.player.damage(new DamageInfo(null, 9999));
+                        AbstractDungeon.player.decreaseMaxHealth(this.maxHpLoss);
                         AbstractRelic relic;
                         if (AbstractDungeon.player.hasRelic(PerfectCherryBlossom.ID)) {
                             relic = RelicLibrary.getRelic(Circlet.ID).makeCopy();

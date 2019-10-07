@@ -8,6 +8,7 @@ import com.badlogic.gdx.graphics.Texture;
 import com.megacrit.cardcrawl.actions.animations.VFXAction;
 import com.megacrit.cardcrawl.actions.common.RelicAboveCreatureAction;
 import com.megacrit.cardcrawl.actions.utility.SFXAction;
+import com.megacrit.cardcrawl.core.AbstractCreature;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.vfx.CollectorCurseEffect;
@@ -25,8 +26,11 @@ public class PerfectCherryBlossom extends CustomRelic {
     private static final Texture IMG = TextureLoader.getTexture(makeRelicPath("PerfectCherryBlossom.png"));
     private static final Texture OUTLINE = TextureLoader.getTexture(makeRelicOutlinePath("PerfectCherryBlossom.png"));
 
+    private static final float HEAL_PERCENT = 0.10F;
+
     public PerfectCherryBlossom() {
         super(ID, IMG, OUTLINE, RelicTier.SPECIAL, LandingSound.MAGICAL);
+        this.counter = 1;
     }
 
     @Override
@@ -58,7 +62,19 @@ public class PerfectCherryBlossom extends CustomRelic {
             AbstractMonster mo = notDeadMonsters.get(i);
             AbstractDungeon.actionManager.addToBottom(new KillAction(mo));
         }
+    }
 
+    @Override
+    public void onTrigger(AbstractCreature target) {
+        this.flash();
+        AbstractDungeon.actionManager.addToTop(new RelicAboveCreatureAction(AbstractDungeon.player, this));
+        int healAmt = (int)(AbstractDungeon.player.maxHealth * HEAL_PERCENT);
+        if (healAmt < 1) {
+            healAmt = 1;
+        }
+
+        AbstractDungeon.player.heal(healAmt, true);
+        this.counter = 0;
     }
 
     // Description

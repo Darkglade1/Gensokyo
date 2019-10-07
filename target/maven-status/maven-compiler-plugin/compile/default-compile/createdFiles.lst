@@ -1,9 +1,9 @@
 Gensokyo\util\IDCheckDontTouchPls.class
 Gensokyo\util\TextureLoader.class
 Gensokyo\powers\Vengeance.class
-Gensokyo\patches\relics\CelestialsFlawlessClothingPatch.class
 Gensokyo\GensokyoMod.class
 Gensokyo\actions\KillAction.class
+Gensokyo\patches\relics\RezItemPatch.class
 Gensokyo\events\ScarletDevilMansion.class
 Gensokyo\events\ACelestialsPlight.class
 Gensokyo\variables\DefaultCustomVariable.class
@@ -12,10 +12,10 @@ Gensokyo\relics\Justice.class
 Gensokyo\relics\PerfectCherryBlossom.class
 Gensokyo\patches\relics\PerfectCherryBlossomPatch.class
 Gensokyo\patches\DefaultInsertPatch.class
-Gensokyo\patches\relics\CelestialsFlawlessClothingPatch$Locator.class
 Gensokyo\powers\DeathMark.class
 Gensokyo\variables\DefaultSecondMagicNumber.class
 Gensokyo\events\TheEnmasDilemma.class
+Gensokyo\patches\relics\RezItemPatch$Locator.class
 Gensokyo\relics\CelestialsFlawlessClothing.class
 Gensokyo\events\BorderOfDeath.class
 Gensokyo\patches\relics\PerfectCherryBlossomPatch$Locator.class

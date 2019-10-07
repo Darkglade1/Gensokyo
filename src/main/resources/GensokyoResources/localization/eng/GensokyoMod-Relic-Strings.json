@@ -3,7 +3,7 @@
     "NAME": "Perfect Cherry Blossom",
     "FLAVOR": "A favor bestowed upon you for befriending a lonely girl.",
     "DESCRIPTIONS": [
-      "Whenever you die, kill ALL enemies."
+      "The next time you would die, heal to #b10% of your Max HP instead. Whenever you would die, #rkill ALL enemies."
     ]
   },
   "Gensokyo:Mercy": {
