@@ -1,6 +1,8 @@
 package Gensokyo;
 
 import Gensokyo.cards.CrescentMoonSlash;
+import Gensokyo.cards.MissMerry;
+import Gensokyo.cards.SpontaneousHumanCombustion;
 import Gensokyo.events.ACelestialsPlight;
 import Gensokyo.events.ASwiftSlash;
 import Gensokyo.events.BorderOfDeath;
@@ -271,6 +273,8 @@ public class GensokyoMod implements
         BaseMod.addDynamicVariable(new DefaultSecondMagicNumber());
 
         BaseMod.addCard(new CrescentMoonSlash());
+        BaseMod.addCard(new MissMerry());
+        BaseMod.addCard(new SpontaneousHumanCombustion());
     }
     
     // There are better ways to do this than listing every single individual card, but I do not want to complicate things

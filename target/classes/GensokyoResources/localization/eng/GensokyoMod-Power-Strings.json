@@ -6,5 +6,9 @@
 "Gensokyo:Vengeance": {
         "NAME": "Vengeance",
         "DESCRIPTIONS": ["The #rAvatar #rof #rDeath grows stronger in each successive encounter . . ."]
+},
+"Gensokyo:SpontaneousHumanCombustionPower": {
+        "NAME": "Spontaneous Human Combustion",
+        "DESCRIPTIONS": ["At the end of your turn, take #b", " damage and increase the damage you will take from this power by #b"]
 }
 }

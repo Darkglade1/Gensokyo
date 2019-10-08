@@ -8,6 +8,7 @@ Gensokyo\patches\relics\RezItemPatch.class
 Gensokyo\events\ScarletDevilMansion.class
 Gensokyo\events\ACelestialsPlight.class
 Gensokyo\cards\CrescentMoonSlash.class
+Gensokyo\cards\MissMerry.class
 Gensokyo\variables\DefaultCustomVariable.class
 Gensokyo\cards\AbstractDefaultCard.class
 Gensokyo\relics\Justice.class
@@ -19,8 +20,10 @@ Gensokyo\variables\DefaultSecondMagicNumber.class
 Gensokyo\events\TheEnmasDilemma.class
 Gensokyo\patches\relics\RezItemPatch$Locator.class
 Gensokyo\relics\CelestialsFlawlessClothing.class
+Gensokyo\powers\SpontaneousHumanCombustionPower.class
 Gensokyo\events\BorderOfDeath.class
 Gensokyo\events\ASwiftSlash.class
+Gensokyo\cards\SpontaneousHumanCombustion.class
 Gensokyo\patches\relics\PerfectCherryBlossomPatch$Locator.class
 Gensokyo\relics\Mercy.class
 Gensokyo\monsters\Komachi.class
