@@ -13,8 +13,7 @@ import static Gensokyo.GensokyoMod.makeCardPath;
 public class SpontaneousHumanCombustion extends AbstractDefaultCard {
 
     public static final String ID = GensokyoMod.makeID(SpontaneousHumanCombustion.class.getSimpleName());
-    //public static final String IMG = makeCardPath("SpontaneousHumanCombustionPower.png");
-    public static final String IMG = makeCardPath("Attack.png");
+    public static final String IMG = makeCardPath("SpontaneousHumanCombustion.png");
 
     private static final CardRarity RARITY = CardRarity.SPECIAL;
     private static final CardTarget TARGET = CardTarget.SELF;

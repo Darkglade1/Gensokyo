@@ -3,12 +3,25 @@
     "NAME": "Crescent Moon Slash",
     "DESCRIPTION": "Deal !D! damage to ALL enemies. NL If this kills an enemy, repeat this effect."
   },
-  "Gensokyo:MissMerry": {
-    "NAME": "Miss Merry",
+  "Gensokyo:MissMary": {
+    "NAME": "Miss Mary",
     "DESCRIPTION": "Apply !M! Vulnerable to ALL enemies. NL Exhaust."
   },
   "Gensokyo:SpontaneousHumanCombustion": {
     "NAME": "Spontaneous Human Combustion",
     "DESCRIPTION": "Gain !M! Strength. NL At the end of your turn, take !Gensokyo:SecondMagic! damage and increase the damage you will take from this power by !Gensokyo:SecondMagic!."
+  },
+  "Gensokyo:RedCapeBlueCape": {
+    "NAME": "Red Cape Blue Cape",
+    "DESCRIPTION": "Gain !B! Block. NL Deal !D! damage. NL Add Red Cape and Blue Cape to your hand.",
+    "UPGRADE_DESCRIPTION": "Gain !B! Block. NL Deal !D! damage. NL Add Red Cape+ and Blue Cape+ to your hand."
+  },
+  "Gensokyo:RedCape": {
+    "NAME": "Red Cape",
+    "DESCRIPTION": "Retain. NL Deal !D! damage. NL Exhaust."
+  },
+  "Gensokyo:BlueCape": {
+    "NAME": "Blue Cape",
+    "DESCRIPTION": "Retain. NL Gain !B! Block. NL Exhaust."
   }
 }

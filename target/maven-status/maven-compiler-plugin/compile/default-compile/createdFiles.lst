@@ -1,3 +1,4 @@
+Gensokyo\cards\RedCapeBlueCape.class
 Gensokyo\util\IDCheckDontTouchPls.class
 Gensokyo\util\TextureLoader.class
 Gensokyo\powers\Vengeance.class
@@ -8,18 +9,20 @@ Gensokyo\patches\relics\RezItemPatch.class
 Gensokyo\events\ScarletDevilMansion.class
 Gensokyo\events\ACelestialsPlight.class
 Gensokyo\cards\CrescentMoonSlash.class
-Gensokyo\cards\MissMerry.class
 Gensokyo\variables\DefaultCustomVariable.class
 Gensokyo\cards\AbstractDefaultCard.class
 Gensokyo\relics\Justice.class
+Gensokyo\cards\MissMary.class
 Gensokyo\relics\PerfectCherryBlossom.class
 Gensokyo\patches\relics\PerfectCherryBlossomPatch.class
 Gensokyo\patches\DefaultInsertPatch.class
 Gensokyo\powers\DeathMark.class
 Gensokyo\variables\DefaultSecondMagicNumber.class
+Gensokyo\cards\BlueCape.class
 Gensokyo\events\TheEnmasDilemma.class
 Gensokyo\patches\relics\RezItemPatch$Locator.class
 Gensokyo\relics\CelestialsFlawlessClothing.class
+Gensokyo\cards\RedCape.class
 Gensokyo\powers\SpontaneousHumanCombustionPower.class
 Gensokyo\events\BorderOfDeath.class
 Gensokyo\events\ASwiftSlash.class

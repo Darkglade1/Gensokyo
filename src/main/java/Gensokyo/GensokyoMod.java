@@ -1,7 +1,8 @@
 package Gensokyo;
 
 import Gensokyo.cards.CrescentMoonSlash;
-import Gensokyo.cards.MissMerry;
+import Gensokyo.cards.MissMary;
+import Gensokyo.cards.RedCapeBlueCape;
 import Gensokyo.cards.SpontaneousHumanCombustion;
 import Gensokyo.events.ACelestialsPlight;
 import Gensokyo.events.ASwiftSlash;
@@ -38,7 +39,6 @@ import com.megacrit.cardcrawl.localization.EventStrings;
 import com.megacrit.cardcrawl.localization.MonsterStrings;
 import com.megacrit.cardcrawl.localization.PowerStrings;
 import com.megacrit.cardcrawl.localization.RelicStrings;
-import com.megacrit.cardcrawl.unlock.UnlockTracker;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
@@ -273,8 +273,9 @@ public class GensokyoMod implements
         BaseMod.addDynamicVariable(new DefaultSecondMagicNumber());
 
         BaseMod.addCard(new CrescentMoonSlash());
-        BaseMod.addCard(new MissMerry());
+        BaseMod.addCard(new MissMary());
         BaseMod.addCard(new SpontaneousHumanCombustion());
+        BaseMod.addCard(new RedCapeBlueCape());
     }
     
     // There are better ways to do this than listing every single individual card, but I do not want to complicate things
