@@ -2,6 +2,7 @@ package Gensokyo.cards;
 
 import Gensokyo.GensokyoMod;
 import Gensokyo.powers.SpontaneousHumanCombustionPower;
+import Gensokyo.tags.Tags;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
@@ -30,6 +31,7 @@ public class SpontaneousHumanCombustion extends AbstractDefaultCard {
         magicNumber = baseMagicNumber = STRENGTH;
         defaultSecondMagicNumber = defaultBaseSecondMagicNumber = SELF_DAMAGE;
         exhaust = true;
+        tags.add(Tags.URBAN_LEGEND);
     }
 
     @Override

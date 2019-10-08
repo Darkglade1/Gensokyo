@@ -1,6 +1,7 @@
 package Gensokyo.cards;
 
 import Gensokyo.GensokyoMod;
+import Gensokyo.tags.Tags;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
@@ -30,6 +31,7 @@ public class MissMary extends AbstractDefaultCard {
         super(ID, IMG, COST, TYPE, COLOR, RARITY, TARGET);
         magicNumber = baseMagicNumber = VULNERABLE;
         exhaust = true;
+        tags.add(Tags.URBAN_LEGEND);
     }
 
     @Override

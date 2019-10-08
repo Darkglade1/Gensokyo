@@ -14,6 +14,7 @@ import Gensokyo.monsters.Komachi;
 import Gensokyo.relics.CelestialsFlawlessClothing;
 import Gensokyo.relics.Justice;
 import Gensokyo.relics.Mercy;
+import Gensokyo.relics.OccultBall;
 import Gensokyo.relics.PerfectCherryBlossom;
 import Gensokyo.util.IDCheckDontTouchPls;
 import Gensokyo.util.TextureLoader;
@@ -252,6 +253,7 @@ public class GensokyoMod implements
         BaseMod.addRelic(new Mercy(), RelicType.SHARED);
         BaseMod.addRelic(new Justice(), RelicType.SHARED);
         BaseMod.addRelic(new CelestialsFlawlessClothing(), RelicType.SHARED);
+        BaseMod.addRelic(new OccultBall(), RelicType.SHARED);
 
         logger.info("Done adding relics!");
     }

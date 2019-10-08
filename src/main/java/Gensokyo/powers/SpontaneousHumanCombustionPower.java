@@ -58,6 +58,6 @@ public class SpontaneousHumanCombustionPower extends AbstractPower {
 
     @Override
     public void updateDescription() {
-        description = DESCRIPTIONS[0] + amount + DESCRIPTIONS[1] + selfDamageIncrease;
+        description = DESCRIPTIONS[0] + amount + DESCRIPTIONS[1] + selfDamageIncrease + DESCRIPTIONS[2];
     }
 }
