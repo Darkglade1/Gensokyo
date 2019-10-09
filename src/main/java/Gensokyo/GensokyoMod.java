@@ -24,6 +24,7 @@ import Gensokyo.variables.DefaultSecondMagicNumber;
 import basemod.BaseMod;
 import basemod.ModPanel;
 import basemod.helpers.RelicType;
+import basemod.interfaces.AddAudioSubscriber;
 import basemod.interfaces.EditCardsSubscriber;
 import basemod.interfaces.EditKeywordsSubscriber;
 import basemod.interfaces.EditRelicsSubscriber;
@@ -41,6 +42,7 @@ import com.megacrit.cardcrawl.localization.EventStrings;
 import com.megacrit.cardcrawl.localization.MonsterStrings;
 import com.megacrit.cardcrawl.localization.PowerStrings;
 import com.megacrit.cardcrawl.localization.RelicStrings;
+import javafx.util.Pair;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
@@ -82,7 +84,8 @@ public class GensokyoMod implements
         EditRelicsSubscriber,
         EditStringsSubscriber,
         EditKeywordsSubscriber,
-        PostInitializeSubscriber {
+        PostInitializeSubscriber,
+        AddAudioSubscriber {
     // Make sure to implement the subscribers *you* are using (read basemod wiki). Editing cards? EditCardsSubscriber.
     // Making relics? EditRelicsSubscriber. etc., etc., for a full list and how to make your own, visit the basemod wiki.
     public static final Logger logger = LogManager.getLogger(GensokyoMod.class.getName());
@@ -245,7 +248,10 @@ public class GensokyoMod implements
     }
     
     // =============== / POST-INITIALIZE/ =================
-    
+    @Override
+    public void receiveAddAudio() {
+        BaseMod.addAudio("Gensokyo:Train", makeEffectPath("TrainSFX.ogg"));
+    }
     
     // ================ ADD RELICS ===================
     

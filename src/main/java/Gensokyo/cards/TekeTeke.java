@@ -6,6 +6,7 @@ import Gensokyo.vfx.TrainEffect;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.animations.VFXAction;
 import com.megacrit.cardcrawl.actions.common.DamageAction;
+import com.megacrit.cardcrawl.actions.utility.SFXAction;
 import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
@@ -39,7 +40,8 @@ public class TekeTeke extends AbstractDefaultCard {
 
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
-        AbstractDungeon.actionManager.addToBottom(new VFXAction(new TrainEffect(m.hb.cY), 1.5F));
+        AbstractDungeon.actionManager.addToBottom(new SFXAction("Gensokyo:Train"));
+        AbstractDungeon.actionManager.addToBottom(new VFXAction(new TrainEffect(m.hb.cY), 2.0F));
         AbstractDungeon.actionManager.addToBottom(new DamageAction(m, new DamageInfo(p, this.damage, this.damageTypeForTurn), AbstractGameAction.AttackEffect.NONE));
     }
 
