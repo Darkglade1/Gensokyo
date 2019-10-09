@@ -39,7 +39,7 @@ public class TekeTeke extends AbstractDefaultCard {
 
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
-        AbstractDungeon.actionManager.addToBottom(new VFXAction(new TrainEffect(m.hb.cY), 2.0F));
+        AbstractDungeon.actionManager.addToBottom(new VFXAction(new TrainEffect(m.hb.cY), 1.5F));
         AbstractDungeon.actionManager.addToBottom(new DamageAction(m, new DamageInfo(p, this.damage, this.damageTypeForTurn), AbstractGameAction.AttackEffect.NONE));
     }
 
