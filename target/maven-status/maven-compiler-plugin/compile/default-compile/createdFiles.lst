@@ -14,6 +14,7 @@ Gensokyo\variables\DefaultCustomVariable.class
 Gensokyo\cards\AbstractDefaultCard.class
 Gensokyo\actions\FlexibleDiscoveryAction.class
 Gensokyo\relics\Justice.class
+Gensokyo\vfx\TrainEffect.class
 Gensokyo\cards\MissMary.class
 Gensokyo\relics\PerfectCherryBlossom.class
 Gensokyo\patches\relics\PerfectCherryBlossomPatch.class
@@ -30,6 +31,7 @@ Gensokyo\events\BorderOfDeath.class
 Gensokyo\events\ASwiftSlash.class
 Gensokyo\cards\SpontaneousHumanCombustion.class
 Gensokyo\patches\relics\PerfectCherryBlossomPatch$Locator.class
+Gensokyo\cards\TekeTeke.class
 Gensokyo\relics\Mercy.class
 Gensokyo\monsters\Komachi.class
 Gensokyo\relics\OccultBall.class

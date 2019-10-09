@@ -29,7 +29,7 @@
   },
   "Gensokyo:OccultBall": {
     "NAME": "Occult Ball",
-    "FLAVOR": "It is said that if you collected seven of them, they could make your wildest dreams come true.",
+    "FLAVOR": "It is said that if you collect seven of them, they would make your wildest dreams come true.",
     "DESCRIPTIONS": [
       "At the start of combat, add a random #yUrban #yLegend to your hand. Occasionally find more #yOccult #yBalls.",
       "At the start of combat, choose #b1 of #b2 #yUrban #yLegends to add to your hand. Occasionally find more #yOccult #yBalls.",

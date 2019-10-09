@@ -4,6 +4,7 @@ import Gensokyo.cards.CrescentMoonSlash;
 import Gensokyo.cards.MissMary;
 import Gensokyo.cards.RedCapeBlueCape;
 import Gensokyo.cards.SpontaneousHumanCombustion;
+import Gensokyo.cards.TekeTeke;
 import Gensokyo.events.ACelestialsPlight;
 import Gensokyo.events.ASwiftSlash;
 import Gensokyo.events.BorderOfDeath;
@@ -117,6 +118,10 @@ public class GensokyoMod implements
     
     public static String makeEventPath(String resourcePath) {
         return getModID() + "Resources/images/events/" + resourcePath;
+    }
+
+    public static String makeEffectPath(String resourcePath) {
+        return getModID() + "Resources/images/effects/" + resourcePath;
     }
     
     // =============== /MAKE IMAGE PATHS/ =================
@@ -278,6 +283,7 @@ public class GensokyoMod implements
         BaseMod.addCard(new MissMary());
         BaseMod.addCard(new SpontaneousHumanCombustion());
         BaseMod.addCard(new RedCapeBlueCape());
+        BaseMod.addCard(new TekeTeke());
     }
     
     // There are better ways to do this than listing every single individual card, but I do not want to complicate things

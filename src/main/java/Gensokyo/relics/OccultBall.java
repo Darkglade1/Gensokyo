@@ -5,6 +5,7 @@ import Gensokyo.actions.FlexibleDiscoveryAction;
 import Gensokyo.cards.MissMary;
 import Gensokyo.cards.RedCapeBlueCape;
 import Gensokyo.cards.SpontaneousHumanCombustion;
+import Gensokyo.cards.TekeTeke;
 import Gensokyo.util.TextureLoader;
 import basemod.abstracts.CustomRelic;
 import com.badlogic.gdx.graphics.Texture;
@@ -64,10 +65,11 @@ public class OccultBall extends CustomRelic {
     }
 
     private static ArrayList<AbstractCard> return3TrulyRandomUrbanLegendInCombat(Random rng) {
-        ArrayList<AbstractCard> list = new ArrayList();
+        ArrayList<AbstractCard> list = new ArrayList<>();
         list.add(new MissMary());
         list.add(new SpontaneousHumanCombustion());
         list.add(new RedCapeBlueCape());
+        list.add(new TekeTeke());
         Collections.shuffle(list, rng.random);
         return new ArrayList<>(list.subList(0, 3));
     }

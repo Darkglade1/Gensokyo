@@ -23,5 +23,9 @@
   "Gensokyo:BlueCape": {
     "NAME": "Blue Cape",
     "DESCRIPTION": "Retain. NL Gain !B! Block. NL Exhaust."
+  },
+  "Gensokyo:TekeTeke": {
+    "NAME": "Teke Teke",
+    "DESCRIPTION": "Deal !D! damage. NL If this brings an enemy below half HP, increase this card's damage by !M! this combat."
   }
 }
