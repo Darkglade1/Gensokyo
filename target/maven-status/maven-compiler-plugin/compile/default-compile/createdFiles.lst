@@ -17,6 +17,7 @@ Gensokyo\relics\Justice.class
 Gensokyo\vfx\TrainEffect.class
 Gensokyo\cards\MissMary.class
 Gensokyo\relics\PerfectCherryBlossom.class
+Gensokyo\vfx\EmptyEffect.class
 Gensokyo\patches\relics\PerfectCherryBlossomPatch.class
 Gensokyo\patches\DefaultInsertPatch.class
 Gensokyo\powers\DeathMark.class

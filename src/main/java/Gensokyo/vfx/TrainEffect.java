@@ -8,6 +8,7 @@ import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.graphics.g2d.TextureRegion;
 import com.badlogic.gdx.math.Interpolation;
 import com.megacrit.cardcrawl.core.Settings;
+import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.vfx.AbstractGameEffect;
 
 public class TrainEffect
@@ -27,11 +28,9 @@ public class TrainEffect
     private float scaleWidth;
     private float scaleHeight;
 
-    public TrainEffect(float y) {
-        this.y = y;
-
+    public TrainEffect() {
         this.TRAIN_REGION = new TextureRegion(TRAIN_TEXTURE);
-
+        this.y = AbstractDungeon.floorY + 100.0F * Settings.scale;
         this.color = Color.WHITE.cpy();
         this.color.a = 0.0F;
         this.duration = this.startingDuration = DURATION;
@@ -63,7 +62,6 @@ public class TrainEffect
 
     public void render(SpriteBatch sb) {
         sb.setColor(this.color);
-        sb.draw(this.TRAIN_REGION, this.offset * this.scaleWidth, y - (this.TRAIN_REGION.getRegionHeight() * this.scaleHeight) / 2, 0.0F, 0.0F, this.TRAIN_REGION.getRegionWidth(), this.TRAIN_REGION.getRegionHeight(), this.scaleWidth, this.scaleHeight, 0.0F);
         sb.draw(this.TRAIN_REGION, this.offset * this.scaleWidth - this.TRAIN_REGION.getRegionWidth(), y - (this.TRAIN_REGION.getRegionHeight() * this.scaleHeight) / 2, 0.0F, 0.0F, this.TRAIN_REGION.getRegionWidth(), this.TRAIN_REGION.getRegionHeight(), this.scaleWidth, this.scaleHeight, 0.0F);
         sb.draw(this.TRAIN_REGION, this.offset * this.scaleWidth - this.TRAIN_REGION.getRegionWidth() * 2, y - (this.TRAIN_REGION.getRegionHeight() * this.scaleHeight) / 2, 0.0F, 0.0F, this.TRAIN_REGION.getRegionWidth(), this.TRAIN_REGION.getRegionHeight(), this.scaleWidth, this.scaleHeight, 0.0F);
         sb.draw(this.TRAIN_REGION, this.offset * this.scaleWidth - this.TRAIN_REGION.getRegionWidth() * 3, y - (this.TRAIN_REGION.getRegionHeight() * this.scaleHeight) / 2, 0.0F, 0.0F, this.TRAIN_REGION.getRegionWidth(), this.TRAIN_REGION.getRegionHeight(), this.scaleWidth, this.scaleHeight, 0.0F);
