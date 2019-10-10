@@ -11,9 +11,12 @@ C:\Users\jeffr\Documents\my_mods\Gensokyo\Gensokyo\src\main\java\Gensokyo\monste
 C:\Users\jeffr\Documents\my_mods\Gensokyo\Gensokyo\src\main\java\Gensokyo\events\ASwiftSlash.java
 C:\Users\jeffr\Documents\my_mods\Gensokyo\Gensokyo\src\main\java\Gensokyo\patches\relics\PerfectCherryBlossomPatch.java
 C:\Users\jeffr\Documents\my_mods\Gensokyo\Gensokyo\src\main\java\Gensokyo\powers\DeathMark.java
+C:\Users\jeffr\Documents\my_mods\Gensokyo\Gensokyo\src\main\java\Gensokyo\powers\HAARPPower.java
 C:\Users\jeffr\Documents\my_mods\Gensokyo\Gensokyo\src\main\java\Gensokyo\cards\RedCapeBlueCape.java
 C:\Users\jeffr\Documents\my_mods\Gensokyo\Gensokyo\src\main\java\Gensokyo\events\ScarletDevilMansion.java
 C:\Users\jeffr\Documents\my_mods\Gensokyo\Gensokyo\src\main\java\Gensokyo\util\IDCheckDontTouchPls.java
+C:\Users\jeffr\Documents\my_mods\Gensokyo\Gensokyo\src\main\java\Gensokyo\actions\TekeTekeAction.java
+C:\Users\jeffr\Documents\my_mods\Gensokyo\Gensokyo\src\main\java\Gensokyo\cards\TekeTeke.java
 C:\Users\jeffr\Documents\my_mods\Gensokyo\Gensokyo\src\main\java\Gensokyo\variables\DefaultCustomVariable.java
 C:\Users\jeffr\Documents\my_mods\Gensokyo\Gensokyo\src\main\java\Gensokyo\util\TextureLoader.java
 C:\Users\jeffr\Documents\my_mods\Gensokyo\Gensokyo\src\main\java\Gensokyo\cards\BlueCape.java
@@ -22,6 +25,7 @@ C:\Users\jeffr\Documents\my_mods\Gensokyo\Gensokyo\src\main\java\Gensokyo\relics
 C:\Users\jeffr\Documents\my_mods\Gensokyo\Gensokyo\src\main\java\Gensokyo\cards\CrescentMoonSlash.java
 C:\Users\jeffr\Documents\my_mods\Gensokyo\Gensokyo\src\main\java\Gensokyo\powers\SpontaneousHumanCombustionPower.java
 C:\Users\jeffr\Documents\my_mods\Gensokyo\Gensokyo\src\main\java\Gensokyo\actions\KillAction.java
+C:\Users\jeffr\Documents\my_mods\Gensokyo\Gensokyo\src\main\java\Gensokyo\vfx\TrainEffect.java
 C:\Users\jeffr\Documents\my_mods\Gensokyo\Gensokyo\src\main\java\Gensokyo\cards\RedCape.java
 C:\Users\jeffr\Documents\my_mods\Gensokyo\Gensokyo\src\main\java\Gensokyo\cards\SpontaneousHumanCombustion.java
 C:\Users\jeffr\Documents\my_mods\Gensokyo\Gensokyo\src\main\java\Gensokyo\relics\PerfectCherryBlossom.java
@@ -30,5 +34,10 @@ C:\Users\jeffr\Documents\my_mods\Gensokyo\Gensokyo\src\main\java\Gensokyo\relics
 C:\Users\jeffr\Documents\my_mods\Gensokyo\Gensokyo\src\main\java\Gensokyo\patches\relics\RezItemPatch.java
 C:\Users\jeffr\Documents\my_mods\Gensokyo\Gensokyo\src\main\java\Gensokyo\events\HakureiShrine.java
 C:\Users\jeffr\Documents\my_mods\Gensokyo\Gensokyo\src\main\java\Gensokyo\events\TheEnmasDilemma.java
+C:\Users\jeffr\Documents\my_mods\Gensokyo\Gensokyo\src\main\java\Gensokyo\cards\Kunekune.java
+C:\Users\jeffr\Documents\my_mods\Gensokyo\Gensokyo\src\main\java\Gensokyo\powers\LunacyPower.java
 C:\Users\jeffr\Documents\my_mods\Gensokyo\Gensokyo\src\main\java\Gensokyo\relics\OccultBall.java
+C:\Users\jeffr\Documents\my_mods\Gensokyo\Gensokyo\src\main\java\Gensokyo\vfx\EmptyEffect.java
+C:\Users\jeffr\Documents\my_mods\Gensokyo\Gensokyo\src\main\java\Gensokyo\cards\HAARP.java
+C:\Users\jeffr\Documents\my_mods\Gensokyo\Gensokyo\src\main\java\Gensokyo\patches\LunacyRetargetPatch.java
 C:\Users\jeffr\Documents\my_mods\Gensokyo\Gensokyo\src\main\java\Gensokyo\variables\DefaultSecondMagicNumber.java

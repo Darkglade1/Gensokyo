@@ -14,5 +14,9 @@
 "Gensokyo:LunacyPower": {
         "NAME": "Lunacy",
         "DESCRIPTIONS": ["Whenever this enemy attacks or applies a debuff, a random enemy is targeted instead."]
+},
+"Gensokyo:HAARPPower": {
+        "NAME": "HAARP",
+        "DESCRIPTIONS": ["At the start of your turn, #yChannel #b", " #yLightning."]
 }
 }

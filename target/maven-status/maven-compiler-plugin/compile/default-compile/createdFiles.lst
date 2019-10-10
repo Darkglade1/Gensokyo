@@ -15,6 +15,7 @@ Gensokyo\cards\CrescentMoonSlash.class
 Gensokyo\variables\DefaultCustomVariable.class
 Gensokyo\cards\AbstractDefaultCard.class
 Gensokyo\actions\FlexibleDiscoveryAction.class
+Gensokyo\cards\HAARP.class
 Gensokyo\relics\Justice.class
 Gensokyo\vfx\TrainEffect.class
 Gensokyo\cards\MissMary.class
@@ -43,3 +44,4 @@ Gensokyo\relics\OccultBall.class
 Gensokyo\patches\DefaultInsertPatch$Locator.class
 Gensokyo\patches\LunacyRetargetPatch$Locator.class
 Gensokyo\events\HakureiShrine.class
+Gensokyo\powers\HAARPPower.class

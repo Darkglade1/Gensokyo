@@ -31,5 +31,9 @@
   "Gensokyo:Kunekune": {
     "NAME": "Kunekune",
     "DESCRIPTION": "Apply !M! gensokyo:Lunacy. NL Exhaust."
+  },
+  "Gensokyo:HAARP": {
+    "NAME": "HAARP",
+    "DESCRIPTION": "At the start of your turn, Channel !M! Lightning."
   }
 }

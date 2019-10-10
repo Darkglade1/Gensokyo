@@ -1,6 +1,7 @@
 package Gensokyo;
 
 import Gensokyo.cards.CrescentMoonSlash;
+import Gensokyo.cards.HAARP;
 import Gensokyo.cards.Kunekune;
 import Gensokyo.cards.MissMary;
 import Gensokyo.cards.RedCapeBlueCape;
@@ -278,11 +279,9 @@ public class GensokyoMod implements
     @Override
     public void receiveEditCards() {
         logger.info("Adding variables");
-        //Ignore this
         pathCheck();
-        // Add the Custom Dynamic Variables
-        logger.info("Add variabls");
-        // Add the Custom Dynamic variabls
+        logger.info("Added variables");
+
         BaseMod.addDynamicVariable(new DefaultCustomVariable());
         BaseMod.addDynamicVariable(new DefaultSecondMagicNumber());
 
@@ -292,11 +291,8 @@ public class GensokyoMod implements
         BaseMod.addCard(new RedCapeBlueCape());
         BaseMod.addCard(new TekeTeke());
         BaseMod.addCard(new Kunekune());
+        BaseMod.addCard(new HAARP());
     }
-    
-    // There are better ways to do this than listing every single individual card, but I do not want to complicate things
-    // in a "tutorial" mod. This will do and it's completely ok to use. If you ever want to clean up and
-    // shorten all the imports, go look take a look at other mods, such as Hubris.
     
     // ================ /ADD CARDS/ ===================
     
