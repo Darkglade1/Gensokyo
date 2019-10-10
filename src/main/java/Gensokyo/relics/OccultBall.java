@@ -2,6 +2,7 @@ package Gensokyo.relics;
 
 import Gensokyo.GensokyoMod;
 import Gensokyo.actions.FlexibleDiscoveryAction;
+import Gensokyo.cards.Kunekune;
 import Gensokyo.cards.MissMary;
 import Gensokyo.cards.RedCapeBlueCape;
 import Gensokyo.cards.SpontaneousHumanCombustion;
@@ -70,6 +71,7 @@ public class OccultBall extends CustomRelic {
         list.add(new SpontaneousHumanCombustion());
         list.add(new RedCapeBlueCape());
         list.add(new TekeTeke());
+        list.add(new Kunekune());
         Collections.shuffle(list, rng.random);
         return new ArrayList<>(list.subList(0, 3));
     }

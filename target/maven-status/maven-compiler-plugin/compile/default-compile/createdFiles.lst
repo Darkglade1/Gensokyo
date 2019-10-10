@@ -1,9 +1,11 @@
+Gensokyo\patches\LunacyRetargetPatch.class
 Gensokyo\cards\RedCapeBlueCape.class
 Gensokyo\tags\Tags.class
 Gensokyo\util\IDCheckDontTouchPls.class
 Gensokyo\util\TextureLoader.class
 Gensokyo\powers\Vengeance.class
 Gensokyo\actions\CrescentMoonSlashAction.class
+Gensokyo\actions\TekeTekeAction.class
 Gensokyo\GensokyoMod.class
 Gensokyo\actions\KillAction.class
 Gensokyo\patches\relics\RezItemPatch.class
@@ -25,11 +27,13 @@ Gensokyo\variables\DefaultSecondMagicNumber.class
 Gensokyo\cards\BlueCape.class
 Gensokyo\events\TheEnmasDilemma.class
 Gensokyo\patches\relics\RezItemPatch$Locator.class
+Gensokyo\powers\LunacyPower.class
 Gensokyo\relics\CelestialsFlawlessClothing.class
 Gensokyo\cards\RedCape.class
 Gensokyo\powers\SpontaneousHumanCombustionPower.class
 Gensokyo\events\BorderOfDeath.class
 Gensokyo\events\ASwiftSlash.class
+Gensokyo\cards\Kunekune.class
 Gensokyo\cards\SpontaneousHumanCombustion.class
 Gensokyo\patches\relics\PerfectCherryBlossomPatch$Locator.class
 Gensokyo\cards\TekeTeke.class
@@ -37,4 +41,5 @@ Gensokyo\relics\Mercy.class
 Gensokyo\monsters\Komachi.class
 Gensokyo\relics\OccultBall.class
 Gensokyo\patches\DefaultInsertPatch$Locator.class
+Gensokyo\patches\LunacyRetargetPatch$Locator.class
 Gensokyo\events\HakureiShrine.class

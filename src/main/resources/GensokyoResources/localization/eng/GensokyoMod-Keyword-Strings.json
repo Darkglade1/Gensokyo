@@ -1,10 +1,9 @@
 [
   {
     "NAMES": [
-      "keyword",
-      "keywords"
+      "lunacy"
     ],
-    "DESCRIPTION": "Whenever you play a card, gain 1 dexterity this turn only."
+    "DESCRIPTION": "Whenever a lunatic enemy attacks or applies a debuff, a random enemy is targeted instead."
   },
   {
     "PROPER_NAME": "Multiword Keyword",

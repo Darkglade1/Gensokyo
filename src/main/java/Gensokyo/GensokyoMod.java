@@ -1,6 +1,7 @@
 package Gensokyo;
 
 import Gensokyo.cards.CrescentMoonSlash;
+import Gensokyo.cards.Kunekune;
 import Gensokyo.cards.MissMary;
 import Gensokyo.cards.RedCapeBlueCape;
 import Gensokyo.cards.SpontaneousHumanCombustion;
@@ -290,6 +291,7 @@ public class GensokyoMod implements
         BaseMod.addCard(new SpontaneousHumanCombustion());
         BaseMod.addCard(new RedCapeBlueCape());
         BaseMod.addCard(new TekeTeke());
+        BaseMod.addCard(new Kunekune());
     }
     
     // There are better ways to do this than listing every single individual card, but I do not want to complicate things

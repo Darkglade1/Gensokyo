@@ -26,6 +26,10 @@
   },
   "Gensokyo:TekeTeke": {
     "NAME": "Teke Teke",
-    "DESCRIPTION": "Deal !D! damage. NL If this brings an enemy below half HP, increase this card's damage by !M! this combat."
+    "DESCRIPTION": "Deal !D! damage !Gensokyo:SecondMagic! times to ALL enemies. NL If this brings an enemy below half HP, increase this card's damage by !M! this combat."
+  },
+  "Gensokyo:Kunekune": {
+    "NAME": "Kunekune",
+    "DESCRIPTION": "Apply !M! gensokyo:Lunacy. NL Exhaust."
   }
 }

@@ -10,5 +10,9 @@
 "Gensokyo:SpontaneousHumanCombustionPower": {
         "NAME": "Spontaneous Human Combustion",
         "DESCRIPTIONS": ["At the end of your turn, take #b", " damage and increase the damage you will take from this power by #b", "."]
+},
+"Gensokyo:LunacyPower": {
+        "NAME": "Lunacy",
+        "DESCRIPTIONS": ["Whenever this enemy attacks or applies a debuff, a random enemy is targeted instead."]
 }
 }
