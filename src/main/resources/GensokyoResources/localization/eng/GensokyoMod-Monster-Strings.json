@@ -12,5 +12,19 @@
       "You again?",
       "Please die already."
     ]
+  },
+  "Gensokyo:Yukari": {
+    "MOVES": [
+      "Fantasy Maniacal Rift",
+      "Bewitching Bait",
+      "Spacetime Seam",
+      "Full Moon Umbrella",
+      "Aimless Journey to the Abandoned Station",
+      "Quadruple Barrier"
+    ],
+    "NAME": "Youkai of Boundaries",
+    "DIALOG": [
+      "You've been stirring up a little too much trouble for my liking."
+    ]
   }
 }
