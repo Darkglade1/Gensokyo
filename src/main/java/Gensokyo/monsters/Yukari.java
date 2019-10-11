@@ -92,12 +92,12 @@ public class Yukari extends CustomMonster
         this.damage.add(new DamageInfo(this, this.trainDamage));
     }
 
-//    @Override
-//    public void usePreBattleAction() {
-//        CardCrawlGame.music.unsilenceBGM();
-//        AbstractDungeon.scene.fadeOutAmbiance();
-//        AbstractDungeon.getCurrRoom().playBgmInstantly("Gensokyo/Necrofantasia.mp3");
-//    }
+    @Override
+    public void usePreBattleAction() {
+        CardCrawlGame.music.unsilenceBGM();
+        AbstractDungeon.scene.fadeOutAmbiance();
+        AbstractDungeon.getCurrRoom().playBgmInstantly("Gensokyo/Necrofantasia.mp3");
+    }
     
     @Override
     public void takeTurn() {

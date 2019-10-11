@@ -13,7 +13,7 @@ public class MusicPatch {
 		}
 		switch (key) {
             case "Gensokyo/Necrofantasia.mp3": {
-                return MainMusic.newMusic(GensokyoMod.makeEffectPath("Gensokyo/Necrofantasia.mp3"));
+                return MainMusic.newMusic("audio/music/Gensokyo/Necrofantasia.mp3");
             }
 			default: {
 				return __result;
