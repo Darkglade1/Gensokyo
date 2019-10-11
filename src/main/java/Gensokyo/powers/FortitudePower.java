@@ -13,7 +13,7 @@ import com.megacrit.cardcrawl.powers.AbstractPower;
 
 public class FortitudePower extends AbstractPower {
 
-    public static final String POWER_ID = GensokyoMod.makeID("Fortitude");
+    public static final String POWER_ID = GensokyoMod.makeID("FortitudePower");
     private static final PowerStrings powerStrings = CardCrawlGame.languagePack.getPowerStrings(POWER_ID);
     public static final String NAME = powerStrings.NAME;
     public static final String[] DESCRIPTIONS = powerStrings.DESCRIPTIONS;
@@ -41,11 +41,14 @@ public class FortitudePower extends AbstractPower {
         } else {
             AbstractDungeon.actionManager.addToBottom(new ReducePowerAction(this.owner, this.owner, ID, 1));
         }
+        updateDescription();
     }
 
     @Override
     public float atDamageReceive(float damage, DamageInfo.DamageType type) {
         if (type == DamageInfo.DamageType.NORMAL) {
+            System.out.println("Damage before reduction " + damage);
+            System.out.println("Damage after after reduction " + (damage * DAMAGE_REDUCTION));
             return damage * DAMAGE_REDUCTION;
         } else {
             return damage;
@@ -54,6 +57,10 @@ public class FortitudePower extends AbstractPower {
 
     @Override
     public void updateDescription() {
-        description = DESCRIPTIONS[0];
+        if (amount == 1) {
+            description = DESCRIPTIONS[0] + amount + DESCRIPTIONS[2];
+        } else {
+            description = DESCRIPTIONS[0] + amount + DESCRIPTIONS[1];
+        }
     }
 }

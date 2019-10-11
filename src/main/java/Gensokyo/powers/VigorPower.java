@@ -28,6 +28,7 @@ public class VigorPower extends AbstractPower {
 
         type = PowerType.BUFF;
         isTurnBased = true;
+        this.priority = 99;
 
         this.loadRegion("envenom");
 
@@ -41,11 +42,14 @@ public class VigorPower extends AbstractPower {
         } else {
             AbstractDungeon.actionManager.addToBottom(new ReducePowerAction(this.owner, this.owner, ID, 1));
         }
+        updateDescription();
     }
 
     @Override
     public float atDamageGive(float damage, DamageInfo.DamageType type) {
         if (type == DamageInfo.DamageType.NORMAL) {
+            System.out.println("Damage before boost " + damage);
+            System.out.println("Damage after boost " + (damage * DAMAGE_BOOST));
             return damage * DAMAGE_BOOST;
         } else {
             return damage;
@@ -54,6 +58,10 @@ public class VigorPower extends AbstractPower {
 
     @Override
     public void updateDescription() {
-        description = DESCRIPTIONS[0];
+        if (amount == 1) {
+            description = DESCRIPTIONS[0] + amount + DESCRIPTIONS[2];
+        } else {
+            description = DESCRIPTIONS[0] + amount + DESCRIPTIONS[1];
+        }
     }
 }

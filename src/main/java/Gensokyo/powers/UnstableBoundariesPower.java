@@ -23,12 +23,12 @@ public class UnstableBoundariesPower extends AbstractPower {
 
     private static final int threshold = 5;
 
-    public UnstableBoundariesPower(AbstractCreature owner, int amount) {
+    public UnstableBoundariesPower(AbstractCreature owner) {
         name = NAME;
         ID = POWER_ID;
 
         this.owner = owner;
-        this.amount = amount;
+        this.amount = 0;
 
         type = PowerType.BUFF;
         isTurnBased = false;
@@ -44,11 +44,11 @@ public class UnstableBoundariesPower extends AbstractPower {
         ++this.amount;
         if (this.amount == threshold) {
             this.amount = 0;
-            AbstractDungeon.actionManager.addToBottom(new InvertPowersAction(AbstractDungeon.player));
+            AbstractDungeon.actionManager.addToBottom(new InvertPowersAction(AbstractDungeon.player, false));
             Iterator var3 = AbstractDungeon.getCurrRoom().monsters.monsters.iterator();
             while(var3.hasNext()) {
                 AbstractMonster mo = (AbstractMonster)var3.next();
-                AbstractDungeon.actionManager.addToBottom(new InvertPowersAction(mo));
+                AbstractDungeon.actionManager.addToBottom(new InvertPowersAction(mo, false));
             }
         }
     }

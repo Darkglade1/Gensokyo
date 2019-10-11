@@ -21,34 +21,42 @@ import com.megacrit.cardcrawl.powers.WeakPower;
 
 public class InvertPowersAction extends AbstractGameAction {
     private AbstractCreature target;
+    private boolean debuffsOnly;
 
-    public InvertPowersAction(AbstractCreature target) {
+    public InvertPowersAction(AbstractCreature target, boolean debuffsOnly) {
         this.actionType = ActionType.POWER;
         this.duration = Settings.ACTION_DUR_XFAST;
         this.target = target;
+        this.debuffsOnly = debuffsOnly;
     }
 
     public void update() {
         for (AbstractPower power : target.powers) {
             if (power instanceof StrengthPower) {
                 if (power.amount > 0) {
-                    AbstractDungeon.actionManager.addToTop(new ApplyPowerAction(target, target, new StrengthPower(target, -power.amount * 2), -power.amount * 2));
+                    if (!debuffsOnly) {
+                        AbstractDungeon.actionManager.addToTop(new ApplyPowerAction(target, target, new StrengthPower(target, -power.amount * 2), -power.amount * 2));
+                    }
                 } else {
-                    AbstractDungeon.actionManager.addToTop(new ApplyPowerAction(target, target, new StrengthPower(target, power.amount * 2), power.amount * 2));
+                    AbstractDungeon.actionManager.addToTop(new ApplyPowerAction(target, target, new StrengthPower(target, -power.amount * 2), -power.amount * 2));
                 }
             }
             else if (power instanceof DexterityPower) {
                 if (power.amount > 0) {
-                    AbstractDungeon.actionManager.addToTop(new ApplyPowerAction(target, target, new DexterityPower(target, -power.amount * 2), -power.amount * 2));
+                    if (!debuffsOnly){
+                        AbstractDungeon.actionManager.addToTop(new ApplyPowerAction(target, target, new DexterityPower(target, -power.amount * 2), -power.amount * 2));
+                    }
                 } else {
-                    AbstractDungeon.actionManager.addToTop(new ApplyPowerAction(target, target, new DexterityPower(target, power.amount * 2), power.amount * 2));
+                    AbstractDungeon.actionManager.addToTop(new ApplyPowerAction(target, target, new DexterityPower(target, -power.amount * 2), -power.amount * 2));
                 }
             }
             else if (power instanceof FocusPower) {
                 if (power.amount > 0) {
-                    AbstractDungeon.actionManager.addToTop(new ApplyPowerAction(target, target, new FocusPower(target, -power.amount * 2), -power.amount * 2));
+                    if (!debuffsOnly){
+                        AbstractDungeon.actionManager.addToTop(new ApplyPowerAction(target, target, new FocusPower(target, -power.amount * 2), -power.amount * 2));
+                    }
                 } else {
-                    AbstractDungeon.actionManager.addToTop(new ApplyPowerAction(target, target, new FocusPower(target, power.amount * 2), power.amount * 2));
+                    AbstractDungeon.actionManager.addToTop(new ApplyPowerAction(target, target, new FocusPower(target, -power.amount * 2), -power.amount * 2));
                 }
             }
             else if (power instanceof VulnerablePower) {
@@ -63,7 +71,19 @@ public class InvertPowersAction extends AbstractGameAction {
                 AbstractDungeon.actionManager.addToTop(new RemoveSpecificPowerAction(target, target, FrailPower.POWER_ID));
                 AbstractDungeon.actionManager.addToTop(new ApplyPowerAction(target, target, new SturdyPower(target, power.amount), power.amount));
             }
-            else if (power instanceof GainStrengthPower) {
+            else if (power instanceof FortitudePower && !debuffsOnly) {
+                AbstractDungeon.actionManager.addToTop(new RemoveSpecificPowerAction(target, target, FortitudePower.POWER_ID));
+                AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(target, target, new VulnerablePower(target, power.amount, false), power.amount));
+            }
+            else if (power instanceof VigorPower && !debuffsOnly) {
+                AbstractDungeon.actionManager.addToTop(new RemoveSpecificPowerAction(target, target, VigorPower.POWER_ID));
+                AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(target, target, new WeakPower(target, power.amount, false), power.amount));
+            }
+            else if (power instanceof SturdyPower && !debuffsOnly) {
+                AbstractDungeon.actionManager.addToTop(new RemoveSpecificPowerAction(target, target, SturdyPower.POWER_ID));
+                AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(target, target, new FrailPower(target, power.amount, false), power.amount));
+            }
+            else if (power instanceof GainStrengthPower && !debuffsOnly) {
                 AbstractDungeon.actionManager.addToTop(new RemoveSpecificPowerAction(target, target, GainStrengthPower.POWER_ID));
                 AbstractDungeon.actionManager.addToTop(new ApplyPowerAction(target, target, new LoseStrengthPower(target, power.amount), power.amount));
             }

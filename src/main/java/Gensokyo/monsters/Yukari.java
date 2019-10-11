@@ -1,8 +1,9 @@
 package Gensokyo.monsters;
 
+import Gensokyo.actions.InvertPowersAction;
 import Gensokyo.powers.UnstableBoundariesPower;
 import Gensokyo.vfx.EmptyEffect;
-import Gensokyo.vfx.TrainEffect;
+import Gensokyo.vfx.YukariTrainEffect;
 import basemod.abstracts.CustomMonster;
 import basemod.animations.SpriterAnimation;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
@@ -51,15 +52,15 @@ public class Yukari extends CustomMonster
     private int debuffAmount;
     private int strengthDrain;
     private boolean useTrain = false;
-    private static final int HP = 220;
-    public static final int A9_HP = 230;
+    private static final int HP = 245;
+    public static final int A9_HP = 255;
 
     public Yukari() {
         this(0.0f, 0.0f);
     }
 
     public Yukari(final float x, final float y) {
-        super(Yukari.NAME, ID, HP, -5.0F, 0, 280.0f, 255.0f, null, x, y);
+        super(Yukari.NAME, ID, HP, -5.0F, 0, 280.0f, 285.0f, null, x, y);
         this.animation = new SpriterAnimation("GensokyoResources/images/monsters/Yukari/Spriter/YukariAnimations.scml");
         this.type = EnemyType.BOSS;
         this.dialogX = (this.hb_x - 70.0F) * Settings.scale;
@@ -93,7 +94,7 @@ public class Yukari extends CustomMonster
         switch (this.nextMove) {
             case OPENING: {
                 AbstractDungeon.actionManager.addToBottom(new TalkAction(this, Yukari.DIALOG[0]));
-                AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(this, this, new UnstableBoundariesPower(this, 1)));
+                AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(this, this, new UnstableBoundariesPower(this)));
                 AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(this, this, new StrengthPower(this, this.strengthDrain), this.strengthDrain));
                 AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(AbstractDungeon.player, this, new StrengthPower(AbstractDungeon.player, -this.strengthDrain), -this.strengthDrain));
                 break;
@@ -114,7 +115,7 @@ public class Yukari extends CustomMonster
                     for (int i = 0; i < TRAIN_ATTACK_HITS; i++) {
                         if (i == 0) {
                             AbstractDungeon.actionManager.addToBottom(new SFXAction("Gensokyo:Train"));
-                            AbstractDungeon.actionManager.addToBottom(new VFXAction(new TrainEffect(), 0.5F));
+                            AbstractDungeon.actionManager.addToBottom(new VFXAction(new YukariTrainEffect(), 0.5F));
                         } else {
                             AbstractDungeon.actionManager.addToBottom(new VFXAction(new EmptyEffect(), 0.6F));
                         }
@@ -128,13 +129,19 @@ public class Yukari extends CustomMonster
                 break;
             }
             case LAST_WORD: {
-                for (int i = 0; i < NORMAL_ATTACK_HITS; i++) {
-                    AbstractDungeon.actionManager.addToBottom(new DamageAction(AbstractDungeon.player, this.damage.get(0), AbstractGameAction.AttackEffect.BLUNT_LIGHT));
-                }
+                AbstractDungeon.actionManager.addToBottom(new InvertPowersAction(this, true));
                 break;
             }
         }
         AbstractDungeon.actionManager.addToBottom(new RollMoveAction(this));
+    }
+
+    private void setAttack() {
+        if (useTrain) {
+            this.setMove(Yukari.MOVES[4], ATTACK, Intent.ATTACK, (this.damage.get(1)).base, TRAIN_ATTACK_HITS, true);
+        } else {
+            this.setMove(Yukari.MOVES[3], ATTACK, Intent.ATTACK, (this.damage.get(0)).base, NORMAL_ATTACK_HITS, true);
+        }
     }
 
     @Override
@@ -144,28 +151,28 @@ public class Yukari extends CustomMonster
             this.firstMove = false;
         }  else if (this.currentHealth < this.maxHealth / 2 && !this.useTrain) {
             this.useTrain = true;
-            this.setMove(LAST_WORD, Intent.BUFF);
+            this.setMove(Yukari.MOVES[5], LAST_WORD, Intent.BUFF);
         } else if (this.lastMove(LAST_WORD)) {
-            this.setMove(Yukari.MOVES[3], ATTACK, Intent.ATTACK);
+            setAttack();
         } else if (this.secondMove){
-            this.setMove(Yukari.MOVES[3], ATTACK, Intent.ATTACK);
+            setAttack();
             this.secondMove = false;
         } else {
             if (num < 25) {
                 if (!this.lastMove(STRENGTH_DRAIN)) {
                     this.setMove(Yukari.MOVES[1], STRENGTH_DRAIN, Intent.DEBUFF);
                 } else {
-                    this.setMove(Yukari.MOVES[3], ATTACK, Intent.ATTACK);
+                    setAttack();
                 }
             } else if (num < 50) {
                 if (!this.lastMove(STRENGTH_DRAIN)) {
                     this.setMove(Yukari.MOVES[2], MEGA_DEBUFF, Intent.STRONG_DEBUFF);
                 } else {
-                    this.setMove(Yukari.MOVES[3], ATTACK, Intent.ATTACK);
+                    setAttack();
                 }
             } else {
                 if (!this.lastTwoMoves(ATTACK)) {
-                    this.setMove(Yukari.MOVES[3], ATTACK, Intent.ATTACK);
+                    setAttack();
                 } else {
                     this.setMove(Yukari.MOVES[1], STRENGTH_DRAIN, Intent.DEBUFF);
                 }

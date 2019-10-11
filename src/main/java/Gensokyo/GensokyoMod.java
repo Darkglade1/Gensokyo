@@ -14,6 +14,7 @@ import Gensokyo.events.HakureiShrine;
 import Gensokyo.events.ScarletDevilMansion;
 import Gensokyo.events.TheEnmasDilemma;
 import Gensokyo.monsters.Komachi;
+import Gensokyo.monsters.Yukari;
 import Gensokyo.relics.CelestialsFlawlessClothing;
 import Gensokyo.relics.Justice;
 import Gensokyo.relics.Mercy;
@@ -234,6 +235,7 @@ public class GensokyoMod implements
         BaseMod.registerModBadge(badgeTexture, MODNAME, AUTHOR, DESCRIPTION, settingsPanel);
 
         BaseMod.addMonster(Komachi.ID, (BaseMod.GetMonster)Komachi::new);
+        BaseMod.addMonster(Yukari.ID, (BaseMod.GetMonster)Yukari::new);
 
         
         // =============== EVENTS =================

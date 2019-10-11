@@ -13,15 +13,15 @@
 },
 "Gensokyo:FortitudePower": {
         "NAME": "Fortitude",
-        "DESCRIPTIONS": ["Fortified creatures take #b33% less damage from #yAttacks."]
+        "DESCRIPTIONS": ["Receive #b33% less damage from #yAttacks for #b", " turns.", " turn."]
 },
 "Gensokyo:VigorPower": {
         "NAME": "Vigor",
-        "DESCRIPTIONS": ["Vigorous creatures deal #b33% more damage with #yAttacks."]
+        "DESCRIPTIONS": ["#yAttacks deal #b33% more damage for #b", " turns.", " turn."]
 },
 "Gensokyo:SturdyPower": {
         "NAME": "Sturdy",
-        "DESCRIPTIONS": ["Sturdy creatures gain 33% more #yBlock."]
+        "DESCRIPTIONS": ["Gains #b33% more #yBlock for #b", " turns.", " turn."]
 },
 "Gensokyo:SpontaneousHumanCombustionPower": {
         "NAME": "Spontaneous Human Combustion",

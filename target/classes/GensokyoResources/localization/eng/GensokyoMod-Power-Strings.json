@@ -7,6 +7,22 @@
         "NAME": "Vengeance",
         "DESCRIPTIONS": ["The #rAvatar #rof #rDeath grows stronger in each successive encounter . . ."]
 },
+"Gensokyo:UnstableBoundariesPower": {
+        "NAME": "Unstable Boundaries",
+        "DESCRIPTIONS": ["Whenever you play #b", " cards, #yInvert ALL invertible #ybuffs and #ydebuffs on ALL characters."]
+},
+"Gensokyo:FortitudePower": {
+        "NAME": "Fortitude",
+        "DESCRIPTIONS": ["Receive #b33% less damage from #yAttacks for #b", " turns.", " turn."]
+},
+"Gensokyo:VigorPower": {
+        "NAME": "Vigor",
+        "DESCRIPTIONS": ["#yAttacks deal #b33% more damage for #b", " turns.", " turn."]
+},
+"Gensokyo:SturdyPower": {
+        "NAME": "Sturdy",
+        "DESCRIPTIONS": ["Gains #b33% more #yBlock for #b", " turns.", " turn."]
+},
 "Gensokyo:SpontaneousHumanCombustionPower": {
         "NAME": "Spontaneous Human Combustion",
         "DESCRIPTIONS": ["At the end of your turn, take #b", " damage and increase the damage you will take from this power by #b", "."]
