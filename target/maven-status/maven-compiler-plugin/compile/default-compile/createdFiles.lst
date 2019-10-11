@@ -26,6 +26,7 @@ Gensokyo\patches\LunacyRetargetPatch$Locator.class
 Gensokyo\powers\HAARPPower.class
 Gensokyo\tags\Tags.class
 Gensokyo\util\IDCheckDontTouchPls.class
+Gensokyo\patches\MusicPatch.class
 Gensokyo\util\TextureLoader.class
 Gensokyo\actions\TekeTekeAction.class
 Gensokyo\GensokyoMod.class

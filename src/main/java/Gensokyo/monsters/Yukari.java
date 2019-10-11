@@ -6,6 +6,7 @@ import Gensokyo.vfx.EmptyEffect;
 import Gensokyo.vfx.YukariTrainEffect;
 import basemod.abstracts.CustomMonster;
 import basemod.animations.SpriterAnimation;
+import com.badlogic.gdx.graphics.Texture;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.animations.TalkAction;
 import com.megacrit.cardcrawl.actions.animations.VFXAction;
@@ -17,6 +18,7 @@ import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.core.Settings;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
+import com.megacrit.cardcrawl.helpers.ImageMaster;
 import com.megacrit.cardcrawl.localization.MonsterStrings;
 import com.megacrit.cardcrawl.powers.FrailPower;
 import com.megacrit.cardcrawl.powers.StrengthPower;
@@ -30,6 +32,7 @@ public class Yukari extends CustomMonster
     public static final String NAME;
     public static final String[] MOVES;
     public static final String[] DIALOG;
+    private static final Texture TRAIN_INTENT_TEXTURE = ImageMaster.loadImage("GensokyoResources/images/monsters/Yukari/attack_intent_train.png");
     private boolean firstMove = true;
     private boolean secondMove = true;
     private static final byte OPENING = 1;
@@ -88,6 +91,13 @@ public class Yukari extends CustomMonster
         this.damage.add(new DamageInfo(this, this.normalDamage));
         this.damage.add(new DamageInfo(this, this.trainDamage));
     }
+
+//    @Override
+//    public void usePreBattleAction() {
+//        CardCrawlGame.music.unsilenceBGM();
+//        AbstractDungeon.scene.fadeOutAmbiance();
+//        AbstractDungeon.getCurrRoom().playBgmInstantly("Gensokyo/Necrofantasia.mp3");
+//    }
     
     @Override
     public void takeTurn() {
@@ -178,6 +188,21 @@ public class Yukari extends CustomMonster
                 }
             }
         }
+    }
+
+    @Override
+    public Texture getAttackIntent() {
+        if (useTrain) {
+            return TRAIN_INTENT_TEXTURE;
+        }
+        return super.getAttackIntent();
+    }
+    @Override
+    public Texture getAttackIntent(int dmg) {
+        if (useTrain) {
+            return TRAIN_INTENT_TEXTURE;
+        }
+        return super.getAttackIntent(dmg);
     }
     
     static {
