@@ -1,5 +1,6 @@
 package Gensokyo.monsters;
 
+import Gensokyo.powers.UnstableBoundariesPower;
 import Gensokyo.vfx.EmptyEffect;
 import Gensokyo.vfx.TrainEffect;
 import basemod.abstracts.CustomMonster;
@@ -59,8 +60,8 @@ public class Yukari extends CustomMonster
 
     public Yukari(final float x, final float y) {
         super(Yukari.NAME, ID, HP, -5.0F, 0, 280.0f, 255.0f, null, x, y);
-        this.animation = new SpriterAnimation("GensokyoResources/images/monsters/Komachi/Spriter/YukariAnimations.scml");
-        this.type = EnemyType.ELITE;
+        this.animation = new SpriterAnimation("GensokyoResources/images/monsters/Yukari/Spriter/YukariAnimations.scml");
+        this.type = EnemyType.BOSS;
         this.dialogX = (this.hb_x - 70.0F) * Settings.scale;
         this.dialogY -= (this.hb_y - 55.0F) * Settings.scale;
         if (AbstractDungeon.ascensionLevel >= 19) {
@@ -92,6 +93,7 @@ public class Yukari extends CustomMonster
         switch (this.nextMove) {
             case OPENING: {
                 AbstractDungeon.actionManager.addToBottom(new TalkAction(this, Yukari.DIALOG[0]));
+                AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(this, this, new UnstableBoundariesPower(this, 1)));
                 AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(this, this, new StrengthPower(this, this.strengthDrain), this.strengthDrain));
                 AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(AbstractDungeon.player, this, new StrengthPower(AbstractDungeon.player, -this.strengthDrain), -this.strengthDrain));
                 break;
