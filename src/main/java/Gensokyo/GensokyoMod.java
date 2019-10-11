@@ -236,7 +236,7 @@ public class GensokyoMod implements
 
         BaseMod.addMonster(Komachi.ID, (BaseMod.GetMonster)Komachi::new);
         BaseMod.addMonster(Yukari.ID, (BaseMod.GetMonster)Yukari::new);
-        BaseMod.addBoss(Exordium.ID, "Yukari", "GensokyoResources/images/monsters/Yukari/Yukari.png", "GensokyoResources/images/monsters/Yukari/YukariOutline.png");
+        BaseMod.addBoss(Exordium.ID, Yukari.ID, "GensokyoResources/images/monsters/Yukari/Yukari.png", "GensokyoResources/images/monsters/Yukari/YukariOutline.png");
 
         
         // =============== EVENTS =================

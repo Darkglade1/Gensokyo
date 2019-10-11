@@ -12,9 +12,11 @@ import com.megacrit.cardcrawl.actions.animations.TalkAction;
 import com.megacrit.cardcrawl.actions.animations.VFXAction;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.actions.common.DamageAction;
+import com.megacrit.cardcrawl.actions.common.MakeTempCardInDiscardAction;
 import com.megacrit.cardcrawl.actions.common.RollMoveAction;
 import com.megacrit.cardcrawl.actions.utility.SFXAction;
 import com.megacrit.cardcrawl.cards.DamageInfo;
+import com.megacrit.cardcrawl.cards.status.Wound;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.core.Settings;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
@@ -44,7 +46,7 @@ public class Yukari extends CustomMonster
     private static final int A4_NORMAL_ATTACK_DAMAGE = 9;
     private static final int NORMAL_ATTACK_HITS = 2;
     private static final int TRAIN_ATTACK_DAMAGE = 7;
-    private static final int A4_TRAIN_ATTACK_DAMAGE = 7;
+    private static final int A4_TRAIN_ATTACK_DAMAGE = 8;
     private static final int TRAIN_ATTACK_HITS = 3;
     private static final int DEBUFF_AMOUNT = 2;
     private static final int A19_DEBUFF_AMOUNT = 3;
@@ -55,8 +57,8 @@ public class Yukari extends CustomMonster
     private int debuffAmount;
     private int strengthDrain;
     private boolean useTrain = false;
-    private static final int HP = 245;
-    public static final int A9_HP = 255;
+    private static final int HP = 230;
+    public static final int A9_HP = 240;
 
     public Yukari() {
         this(0.0f, 0.0f);
@@ -131,10 +133,12 @@ public class Yukari extends CustomMonster
                         }
                         AbstractDungeon.actionManager.addToBottom(new DamageAction(AbstractDungeon.player, this.damage.get(1), AbstractGameAction.AttackEffect.BLUNT_HEAVY));
                     }
+                    AbstractDungeon.actionManager.addToBottom(new InvertPowersAction(this, true));
                 } else {
                     for (int i = 0; i < NORMAL_ATTACK_HITS; i++) {
                         AbstractDungeon.actionManager.addToBottom(new DamageAction(AbstractDungeon.player, this.damage.get(0), AbstractGameAction.AttackEffect.BLUNT_LIGHT));
                     }
+                    AbstractDungeon.actionManager.addToBottom(new MakeTempCardInDiscardAction(new Wound(), 1));
                 }
                 break;
             }
@@ -148,9 +152,9 @@ public class Yukari extends CustomMonster
 
     private void setAttack() {
         if (useTrain) {
-            this.setMove(Yukari.MOVES[4], ATTACK, Intent.ATTACK, (this.damage.get(1)).base, TRAIN_ATTACK_HITS, true);
+            this.setMove(Yukari.MOVES[4], ATTACK, Intent.ATTACK_BUFF, (this.damage.get(1)).base, TRAIN_ATTACK_HITS, true);
         } else {
-            this.setMove(Yukari.MOVES[3], ATTACK, Intent.ATTACK, (this.damage.get(0)).base, NORMAL_ATTACK_HITS, true);
+            this.setMove(Yukari.MOVES[3], ATTACK, Intent.ATTACK_DEBUFF, (this.damage.get(0)).base, NORMAL_ATTACK_HITS, true);
         }
     }
 
@@ -175,7 +179,7 @@ public class Yukari extends CustomMonster
                     setAttack();
                 }
             } else if (num < 50) {
-                if (!this.lastMove(STRENGTH_DRAIN)) {
+                if (!this.lastMove(MEGA_DEBUFF)) {
                     this.setMove(Yukari.MOVES[2], MEGA_DEBUFF, Intent.STRONG_DEBUFF);
                 } else {
                     setAttack();
