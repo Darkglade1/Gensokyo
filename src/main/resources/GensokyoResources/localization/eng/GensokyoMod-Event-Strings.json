@@ -73,7 +73,7 @@
       "[Intervene] #rLose #r",
       " #rHP. #gObtain #ga #gSpecial #gRelic.",
       "[Let events transpire] #gGain #g",
-      " #gGold",
+      " #gGold.",
       "[Leave]"
     ]
   },
@@ -118,6 +118,23 @@
       "[Leave]",
       "Choose a Card to Upgrade",
       "[Locked] Requires: Upgradeable Cards"
+    ]
+  },
+  "Gensokyo:ThoseEarthRabbits": {
+    "NAME": "Those Earth Rabbits",
+    "DESCRIPTIONS": [
+      "The #gbamboo #gforest you’ve walked into is thick, rife with ~twists~ and ~turns~ that would’ve made a lesser adventurer long since #rlose their way. NL NL Out of the corner of your eye, you see something nestled between two stalks: a man-made #ybasket that seemed entirely out of place in this sea of #ggreenery. NL NL \"Hey! You there!\" NL NL Turning, you spot a tall girl with rabbit ears sprinting towards you, panting.",
+      "\"You - you wouldn't happen to have seen my medicine #ybasket around here, have you? I need to make some sales at the village, or my master is going to have my #rhide!\" NL NL You are about to inform her of where her #ybasket is when a soft voice suddenly whispers into your ear: NL NL \"Hey, just pretend you didn't see anything, and I’ll make it worth your while, yeah?\" NL NL You hear a soft #yclink as something is pushed into your hand . . .",
+      "You gently push the #pbribe away. NL NL \"Aw, you’re no fun.\" NL NL The presence behind you disappears as you point out the #ybasket nestled in the stalks of bamboo to the rabbit, who groans when she sees how high the basket is. NL NL \"Ugh, I swear that Tewi gets some #rsadistic pleasure from watching master punish me.\" NL NL You offer to help her grab her #ybasket, but as you stand underneath the stalks holding it up, you hear something @SNAP.@",
+      "#r@WHACK!@ NL NL You find yourself on the ground with a #rthrobbing head, the rabbit looking at you in concern with her #ybasket in hand. NL NL \"Sorry about that. I’m pretty sure that #pprank was meant for me, but it seems you took my place, huh?\" NL NL She helps you up before glancing at the sun and beginning to panic. NL NL \"Ack! I better get going or I’ll miss the market!\" NL NL She rushes off. \"I’ll be sure to repay the #gfavor later!\"",
+      "Your hand closes around the #pbribe as you coolly inform the rabbit that you have not, in fact, seen her medicine #ybasket around here anywhere. NL NL \"Gah! Where is it, then? Where could it @be?!\"@ NL NL As the rabbit rushes off, you hear a soft snicker behind you. NL NL \"Pleasure doing business with you, pal. If you’re in the mood for some #ggood #gluck later, I can help you out. But I should get going before she realizes that I’m slacking off again.\" NL NL The presence behind you vanishes, leaving you alone in the bamboo forest once more."
+    ],
+    "OPTIONS": [
+      "[Continue]",
+      "[Help] #gObtain #ga #gspecial #gRelic. #rBecome #rCursed #r- #rInjury.",
+      "[Accept the bribe] #gGain #g",
+      " #gGold.",
+      "[Leave]"
     ]
   }
 }

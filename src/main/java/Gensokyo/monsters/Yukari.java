@@ -12,6 +12,7 @@ import com.megacrit.cardcrawl.actions.animations.TalkAction;
 import com.megacrit.cardcrawl.actions.animations.VFXAction;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.actions.common.DamageAction;
+import com.megacrit.cardcrawl.actions.common.GainBlockAction;
 import com.megacrit.cardcrawl.actions.common.MakeTempCardInDiscardAction;
 import com.megacrit.cardcrawl.actions.common.RollMoveAction;
 import com.megacrit.cardcrawl.actions.utility.SFXAction;
@@ -52,10 +53,13 @@ public class Yukari extends CustomMonster
     private static final int A19_DEBUFF_AMOUNT = 3;
     private static final int STRENGTH_DRAIN_AMOUNT = 2;
     private static final int A19_STRENGTH_DRAIN_AMOUNT = 3;
+    private static final int BLOCK = 10;
+    private static final int A19_BLOCK = 15;
     private int normalDamage;
     private int trainDamage;
     private int debuffAmount;
     private int strengthDrain;
+    private int block;
     private boolean useTrain = false;
     private static final int HP = 245;
     public static final int A9_HP = 255;
@@ -73,9 +77,11 @@ public class Yukari extends CustomMonster
         if (AbstractDungeon.ascensionLevel >= 19) {
             this.debuffAmount = A19_DEBUFF_AMOUNT;
             this.strengthDrain = A19_STRENGTH_DRAIN_AMOUNT;
+            this.block = A19_BLOCK;
         } else {
             this.debuffAmount = DEBUFF_AMOUNT;
             this.strengthDrain = STRENGTH_DRAIN_AMOUNT;
+            this.block = BLOCK;
         }
         if (AbstractDungeon.ascensionLevel >= 9) {
             this.setHp(A9_HP);
@@ -144,6 +150,7 @@ public class Yukari extends CustomMonster
             }
             case LAST_WORD: {
                 AbstractDungeon.actionManager.addToBottom(new InvertPowersAction(this, true));
+                AbstractDungeon.actionManager.addToBottom(new GainBlockAction(this, this, this.block));
                 break;
             }
         }

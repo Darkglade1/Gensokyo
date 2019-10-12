@@ -1,5 +1,6 @@
 Gensokyo\patches\LunacyRetargetPatch.class
 Gensokyo\cards\RedCapeBlueCape.class
+Gensokyo\events\ThoseEarthRabbits.class
 Gensokyo\powers\Vengeance.class
 Gensokyo\actions\CrescentMoonSlashAction.class
 Gensokyo\powers\VigorPower.class
