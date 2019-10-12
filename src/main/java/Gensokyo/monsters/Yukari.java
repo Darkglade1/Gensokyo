@@ -57,8 +57,8 @@ public class Yukari extends CustomMonster
     private int debuffAmount;
     private int strengthDrain;
     private boolean useTrain = false;
-    private static final int HP = 230;
-    public static final int A9_HP = 240;
+    private static final int HP = 245;
+    public static final int A9_HP = 255;
 
     public Yukari() {
         this(0.0f, 0.0f);
