@@ -35,5 +35,10 @@
   "Gensokyo:HAARP": {
     "NAME": "HAARP",
     "DESCRIPTION": "At the start of your turn, Channel !M! Lightning."
+  },
+  "Gensokyo:MenInBlack": {
+    "NAME": "Men in Black",
+    "DESCRIPTION": "Gain !M! Intangible. NL Exhaust.",
+    "UPGRADE_DESCRIPTION": "Retain. NL Gain !M! Intangible. NL Exhaust."
   }
 }

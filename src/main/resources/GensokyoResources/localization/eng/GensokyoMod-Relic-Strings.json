@@ -36,5 +36,12 @@
       "At the start of combat, choose #b1 of #b3 #yUrban #yLegends to add to your hand. Occasionally find more #yOccult #yBalls.",
       "At the start of combat, add #b3 random upgraded #yUrban #yLegends to your hand."
     ]
+  },
+  "Gensokyo:LunaticRedEyes": {
+    "NAME": "Lunatic Red Eyes",
+    "FLAVOR": "You feel your sanity slipping away the longer you look into her eyes . . .",
+    "DESCRIPTIONS": [
+      "At the start of combat, apply #b", " #yLunacy to ALL enemies."
+    ]
   }
 }

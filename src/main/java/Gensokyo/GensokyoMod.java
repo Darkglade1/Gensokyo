@@ -3,6 +3,7 @@ package Gensokyo;
 import Gensokyo.cards.CrescentMoonSlash;
 import Gensokyo.cards.HAARP;
 import Gensokyo.cards.Kunekune;
+import Gensokyo.cards.MenInBlack;
 import Gensokyo.cards.MissMary;
 import Gensokyo.cards.RedCapeBlueCape;
 import Gensokyo.cards.SpontaneousHumanCombustion;
@@ -17,6 +18,7 @@ import Gensokyo.monsters.Komachi;
 import Gensokyo.monsters.Yukari;
 import Gensokyo.relics.CelestialsFlawlessClothing;
 import Gensokyo.relics.Justice;
+import Gensokyo.relics.LunaticRedEyes;
 import Gensokyo.relics.Mercy;
 import Gensokyo.relics.OccultBall;
 import Gensokyo.relics.PerfectCherryBlossom;
@@ -270,6 +272,7 @@ public class GensokyoMod implements
         BaseMod.addRelic(new Justice(), RelicType.SHARED);
         BaseMod.addRelic(new CelestialsFlawlessClothing(), RelicType.SHARED);
         BaseMod.addRelic(new OccultBall(), RelicType.SHARED);
+        BaseMod.addRelic(new LunaticRedEyes(), RelicType.SHARED);
 
         logger.info("Done adding relics!");
     }
@@ -295,6 +298,7 @@ public class GensokyoMod implements
         BaseMod.addCard(new TekeTeke());
         BaseMod.addCard(new Kunekune());
         BaseMod.addCard(new HAARP());
+        BaseMod.addCard(new MenInBlack());
     }
     
     // ================ /ADD CARDS/ ===================

@@ -21,7 +21,6 @@ Gensokyo\powers\SpontaneousHumanCombustionPower.class
 Gensokyo\patches\relics\PerfectCherryBlossomPatch$Locator.class
 Gensokyo\cards\TekeTeke.class
 Gensokyo\monsters\Yukari.class
-Gensokyo\patches\DefaultInsertPatch$Locator.class
 Gensokyo\patches\LunacyRetargetPatch$Locator.class
 Gensokyo\powers\HAARPPower.class
 Gensokyo\tags\Tags.class
@@ -40,7 +39,7 @@ Gensokyo\cards\HAARP.class
 Gensokyo\relics\Justice.class
 Gensokyo\cards\MissMary.class
 Gensokyo\patches\relics\PerfectCherryBlossomPatch.class
-Gensokyo\patches\DefaultInsertPatch.class
+Gensokyo\cards\MenInBlack.class
 Gensokyo\powers\DeathMark.class
 Gensokyo\variables\DefaultSecondMagicNumber.class
 Gensokyo\powers\UnstableBoundariesPower.class
@@ -52,4 +51,5 @@ Gensokyo\cards\SpontaneousHumanCombustion.class
 Gensokyo\relics\Mercy.class
 Gensokyo\monsters\Komachi.class
 Gensokyo\relics\OccultBall.class
+Gensokyo\relics\LunaticRedEyes.class
 Gensokyo\events\HakureiShrine.class
