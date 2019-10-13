@@ -3,6 +3,7 @@ package Gensokyo.events;
 import Gensokyo.GensokyoMod;
 import Gensokyo.relics.OccultBall;
 import com.megacrit.cardcrawl.cards.AbstractCard;
+import com.megacrit.cardcrawl.cards.CardGroup;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.events.AbstractImageEvent;
@@ -107,7 +108,7 @@ public class FieldTripToAnotherWorld extends AbstractImageEvent {
         ArrayList<AbstractCard> uncommons = new ArrayList<>();
         ArrayList<AbstractCard> commons = new ArrayList<>();
 
-        for (AbstractCard c : AbstractDungeon.player.masterDeck.group) {
+        for (AbstractCard c : CardGroup.getGroupWithoutBottledCards(AbstractDungeon.player.masterDeck).group) {
             if (c.rarity == AbstractCard.CardRarity.RARE) {
                 rares.add(c);
             } else if (c.rarity == AbstractCard.CardRarity.UNCOMMON) {
