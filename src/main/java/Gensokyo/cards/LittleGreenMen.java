@@ -2,6 +2,7 @@ package Gensokyo.cards;
 
 import Gensokyo.GensokyoMod;
 import Gensokyo.tags.Tags;
+import com.evacipated.cardcrawl.mod.stslib.fields.cards.AbstractCard.AlwaysRetainField;
 import com.megacrit.cardcrawl.actions.common.GainEnergyAction;
 import com.megacrit.cardcrawl.actions.common.MakeTempCardInDrawPileAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
@@ -28,7 +29,6 @@ public class LittleGreenMen extends AbstractDefaultCard {
     public LittleGreenMen() {
         super(ID, IMG, COST, TYPE, COLOR, RARITY, TARGET);
         magicNumber = baseMagicNumber = ENERGY;
-        isEthereal = true;
         exhaust = true;
         tags.add(Tags.URBAN_LEGEND);
     }
@@ -47,7 +47,7 @@ public class LittleGreenMen extends AbstractDefaultCard {
     public void upgrade() {
         if (!upgraded) {
             upgradeName();
-            isEthereal = false;
+            AlwaysRetainField.alwaysRetain.set(this, true);
             rawDescription = languagePack.getCardStrings(cardID).UPGRADE_DESCRIPTION;
             initializeDescription();
         }
