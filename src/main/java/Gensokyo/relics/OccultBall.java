@@ -4,11 +4,16 @@ import Gensokyo.GensokyoMod;
 import Gensokyo.actions.FlexibleDiscoveryAction;
 import Gensokyo.cards.HAARP;
 import Gensokyo.cards.Kunekune;
+import Gensokyo.cards.LittleGreenMen;
+import Gensokyo.cards.LochNessMonster;
+import Gensokyo.cards.ManorOfTheDishes;
 import Gensokyo.cards.MenInBlack;
 import Gensokyo.cards.MissMary;
+import Gensokyo.cards.MonkeysPaw;
 import Gensokyo.cards.RedCapeBlueCape;
 import Gensokyo.cards.SpontaneousHumanCombustion;
 import Gensokyo.cards.TekeTeke;
+import Gensokyo.cards.TurboGranny;
 import Gensokyo.util.TextureLoader;
 import basemod.abstracts.CustomRelic;
 import com.badlogic.gdx.graphics.Texture;
@@ -76,6 +81,11 @@ public class OccultBall extends CustomRelic {
         list.add(new Kunekune());
         list.add(new HAARP());
         list.add(new MenInBlack());
+        list.add(new LittleGreenMen());
+        list.add(new TurboGranny());
+        list.add(new MonkeysPaw());
+        list.add(new ManorOfTheDishes());
+        list.add(new LochNessMonster());
         Collections.shuffle(list, rng.random);
         return new ArrayList<>(list.subList(0, 3));
     }

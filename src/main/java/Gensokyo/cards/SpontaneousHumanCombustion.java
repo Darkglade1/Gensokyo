@@ -30,7 +30,6 @@ public class SpontaneousHumanCombustion extends AbstractDefaultCard {
         super(ID, IMG, COST, TYPE, COLOR, RARITY, TARGET);
         magicNumber = baseMagicNumber = STRENGTH;
         defaultSecondMagicNumber = defaultBaseSecondMagicNumber = SELF_DAMAGE;
-        exhaust = true;
         tags.add(Tags.URBAN_LEGEND);
     }
 

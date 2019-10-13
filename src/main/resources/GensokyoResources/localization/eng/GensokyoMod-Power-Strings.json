@@ -27,6 +27,10 @@
         "NAME": "Spontaneous Human Combustion",
         "DESCRIPTIONS": ["At the end of your turn, take #b", " damage and increase the damage you will take from this power by #b", "."]
 },
+"Gensokyo:ManorOfTheDishesPower": {
+        "NAME": "Manor of the Dishes",
+        "DESCRIPTIONS": ["Whenever you play #b", " cards, gain #b", " #yIntangible."]
+},
 "Gensokyo:LunacyPower": {
         "NAME": "Lunacy",
         "DESCRIPTIONS": ["Whenever this enemy attacks or applies a debuff, a random enemy is targeted instead."]

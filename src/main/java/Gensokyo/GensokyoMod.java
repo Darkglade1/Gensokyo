@@ -3,11 +3,16 @@ package Gensokyo;
 import Gensokyo.cards.CrescentMoonSlash;
 import Gensokyo.cards.HAARP;
 import Gensokyo.cards.Kunekune;
+import Gensokyo.cards.LittleGreenMen;
+import Gensokyo.cards.LochNessMonster;
+import Gensokyo.cards.ManorOfTheDishes;
 import Gensokyo.cards.MenInBlack;
 import Gensokyo.cards.MissMary;
+import Gensokyo.cards.MonkeysPaw;
 import Gensokyo.cards.RedCapeBlueCape;
 import Gensokyo.cards.SpontaneousHumanCombustion;
 import Gensokyo.cards.TekeTeke;
+import Gensokyo.cards.TurboGranny;
 import Gensokyo.events.ACelestialsPlight;
 import Gensokyo.events.ASwiftSlash;
 import Gensokyo.events.BorderOfDeath;
@@ -301,6 +306,11 @@ public class GensokyoMod implements
         BaseMod.addCard(new Kunekune());
         BaseMod.addCard(new HAARP());
         BaseMod.addCard(new MenInBlack());
+        BaseMod.addCard(new LittleGreenMen());
+        BaseMod.addCard(new TurboGranny());
+        BaseMod.addCard(new MonkeysPaw());
+        BaseMod.addCard(new ManorOfTheDishes());
+        BaseMod.addCard(new LochNessMonster());
     }
     
     // ================ /ADD CARDS/ ===================

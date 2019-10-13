@@ -201,7 +201,11 @@ public class Yukari extends CustomMonster
                 if (!this.lastTwoMoves(ATTACK) && !(this.lastMoveBefore(TRAIN) && this.lastMove(ATTACK))) { //can't attack 3 times in a row
                     setAttack();
                 } else {
-                    this.setMove(Yukari.MOVES[1], STRENGTH_DRAIN, Intent.ATTACK_DEBUFF, (this.damage.get(1)).base);
+                    if (num % 2 == 0) {
+                        this.setMove(Yukari.MOVES[1], STRENGTH_DRAIN, Intent.ATTACK_DEBUFF, (this.damage.get(1)).base);
+                    } else {
+                        this.setMove(Yukari.MOVES[2], MEGA_DEBUFF, Intent.DEFEND_DEBUFF);
+                    }
                 }
             }
         }

@@ -38,7 +38,27 @@
   },
   "Gensokyo:MenInBlack": {
     "NAME": "Men in Black",
-    "DESCRIPTION": "Gain !M! Intangible. NL Exhaust.",
-    "UPGRADE_DESCRIPTION": "Retain. NL Gain !M! Intangible. NL Exhaust."
+    "DESCRIPTION": "Retain. NL Gain !M! Intangible. NL Exhaust."
+  },
+  "Gensokyo:LittleGreenMen": {
+    "NAME": "Little Green Men",
+    "DESCRIPTION": "Ethereal. NL Gain [E]. NL Put a copy of this card on top of your draw pile. NL Exhaust.",
+    "UPGRADE_DESCRIPTION": "Gain [E]. NL Put a copy of this card on top of your draw pile. NL Exhaust."
+  },
+  "Gensokyo:TurboGranny": {
+    "NAME": "Turbo Granny",
+    "DESCRIPTION": "Gain !M! Dexterity. NL Gain !Gensokyo:SecondMagic! Plated Armor."
+  },
+  "Gensokyo:MonkeysPaw": {
+    "NAME": "Monkey's Paw",
+    "DESCRIPTION": "Lose half of your current HP. NL Gain !M! Gold for each HP lost this way. NL Exhaust."
+  },
+  "Gensokyo:ManorOfTheDishes": {
+    "NAME": "Manor of the Dishes",
+    "DESCRIPTION": "Whenever you play !Gensokyo:SecondMagic! cards, gain !M! Intangible."
+  },
+  "Gensokyo:LochNessMonster": {
+    "NAME": "Loch Ness Monster",
+    "DESCRIPTION": "Deal !D! damage !M! times."
   }
 }

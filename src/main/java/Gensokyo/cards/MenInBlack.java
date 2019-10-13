@@ -10,7 +10,6 @@ import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.powers.IntangiblePlayerPower;
 
 import static Gensokyo.GensokyoMod.makeCardPath;
-import static com.megacrit.cardcrawl.core.CardCrawlGame.languagePack;
 
 public class MenInBlack extends AbstractDefaultCard {
 
@@ -22,12 +21,14 @@ public class MenInBlack extends AbstractDefaultCard {
     private static final CardType TYPE = CardType.SKILL;
     public static final CardColor COLOR = CardColor.COLORLESS;
 
-    private static final int COST = 1;
+    private static final int COST = 2;
+    private static final int UPGRADED_COST = 1;
     private static final int BUFF = 1;
 
     public MenInBlack() {
         super(ID, IMG, COST, TYPE, COLOR, RARITY, TARGET);
         magicNumber = baseMagicNumber = BUFF;
+        AlwaysRetainField.alwaysRetain.set(this, true);
         exhaust = true;
         tags.add(Tags.URBAN_LEGEND);
     }
@@ -41,8 +42,7 @@ public class MenInBlack extends AbstractDefaultCard {
     public void upgrade() {
         if (!upgraded) {
             upgradeName();
-            AlwaysRetainField.alwaysRetain.set(this, true);
-            rawDescription = languagePack.getCardStrings(cardID).UPGRADE_DESCRIPTION;
+            upgradeBaseCost(UPGRADED_COST);
             initializeDescription();
         }
     }
