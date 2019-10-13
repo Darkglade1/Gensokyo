@@ -35,6 +35,7 @@ Gensokyo\events\ScarletDevilMansion.class
 Gensokyo\cards\LochNessMonster.class
 Gensokyo\cards\CrescentMoonSlash.class
 Gensokyo\variables\DefaultCustomVariable.class
+Gensokyo\events\FieldTripToAnotherWorld.class
 Gensokyo\powers\SturdyPower.class
 Gensokyo\cards\ManorOfTheDishes.class
 Gensokyo\cards\AbstractDefaultCard.class

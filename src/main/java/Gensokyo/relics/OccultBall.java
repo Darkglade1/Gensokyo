@@ -38,7 +38,7 @@ public class OccultBall extends CustomRelic {
     private static final Texture IMG = TextureLoader.getTexture(makeRelicPath("OccultBall.png"));
     private static final Texture OUTLINE = TextureLoader.getTexture(makeRelicOutlinePath("OccultBall.png"));
 
-    private static final int MAX_STACKS = 7;
+    public static final int MAX_STACKS = 7;
 
     public OccultBall() {
         super(ID, IMG, OUTLINE, RelicTier.SPECIAL, LandingSound.MAGICAL);

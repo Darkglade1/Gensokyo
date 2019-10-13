@@ -16,6 +16,7 @@ import Gensokyo.cards.TurboGranny;
 import Gensokyo.events.ACelestialsPlight;
 import Gensokyo.events.ASwiftSlash;
 import Gensokyo.events.BorderOfDeath;
+import Gensokyo.events.FieldTripToAnotherWorld;
 import Gensokyo.events.HakureiShrine;
 import Gensokyo.events.ScarletDevilMansion;
 import Gensokyo.events.TheEnmasDilemma;
@@ -256,6 +257,7 @@ public class GensokyoMod implements
         BaseMod.addEvent(HakureiShrine.ID, HakureiShrine.class, Exordium.ID);
         BaseMod.addEvent(ASwiftSlash.ID, ASwiftSlash.class, Exordium.ID);
         BaseMod.addEvent(ThoseEarthRabbits.ID, ThoseEarthRabbits.class, Exordium.ID);
+        BaseMod.addEvent(FieldTripToAnotherWorld.ID, FieldTripToAnotherWorld.class, Exordium.ID);
         
         // =============== /EVENTS/ =================
         logger.info("Done loading badge Image and mod options");

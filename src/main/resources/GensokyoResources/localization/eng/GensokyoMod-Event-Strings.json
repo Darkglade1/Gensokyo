@@ -136,5 +136,23 @@
       " #gGold.",
       "[Leave]"
     ]
+  },
+  "Gensokyo:FieldTripToAnotherWorld": {
+    "NAME": "Field Trip to Another World",
+    "DESCRIPTIONS": [
+      "You come across a #pstrange sight - a figure that could only be described as an #p~ominous~ #pshadow was standing in the distance, several #pglowing, purple balls surrounding it. NL NL \"Ah! Hello there!\" NL NL Its voice is surprisingly . . . feminine? Even so, you steel yourself as it approaches. NL NL \"Say, how would you like the chance to make a #ywish come true?\" It points to the balls hovering around it. \"If you collect seven of these, even your ~wildest~ #gfantasies will become a reality!\"",
+      "#rSuspicious, you ask what the catch is. NL NL \"There is no catch! Well, not really. Other than the fact that you’ll have to #rfight the other people I gave a ball to in order to collect all of them.\" NL NL It tilts its head towards you, giving you the impression that it would be ~grinning~ if it had a face. NL NL \"So, what do you say? All you have to do is give me a little something of yours, and I’ll give you one of these bad boys to start out with. Not a bad #ydeal, right?\"",
+      "\"An #gexcellent choice!\" NL NL One of the balls flies over to hover next to you, its #peerie glow seemingly @twisting@ the very space around it. NL NL \"Try not to lose it too early, alright? I wouldn't mind meeting you again later.\" NL NL Before you can ask what those #pforeboding words meant, the #pshadow flickered into the distance, not a trace remaining of its passing.",
+      "\"Awwww.\" NL NL If the #pshadow had a face, you were sure it would be pouting right now. NL NL \"Well, that’s fine, I guess. I’ll just have to find someone else to pass these along to.\" NL NL Space folded around it, compressing it into a speck that vanished into thin air. NL NL You shake your head before moving on, #p~unsettled~ by what you had encountered."
+    ],
+    "OPTIONS": [
+      "[Continue]",
+      "[Accept] #rLose ",
+      " #gObtain #gan #gOccult #gBall.",
+      "[Locked] Requires: non-Basic Card",
+      "[Accept] #gObtain #gan #gOccult #gBall.",
+      "[Refuse]",
+      "[Leave]"
+    ]
   }
 }
