@@ -12,8 +12,8 @@ public class PortableGap extends CustomRelic {
 
     public static final String ID = GensokyoMod.makeID("PortableGap");
 
-    private static final Texture IMG = TextureLoader.getTexture(makeRelicPath("PerfectCherryBlossom.png"));
-    private static final Texture OUTLINE = TextureLoader.getTexture(makeRelicOutlinePath("PerfectCherryBlossom.png"));
+    private static final Texture IMG = TextureLoader.getTexture(makeRelicPath("PortableGap.png"));
+    private static final Texture OUTLINE = TextureLoader.getTexture(makeRelicOutlinePath("PortableGap.png"));
 
     public PortableGap() {
         super(ID, IMG, OUTLINE, RelicTier.SPECIAL, LandingSound.MAGICAL);

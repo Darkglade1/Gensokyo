@@ -3,6 +3,7 @@ Gensokyo\cards\RedCapeBlueCape.class
 Gensokyo\events\ThoseEarthRabbits.class
 Gensokyo\powers\Vengeance.class
 Gensokyo\actions\CrescentMoonSlashAction.class
+Gensokyo\events\AHoleInReality.class
 Gensokyo\powers\VigorPower.class
 Gensokyo\actions\KillAction.class
 Gensokyo\events\ACelestialsPlight.class

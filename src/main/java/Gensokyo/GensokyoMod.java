@@ -14,6 +14,7 @@ import Gensokyo.cards.SpontaneousHumanCombustion;
 import Gensokyo.cards.TekeTeke;
 import Gensokyo.cards.TurboGranny;
 import Gensokyo.events.ACelestialsPlight;
+import Gensokyo.events.AHoleInReality;
 import Gensokyo.events.ASwiftSlash;
 import Gensokyo.events.BorderOfDeath;
 import Gensokyo.events.FieldTripToAnotherWorld;
@@ -259,6 +260,7 @@ public class GensokyoMod implements
         BaseMod.addEvent(ASwiftSlash.ID, ASwiftSlash.class, Exordium.ID);
         BaseMod.addEvent(ThoseEarthRabbits.ID, ThoseEarthRabbits.class, Exordium.ID);
         BaseMod.addEvent(FieldTripToAnotherWorld.ID, FieldTripToAnotherWorld.class, Exordium.ID);
+        BaseMod.addEvent(AHoleInReality.ID, AHoleInReality.class, Exordium.ID);
         
         // =============== /EVENTS/ =================
         logger.info("Done loading badge Image and mod options");

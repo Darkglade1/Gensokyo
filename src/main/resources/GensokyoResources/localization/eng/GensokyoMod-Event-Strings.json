@@ -154,5 +154,20 @@
       "[Refuse]",
       "[Leave]"
     ]
+  },
+  "Gensokyo:AHoleInReality": {
+    "NAME": "A Hole in Reality",
+    "DESCRIPTIONS": [
+      "You find something #pstrange on the ground. A crack in reality, with #rribbons adorning its ends and a dozen eyes staring at you from within its depths. NL NL You feel a sudden urge to ~jump~ into it. NL NL There is no way that plan can go wrong.",
+      "You fall into the #pabyss, tumbling through a dimension that was neither ~here~ nor ~there,~ neither #rhot nor #bcold, neither @strange@ nor @shallow.@ NL NL And the #peyes. The #peyes were @everywhere,@ following your descent, thousands upon thousands of gazes #r@boring@ into you, watching, waiting. NL NL It’s too much. The #peyes were mocking you, judging you, their constant gaze building up a very real @pressure@ within you -",
+      "Something @snaps.@ You're not sure when, but you find yourself outside of that #rhellish landscape, finally free of that #pabyss. NL NL But the #peyes. The #peyes are still there, all around you, watching, waiting. NL NL There is no escape from the #peyes.",
+      "You manage to reign in your sudden urge. Trusting your life to some freaky hole in the ground didn't sound appealing to you."
+    ],
+    "OPTIONS": [
+      "[Continue]",
+      "[Jump in] #rLose #r",
+      " #rMax #rHP. #gObtain #ga #gSpecial #gRelic.",
+      "[Leave]"
+    ]
   }
 }
