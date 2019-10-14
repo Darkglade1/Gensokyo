@@ -19,18 +19,20 @@ public class PortableGapPatch
 
         public static boolean Postfix(boolean __result, MapRoomNode __instance, MapRoomNode node)
         {
-            Iterator var2 = __instance.getEdges().iterator();
-            MapEdge edge;
-            do {
-                if (!var2.hasNext()) {
-                    return false;
-                }
+            if (!__result && AbstractDungeon.player.hasRelic(PortableGap.ID)) {
+                Iterator var2 = __instance.getEdges().iterator();
+                MapEdge edge;
+                do {
+                    if (!var2.hasNext()) {
+                        return false;
+                    }
 
-                edge = (MapEdge)var2.next();
-                if (AbstractDungeon.player.hasRelic(PortableGap.ID) && node.y == edge.dstY) {
-                    return true;
-                }
-            } while(node.y != edge.dstY || !AbstractDungeon.player.hasRelic(PortableGap.ID));
+                    edge = (MapEdge)var2.next();
+                    if (AbstractDungeon.player.hasRelic(PortableGap.ID) && node.y == edge.dstY) {
+                        return true;
+                    }
+                } while(node.y != edge.dstY || !AbstractDungeon.player.hasRelic(PortableGap.ID));
+            }
 
             return __result;
         }

@@ -107,6 +107,7 @@ public class Yukari extends CustomMonster
         CardCrawlGame.music.unsilenceBGM();
         AbstractDungeon.scene.fadeOutAmbiance();
         AbstractDungeon.getCurrRoom().playBgmInstantly("Gensokyo/Necrofantasia.mp3");
+        AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(this, this, new UnstableBoundariesPower(this)));
     }
     
     @Override
@@ -114,7 +115,6 @@ public class Yukari extends CustomMonster
         switch (this.nextMove) {
             case OPENING: {
                 AbstractDungeon.actionManager.addToBottom(new TalkAction(this, Yukari.DIALOG[0]));
-                AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(this, this, new UnstableBoundariesPower(this)));
                 AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(this, this, new StrengthPower(this, this.strengthDrain), this.strengthDrain));
                 AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(AbstractDungeon.player, this, new StrengthPower(AbstractDungeon.player, -this.strengthDrain), -this.strengthDrain));
                 break;

@@ -141,7 +141,7 @@ public class Komachi extends CustomMonster
 
     @Override
     protected void getMove(final int num) {
-        if (this.firstMove) {
+        if (this.firstMove && !AbstractDungeon.player.hasPower(DeathMark.POWER_ID)) {
             this.setMove(Komachi.MOVES[2], DEATH, Intent.STRONG_DEBUFF);
             this.firstMove = false;
         } else if (this.secondMove){
