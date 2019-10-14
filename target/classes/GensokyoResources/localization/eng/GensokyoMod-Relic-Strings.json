@@ -43,5 +43,12 @@
     "DESCRIPTIONS": [
       "At the start of combat, apply #b", " #yLunacy to ALL enemies."
     ]
+  },
+  "Gensokyo:PortableGap": {
+    "NAME": "Portable Gap",
+    "FLAVOR": "You are unsure if it is reality that has cracked . . . or if it's your mind.",
+    "DESCRIPTIONS": [
+      "You may ignore paths when choosing the next room to travel to."
+    ]
   }
 }

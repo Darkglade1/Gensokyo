@@ -29,6 +29,7 @@ import Gensokyo.relics.LunaticRedEyes;
 import Gensokyo.relics.Mercy;
 import Gensokyo.relics.OccultBall;
 import Gensokyo.relics.PerfectCherryBlossom;
+import Gensokyo.relics.PortableGap;
 import Gensokyo.util.IDCheckDontTouchPls;
 import Gensokyo.util.TextureLoader;
 import Gensokyo.variables.DefaultCustomVariable;
@@ -282,6 +283,7 @@ public class GensokyoMod implements
         BaseMod.addRelic(new CelestialsFlawlessClothing(), RelicType.SHARED);
         BaseMod.addRelic(new OccultBall(), RelicType.SHARED);
         BaseMod.addRelic(new LunaticRedEyes(), RelicType.SHARED);
+        BaseMod.addRelic(new PortableGap(), RelicType.SHARED);
 
         logger.info("Done adding relics!");
     }

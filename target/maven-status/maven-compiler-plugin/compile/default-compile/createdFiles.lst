@@ -14,6 +14,8 @@ Gensokyo\vfx\YukariTrainEffect.class
 Gensokyo\vfx\EmptyEffect.class
 Gensokyo\cards\BlueCape.class
 Gensokyo\events\TheEnmasDilemma.class
+Gensokyo\patches\relics\PortableGapPatch.class
+Gensokyo\patches\relics\PortableGapPatch$IsConnectedTo.class
 Gensokyo\patches\relics\RezItemPatch$Locator.class
 Gensokyo\powers\LunacyPower.class
 Gensokyo\actions\InvertPowersAction.class
@@ -59,5 +61,6 @@ Gensokyo\cards\SpontaneousHumanCombustion.class
 Gensokyo\relics\Mercy.class
 Gensokyo\monsters\Komachi.class
 Gensokyo\relics\OccultBall.class
+Gensokyo\relics\PortableGap.class
 Gensokyo\relics\LunaticRedEyes.class
 Gensokyo\events\HakureiShrine.class
