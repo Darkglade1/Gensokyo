@@ -169,5 +169,22 @@
       " #rMax #rHP. #gObtain #ga #gSpecial #gRelic.",
       "[Leave]"
     ]
+  },
+  "Gensokyo:GoodsFromTheOutsideWorld": {
+    "NAME": "Goods From the Outside World",
+    "DESCRIPTIONS": [
+      "You find yourself before a quaint little #ystore, one that has been clearly worn down throughout the ages. NL NL \"A customer? How unusual.\" The shopkeeper peers at you through his glasses. \"Well, I don’t know what you’re looking for, but I’m sure one of these artifacts from the Outside World will suit your needs. Probably.\"",
+      "\"That one? Alright, then.\" NL NL He packages the #yitem up and hands it over as you give him the #ypayment. NL NL \"That was my first sale in a . . . very long time, actually. Feel free to come again anytime.\"",
+      "The shopkeeper doesn't even look up as you leave, still engrossed in whatever book he’s reading."
+    ],
+    "OPTIONS": [
+      "[Buy] #rLose #r",
+      " #rGold. #gObtain #ga #grandom #gCommon #gRelic.",
+      " #rGold. #gObtain #ga #grandom #gUncommon #gRelic.",
+      " #rGold. #gObtain #ga #grandom #gRare #gRelic.",
+      "[Locked] Requires: ",
+      " Gold",
+      "[Leave]"
+    ]
   }
 }

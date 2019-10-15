@@ -49,6 +49,7 @@ Gensokyo\patches\relics\PerfectCherryBlossomPatch.class
 Gensokyo\cards\MenInBlack.class
 Gensokyo\powers\DeathMark.class
 Gensokyo\variables\DefaultSecondMagicNumber.class
+Gensokyo\events\GoodsFromTheOutsideWorld.class
 Gensokyo\powers\UnstableBoundariesPower.class
 Gensokyo\cards\MonkeysPaw.class
 Gensokyo\relics\CelestialsFlawlessClothing.class

@@ -15,6 +15,7 @@ C:\Users\jeffr\Documents\my_mods\Gensokyo\Gensokyo\src\main\java\Gensokyo\variab
 C:\Users\jeffr\Documents\my_mods\Gensokyo\Gensokyo\src\main\java\Gensokyo\cards\MissMary.java
 C:\Users\jeffr\Documents\my_mods\Gensokyo\Gensokyo\src\main\java\Gensokyo\relics\CelestialsFlawlessClothing.java
 C:\Users\jeffr\Documents\my_mods\Gensokyo\Gensokyo\src\main\java\Gensokyo\actions\KillAction.java
+C:\Users\jeffr\Documents\my_mods\Gensokyo\Gensokyo\src\main\java\Gensokyo\relics\PortableGap.java
 C:\Users\jeffr\Documents\my_mods\Gensokyo\Gensokyo\src\main\java\Gensokyo\cards\RedCape.java
 C:\Users\jeffr\Documents\my_mods\Gensokyo\Gensokyo\src\main\java\Gensokyo\cards\SpontaneousHumanCombustion.java
 C:\Users\jeffr\Documents\my_mods\Gensokyo\Gensokyo\src\main\java\Gensokyo\relics\PerfectCherryBlossom.java
@@ -25,6 +26,7 @@ C:\Users\jeffr\Documents\my_mods\Gensokyo\Gensokyo\src\main\java\Gensokyo\events
 C:\Users\jeffr\Documents\my_mods\Gensokyo\Gensokyo\src\main\java\Gensokyo\events\TheEnmasDilemma.java
 C:\Users\jeffr\Documents\my_mods\Gensokyo\Gensokyo\src\main\java\Gensokyo\patches\LunacyRetargetPatch.java
 C:\Users\jeffr\Documents\my_mods\Gensokyo\Gensokyo\src\main\java\Gensokyo\vfx\YukariTrainEffect.java
+C:\Users\jeffr\Documents\my_mods\Gensokyo\Gensokyo\src\main\java\Gensokyo\patches\relics\PortableGapPatch.java
 C:\Users\jeffr\Documents\my_mods\Gensokyo\Gensokyo\src\main\java\Gensokyo\powers\SturdyPower.java
 C:\Users\jeffr\Documents\my_mods\Gensokyo\Gensokyo\src\main\java\Gensokyo\cards\LittleGreenMen.java
 C:\Users\jeffr\Documents\my_mods\Gensokyo\Gensokyo\src\main\java\Gensokyo\relics\LunaticRedEyes.java
@@ -48,6 +50,7 @@ C:\Users\jeffr\Documents\my_mods\Gensokyo\Gensokyo\src\main\java\Gensokyo\patche
 C:\Users\jeffr\Documents\my_mods\Gensokyo\Gensokyo\src\main\java\Gensokyo\vfx\TrainEffect.java
 C:\Users\jeffr\Documents\my_mods\Gensokyo\Gensokyo\src\main\java\Gensokyo\powers\FortitudePower.java
 C:\Users\jeffr\Documents\my_mods\Gensokyo\Gensokyo\src\main\java\Gensokyo\actions\CrescentMoonSlashAction.java
+C:\Users\jeffr\Documents\my_mods\Gensokyo\Gensokyo\src\main\java\Gensokyo\events\AHoleInReality.java
 C:\Users\jeffr\Documents\my_mods\Gensokyo\Gensokyo\src\main\java\Gensokyo\cards\ManorOfTheDishes.java
 C:\Users\jeffr\Documents\my_mods\Gensokyo\Gensokyo\src\main\java\Gensokyo\cards\Kunekune.java
 C:\Users\jeffr\Documents\my_mods\Gensokyo\Gensokyo\src\main\java\Gensokyo\events\FieldTripToAnotherWorld.java
@@ -56,5 +59,6 @@ C:\Users\jeffr\Documents\my_mods\Gensokyo\Gensokyo\src\main\java\Gensokyo\powers
 C:\Users\jeffr\Documents\my_mods\Gensokyo\Gensokyo\src\main\java\Gensokyo\relics\OccultBall.java
 C:\Users\jeffr\Documents\my_mods\Gensokyo\Gensokyo\src\main\java\Gensokyo\vfx\EmptyEffect.java
 C:\Users\jeffr\Documents\my_mods\Gensokyo\Gensokyo\src\main\java\Gensokyo\cards\HAARP.java
+C:\Users\jeffr\Documents\my_mods\Gensokyo\Gensokyo\src\main\java\Gensokyo\events\GoodsFromTheOutsideWorld.java
 C:\Users\jeffr\Documents\my_mods\Gensokyo\Gensokyo\src\main\java\Gensokyo\powers\ManorOfTheDishesPower.java
 C:\Users\jeffr\Documents\my_mods\Gensokyo\Gensokyo\src\main\java\Gensokyo\variables\DefaultSecondMagicNumber.java
