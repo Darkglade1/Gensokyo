@@ -60,5 +60,25 @@
   "Gensokyo:LochNessMonster": {
     "NAME": "Loch Ness Monster",
     "DESCRIPTION": "Deal !D! damage !M! times."
+  },
+  "Gensokyo:GapWoman": {
+    "NAME": "Gap Woman",
+    "DESCRIPTION": "Apply !M! Weak to ALL enemies. NL Exhaust."
+  },
+  "Gensokyo:EightFeetTall": {
+    "NAME": "Eight Feet Tall",
+    "DESCRIPTION": "Target non-boss enemy dies in !M! turns. NL Exhaust."
+  },
+  "Gensokyo:SevenSchoolMysteries": {
+    "NAME": "Seven School Mysteries",
+    "DESCRIPTION": "Whenever you play !Gensokyo:SecondMagic! cards in a single turn, gain !M! Strength and !M! Dexterity."
+  },
+  "Gensokyo:Apocalypse": {
+    "NAME": "Apocalypse",
+    "DESCRIPTION": "Deal !D! damage to ALL enemies. NL Take !M! damage."
+  },
+  "Gensokyo:SlitMouthedWoman": {
+    "NAME": "Slit Mouthed Woman",
+    "DESCRIPTION": "The next time you are attacked, apply !M! Vulnerable to the attacker. NL The second next time you are attacked, the attacker loses !M! Strength. NL Exhaust."
   }
 }

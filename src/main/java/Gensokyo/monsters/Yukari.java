@@ -54,8 +54,8 @@ public class Yukari extends CustomMonster
     private static final int A19_DEBUFF_AMOUNT = 3;
     private static final int STRENGTH_DRAIN_AMOUNT = 2;
     private static final int A19_STRENGTH_DRAIN_AMOUNT = 3;
-    private static final int BLOCK = 8;
-    private static final int A19_BLOCK = 10;
+    private static final int BLOCK = 12;
+    private static final int A9_BLOCK = 16;
     private int normalDamage;
     private int trainDamage;
     private int debuffAmount;
@@ -63,8 +63,8 @@ public class Yukari extends CustomMonster
     private int block;
     private boolean useTrain = false;
     private boolean useTrainTexture = false;
-    private static final int HP = 230;
-    public static final int A9_HP = 240;
+    private static final int HP = 245;
+    private static final int A9_HP = 255;
 
     public Yukari() {
         this(0.0f, 0.0f);
@@ -79,16 +79,16 @@ public class Yukari extends CustomMonster
         if (AbstractDungeon.ascensionLevel >= 19) {
             this.debuffAmount = A19_DEBUFF_AMOUNT;
             this.strengthDrain = A19_STRENGTH_DRAIN_AMOUNT;
-            this.block = A19_BLOCK;
         } else {
             this.debuffAmount = DEBUFF_AMOUNT;
             this.strengthDrain = STRENGTH_DRAIN_AMOUNT;
-            this.block = BLOCK;
         }
         if (AbstractDungeon.ascensionLevel >= 9) {
             this.setHp(A9_HP);
+            this.block = A9_BLOCK;
         } else {
             this.setHp(HP);
+            this.block = BLOCK;
         }
 
         if (AbstractDungeon.ascensionLevel >= 4) {

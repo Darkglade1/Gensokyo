@@ -4,6 +4,8 @@ Gensokyo\events\ThoseEarthRabbits.class
 Gensokyo\powers\Vengeance.class
 Gensokyo\actions\CrescentMoonSlashAction.class
 Gensokyo\events\AHoleInReality.class
+Gensokyo\cards\SlitMouthedWoman.class
+Gensokyo\cards\GapWoman.class
 Gensokyo\powers\VigorPower.class
 Gensokyo\actions\KillAction.class
 Gensokyo\events\ACelestialsPlight.class
@@ -25,12 +27,15 @@ Gensokyo\powers\SpontaneousHumanCombustionPower.class
 Gensokyo\patches\relics\PerfectCherryBlossomPatch$Locator.class
 Gensokyo\cards\TekeTeke.class
 Gensokyo\monsters\Yukari.class
+Gensokyo\powers\SlitMouthedWomanPower.class
 Gensokyo\patches\LunacyRetargetPatch$Locator.class
 Gensokyo\powers\HAARPPower.class
 Gensokyo\tags\Tags.class
 Gensokyo\util\IDCheckDontTouchPls.class
 Gensokyo\patches\MusicPatch.class
+Gensokyo\cards\EightFeetTall.class
 Gensokyo\util\TextureLoader.class
+Gensokyo\cards\Apocalypse.class
 Gensokyo\actions\TekeTekeAction.class
 Gensokyo\GensokyoMod.class
 Gensokyo\patches\relics\RezItemPatch.class
@@ -42,6 +47,7 @@ Gensokyo\events\FieldTripToAnotherWorld.class
 Gensokyo\powers\SturdyPower.class
 Gensokyo\cards\ManorOfTheDishes.class
 Gensokyo\cards\AbstractDefaultCard.class
+Gensokyo\powers\SevenSchoolMysteriesPower.class
 Gensokyo\cards\HAARP.class
 Gensokyo\relics\Justice.class
 Gensokyo\cards\MissMary.class
@@ -51,6 +57,7 @@ Gensokyo\powers\DeathMark.class
 Gensokyo\variables\DefaultSecondMagicNumber.class
 Gensokyo\events\GoodsFromTheOutsideWorld.class
 Gensokyo\powers\UnstableBoundariesPower.class
+Gensokyo\cards\SevenSchoolMysteries.class
 Gensokyo\cards\MonkeysPaw.class
 Gensokyo\relics\CelestialsFlawlessClothing.class
 Gensokyo\events\BorderOfDeath.class

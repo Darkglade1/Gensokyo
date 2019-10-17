@@ -38,5 +38,13 @@
 "Gensokyo:HAARPPower": {
         "NAME": "HAARP",
         "DESCRIPTIONS": ["At the start of your turn, #yChannel #b", " #yLightning."]
+},
+"Gensokyo:SevenSchoolMysteriesPower": {
+        "NAME": "Seven School Mysteries",
+        "DESCRIPTIONS": ["Whenever you play #b", " cards in a single turn, gain #b", " #yStrength and #b", " #yDexterity."]
+},
+"Gensokyo:SlitMouthedWomanPower": {
+        "NAME": "Slit Mouthed Woman",
+        "DESCRIPTIONS": ["The next time you are attacked, apply #b", " #yVulnerable to the attacker. The second next time you are attacked, the attacker loses #b", " #yStrength"]
 }
 }

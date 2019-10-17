@@ -2,6 +2,9 @@ package Gensokyo.relics;
 
 import Gensokyo.GensokyoMod;
 import Gensokyo.actions.FlexibleDiscoveryAction;
+import Gensokyo.cards.Apocalypse;
+import Gensokyo.cards.EightFeetTall;
+import Gensokyo.cards.GapWoman;
 import Gensokyo.cards.HAARP;
 import Gensokyo.cards.Kunekune;
 import Gensokyo.cards.LittleGreenMen;
@@ -11,6 +14,8 @@ import Gensokyo.cards.MenInBlack;
 import Gensokyo.cards.MissMary;
 import Gensokyo.cards.MonkeysPaw;
 import Gensokyo.cards.RedCapeBlueCape;
+import Gensokyo.cards.SevenSchoolMysteries;
+import Gensokyo.cards.SlitMouthedWoman;
 import Gensokyo.cards.SpontaneousHumanCombustion;
 import Gensokyo.cards.TekeTeke;
 import Gensokyo.cards.TurboGranny;
@@ -86,6 +91,11 @@ public class OccultBall extends CustomRelic {
         list.add(new MonkeysPaw());
         list.add(new ManorOfTheDishes());
         list.add(new LochNessMonster());
+        list.add(new GapWoman());
+        list.add(new EightFeetTall());
+        list.add(new SevenSchoolMysteries());
+        list.add(new Apocalypse());
+        list.add(new SlitMouthedWoman());
         Collections.shuffle(list, rng.random);
         return new ArrayList<>(list.subList(0, 3));
     }

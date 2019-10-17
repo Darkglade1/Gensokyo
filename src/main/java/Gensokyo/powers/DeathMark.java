@@ -38,7 +38,7 @@ public class DeathMark extends AbstractPower {
     }
 
     @Override
-    public void atStartOfTurn() {
+    public void atEndOfRound() {
         if (this.amount == 1) {
             AbstractDungeon.actionManager.addToBottom(new DamageAction(this.owner, new DamageInfo(this.source, 9999), AbstractGameAction.AttackEffect.NONE));
             AbstractDungeon.actionManager.addToBottom(new RemoveSpecificPowerAction(this.owner, this.owner, this.ID));
