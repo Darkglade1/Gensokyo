@@ -37,30 +37,35 @@ public class Yukari extends CustomMonster
     public static final String[] DIALOG;
     private static final Texture TRAIN_INTENT_TEXTURE = ImageMaster.loadImage("GensokyoResources/images/monsters/Yukari/attack_intent_train.png");
     private boolean firstMove = true;
-    private boolean secondMove = true;
     private static final byte OPENING = 1;
     private static final byte STRENGTH_DRAIN = 2;
     private static final byte MEGA_DEBUFF = 3;
     private static final byte ATTACK = 4;
     private static final byte LAST_WORD = 5;
     private static final byte TRAIN = 6;
-    private static final int NORMAL_ATTACK_DAMAGE = 8;
-    private static final int A4_NORMAL_ATTACK_DAMAGE = 9;
+    private static final int NORMAL_ATTACK_DAMAGE = 11;
+    private static final int A4_NORMAL_ATTACK_DAMAGE = 12;
     private static final int NORMAL_ATTACK_HITS = 2;
-    private static final int TRAIN_ATTACK_DAMAGE = 7;
-    private static final int A4_TRAIN_ATTACK_DAMAGE = 8;
+    private static final int DEBUFF_ATTACK_DAMAGE = 16;
+    private static final int A4_DEBUFF_ATTACK_DAMAGE = 18;
+    private static final int TRAIN_ATTACK_DAMAGE = 8;
+    private static final int A4_TRAIN_ATTACK_DAMAGE = 9;
     private static final int TRAIN_ATTACK_HITS = 3;
     private static final int DEBUFF_AMOUNT = 2;
     private static final int A19_DEBUFF_AMOUNT = 3;
     private static final int STRENGTH_DRAIN_AMOUNT = 2;
     private static final int A19_STRENGTH_DRAIN_AMOUNT = 3;
+    private static final int WOUND_AMOUNT = 1;
+    private static final int A19_WOUND_AMOUNT = 2;
     private static final int BLOCK = 12;
-    private static final int A9_BLOCK = 16;
+    private static final int A9_BLOCK = 15;
     private int normalDamage;
+    private int debuffDamage;
     private int trainDamage;
     private int debuffAmount;
     private int strengthDrain;
     private int block;
+    private int wound;
     private boolean useTrain = false;
     private boolean useTrainTexture = false;
     private static final int HP = 245;
@@ -79,9 +84,11 @@ public class Yukari extends CustomMonster
         if (AbstractDungeon.ascensionLevel >= 19) {
             this.debuffAmount = A19_DEBUFF_AMOUNT;
             this.strengthDrain = A19_STRENGTH_DRAIN_AMOUNT;
+            this.wound = A19_WOUND_AMOUNT;
         } else {
             this.debuffAmount = DEBUFF_AMOUNT;
             this.strengthDrain = STRENGTH_DRAIN_AMOUNT;
+            this.wound = WOUND_AMOUNT;
         }
         if (AbstractDungeon.ascensionLevel >= 9) {
             this.setHp(A9_HP);
@@ -93,13 +100,16 @@ public class Yukari extends CustomMonster
 
         if (AbstractDungeon.ascensionLevel >= 4) {
             this.normalDamage = A4_NORMAL_ATTACK_DAMAGE;
+            this.debuffDamage = A4_DEBUFF_ATTACK_DAMAGE;
             this.trainDamage = A4_TRAIN_ATTACK_DAMAGE;
         } else {
             this.normalDamage = NORMAL_ATTACK_DAMAGE;
+            this.debuffDamage = DEBUFF_ATTACK_DAMAGE;
             this.trainDamage = TRAIN_ATTACK_DAMAGE;
         }
         this.damage.add(new DamageInfo(this, this.normalDamage));
         this.damage.add(new DamageInfo(this, this.trainDamage));
+        this.damage.add(new DamageInfo(this, this.debuffDamage));
     }
 
     @Override
@@ -115,12 +125,13 @@ public class Yukari extends CustomMonster
         switch (this.nextMove) {
             case OPENING: {
                 AbstractDungeon.actionManager.addToBottom(new TalkAction(this, Yukari.DIALOG[0]));
+                AbstractDungeon.actionManager.addToBottom(new GainBlockAction(this, this, this.block));
                 AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(this, this, new StrengthPower(this, this.strengthDrain), this.strengthDrain));
                 AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(AbstractDungeon.player, this, new StrengthPower(AbstractDungeon.player, -this.strengthDrain), -this.strengthDrain));
                 break;
             }
             case STRENGTH_DRAIN: {
-                AbstractDungeon.actionManager.addToBottom(new DamageAction(AbstractDungeon.player, this.damage.get(1), AbstractGameAction.AttackEffect.BLUNT_LIGHT));
+                AbstractDungeon.actionManager.addToBottom(new DamageAction(AbstractDungeon.player, this.damage.get(2), AbstractGameAction.AttackEffect.SLASH_HEAVY));
                 AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(this, this, new StrengthPower(this, this.strengthDrain), this.strengthDrain));
                 AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(AbstractDungeon.player, this, new StrengthPower(AbstractDungeon.player, -this.strengthDrain), -this.strengthDrain));
                 break;
@@ -130,13 +141,15 @@ public class Yukari extends CustomMonster
                 AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(AbstractDungeon.player, this, new VulnerablePower(AbstractDungeon.player, this.debuffAmount, true), this.debuffAmount));
                 AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(AbstractDungeon.player, this, new WeakPower(AbstractDungeon.player, this.debuffAmount, true), this.debuffAmount));
                 AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(AbstractDungeon.player, this, new FrailPower(AbstractDungeon.player, this.debuffAmount, true), this.debuffAmount));
+                AbstractDungeon.actionManager.addToBottom(new MakeTempCardInDiscardAction(new Wound(), this.wound));
                 break;
             }
             case ATTACK: {
                 for (int i = 0; i < NORMAL_ATTACK_HITS; i++) {
                     AbstractDungeon.actionManager.addToBottom(new DamageAction(AbstractDungeon.player, this.damage.get(0), AbstractGameAction.AttackEffect.BLUNT_LIGHT));
                 }
-                AbstractDungeon.actionManager.addToBottom(new MakeTempCardInDiscardAction(new Wound(), 1));
+                AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(this, this, new VulnerablePower(this, this.debuffAmount, true), this.debuffAmount));
+                AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(this, this, new WeakPower(this, this.debuffAmount, true), this.debuffAmount));
                 break;
             }
             case LAST_WORD: {
@@ -162,15 +175,6 @@ public class Yukari extends CustomMonster
         AbstractDungeon.actionManager.addToBottom(new RollMoveAction(this));
     }
 
-    private void setAttack() {
-        if (useTrain && !this.lastMove(TRAIN)) { //can't use train twice in a row
-            useTrainTexture = true;
-            this.setMove(Yukari.MOVES[4], TRAIN, Intent.ATTACK_BUFF, (this.damage.get(1)).base, TRAIN_ATTACK_HITS, true);
-        } else {
-            this.setMove(Yukari.MOVES[3], ATTACK, Intent.ATTACK_DEBUFF, (this.damage.get(0)).base, NORMAL_ATTACK_HITS, true);
-        }
-    }
-
     @Override
     protected void getMove(final int num) {
         if (this.firstMove) {
@@ -180,31 +184,41 @@ public class Yukari extends CustomMonster
             this.useTrain = true;
             this.setMove(Yukari.MOVES[5], LAST_WORD, Intent.DEFEND_BUFF);
         } else if (this.lastMove(LAST_WORD)) {
-            setAttack();
-        } else if (this.secondMove){
-            setAttack();
-            this.secondMove = false;
+            useTrainTexture = true;
+            this.setMove(Yukari.MOVES[4], TRAIN, Intent.ATTACK_BUFF, (this.damage.get(1)).base, TRAIN_ATTACK_HITS, true);
         } else {
-            if (num < 25) {
+            if (this.useTrain && !this.lastMove(TRAIN) && !this.lastMoveBefore(TRAIN)) { //use train every 3 turns
+                useTrainTexture = true;
+                this.setMove(Yukari.MOVES[4], TRAIN, Intent.ATTACK_BUFF, (this.damage.get(1)).base, TRAIN_ATTACK_HITS, true);
+            }
+            else if (num < 35) {
                 if (!this.lastMove(STRENGTH_DRAIN)) {
-                    this.setMove(Yukari.MOVES[1], STRENGTH_DRAIN, Intent.ATTACK_DEBUFF, (this.damage.get(1)).base);
+                    this.setMove(Yukari.MOVES[1], STRENGTH_DRAIN, Intent.ATTACK_DEBUFF, (this.damage.get(2)).base);
                 } else {
-                    setAttack();
+                    if (num % 2 == 0) {
+                        this.setMove(Yukari.MOVES[3], ATTACK, Intent.ATTACK_DEBUFF, (this.damage.get(0)).base, NORMAL_ATTACK_HITS, true);
+                    } else {
+                        this.setMove(Yukari.MOVES[2], MEGA_DEBUFF, Intent.DEFEND_DEBUFF);
+                    }
                 }
-            } else if (num < 50) {
+            } else if (num < 65) {
                 if (!this.lastMove(MEGA_DEBUFF)) {
                     this.setMove(Yukari.MOVES[2], MEGA_DEBUFF, Intent.DEFEND_DEBUFF);
-                } else {
-                    setAttack();
-                }
-            } else {
-                if (!this.lastTwoMoves(ATTACK) && !(this.lastMoveBefore(TRAIN) && this.lastMove(ATTACK))) { //can't attack 3 times in a row
-                    setAttack();
                 } else {
                     if (num % 2 == 0) {
                         this.setMove(Yukari.MOVES[1], STRENGTH_DRAIN, Intent.ATTACK_DEBUFF, (this.damage.get(1)).base);
                     } else {
+                        this.setMove(Yukari.MOVES[3], ATTACK, Intent.ATTACK_DEBUFF, (this.damage.get(0)).base, NORMAL_ATTACK_HITS, true);
+                    }
+                }
+            } else {
+                if (!this.lastMove(ATTACK)) {
+                    this.setMove(Yukari.MOVES[3], ATTACK, Intent.ATTACK_DEBUFF, (this.damage.get(0)).base, NORMAL_ATTACK_HITS, true);
+                } else {
+                    if (num % 2 == 0) {
                         this.setMove(Yukari.MOVES[2], MEGA_DEBUFF, Intent.DEFEND_DEBUFF);
+                    } else {
+                        this.setMove(Yukari.MOVES[1], STRENGTH_DRAIN, Intent.ATTACK_DEBUFF, (this.damage.get(1)).base);
                     }
                 }
             }
