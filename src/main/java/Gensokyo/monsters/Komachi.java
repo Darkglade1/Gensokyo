@@ -21,6 +21,7 @@ import com.megacrit.cardcrawl.powers.AbstractPower;
 import com.megacrit.cardcrawl.powers.FrailPower;
 import com.megacrit.cardcrawl.powers.IntangiblePlayerPower;
 import com.megacrit.cardcrawl.powers.WeakPower;
+import com.megacrit.cardcrawl.rooms.AbstractRoom;
 
 public class Komachi extends CustomMonster
 {
@@ -107,6 +108,7 @@ public class Komachi extends CustomMonster
         if (tier >= 4) {
             this.scytheIntent = Intent.ATTACK_DEBUFF;
         }
+        createIntent();
     }
     
     @Override
@@ -144,10 +146,13 @@ public class Komachi extends CustomMonster
         if (this.firstMove && !AbstractDungeon.player.hasPower(DeathMark.POWER_ID)) {
             this.setMove(Komachi.MOVES[2], DEATH, Intent.STRONG_DEBUFF);
             this.firstMove = false;
+            System.out.println("Doing first move");
         } else if (this.secondMove){
             this.setMove(Komachi.MOVES[1], DEBUFF, Intent.DEBUFF);
             this.secondMove = false;
+            System.out.println("Doing second move");
         } else {
+            System.out.println("Doing something else");
             if (this.lastTwoMoves(SCYTHE)) {
                 this.setMove(Komachi.MOVES[1], DEBUFF, Intent.DEBUFF);
             } else {

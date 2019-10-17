@@ -1,6 +1,7 @@
 package Gensokyo.relics;
 
 import Gensokyo.GensokyoMod;
+import Gensokyo.actions.UsePreBattleActionAction;
 import Gensokyo.monsters.Komachi;
 import Gensokyo.util.TextureLoader;
 import basemod.abstracts.CustomRelic;
@@ -39,8 +40,8 @@ public class CelestialsFlawlessClothing extends CustomRelic {
         AbstractDungeon.player.heal(healAmt, true);
         this.counter++;
         elite = new Komachi(-600.0f, 0);
+        AbstractDungeon.actionManager.addToTop(new UsePreBattleActionAction(elite));
         AbstractDungeon.actionManager.addToTop(new SpawnMonsterAction(elite, false));
-        elite.usePreBattleAction();
     }
 
     @Override
