@@ -23,6 +23,7 @@ import Gensokyo.events.AHoleInReality;
 import Gensokyo.events.ASwiftSlash;
 import Gensokyo.events.BorderOfDeath;
 import Gensokyo.events.FieldTripToAnotherWorld;
+import Gensokyo.events.ForestOfMagic;
 import Gensokyo.events.GoodsFromTheOutsideWorld;
 import Gensokyo.events.HakureiShrine;
 import Gensokyo.events.ScarletDevilMansion;
@@ -268,6 +269,7 @@ public class GensokyoMod implements
         BaseMod.addEvent(FieldTripToAnotherWorld.ID, FieldTripToAnotherWorld.class, Exordium.ID);
         BaseMod.addEvent(AHoleInReality.ID, AHoleInReality.class, Exordium.ID);
         BaseMod.addEvent(GoodsFromTheOutsideWorld.ID, GoodsFromTheOutsideWorld.class, Exordium.ID);
+        BaseMod.addEvent(ForestOfMagic.ID, ForestOfMagic.class, Exordium.ID);
         
         // =============== /EVENTS/ =================
         logger.info("Done loading badge Image and mod options");

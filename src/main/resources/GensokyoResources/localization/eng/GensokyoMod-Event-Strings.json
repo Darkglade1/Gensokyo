@@ -179,12 +179,33 @@
     ],
     "OPTIONS": [
       "[Buy] #rLose #r",
-      " #rGold. #gObtain #ga #grandom #gCommon #gRelic.",
-      " #rGold. #gObtain #ga #grandom #gUncommon #gRelic.",
-      " #rGold. #gObtain #ga #grandom #gRare #gRelic.",
+      " #rGold. #gObtain #ga #gCommon #gRelic.",
+      " #rGold. #gObtain #gan #gUncommon #gRelic.",
+      " #rGold. #gObtain #ga #gRare #gRelic.",
       "[Locked] Requires: ",
       " Gold",
       "[Leave]"
+    ]
+  },
+  "Gensokyo:ForestOfMagic": {
+    "NAME": "Forest of Magic",
+    "DESCRIPTIONS": [
+      "You find yourself in a #pdark and damp #gforest, filled with vines and insects and other unpleasant things. NL NL Not to mention the mushrooms. Mushrooms covered @EVERYTHING.@ The air is thick with their #yspores, and you could feel your breath getting shorter and shorter as the particles clogged your lungs. NL NL You see a break in the trees ahead, two houses in the distance. One of them is worn-down, plants nestling themselves on the roof and curling themselves around the windows. The other is nicer looking, clean white tiles lending itself a much more ~pristine~ appearance.",
+      "You knock on the door, and you hear someone rapidly approaching before the door is flung open. NL NL \"Welcome to the Kirisame Magic Shop! If it’s not bolted down, it’s probably for sale!\" NL NL A girl wearing a wide-brimmed witch hat greets you enthusiastically before noticing your rather #phaggard appearance. NL NL \"Ah, you’re not too used to the air around here, are you? Come in, come in; wouldn't want my first customer in a while to collapse outside.\" NL NL You step into the house to find that the floor is an utter mess.",
+      "\"So, was there anything in particular you were looking for? Or maybe ya wanted to ask me to #rexterminate a youkai or something?\" NL NL You explain that you are simply passing through and that you were caught off-guard by the forest’s #rhostile nature. NL NL \"A traveler, are you? That’s more interesting, actually; got any good tales to tell?\" NL NL You think for a moment before deciding upon an appropriate #ystory. The girl listens intently as you speak, interrupting you only a few times. Her expression is contemplative once you’ve finished, mind still somewhere within the ~faraway~ world you had spun for her.",
+      "\"That’s a #ggood story. Haven’t heard anything like that before.\" Her gaze sweeps across the room, taking in all the junk she had lying around. \"You can take something, if you want. Think of it as a souvenir of your encounter with an ordinary #pwitch.\" NL NL You glance around briefly, picking out something that seemed reasonably useful. NL NL \"In fact, I’ll also escort you out of this forest.\" She #ygrins as she pulls a broom out of somewhere. \"You can even ride behind me, if you want.\"",
+      "Seeing no reason to refuse, you sit on the broom behind her. NL NL @\"Hereeeeeeee@ @we@ @goooooo!\"@ NL NL As the two of you take off at speeds that were #rfar #rfaster than what you were comfortable with, you realize that this was a terrible, terrible #pmistake.",
+      "You knock on the door, and there is a brief pause before it opens with a quiet #pclick. There is no one in the doorway. As you step into the house, you blink in confusion when you see that no one appears to be around at all. NL NL The door closes behind you with a click. You spin around, finding a small doll hovering in the air to be the #pculprit. NL NL \"Are you lost, stranger?\" NL NL A blond, #ydoll-like girl emerges from one of the rooms, regarding you with a cool look. You explain that you are simply passing through, and that the forest’s hostile nature had caught you off-guard.",
+      "The girl nods, like she had expected such an explanation. \"If you did venture in #punprepared, you are #glucky to have made it this far.\" She sits down in a chair, her fingers busying themselves with a bundle of cloth in her hands. \"Once you’ve recovered, I can lead you out of here, I suppose.\" NL NL A doll carrying a tray approaches you, several #grefreshments neatly arranged before you. NL NL \"Drink that. It’ll help clear the spores from your system.\" NL NL You thank her before taking a sip from the cup, the bitter drink sending a #gsoothing feeling flowing throughout your body.",
+      "You watch, #ymesmerized, as the girl elegantly worked the cloth with thread and needle, turning what was once a mundane bundle of cloth into something more, something #gvibrant, something that seemed almost #galive - NL NL You blink. You don’t know how much time has passed, but you see the girl standing up, regarding her newest doll with a #ypleased expression. NL NL \"I see you’re feeling better now. We can leave now, if you wish.\" NL NL The girl stops at the doorway, turning back to look at you expectantly. You find yourself following her, almost as if your body was moving of its own accord."
+    ],
+    "OPTIONS": [
+      "[Continue]",
+      "[Go to the run-down house] #gObtain #ga #gRelic. #rBecome #rCursed #r- #rClumsy.",
+      "[Go to the pristine house] #gGain #g",
+      " #gMax #gHP.",
+      "[Leave]",
+      "[Successfully manage to not die]"
     ]
   }
 }
