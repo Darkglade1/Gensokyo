@@ -35,6 +35,7 @@ import Gensokyo.relics.CelestialsFlawlessClothing;
 import Gensokyo.relics.Justice;
 import Gensokyo.relics.LunaticRedEyes;
 import Gensokyo.relics.Mercy;
+import Gensokyo.relics.NagashiBinaDoll;
 import Gensokyo.relics.OccultBall;
 import Gensokyo.relics.PerfectCherryBlossom;
 import Gensokyo.relics.PortableGap;
@@ -295,6 +296,7 @@ public class GensokyoMod implements
         BaseMod.addRelic(new OccultBall(), RelicType.SHARED);
         BaseMod.addRelic(new LunaticRedEyes(), RelicType.SHARED);
         BaseMod.addRelic(new PortableGap(), RelicType.SHARED);
+        BaseMod.addRelic(new NagashiBinaDoll(), RelicType.SHARED);
 
         logger.info("Done adding relics!");
     }

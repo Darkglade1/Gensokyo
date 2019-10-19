@@ -22,6 +22,7 @@ Gensokyo\patches\relics\PortableGapPatch$IsConnectedTo.class
 Gensokyo\patches\relics\RezItemPatch$Locator.class
 Gensokyo\powers\LunacyPower.class
 Gensokyo\actions\InvertPowersAction.class
+Gensokyo\relics\NagashiBinaDoll.class
 Gensokyo\cards\RedCape.class
 Gensokyo\powers\SpontaneousHumanCombustionPower.class
 Gensokyo\patches\relics\PerfectCherryBlossomPatch$Locator.class

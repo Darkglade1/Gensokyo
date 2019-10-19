@@ -50,5 +50,12 @@
     "DESCRIPTIONS": [
       "You may ignore paths when choosing the next room to travel to."
     ]
+  },
+  "Gensokyo:NagashiBinaDoll": {
+    "NAME": "Nagashi-bina Doll",
+    "FLAVOR": "If you look closely, you can almost see the tendrils of misfortune seeping into the doll.",
+    "DESCRIPTIONS": [
+      "At the start of the next #b", " combats, #yexhaust ALL your #pCurses and gain #b", " #yTemporary #yHP for each #pCurse #yexhausted."
+    ]
   }
 }
