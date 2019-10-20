@@ -207,5 +207,20 @@
       "[Leave]",
       "[Successfully manage to not die]"
     ]
+  },
+  "Gensokyo:GoddessOfMisfortune": {
+    "NAME": "Goddess of Misfortune",
+    "DESCRIPTIONS": [
+      "You find yourself trekking along a mountain path, a ~long~ and #rarduous road that has seen the footfalls of many. NL NL \"Hello there!\" NL NL Further up the path, you see a girl with #baquamarine hair approach, her red dress swirling about as she spins towards you.",
+      "\"Say, how would you like a #ydoll to keep you safe from #pmisfortune? I’ve been trying to sell these, but no one’s been buying them, so now I’m giving them away!\" NL NL She holds out a #ydoll towards you. This close, you can almost ~see~ the waves of #pnegative energy emanating off her being, #pblack snakes that #pglared at you with a predator’s gaze.",
+      "You gingerly accept, being careful to not physically touch the #pmisfortune-laden girl. NL NL She #ybeams at you. \"Thank you very much! Make sure you give it lots and lots of #pmisfortune, alright?\" NL NL The girl spins away, leaving you uncertain as to whether she wished you ill or not.",
+      "\"Awwww.\" NL NL The girl frowns, but soon perks back up. NL NL \"I’m sure the next one will say yes! Off we go now . . .\" NL NL The girl spins away, allowing you to finally breathe easy."
+    ],
+    "OPTIONS": [
+      "[Continue]",
+      "[Accept] #gObtain #ga #gspecial #gRelic.",
+      "[Refuse]",
+      "[Leave]"
+    ]
   }
 }

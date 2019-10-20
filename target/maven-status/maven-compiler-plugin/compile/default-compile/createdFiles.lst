@@ -2,6 +2,7 @@ Gensokyo\patches\LunacyRetargetPatch.class
 Gensokyo\cards\RedCapeBlueCape.class
 Gensokyo\events\ThoseEarthRabbits.class
 Gensokyo\powers\Vengeance.class
+Gensokyo\events\GoddessOfMisfortune.class
 Gensokyo\actions\CrescentMoonSlashAction.class
 Gensokyo\events\AHoleInReality.class
 Gensokyo\cards\SlitMouthedWoman.class
