@@ -22,6 +22,7 @@ import Gensokyo.events.ACelestialsPlight;
 import Gensokyo.events.AHoleInReality;
 import Gensokyo.events.ASwiftSlash;
 import Gensokyo.events.BorderOfDeath;
+import Gensokyo.events.ClashOfLegends;
 import Gensokyo.events.FieldTripToAnotherWorld;
 import Gensokyo.events.ForestOfMagic;
 import Gensokyo.events.GoddessOfMisfortune;
@@ -273,6 +274,7 @@ public class GensokyoMod implements
         BaseMod.addEvent(GoodsFromTheOutsideWorld.ID, GoodsFromTheOutsideWorld.class, Exordium.ID);
         BaseMod.addEvent(ForestOfMagic.ID, ForestOfMagic.class, Exordium.ID);
         BaseMod.addEvent(GoddessOfMisfortune.ID, GoddessOfMisfortune.class, Exordium.ID);
+        BaseMod.addEvent(ClashOfLegends.ID, ClashOfLegends.class, Exordium.ID);
         
         // =============== /EVENTS/ =================
         logger.info("Done loading badge Image and mod options");

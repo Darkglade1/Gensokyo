@@ -59,6 +59,7 @@ Gensokyo\powers\DeathMark.class
 Gensokyo\variables\DefaultSecondMagicNumber.class
 Gensokyo\actions\UsePreBattleActionAction.class
 Gensokyo\events\GoodsFromTheOutsideWorld.class
+Gensokyo\events\ClashOfLegends.class
 Gensokyo\powers\UnstableBoundariesPower.class
 Gensokyo\cards\SevenSchoolMysteries.class
 Gensokyo\cards\MonkeysPaw.class

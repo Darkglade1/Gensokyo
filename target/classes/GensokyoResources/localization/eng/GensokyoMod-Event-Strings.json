@@ -222,5 +222,20 @@
       "[Refuse]",
       "[Leave]"
     ]
+  },
+  "Gensokyo:ClashOfLegends": {
+    "NAME": "Clash of Legends",
+    "DESCRIPTIONS": [
+      "@CLANG!@ @WHAM!@ @BOOM!@ NL NL The sounds of combat pique your interest, and you creep closer to the source of the disturbance to find a myriad of #ycolorful characters duking it out in the sky above you. NL NL #rBullets of pure energy are being hurled everywhere, many of them simply dissipating harmlessly against the ground or one of the nearby buildings. Some of them hit their mark, sending several of the flying figures #rcrashing into the ground nearby, unconscious.",
+      "You see tendrils of #pblack energy rising from the fallen figures - you’re not quite sure what they are, but you can tell that they contain power.",
+      "You approach the downed combatants, flinching as the strands of power suddenly #ystreak towards you. NL NL You convulse as a #pforeign power #rinvades your body, bringing with it ~knowledge~ of an obscure legend, a tale that is simultaneously #greal and #rnot #rreal. NL NL The convulsions stop, and you are left with the utter certainty that you can ~make~ it real.",
+      "It would be better if you did not involve yourself in the affairs of others."
+    ],
+    "OPTIONS": [
+      "[Continue]",
+      "[Embrace the Power] #gAdd #gan #gUrban #gLegend #gto #gyour #gdeck. #rLose #r",
+      " #rMax #rHP.",
+      "[Leave]"
+    ]
   }
 }
