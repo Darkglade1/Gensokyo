@@ -64,6 +64,7 @@ Gensokyo\cards\SevenSchoolMysteries.class
 Gensokyo\cards\MonkeysPaw.class
 Gensokyo\events\ForestOfMagic.class
 Gensokyo\relics\CelestialsFlawlessClothing.class
+Gensokyo\actions\ExhaustRandomCurseInHandAction.class
 Gensokyo\events\BorderOfDeath.class
 Gensokyo\cards\TurboGranny.class
 Gensokyo\powers\ManorOfTheDishesPower.class

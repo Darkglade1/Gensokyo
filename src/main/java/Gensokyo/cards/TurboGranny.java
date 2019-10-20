@@ -21,10 +21,10 @@ public class TurboGranny extends AbstractDefaultCard {
     private static final CardType TYPE = CardType.POWER;
     public static final CardColor COLOR = CardColor.COLORLESS;
 
-    private static final int COST = 1;
-    private static final int DEX = 2;
+    private static final int COST = 2;
+    private static final int DEX = 3;
     private static final int UPGRADE_DEX = 1;
-    private static final int PLATED_ARMOR = 1;
+    private static final int PLATED_ARMOR = 3;
     private static final int UPGRADE_PLATED_ARMOR = 1;
 
     public TurboGranny() {
