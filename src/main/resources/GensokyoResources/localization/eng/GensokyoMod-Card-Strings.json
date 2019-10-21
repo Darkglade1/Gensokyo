@@ -42,8 +42,8 @@
   },
   "Gensokyo:LittleGreenMen": {
     "NAME": "Little Green Men",
-    "DESCRIPTION": "Gain [E]. NL Put a copy of this card on top of your draw pile. NL Exhaust.",
-    "UPGRADE_DESCRIPTION": "Retain. NL Gain [E]. NL Put a copy of this card on top of your draw pile. NL Exhaust."
+    "DESCRIPTION": "Gain [E]. NL Put a copy of this card on top of your draw pile.",
+    "UPGRADE_DESCRIPTION": "Retain. NL Gain [E]. NL Put a copy of this card on top of your draw pile."
   },
   "Gensokyo:TurboGranny": {
     "NAME": "Turbo Granny",

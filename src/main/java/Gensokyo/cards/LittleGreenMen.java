@@ -29,7 +29,6 @@ public class LittleGreenMen extends AbstractDefaultCard {
     public LittleGreenMen() {
         super(ID, IMG, COST, TYPE, COLOR, RARITY, TARGET);
         magicNumber = baseMagicNumber = ENERGY;
-        exhaust = true;
         tags.add(Tags.URBAN_LEGEND);
     }
 
