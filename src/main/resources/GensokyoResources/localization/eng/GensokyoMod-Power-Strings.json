@@ -46,5 +46,25 @@
 "Gensokyo:SlitMouthedWomanPower": {
         "NAME": "Slit Mouthed Woman",
         "DESCRIPTIONS": ["The next time you are attacked, apply #b", " #yVulnerable to the attacker. The second next time you are attacked, the attacker loses #b", " #yStrength"]
+},
+"Gensokyo:FoxMask": {
+        "NAME": "Fox Mask",
+        "DESCRIPTIONS": ["Whenever you play a #ynon-Attack card, shuffle #b", " #yDazed into your draw pile."]
+},
+"Gensokyo:SpiderMask": {
+        "NAME": "Spider Mask",
+        "DESCRIPTIONS": ["Whenever you play an #yAttack, you cannot play any more #yAttacks for the rest of your turn."]
+},
+"Gensokyo:HopeMask": {
+        "NAME": "Mask of Hope",
+        "DESCRIPTIONS": ["At the end of her turn, heals #b", " #yHP. Receiving unblocked attack damage reduces this by #b1."]
+},
+"Gensokyo:DemonMask": {
+        "NAME": "Demon Mask",
+        "DESCRIPTIONS": ["Whenever you play an #yAttack, gains #b", " #yStrength."]
+},
+"Gensokyo:LionMask": {
+        "NAME": "Lion Mask",
+        "DESCRIPTIONS": ["Whenever you play a #ySkill, take #b", " damage."]
 }
 }

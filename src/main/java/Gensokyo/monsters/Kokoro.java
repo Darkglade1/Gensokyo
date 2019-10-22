@@ -1,32 +1,32 @@
 package Gensokyo.monsters;
 
-import Gensokyo.actions.InvertPowersAction;
-import Gensokyo.powers.UnstableBoundariesPower;
-import Gensokyo.vfx.EmptyEffect;
-import Gensokyo.vfx.YukariTrainEffect;
+import Gensokyo.powers.DemonMask;
+import Gensokyo.powers.FoxMask;
+import Gensokyo.powers.HopeMask;
+import Gensokyo.powers.LionMask;
+import Gensokyo.powers.SpiderMask;
 import basemod.abstracts.CustomMonster;
 import basemod.animations.SpriterAnimation;
-import com.badlogic.gdx.graphics.Texture;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
-import com.megacrit.cardcrawl.actions.animations.TalkAction;
 import com.megacrit.cardcrawl.actions.animations.VFXAction;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.actions.common.DamageAction;
 import com.megacrit.cardcrawl.actions.common.GainBlockAction;
 import com.megacrit.cardcrawl.actions.common.MakeTempCardInDiscardAction;
+import com.megacrit.cardcrawl.actions.common.RemoveSpecificPowerAction;
 import com.megacrit.cardcrawl.actions.common.RollMoveAction;
-import com.megacrit.cardcrawl.actions.utility.SFXAction;
+import com.megacrit.cardcrawl.actions.unique.VampireDamageAction;
 import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.cards.status.Wound;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.core.Settings;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
-import com.megacrit.cardcrawl.helpers.ImageMaster;
 import com.megacrit.cardcrawl.localization.MonsterStrings;
 import com.megacrit.cardcrawl.powers.FrailPower;
 import com.megacrit.cardcrawl.powers.StrengthPower;
 import com.megacrit.cardcrawl.powers.VulnerablePower;
 import com.megacrit.cardcrawl.powers.WeakPower;
+import com.megacrit.cardcrawl.vfx.combat.GoldenSlashEffect;
 
 public class Kokoro extends CustomMonster
 {
@@ -163,7 +163,8 @@ public class Kokoro extends CustomMonster
         CardCrawlGame.music.unsilenceBGM();
         AbstractDungeon.scene.fadeOutAmbiance();
         AbstractDungeon.getCurrRoom().playBgmInstantly("Gensokyo/Necrofantasia.mp3");
-        AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(this, this, new UnstableBoundariesPower(this)));
+        AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(this, this, new FoxMask(this, 1)));
+        mask = FOX_MASK;
     }
     
     @Override
@@ -174,35 +175,59 @@ public class Kokoro extends CustomMonster
                     for (int i = 0; i < FOX_ATTACK_HITS; i++) {
                         AbstractDungeon.actionManager.addToBottom(new DamageAction(AbstractDungeon.player, this.damage.get(0), AbstractGameAction.AttackEffect.SLASH_HEAVY));
                     }
+                } else if (mask == SPIDER_MASK) {
+                    AbstractDungeon.actionManager.addToBottom(new DamageAction(AbstractDungeon.player, this.damage.get(2), AbstractGameAction.AttackEffect.BLUNT_LIGHT));
+                    AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(AbstractDungeon.player, this, new WeakPower(AbstractDungeon.player, SPIDER_WEAK, true), SPIDER_WEAK));
+                } else if (mask == HOPE_MASK) {
+                    AbstractDungeon.actionManager.addToBottom(new GainBlockAction(this, this, this.block));
+                    AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(AbstractDungeon.player, this, new WeakPower(AbstractDungeon.player, HOPE_WEAK, true), HOPE_WEAK));
+                } else if (mask == DEMON_MASK) {
+                    AbstractDungeon.actionManager.addToBottom(new DamageAction(AbstractDungeon.player, this.damage.get(5), AbstractGameAction.AttackEffect.SLASH_HORIZONTAL));
+                    AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(AbstractDungeon.player, this, new FrailPower(AbstractDungeon.player, DEMON_FRAIL, true), DEMON_FRAIL));
+                } else if (mask == LION_MASK) {
+                    AbstractDungeon.actionManager.addToBottom(new VFXAction(new GoldenSlashEffect(AbstractDungeon.player.hb.cX - 60.0F * Settings.scale, AbstractDungeon.player.hb.cY, false), 0.1F));
+                    AbstractDungeon.actionManager.addToBottom(new DamageAction(AbstractDungeon.player, this.damage.get(7), AbstractGameAction.AttackEffect.NONE));
                 }
-                AbstractDungeon.actionManager.addToBottom(new TalkAction(this, Kokoro.DIALOG[0]));
-
-                AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(this, this, new StrengthPower(this, this.strengthDrain), this.strengthDrain));
-                AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(AbstractDungeon.player, this, new StrengthPower(AbstractDungeon.player, -this.strengthDrain), -this.strengthDrain));
                 break;
             }
             case MASK_MOVE_2: {
                 if (mask == FOX_MASK) {
                     AbstractDungeon.actionManager.addToBottom(new DamageAction(AbstractDungeon.player, this.damage.get(1), AbstractGameAction.AttackEffect.SLASH_DIAGONAL));
                     AbstractDungeon.actionManager.addToBottom(new MakeTempCardInDiscardAction(new Wound(), this.wound));
+                }   else if (mask == SPIDER_MASK) {
+                    AbstractDungeon.actionManager.addToBottom(new VampireDamageAction(AbstractDungeon.player, this.damage.get(3), AbstractGameAction.AttackEffect.BLUNT_LIGHT));
+                } else if (mask == HOPE_MASK) {
+                    AbstractDungeon.actionManager.addToBottom(new DamageAction(AbstractDungeon.player, this.damage.get(4), AbstractGameAction.AttackEffect.BLUNT_LIGHT));
+                    AbstractDungeon.actionManager.addToBottom(new GainBlockAction(this, this, this.block));
+                } else if (mask == DEMON_MASK) {
+                    AbstractDungeon.actionManager.addToBottom(new DamageAction(AbstractDungeon.player, this.damage.get(6), AbstractGameAction.AttackEffect.SLASH_HORIZONTAL));
+                    AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(AbstractDungeon.player, this, new VulnerablePower(AbstractDungeon.player, DEMON_FRAIL, true), DEMON_FRAIL));
+                } else if (mask == LION_MASK) {
+                    for (int i = 0; i < LION_ATTACK_2_HITS; i++) {
+                        AbstractDungeon.actionManager.addToBottom(new DamageAction(AbstractDungeon.player, this.damage.get(8), AbstractGameAction.AttackEffect.SLASH_HEAVY));
+                    }
                 }
-
-                AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(AbstractDungeon.player, this, new StrengthPower(AbstractDungeon.player, -this.strengthDrain), -this.strengthDrain));
                 break;
             }
             case MASK_CHANGE: {
                 mask++;
                 mask = mask % NUM_MASKS;
                 if (mask == FOX_MASK) {
-
+                    AbstractDungeon.actionManager.addToBottom(new RemoveSpecificPowerAction(this, this, LionMask.POWER_ID));
+                    AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(this, this, new FoxMask(this, 1)));
                 } else if (mask == SPIDER_MASK) {
-
+                    AbstractDungeon.actionManager.addToBottom(new RemoveSpecificPowerAction(this, this, FoxMask.POWER_ID));
+                    AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(this, this, new SpiderMask(this)));
                 } else if (mask == HOPE_MASK) {
                     AbstractDungeon.actionManager.addToBottom(new GainBlockAction(this, this, this.block));
+                    AbstractDungeon.actionManager.addToBottom(new RemoveSpecificPowerAction(this, this, SpiderMask.POWER_ID));
+                    AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(this, this, new HopeMask(this, hopeHeal)));
                 } else if (mask == DEMON_MASK) {
-
+                    AbstractDungeon.actionManager.addToBottom(new RemoveSpecificPowerAction(this, this, HopeMask.POWER_ID));
+                    AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(this, this, new DemonMask(this, demonStrength)));
                 } else if (mask == LION_MASK) {
-                    
+                    AbstractDungeon.actionManager.addToBottom(new RemoveSpecificPowerAction(this, this, DemonMask.POWER_ID));
+                    AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(this, this, new LionMask(this, lionDamage)));
                 }
                 AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(this, this, new StrengthPower(this, MASK_STRENGTH_BUFF), MASK_STRENGTH_BUFF));
                 break;
@@ -260,24 +285,9 @@ public class Kokoro extends CustomMonster
             }
         }
     }
-
-    @Override
-    public Texture getAttackIntent() {
-        if (useTrainTexture) {
-            return TRAIN_INTENT_TEXTURE;
-        }
-        return super.getAttackIntent();
-    }
-    @Override
-    public Texture getAttackIntent(int dmg) {
-        if (useTrainTexture) {
-            return TRAIN_INTENT_TEXTURE;
-        }
-        return super.getAttackIntent(dmg);
-    }
     
     static {
-        monsterStrings = CardCrawlGame.languagePack.getMonsterStrings("Gensokyo:Yukari");
+        monsterStrings = CardCrawlGame.languagePack.getMonsterStrings("Gensokyo:Kokoro");
         NAME = Kokoro.monsterStrings.NAME;
         MOVES = Kokoro.monsterStrings.MOVES;
         DIALOG = Kokoro.monsterStrings.DIALOG;
