@@ -22,8 +22,9 @@ public class SpiderMask extends AbstractPower {
         this.name = NAME;
         this.ID = POWER_ID;
         this.owner = owner;
-        this.updateDescription();
+        this.type = PowerType.BUFF;
         this.loadRegion("entangle");
+        updateDescription();
     }
 
     @Override

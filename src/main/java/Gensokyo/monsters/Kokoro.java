@@ -47,16 +47,16 @@ public class Kokoro extends CustomMonster
     private static final byte MASK_CHANGE = 2;
     private static final int HOPE_HEAL = 15;
     private static final int A19_HOPE_HEAL = 18;
-    private static final int DEMON_STRENGTH = 2;
-    private static final int A19_DEMON_STRENGTH = 3;
+    private static final int DEMON_STRENGTH = 1;
+    private static final int A19_DEMON_STRENGTH = 2;
     private static final int LION_DAMAGE = 2;
     private static final int A19_LION_DAMAGE = 3;
     private static final int MASK_STRENGTH_BUFF = 2;
     private static final int BLOCK = 8;
     private static final int A9_BLOCK = 10;
-    private static final int FOX_ATTACK_DAMAGE = 8;
-    private static final int A4_FOX_ATTACK_DAMAGE = 9;
-    private static final int FOX_ATTACK_HITS = 2;
+    private static final int FOX_ATTACK_DAMAGE = 4;
+    private static final int A4_FOX_ATTACK_DAMAGE = 5;
+    private static final int FOX_ATTACK_HITS = 3;
     private static final int FOX_DEBUFF_ATTACK_DAMAGE = 8;
     private static final int A4_FOX_DEBUFF_ATTACK_DAMAGE = 9;
     private static final int FOX_WOUND_COUNT = 1;
@@ -77,9 +77,9 @@ public class Kokoro extends CustomMonster
     private static final int DEMON_VULNERABLE = 3;
     private static final int LION_ATTACK_DAMAGE_1 = 20;
     private static final int A4_LION_ATTACK_DAMAGE_1 = 22;
-    private static final int LION_ATTACK_DAMAGE_2 = 4;
-    private static final int A4_LION_ATTACK_DAMAGE_2 = 5;
-    private static final int LION_ATTACK_2_HITS = 3;
+    private static final int LION_ATTACK_DAMAGE_2 = 7;
+    private static final int A4_LION_ATTACK_DAMAGE_2 = 8;
+    private static final int LION_ATTACK_2_HITS = 2;
     private int hopeHeal;
     private int demonStrength;
     private int lionDamage;
@@ -102,8 +102,8 @@ public class Kokoro extends CustomMonster
     }
 
     public Kokoro(final float x, final float y) {
-        super(Kokoro.NAME, ID, HP, -5.0F, 0, 280.0f, 285.0f, null, x, y);
-        this.animation = new SpriterAnimation("GensokyoResources/images/monsters/Yukari/Spriter/YukariAnimations.scml");
+        super(Kokoro.NAME, ID, HP, -5.0F, 0, 200.0f, 285.0f, null, x, y);
+        this.animation = new SpriterAnimation("GensokyoResources/images/monsters/Kokoro/Spriter/Kokoro.scml");
         this.type = EnemyType.BOSS;
         this.dialogX = (this.hb_x - 70.0F) * Settings.scale;
         this.dialogY -= (this.hb_y - 55.0F) * Settings.scale;
@@ -162,7 +162,7 @@ public class Kokoro extends CustomMonster
     public void usePreBattleAction() {
         CardCrawlGame.music.unsilenceBGM();
         AbstractDungeon.scene.fadeOutAmbiance();
-        AbstractDungeon.getCurrRoom().playBgmInstantly("Gensokyo/Necrofantasia.mp3");
+        AbstractDungeon.getCurrRoom().playBgmInstantly("Gensokyo/TheLostEmotion.mp3");
         AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(this, this, new FoxMask(this, 1)));
         mask = FOX_MASK;
     }
@@ -201,7 +201,7 @@ public class Kokoro extends CustomMonster
                     AbstractDungeon.actionManager.addToBottom(new GainBlockAction(this, this, this.block));
                 } else if (mask == DEMON_MASK) {
                     AbstractDungeon.actionManager.addToBottom(new DamageAction(AbstractDungeon.player, this.damage.get(6), AbstractGameAction.AttackEffect.SLASH_HORIZONTAL));
-                    AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(AbstractDungeon.player, this, new VulnerablePower(AbstractDungeon.player, DEMON_FRAIL, true), DEMON_FRAIL));
+                    AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(AbstractDungeon.player, this, new VulnerablePower(AbstractDungeon.player, DEMON_VULNERABLE, true), DEMON_VULNERABLE));
                 } else if (mask == LION_MASK) {
                     for (int i = 0; i < LION_ATTACK_2_HITS; i++) {
                         AbstractDungeon.actionManager.addToBottom(new DamageAction(AbstractDungeon.player, this.damage.get(8), AbstractGameAction.AttackEffect.SLASH_HEAVY));
@@ -238,50 +238,35 @@ public class Kokoro extends CustomMonster
 
     @Override
     protected void getMove(final int num) {
-        if (this.firstMove) {
-            this.setMove(Kokoro.MOVES[0], OPENING, Intent.UNKNOWN);
-            this.firstMove = false;
-        }  else if (this.currentHealth < this.maxHealth / 2 && !this.useTrain) {
-            this.useTrain = true;
-            this.setMove(Kokoro.MOVES[5], LAST_WORD, Intent.DEFEND_BUFF);
-        } else if (this.lastMove(LAST_WORD)) {
-            useTrainTexture = true;
-            this.setMove(Kokoro.MOVES[4], TRAIN, Intent.ATTACK_BUFF, (this.damage.get(1)).base, TRAIN_ATTACK_HITS, true);
-        } else {
-            if (this.useTrain && !this.lastMove(TRAIN) && !this.lastMoveBefore(TRAIN)) { //use train every 3 turns
-                useTrainTexture = true;
-                this.setMove(Kokoro.MOVES[4], TRAIN, Intent.ATTACK_BUFF, (this.damage.get(1)).base, TRAIN_ATTACK_HITS, true);
+        if (this.lastMove(MASK_MOVE_1)) {
+            if (mask == FOX_MASK) {
+                this.setMove(MASK_MOVE_2, Intent.ATTACK_DEBUFF, (this.damage.get(1)).base);
+            } else if (mask == SPIDER_MASK) {
+                this.setMove(MASK_MOVE_2, Intent.ATTACK_BUFF, (this.damage.get(3)).base);
+            } else if (mask == HOPE_MASK) {
+                this.setMove(MASK_MOVE_2, Intent.ATTACK_DEFEND, (this.damage.get(4)).base);
+            } else if (mask == DEMON_MASK) {
+                this.setMove(MASK_MOVE_2, Intent.ATTACK_DEBUFF, (this.damage.get(6)).base);
+            } else if (mask == LION_MASK) {
+                this.setMove(MASK_MOVE_2, Intent.ATTACK, (this.damage.get(8)).base, LION_ATTACK_2_HITS, true);
             }
-            else if (num < 35) {
-                if (!this.lastMove(STRENGTH_DRAIN)) {
-                    this.setMove(Kokoro.MOVES[1], STRENGTH_DRAIN, Intent.ATTACK_DEBUFF, (this.damage.get(2)).base);
-                } else {
-                    if (num % 2 == 0) {
-                        this.setMove(Kokoro.MOVES[3], ATTACK, Intent.ATTACK, (this.damage.get(0)).base, NORMAL_ATTACK_HITS, true);
-                    } else {
-                        this.setMove(Kokoro.MOVES[2], MEGA_DEBUFF, Intent.DEFEND_DEBUFF);
-                    }
-                }
-            } else if (num < 65) {
-                if (!this.lastMove(MEGA_DEBUFF)) {
-                    this.setMove(Kokoro.MOVES[2], MEGA_DEBUFF, Intent.DEFEND_DEBUFF);
-                } else {
-                    if (num % 2 == 0) {
-                        this.setMove(Kokoro.MOVES[1], STRENGTH_DRAIN, Intent.ATTACK_DEBUFF, (this.damage.get(1)).base);
-                    } else {
-                        this.setMove(Kokoro.MOVES[3], ATTACK, Intent.ATTACK, (this.damage.get(0)).base, NORMAL_ATTACK_HITS, true);
-                    }
-                }
+        } else if (this.lastMove(MASK_MOVE_2)) {
+            if (mask == SPIDER_MASK) {
+                this.setMove(MASK_CHANGE, Intent.DEFEND_BUFF);
             } else {
-                if (!this.lastMove(ATTACK)) {
-                    this.setMove(Kokoro.MOVES[3], ATTACK, Intent.ATTACK, (this.damage.get(0)).base, NORMAL_ATTACK_HITS, true);
-                } else {
-                    if (num % 2 == 0) {
-                        this.setMove(Kokoro.MOVES[2], MEGA_DEBUFF, Intent.DEFEND_DEBUFF);
-                    } else {
-                        this.setMove(Kokoro.MOVES[1], STRENGTH_DRAIN, Intent.ATTACK_DEBUFF, (this.damage.get(1)).base);
-                    }
-                }
+                this.setMove(MASK_CHANGE, Intent.BUFF);
+            }
+        } else {
+            if (mask == FOX_MASK) {
+                this.setMove(MASK_MOVE_1, Intent.ATTACK, (this.damage.get(0)).base, FOX_ATTACK_HITS, true);
+            } else if (mask == SPIDER_MASK) {
+                this.setMove(MASK_MOVE_1, Intent.ATTACK_DEBUFF, (this.damage.get(2)).base);
+            } else if (mask == HOPE_MASK) {
+                this.setMove(MASK_MOVE_1, Intent.DEFEND_DEBUFF);
+            } else if (mask == DEMON_MASK) {
+                this.setMove(MASK_MOVE_1, Intent.ATTACK_DEBUFF, (this.damage.get(5)).base);
+            } else if (mask == LION_MASK) {
+                this.setMove(MASK_MOVE_1, Intent.ATTACK, (this.damage.get(7)).base);
             }
         }
     }

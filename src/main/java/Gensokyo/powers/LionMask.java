@@ -24,8 +24,9 @@ public class LionMask extends AbstractPower {
         this.ID = POWER_ID;
         this.owner = owner;
         this.amount = amount;
-        this.updateDescription();
+        this.type = PowerType.BUFF;
         this.loadRegion("beat");
+        updateDescription();
     }
 
     @Override

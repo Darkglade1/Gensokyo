@@ -31,6 +31,7 @@ import Gensokyo.events.HakureiShrine;
 import Gensokyo.events.ScarletDevilMansion;
 import Gensokyo.events.TheEnmasDilemma;
 import Gensokyo.events.ThoseEarthRabbits;
+import Gensokyo.monsters.Kokoro;
 import Gensokyo.monsters.Komachi;
 import Gensokyo.monsters.Yukari;
 import Gensokyo.relics.CelestialsFlawlessClothing;
@@ -257,6 +258,7 @@ public class GensokyoMod implements
 
         BaseMod.addMonster(Komachi.ID, (BaseMod.GetMonster)Komachi::new);
         BaseMod.addMonster(Yukari.ID, (BaseMod.GetMonster)Yukari::new);
+        BaseMod.addMonster(Kokoro.ID, (BaseMod.GetMonster)Kokoro::new);
         BaseMod.addBoss(Exordium.ID, Yukari.ID, "GensokyoResources/images/monsters/Yukari/Yukari.png", "GensokyoResources/images/monsters/Yukari/YukariOutline.png");
 
         

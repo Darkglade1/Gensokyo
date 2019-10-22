@@ -26,5 +26,11 @@
     "DIALOG": [
       "You've been stirring up a little too much trouble for my liking."
     ]
+  },
+  "Gensokyo:Kokoro": {
+    "MOVES": [
+
+    ],
+    "NAME": "Expressive Poker Face"
   }
 }

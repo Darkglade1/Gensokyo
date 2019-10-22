@@ -1,20 +1,20 @@
 package Gensokyo.patches;
-import Gensokyo.GensokyoMod;
-import com.megacrit.cardcrawl.audio.*;
-import com.evacipated.cardcrawl.modthespire.lib.*;
-import com.badlogic.gdx.audio.*;
+import com.badlogic.gdx.audio.Music;
+import com.evacipated.cardcrawl.modthespire.lib.SpirePatch;
+import com.megacrit.cardcrawl.audio.MainMusic;
+import com.megacrit.cardcrawl.audio.TempMusic;
 
 @SpirePatch(cls = "com.megacrit.cardcrawl.audio.TempMusic", method = "getSong")
 public class MusicPatch {
 	
 	public static Music Postfix(Music __result, TempMusic __instance, final String key) {
-		if (key.contains("Gensokyo/")) {
-			return MainMusic.newMusic(GensokyoMod.makeEffectPath(key));
-		}
 		switch (key) {
             case "Gensokyo/Necrofantasia.mp3": {
                 return MainMusic.newMusic("audio/music/Gensokyo/Necrofantasia.mp3");
             }
+			case "Gensokyo/TheLostEmotion.mp3": {
+				return MainMusic.newMusic("audio/music/Gensokyo/TheLostEmotion.mp3");
+			}
 			default: {
 				return __result;
 			}

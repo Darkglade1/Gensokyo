@@ -23,8 +23,9 @@ public class DemonMask extends AbstractPower {
         this.ID = POWER_ID;
         this.owner = owner;
         this.amount = amount;
-        this.updateDescription();
+        this.type = PowerType.BUFF;
         this.loadRegion("demonForm");
+        updateDescription();
     }
 
     @Override

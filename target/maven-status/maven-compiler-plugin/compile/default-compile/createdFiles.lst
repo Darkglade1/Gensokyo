@@ -18,6 +18,7 @@ Gensokyo\vfx\YukariTrainEffect.class
 Gensokyo\vfx\EmptyEffect.class
 Gensokyo\cards\BlueCape.class
 Gensokyo\events\TheEnmasDilemma.class
+Gensokyo\monsters\Kokoro.class
 Gensokyo\patches\relics\PortableGapPatch.class
 Gensokyo\patches\relics\PortableGapPatch$IsConnectedTo.class
 Gensokyo\patches\relics\RezItemPatch$Locator.class
@@ -30,9 +31,11 @@ Gensokyo\patches\relics\PerfectCherryBlossomPatch$Locator.class
 Gensokyo\cards\TekeTeke.class
 Gensokyo\monsters\Yukari.class
 Gensokyo\powers\SlitMouthedWomanPower.class
+Gensokyo\powers\HopeMask.class
 Gensokyo\patches\LunacyRetargetPatch$Locator.class
 Gensokyo\powers\HAARPPower.class
 Gensokyo\tags\Tags.class
+Gensokyo\powers\FoxMask.class
 Gensokyo\util\IDCheckDontTouchPls.class
 Gensokyo\patches\MusicPatch.class
 Gensokyo\cards\EightFeetTall.class
@@ -48,6 +51,7 @@ Gensokyo\variables\DefaultCustomVariable.class
 Gensokyo\events\FieldTripToAnotherWorld.class
 Gensokyo\powers\SturdyPower.class
 Gensokyo\cards\ManorOfTheDishes.class
+Gensokyo\powers\LionMask.class
 Gensokyo\cards\AbstractDefaultCard.class
 Gensokyo\powers\SevenSchoolMysteriesPower.class
 Gensokyo\cards\HAARP.class
@@ -72,7 +76,9 @@ Gensokyo\powers\ManorOfTheDishesPower.class
 Gensokyo\events\ASwiftSlash.class
 Gensokyo\cards\LittleGreenMen.class
 Gensokyo\cards\Kunekune.class
+Gensokyo\powers\DemonMask.class
 Gensokyo\cards\SpontaneousHumanCombustion.class
+Gensokyo\powers\SpiderMask.class
 Gensokyo\relics\Mercy.class
 Gensokyo\monsters\Komachi.class
 Gensokyo\relics\OccultBall.class
