@@ -2,7 +2,6 @@ package Gensokyo.powers;
 
 import Gensokyo.GensokyoMod;
 import com.megacrit.cardcrawl.actions.common.HealAction;
-import com.megacrit.cardcrawl.actions.common.ReducePowerAction;
 import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.core.AbstractCreature;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
@@ -15,12 +14,14 @@ public class HopeMask extends AbstractPower {
     private static final PowerStrings powerStrings = CardCrawlGame.languagePack.getPowerStrings(POWER_ID);
     public static final String NAME = powerStrings.NAME;
     public static final String[] DESCRIPTIONS = powerStrings.DESCRIPTIONS;
+    private int originalAmount;
 
     public HopeMask(AbstractCreature owner, int amount) {
         this.name = NAME;
         this.ID = POWER_ID;
         this.owner = owner;
         this.amount = amount;
+        this.originalAmount = amount;
         this.type = PowerType.BUFF;
         this.loadRegion("regen");
         updateDescription();
@@ -30,9 +31,29 @@ public class HopeMask extends AbstractPower {
     public int onAttacked(DamageInfo info, int damageAmount) {
         if (info.owner != null && info.type != DamageInfo.DamageType.HP_LOSS && info.type != DamageInfo.DamageType.THORNS && damageAmount > 0) {
             this.flash();
-            AbstractDungeon.actionManager.addToBottom(new ReducePowerAction(this.owner, this.owner, ID, 1));
+            this.reducePower(damageAmount);
+            this.updateDescription();
+            AbstractDungeon.onModifyPower();
         }
         return damageAmount;
+    }
+
+    @Override
+    public void reducePower(int reduceAmount) {
+        if (this.amount - reduceAmount <= 0) {
+            this.fontScale = 8.0F;
+            this.amount = 1; //Minimum amount is 1
+        } else {
+            this.fontScale = 8.0F;
+            this.amount -= reduceAmount;
+        }
+    }
+
+    @Override
+    public void atEndOfRound() {
+        this.amount = originalAmount;
+        this.updateDescription();
+        AbstractDungeon.onModifyPower();
     }
 
     @Override
