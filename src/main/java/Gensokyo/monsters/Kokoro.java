@@ -102,7 +102,7 @@ public class Kokoro extends CustomMonster
     }
 
     public Kokoro(final float x, final float y) {
-        super(Kokoro.NAME, ID, HP, -5.0F, 0, 200.0f, 285.0f, null, x, y);
+        super(Kokoro.NAME, ID, HP, -5.0F, 0, 200.0f, 265.0f, null, x, y);
         this.animation = new SpriterAnimation("GensokyoResources/images/monsters/Kokoro/Spriter/Kokoro.scml");
         this.type = EnemyType.BOSS;
         this.dialogX = (this.hb_x - 70.0F) * Settings.scale;
