@@ -17,7 +17,7 @@ import com.megacrit.cardcrawl.actions.common.RemoveSpecificPowerAction;
 import com.megacrit.cardcrawl.actions.common.RollMoveAction;
 import com.megacrit.cardcrawl.actions.unique.VampireDamageAction;
 import com.megacrit.cardcrawl.cards.DamageInfo;
-import com.megacrit.cardcrawl.cards.status.Wound;
+import com.megacrit.cardcrawl.cards.status.Burn;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.core.Settings;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
@@ -59,8 +59,8 @@ public class Kokoro extends CustomMonster
     private static final int FOX_ATTACK_HITS = 3;
     private static final int FOX_DEBUFF_ATTACK_DAMAGE = 8;
     private static final int A4_FOX_DEBUFF_ATTACK_DAMAGE = 9;
-    private static final int FOX_WOUND_COUNT = 1;
-    private static final int A19_FOX_WOUND_COUNT = 2;
+    private static final int FOX_STATUS_COUNT = 1;
+    private static final int A19_FOX_STATUS_COUNT = 2;
     private static final int SPIDER_ATTACK_DAMAGE = 6;
     private static final int A4_SPIDER_ATTACK_DAMAGE = 7;
     private static final int SPIDER_WEAK = 3;
@@ -85,7 +85,7 @@ public class Kokoro extends CustomMonster
     private int lionDamage;
     private int foxMultiDamage;
     private int foxDebuffDamage;
-    private int wound;
+    private int status;
     private int spiderDamage;
     private int spiderLifesteal;
     private int hopeDamage;
@@ -111,12 +111,12 @@ public class Kokoro extends CustomMonster
             this.hopeHeal = A19_HOPE_HEAL;
             this.demonStrength = A19_DEMON_STRENGTH;
             this.lionDamage = A19_LION_DAMAGE;
-            this.wound = A19_FOX_WOUND_COUNT;
+            this.status = A19_FOX_STATUS_COUNT;
         } else {
             this.hopeHeal = HOPE_HEAL;
             this.demonStrength = DEMON_STRENGTH;
             this.lionDamage = LION_DAMAGE;
-            this.wound = FOX_WOUND_COUNT;
+            this.status = FOX_STATUS_COUNT;
         }
         if (AbstractDungeon.ascensionLevel >= 9) {
             this.setHp(A9_HP);
@@ -193,7 +193,7 @@ public class Kokoro extends CustomMonster
             case MASK_MOVE_2: {
                 if (mask == FOX_MASK) {
                     AbstractDungeon.actionManager.addToBottom(new DamageAction(AbstractDungeon.player, this.damage.get(1), AbstractGameAction.AttackEffect.SLASH_DIAGONAL));
-                    AbstractDungeon.actionManager.addToBottom(new MakeTempCardInDiscardAction(new Wound(), this.wound));
+                    AbstractDungeon.actionManager.addToBottom(new MakeTempCardInDiscardAction(new Burn(), this.status));
                 }   else if (mask == SPIDER_MASK) {
                     AbstractDungeon.actionManager.addToBottom(new VampireDamageAction(AbstractDungeon.player, this.damage.get(3), AbstractGameAction.AttackEffect.BLUNT_LIGHT));
                 } else if (mask == HOPE_MASK) {
