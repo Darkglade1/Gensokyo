@@ -55,7 +55,7 @@ public class Kokoro extends CustomMonster
     private static final int BLOCK = 8;
     private static final int A9_BLOCK = 10;
     private static final int FOX_ATTACK_DAMAGE = 4;
-    private static final int A4_FOX_ATTACK_DAMAGE = 5;
+    //private static final int A4_FOX_ATTACK_DAMAGE = 5; Too strong
     private static final int FOX_ATTACK_HITS = 3;
     private static final int FOX_DEBUFF_ATTACK_DAMAGE = 6;
     private static final int A4_FOX_DEBUFF_ATTACK_DAMAGE = 7;
@@ -125,9 +125,8 @@ public class Kokoro extends CustomMonster
             this.setHp(HP);
             this.block = BLOCK;
         }
-
+        this.foxMultiDamage = FOX_ATTACK_DAMAGE;
         if (AbstractDungeon.ascensionLevel >= 4) {
-            this.foxMultiDamage = A4_FOX_ATTACK_DAMAGE;
             this.foxDebuffDamage = A4_FOX_DEBUFF_ATTACK_DAMAGE;
             this.spiderDamage = A4_SPIDER_ATTACK_DAMAGE;
             this.spiderLifesteal = A4_SPIDER_LIFE_STEAL_ATTACK_DAMAGE;
@@ -137,7 +136,6 @@ public class Kokoro extends CustomMonster
             this.lionDamage1 = A4_LION_ATTACK_DAMAGE_1;
             this.lionDamage2 = A4_LION_ATTACK_DAMAGE_2;
         } else {
-            this.foxMultiDamage = FOX_ATTACK_DAMAGE;
             this.foxDebuffDamage = FOX_DEBUFF_ATTACK_DAMAGE;
             this.spiderDamage = SPIDER_ATTACK_DAMAGE;
             this.spiderLifesteal = SPIDER_LIFE_STEAL_ATTACK_DAMAGE;

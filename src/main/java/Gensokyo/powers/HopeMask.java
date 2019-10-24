@@ -57,7 +57,7 @@ public class HopeMask extends AbstractPower {
     }
 
     @Override
-    public void atEndOfTurn(boolean isPlayer) {
+    public void atStartOfTurn() {
         this.flash();
         if (!this.owner.halfDead && !this.owner.isDying && !this.owner.isDead) {
             AbstractDungeon.actionManager.addToBottom(new HealAction(this.owner, this.owner, this.amount));

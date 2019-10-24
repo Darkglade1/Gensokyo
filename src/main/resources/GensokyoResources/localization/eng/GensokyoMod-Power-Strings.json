@@ -57,7 +57,7 @@
 },
 "Gensokyo:HopeMask": {
         "NAME": "Mask of Hope",
-        "DESCRIPTIONS": ["At the end of her turn, heals #b", " #yHP. Upon receiving unblocked attack damage, reduce the healing this turn by the amount of damage taken."]
+        "DESCRIPTIONS": ["At the start of her turn, heals #b", " #yHP. Upon receiving unblocked attack damage, reduce the healing this turn by the amount of damage taken."]
 },
 "Gensokyo:DemonMask": {
         "NAME": "Demon Mask",
