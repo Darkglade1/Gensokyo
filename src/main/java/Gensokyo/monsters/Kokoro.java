@@ -49,8 +49,8 @@ public class Kokoro extends CustomMonster
     private static final int A19_HOPE_HEAL = 18;
     private static final int DEMON_STRENGTH = 1;
     private static final int A19_DEMON_STRENGTH = 2;
-    private static final int LION_DAMAGE = 2;
-    private static final int A19_LION_DAMAGE = 3;
+    private static final int LION_DAMAGE = 1;
+    private static final int A19_LION_DAMAGE = 2;
     private static final int MASK_STRENGTH_BUFF = 2;
     private static final int BLOCK = 8;
     private static final int A9_BLOCK = 10;
