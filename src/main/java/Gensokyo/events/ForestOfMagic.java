@@ -47,6 +47,7 @@ public class ForestOfMagic extends AbstractImageEvent {
             case 0:
                 switch (buttonPressed) {
                     case 0: //Marisa
+                        this.imageEventText.loadImage(makeEventPath("Marisa.png"));
                         this.imageEventText.updateBodyText(DESCRIPTIONS[1]);
                         screenNum = 1;
                         this.imageEventText.updateDialogOption(0, OPTIONS[0]);
@@ -57,6 +58,7 @@ public class ForestOfMagic extends AbstractImageEvent {
                         AbstractDungeon.effectList.add(new ShowCardAndObtainEffect(curse, (float)(Settings.WIDTH / 2), (float)(Settings.HEIGHT / 2)));
                         break;
                     case 1: // Alice
+                        this.imageEventText.loadImage(makeEventPath("Alice.png"));
                         this.imageEventText.updateBodyText(DESCRIPTIONS[5]);
                         screenNum = 5;
                         this.imageEventText.updateDialogOption(0, OPTIONS[0]);
@@ -80,11 +82,8 @@ public class ForestOfMagic extends AbstractImageEvent {
                 this.imageEventText.clearRemainingOptions();
                 break;
             case 4:
-                switch (buttonPressed) {
-                    case 0:
-                        openMap();
-                        break;
-                }
+                this.openMap();
+                break;
             case 5:
                 this.imageEventText.updateBodyText(DESCRIPTIONS[6]);
                 screenNum = 6;
@@ -95,6 +94,8 @@ public class ForestOfMagic extends AbstractImageEvent {
                 this.imageEventText.updateDialogOption(0, OPTIONS[4]);
                 this.imageEventText.clearRemainingOptions();
                 break;
+            default:
+                this.openMap();
         }
     }
 }

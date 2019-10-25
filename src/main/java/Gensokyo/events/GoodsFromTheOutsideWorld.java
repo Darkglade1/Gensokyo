@@ -111,12 +111,10 @@ public class GoodsFromTheOutsideWorld extends AbstractImageEvent {
                 }
                 break;
             case 1:
-                switch (buttonPressed) {
-                    case 0:
-                        openMap();
-                        break;
-                }
+                this.openMap();
                 break;
+            default:
+                this.openMap();
         }
     }
 }

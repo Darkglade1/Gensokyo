@@ -105,12 +105,10 @@ public class ClashOfLegends extends AbstractImageEvent {
                 }
                 break;
             case 2:
-                switch (buttonPressed) {
-                    case 0:
-                        openMap();
-                        break;
-                }
+                this.openMap();
                 break;
+            default:
+                this.openMap();
         }
     }
 

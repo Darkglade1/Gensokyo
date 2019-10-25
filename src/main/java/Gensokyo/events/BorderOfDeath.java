@@ -101,11 +101,7 @@ public class BorderOfDeath extends AbstractImageEvent {
                 this.imageEventText.clearRemainingOptions();
                 break;
             case 6:
-                switch (buttonPressed) {
-                    case 0:
-                        openMap(); //Open map and end event
-                        break;
-                }
+                this.openMap();
                 break;
             case 7:
                 this.imageEventText.updateBodyText(DESCRIPTIONS[8]);
@@ -113,6 +109,8 @@ public class BorderOfDeath extends AbstractImageEvent {
                 this.imageEventText.updateDialogOption(0, OPTIONS[4]);
                 this.imageEventText.clearRemainingOptions();
                 break;
+            default:
+                this.openMap();
         }
     }
 }

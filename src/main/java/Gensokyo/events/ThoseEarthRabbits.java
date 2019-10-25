@@ -86,12 +86,10 @@ public class ThoseEarthRabbits extends AbstractImageEvent {
                 CardCrawlGame.sound.play("BLUNT_FAST");  // Play a hit sound
                 break;
             case 3:
-                switch (buttonPressed) {
-                    case 0:
-                        openMap();
-                        break;
-                }
+                this.openMap();
                 break;
+            default:
+                this.openMap();
         }
     }
 }

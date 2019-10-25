@@ -84,12 +84,10 @@ public class ASwiftSlash extends AbstractImageEvent {
                 this.imageEventText.clearRemainingOptions();
                 break;
             case 2:
-                switch (buttonPressed) {
-                    case 0:
-                        openMap();
-                        break;
-                }
+                this.openMap();
                 break;
+            default:
+                this.openMap();
         }
     }
 

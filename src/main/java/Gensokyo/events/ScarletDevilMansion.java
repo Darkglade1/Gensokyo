@@ -55,6 +55,7 @@ public class ScarletDevilMansion extends AbstractImageEvent {
     protected void buttonEffect(int buttonPressed) { // This is the event:
         switch (screenNum) {
             case 0:
+                this.imageEventText.loadImage(makeEventPath("Sakuya.png"));
                 this.imageEventText.updateBodyText(DESCRIPTIONS[1]);
                 screenNum = 1;
                 break;
@@ -68,6 +69,7 @@ public class ScarletDevilMansion extends AbstractImageEvent {
             case 2:
                 switch (buttonPressed) {
                     case 0: //Go to library
+                        this.imageEventText.loadImage(makeEventPath("Patchy.png"));
                         this.imageEventText.updateBodyText(DESCRIPTIONS[3]);
                         screenNum = 3;
                         this.imageEventText.updateDialogOption(0, OPTIONS[4]);
@@ -130,11 +132,7 @@ public class ScarletDevilMansion extends AbstractImageEvent {
                 }
                 break;
             case 3:
-                switch (buttonPressed) {
-                    case 0: // If you press the first (and this should be the only) button,
-                        openMap(); // You'll open the map and end the event.
-                        break;
-                }
+                this.openMap();
                 break;
             case 4:
                 this.imageEventText.updateBodyText(DESCRIPTIONS[5]);
@@ -142,6 +140,8 @@ public class ScarletDevilMansion extends AbstractImageEvent {
                 this.imageEventText.updateDialogOption(0, OPTIONS[4]);
                 this.imageEventText.clearRemainingOptions();
                 break;
+            default:
+                this.openMap();
         }
     }
 
