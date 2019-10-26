@@ -1,37 +1,37 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <spriter_data scml_version="1.0" generator="BrashMonkey Spriter" generator_version="r11">
-    <folder id="0" name="Idle">
-        <file id="0" name="Idle/tile000.png" width="444" height="306" pivot_x="0" pivot_y="1"/>
-        <file id="1" name="Idle/tile001.png" width="444" height="306" pivot_x="0" pivot_y="1"/>
-        <file id="2" name="Idle/tile002.png" width="444" height="306" pivot_x="0" pivot_y="1"/>
-        <file id="3" name="Idle/tile003.png" width="444" height="306" pivot_x="0" pivot_y="1"/>
-        <file id="4" name="Idle/tile004.png" width="444" height="306" pivot_x="0" pivot_y="1"/>
-        <file id="5" name="Idle/tile005.png" width="444" height="306" pivot_x="0" pivot_y="1"/>
-        <file id="6" name="Idle/tile007.png" width="444" height="306" pivot_x="0" pivot_y="1"/>
-        <file id="7" name="Idle/tile006.png" width="444" height="306" pivot_x="0" pivot_y="1"/>
-        <file id="8" name="Idle/tile008.png" width="444" height="306" pivot_x="0" pivot_y="1"/>
-        <file id="9" name="Idle/tile009.png" width="444" height="306" pivot_x="0" pivot_y="1"/>
-        <file id="10" name="Idle/tile010.png" width="437" height="306" pivot_x="0" pivot_y="1"/>
+    <folder id="0" name="RealIdle">
+        <file id="0" name="RealIdle/0.png" width="386" height="251" pivot_x="0" pivot_y="1"/>
+        <file id="1" name="RealIdle/1.png" width="388" height="251" pivot_x="0" pivot_y="1"/>
+        <file id="2" name="RealIdle/2.png" width="386" height="249" pivot_x="0" pivot_y="1"/>
+        <file id="3" name="RealIdle/3.png" width="386" height="249" pivot_x="0" pivot_y="1"/>
+        <file id="4" name="RealIdle/4.png" width="384" height="249" pivot_x="0" pivot_y="1"/>
+        <file id="5" name="RealIdle/5.png" width="383" height="247" pivot_x="0" pivot_y="1"/>
+        <file id="6" name="RealIdle/6.png" width="384" height="246" pivot_x="0" pivot_y="1"/>
+        <file id="7" name="RealIdle/7.png" width="384" height="244" pivot_x="0" pivot_y="1"/>
+        <file id="8" name="RealIdle/8.png" width="384" height="242" pivot_x="0" pivot_y="1"/>
+        <file id="9" name="RealIdle/9.png" width="382" height="244" pivot_x="0" pivot_y="1"/>
+        <file id="10" name="RealIdle/10.png" width="383" height="247" pivot_x="0" pivot_y="1"/>
     </folder>
     <entity id="0" name="Yukari">
-        <animation id="0" name="Idle" length="1000" interval="100">
+        <animation id="0" name="Idle" length="1050" interval="100">
             <mainline>
                 <key id="0">
                     <object_ref id="0" timeline="0" key="0" z_index="0"/>
                 </key>
-                <key id="1" time="100">
+                <key id="1" time="98">
                     <object_ref id="0" timeline="1" key="0" z_index="0"/>
                 </key>
-                <key id="2" time="199">
+                <key id="2" time="198">
                     <object_ref id="0" timeline="2" key="0" z_index="0"/>
                 </key>
                 <key id="3" time="300">
                     <object_ref id="0" timeline="3" key="0" z_index="0"/>
                 </key>
-                <key id="4" time="399">
+                <key id="4" time="400">
                     <object_ref id="0" timeline="4" key="0" z_index="0"/>
                 </key>
-                <key id="5" time="501">
+                <key id="5" time="498">
                     <object_ref id="0" timeline="5" key="0" z_index="0"/>
                 </key>
                 <key id="6" time="600">
@@ -46,63 +46,63 @@
                 <key id="9" time="900">
                     <object_ref id="0" timeline="9" key="0" z_index="0"/>
                 </key>
-                <key id="10" time="1000">
+                <key id="10" time="1001">
                     <object_ref id="0" timeline="10" key="0" z_index="0"/>
                 </key>
             </mainline>
-            <timeline id="0" name="tile000">
+            <timeline id="0" name="0">
                 <key id="0" spin="0">
-                    <object folder="0" file="0" x="-221" y="296" angle="0"/>
+                    <object folder="0" file="0" x="-191" y="265"/>
                 </key>
             </timeline>
-            <timeline id="1" name="tile001">
-                <key id="0" time="100" spin="0">
-                    <object folder="0" file="1" x="-221" y="296" angle="0"/>
+            <timeline id="1" name="1">
+                <key id="0" time="98" spin="0">
+                    <object folder="0" file="1" x="-191" y="265"/>
                 </key>
             </timeline>
-            <timeline id="2" name="tile002">
-                <key id="0" time="199" spin="0">
-                    <object folder="0" file="2" x="-221" y="296" angle="0"/>
+            <timeline id="2" name="2">
+                <key id="0" time="198" spin="0">
+                    <object folder="0" file="2" x="-191" y="265"/>
                 </key>
             </timeline>
-            <timeline id="3" name="tile003">
+            <timeline id="3" name="3">
                 <key id="0" time="300" spin="0">
-                    <object folder="0" file="3" x="-221" y="296" angle="0"/>
+                    <object folder="0" file="3" x="-191" y="265"/>
                 </key>
             </timeline>
-            <timeline id="4" name="tile004">
-                <key id="0" time="399" spin="0">
-                    <object folder="0" file="4" x="-221" y="296" angle="0"/>
+            <timeline id="4" name="4">
+                <key id="0" time="400" spin="0">
+                    <object folder="0" file="4" x="-191" y="265"/>
                 </key>
             </timeline>
-            <timeline id="5" name="tile005">
-                <key id="0" time="501" spin="0">
-                    <object folder="0" file="5" x="-221" y="296" angle="0"/>
+            <timeline id="5" name="5">
+                <key id="0" time="498" spin="0">
+                    <object folder="0" file="5" x="-191" y="265"/>
                 </key>
             </timeline>
-            <timeline id="6" name="tile006">
+            <timeline id="6" name="6">
                 <key id="0" time="600" spin="0">
-                    <object folder="0" file="7" x="-221" y="296" angle="0"/>
+                    <object folder="0" file="6" x="-191" y="265"/>
                 </key>
             </timeline>
-            <timeline id="7" name="tile007">
+            <timeline id="7" name="7">
                 <key id="0" time="700" spin="0">
-                    <object folder="0" file="6" x="-221" y="296" angle="0"/>
+                    <object folder="0" file="7" x="-191" y="265"/>
                 </key>
             </timeline>
-            <timeline id="8" name="tile008">
+            <timeline id="8" name="8">
                 <key id="0" time="800" spin="0">
-                    <object folder="0" file="8" x="-221" y="296" angle="0"/>
+                    <object folder="0" file="8" x="-191" y="265"/>
                 </key>
             </timeline>
-            <timeline id="9" name="tile009">
+            <timeline id="9" name="9">
                 <key id="0" time="900" spin="0">
-                    <object folder="0" file="9" x="-221" y="296" angle="0"/>
+                    <object folder="0" file="9" x="-191" y="265"/>
                 </key>
             </timeline>
-            <timeline id="10" name="tile010">
-                <key id="0" time="1000" spin="0">
-                    <object folder="0" file="10" x="-221" y="296" angle="0"/>
+            <timeline id="10" name="10">
+                <key id="0" time="1001" spin="0">
+                    <object folder="0" file="10" x="-191" y="265"/>
                 </key>
             </timeline>
         </animation>
