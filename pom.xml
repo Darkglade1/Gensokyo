@@ -6,7 +6,7 @@
     <groupId>gensokyo</groupId>
     <artifactId>Gensokyo</artifactId>
     <name>Gensokyo</name>
-    <version>0.0.1</version>
+    <version>0.7.2</version>
     <description>A content mod inspired by Touhou Project.</description>
 
     <properties>
