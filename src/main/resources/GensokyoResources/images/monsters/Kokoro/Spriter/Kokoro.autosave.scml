@@ -1,23 +1,23 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <spriter_data scml_version="1.0" generator="BrashMonkey Spriter" generator_version="r11">
     <folder id="0">
-        <file id="0" name="0.png" width="133" height="243" pivot_x="0" pivot_y="1"/>
+        <file id="0" name="0.png" width="133" height="244" pivot_x="0" pivot_y="1"/>
         <file id="1" name="1.png" width="126" height="244" pivot_x="0" pivot_y="1"/>
-        <file id="2" name="2.png" width="125" height="247" pivot_x="0" pivot_y="1"/>
-        <file id="3" name="3.png" width="122" height="247" pivot_x="0" pivot_y="1"/>
-        <file id="4" name="4.png" width="122" height="245" pivot_x="0" pivot_y="1"/>
-        <file id="5" name="5.png" width="118" height="245" pivot_x="0" pivot_y="1"/>
-        <file id="6" name="6.png" width="114" height="244" pivot_x="0" pivot_y="1"/>
-        <file id="7" name="7.png" width="120" height="246" pivot_x="0" pivot_y="1"/>
-        <file id="8" name="8.png" width="127" height="244" pivot_x="0" pivot_y="1"/>
+        <file id="2" name="2.png" width="124" height="245" pivot_x="0" pivot_y="1"/>
+        <file id="3" name="3.png" width="121" height="245" pivot_x="0" pivot_y="1"/>
+        <file id="4" name="4.png" width="120" height="245" pivot_x="0" pivot_y="1"/>
+        <file id="5" name="5.png" width="117" height="245" pivot_x="0" pivot_y="1"/>
+        <file id="6" name="6.png" width="114" height="247" pivot_x="0" pivot_y="1"/>
+        <file id="7" name="7.png" width="118" height="245" pivot_x="0" pivot_y="1"/>
+        <file id="8" name="8.png" width="127" height="245" pivot_x="0" pivot_y="1"/>
         <file id="9" name="9.png" width="136" height="245" pivot_x="0" pivot_y="1"/>
-        <file id="10" name="10.png" width="151" height="244" pivot_x="0" pivot_y="1"/>
+        <file id="10" name="10.png" width="149" height="244" pivot_x="0" pivot_y="1"/>
         <file id="11" name="11.png" width="155" height="242" pivot_x="0" pivot_y="1"/>
         <file id="12" name="12.png" width="159" height="242" pivot_x="0" pivot_y="1"/>
-        <file id="13" name="13.png" width="160" height="242" pivot_x="0" pivot_y="1"/>
-        <file id="14" name="14.png" width="157" height="243" pivot_x="0" pivot_y="1"/>
-        <file id="15" name="15.png" width="153" height="242" pivot_x="0" pivot_y="1"/>
-        <file id="16" name="16.png" width="139" height="243" pivot_x="0" pivot_y="1"/>
+        <file id="13" name="13.png" width="159" height="242" pivot_x="0" pivot_y="1"/>
+        <file id="14" name="14.png" width="156" height="242" pivot_x="0" pivot_y="1"/>
+        <file id="15" name="15.png" width="152" height="242" pivot_x="0" pivot_y="1"/>
+        <file id="16" name="16.png" width="138" height="242" pivot_x="0" pivot_y="1"/>
     </folder>
     <entity id="0" name="Kokoro">
         <animation id="0" name="Idle" length="1650" interval="100">
