@@ -237,5 +237,26 @@
       " #rMax #rHP.",
       "[Leave]"
     ]
+  },
+  "Gensokyo:ALandWhereOnlyIAmMissing": {
+    "NAME": "A Land Where Only I Am Missing",
+    "DESCRIPTIONS": [
+      "\"Hey! You there!\" NL NL A voice calls to you out of the blue. You blink, suddenly realizing that there is a #pstrange girl in front of you, #ysmiling at you like the two of you were already friends. NL NL \"Play with me!\"",
+      "You blink. Something is #poff. Something is #pmissing. There is a #r~gaping~ hole in your memories, a stretch of time that you could not recall experiencing. NL NL A face. There is a face, one that is so #psad yet smiles so #ybrightly. NL NL You try to remember - NL NL You blink. What are you idling around for, again? It is time to get moving. NL NL There is nothing important here."
+    ],
+    "OPTIONS": [
+      "[Play for a little bit] #gRemove #ga #gcard #gfrom #gyour #gdeck.",
+      "[Play for some time] #rLose #r",
+      "[Play for a long time] #rLose #r",
+      " #rHP. #gRemove #g2 #gcards #gfrom #gyour #gdeck.",
+      " #rHP. #gRemove #g3 #gcards #gfrom #gyour #gdeck.",
+      "[Locked] Requires: 2 Cards",
+      "[Locked] Requires: 3 Cards",
+      "[Play for a little bit]",
+      "Select a Card to Remove.",
+      "Select 2 Cards to Remove.",
+      "Select 3 Cards to Remove.",
+      "[Leave]"
+    ]
   }
 }
