@@ -57,8 +57,8 @@ public class Kokoro extends CustomMonster
     private static final int FOX_ATTACK_DAMAGE = 4;
     //private static final int A4_FOX_ATTACK_DAMAGE = 5; Too strong
     private static final int FOX_ATTACK_HITS = 3;
-    private static final int FOX_DEBUFF_ATTACK_DAMAGE = 6;
-    private static final int A4_FOX_DEBUFF_ATTACK_DAMAGE = 7;
+    private static final int FOX_DEBUFF_ATTACK_DAMAGE = 7;
+    private static final int A4_FOX_DEBUFF_ATTACK_DAMAGE = 8;
     private static final int FOX_STATUS_COUNT = 1;
     private static final int A19_FOX_STATUS_COUNT = 2;
     private static final int SPIDER_ATTACK_DAMAGE = 8;
