@@ -92,7 +92,7 @@ public class InvertPowersAction extends AbstractGameAction {
                 AbstractDungeon.actionManager.addToTop(new ReducePowerAction(target, target, LoseStrengthPower.POWER_ID, power.amount));
                 AbstractDungeon.actionManager.addToTop(new ApplyPowerAction(target, target, new GainStrengthPower(target, power.amount), power.amount));
             }
-            this.isDone = true;
         }
+        this.isDone = true;
     }
 }
