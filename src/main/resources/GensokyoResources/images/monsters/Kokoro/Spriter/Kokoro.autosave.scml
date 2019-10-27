@@ -37,6 +37,23 @@
         <file id="14" name="Fox/14.png" width="184" height="190" pivot_x="0" pivot_y="1"/>
         <file id="15" name="Fox/15.png" width="152" height="244" pivot_x="0" pivot_y="1"/>
     </folder>
+    <folder id="2" name="MaskChange">
+        <file id="0" name="MaskChange/0.png" width="143" height="242" pivot_x="0" pivot_y="1"/>
+        <file id="1" name="MaskChange/1.png" width="155" height="263" pivot_x="0" pivot_y="1"/>
+        <file id="2" name="MaskChange/2.png" width="152" height="258" pivot_x="0" pivot_y="1"/>
+        <file id="3" name="MaskChange/3.png" width="251" height="304" pivot_x="0" pivot_y="1"/>
+        <file id="4" name="MaskChange/4.png" width="260" height="302" pivot_x="0" pivot_y="1"/>
+        <file id="5" name="MaskChange/5.png" width="260" height="302" pivot_x="0" pivot_y="1"/>
+        <file id="6" name="MaskChange/6.png" width="190" height="257" pivot_x="0" pivot_y="1"/>
+        <file id="7" name="MaskChange/7.png" width="155" height="263" pivot_x="0" pivot_y="1"/>
+        <file id="8" name="MaskChange/8.png" width="152" height="258" pivot_x="0" pivot_y="1"/>
+        <file id="9" name="MaskChange/9.png" width="251" height="304" pivot_x="0" pivot_y="1"/>
+        <file id="10" name="MaskChange/10.png" width="260" height="302" pivot_x="0" pivot_y="1"/>
+        <file id="11" name="MaskChange/11.png" width="260" height="302" pivot_x="0" pivot_y="1"/>
+        <file id="12" name="MaskChange/12.png" width="273" height="270" pivot_x="0" pivot_y="1"/>
+        <file id="13" name="MaskChange/13.png" width="244" height="241" pivot_x="0" pivot_y="1"/>
+        <file id="14" name="MaskChange/14.png" width="131" height="242" pivot_x="0" pivot_y="1"/>
+    </folder>
     <entity id="0" name="Kokoro">
         <animation id="0" name="Idle" length="1650" interval="100">
             <mainline>
@@ -315,6 +332,130 @@
             <timeline id="16" name="4_001">
                 <key id="0" time="500" spin="0">
                     <object folder="1" file="4" x="-72" y="330"/>
+                </key>
+            </timeline>
+        </animation>
+        <animation id="2" name="MaskChange" length="1450" interval="100">
+            <mainline>
+                <key id="0">
+                    <object_ref id="0" timeline="0" key="0" z_index="0"/>
+                </key>
+                <key id="1" time="98">
+                    <object_ref id="0" timeline="1" key="0" z_index="0"/>
+                </key>
+                <key id="2" time="199">
+                    <object_ref id="0" timeline="2" key="0" z_index="0"/>
+                </key>
+                <key id="3" time="298">
+                    <object_ref id="0" timeline="3" key="0" z_index="0"/>
+                </key>
+                <key id="4" time="400">
+                    <object_ref id="0" timeline="4" key="0" z_index="0"/>
+                </key>
+                <key id="5" time="499">
+                    <object_ref id="0" timeline="5" key="0" z_index="0"/>
+                </key>
+                <key id="6" time="601">
+                    <object_ref id="0" timeline="6" key="0" z_index="0"/>
+                </key>
+                <key id="7" time="699">
+                    <object_ref id="0" timeline="7" key="0" z_index="0"/>
+                </key>
+                <key id="8" time="798">
+                    <object_ref id="0" timeline="8" key="0" z_index="0"/>
+                </key>
+                <key id="9" time="899">
+                    <object_ref id="0" timeline="9" key="0" z_index="0"/>
+                </key>
+                <key id="10" time="1000">
+                    <object_ref id="0" timeline="10" key="0" z_index="0"/>
+                </key>
+                <key id="11" time="1100">
+                    <object_ref id="0" timeline="11" key="0" z_index="0"/>
+                </key>
+                <key id="12" time="1200">
+                    <object_ref id="0" timeline="12" key="0" z_index="0"/>
+                </key>
+                <key id="13" time="1299">
+                    <object_ref id="0" timeline="13" key="0" z_index="0"/>
+                </key>
+                <key id="14" time="1399">
+                    <object_ref id="0" timeline="14" key="0" z_index="0"/>
+                </key>
+            </mainline>
+            <timeline id="0" name="0_001">
+                <key id="0" spin="0">
+                    <object folder="2" file="0" x="-75" y="237"/>
+                </key>
+            </timeline>
+            <timeline id="1" name="1_001">
+                <key id="0" time="98" spin="0">
+                    <object folder="2" file="1" x="-75" y="237"/>
+                </key>
+            </timeline>
+            <timeline id="2" name="2_001">
+                <key id="0" time="199" spin="0">
+                    <object folder="2" file="2" x="-75" y="237"/>
+                </key>
+            </timeline>
+            <timeline id="3" name="3_001">
+                <key id="0" time="298" spin="0">
+                    <object folder="2" file="3" x="-115" y="286"/>
+                </key>
+            </timeline>
+            <timeline id="4" name="4_002">
+                <key id="0" time="400" spin="0">
+                    <object folder="2" file="4" x="-115" y="286"/>
+                </key>
+            </timeline>
+            <timeline id="5" name="5_001">
+                <key id="0" time="499" spin="0">
+                    <object folder="2" file="5" x="-115" y="286"/>
+                </key>
+            </timeline>
+            <timeline id="6" name="6_001">
+                <key id="0" time="601" spin="0">
+                    <object folder="2" file="6" x="-115" y="237"/>
+                </key>
+            </timeline>
+            <timeline id="7" name="7_001">
+                <key id="0" time="699" spin="0">
+                    <object folder="2" file="7" x="-75" y="237"/>
+                </key>
+            </timeline>
+            <timeline id="8" name="8_001">
+                <key id="0" time="798" spin="0">
+                    <object folder="2" file="8" x="-75" y="237"/>
+                </key>
+            </timeline>
+            <timeline id="9" name="9_001">
+                <key id="0" time="899" spin="0">
+                    <object folder="2" file="9" x="-115" y="286"/>
+                </key>
+            </timeline>
+            <timeline id="10" name="10_001">
+                <key id="0" time="1000" spin="0">
+                    <object folder="2" file="10" x="-115" y="286"/>
+                </key>
+            </timeline>
+            <timeline id="11" name="11_001">
+                <key id="0" time="1100" spin="0">
+                    <object folder="2" file="11" x="-115" y="286"/>
+                </key>
+            </timeline>
+            <timeline id="12" name="12_001">
+                <key id="0" time="1200" spin="0">
+                    <object folder="2" file="12" x="-118.818182" y="264.409091"/>
+                </key>
+            </timeline>
+            <timeline id="13" name="13_001">
+                <key id="0" time="1299" spin="0">
+                    <object folder="2" file="13" x="-115" y="237"/>
+                </key>
+            </timeline>
+            <timeline id="14" name="14_001">
+                <key id="0" time="1399" spin="0">
+                    <object folder="2" file="14" x="-66" y="237"/>
                 </key>
             </timeline>
         </animation>

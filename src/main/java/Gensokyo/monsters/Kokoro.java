@@ -227,6 +227,7 @@ public class Kokoro extends CustomMonster
             case MASK_CHANGE: {
                 mask++;
                 mask = mask % NUM_MASKS;
+                runAnim("MaskChange");
                 if (mask == FOX_MASK) {
                     AbstractDungeon.actionManager.addToBottom(new RemoveSpecificPowerAction(this, this, LionMask.POWER_ID));
                     AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(this, this, new FoxMask(this, 1)));
