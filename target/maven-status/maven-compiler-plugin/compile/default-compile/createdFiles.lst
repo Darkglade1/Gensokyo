@@ -78,6 +78,7 @@ Gensokyo\events\BorderOfDeath.class
 Gensokyo\cards\TurboGranny.class
 Gensokyo\powers\ManorOfTheDishesPower.class
 Gensokyo\events\ASwiftSlash.class
+Gensokyo\monsters\Kokoro$KokoroListener.class
 Gensokyo\cards\LittleGreenMen.class
 Gensokyo\cards\Kunekune.class
 Gensokyo\powers\DemonMask.class
@@ -88,4 +89,5 @@ Gensokyo\monsters\Komachi.class
 Gensokyo\relics\OccultBall.class
 Gensokyo\relics\PortableGap.class
 Gensokyo\relics\LunaticRedEyes.class
+Gensokyo\BetterSpriterAnimation.class
 Gensokyo\events\HakureiShrine.class

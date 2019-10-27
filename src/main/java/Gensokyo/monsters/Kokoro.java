@@ -1,5 +1,6 @@
 package Gensokyo.monsters;
 
+import Gensokyo.BetterSpriterAnimation;
 import Gensokyo.powers.DemonMask;
 import Gensokyo.powers.FoxMask;
 import Gensokyo.powers.HopeMask;
@@ -7,6 +8,8 @@ import Gensokyo.powers.LionMask;
 import Gensokyo.powers.SpiderMask;
 import basemod.abstracts.CustomMonster;
 import basemod.animations.SpriterAnimation;
+import com.brashmonkey.spriter.Animation;
+import com.brashmonkey.spriter.Player;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.animations.VFXAction;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
@@ -26,6 +29,7 @@ import com.megacrit.cardcrawl.powers.FrailPower;
 import com.megacrit.cardcrawl.powers.StrengthPower;
 import com.megacrit.cardcrawl.powers.VulnerablePower;
 import com.megacrit.cardcrawl.powers.WeakPower;
+import com.megacrit.cardcrawl.vfx.combat.FireballEffect;
 import com.megacrit.cardcrawl.vfx.combat.GoldenSlashEffect;
 
 public class Kokoro extends CustomMonster
@@ -103,7 +107,7 @@ public class Kokoro extends CustomMonster
 
     public Kokoro(final float x, final float y) {
         super(Kokoro.NAME, ID, HP, -5.0F, 0, 200.0f, 265.0f, null, x, y);
-        this.animation = new SpriterAnimation("GensokyoResources/images/monsters/Kokoro/Spriter/Kokoro.scml");
+        this.animation = new BetterSpriterAnimation("GensokyoResources/images/monsters/Kokoro/Spriter/Kokoro.scml");
         this.type = EnemyType.BOSS;
         this.dialogX = (this.hb_x - 70.0F) * Settings.scale;
         this.dialogY -= (this.hb_y - 55.0F) * Settings.scale;
@@ -154,6 +158,9 @@ public class Kokoro extends CustomMonster
         this.damage.add(new DamageInfo(this, this.demonDamage2));
         this.damage.add(new DamageInfo(this, this.lionDamage1));
         this.damage.add(new DamageInfo(this, this.lionDamage2));
+
+        Player.PlayerListener listener = new KokoroListener(this);
+        ((BetterSpriterAnimation)this.animation).myPlayer.addListener(listener);
     }
 
     @Override
@@ -170,8 +177,16 @@ public class Kokoro extends CustomMonster
         switch (this.nextMove) {
             case MASK_MOVE_1: {
                 if (mask == FOX_MASK) {
+                    runAnim("Fox");
                     for (int i = 0; i < FOX_ATTACK_HITS; i++) {
-                        AbstractDungeon.actionManager.addToBottom(new DamageAction(AbstractDungeon.player, this.damage.get(0), AbstractGameAction.AttackEffect.SLASH_HEAVY));
+                        if (i == FOX_ATTACK_HITS - 1) {
+                            AbstractDungeon.actionManager.addToBottom(new VFXAction(new FireballEffect(this.hb.cX, this.hb.cY + 15, AbstractDungeon.player.hb.cX, AbstractDungeon.player.hb.cY), 0.3F));
+                        } else {
+                            AbstractDungeon.actionManager.addToBottom(new VFXAction(new FireballEffect(this.hb.cX, this.hb.cY + 15, AbstractDungeon.player.hb.cX, AbstractDungeon.player.hb.cY), 0.1F));
+                        }
+                    }
+                    for (int i = 0; i < FOX_ATTACK_HITS; i++) {
+                        AbstractDungeon.actionManager.addToBottom(new DamageAction(AbstractDungeon.player, this.damage.get(0), AbstractGameAction.AttackEffect.FIRE));
                     }
                 } else if (mask == SPIDER_MASK) {
                     AbstractDungeon.actionManager.addToBottom(new DamageAction(AbstractDungeon.player, this.damage.get(2), AbstractGameAction.AttackEffect.BLUNT_LIGHT));
@@ -190,7 +205,9 @@ public class Kokoro extends CustomMonster
             }
             case MASK_MOVE_2: {
                 if (mask == FOX_MASK) {
-                    AbstractDungeon.actionManager.addToBottom(new DamageAction(AbstractDungeon.player, this.damage.get(1), AbstractGameAction.AttackEffect.SLASH_DIAGONAL));
+                    runAnim("Fox");
+                    AbstractDungeon.actionManager.addToBottom(new VFXAction(new FireballEffect(this.hb.cX, this.hb.cY + 15, AbstractDungeon.player.hb.cX, AbstractDungeon.player.hb.cY), 0.5F));
+                    AbstractDungeon.actionManager.addToBottom(new DamageAction(AbstractDungeon.player, this.damage.get(1), AbstractGameAction.AttackEffect.FIRE));
                     AbstractDungeon.actionManager.addToBottom(new MakeTempCardInDiscardAction(new Burn(), this.status));
                 }   else if (mask == SPIDER_MASK) {
                     AbstractDungeon.actionManager.addToBottom(new VampireDamageAction(AbstractDungeon.player, this.damage.get(3), AbstractGameAction.AttackEffect.BLUNT_LIGHT));
@@ -274,5 +291,51 @@ public class Kokoro extends CustomMonster
         NAME = Kokoro.monsterStrings.NAME;
         MOVES = Kokoro.monsterStrings.MOVES;
         DIALOG = Kokoro.monsterStrings.DIALOG;
+    }
+
+    //Runs a specific animation
+    public void runAnim(String animation) {
+        ((BetterSpriterAnimation)this.animation).myPlayer.setAnimation(animation);
+    }
+
+    //Resets character back to idle animation
+    public void resetAnimation() {
+        ((BetterSpriterAnimation)this.animation).myPlayer.setAnimation("Idle");
+    }
+
+    public class KokoroListener implements Player.PlayerListener {
+
+        private Kokoro character;
+
+        public KokoroListener(Kokoro character) {
+            this.character = character;
+        }
+        public void animationFinished(Animation animation){
+            if (animation.name.equals("downed")) {
+                //character.stopAnimation();
+            } else if (!animation.name.equals("Idle")) {
+                character.resetAnimation();
+            }
+        }
+
+        //UNUSED
+        public void animationChanged(Animation var1, Animation var2){
+
+        }
+
+        //UNUSED
+        public void preProcess(Player var1){
+
+        }
+
+        //UNUSED
+        public void postProcess(Player var1){
+
+        }
+
+        //UNUSED
+        public void mainlineKeyChanged(com.brashmonkey.spriter.Mainline.Key var1, com.brashmonkey.spriter.Mainline.Key var2){
+
+        }
     }
 }
