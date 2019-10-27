@@ -198,7 +198,8 @@ public class Kokoro extends CustomMonster
                     AbstractDungeon.actionManager.addToBottom(new GainBlockAction(this, this, this.block));
                     AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(AbstractDungeon.player, this, new WeakPower(AbstractDungeon.player, HOPE_WEAK, true), HOPE_WEAK));
                 } else if (mask == DEMON_MASK) {
-                    AbstractDungeon.actionManager.addToBottom(new DamageAction(AbstractDungeon.player, this.damage.get(5), AbstractGameAction.AttackEffect.SLASH_HORIZONTAL));
+                    runAnim("Slash");
+                    AbstractDungeon.actionManager.addToBottom(new DamageAction(AbstractDungeon.player, this.damage.get(5), AbstractGameAction.AttackEffect.SLASH_HEAVY));
                     AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(AbstractDungeon.player, this, new FrailPower(AbstractDungeon.player, DEMON_FRAIL, true), DEMON_FRAIL));
                 } else if (mask == LION_MASK) {
                     AbstractDungeon.actionManager.addToBottom(new VFXAction(new GoldenSlashEffect(AbstractDungeon.player.hb.cX - 60.0F * Settings.scale, AbstractDungeon.player.hb.cY, false), 0.1F));
@@ -217,10 +218,12 @@ public class Kokoro extends CustomMonster
                     AbstractDungeon.actionManager.addToBottom(new VFXAction(new WebEffect(AbstractDungeon.player, this.hb.cX - 70.0F * Settings.scale, this.hb.cY + 10.0F * Settings.scale)));
                     AbstractDungeon.actionManager.addToBottom(new VampireDamageAction(AbstractDungeon.player, this.damage.get(3), AbstractGameAction.AttackEffect.POISON));
                 } else if (mask == HOPE_MASK) {
-                    AbstractDungeon.actionManager.addToBottom(new DamageAction(AbstractDungeon.player, this.damage.get(4), AbstractGameAction.AttackEffect.BLUNT_LIGHT));
+                    runAnim("Slash");
+                    AbstractDungeon.actionManager.addToBottom(new DamageAction(AbstractDungeon.player, this.damage.get(4), AbstractGameAction.AttackEffect.SLASH_DIAGONAL));
                     AbstractDungeon.actionManager.addToBottom(new GainBlockAction(this, this, this.block));
                 } else if (mask == DEMON_MASK) {
-                    AbstractDungeon.actionManager.addToBottom(new DamageAction(AbstractDungeon.player, this.damage.get(6), AbstractGameAction.AttackEffect.SLASH_HORIZONTAL));
+                    runAnim("Slash");
+                    AbstractDungeon.actionManager.addToBottom(new DamageAction(AbstractDungeon.player, this.damage.get(6), AbstractGameAction.AttackEffect.SLASH_HEAVY));
                     AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(AbstractDungeon.player, this, new VulnerablePower(AbstractDungeon.player, DEMON_VULNERABLE, true), DEMON_VULNERABLE));
                 } else if (mask == LION_MASK) {
                     for (int i = 0; i < LION_ATTACK_2_HITS; i++) {
