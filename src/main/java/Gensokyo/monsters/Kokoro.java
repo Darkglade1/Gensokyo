@@ -31,6 +31,7 @@ import com.megacrit.cardcrawl.powers.VulnerablePower;
 import com.megacrit.cardcrawl.powers.WeakPower;
 import com.megacrit.cardcrawl.vfx.combat.FireballEffect;
 import com.megacrit.cardcrawl.vfx.combat.GoldenSlashEffect;
+import com.megacrit.cardcrawl.vfx.combat.WebEffect;
 
 public class Kokoro extends CustomMonster
 {
@@ -189,7 +190,9 @@ public class Kokoro extends CustomMonster
                         AbstractDungeon.actionManager.addToBottom(new DamageAction(AbstractDungeon.player, this.damage.get(0), AbstractGameAction.AttackEffect.FIRE));
                     }
                 } else if (mask == SPIDER_MASK) {
-                    AbstractDungeon.actionManager.addToBottom(new DamageAction(AbstractDungeon.player, this.damage.get(2), AbstractGameAction.AttackEffect.BLUNT_LIGHT));
+                    runAnim("Spider");
+                    AbstractDungeon.actionManager.addToBottom(new VFXAction(new WebEffect(AbstractDungeon.player, this.hb.cX - 70.0F * Settings.scale, this.hb.cY + 10.0F * Settings.scale)));
+                    AbstractDungeon.actionManager.addToBottom(new DamageAction(AbstractDungeon.player, this.damage.get(2), AbstractGameAction.AttackEffect.POISON));
                     AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(AbstractDungeon.player, this, new WeakPower(AbstractDungeon.player, SPIDER_WEAK, true), SPIDER_WEAK));
                 } else if (mask == HOPE_MASK) {
                     AbstractDungeon.actionManager.addToBottom(new GainBlockAction(this, this, this.block));
@@ -210,7 +213,9 @@ public class Kokoro extends CustomMonster
                     AbstractDungeon.actionManager.addToBottom(new DamageAction(AbstractDungeon.player, this.damage.get(1), AbstractGameAction.AttackEffect.FIRE));
                     AbstractDungeon.actionManager.addToBottom(new MakeTempCardInDiscardAction(new Burn(), this.status));
                 }   else if (mask == SPIDER_MASK) {
-                    AbstractDungeon.actionManager.addToBottom(new VampireDamageAction(AbstractDungeon.player, this.damage.get(3), AbstractGameAction.AttackEffect.BLUNT_LIGHT));
+                    runAnim("Spider");
+                    AbstractDungeon.actionManager.addToBottom(new VFXAction(new WebEffect(AbstractDungeon.player, this.hb.cX - 70.0F * Settings.scale, this.hb.cY + 10.0F * Settings.scale)));
+                    AbstractDungeon.actionManager.addToBottom(new VampireDamageAction(AbstractDungeon.player, this.damage.get(3), AbstractGameAction.AttackEffect.POISON));
                 } else if (mask == HOPE_MASK) {
                     AbstractDungeon.actionManager.addToBottom(new DamageAction(AbstractDungeon.player, this.damage.get(4), AbstractGameAction.AttackEffect.BLUNT_LIGHT));
                     AbstractDungeon.actionManager.addToBottom(new GainBlockAction(this, this, this.block));
