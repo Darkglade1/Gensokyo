@@ -77,6 +77,24 @@
         <file id="8" name="Slash/8.png" width="144" height="267" pivot_x="0" pivot_y="1"/>
         <file id="9" name="Slash/9.png" width="130" height="245" pivot_x="0" pivot_y="1"/>
     </folder>
+    <folder id="5" name="Lion">
+        <file id="0" name="Lion/0.png" width="146" height="222" pivot_x="0" pivot_y="1"/>
+        <file id="1" name="Lion/1.png" width="140" height="241" pivot_x="0" pivot_y="1"/>
+        <file id="2" name="Lion/2.png" width="147" height="288" pivot_x="0" pivot_y="1"/>
+        <file id="3" name="Lion/3.png" width="153" height="286" pivot_x="0" pivot_y="1"/>
+        <file id="4" name="Lion/4.png" width="153" height="291" pivot_x="0" pivot_y="1"/>
+        <file id="5" name="Lion/5.png" width="157" height="242" pivot_x="0" pivot_y="1"/>
+        <file id="6" name="Lion/6.png" width="145" height="254" pivot_x="0" pivot_y="1"/>
+        <file id="7" name="Lion/7.png" width="147" height="255" pivot_x="0" pivot_y="1"/>
+        <file id="8" name="Lion/8.png" width="150" height="255" pivot_x="0" pivot_y="1"/>
+        <file id="9" name="Lion/9.png" width="147" height="258" pivot_x="0" pivot_y="1"/>
+        <file id="10" name="Lion/10.png" width="149" height="257" pivot_x="0" pivot_y="1"/>
+        <file id="11" name="Lion/11.png" width="152" height="292" pivot_x="0" pivot_y="1"/>
+        <file id="12" name="Lion/12.png" width="147" height="288" pivot_x="0" pivot_y="1"/>
+        <file id="13" name="Lion/13.png" width="152" height="286" pivot_x="0" pivot_y="1"/>
+        <file id="14" name="Lion/14.png" width="136" height="241" pivot_x="0" pivot_y="1"/>
+        <file id="15" name="Lion/15.png" width="141" height="242" pivot_x="0" pivot_y="1"/>
+    </folder>
     <entity id="0" name="Kokoro">
         <animation id="0" name="Idle" length="1650" interval="100">
             <mainline>
@@ -518,7 +536,139 @@
                 </key>
             </timeline>
         </animation>
-        <animation id="4" name="MaskChange" length="1450" interval="100">
+        <animation id="4" name="Lion" length="2050" interval="100">
+            <mainline>
+                <key id="0">
+                    <object_ref id="0" timeline="0" key="0" z_index="0"/>
+                </key>
+                <key id="1" time="101">
+                    <object_ref id="0" timeline="1" key="0" z_index="0"/>
+                </key>
+                <key id="2" time="200">
+                    <object_ref id="0" timeline="2" key="0" z_index="0"/>
+                </key>
+                <key id="3" time="299">
+                    <object_ref id="0" timeline="3" key="0" z_index="0"/>
+                </key>
+                <key id="4" time="401">
+                    <object_ref id="0" timeline="4" key="0" z_index="0"/>
+                </key>
+                <key id="5" time="499">
+                    <object_ref id="0" timeline="5" key="0" z_index="0"/>
+                </key>
+                <key id="6" time="699">
+                    <object_ref id="0" timeline="6" key="0" z_index="0"/>
+                </key>
+                <key id="7" time="900">
+                    <object_ref id="0" timeline="7" key="0" z_index="0"/>
+                </key>
+                <key id="8" time="1098">
+                    <object_ref id="0" timeline="8" key="0" z_index="0"/>
+                </key>
+                <key id="9" time="1299">
+                    <object_ref id="0" timeline="9" key="0" z_index="0"/>
+                </key>
+                <key id="10" time="1500">
+                    <object_ref id="0" timeline="10" key="0" z_index="0"/>
+                </key>
+                <key id="11" time="1598">
+                    <object_ref id="0" timeline="11" key="0" z_index="0"/>
+                </key>
+                <key id="12" time="1701">
+                    <object_ref id="0" timeline="12" key="0" z_index="0"/>
+                </key>
+                <key id="13" time="1800">
+                    <object_ref id="0" timeline="13" key="0" z_index="0"/>
+                </key>
+                <key id="14" time="1899">
+                    <object_ref id="0" timeline="14" key="0" z_index="0"/>
+                </key>
+                <key id="15" time="1999">
+                    <object_ref id="0" timeline="15" key="0" z_index="0"/>
+                </key>
+            </mainline>
+            <timeline id="0" name="0_004">
+                <key id="0" spin="0">
+                    <object folder="5" file="0" x="-96" y="222"/>
+                </key>
+            </timeline>
+            <timeline id="1" name="1_004">
+                <key id="0" time="101" spin="0">
+                    <object folder="5" file="1" x="-98" y="248"/>
+                </key>
+            </timeline>
+            <timeline id="2" name="2_004">
+                <key id="0" time="200" spin="0">
+                    <object folder="5" file="2" x="-72" y="292"/>
+                </key>
+            </timeline>
+            <timeline id="3" name="3_004">
+                <key id="0" time="299" spin="0">
+                    <object folder="5" file="3" x="-72" y="292"/>
+                </key>
+            </timeline>
+            <timeline id="4" name="4_005">
+                <key id="0" time="401" spin="0">
+                    <object folder="5" file="4" x="-72" y="292"/>
+                </key>
+            </timeline>
+            <timeline id="5" name="5_004">
+                <key id="0" time="499" spin="0">
+                    <object folder="5" file="5" x="-72" y="292"/>
+                </key>
+            </timeline>
+            <timeline id="6" name="6_004">
+                <key id="0" time="699" spin="0">
+                    <object folder="5" file="6" x="-72" y="292"/>
+                </key>
+            </timeline>
+            <timeline id="7" name="7_004">
+                <key id="0" time="900" spin="0">
+                    <object folder="5" file="7" x="-72" y="292"/>
+                </key>
+            </timeline>
+            <timeline id="8" name="8_004">
+                <key id="0" time="1098" spin="0">
+                    <object folder="5" file="8" x="-72" y="292"/>
+                </key>
+            </timeline>
+            <timeline id="9" name="9_003">
+                <key id="0" time="1299" spin="0">
+                    <object folder="5" file="9" x="-72" y="292"/>
+                </key>
+            </timeline>
+            <timeline id="10" name="10_002">
+                <key id="0" time="1500" spin="0">
+                    <object folder="5" file="10" x="-72" y="292"/>
+                </key>
+            </timeline>
+            <timeline id="11" name="11_002">
+                <key id="0" time="1598" spin="0">
+                    <object folder="5" file="11" x="-72" y="292"/>
+                </key>
+            </timeline>
+            <timeline id="12" name="12_002">
+                <key id="0" time="1701" spin="0">
+                    <object folder="5" file="12" x="-72" y="292"/>
+                </key>
+            </timeline>
+            <timeline id="13" name="13_002">
+                <key id="0" time="1800" spin="0">
+                    <object folder="5" file="13" x="-72" y="292"/>
+                </key>
+            </timeline>
+            <timeline id="14" name="14_002">
+                <key id="0" time="1899" spin="0">
+                    <object folder="5" file="14" x="-68" y="253"/>
+                </key>
+            </timeline>
+            <timeline id="15" name="15_001">
+                <key id="0" time="1999" spin="0">
+                    <object folder="5" file="15" x="-74" y="247"/>
+                </key>
+            </timeline>
+        </animation>
+        <animation id="5" name="MaskChange" length="1450" interval="100">
             <mainline>
                 <key id="0">
                     <object_ref id="0" timeline="0" key="0" z_index="0"/>
