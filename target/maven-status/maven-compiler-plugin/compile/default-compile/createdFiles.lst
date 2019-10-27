@@ -45,6 +45,7 @@ Gensokyo\cards\Apocalypse.class
 Gensokyo\actions\TekeTekeAction.class
 Gensokyo\GensokyoMod.class
 Gensokyo\patches\relics\RezItemPatch.class
+Gensokyo\patches\HighLightInvertiblePowerPatches$HighLight.class
 Gensokyo\events\ScarletDevilMansion.class
 Gensokyo\cards\LochNessMonster.class
 Gensokyo\cards\CrescentMoonSlash.class
@@ -66,6 +67,8 @@ Gensokyo\actions\UsePreBattleActionAction.class
 Gensokyo\events\GoodsFromTheOutsideWorld.class
 Gensokyo\events\ClashOfLegends.class
 Gensokyo\powers\UnstableBoundariesPower.class
+Gensokyo\patches\HighLightInvertiblePowerPatches.class
+Gensokyo\patches\HighLightInvertiblePowerPatches$HighLight$LocatorMulti.class
 Gensokyo\cards\SevenSchoolMysteries.class
 Gensokyo\cards\MonkeysPaw.class
 Gensokyo\events\ForestOfMagic.class
