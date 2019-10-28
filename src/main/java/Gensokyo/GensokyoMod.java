@@ -86,8 +86,7 @@ public class GensokyoMod implements
         EditStringsSubscriber,
         EditKeywordsSubscriber,
         PostInitializeSubscriber,
-        AddAudioSubscriber,
-        PostDeathSubscriber {
+        AddAudioSubscriber {
     // Make sure to implement the subscribers *you* are using (read basemod wiki). Editing cards? EditCardsSubscriber.
     // Making relics? EditRelicsSubscriber. etc., etc., for a full list and how to make your own, visit the basemod wiki.
     public static final Logger logger = LogManager.getLogger(GensokyoMod.class.getName());
@@ -387,14 +386,5 @@ public class GensokyoMod implements
     // in order to avoid conflicts if any other mod uses the same ID.
     public static String makeID(String idText) {
         return getModID() + ":" + idText;
-    }
-
-    @Override
-    public void receivePostDeath() {
-        for(AbstractMonster mo : AbstractDungeon.getCurrRoom().monsters.monsters) {
-            if (mo instanceof Kokoro) {
-                ((Kokoro)mo).runAnim("MaskChange"); //Plays victory animation for monster if player dies
-            }
-        }
     }
 }
