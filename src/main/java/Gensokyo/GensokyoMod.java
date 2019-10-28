@@ -55,6 +55,7 @@ import basemod.interfaces.EditCardsSubscriber;
 import basemod.interfaces.EditKeywordsSubscriber;
 import basemod.interfaces.EditRelicsSubscriber;
 import basemod.interfaces.EditStringsSubscriber;
+import basemod.interfaces.PostDeathSubscriber;
 import basemod.interfaces.PostInitializeSubscriber;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.files.FileHandle;
@@ -62,12 +63,14 @@ import com.badlogic.gdx.graphics.Texture;
 import com.evacipated.cardcrawl.mod.stslib.Keyword;
 import com.evacipated.cardcrawl.modthespire.lib.SpireInitializer;
 import com.google.gson.Gson;
+import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.dungeons.Exordium;
 import com.megacrit.cardcrawl.localization.CardStrings;
 import com.megacrit.cardcrawl.localization.EventStrings;
 import com.megacrit.cardcrawl.localization.MonsterStrings;
 import com.megacrit.cardcrawl.localization.PowerStrings;
 import com.megacrit.cardcrawl.localization.RelicStrings;
+import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import javafx.util.Pair;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
@@ -76,34 +79,6 @@ import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.nio.charset.StandardCharsets;
 
-//TODO: DON'T MASS RENAME/REFACTOR
-//TODO: DON'T MASS RENAME/REFACTOR
-//TODO: DON'T MASS RENAME/REFACTOR
-//TODO: DON'T MASS RENAME/REFACTOR
-// Please don't just mass replace "Gensokyo" with "yourMod" everywhere.
-// It'll be a bigger pain for you. You only need to replace it in 3 places.
-// I comment those places below, under the place where you set your ID.
-
-//TODO: FIRST THINGS FIRST: RENAME YOUR PACKAGE AND ID NAMES FIRST-THING!!!
-// Right click the package (Open the project pane on the left. Folder with black dot on it. The name's at the very top) -> Refactor -> Rename, and name it whatever you wanna call your mod.
-// Scroll down in this file. Change the ID from "Gensokyo:" to "yourModName:" or whatever your heart desires (don't use spaces). Dw, you'll see it.
-// In the JSON strings (resources>localization>eng>[all them files] make sure they all go "yourModName:" rather than "Gensokyo". You can ctrl+R to replace in 1 file, or ctrl+shift+r to mass replace in specific files/directories (Be careful.).
-// Start with the DefaultCommon cards - they are the most commented cards since I don't feel it's necessary to put identical comments on every card.
-// After you sorta get the hang of how to make cards, check out the card template which will make your life easier
-
-/*
- * With that out of the way:
- * Welcome to this super over-commented Slay the Spire modding base.
- * Use it to make your own mod of any type. - If you want to add any standard in-game content (character,
- * cards, relics), this is a good starting point.
- * It features 1 character with a minimal set of things: 1 card of each type, 1 debuff, couple of relics, etc.
- * If you're new to modding, you basically *need* the BaseMod wiki for whatever you wish to add
- * https://github.com/daviscook477/BaseMod/wiki - work your way through with this base.
- * Feel free to use this in any way you like, of course. MIT licence applies. Happy modding!
- *
- * And pls. Read the comments.
- */
-
 @SpireInitializer
 public class GensokyoMod implements
         EditCardsSubscriber,
@@ -111,7 +86,8 @@ public class GensokyoMod implements
         EditStringsSubscriber,
         EditKeywordsSubscriber,
         PostInitializeSubscriber,
-        AddAudioSubscriber {
+        AddAudioSubscriber,
+        PostDeathSubscriber {
     // Make sure to implement the subscribers *you* are using (read basemod wiki). Editing cards? EditCardsSubscriber.
     // Making relics? EditRelicsSubscriber. etc., etc., for a full list and how to make your own, visit the basemod wiki.
     public static final Logger logger = LogManager.getLogger(GensokyoMod.class.getName());
@@ -411,5 +387,14 @@ public class GensokyoMod implements
     // in order to avoid conflicts if any other mod uses the same ID.
     public static String makeID(String idText) {
         return getModID() + ":" + idText;
+    }
+
+    @Override
+    public void receivePostDeath() {
+        for(AbstractMonster mo : AbstractDungeon.getCurrRoom().monsters.monsters) {
+            if (mo instanceof Kokoro) {
+                ((Kokoro)mo).runAnim("MaskChange"); //Plays victory animation for monster if player dies
+            }
+        }
     }
 }

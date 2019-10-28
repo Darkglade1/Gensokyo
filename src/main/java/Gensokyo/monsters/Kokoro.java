@@ -303,6 +303,18 @@ public class Kokoro extends CustomMonster
             }
         }
     }
+
+    @Override
+    public void die() {
+        runAnim("Defeat");
+        super.die();
+    }
+
+    @Override
+    public void die(boolean triggerRelics) {
+        runAnim("Defeat");
+        super.die(triggerRelics);
+    }
     
     static {
         monsterStrings = CardCrawlGame.languagePack.getMonsterStrings("Gensokyo:Kokoro");
@@ -321,6 +333,13 @@ public class Kokoro extends CustomMonster
         ((BetterSpriterAnimation)this.animation).myPlayer.setAnimation("Idle");
     }
 
+    //Prevents any further animation once the death animation is finished
+    public void stopAnimation() {
+        int time = ((BetterSpriterAnimation)this.animation).myPlayer.getAnimation().length;
+        ((BetterSpriterAnimation)this.animation).myPlayer.setTime(time);
+        ((BetterSpriterAnimation)this.animation).myPlayer.speed = 0;
+    }
+
     public class KokoroListener implements Player.PlayerListener {
 
         private Kokoro character;
@@ -328,9 +347,10 @@ public class Kokoro extends CustomMonster
         public KokoroListener(Kokoro character) {
             this.character = character;
         }
+
         public void animationFinished(Animation animation){
-            if (animation.name.equals("downed")) {
-                //character.stopAnimation();
+            if (animation.name.equals("Defeat")) {
+                character.stopAnimation();
             } else if (!animation.name.equals("Idle")) {
                 character.resetAnimation();
             }
