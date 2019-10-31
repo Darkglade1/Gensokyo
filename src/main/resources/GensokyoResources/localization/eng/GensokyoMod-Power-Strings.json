@@ -17,11 +17,11 @@
 },
 "Gensokyo:VigorPower": {
         "NAME": "Vigor",
-        "DESCRIPTIONS": ["#yAttacks deal #b33% more damage for #b", " turns.", " turn."]
+        "DESCRIPTIONS": ["#yAttacks deal #b34% more damage for #b", " turns.", " turn."]
 },
 "Gensokyo:SturdyPower": {
         "NAME": "Sturdy",
-        "DESCRIPTIONS": ["Gains #b33% more #yBlock for #b", " turns.", " turn."]
+        "DESCRIPTIONS": ["Gains #b34% more #yBlock for #b", " turns.", " turn."]
 },
 "Gensokyo:SpontaneousHumanCombustionPower": {
         "NAME": "Spontaneous Human Combustion",

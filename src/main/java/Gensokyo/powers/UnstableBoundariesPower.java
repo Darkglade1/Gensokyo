@@ -2,6 +2,9 @@ package Gensokyo.powers;
 
 import Gensokyo.GensokyoMod;
 import Gensokyo.actions.InvertPowersAction;
+import Gensokyo.util.TextureLoader;
+import com.badlogic.gdx.graphics.Texture;
+import com.badlogic.gdx.graphics.g2d.TextureAtlas;
 import com.megacrit.cardcrawl.actions.utility.UseCardAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.core.AbstractCreature;
@@ -13,6 +16,8 @@ import com.megacrit.cardcrawl.powers.AbstractPower;
 
 import java.util.Iterator;
 
+import static Gensokyo.GensokyoMod.makePowerPath;
+
 
 public class UnstableBoundariesPower extends AbstractPower {
 
@@ -22,6 +27,9 @@ public class UnstableBoundariesPower extends AbstractPower {
     public static final String[] DESCRIPTIONS = powerStrings.DESCRIPTIONS;
 
     private static final int threshold = 5;
+
+    private static final Texture tex84 = TextureLoader.getTexture(makePowerPath("UnstableBoundaries84.png"));
+    private static final Texture tex32 = TextureLoader.getTexture(makePowerPath("UnstableBoundaries32.png"));
 
     public UnstableBoundariesPower(AbstractCreature owner) {
         name = NAME;
@@ -33,7 +41,8 @@ public class UnstableBoundariesPower extends AbstractPower {
         type = PowerType.BUFF;
         isTurnBased = false;
 
-        this.loadRegion("corruption");
+        this.region128 = new TextureAtlas.AtlasRegion(tex84, 0, 0, 84, 84);
+        this.region48 = new TextureAtlas.AtlasRegion(tex32, 0, 0, 32, 32);
 
         updateDescription();
     }
