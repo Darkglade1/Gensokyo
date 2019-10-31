@@ -1,12 +1,14 @@
 package Gensokyo.monsters;
 
+import Gensokyo.BetterSpriterAnimation;
 import Gensokyo.actions.InvertPowersAction;
 import Gensokyo.powers.UnstableBoundariesPower;
 import Gensokyo.vfx.EmptyEffect;
 import Gensokyo.vfx.YukariTrainEffect;
 import basemod.abstracts.CustomMonster;
-import basemod.animations.SpriterAnimation;
 import com.badlogic.gdx.graphics.Texture;
+import com.brashmonkey.spriter.Animation;
+import com.brashmonkey.spriter.Player;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.animations.TalkAction;
 import com.megacrit.cardcrawl.actions.animations.VFXAction;
@@ -77,7 +79,7 @@ public class Yukari extends CustomMonster
 
     public Yukari(final float x, final float y) {
         super(Yukari.NAME, ID, HP, -5.0F, 0, 280.0f, 285.0f, null, x, y);
-        this.animation = new SpriterAnimation("GensokyoResources/images/monsters/Yukari/Spriter/YukariAnimations.scml");
+        this.animation = new BetterSpriterAnimation("GensokyoResources/images/monsters/Yukari/Spriter/YukariAnimations.scml");
         this.type = EnemyType.BOSS;
         this.dialogX = (this.hb_x - 70.0F) * Settings.scale;
         this.dialogY -= (this.hb_y - 55.0F) * Settings.scale;
@@ -110,6 +112,9 @@ public class Yukari extends CustomMonster
         this.damage.add(new DamageInfo(this, this.normalDamage));
         this.damage.add(new DamageInfo(this, this.trainDamage));
         this.damage.add(new DamageInfo(this, this.debuffDamage));
+
+        Player.PlayerListener listener = new YukariListener(this);
+        ((BetterSpriterAnimation)this.animation).myPlayer.addListener(listener);
     }
 
     @Override
@@ -124,6 +129,7 @@ public class Yukari extends CustomMonster
     public void takeTurn() {
         switch (this.nextMove) {
             case OPENING: {
+                runAnim("Spell");
                 AbstractDungeon.actionManager.addToBottom(new TalkAction(this, Yukari.DIALOG[0]));
                 AbstractDungeon.actionManager.addToBottom(new GainBlockAction(this, this, this.block));
                 AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(this, this, new StrengthPower(this, this.strengthDrain), this.strengthDrain));
@@ -131,12 +137,14 @@ public class Yukari extends CustomMonster
                 break;
             }
             case STRENGTH_DRAIN: {
+                runAnim("Fan");
                 AbstractDungeon.actionManager.addToBottom(new DamageAction(AbstractDungeon.player, this.damage.get(2), AbstractGameAction.AttackEffect.SLASH_HEAVY));
                 AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(this, this, new StrengthPower(this, this.strengthDrain), this.strengthDrain));
                 AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(AbstractDungeon.player, this, new StrengthPower(AbstractDungeon.player, -this.strengthDrain), -this.strengthDrain));
                 break;
             }
             case MEGA_DEBUFF: {
+                runAnim("GapHand");
                 AbstractDungeon.actionManager.addToBottom(new GainBlockAction(this, this, this.block));
                 AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(AbstractDungeon.player, this, new VulnerablePower(AbstractDungeon.player, this.debuffAmount, true), this.debuffAmount));
                 AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(AbstractDungeon.player, this, new WeakPower(AbstractDungeon.player, this.debuffAmount, true), this.debuffAmount));
@@ -145,6 +153,7 @@ public class Yukari extends CustomMonster
                 break;
             }
             case ATTACK: {
+                runAnim("Parasol");
                 for (int i = 0; i < NORMAL_ATTACK_HITS; i++) {
                     AbstractDungeon.actionManager.addToBottom(new DamageAction(AbstractDungeon.player, this.damage.get(0), AbstractGameAction.AttackEffect.BLUNT_LIGHT));
                 }
@@ -153,11 +162,13 @@ public class Yukari extends CustomMonster
                 break;
             }
             case LAST_WORD: {
+                runAnim("Spell");
                 AbstractDungeon.actionManager.addToBottom(new InvertPowersAction(this, true));
                 AbstractDungeon.actionManager.addToBottom(new GainBlockAction(this, this, this.block));
                 break;
             }
             case TRAIN: {
+                runAnim("Train");
                 for (int i = 0; i < TRAIN_ATTACK_HITS; i++) {
                     if (i == 0) {
                         AbstractDungeon.actionManager.addToBottom(new SFXAction("Gensokyo:Train"));
@@ -245,5 +256,71 @@ public class Yukari extends CustomMonster
         NAME = Yukari.monsterStrings.NAME;
         MOVES = Yukari.monsterStrings.MOVES;
         DIALOG = Yukari.monsterStrings.DIALOG;
+    }
+
+    @Override
+    public void die() {
+        runAnim("Defeat");
+        super.die();
+    }
+
+    @Override
+    public void die(boolean triggerRelics) {
+        runAnim("Defeat");
+        super.die(triggerRelics);
+    }
+
+    //Runs a specific animation
+    public void runAnim(String animation) {
+        ((BetterSpriterAnimation)this.animation).myPlayer.setAnimation(animation);
+    }
+
+    //Resets character back to idle animation
+    public void resetAnimation() {
+        ((BetterSpriterAnimation)this.animation).myPlayer.setAnimation("Idle");
+    }
+
+    //Prevents any further animation once the death animation is finished
+    public void stopAnimation() {
+        int time = ((BetterSpriterAnimation)this.animation).myPlayer.getAnimation().length;
+        ((BetterSpriterAnimation)this.animation).myPlayer.setTime(time);
+        ((BetterSpriterAnimation)this.animation).myPlayer.speed = 0;
+    }
+
+    public class YukariListener implements Player.PlayerListener {
+
+        private Yukari character;
+
+        public YukariListener(Yukari character) {
+            this.character = character;
+        }
+
+        public void animationFinished(Animation animation){
+            if (animation.name.equals("Defeat")) {
+                character.stopAnimation();
+            } else if (!animation.name.equals("Idle")) {
+                character.resetAnimation();
+            }
+        }
+
+        //UNUSED
+        public void animationChanged(Animation var1, Animation var2){
+
+        }
+
+        //UNUSED
+        public void preProcess(Player var1){
+
+        }
+
+        //UNUSED
+        public void postProcess(Player var1){
+
+        }
+
+        //UNUSED
+        public void mainlineKeyChanged(com.brashmonkey.spriter.Mainline.Key var1, com.brashmonkey.spriter.Mainline.Key var2){
+
+        }
     }
 }

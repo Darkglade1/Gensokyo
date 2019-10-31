@@ -8,7 +8,6 @@ import Gensokyo.powers.LionMask;
 import Gensokyo.powers.SpiderMask;
 import Gensokyo.vfx.EmptyEffect;
 import basemod.abstracts.CustomMonster;
-import basemod.animations.SpriterAnimation;
 import com.brashmonkey.spriter.Animation;
 import com.brashmonkey.spriter.Player;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
@@ -31,7 +30,6 @@ import com.megacrit.cardcrawl.powers.StrengthPower;
 import com.megacrit.cardcrawl.powers.VulnerablePower;
 import com.megacrit.cardcrawl.powers.WeakPower;
 import com.megacrit.cardcrawl.vfx.combat.FireballEffect;
-import com.megacrit.cardcrawl.vfx.combat.GoldenSlashEffect;
 import com.megacrit.cardcrawl.vfx.combat.LaserBeamEffect;
 import com.megacrit.cardcrawl.vfx.combat.WebEffect;
 
@@ -303,6 +301,13 @@ public class Kokoro extends CustomMonster
             }
         }
     }
+    
+    static {
+        monsterStrings = CardCrawlGame.languagePack.getMonsterStrings("Gensokyo:Kokoro");
+        NAME = Kokoro.monsterStrings.NAME;
+        MOVES = Kokoro.monsterStrings.MOVES;
+        DIALOG = Kokoro.monsterStrings.DIALOG;
+    }
 
     @Override
     public void die() {
@@ -314,13 +319,6 @@ public class Kokoro extends CustomMonster
     public void die(boolean triggerRelics) {
         runAnim("Defeat");
         super.die(triggerRelics);
-    }
-    
-    static {
-        monsterStrings = CardCrawlGame.languagePack.getMonsterStrings("Gensokyo:Kokoro");
-        NAME = Kokoro.monsterStrings.NAME;
-        MOVES = Kokoro.monsterStrings.MOVES;
-        DIALOG = Kokoro.monsterStrings.DIALOG;
     }
 
     //Runs a specific animation
