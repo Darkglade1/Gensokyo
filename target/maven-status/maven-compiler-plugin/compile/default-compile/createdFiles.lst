@@ -9,7 +9,9 @@ Gensokyo\cards\BlueCape.class
 Gensokyo\cards\RedCape.class
 Gensokyo\patches\relics\PerfectCherryBlossomPatch$Locator.class
 Gensokyo\monsters\Yukari.class
+Gensokyo\monsters\Reimu$ReimuListener.class
 Gensokyo\powers\HopeMask.class
+Gensokyo\actions\YinYangAttackAction.class
 Gensokyo\events\ALandWhereOnlyIAmMissing.class
 Gensokyo\powers\FoxMask.class
 Gensokyo\util\IDCheckDontTouchPls.class
@@ -35,7 +37,9 @@ Gensokyo\events\GoodsFromTheOutsideWorld.class
 Gensokyo\events\ClashOfLegends.class
 Gensokyo\patches\HighLightInvertiblePowerPatches.class
 Gensokyo\patches\HighLightInvertiblePowerPatches$HighLight$LocatorMulti.class
+Gensokyo\powers\MonsterPosition.class
 Gensokyo\cards\SevenSchoolMysteries.class
+Gensokyo\monsters\YinYangOrb.class
 Gensokyo\cards\MonkeysPaw.class
 Gensokyo\events\ForestOfMagic.class
 Gensokyo\relics\CelestialsFlawlessClothing.class
@@ -71,12 +75,14 @@ Gensokyo\relics\NagashiBinaDoll.class
 Gensokyo\powers\SpontaneousHumanCombustionPower.class
 Gensokyo\cards\TekeTeke.class
 Gensokyo\powers\SlitMouthedWomanPower.class
+Gensokyo\monsters\Reimu.class
 Gensokyo\patches\LunacyRetargetPatch$Locator.class
 Gensokyo\powers\HAARPPower.class
 Gensokyo\tags\Tags.class
 Gensokyo\cards\EightFeetTall.class
 Gensokyo\util\TextureLoader.class
 Gensokyo\cards\Apocalypse.class
+Gensokyo\powers\Position.class
 Gensokyo\patches\relics\RezItemPatch.class
 Gensokyo\events\FieldTripToAnotherWorld.class
 Gensokyo\cards\HAARP.class

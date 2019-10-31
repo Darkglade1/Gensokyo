@@ -32,5 +32,22 @@
       "Mask Change"
     ],
     "NAME": "Maiden of Many Faces"
+  },
+  "Gensokyo:Reimu": {
+    "MOVES": [
+      ""
+    ],
+    "NAME": "Shrine Maiden of Paradise",
+    "DIALOG": [
+      "Another day, another incident."
+    ]
+  },
+  "Gensokyo:YinYangOrb": {
+    "MOVES": [
+      ""
+    ],
+    "NAME": "Yin-Yang Orb"
   }
 }
+
+

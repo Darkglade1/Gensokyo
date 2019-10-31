@@ -19,7 +19,6 @@ public class UsePreBattleActionAction extends AbstractGameAction {
         mo.usePreBattleAction();
 
         this.isDone = true;
-        return;
     }
 }
 

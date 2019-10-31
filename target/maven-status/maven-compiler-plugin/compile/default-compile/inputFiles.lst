@@ -1,6 +1,8 @@
+C:\Users\jeffr\Documents\my_mods\Gensokyo\Gensokyo\src\main\java\Gensokyo\powers\Position.java
 C:\Users\jeffr\Documents\my_mods\Gensokyo\Gensokyo\src\main\java\Gensokyo\cards\EightFeetTall.java
 C:\Users\jeffr\Documents\my_mods\Gensokyo\Gensokyo\src\main\java\Gensokyo\cards\Apocalypse.java
 C:\Users\jeffr\Documents\my_mods\Gensokyo\Gensokyo\src\main\java\Gensokyo\events\GoddessOfMisfortune.java
+C:\Users\jeffr\Documents\my_mods\Gensokyo\Gensokyo\src\main\java\Gensokyo\powers\MonsterPosition.java
 C:\Users\jeffr\Documents\my_mods\Gensokyo\Gensokyo\src\main\java\Gensokyo\actions\FlexibleDiscoveryAction.java
 C:\Users\jeffr\Documents\my_mods\Gensokyo\Gensokyo\src\main\java\Gensokyo\cards\AbstractDefaultCard.java
 C:\Users\jeffr\Documents\my_mods\Gensokyo\Gensokyo\src\main\java\Gensokyo\GensokyoMod.java
@@ -14,6 +16,7 @@ C:\Users\jeffr\Documents\my_mods\Gensokyo\Gensokyo\src\main\java\Gensokyo\events
 C:\Users\jeffr\Documents\my_mods\Gensokyo\Gensokyo\src\main\java\Gensokyo\patches\relics\PerfectCherryBlossomPatch.java
 C:\Users\jeffr\Documents\my_mods\Gensokyo\Gensokyo\src\main\java\Gensokyo\powers\HAARPPower.java
 C:\Users\jeffr\Documents\my_mods\Gensokyo\Gensokyo\src\main\java\Gensokyo\events\ScarletDevilMansion.java
+C:\Users\jeffr\Documents\my_mods\Gensokyo\Gensokyo\src\main\java\Gensokyo\monsters\Reimu.java
 C:\Users\jeffr\Documents\my_mods\Gensokyo\Gensokyo\src\main\java\Gensokyo\patches\HighLightInvertiblePowerPatches.java
 C:\Users\jeffr\Documents\my_mods\Gensokyo\Gensokyo\src\main\java\Gensokyo\actions\TekeTekeAction.java
 C:\Users\jeffr\Documents\my_mods\Gensokyo\Gensokyo\src\main\java\Gensokyo\cards\TekeTeke.java
@@ -44,6 +47,7 @@ C:\Users\jeffr\Documents\my_mods\Gensokyo\Gensokyo\src\main\java\Gensokyo\cards\
 C:\Users\jeffr\Documents\my_mods\Gensokyo\Gensokyo\src\main\java\Gensokyo\powers\HopeMask.java
 C:\Users\jeffr\Documents\my_mods\Gensokyo\Gensokyo\src\main\java\Gensokyo\relics\LunaticRedEyes.java
 C:\Users\jeffr\Documents\my_mods\Gensokyo\Gensokyo\src\main\java\Gensokyo\events\BorderOfDeath.java
+C:\Users\jeffr\Documents\my_mods\Gensokyo\Gensokyo\src\main\java\Gensokyo\monsters\YinYangOrb.java
 C:\Users\jeffr\Documents\my_mods\Gensokyo\Gensokyo\src\main\java\Gensokyo\tags\Tags.java
 C:\Users\jeffr\Documents\my_mods\Gensokyo\Gensokyo\src\main\java\Gensokyo\events\ACelestialsPlight.java
 C:\Users\jeffr\Documents\my_mods\Gensokyo\Gensokyo\src\main\java\Gensokyo\powers\Vengeance.java

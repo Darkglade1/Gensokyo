@@ -34,6 +34,8 @@ import Gensokyo.events.TheEnmasDilemma;
 import Gensokyo.events.ThoseEarthRabbits;
 import Gensokyo.monsters.Kokoro;
 import Gensokyo.monsters.Komachi;
+import Gensokyo.monsters.Reimu;
+import Gensokyo.monsters.YinYangOrb;
 import Gensokyo.monsters.Yukari;
 import Gensokyo.relics.CelestialsFlawlessClothing;
 import Gensokyo.relics.Justice;
@@ -235,6 +237,7 @@ public class GensokyoMod implements
         BaseMod.addMonster(Komachi.ID, (BaseMod.GetMonster)Komachi::new);
         BaseMod.addMonster(Yukari.ID, (BaseMod.GetMonster)Yukari::new);
         BaseMod.addMonster(Kokoro.ID, (BaseMod.GetMonster)Kokoro::new);
+        BaseMod.addMonster(Reimu.ID, (BaseMod.GetMonster)Reimu::new);
         BaseMod.addBoss(Exordium.ID, Yukari.ID, "GensokyoResources/images/monsters/Yukari/Yukari.png", "GensokyoResources/images/monsters/Yukari/YukariOutline.png");
         BaseMod.addBoss(Exordium.ID, Kokoro.ID, "GensokyoResources/images/monsters/Kokoro/Kokoro.png", "GensokyoResources/images/monsters/Kokoro/KokoroOutline.png");
 

@@ -15,6 +15,9 @@ public class MusicPatch {
 			case "Gensokyo/TheLostEmotion.mp3": {
 				return MainMusic.newMusic("audio/music/Gensokyo/TheLostEmotion.mp3");
 			}
+			case "Gensokyo/G Free.mp3": {
+				return MainMusic.newMusic("audio/music/Gensokyo/G Free.mp3");
+			}
 			default: {
 				return __result;
 			}
