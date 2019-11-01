@@ -27,49 +27,48 @@ public class YinYangOrb extends CustomMonster {
     private int delay;
     private int position;
     private float movement = Reimu.orbOffset;
+    private Reimu master;
 
-    public YinYangOrb(float x, float y, int type, int position) {
-        super(NAME, ID, HP, 0.0F, 0.0F, 160.0F, 160.0F, null, x, y);
+    public YinYangOrb(float x, float y, int type, int position, int delay, Reimu master) {
+        super(NAME, ID, HP, 0.0F, 0.0F, 160.0F, 120.0F, null, x, y);
         this.animation = new SpriterAnimation("GensokyoResources/images/monsters/YinYangOrb/Spriter/YinYangOrb.scml");
         if (AbstractDungeon.ascensionLevel >= 9) {
             this.setHp(A9_HP * type);
-            this.damage.add(new DamageInfo(this, A9_HP * type));
+            this.damage.add(new DamageInfo(this, A9_HP * (4 - type)));
         } else {
             this.setHp(HP * type);
-            this.damage.add(new DamageInfo(this, HP * type));
+            this.damage.add(new DamageInfo(this, HP * (4 - type)));
         }
-        delay = type;
+        this.delay = delay;
         this.position = position;
+        this.master = master;
         AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(this, this, new MonsterPosition(this, delay, position)));
+    }
+
+    private void move() {
+        master.orbs[delay - 1][position - 1] = false;
+        this.drawX -= movement;
+        delay--;
+        if (delay > 0) {
+            master.orbs[delay - 1][position - 1] = true;
+        }
     }
 
     @Override
     public void takeTurn() {
         switch(this.nextMove) {
         case MOVE:
-            this.drawX -= movement;
+            move();
             break;
         case ATTACK:
-            this.drawX -= movement;
+            move();
             AbstractDungeon.actionManager.addToBottom(new VFXAction(new ExplosionSmallEffect(this.hb.cX, this.hb.cY), 0.1F));
             AbstractDungeon.actionManager.addToBottom(new YinYangAttackAction(this.position, this.damage.get(0)));
             AbstractDungeon.actionManager.addToBottom(new SuicideAction(this));
             break;
         }
-        delay--;
         AbstractDungeon.actionManager.addToBottom(new RollMoveAction(this));
     }
-
-//    @Override
-//    public void update() {
-//        super.update();
-//        if (this.count % 2 == 0) {
-//            this.animY = MathUtils.cosDeg((float)(System.currentTimeMillis() / 6L % 360L)) * 6.0F * Settings.scale;
-//        } else {
-//            this.animY = -MathUtils.cosDeg((float)(System.currentTimeMillis() / 6L % 360L)) * 6.0F * Settings.scale;
-//        }
-//
-//    }
 
     @Override
     protected void getMove(int num) {

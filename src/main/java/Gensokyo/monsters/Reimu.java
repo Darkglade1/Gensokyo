@@ -5,8 +5,10 @@ import Gensokyo.powers.Position;
 import basemod.abstracts.CustomMonster;
 import com.brashmonkey.spriter.Animation;
 import com.brashmonkey.spriter.Player;
+import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.animations.TalkAction;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
+import com.megacrit.cardcrawl.actions.common.DamageAction;
 import com.megacrit.cardcrawl.actions.common.RollMoveAction;
 import com.megacrit.cardcrawl.actions.common.SpawnMonsterAction;
 import com.megacrit.cardcrawl.cards.DamageInfo;
@@ -15,7 +17,11 @@ import com.megacrit.cardcrawl.core.Settings;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.localization.MonsterStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
+import com.megacrit.cardcrawl.powers.VulnerablePower;
+import com.megacrit.cardcrawl.powers.WeakPower;
 
+import java.util.ArrayList;
+import java.util.Collections;
 import java.util.HashMap;
 
 public class Reimu extends CustomMonster
@@ -70,7 +76,7 @@ public class Reimu extends CustomMonster
     }
 
     public Reimu(final float x, final float y) {
-        super(Reimu.NAME, ID, HP, -5.0F, 0, 280.0f, 285.0f, null, x, y);
+        super(Reimu.NAME, ID, HP, -5.0F, 0, 280.0f, 265.0f, null, x, y);
         this.animation = new BetterSpriterAnimation("GensokyoResources/images/monsters/Reimu/Spriter/ReimuAnimations.scml");
         this.type = EnemyType.BOSS;
         this.dialogX = (this.hb_x - 70.0F) * Settings.scale;
@@ -129,13 +135,37 @@ public class Reimu extends CustomMonster
     }
 
     private void spawnOrb() {
-        int position = AbstractDungeon.monsterRng.random(1, 3);
-        int delay = AbstractDungeon.monsterRng.random(1, 3);
-        float x = -orbOffset * (4 - delay);
-        float y = orbOffset * (position - 1);
-        orbs[position - 1][delay - 1] = true;
-        AbstractMonster orb = new YinYangOrb(x, y, delay, position);
-        AbstractDungeon.actionManager.addToTop(new SpawnMonsterAction(orb, true));
+        for (int i = 0; i < orbs.length; i++) {
+            ArrayList<Integer> emptySpots = new ArrayList<>();
+            for (int j = 0; j < orbs[i].length; j++) {
+                if (!orbs[i][j]) {
+                    emptySpots.add(j);
+                }
+            }
+            Collections.shuffle(emptySpots, AbstractDungeon.monsterRng.random);
+            while(emptySpots.size() > 1) {
+                int position = emptySpots.remove(0) + 1;
+                int delay = i + 1;
+                int type = AbstractDungeon.monsterRng.random(1, 3);
+                float x = -orbOffset * (4 - delay);
+                float y = orbOffset * (position - 1);
+                orbs[delay - 1][position - 1] = true;
+                AbstractMonster orb = new YinYangOrb(x, y, type, position, delay, this);
+                AbstractDungeon.actionManager.addToTop(new SpawnMonsterAction(orb, true));
+            }
+        }
+    }
+
+    private int orbNum() {
+        int counter = 0;
+        for (int i = 0; i < orbs.length; i++) {
+            for (int j = 0; j < orbs[i].length; j++) {
+                if (orbs[i][j]) {
+                    counter++;
+                }
+            }
+        }
+        return counter;
     }
     
     @Override
@@ -150,6 +180,10 @@ public class Reimu extends CustomMonster
                 spawnOrb();
                 break;
             }
+            case ATTACK: {
+                AbstractDungeon.actionManager.addToBottom(new DamageAction(AbstractDungeon.player, this.damage.get(0), AbstractGameAction.AttackEffect.BLUNT_LIGHT));
+                break;
+            }
         }
         AbstractDungeon.actionManager.addToBottom(new RollMoveAction(this));
     }
@@ -160,7 +194,12 @@ public class Reimu extends CustomMonster
             setMove(OPENING, Intent.UNKNOWN);
             this.firstMove = false;
         } else {
-            setMove(SUMMON, Intent.UNKNOWN);
+            if (orbNum() < 3) {
+                setMove(SUMMON, Intent.UNKNOWN);
+            } else {
+                this.setMove(ATTACK, Intent.ATTACK, this.damage.get(0).base);
+            }
+
         }
     }
     
@@ -171,17 +210,17 @@ public class Reimu extends CustomMonster
         DIALOG = Reimu.monsterStrings.DIALOG;
     }
 
-    @Override
-    public void die() {
-        runAnim("Defeat");
-        super.die();
-    }
-
-    @Override
-    public void die(boolean triggerRelics) {
-        runAnim("Defeat");
-        super.die(triggerRelics);
-    }
+//    @Override
+//    public void die() {
+//        runAnim("Defeat");
+//        super.die();
+//    }
+//
+//    @Override
+//    public void die(boolean triggerRelics) {
+//        runAnim("Defeat");
+//        super.die(triggerRelics);
+//    }
 
     //Runs a specific animation
     public void runAnim(String animation) {
