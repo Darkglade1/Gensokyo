@@ -4,15 +4,50 @@
         <file id="0" name="YinYangOrb.png" width="100" height="100" pivot_x="0" pivot_y="1"/>
     </folder>
     <entity id="0" name="YinYangOrb">
-        <animation id="0" name="Idle" length="1000" interval="100">
+        <obj_info name="bone_000" type="bone" w="48.6631" h="10"/>
+        <animation id="0" name="Idle" length="400" interval="100">
             <mainline>
                 <key id="0">
-                    <object_ref id="0" timeline="0" key="0" z_index="0"/>
+                    <bone_ref id="0" timeline="1" key="0"/>
+                    <object_ref id="0" parent="0" timeline="0" key="0" z_index="0"/>
+                </key>
+                <key id="1" time="100">
+                    <bone_ref id="0" timeline="1" key="1"/>
+                    <object_ref id="0" parent="0" timeline="0" key="0" z_index="0"/>
+                </key>
+                <key id="2" time="200">
+                    <bone_ref id="0" timeline="1" key="2"/>
+                    <object_ref id="0" parent="0" timeline="0" key="0" z_index="0"/>
+                </key>
+                <key id="3" time="300">
+                    <bone_ref id="0" timeline="1" key="3"/>
+                    <object_ref id="0" parent="0" timeline="0" key="0" z_index="0"/>
+                </key>
+                <key id="4" time="399">
+                    <bone_ref id="0" timeline="1" key="4"/>
+                    <object_ref id="0" parent="0" timeline="0" key="0" z_index="0"/>
                 </key>
             </mainline>
             <timeline id="0" name="YinYangOrb">
-                <key id="0" spin="0">
-                    <object folder="0" file="0" x="-53" y="111"/>
+                <key id="0" time="100" spin="0">
+                    <object folder="0" file="0" x="49.235294" y="50.860963" angle="270" scale_x="1"/>
+                </key>
+            </timeline>
+            <timeline id="1" obj="0" name="bone_000" object_type="bone">
+                <key id="0" spin="-1">
+                    <bone x="-2.139037" y="61.764706" angle="88.16363" scale_x="1"/>
+                </key>
+                <key id="1" time="100" spin="-1">
+                    <bone x="-2.139037" y="61.764706" angle="1.650382" scale_x="1"/>
+                </key>
+                <key id="2" time="200" spin="-1">
+                    <bone x="-2.139037" y="61.764706" angle="276.583812" scale_x="1"/>
+                </key>
+                <key id="3" time="300" spin="-1">
+                    <bone x="-2.139037" y="61.764706" angle="230.737501" scale_x="1"/>
+                </key>
+                <key id="4" time="399" spin="-1">
+                    <bone x="-2.139037" y="61.764706" angle="130.660496" scale_x="1"/>
                 </key>
             </timeline>
         </animation>
