@@ -1,4 +1,5 @@
 Gensokyo\patches\LunacyRetargetPatch.class
+Gensokyo\actions\YinYangMoveAction.class
 Gensokyo\cards\GapWoman.class
 Gensokyo\actions\KillAction.class
 Gensokyo\monsters\Yukari$YukariListener.class

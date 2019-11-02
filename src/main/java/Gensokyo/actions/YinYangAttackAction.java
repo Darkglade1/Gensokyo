@@ -25,7 +25,7 @@ public class YinYangAttackAction extends AbstractGameAction {
             playerPosition = AbstractDungeon.player.getPower(Position.POWER_ID).amount;
         }
         if (playerPosition == this.position) {
-            AbstractDungeon.actionManager.addToTop(new DamageAction(AbstractDungeon.player, damage, AttackEffect.FIRE, true));
+            AbstractDungeon.actionManager.addToTop(new DamageAction(AbstractDungeon.player, damage, AttackEffect.BLUNT_HEAVY, true));
         }
         this.isDone = true;
     }

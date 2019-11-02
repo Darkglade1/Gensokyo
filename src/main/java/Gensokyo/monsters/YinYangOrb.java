@@ -1,6 +1,7 @@
 package Gensokyo.monsters;
 
 import Gensokyo.actions.YinYangAttackAction;
+import Gensokyo.actions.YinYangMoveAction;
 import Gensokyo.powers.MonsterPosition;
 import basemod.abstracts.CustomMonster;
 import basemod.animations.SpriterAnimation;
@@ -12,7 +13,6 @@ import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.localization.MonsterStrings;
-import com.megacrit.cardcrawl.vfx.combat.ExplosionSmallEffect;
 
 public class YinYangOrb extends CustomMonster {
     public static final String ID = "Gensokyo:YinYangOrb";
@@ -46,11 +46,19 @@ public class YinYangOrb extends CustomMonster {
     }
 
     private void move() {
-        master.orbs[delay - 1][position - 1] = false;
-        this.drawX -= movement;
+        master.orbs[delay - 1][position - 1].remove(this);
+        AbstractDungeon.actionManager.addToBottom(new VFXAction(new YinYangMoveAction(this, this.drawX, this.drawX - movement)));
         delay--;
         if (delay > 0) {
-            master.orbs[delay - 1][position - 1] = true;
+            master.orbs[delay - 1][position - 1].add(this);
+        }
+    }
+
+    @Override
+    public void die(boolean triggerRelics) {
+        super.die(triggerRelics);
+        if (delay > 0) {
+            master.orbs[delay - 1][position - 1].remove(this);
         }
     }
 
@@ -62,7 +70,6 @@ public class YinYangOrb extends CustomMonster {
             break;
         case ATTACK:
             move();
-            AbstractDungeon.actionManager.addToBottom(new VFXAction(new ExplosionSmallEffect(this.hb.cX, this.hb.cY), 0.1F));
             AbstractDungeon.actionManager.addToBottom(new YinYangAttackAction(this.position, this.damage.get(0)));
             AbstractDungeon.actionManager.addToBottom(new SuicideAction(this));
             break;

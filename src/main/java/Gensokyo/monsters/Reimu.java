@@ -11,18 +11,16 @@ import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.actions.common.DamageAction;
 import com.megacrit.cardcrawl.actions.common.RollMoveAction;
 import com.megacrit.cardcrawl.actions.common.SpawnMonsterAction;
+import com.megacrit.cardcrawl.actions.common.SuicideAction;
 import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.core.Settings;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.localization.MonsterStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
-import com.megacrit.cardcrawl.powers.VulnerablePower;
-import com.megacrit.cardcrawl.powers.WeakPower;
 
 import java.util.ArrayList;
 import java.util.Collections;
-import java.util.HashMap;
 
 public class Reimu extends CustomMonster
 {
@@ -64,12 +62,8 @@ public class Reimu extends CustomMonster
     private static final int HP = 220;
     private static final int A9_HP = 230;
 
-    //private static final float orbOriginX = 658.0F * Settings.scale;
-    //private static final float orbOriginY = 284.0F * Settings.scale;
     public static final float orbOffset = 225.0F * Settings.scale;
-    private HashMap<Integer, Float> xMap = new HashMap<>();
-    private HashMap<Integer, Float> yMap = new HashMap<>();
-    public boolean[][] orbs = new boolean[3][3];
+    public ArrayList[][] orbs = new ArrayList[3][3];
 
     public Reimu() {
         this(0.0f, 0.0f);
@@ -111,20 +105,15 @@ public class Reimu extends CustomMonster
         this.damage.add(new DamageInfo(this, this.trainDamage));
         this.damage.add(new DamageInfo(this, this.debuffDamage));
 
+        for(int i = 0; i < orbs.length; i++) {
+            for (int j = 0; j < orbs[i].length; j++) {
+                orbs[i][j] = new ArrayList<AbstractMonster>();
+            }
+        }
+
         Player.PlayerListener listener = new ReimuListener(this);
         ((BetterSpriterAnimation)this.animation).myPlayer.addListener(listener);
-
-        //constructOrbHelpers();
     }
-
-//    private void constructOrbHelpers() {
-//        for (int i = 1; i <= 3; i++) {
-//            float xOffset = orbOriginX + orbOffset * i;
-//            xMap.put(i, xOffset);
-//            float yOffset = orbOriginY + orbOffset * i;
-//            yMap.put(i, yOffset);
-//        }
-//    }
 
     @Override
     public void usePreBattleAction() {
@@ -138,19 +127,23 @@ public class Reimu extends CustomMonster
         for (int i = 0; i < orbs.length; i++) {
             ArrayList<Integer> emptySpots = new ArrayList<>();
             for (int j = 0; j < orbs[i].length; j++) {
-                if (!orbs[i][j]) {
+                System.out.println(orbs[i][j].size());
+                if (orbs[i][j].isEmpty()) {
+                    System.out.println(j);
                     emptySpots.add(j);
                 }
             }
             Collections.shuffle(emptySpots, AbstractDungeon.monsterRng.random);
+            System.out.println(emptySpots.size());
             while(emptySpots.size() > 1) {
+                System.out.println(emptySpots.size());
                 int position = emptySpots.remove(0) + 1;
                 int delay = i + 1;
                 int type = AbstractDungeon.monsterRng.random(1, 3);
                 float x = -orbOffset * (4 - delay);
                 float y = orbOffset * (position - 1);
-                orbs[delay - 1][position - 1] = true;
                 AbstractMonster orb = new YinYangOrb(x, y, type, position, delay, this);
+                orbs[delay - 1][position - 1].add(orb);
                 AbstractDungeon.actionManager.addToTop(new SpawnMonsterAction(orb, true));
             }
         }
@@ -160,9 +153,7 @@ public class Reimu extends CustomMonster
         int counter = 0;
         for (int i = 0; i < orbs.length; i++) {
             for (int j = 0; j < orbs[i].length; j++) {
-                if (orbs[i][j]) {
-                    counter++;
-                }
+                counter += orbs[i][j].size();
             }
         }
         return counter;
@@ -210,17 +201,16 @@ public class Reimu extends CustomMonster
         DIALOG = Reimu.monsterStrings.DIALOG;
     }
 
-//    @Override
-//    public void die() {
-//        runAnim("Defeat");
-//        super.die();
-//    }
-//
-//    @Override
-//    public void die(boolean triggerRelics) {
-//        runAnim("Defeat");
-//        super.die(triggerRelics);
-//    }
+    @Override
+    public void die(boolean triggerRelics) {
+        //runAnim("Defeat");
+        super.die(triggerRelics);
+        for (AbstractMonster mo : AbstractDungeon.getCurrRoom().monsters.monsters) {
+            if (mo instanceof YinYangOrb) {
+                AbstractDungeon.actionManager.addToBottom(new SuicideAction(mo));
+            }
+        }
+    }
 
     //Runs a specific animation
     public void runAnim(String animation) {
