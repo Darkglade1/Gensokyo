@@ -2,12 +2,9 @@ package Gensokyo.powers;
 
 import Gensokyo.GensokyoMod;
 import com.evacipated.cardcrawl.mod.stslib.powers.abstracts.TwoAmountPower;
-import com.megacrit.cardcrawl.actions.common.ReducePowerAction;
 import com.megacrit.cardcrawl.core.AbstractCreature;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
-import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.localization.PowerStrings;
-import com.megacrit.cardcrawl.powers.AbstractPower;
 
 
 public class MonsterPosition extends TwoAmountPower {
@@ -31,14 +28,6 @@ public class MonsterPosition extends TwoAmountPower {
         this.loadRegion("storm");
 
         updateDescription();
-    }
-
-    @Override
-    public void duringTurn() {
-        if (this.amount > 1 || this.owner.isDying) {
-            AbstractDungeon.actionManager.addToBottom(new ReducePowerAction(this.owner, this.owner, ID, 1));
-            updateDescription();
-        }
     }
 
     @Override

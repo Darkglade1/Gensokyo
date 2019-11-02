@@ -7,6 +7,7 @@ import basemod.abstracts.CustomMonster;
 import basemod.animations.SpriterAnimation;
 import com.megacrit.cardcrawl.actions.animations.VFXAction;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
+import com.megacrit.cardcrawl.actions.common.ReducePowerAction;
 import com.megacrit.cardcrawl.actions.common.RollMoveAction;
 import com.megacrit.cardcrawl.actions.common.SuicideAction;
 import com.megacrit.cardcrawl.cards.DamageInfo;
@@ -48,6 +49,7 @@ public class YinYangOrb extends CustomMonster {
     private void move() {
         master.orbs[delay - 1][position - 1].remove(this);
         AbstractDungeon.actionManager.addToBottom(new VFXAction(new YinYangMoveAction(this, this.drawX, this.drawX - movement)));
+        AbstractDungeon.actionManager.addToBottom(new ReducePowerAction(this, this, MonsterPosition.POWER_ID, 1));
         delay--;
         if (delay > 0) {
             master.orbs[delay - 1][position - 1].add(this);

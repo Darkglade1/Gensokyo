@@ -39,8 +39,8 @@ public class Reimu extends CustomMonster
     private static final byte BLOCK_DEBUFF = 3;
     private static final byte ATTACK = 4;
     private static final byte ATTACK_DEBUFF = 5;
-    private static final int NORMAL_ATTACK_DAMAGE = 13;
-    private static final int A4_NORMAL_ATTACK_DAMAGE = 14;
+    private static final int NORMAL_ATTACK_DAMAGE = 11;
+    private static final int A4_NORMAL_ATTACK_DAMAGE = 12;
     private static final int DEBUFF_ATTACK_DAMAGE = 7;
     private static final int A4_DEBUFF_ATTACK_DAMAGE = 8;
     private static final int DAZE_AMOUNT = 2;
@@ -163,6 +163,7 @@ public class Reimu extends CustomMonster
             }
             case ATTACK: {
                 AbstractDungeon.actionManager.addToBottom(new DamageAction(AbstractDungeon.player, this.damage.get(0), AbstractGameAction.AttackEffect.BLUNT_HEAVY));
+                AbstractDungeon.actionManager.addToBottom(new MakeTempCardInDiscardAction(new Dazed(), this.dazes - 1));
                 break;
             }
             case ATTACK_DEBUFF: {
@@ -193,7 +194,7 @@ public class Reimu extends CustomMonster
             } else {
                 if (num < 34) {
                     if (!this.lastMove(ATTACK)) {
-                        this.setMove(ATTACK, Intent.ATTACK, this.damage.get(0).base);
+                        this.setMove(ATTACK, Intent.ATTACK_DEBUFF, this.damage.get(0).base);
                     } else {
                         if (num % 2 == 0) {
                             this.setMove(BLOCK_DEBUFF, Intent.DEFEND_DEBUFF);
@@ -206,7 +207,7 @@ public class Reimu extends CustomMonster
                         this.setMove(ATTACK_DEBUFF, Intent.ATTACK_DEBUFF, this.damage.get(1).base);
                     } else {
                         if (num % 2 == 0) {
-                            this.setMove(ATTACK, Intent.ATTACK, this.damage.get(0).base);
+                            this.setMove(ATTACK, Intent.ATTACK_DEBUFF, this.damage.get(0).base);
                         } else {
                             this.setMove(BLOCK_DEBUFF, Intent.DEFEND_DEBUFF);
                         }
@@ -218,7 +219,7 @@ public class Reimu extends CustomMonster
                         if (num % 2 == 0) {
                             this.setMove(ATTACK_DEBUFF, Intent.ATTACK_DEBUFF, this.damage.get(1).base);
                         } else {
-                            this.setMove(ATTACK, Intent.ATTACK, this.damage.get(0).base);
+                            this.setMove(ATTACK, Intent.ATTACK_DEBUFF, this.damage.get(0).base);
                         }
                     }
                 }
