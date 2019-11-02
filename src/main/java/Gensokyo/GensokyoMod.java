@@ -240,6 +240,7 @@ public class GensokyoMod implements
         BaseMod.addMonster(Reimu.ID, (BaseMod.GetMonster)Reimu::new);
         BaseMod.addBoss(Exordium.ID, Yukari.ID, "GensokyoResources/images/monsters/Yukari/Yukari.png", "GensokyoResources/images/monsters/Yukari/YukariOutline.png");
         BaseMod.addBoss(Exordium.ID, Kokoro.ID, "GensokyoResources/images/monsters/Kokoro/Kokoro.png", "GensokyoResources/images/monsters/Kokoro/KokoroOutline.png");
+        BaseMod.addBoss(Exordium.ID, Reimu.ID, "GensokyoResources/images/monsters/Reimu/Reimu.png", "GensokyoResources/images/monsters/Reimu/ReimuOutline.png");
 
         
         // =============== EVENTS =================

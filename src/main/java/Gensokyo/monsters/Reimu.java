@@ -9,15 +9,19 @@ import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.animations.TalkAction;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.actions.common.DamageAction;
+import com.megacrit.cardcrawl.actions.common.GainBlockAction;
+import com.megacrit.cardcrawl.actions.common.MakeTempCardInDiscardAction;
 import com.megacrit.cardcrawl.actions.common.RollMoveAction;
 import com.megacrit.cardcrawl.actions.common.SpawnMonsterAction;
 import com.megacrit.cardcrawl.actions.common.SuicideAction;
 import com.megacrit.cardcrawl.cards.DamageInfo;
+import com.megacrit.cardcrawl.cards.status.Dazed;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.core.Settings;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.localization.MonsterStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
+import com.megacrit.cardcrawl.powers.VulnerablePower;
 
 import java.util.ArrayList;
 import java.util.Collections;
@@ -32,31 +36,22 @@ public class Reimu extends CustomMonster
     private boolean firstMove = true;
     private static final byte OPENING = 1;
     private static final byte SUMMON = 2;
-    private static final byte MEGA_DEBUFF = 3;
+    private static final byte BLOCK_DEBUFF = 3;
     private static final byte ATTACK = 4;
-    private static final byte LAST_WORD = 5;
-    private static final byte TRAIN = 6;
-    private static final int NORMAL_ATTACK_DAMAGE = 10;
-    private static final int A4_NORMAL_ATTACK_DAMAGE = 11;
-    private static final int NORMAL_ATTACK_HITS = 2;
-    private static final int DEBUFF_ATTACK_DAMAGE = 14;
-    private static final int A4_DEBUFF_ATTACK_DAMAGE = 16;
-    private static final int TRAIN_ATTACK_DAMAGE = 8;
-    private static final int A4_TRAIN_ATTACK_DAMAGE = 9;
-    private static final int TRAIN_ATTACK_HITS = 3;
+    private static final byte ATTACK_DEBUFF = 5;
+    private static final int NORMAL_ATTACK_DAMAGE = 13;
+    private static final int A4_NORMAL_ATTACK_DAMAGE = 14;
+    private static final int DEBUFF_ATTACK_DAMAGE = 7;
+    private static final int A4_DEBUFF_ATTACK_DAMAGE = 8;
+    private static final int DAZE_AMOUNT = 2;
+    private static final int A19_DAZE_AMOUNT = 3;
     private static final int DEBUFF_AMOUNT = 2;
     private static final int A19_DEBUFF_AMOUNT = 3;
-    private static final int STRENGTH_DRAIN_AMOUNT = 2;
-    private static final int A19_STRENGTH_DRAIN_AMOUNT = 3;
-    private static final int WOUND_AMOUNT = 1;
-    private static final int A19_WOUND_AMOUNT = 2;
-    private static final int BLOCK = 10;
-    private static final int A9_BLOCK = 13;
+    private static final int BLOCK = 6;
+    private static final int A9_BLOCK = 8;
     private int normalDamage;
     private int debuffDamage;
-    private int trainDamage;
     private int debuffAmount;
-    private int strengthDrain;
     private int block;
     private int dazes;
     private static final int HP = 220;
@@ -77,12 +72,10 @@ public class Reimu extends CustomMonster
         this.dialogY -= (this.hb_y - 55.0F) * Settings.scale;
         if (AbstractDungeon.ascensionLevel >= 19) {
             this.debuffAmount = A19_DEBUFF_AMOUNT;
-            this.strengthDrain = A19_STRENGTH_DRAIN_AMOUNT;
-            this.dazes = A19_WOUND_AMOUNT;
+            this.dazes = A19_DAZE_AMOUNT;
         } else {
             this.debuffAmount = DEBUFF_AMOUNT;
-            this.strengthDrain = STRENGTH_DRAIN_AMOUNT;
-            this.dazes = WOUND_AMOUNT;
+            this.dazes = DAZE_AMOUNT;
         }
         if (AbstractDungeon.ascensionLevel >= 9) {
             this.setHp(A9_HP);
@@ -95,14 +88,11 @@ public class Reimu extends CustomMonster
         if (AbstractDungeon.ascensionLevel >= 4) {
             this.normalDamage = A4_NORMAL_ATTACK_DAMAGE;
             this.debuffDamage = A4_DEBUFF_ATTACK_DAMAGE;
-            this.trainDamage = A4_TRAIN_ATTACK_DAMAGE;
         } else {
             this.normalDamage = NORMAL_ATTACK_DAMAGE;
             this.debuffDamage = DEBUFF_ATTACK_DAMAGE;
-            this.trainDamage = TRAIN_ATTACK_DAMAGE;
         }
         this.damage.add(new DamageInfo(this, this.normalDamage));
-        this.damage.add(new DamageInfo(this, this.trainDamage));
         this.damage.add(new DamageInfo(this, this.debuffDamage));
 
         for(int i = 0; i < orbs.length; i++) {
@@ -172,8 +162,21 @@ public class Reimu extends CustomMonster
                 break;
             }
             case ATTACK: {
-                AbstractDungeon.actionManager.addToBottom(new DamageAction(AbstractDungeon.player, this.damage.get(0), AbstractGameAction.AttackEffect.BLUNT_LIGHT));
+                AbstractDungeon.actionManager.addToBottom(new DamageAction(AbstractDungeon.player, this.damage.get(0), AbstractGameAction.AttackEffect.BLUNT_HEAVY));
                 break;
+            }
+            case ATTACK_DEBUFF: {
+                AbstractDungeon.actionManager.addToBottom(new DamageAction(AbstractDungeon.player, this.damage.get(1), AbstractGameAction.AttackEffect.BLUNT_LIGHT));
+                AbstractDungeon.actionManager.addToBottom(new MakeTempCardInDiscardAction(new Dazed(), this.dazes));
+                break;
+            }
+            case BLOCK_DEBUFF: {
+                AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(AbstractDungeon.player, this, new VulnerablePower(AbstractDungeon.player, this.debuffAmount, true), this.debuffAmount));
+                for (AbstractMonster mo : AbstractDungeon.getCurrRoom().monsters.monsters) {
+                    if (!mo.isDying) {
+                        AbstractDungeon.actionManager.addToBottom(new GainBlockAction(mo, this, this.block));
+                    }
+                }
             }
         }
         AbstractDungeon.actionManager.addToBottom(new RollMoveAction(this));
@@ -188,7 +191,37 @@ public class Reimu extends CustomMonster
             if (orbNum() < 3) {
                 setMove(SUMMON, Intent.UNKNOWN);
             } else {
-                this.setMove(ATTACK, Intent.ATTACK, this.damage.get(0).base);
+                if (num < 34) {
+                    if (!this.lastMove(ATTACK)) {
+                        this.setMove(ATTACK, Intent.ATTACK, this.damage.get(0).base);
+                    } else {
+                        if (num % 2 == 0) {
+                            this.setMove(BLOCK_DEBUFF, Intent.DEFEND_DEBUFF);
+                        } else {
+                            this.setMove(ATTACK_DEBUFF, Intent.ATTACK_DEBUFF, this.damage.get(1).base);
+                        }
+                    }
+                } else if (num < 67) {
+                    if (!this.lastMove(ATTACK_DEBUFF)) {
+                        this.setMove(ATTACK_DEBUFF, Intent.ATTACK_DEBUFF, this.damage.get(1).base);
+                    } else {
+                        if (num % 2 == 0) {
+                            this.setMove(ATTACK, Intent.ATTACK, this.damage.get(0).base);
+                        } else {
+                            this.setMove(BLOCK_DEBUFF, Intent.DEFEND_DEBUFF);
+                        }
+                    }
+                } else if (num < 100) {
+                    if (!this.lastMove(BLOCK_DEBUFF)) {
+                        this.setMove(BLOCK_DEBUFF, Intent.DEFEND_DEBUFF);
+                    } else {
+                        if (num % 2 == 0) {
+                            this.setMove(ATTACK_DEBUFF, Intent.ATTACK_DEBUFF, this.damage.get(1).base);
+                        } else {
+                            this.setMove(ATTACK, Intent.ATTACK, this.damage.get(0).base);
+                        }
+                    }
+                }
             }
 
         }
