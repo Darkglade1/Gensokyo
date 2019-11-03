@@ -134,6 +134,7 @@ public class Reimu extends CustomMonster
     public void takeTurn() {
         switch (this.nextMove) {
             case OPENING: {
+                runAnim("SpellCall");
                 AbstractDungeon.actionManager.addToBottom(new TalkAction(this, Reimu.DIALOG[0]));
                 AbstractDungeon.actionManager.addToBottom(new SpawnOrbAction(this, 1));
                 AbstractDungeon.actionManager.addToBottom(new SpawnOrbAction(this, 2));
@@ -160,6 +161,7 @@ public class Reimu extends CustomMonster
                 break;
             }
             case BLOCK_DEBUFF: {
+                runAnim("SpellCall");
                 AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(AbstractDungeon.player, this, new VulnerablePower(AbstractDungeon.player, this.debuffAmount, true), this.debuffAmount));
                 for (AbstractMonster mo : AbstractDungeon.getCurrRoom().monsters.monsters) {
                     if (!mo.isDying) {
@@ -169,6 +171,7 @@ public class Reimu extends CustomMonster
                 break;
             }
             case MEGA_DEBUFF: {
+                runAnim("SpellCall");
                 AbstractDungeon.actionManager.addToBottom(new MakeTempCardInDiscardAction(new Dazed(), this.megaDaze));
                 break;
             }
