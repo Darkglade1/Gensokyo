@@ -1,6 +1,7 @@
 package Gensokyo.monsters;
 
 import Gensokyo.BetterSpriterAnimation;
+import Gensokyo.powers.HakureiShrineMaidenPower;
 import Gensokyo.powers.Position;
 import basemod.abstracts.CustomMonster;
 import com.brashmonkey.spriter.Animation;
@@ -117,35 +118,31 @@ public class Reimu extends CustomMonster
         AbstractDungeon.scene.fadeOutAmbiance();
         AbstractDungeon.getCurrRoom().playBgmInstantly("Gensokyo/G Free.mp3");
         AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(AbstractDungeon.player, this, new Position(AbstractDungeon.player, 1)));
+        AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(this, this, new HakureiShrineMaidenPower(this)));
     }
 
-    private void spawnOrb() {
-        for (int i = 0; i < orbs.length; i++) {
-            ArrayList<Integer> emptySpots = new ArrayList<>();
-            for (int j = 0; j < orbs[i].length; j++) {
-                System.out.println(orbs[i][j].size());
-                if (orbs[i][j].isEmpty()) {
-                    System.out.println(j);
-                    emptySpots.add(j);
-                }
+    public void spawnOrb(int column) {
+        int i = column - 1;
+        ArrayList<Integer> emptySpots = new ArrayList<>();
+        for (int j = 0; j < orbs[i].length; j++) {
+            if (orbs[i][j].isEmpty()) {
+                emptySpots.add(j);
             }
-            Collections.shuffle(emptySpots, AbstractDungeon.monsterRng.random);
-            System.out.println(emptySpots.size());
-            while(emptySpots.size() > 1) {
-                System.out.println(emptySpots.size());
-                int position = emptySpots.remove(0) + 1;
-                int delay = i + 1;
-                int type = AbstractDungeon.monsterRng.random(1, 3);
-                float x = -orbOffset * (4 - delay);
-                float y = orbOffset * (position - 1);
-                AbstractMonster orb = new YinYangOrb(x, y, type, position, delay, this);
-                orbs[delay - 1][position - 1].add(orb);
-                AbstractDungeon.actionManager.addToTop(new SpawnMonsterAction(orb, true));
-            }
+        }
+        Collections.shuffle(emptySpots, AbstractDungeon.monsterRng.random);
+        while (emptySpots.size() > 1) {
+            int position = emptySpots.remove(0) + 1;
+            int delay = i + 1;
+            int type = AbstractDungeon.monsterRng.random(1, 3);
+            float x = -orbOffset * (4 - delay);
+            float y = orbOffset * (position - 1);
+            AbstractMonster orb = new YinYangOrb(x, y, type, position, delay, this);
+            orbs[delay - 1][position - 1].add(orb);
+            AbstractDungeon.actionManager.addToBottom(new SpawnMonsterAction(orb, true));
         }
     }
 
-    private int orbNum() {
+    public int orbNum() {
         int counter = 0;
         for (int i = 0; i < orbs.length; i++) {
             for (int j = 0; j < orbs[i].length; j++) {
@@ -160,14 +157,18 @@ public class Reimu extends CustomMonster
         switch (this.nextMove) {
             case OPENING: {
                 AbstractDungeon.actionManager.addToBottom(new TalkAction(this, Reimu.DIALOG[0]));
-                spawnOrb();
+                spawnOrb(1);
+                spawnOrb(2);
+                spawnOrb(3);
                 break;
             }
-            case SUMMON: {
-                spawnOrb();
-                AbstractDungeon.actionManager.addToBottom(new MakeTempCardInDiscardAction(new Dazed(), this.dazes));
-                break;
-            }
+//            case SUMMON: {
+//                spawnOrb(1);
+//                spawnOrb(2);
+//                spawnOrb(3);
+//                AbstractDungeon.actionManager.addToBottom(new MakeTempCardInDiscardAction(new Dazed(), this.dazes));
+//                break;
+//            }
             case ATTACK: {
                 AbstractDungeon.actionManager.addToBottom(new DamageAction(AbstractDungeon.player, this.damage.get(0), AbstractGameAction.AttackEffect.BLUNT_HEAVY));
                 AbstractDungeon.actionManager.addToBottom(new MakeTempCardInDiscardAction(new Dazed(), this.dazes - 1));
@@ -187,10 +188,10 @@ public class Reimu extends CustomMonster
                 }
                 break;
             }
-//            case MEGA_DEBUFF: {
-//                AbstractDungeon.actionManager.addToBottom(new MakeTempCardInDiscardAction(new Dazed(), this.megaDaze));
-//                break;
-//            }
+            case MEGA_DEBUFF: {
+                AbstractDungeon.actionManager.addToBottom(new MakeTempCardInDiscardAction(new Dazed(), this.megaDaze));
+                break;
+            }
         }
         AbstractDungeon.actionManager.addToBottom(new RollMoveAction(this));
     }
@@ -201,42 +202,39 @@ public class Reimu extends CustomMonster
             setMove(OPENING, Intent.UNKNOWN);
             this.firstMove = false;
         } else {
-            if (orbNum() < 3) {
-                setMove(SUMMON, Intent.UNKNOWN);
-            } else {
-                if (num < 34) {
-                    if (!this.lastMove(ATTACK)) {
-                        this.setMove(ATTACK, Intent.ATTACK_DEBUFF, this.damage.get(0).base);
-                    } else {
-                        if (num % 2 == 0) {
-                            this.setMove(BLOCK_DEBUFF, Intent.DEFEND_DEBUFF);
-                        } else {
-                            this.setMove(ATTACK_DEBUFF, Intent.ATTACK_DEBUFF, this.damage.get(1).base);
-                        }
-                    }
-                } else if (num < 67) {
-                    if (!this.lastMove(ATTACK_DEBUFF)) {
-                        this.setMove(ATTACK_DEBUFF, Intent.ATTACK_DEBUFF, this.damage.get(1).base);
-                    } else {
-                        if (num % 2 == 0) {
-                            this.setMove(ATTACK, Intent.ATTACK_DEBUFF, this.damage.get(0).base);
-                        } else {
-                            this.setMove(BLOCK_DEBUFF, Intent.DEFEND_DEBUFF);
-                        }
-                    }
-                } else if (num < 100) {
-                    if (!this.lastMove(BLOCK_DEBUFF)) {
+            if (!this.lastMove(MEGA_DEBUFF) && !this.lastMoveBefore(MEGA_DEBUFF)) {
+                this.setMove(MEGA_DEBUFF, Intent.STRONG_DEBUFF);
+            } else if (num < 34) {
+                if (!this.lastMove(ATTACK)) {
+                    this.setMove(ATTACK, Intent.ATTACK_DEBUFF, this.damage.get(0).base);
+                } else {
+                    if (num % 2 == 0) {
                         this.setMove(BLOCK_DEBUFF, Intent.DEFEND_DEBUFF);
                     } else {
-                        if (num % 2 == 0) {
-                            this.setMove(ATTACK_DEBUFF, Intent.ATTACK_DEBUFF, this.damage.get(1).base);
-                        } else {
-                            this.setMove(ATTACK, Intent.ATTACK_DEBUFF, this.damage.get(0).base);
-                        }
+                        this.setMove(ATTACK_DEBUFF, Intent.ATTACK_DEBUFF, this.damage.get(1).base);
+                    }
+                }
+            } else if (num < 67) {
+                if (!this.lastMove(ATTACK_DEBUFF)) {
+                    this.setMove(ATTACK_DEBUFF, Intent.ATTACK_DEBUFF, this.damage.get(1).base);
+                } else {
+                    if (num % 2 == 0) {
+                        this.setMove(ATTACK, Intent.ATTACK_DEBUFF, this.damage.get(0).base);
+                    } else {
+                        this.setMove(BLOCK_DEBUFF, Intent.DEFEND_DEBUFF);
+                    }
+                }
+            } else if (num < 100) {
+                if (!this.lastMove(BLOCK_DEBUFF)) {
+                    this.setMove(BLOCK_DEBUFF, Intent.DEFEND_DEBUFF);
+                } else {
+                    if (num % 2 == 0) {
+                        this.setMove(ATTACK_DEBUFF, Intent.ATTACK_DEBUFF, this.damage.get(1).base);
+                    } else {
+                        this.setMove(ATTACK, Intent.ATTACK_DEBUFF, this.damage.get(0).base);
                     }
                 }
             }
-
         }
     }
     

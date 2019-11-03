@@ -74,6 +74,7 @@ Gensokyo\powers\LunacyPower.class
 Gensokyo\actions\InvertPowersAction.class
 Gensokyo\relics\NagashiBinaDoll.class
 Gensokyo\powers\SpontaneousHumanCombustionPower.class
+Gensokyo\powers\HakureiShrineMaidenPower.class
 Gensokyo\cards\TekeTeke.class
 Gensokyo\powers\SlitMouthedWomanPower.class
 Gensokyo\monsters\Reimu.class

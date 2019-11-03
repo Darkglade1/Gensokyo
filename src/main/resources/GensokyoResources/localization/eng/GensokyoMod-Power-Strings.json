@@ -74,5 +74,9 @@
 "Gensokyo:MonsterPositionPower": {
         "NAME": "Spell Card Rules",
         "DESCRIPTIONS": ["This projectile will reach you in #b", " turns,", " turn,", " dealing damage if you are in the same lane as it."]
+},
+"Gensokyo:HakureiShrineMaidenPower": {
+        "NAME": "Hakurei Shrine Maiden",
+        "DESCRIPTIONS": ["At the end of her turn, summon #b2 #yYin-Yang #yOrbs. If there are no #yYin-Yang #yOrbs alive, summon #b4 instead."]
 }
 }
