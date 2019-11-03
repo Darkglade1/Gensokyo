@@ -32,7 +32,7 @@ public class HakureiShrineMaidenPower extends AbstractPower {
     }
 
     @Override
-    public void duringTurn() {
+    public void duringTurn() { //we use this instead of end of turn so the spawned orbs roll their moves for the next turn correctly
         Reimu reimu = (Reimu) owner;
         if (reimu.orbNum() == 0) {
             AbstractDungeon.actionManager.addToBottom(new SpawnOrbAction(reimu, 2));

@@ -14,7 +14,6 @@ import com.megacrit.cardcrawl.actions.common.DamageAction;
 import com.megacrit.cardcrawl.actions.common.GainBlockAction;
 import com.megacrit.cardcrawl.actions.common.MakeTempCardInDiscardAction;
 import com.megacrit.cardcrawl.actions.common.RollMoveAction;
-import com.megacrit.cardcrawl.actions.common.SpawnMonsterAction;
 import com.megacrit.cardcrawl.actions.common.SuicideAction;
 import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.cards.status.Dazed;
@@ -26,7 +25,6 @@ import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.powers.VulnerablePower;
 
 import java.util.ArrayList;
-import java.util.Collections;
 
 public class Reimu extends CustomMonster
 {
@@ -37,7 +35,7 @@ public class Reimu extends CustomMonster
     public static final String[] DIALOG;
     private boolean firstMove = true;
     private static final byte OPENING = 1;
-    private static final byte SUMMON = 2;
+    //private static final byte SUMMON = 2;
     private static final byte BLOCK_DEBUFF = 3;
     private static final byte ATTACK = 4;
     private static final byte ATTACK_DEBUFF = 5;
@@ -122,10 +120,6 @@ public class Reimu extends CustomMonster
         AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(this, this, new HakureiShrineMaidenPower(this)));
     }
 
-//    public void spawnOrb(int column) {
-//
-//    }
-
     public int orbNum() {
         int counter = 0;
         for (int i = 0; i < orbs.length; i++) {
@@ -154,11 +148,13 @@ public class Reimu extends CustomMonster
 //                break;
 //            }
             case ATTACK: {
+                runAnim("CloseAttack");
                 AbstractDungeon.actionManager.addToBottom(new DamageAction(AbstractDungeon.player, this.damage.get(0), AbstractGameAction.AttackEffect.BLUNT_HEAVY));
                 AbstractDungeon.actionManager.addToBottom(new MakeTempCardInDiscardAction(new Dazed(), this.dazes - 1));
                 break;
             }
             case ATTACK_DEBUFF: {
+                runAnim("CloseAttack");
                 AbstractDungeon.actionManager.addToBottom(new DamageAction(AbstractDungeon.player, this.damage.get(1), AbstractGameAction.AttackEffect.BLUNT_LIGHT));
                 AbstractDungeon.actionManager.addToBottom(new MakeTempCardInDiscardAction(new Dazed(), this.dazes));
                 break;

@@ -49,9 +49,9 @@ public class YinYangOrb extends CustomMonster {
     private void move() {
         master.orbs[delay - 1][position - 1].remove(this);
         AbstractDungeon.actionManager.addToBottom(new VFXAction(new YinYangMoveAction(this, this.drawX, this.drawX - movement)));
-        AbstractDungeon.actionManager.addToBottom(new ReducePowerAction(this, this, MonsterPosition.POWER_ID, 1));
         delay--;
         if (delay > 0) {
+            AbstractDungeon.actionManager.addToBottom(new ReducePowerAction(this, this, MonsterPosition.POWER_ID, 1));
             master.orbs[delay - 1][position - 1].add(this);
         }
     }
@@ -82,7 +82,7 @@ public class YinYangOrb extends CustomMonster {
     @Override
     protected void getMove(int num) {
         if (delay > 1) {
-            this.setMove(MOVE, Intent.NONE);
+            this.setMove(MOVE, Intent.NONE); //Setting intent to none makes their turn go by much faster
         } else {
             this.setMove(ATTACK, Intent.ATTACK, this.damage.get(0).base);
         }

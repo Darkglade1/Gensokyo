@@ -69,11 +69,11 @@
 },
 "Gensokyo:PositionPower": {
         "NAME": "Spell Card Rules",
-        "DESCRIPTIONS": ["Whenever you play a #ySkill, move #yUp #b1 lane. Whenever you play an #yAttack, move #yDown #b1 lane."]
+        "DESCRIPTIONS": ["You are in lane #b", ". Whenever you play a #ySkill, move #yUp #b1 lane. Whenever you play an #yAttack, move #yDown #b1 lane."]
 },
 "Gensokyo:MonsterPositionPower": {
         "NAME": "Spell Card Rules",
-        "DESCRIPTIONS": ["This projectile will reach you in #b", " turns,", " turn,", " dealing damage if you are in the same lane as it."]
+        "DESCRIPTIONS": ["This projectile is in lane #b", ". It will reach you in #b", " turns,", " turn,", " dealing damage if you are in the same lane as it."]
 },
 "Gensokyo:HakureiShrineMaidenPower": {
         "NAME": "Hakurei Shrine Maiden",
