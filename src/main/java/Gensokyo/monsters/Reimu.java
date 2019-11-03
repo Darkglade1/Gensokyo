@@ -39,12 +39,15 @@ public class Reimu extends CustomMonster
     private static final byte BLOCK_DEBUFF = 3;
     private static final byte ATTACK = 4;
     private static final byte ATTACK_DEBUFF = 5;
+    private static final byte MEGA_DEBUFF = 6;
     private static final int NORMAL_ATTACK_DAMAGE = 11;
     private static final int A4_NORMAL_ATTACK_DAMAGE = 12;
     private static final int DEBUFF_ATTACK_DAMAGE = 7;
     private static final int A4_DEBUFF_ATTACK_DAMAGE = 8;
     private static final int DAZE_AMOUNT = 2;
     private static final int A19_DAZE_AMOUNT = 3;
+    private static final int MEGA_DAZE_AMOUNT = 5;
+    private static final int A19_MEGA_DAZE_AMOUNT = 7;
     private static final int DEBUFF_AMOUNT = 2;
     private static final int A19_DEBUFF_AMOUNT = 3;
     private static final int BLOCK = 6;
@@ -54,6 +57,7 @@ public class Reimu extends CustomMonster
     private int debuffAmount;
     private int block;
     private int dazes;
+    private int megaDaze;
     private static final int HP = 220;
     private static final int A9_HP = 230;
 
@@ -73,9 +77,11 @@ public class Reimu extends CustomMonster
         if (AbstractDungeon.ascensionLevel >= 19) {
             this.debuffAmount = A19_DEBUFF_AMOUNT;
             this.dazes = A19_DAZE_AMOUNT;
+            this.megaDaze = A19_MEGA_DAZE_AMOUNT;
         } else {
             this.debuffAmount = DEBUFF_AMOUNT;
             this.dazes = DAZE_AMOUNT;
+            this.megaDaze = MEGA_DAZE_AMOUNT;
         }
         if (AbstractDungeon.ascensionLevel >= 9) {
             this.setHp(A9_HP);
@@ -159,6 +165,7 @@ public class Reimu extends CustomMonster
             }
             case SUMMON: {
                 spawnOrb();
+                AbstractDungeon.actionManager.addToBottom(new MakeTempCardInDiscardAction(new Dazed(), this.dazes));
                 break;
             }
             case ATTACK: {
@@ -178,7 +185,12 @@ public class Reimu extends CustomMonster
                         AbstractDungeon.actionManager.addToBottom(new GainBlockAction(mo, this, this.block));
                     }
                 }
+                break;
             }
+//            case MEGA_DEBUFF: {
+//                AbstractDungeon.actionManager.addToBottom(new MakeTempCardInDiscardAction(new Dazed(), this.megaDaze));
+//                break;
+//            }
         }
         AbstractDungeon.actionManager.addToBottom(new RollMoveAction(this));
     }
