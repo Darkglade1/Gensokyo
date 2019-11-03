@@ -91,6 +91,7 @@ Gensokyo\cards\HAARP.class
 Gensokyo\cards\MissMary.class
 Gensokyo\cards\MenInBlack.class
 Gensokyo\powers\UnstableBoundariesPower.class
+Gensokyo\actions\SpawnOrbAction.class
 Gensokyo\actions\ExhaustRandomCurseInHandAction.class
 Gensokyo\powers\ManorOfTheDishesPower.class
 Gensokyo\events\ASwiftSlash.class

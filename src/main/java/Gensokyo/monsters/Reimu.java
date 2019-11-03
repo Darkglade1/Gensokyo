@@ -1,6 +1,7 @@
 package Gensokyo.monsters;
 
 import Gensokyo.BetterSpriterAnimation;
+import Gensokyo.actions.SpawnOrbAction;
 import Gensokyo.powers.HakureiShrineMaidenPower;
 import Gensokyo.powers.Position;
 import basemod.abstracts.CustomMonster;
@@ -121,26 +122,9 @@ public class Reimu extends CustomMonster
         AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(this, this, new HakureiShrineMaidenPower(this)));
     }
 
-    public void spawnOrb(int column) {
-        int i = column - 1;
-        ArrayList<Integer> emptySpots = new ArrayList<>();
-        for (int j = 0; j < orbs[i].length; j++) {
-            if (orbs[i][j].isEmpty()) {
-                emptySpots.add(j);
-            }
-        }
-        Collections.shuffle(emptySpots, AbstractDungeon.monsterRng.random);
-        while (emptySpots.size() > 1) {
-            int position = emptySpots.remove(0) + 1;
-            int delay = i + 1;
-            int type = AbstractDungeon.monsterRng.random(1, 3);
-            float x = -orbOffset * (4 - delay);
-            float y = orbOffset * (position - 1);
-            AbstractMonster orb = new YinYangOrb(x, y, type, position, delay, this);
-            orbs[delay - 1][position - 1].add(orb);
-            AbstractDungeon.actionManager.addToBottom(new SpawnMonsterAction(orb, true));
-        }
-    }
+//    public void spawnOrb(int column) {
+//
+//    }
 
     public int orbNum() {
         int counter = 0;
@@ -157,9 +141,9 @@ public class Reimu extends CustomMonster
         switch (this.nextMove) {
             case OPENING: {
                 AbstractDungeon.actionManager.addToBottom(new TalkAction(this, Reimu.DIALOG[0]));
-                spawnOrb(1);
-                spawnOrb(2);
-                spawnOrb(3);
+                AbstractDungeon.actionManager.addToBottom(new SpawnOrbAction(this, 1));
+                AbstractDungeon.actionManager.addToBottom(new SpawnOrbAction(this, 2));
+                AbstractDungeon.actionManager.addToBottom(new SpawnOrbAction(this, 3));
                 break;
             }
 //            case SUMMON: {

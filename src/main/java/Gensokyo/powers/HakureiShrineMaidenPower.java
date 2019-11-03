@@ -1,9 +1,11 @@
 package Gensokyo.powers;
 
 import Gensokyo.GensokyoMod;
+import Gensokyo.actions.SpawnOrbAction;
 import Gensokyo.monsters.Reimu;
 import com.megacrit.cardcrawl.core.AbstractCreature;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
+import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.localization.PowerStrings;
 import com.megacrit.cardcrawl.powers.AbstractPower;
 
@@ -31,14 +33,12 @@ public class HakureiShrineMaidenPower extends AbstractPower {
 
     @Override
     public void duringTurn() {
-        if (owner instanceof Reimu && !owner.isDying) {
-            Reimu reimu = (Reimu)owner;
-            if (reimu.orbNum() == 0) {
-                reimu.spawnOrb(2);
-                reimu.spawnOrb(3);
-            } else {
-                reimu.spawnOrb(3);
-            }
+        Reimu reimu = (Reimu) owner;
+        if (reimu.orbNum() == 0) {
+            AbstractDungeon.actionManager.addToBottom(new SpawnOrbAction(reimu, 2));
+            AbstractDungeon.actionManager.addToBottom(new SpawnOrbAction(reimu, 3));
+        } else {
+            AbstractDungeon.actionManager.addToBottom(new SpawnOrbAction(reimu, 3));
         }
     }
 
