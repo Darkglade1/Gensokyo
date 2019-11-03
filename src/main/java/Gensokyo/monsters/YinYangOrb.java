@@ -82,7 +82,7 @@ public class YinYangOrb extends CustomMonster {
     @Override
     protected void getMove(int num) {
         if (delay > 1) {
-            this.setMove(MOVE, Intent.UNKNOWN);
+            this.setMove(MOVE, Intent.NONE);
         } else {
             this.setMove(ATTACK, Intent.ATTACK, this.damage.get(0).base);
         }

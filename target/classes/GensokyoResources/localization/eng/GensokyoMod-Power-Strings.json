@@ -77,6 +77,6 @@
 },
 "Gensokyo:HakureiShrineMaidenPower": {
         "NAME": "Hakurei Shrine Maiden",
-        "DESCRIPTIONS": ["At the end of her turn, summon #b2 #yYin-Yang #yOrbs. If there are no #Yin-Yang #yOrbs alive, summon #b4 instead."]
+        "DESCRIPTIONS": ["At the end of her turn, summon #b2 #yYin-Yang #yOrbs. If there are no #yYin-Yang #yOrbs alive, summon #b4 instead."]
 }
 }
