@@ -35,7 +35,9 @@
   },
   "Gensokyo:Reimu": {
     "MOVES": [
-      ""
+      "Yin-Yang Treasured Orbs",
+      "Great Duplex Barrier",
+      "Evil-Sealing Circle"
     ],
     "NAME": "Shrine Maiden of Paradise",
     "DIALOG": [

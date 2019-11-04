@@ -22,7 +22,7 @@ public class MonkeysPaw extends AbstractDefaultCard {
     public static final CardColor COLOR = CardColor.COLORLESS;
 
     private static final int COST = 0;
-    private static final int GOLD = 7;
+    private static final int GOLD = 12;
     private static final int UPGRADED_GOLD = 3;
 
     public MonkeysPaw() {

@@ -283,9 +283,9 @@ public class Kokoro extends CustomMonster
             }
         } else if (this.lastMove(MASK_MOVE_2)) {
             if (mask == SPIDER_MASK) {
-                this.setMove(MASK_CHANGE, Intent.DEFEND_BUFF);
+                this.setMove(MOVES[0], MASK_CHANGE, Intent.DEFEND_BUFF);
             } else {
-                this.setMove(MASK_CHANGE, Intent.BUFF);
+                this.setMove(MOVES[0], MASK_CHANGE, Intent.BUFF);
             }
         } else {
             if (mask == FOX_MASK) {

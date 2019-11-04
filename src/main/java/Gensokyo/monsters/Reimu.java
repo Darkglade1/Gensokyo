@@ -141,13 +141,6 @@ public class Reimu extends CustomMonster
                 AbstractDungeon.actionManager.addToBottom(new SpawnOrbAction(this, 3));
                 break;
             }
-//            case SUMMON: {
-//                spawnOrb(1);
-//                spawnOrb(2);
-//                spawnOrb(3);
-//                AbstractDungeon.actionManager.addToBottom(new MakeTempCardInDiscardAction(new Dazed(), this.dazes));
-//                break;
-//            }
             case ATTACK: {
                 runAnim("CloseAttack");
                 AbstractDungeon.actionManager.addToBottom(new DamageAction(AbstractDungeon.player, this.damage.get(0), AbstractGameAction.AttackEffect.BLUNT_HEAVY));
@@ -182,17 +175,17 @@ public class Reimu extends CustomMonster
     @Override
     protected void getMove(final int num) {
         if (this.firstMove) {
-            setMove(OPENING, Intent.UNKNOWN);
+            setMove(MOVES[0], OPENING, Intent.UNKNOWN);
             this.firstMove = false;
         } else {
             if (!this.lastMove(MEGA_DEBUFF) && !this.lastMoveBefore(MEGA_DEBUFF)) {
-                this.setMove(MEGA_DEBUFF, Intent.STRONG_DEBUFF);
+                this.setMove(MOVES[2], MEGA_DEBUFF, Intent.STRONG_DEBUFF);
             } else if (num < 34) {
                 if (!this.lastMove(ATTACK)) {
                     this.setMove(ATTACK, Intent.ATTACK_DEBUFF, this.damage.get(0).base);
                 } else {
                     if (num % 2 == 0) {
-                        this.setMove(BLOCK_DEBUFF, Intent.DEFEND_DEBUFF);
+                        this.setMove(MOVES[1], BLOCK_DEBUFF, Intent.DEFEND_DEBUFF);
                     } else {
                         this.setMove(ATTACK_DEBUFF, Intent.ATTACK_DEBUFF, this.damage.get(1).base);
                     }
@@ -204,12 +197,12 @@ public class Reimu extends CustomMonster
                     if (num % 2 == 0) {
                         this.setMove(ATTACK, Intent.ATTACK_DEBUFF, this.damage.get(0).base);
                     } else {
-                        this.setMove(BLOCK_DEBUFF, Intent.DEFEND_DEBUFF);
+                        this.setMove(MOVES[1], BLOCK_DEBUFF, Intent.DEFEND_DEBUFF);
                     }
                 }
             } else if (num < 100) {
                 if (!this.lastMove(BLOCK_DEBUFF)) {
-                    this.setMove(BLOCK_DEBUFF, Intent.DEFEND_DEBUFF);
+                    this.setMove(MOVES[1], BLOCK_DEBUFF, Intent.DEFEND_DEBUFF);
                 } else {
                     if (num % 2 == 0) {
                         this.setMove(ATTACK_DEBUFF, Intent.ATTACK_DEBUFF, this.damage.get(1).base);
