@@ -18,6 +18,7 @@ import Gensokyo.cards.SlitMouthedWoman;
 import Gensokyo.cards.SpontaneousHumanCombustion;
 import Gensokyo.cards.TekeTeke;
 import Gensokyo.cards.TurboGranny;
+import Gensokyo.dungeon.Gensokyo;
 import Gensokyo.events.ACelestialsPlight;
 import Gensokyo.events.AHoleInReality;
 import Gensokyo.events.ALandWhereOnlyIAmMissing;
@@ -45,6 +46,8 @@ import Gensokyo.relics.NagashiBinaDoll;
 import Gensokyo.relics.OccultBall;
 import Gensokyo.relics.PerfectCherryBlossom;
 import Gensokyo.relics.PortableGap;
+import Gensokyo.savefields.BreadCrumbs;
+import Gensokyo.savefields.ElitesSlain;
 import Gensokyo.util.IDCheckDontTouchPls;
 import Gensokyo.util.TextureLoader;
 import Gensokyo.variables.DefaultCustomVariable;
@@ -72,6 +75,7 @@ import com.megacrit.cardcrawl.localization.EventStrings;
 import com.megacrit.cardcrawl.localization.MonsterStrings;
 import com.megacrit.cardcrawl.localization.PowerStrings;
 import com.megacrit.cardcrawl.localization.RelicStrings;
+import com.megacrit.cardcrawl.localization.UIStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import javafx.util.Pair;
 import org.apache.logging.log4j.LogManager;
@@ -161,7 +165,7 @@ public class GensokyoMod implements
         
         // 2. Click on the localization > eng folder and press ctrl+shift+r, then select "Directory" (rather than in Project)
         // replace all instances of Gensokyo with yourModID.
-        // Because your mod ID isn't the default. Your cards (and everything else) should have Your mod id. Not mine.
+        // Because your mod ID isn't the default. Your cards (and everything else) should have Your mod ID. Not mine.
         
         // 3. FINALLY and most importantly: Scroll up a bit. You may have noticed the image locations above don't use getModID()
         // Change their locations to reflect your actual ID rather than Gensokyo. They get loaded before getID is a thing.
@@ -217,6 +221,9 @@ public class GensokyoMod implements
     @SuppressWarnings("unused")
     public static void initialize() {
         GensokyoMod gensokyoMod = new GensokyoMod();
+        BaseMod.subscribe(gensokyoMod);
+        BreadCrumbs.initialize();
+        ElitesSlain.initialize();
     }
     
     
@@ -234,33 +241,33 @@ public class GensokyoMod implements
         
         BaseMod.registerModBadge(badgeTexture, MODNAME, AUTHOR, DESCRIPTION, settingsPanel);
 
-        //BaseMod.addMonster(Komachi.ID, (BaseMod.GetMonster)Komachi::new);
         BaseMod.addMonster(Yukari.ID, (BaseMod.GetMonster)Yukari::new);
         BaseMod.addMonster(Kokoro.ID, (BaseMod.GetMonster)Kokoro::new);
         BaseMod.addMonster(Reimu.ID, (BaseMod.GetMonster)Reimu::new);
-        BaseMod.addBoss(Exordium.ID, Yukari.ID, "GensokyoResources/images/monsters/Yukari/Yukari.png", "GensokyoResources/images/monsters/Yukari/YukariOutline.png");
-        BaseMod.addBoss(Exordium.ID, Kokoro.ID, "GensokyoResources/images/monsters/Kokoro/Kokoro.png", "GensokyoResources/images/monsters/Kokoro/KokoroOutline.png");
-        BaseMod.addBoss(Exordium.ID, Reimu.ID, "GensokyoResources/images/monsters/Reimu/Reimu.png", "GensokyoResources/images/monsters/Reimu/ReimuOutline.png");
+        BaseMod.addBoss(Gensokyo.ID, Yukari.ID, "GensokyoResources/images/monsters/Yukari/Yukari.png", "GensokyoResources/images/monsters/Yukari/YukariOutline.png");
+        BaseMod.addBoss(Gensokyo.ID, Kokoro.ID, "GensokyoResources/images/monsters/Kokoro/Kokoro.png", "GensokyoResources/images/monsters/Kokoro/KokoroOutline.png");
+        BaseMod.addBoss(Gensokyo.ID, Reimu.ID, "GensokyoResources/images/monsters/Reimu/Reimu.png", "GensokyoResources/images/monsters/Reimu/ReimuOutline.png");
 
         
         // =============== EVENTS =================
 
-        BaseMod.addEvent(ScarletDevilMansion.ID, ScarletDevilMansion.class, Exordium.ID);
-        BaseMod.addEvent(BorderOfDeath.ID, BorderOfDeath.class, Exordium.ID);
-        BaseMod.addEvent(TheEnmasDilemma.ID, TheEnmasDilemma.class, Exordium.ID);
-        BaseMod.addEvent(ACelestialsPlight.ID, ACelestialsPlight.class, Exordium.ID);
-        BaseMod.addEvent(HakureiShrine.ID, HakureiShrine.class, Exordium.ID);
-        BaseMod.addEvent(ASwiftSlash.ID, ASwiftSlash.class, Exordium.ID);
-        BaseMod.addEvent(ThoseEarthRabbits.ID, ThoseEarthRabbits.class, Exordium.ID);
-        BaseMod.addEvent(FieldTripToAnotherWorld.ID, FieldTripToAnotherWorld.class, Exordium.ID);
-        BaseMod.addEvent(AHoleInReality.ID, AHoleInReality.class, Exordium.ID);
-        BaseMod.addEvent(GoodsFromTheOutsideWorld.ID, GoodsFromTheOutsideWorld.class, Exordium.ID);
-        BaseMod.addEvent(ForestOfMagic.ID, ForestOfMagic.class, Exordium.ID);
-        BaseMod.addEvent(GoddessOfMisfortune.ID, GoddessOfMisfortune.class, Exordium.ID);
-        BaseMod.addEvent(ClashOfLegends.ID, ClashOfLegends.class, Exordium.ID);
-        BaseMod.addEvent(ALandWhereOnlyIAmMissing.ID, ALandWhereOnlyIAmMissing.class, Exordium.ID);
+        BaseMod.addEvent(ScarletDevilMansion.ID, ScarletDevilMansion.class, Gensokyo.ID);
+        BaseMod.addEvent(BorderOfDeath.ID, BorderOfDeath.class, Gensokyo.ID);
+        BaseMod.addEvent(TheEnmasDilemma.ID, TheEnmasDilemma.class, Gensokyo.ID);
+        BaseMod.addEvent(ACelestialsPlight.ID, ACelestialsPlight.class, Gensokyo.ID);
+        BaseMod.addEvent(HakureiShrine.ID, HakureiShrine.class, Gensokyo.ID);
+        BaseMod.addEvent(ASwiftSlash.ID, ASwiftSlash.class, Gensokyo.ID);
+        BaseMod.addEvent(ThoseEarthRabbits.ID, ThoseEarthRabbits.class, Gensokyo.ID);
+        BaseMod.addEvent(FieldTripToAnotherWorld.ID, FieldTripToAnotherWorld.class, Gensokyo.ID);
+        BaseMod.addEvent(AHoleInReality.ID, AHoleInReality.class, Gensokyo.ID);
+        BaseMod.addEvent(GoodsFromTheOutsideWorld.ID, GoodsFromTheOutsideWorld.class, Gensokyo.ID);
+        BaseMod.addEvent(ForestOfMagic.ID, ForestOfMagic.class, Gensokyo.ID);
+        BaseMod.addEvent(GoddessOfMisfortune.ID, GoddessOfMisfortune.class, Gensokyo.ID);
+        BaseMod.addEvent(ClashOfLegends.ID, ClashOfLegends.class, Gensokyo.ID);
+        BaseMod.addEvent(ALandWhereOnlyIAmMissing.ID, ALandWhereOnlyIAmMissing.class, Gensokyo.ID);
         
         // =============== /EVENTS/ =================
+        Gensokyo.addAct(Exordium.ID, new Gensokyo());
         logger.info("Done loading badge Image and mod options");
     }
     
@@ -354,6 +361,9 @@ public class GensokyoMod implements
         //Monster Strings
         BaseMod.loadCustomStringsFile(MonsterStrings.class,
                 getModID() + "Resources/localization/eng/GensokyoMod-Monster-Strings.json");
+
+        BaseMod.loadCustomStringsFile(UIStrings.class,
+                getModID() + "Resources/localization/eng/GensokyoMod-ui.json");
         
         logger.info("Done edittting strings");
     }
