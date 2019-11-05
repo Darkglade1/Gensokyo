@@ -17,7 +17,6 @@ import com.megacrit.cardcrawl.actions.common.RollMoveAction;
 import com.megacrit.cardcrawl.actions.common.SuicideAction;
 import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.cards.status.Dazed;
-import com.megacrit.cardcrawl.cards.status.Wound;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.core.Settings;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
@@ -226,7 +225,7 @@ public class Reimu extends CustomMonster
 
     @Override
     public void die(boolean triggerRelics) {
-        //runAnim("Defeat");
+        runAnim("Defeat");
         super.die(triggerRelics);
         for (AbstractMonster mo : AbstractDungeon.getCurrRoom().monsters.monsters) {
             if (mo instanceof YinYangOrb) {

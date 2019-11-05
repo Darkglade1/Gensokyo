@@ -310,12 +310,6 @@ public class Kokoro extends CustomMonster
     }
 
     @Override
-    public void die() {
-        runAnim("Defeat");
-        super.die();
-    }
-
-    @Override
     public void die(boolean triggerRelics) {
         runAnim("Defeat");
         super.die(triggerRelics);
