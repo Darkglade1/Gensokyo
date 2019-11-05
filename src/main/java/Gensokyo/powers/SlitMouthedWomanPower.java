@@ -46,7 +46,7 @@ public class SlitMouthedWomanPower extends TwoAmountPower implements NonStackabl
         if (info.type != DamageInfo.DamageType.THORNS && info.type != DamageInfo.DamageType.HP_LOSS && info.owner != null && info.owner != this.owner) {
             this.flash();
             if (amount == NUM_PROCS) {
-                AbstractDungeon.actionManager.addToTop(new ApplyPowerAction(info.owner, this.owner, new VulnerablePower(info.owner, this.amount2, false), this.amount2, true, AbstractGameAction.AttackEffect.NONE));
+                AbstractDungeon.actionManager.addToTop(new ApplyPowerAction(info.owner, this.owner, new VulnerablePower(info.owner, this.amount2, true), this.amount2, true, AbstractGameAction.AttackEffect.NONE));
             } else if (amount == NUM_PROCS - 1) {
                 AbstractDungeon.actionManager.addToTop(new ApplyPowerAction(info.owner, this.owner, new StrengthPower(info.owner, -this.amount2), -this.amount2));
             }
