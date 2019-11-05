@@ -72,6 +72,7 @@ Gensokyo\relics\Mercy.class
 Gensokyo\relics\OccultBall.class
 Gensokyo\patches\InitializeDeckPatches.class
 Gensokyo\patches\GoToNextDungeonPatch$Locator.class
+Gensokyo\patches\AbstractRoomUpdateIncrementElitesPatch.class
 Gensokyo\events\HakureiShrine.class
 Gensokyo\cards\RedCapeBlueCape.class
 Gensokyo\events\ThoseEarthRabbits.class
@@ -108,6 +109,7 @@ Gensokyo\monsters\Reimu.class
 Gensokyo\patches\LunacyRetargetPatch$Locator.class
 Gensokyo\powers\HAARPPower.class
 Gensokyo\tags\Tags.class
+Gensokyo\patches\AbstractRoomUpdateIncrementElitesPatch$Locator.class
 Gensokyo\cards\EightFeetTall.class
 Gensokyo\patches\ForkNeowPatch$Locator.class
 Gensokyo\util\TextureLoader.class

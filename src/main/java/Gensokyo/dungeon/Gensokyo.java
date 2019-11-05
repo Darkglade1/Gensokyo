@@ -122,7 +122,8 @@ public class Gensokyo extends AbstractDungeon {
         if (scene != null && scene != cd.savedScene) {
             scene.dispose();
         }
-        scene = cd.savedScene;
+        scene = new TheBottomScene();
+        scene.randomizeScene();
         fadeColor = cd.savedFadeColor;
         //event bg needs to be set here, because it can't be set when the constructor of AbstractDungeon is executed yet.
         AbstractDungeon.eventBackgroundImg = ImageMaster.loadImage(cd.eventImg);
@@ -131,22 +132,22 @@ public class Gensokyo extends AbstractDungeon {
         generateMap();
 
         if(cd.mainmusic != null) {
-            CardCrawlGame.music.changeBGM(Exordium.ID);
+            CardCrawlGame.music.changeBGM(cd.ID);
         } else {
-            switch(actNum) {
-                case EXORDIUM:
-                    CardCrawlGame.music.changeBGM(Exordium.ID);
-                    break;
-                case THECITY:
-                    CardCrawlGame.music.changeBGM(TheCity.ID);
-                    break;
-                case THEBEYOND:
-                    CardCrawlGame.music.changeBGM(TheBeyond.ID);
-                    break;
-                case THEENDING:
-                    CardCrawlGame.music.changeBGM(TheEnding.ID);
-                    break;
-            }
+//            switch(actNum) {
+//                case EXORDIUM:
+//                    CardCrawlGame.music.changeBGM(Exordium.ID);
+//                    break;
+//                case THECITY:
+//                    CardCrawlGame.music.changeBGM(TheCity.ID);
+//                    break;
+//                case THEBEYOND:
+//                    CardCrawlGame.music.changeBGM(TheBeyond.ID);
+//                    break;
+//                case THEENDING:
+//                    CardCrawlGame.music.changeBGM(TheEnding.ID);
+//                    break;
+//            }
         }
     }
 
@@ -175,12 +176,7 @@ public class Gensokyo extends AbstractDungeon {
         uncommonRelicChance = 33;
         rareRelicChance = 17;
         colorlessRareChance = 0.3F;
-        if (AbstractDungeon.ascensionLevel >= 12) {
-            cardUpgradedChance = 0.25F;
-        } else {
-            cardUpgradedChance = 0.5F;
-        }
-
+        cardUpgradedChance = 0.0F;
     }
 
     //Flag determining if this act requires the 3 keys (if it's at or later than The Ending).
@@ -309,6 +305,14 @@ public class Gensokyo extends AbstractDungeon {
     @Override
     protected void initializeShrineList() {
         //No shrines
+    }
+
+    @Override
+    public void initializeSpecialOneTimeEventList() {
+        //None of these either
+        System.out.println(eventList);
+        specialOneTimeEventList.clear();
+        System.out.println(eventList);
     }
 
     @Override
