@@ -35,9 +35,12 @@ public class YinYangOrb extends CustomMonster {
         this.animation = new SpriterAnimation("GensokyoResources/images/monsters/YinYangOrb/Spriter/YinYangOrb.scml");
         if (AbstractDungeon.ascensionLevel >= 9) {
             this.setHp(A9_HP * type);
-            this.damage.add(new DamageInfo(this, A9_HP * (4 - type)));
         } else {
             this.setHp(HP * type);
+        }
+        if (AbstractDungeon.ascensionLevel >= 4) {
+            this.damage.add(new DamageInfo(this, A9_HP * (4 - type)));
+        } else {
             this.damage.add(new DamageInfo(this, HP * (4 - type)));
         }
         this.delay = delay;

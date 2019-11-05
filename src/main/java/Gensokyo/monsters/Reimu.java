@@ -17,6 +17,7 @@ import com.megacrit.cardcrawl.actions.common.RollMoveAction;
 import com.megacrit.cardcrawl.actions.common.SuicideAction;
 import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.cards.status.Dazed;
+import com.megacrit.cardcrawl.cards.status.Wound;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.core.Settings;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
@@ -47,7 +48,7 @@ public class Reimu extends CustomMonster
     private static final int DAZE_AMOUNT = 2;
     private static final int A19_DAZE_AMOUNT = 3;
     private static final int MEGA_DAZE_AMOUNT = 5;
-    private static final int A19_MEGA_DAZE_AMOUNT = 7;
+    private static final int A19_MEGA_DAZE_AMOUNT = 2;
     private static final int DEBUFF_AMOUNT = 2;
     private static final int A19_DEBUFF_AMOUNT = 3;
     private static final int BLOCK = 6;
@@ -74,14 +75,13 @@ public class Reimu extends CustomMonster
         this.type = EnemyType.BOSS;
         this.dialogX = (this.hb_x - 70.0F) * Settings.scale;
         this.dialogY -= (this.hb_y - 55.0F) * Settings.scale;
+        this.megaDaze = MEGA_DAZE_AMOUNT;
         if (AbstractDungeon.ascensionLevel >= 19) {
             this.debuffAmount = A19_DEBUFF_AMOUNT;
             this.dazes = A19_DAZE_AMOUNT;
-            this.megaDaze = A19_MEGA_DAZE_AMOUNT;
         } else {
             this.debuffAmount = DEBUFF_AMOUNT;
             this.dazes = DAZE_AMOUNT;
-            this.megaDaze = MEGA_DAZE_AMOUNT;
         }
         if (AbstractDungeon.ascensionLevel >= 9) {
             this.setHp(A9_HP);
@@ -166,6 +166,9 @@ public class Reimu extends CustomMonster
             case MEGA_DEBUFF: {
                 runAnim("SpellCall");
                 AbstractDungeon.actionManager.addToBottom(new MakeTempCardInDiscardAction(new Dazed(), this.megaDaze));
+                if (AbstractDungeon.ascensionLevel >= 19) {
+                    AbstractDungeon.actionManager.addToBottom(new MakeTempCardInDiscardAction(new Dazed(), A19_MEGA_DAZE_AMOUNT));
+                }
                 break;
             }
         }
@@ -227,7 +230,9 @@ public class Reimu extends CustomMonster
         super.die(triggerRelics);
         for (AbstractMonster mo : AbstractDungeon.getCurrRoom().monsters.monsters) {
             if (mo instanceof YinYangOrb) {
-                AbstractDungeon.actionManager.addToBottom(new SuicideAction(mo));
+                if (!mo.isDead && !mo.isDying) {
+                    AbstractDungeon.actionManager.addToBottom(new SuicideAction(mo));
+                }
             }
         }
     }

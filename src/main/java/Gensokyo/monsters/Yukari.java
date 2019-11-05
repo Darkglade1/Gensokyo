@@ -83,13 +83,11 @@ public class Yukari extends CustomMonster
         this.type = EnemyType.BOSS;
         this.dialogX = (this.hb_x - 70.0F) * Settings.scale;
         this.dialogY -= (this.hb_y - 55.0F) * Settings.scale;
+        this.debuffAmount = DEBUFF_AMOUNT;
+        this.strengthDrain = STRENGTH_DRAIN_AMOUNT;
         if (AbstractDungeon.ascensionLevel >= 19) {
-            this.debuffAmount = A19_DEBUFF_AMOUNT;
-            this.strengthDrain = A19_STRENGTH_DRAIN_AMOUNT;
             this.wound = A19_WOUND_AMOUNT;
         } else {
-            this.debuffAmount = DEBUFF_AMOUNT;
-            this.strengthDrain = STRENGTH_DRAIN_AMOUNT;
             this.wound = WOUND_AMOUNT;
         }
         if (AbstractDungeon.ascensionLevel >= 9) {
@@ -141,6 +139,9 @@ public class Yukari extends CustomMonster
                 AbstractDungeon.actionManager.addToBottom(new DamageAction(AbstractDungeon.player, this.damage.get(2), AbstractGameAction.AttackEffect.SLASH_HEAVY));
                 AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(this, this, new StrengthPower(this, this.strengthDrain), this.strengthDrain));
                 AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(AbstractDungeon.player, this, new StrengthPower(AbstractDungeon.player, -this.strengthDrain), -this.strengthDrain));
+                if (AbstractDungeon.ascensionLevel >= 19) {
+                    AbstractDungeon.actionManager.addToBottom(new MakeTempCardInDiscardAction(new Wound(), 1));
+                }
                 break;
             }
             case MEGA_DEBUFF: {
