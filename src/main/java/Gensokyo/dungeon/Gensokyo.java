@@ -300,19 +300,12 @@ public class Gensokyo extends AbstractDungeon {
     @Override
     protected void initializeEventList() {
         // Events are added via BaseMod in GensokyoMod.receivePostInitialize()
+        specialOneTimeEventList.clear(); //gets rid of these global events
     }
 
     @Override
     protected void initializeShrineList() {
         //No shrines
-    }
-
-    @Override
-    public void initializeSpecialOneTimeEventList() {
-        //None of these either
-        System.out.println(eventList);
-        specialOneTimeEventList.clear();
-        System.out.println(eventList);
     }
 
     @Override
