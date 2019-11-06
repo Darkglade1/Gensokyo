@@ -23,6 +23,7 @@ import Gensokyo.events.ACelestialsPlight;
 import Gensokyo.events.AHoleInReality;
 import Gensokyo.events.ALandWhereOnlyIAmMissing;
 import Gensokyo.events.ASwiftSlash;
+import Gensokyo.events.BambooForestOfTheLost;
 import Gensokyo.events.BorderOfDeath;
 import Gensokyo.events.ClashOfLegends;
 import Gensokyo.events.FieldTripToAnotherWorld;
@@ -265,6 +266,7 @@ public class GensokyoMod implements
         BaseMod.addEvent(GoddessOfMisfortune.ID, GoddessOfMisfortune.class, Gensokyo.ID);
         BaseMod.addEvent(ClashOfLegends.ID, ClashOfLegends.class, Gensokyo.ID);
         BaseMod.addEvent(ALandWhereOnlyIAmMissing.ID, ALandWhereOnlyIAmMissing.class, Gensokyo.ID);
+        BaseMod.addEvent(BambooForestOfTheLost.ID, BambooForestOfTheLost.class, Gensokyo.ID);
         
         // =============== /EVENTS/ =================
         Gensokyo.addAct(Exordium.ID, new Gensokyo());

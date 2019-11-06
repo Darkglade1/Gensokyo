@@ -259,6 +259,24 @@
       "[Leave]"
     ]
   },
+  "Gensokyo:BambooForestOfTheLost": {
+    "NAME": "Bamboo Forest of the Lost",
+    "DESCRIPTIONS": [
+      "Thick bamboo shoots cover the path ahead, and as you look around, you find that bamboo is all you can see. There are no #ylandmarks, no indicators that any path you take will lead you out of this #pforsaken forest. NL NL \"Another one? The forest sure is crowded today.\" NL NL A white-haired woman emerges from the thicket with a rustle. She glances at you, then ~sighs~ in resignation. \"Well, out with it already. Are you headed to Eientei or the Human Village?\"",
+      "\"Figured as much. Stick close and try not to get lost again.\" NL NL She spins around and walks away, leaving you no choice but to follow in her footsteps. The woman’s motions are #ydecisive, relentlessly #rcleaving a path through the forest with ease. Before long, you arrive at your destination, a large mansion nestled in a clearing surrounded by bamboo. NL NL You look around; the one who had led you here is already gone. Faced with no other options, you enter the abode. NL NL You see a woman in #rred and #bblue giving orders to a group of rabbits. As they scamper away, she turns to regard you with piercing eyes.",
+      "\"Ah, a patient.\" Her eyes rove over you, seemingly #ydiagnosing you at a glance. \"I have just what you need.\" She grabs several bottles of medicine off a shelf, dumping them into your hands. \"Take one of each #ytwice a day, every #ythree days, over the course of #yfour weeks. Understood?\" NL NL You protest, claiming that you don’t have the #ymoney to pay her for all of this. NL NL She smiles, shaking her head. \"You can pay me later; after all, #pdead patients don’t bring in money, do they?\"",
+      "\"Figured as much. Stick close and try not to get lost again.\" NL NL She spins around and walks away, leaving you no choice but to follow in her footsteps. The woman’s motions are #ydecisive, relentlessly #rcleaving a path through the forest with ease. Before long, you arrive at your destination, a large collection of houses and other buildings encircled by wooden walls. NL NL \"Mokou! There you are!\" NL NL You notice your guide stiffen as a #rdisgruntled, silver-haired woman approached.",
+      "\"Where were you?! You said you would help me during my history lesson today!\" NL NL \"Ah, there were a lot of people lost today, so I was a bit preoccupied . . .\" NL NL A sigh. \"I suppose that’s alright then. But now that you’re here, don’t try to run off!\" She shoots you a gaze. \"I don’t think I’ve seen you around before. Why don’t you come along? It can’t hurt to learn more about the land you’re in, yes?\" NL NL Sensing that the woman would be #punlikely to take “no” for an answer, you reluctantly agree."
+    ],
+    "OPTIONS": [
+      "[Continue]",
+      "[Eientei] #gHeal #g",
+      " #gHP.",
+      "[Human Village] #gChoose #gand #gadd #g",
+      " #gcards #gto #gyour #gdeck.",
+      "[Leave]"
+    ]
+  },
   "Gensokyo:ForkInTheRoad": {
     "NAME": "Fork in the Road",
     "DESCRIPTIONS": [
