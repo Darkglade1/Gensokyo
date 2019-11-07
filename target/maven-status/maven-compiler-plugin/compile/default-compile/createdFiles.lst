@@ -1,5 +1,6 @@
 Gensokyo\patches\LunacyRetargetPatch.class
 Gensokyo\actions\YinYangMoveAction.class
+Gensokyo\relics\YoukaiFlower.class
 Gensokyo\patches\TempMusicPatch.class
 Gensokyo\patches\VictoryOrDeathScreenPatch$VictoryScreenPatch$Locator.class
 Gensokyo\cards\GapWoman.class
@@ -85,6 +86,7 @@ Gensokyo\cards\SlitMouthedWoman.class
 Gensokyo\powers\VigorPower.class
 Gensokyo\dungeon\Gensokyo.class
 Gensokyo\events\ACelestialsPlight.class
+Gensokyo\events\GardenOfTheSun.class
 Gensokyo\patches\VictoryOrDeathScreenPatch$DeathScreenPatch$Locator.class
 Gensokyo\vfx\TrainEffect.class
 Gensokyo\relics\PerfectCherryBlossom.class
@@ -122,6 +124,7 @@ Gensokyo\events\FieldTripToAnotherWorld.class
 Gensokyo\cards\HAARP.class
 Gensokyo\patches\GetDungeonPatches$getDungeonThroughProgression.class
 Gensokyo\cards\MissMary.class
+Gensokyo\util\RelicUtils.class
 Gensokyo\cards\MenInBlack.class
 Gensokyo\powers\UnstableBoundariesPower.class
 Gensokyo\actions\SpawnOrbAction.class
@@ -134,5 +137,6 @@ Gensokyo\cards\SpontaneousHumanCombustion.class
 Gensokyo\monsters\Komachi.class
 Gensokyo\relics\PortableGap.class
 Gensokyo\patches\VictoryOrDeathScreenPatch$DeathScreenPatch.class
+Gensokyo\util\RelicUtils$1.class
 Gensokyo\relics\LunaticRedEyes.class
 Gensokyo\BetterSpriterAnimation.class

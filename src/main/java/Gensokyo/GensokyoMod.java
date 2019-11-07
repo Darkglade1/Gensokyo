@@ -28,6 +28,7 @@ import Gensokyo.events.BorderOfDeath;
 import Gensokyo.events.ClashOfLegends;
 import Gensokyo.events.FieldTripToAnotherWorld;
 import Gensokyo.events.ForestOfMagic;
+import Gensokyo.events.GardenOfTheSun;
 import Gensokyo.events.GoddessOfMisfortune;
 import Gensokyo.events.GoodsFromTheOutsideWorld;
 import Gensokyo.events.HakureiShrine;
@@ -47,6 +48,7 @@ import Gensokyo.relics.NagashiBinaDoll;
 import Gensokyo.relics.OccultBall;
 import Gensokyo.relics.PerfectCherryBlossom;
 import Gensokyo.relics.PortableGap;
+import Gensokyo.relics.YoukaiFlower;
 import Gensokyo.savefields.BreadCrumbs;
 import Gensokyo.savefields.ElitesSlain;
 import Gensokyo.util.IDCheckDontTouchPls;
@@ -267,6 +269,7 @@ public class GensokyoMod implements
         BaseMod.addEvent(ClashOfLegends.ID, ClashOfLegends.class, Gensokyo.ID);
         BaseMod.addEvent(ALandWhereOnlyIAmMissing.ID, ALandWhereOnlyIAmMissing.class, Gensokyo.ID);
         BaseMod.addEvent(BambooForestOfTheLost.ID, BambooForestOfTheLost.class, Gensokyo.ID);
+        BaseMod.addEvent(GardenOfTheSun.ID, GardenOfTheSun.class, Gensokyo.ID);
         
         // =============== /EVENTS/ =================
         Gensokyo.addAct(Exordium.ID, new Gensokyo());
@@ -294,6 +297,7 @@ public class GensokyoMod implements
         BaseMod.addRelic(new LunaticRedEyes(), RelicType.SHARED);
         BaseMod.addRelic(new PortableGap(), RelicType.SHARED);
         BaseMod.addRelic(new NagashiBinaDoll(), RelicType.SHARED);
+        BaseMod.addRelic(new YoukaiFlower(), RelicType.SHARED);
 
         logger.info("Done adding relics!");
     }

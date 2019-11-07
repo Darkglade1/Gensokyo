@@ -57,5 +57,13 @@
     "DESCRIPTIONS": [
       "At the end of your turn, #yexhaust a random #pCurse in your hand."
     ]
+  },
+  "Gensokyo:YoukaiFlower": {
+    "NAME": "Youkai Flower",
+    "FLAVOR": "The flower seems to be watching you, always craning its neck to follow you around wherever you are.",
+    "DESCRIPTIONS": [
+      "Every #b",
+      " turns, gain [E] [E] ."
+    ]
   }
 }

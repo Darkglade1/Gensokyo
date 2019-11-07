@@ -277,6 +277,29 @@
       "[Leave]"
     ]
   },
+  "Gensokyo:GardenOfTheSun": {
+    "NAME": "Garden of the Sun",
+    "DESCRIPTIONS": [
+      "You find yourself in a field full of #ysunflowers, a bountiful harvest of ~dazzling~ yellow as far as the eye can see. You notice that they seem to all be facing towards the sun, a captive audience unable to take their eyes off their namesake. NL NL \"Are you enjoying the flowers here?\" NL NL It was an innocent question, but as all the flowers swivel around to stare at you and the newcomer, you feel a twinge of #pdread creep down your spine.",
+      "The green-haired woman smiles at you, ignoring your #pdiscomfort as she looks you up and down. NL NL \"Say, you have a warrior’s look about you. Just how strong are you?\"",
+      "\"Impressive. Very impressive.\" NL NL You feel the tension in the air lessen as the woman regards you with newfound #grespect. \"I have a rather fickle child here with me, one who has only recently blossomed. She will not learn much by staying here amongst her kind - but I believe you have the strength to protect and #gnurture her.\" NL NL The woman hands you a flower in a pot. You watch it twist and turn, struggling like a newborn infant, before it finally turns to stare at you. NL NL \"Take good care of her, now. Don’t make me #pregret this.\"",
+      "\"Hmm. Not bad.\" NL NL You feel the tension in the air lessen as the woman regards you with something approaching #grespect. \"You are better than most, and I am feeling rather generous; so, I will give you one of the children here as a sign of my favor.\" NL NL The woman hands you a flower in a pot, a #gjoyous looking thing. You feel more #yenergetic just from holding it. NL NL \"Come back when you are stronger. Perhaps then you’ll truly be worth my time.\"",
+      "\"Running away? How rude.\" NL NL You feel something #rheat up the air behind you, a ~rolling,~ @thunderous@ wave that #r@crashed@ down on you as you narrowly dodge to the side of the massive laser that #rvaporizes everything in the area you had just occupied. NL NL Panting, you find yourself finally outside that field of flowers, #rburn marks traveling down one side of your body. NL NL You make a mental note to never go there again."
+    ],
+    "OPTIONS": [
+      "[Continue]",
+      "[Demonstrate a powerful attack] #rLose ",
+      " #gObtain #ga #gSpecial #gRelic.",
+      "[Demonstrate your best attack] #rLose ",
+      " #gObtain #gHappy #gFlower.",
+      "[Locked] Requires: Card with ",
+      " or more damage.",
+      "[Locked] Requires: Card that deals damage.",
+      "[Run] #rLose #r",
+      " #rHP",
+      "[Leave]"
+    ]
+  },
   "Gensokyo:ForkInTheRoad": {
     "NAME": "Fork in the Road",
     "DESCRIPTIONS": [
