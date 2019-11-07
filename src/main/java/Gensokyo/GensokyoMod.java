@@ -26,6 +26,7 @@ import Gensokyo.events.ASwiftSlash;
 import Gensokyo.events.BambooForestOfTheLost;
 import Gensokyo.events.BorderOfDeath;
 import Gensokyo.events.ClashOfLegends;
+import Gensokyo.events.DemonBookSeller;
 import Gensokyo.events.FieldTripToAnotherWorld;
 import Gensokyo.events.ForestOfMagic;
 import Gensokyo.events.GardenOfTheSun;
@@ -40,6 +41,8 @@ import Gensokyo.monsters.Komachi;
 import Gensokyo.monsters.Reimu;
 import Gensokyo.monsters.YinYangOrb;
 import Gensokyo.monsters.Yukari;
+import Gensokyo.relics.Bombinomicon;
+import Gensokyo.relics.BookOfSpecters;
 import Gensokyo.relics.CelestialsFlawlessClothing;
 import Gensokyo.relics.Justice;
 import Gensokyo.relics.LunaticRedEyes;
@@ -269,6 +272,7 @@ public class GensokyoMod implements
         BaseMod.addEvent(ALandWhereOnlyIAmMissing.ID, ALandWhereOnlyIAmMissing.class, Gensokyo.ID);
         BaseMod.addEvent(BambooForestOfTheLost.ID, BambooForestOfTheLost.class, Gensokyo.ID);
         BaseMod.addEvent(GardenOfTheSun.ID, GardenOfTheSun.class, Gensokyo.ID);
+        BaseMod.addEvent(DemonBookSeller.ID, DemonBookSeller.class, Gensokyo.ID);
         
         // =============== /EVENTS/ =================
         Gensokyo.addAct(Exordium.ID, new Gensokyo());
@@ -296,6 +300,8 @@ public class GensokyoMod implements
         BaseMod.addRelic(new PortableGap(), RelicType.SHARED);
         BaseMod.addRelic(new NagashiBinaDoll(), RelicType.SHARED);
         BaseMod.addRelic(new YoukaiFlower(), RelicType.SHARED);
+        BaseMod.addRelic(new Bombinomicon(), RelicType.SHARED);
+        BaseMod.addRelic(new BookOfSpecters(), RelicType.SHARED);
 
         logger.info("Done adding relics!");
     }

@@ -6,14 +6,17 @@ Gensokyo\patches\VictoryOrDeathScreenPatch$VictoryScreenPatch$Locator.class
 Gensokyo\cards\GapWoman.class
 Gensokyo\actions\KillAction.class
 Gensokyo\monsters\Yukari$YukariListener.class
+Gensokyo\relics\Bombinomicon.class
 Gensokyo\patches\InitializeDeckPatches$PreventDeckInitializationPatch.class
 Gensokyo\actions\FlexibleDiscoveryAction.class
 Gensokyo\powers\FortitudePower.class
+Gensokyo\relics\BookOfSpecters.class
 Gensokyo\vfx\EmptyEffect.class
 Gensokyo\cards\BlueCape.class
 Gensokyo\patches\CalcFinalScorePatch$VictoryScreenPatch.class
 Gensokyo\patches\GetDungeonPatches$getDungeonThroughSavefile.class
 Gensokyo\patches\InitializeDeckPatches$AscensionPenaltiesPatch.class
+Gensokyo\events\DemonBookSeller.class
 Gensokyo\cards\RedCape.class
 Gensokyo\patches\GetDungeonPatches.class
 Gensokyo\patches\relics\PerfectCherryBlossomPatch$Locator.class
@@ -76,6 +79,7 @@ Gensokyo\patches\GoToNextDungeonPatch$Locator.class
 Gensokyo\events\BambooForestOfTheLost.class
 Gensokyo\patches\AbstractRoomUpdateIncrementElitesPatch.class
 Gensokyo\events\HakureiShrine.class
+Gensokyo\actions\BookOfSpectersAction.class
 Gensokyo\cards\RedCapeBlueCape.class
 Gensokyo\events\ThoseEarthRabbits.class
 Gensokyo\powers\Vengeance.class
@@ -84,6 +88,7 @@ Gensokyo\actions\CrescentMoonSlashAction.class
 Gensokyo\events\AHoleInReality.class
 Gensokyo\cards\SlitMouthedWoman.class
 Gensokyo\powers\VigorPower.class
+Gensokyo\actions\EtherealBombToHand$MakeEtherealStatEquivalentCopy.class
 Gensokyo\dungeon\Gensokyo.class
 Gensokyo\events\ACelestialsPlight.class
 Gensokyo\events\GardenOfTheSun.class
@@ -126,7 +131,9 @@ Gensokyo\patches\GetDungeonPatches$getDungeonThroughProgression.class
 Gensokyo\cards\MissMary.class
 Gensokyo\util\RelicUtils.class
 Gensokyo\cards\MenInBlack.class
+Gensokyo\actions\BookOfSpectersFollowUpAction.class
 Gensokyo\powers\UnstableBoundariesPower.class
+Gensokyo\actions\EtherealBombToHand.class
 Gensokyo\actions\SpawnOrbAction.class
 Gensokyo\patches\GoToNextDungeonPatch.class
 Gensokyo\actions\ExhaustRandomCurseInHandAction.class

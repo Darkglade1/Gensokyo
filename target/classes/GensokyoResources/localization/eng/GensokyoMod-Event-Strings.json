@@ -300,6 +300,21 @@
       "[Leave]"
     ]
   },
+  "Gensokyo:DemonBookSeller": {
+    "NAME": "Demon Book Seller",
+    "DESCRIPTIONS": [
+      "You step into a store and you are immediately assailed by the scent of musty old pages and dried ink, along with the sense of something more #psinister, something . . . #pdemonic. NL NL \"Welcome to Suzunaan! Home of the @biggest@ collection of #pdemon books in Gensokyo!\" NL NL A quirky girl enthusiastically welcomes you, completely oblivious to the shelf of books radiating #pmalevolent intent behind her.",
+      "\"Thank you! Come again!\" NL NL As you walk out with your questionable purchase in tow, you sincerely hope the book isn’t going to start gnawing on your arm or something equally dubious.",
+      "Buying a #pdemonic book didn't sound like the brightest idea to you. "
+    ],
+    "OPTIONS": [
+      "[Buy] #rLose #r",
+      " #rGold. #gObtain ",
+      "[Locked] Requires: ",
+      " Gold",
+      "[Leave]"
+    ]
+  },
   "Gensokyo:ForkInTheRoad": {
     "NAME": "Fork in the Road",
     "DESCRIPTIONS": [

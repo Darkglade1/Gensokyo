@@ -23,8 +23,8 @@ public class ALandWhereOnlyIAmMissing extends AbstractImageEvent {
     private static final String[] OPTIONS = eventStrings.OPTIONS;
     public static final String IMG = makeEventPath("Koishi.png");
 
-    private float HEALTH_LOSS_PERCENTAGE = 0.15F;
-    private float HEALTH_LOSS_PERCENTAGE_HIGH_ASCENSION = 0.20F;
+    private static final float HEALTH_LOSS_PERCENTAGE = 0.20F;
+    private static final float HEALTH_LOSS_PERCENTAGE_HIGH_ASCENSION = 0.25F;
 
     private boolean hasCards;
     private boolean has2Cards;
