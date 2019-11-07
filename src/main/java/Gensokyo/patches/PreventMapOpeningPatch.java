@@ -1,6 +1,6 @@
 package Gensokyo.patches;
 
-import Gensokyo.dungeon.Gensokyo;
+import Gensokyo.dungeon.CustomDungeon;
 import com.evacipated.cardcrawl.modthespire.lib.*;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
@@ -22,7 +22,7 @@ public class PreventMapOpeningPatch {
     )
     public static SpireReturn<Void> Insert(CardCrawlGame __instance) {
         if(AbstractDungeon.floorNum <= 1 ||
-                (Gensokyo.dungeons.containsKey(CardCrawlGame.nextDungeon) && Gensokyo.dungeons.get(CardCrawlGame.nextDungeon).hasEvent())) {
+                (CustomDungeon.dungeons.containsKey(CardCrawlGame.nextDungeon) && CustomDungeon.dungeons.get(CardCrawlGame.nextDungeon).hasEvent())) {
 
             InputHelper.updateLast();
             if (CInputHelper.controller != null) {

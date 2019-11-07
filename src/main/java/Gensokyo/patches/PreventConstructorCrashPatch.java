@@ -1,6 +1,6 @@
 package Gensokyo.patches;
 
-import Gensokyo.dungeon.Gensokyo;
+import Gensokyo.dungeon.CustomDungeon;
 import com.evacipated.cardcrawl.modthespire.lib.SpirePatch;
 import com.evacipated.cardcrawl.modthespire.lib.SpireReturn;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
@@ -24,12 +24,12 @@ public class PreventConstructorCrashPatch {
         if(p == null) {
             return SpireReturn.Return(null);
         } else {
-            if(__instance instanceof Gensokyo) {
+            if(__instance instanceof CustomDungeon) {
                 //Important for monster generation.
-                //((Gensokyo)__instance).ID = Gensokyo.datasource.id;
-                ((Gensokyo)__instance).weakpreset = Gensokyo.datasource.weakpreset;
-                ((Gensokyo)__instance).strongpreset = Gensokyo.datasource.strongpreset;
-                ((Gensokyo)__instance).elitepreset = Gensokyo.datasource.elitepreset;
+                ((CustomDungeon)__instance).id = CustomDungeon.datasource.id;
+                ((CustomDungeon)__instance).weakpreset = CustomDungeon.datasource.weakpreset;
+                ((CustomDungeon)__instance).strongpreset = CustomDungeon.datasource.strongpreset;
+                ((CustomDungeon)__instance).elitepreset = CustomDungeon.datasource.elitepreset;
             }
             return SpireReturn.Continue();
         }

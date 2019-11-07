@@ -16,6 +16,7 @@ Gensokyo\cards\BlueCape.class
 Gensokyo\patches\CalcFinalScorePatch$VictoryScreenPatch.class
 Gensokyo\patches\GetDungeonPatches$getDungeonThroughSavefile.class
 Gensokyo\patches\InitializeDeckPatches$AscensionPenaltiesPatch.class
+Gensokyo\dungeon\CustomDungeon.class
 Gensokyo\events\DemonBookSeller.class
 Gensokyo\cards\RedCape.class
 Gensokyo\patches\GetDungeonPatches.class
@@ -46,6 +47,7 @@ Gensokyo\powers\SevenSchoolMysteriesPower.class
 Gensokyo\relics\Justice.class
 Gensokyo\patches\InitializeDeckPatches$AscensionPenaltiesPatch$Locator.class
 Gensokyo\patches\relics\PerfectCherryBlossomPatch.class
+Gensokyo\patches\ContinueOntoHeartPatch.class
 Gensokyo\patches\PreventMapOpeningPatch.class
 Gensokyo\powers\DeathMark.class
 Gensokyo\variables\DefaultSecondMagicNumber.class
@@ -82,6 +84,7 @@ Gensokyo\events\HakureiShrine.class
 Gensokyo\actions\BookOfSpectersAction.class
 Gensokyo\cards\RedCapeBlueCape.class
 Gensokyo\events\ThoseEarthRabbits.class
+Gensokyo\patches\AfterDoorPatch.class
 Gensokyo\powers\Vengeance.class
 Gensokyo\events\GoddessOfMisfortune.class
 Gensokyo\actions\CrescentMoonSlashAction.class
@@ -99,6 +102,7 @@ Gensokyo\relics\PerfectCherryBlossom.class
 Gensokyo\vfx\YukariTrainEffect.class
 Gensokyo\savefields\BreadCrumbs.class
 Gensokyo\events\TheEnmasDilemma.class
+Gensokyo\patches\PatchingaPatchInBaseModBecauseRAAAAAAGH.class
 Gensokyo\monsters\Kokoro.class
 Gensokyo\patches\relics\PortableGapPatch.class
 Gensokyo\patches\relics\PortableGapPatch$IsConnectedTo.class
@@ -122,6 +126,7 @@ Gensokyo\patches\AbstractRoomUpdateIncrementElitesPatch$Locator.class
 Gensokyo\cards\EightFeetTall.class
 Gensokyo\patches\ForkNeowPatch$Locator.class
 Gensokyo\util\TextureLoader.class
+Gensokyo\patches\HeartRoomPatch.class
 Gensokyo\cards\Apocalypse.class
 Gensokyo\powers\Position.class
 Gensokyo\patches\relics\RezItemPatch.class
@@ -135,9 +140,11 @@ Gensokyo\cards\MenInBlack.class
 Gensokyo\actions\BookOfSpectersFollowUpAction.class
 Gensokyo\powers\UnstableBoundariesPower.class
 Gensokyo\actions\EtherealBombToHand.class
+Gensokyo\patches\AfterDoorPatch$Locator.class
 Gensokyo\actions\SpawnOrbAction.class
 Gensokyo\patches\GoToNextDungeonPatch.class
 Gensokyo\actions\ExhaustRandomCurseInHandAction.class
+Gensokyo\patches\ContinueOntoHeartPatch$Locator.class
 Gensokyo\powers\ManorOfTheDishesPower.class
 Gensokyo\events\ASwiftSlash.class
 Gensokyo\powers\DemonMask.class

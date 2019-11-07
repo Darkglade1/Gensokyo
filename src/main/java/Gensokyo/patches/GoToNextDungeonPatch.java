@@ -1,7 +1,8 @@
 package Gensokyo.patches;
 
-import Gensokyo.dungeon.Gensokyo;
+import Gensokyo.dungeon.CustomDungeon;
 import Gensokyo.events.GetForked;
+import basemod.BaseMod;
 import com.evacipated.cardcrawl.modthespire.lib.*;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.dungeons.*;
@@ -20,19 +21,19 @@ public class GoToNextDungeonPatch {
     )
     public static SpireReturn<Void> Insert(ProceedButton __instance, AbstractRoom room) {
         //Trigger the fork event if there is a custom act available here.
-        if(Gensokyo.actnumbers.containsKey(AbstractDungeon.actNum + 1)) {
+        if(CustomDungeon.actnumbers.containsKey(AbstractDungeon.actNum + 1)) {
             getForked();
 
             return SpireReturn.Return(null);
         } else {
             switch(AbstractDungeon.actNum + 1) {
-                case Gensokyo.THECITY:
+                case CustomDungeon.THECITY:
                     CardCrawlGame.nextDungeon = TheCity.ID;
                     break;
-                case Gensokyo.THEBEYOND:
+                case CustomDungeon.THEBEYOND:
                     CardCrawlGame.nextDungeon = TheBeyond.ID;
                     break;
-                case Gensokyo.THEENDING:
+                case CustomDungeon.THEENDING:
                     CardCrawlGame.nextDungeon = TheEnding.ID;
                     break;
 

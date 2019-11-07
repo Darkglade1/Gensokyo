@@ -1,6 +1,6 @@
 package Gensokyo.patches;
 
-import Gensokyo.dungeon.Gensokyo;
+import Gensokyo.dungeon.CustomDungeon;
 import com.evacipated.cardcrawl.modthespire.lib.*;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.screens.DungeonTransitionScreen;
@@ -16,9 +16,9 @@ public class SetAreaNamePatch {
             locator = Locator.class
     )
     public static void Insert(DungeonTransitionScreen __instance, String key) {
-        if (Gensokyo.dungeons.containsKey(key)) {
-            Gensokyo cd = Gensokyo.dungeons.get(key);
-            __instance.levelName = cd.NAME;
+        if (CustomDungeon.dungeons.containsKey(key)) {
+            CustomDungeon cd = CustomDungeon.dungeons.get(key);
+            __instance.levelName = cd.name;
             __instance.levelNum = DungeonTransitionScreen.TEXT[2].replace("1", Integer.toString(AbstractDungeon.actNum + 1));
         }
     }

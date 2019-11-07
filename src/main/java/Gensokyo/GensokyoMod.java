@@ -76,6 +76,7 @@ import com.evacipated.cardcrawl.modthespire.lib.SpireInitializer;
 import com.google.gson.Gson;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.dungeons.Exordium;
+import com.megacrit.cardcrawl.dungeons.TheCity;
 import com.megacrit.cardcrawl.localization.CardStrings;
 import com.megacrit.cardcrawl.localization.EventStrings;
 import com.megacrit.cardcrawl.localization.MonsterStrings;
@@ -139,6 +140,10 @@ public class GensokyoMod implements
     public static String makeEffectPath(String resourcePath) {
         return getModID() + "Resources/images/effects/" + resourcePath;
     }
+
+    public static String makeAssetPath(String resourcePath) {
+        return getModID() + "Resources/images/assets/" + resourcePath;
+    }
     
     // =============== /MAKE IMAGE PATHS/ =================
     
@@ -149,8 +154,6 @@ public class GensokyoMod implements
     
     public GensokyoMod() {
         logger.info("Subscribe to BaseMod hooks");
-        
-        BaseMod.subscribe(this);
         
       /*
            (   ( /(  (     ( /( (            (  `   ( /( )\ )    )\ ))\ )
@@ -227,6 +230,7 @@ public class GensokyoMod implements
     @SuppressWarnings("unused")
     public static void initialize() {
         GensokyoMod gensokyoMod = new GensokyoMod();
+        BaseMod.subscribe(gensokyoMod);
         BreadCrumbs.initialize();
         ElitesSlain.initialize();
     }
@@ -245,6 +249,8 @@ public class GensokyoMod implements
         ModPanel settingsPanel = new ModPanel();
         
         BaseMod.registerModBadge(badgeTexture, MODNAME, AUTHOR, DESCRIPTION, settingsPanel);
+
+        (new Gensokyo()).addAct(Exordium.ID);
 
         BaseMod.addMonster(Yukari.ID, (BaseMod.GetMonster)Yukari::new);
         BaseMod.addMonster(Kokoro.ID, (BaseMod.GetMonster)Kokoro::new);
@@ -275,7 +281,7 @@ public class GensokyoMod implements
         BaseMod.addEvent(DemonBookSeller.ID, DemonBookSeller.class, Gensokyo.ID);
         
         // =============== /EVENTS/ =================
-        Gensokyo.addAct(Exordium.ID, new Gensokyo());
+
         logger.info("Done loading badge Image and mod options");
     }
     

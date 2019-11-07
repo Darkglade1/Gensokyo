@@ -1,6 +1,6 @@
 package Gensokyo.patches;
 
-import Gensokyo.dungeon.Gensokyo;
+import Gensokyo.dungeon.CustomDungeon;
 import com.badlogic.gdx.audio.Music;
 import com.evacipated.cardcrawl.modthespire.lib.SpirePatch;
 import com.evacipated.cardcrawl.modthespire.lib.SpirePostfixPatch;
@@ -15,8 +15,8 @@ public class TempMusicPatch {
     //Lets you start custom music from e.g. an elite fight.
     @SpirePostfixPatch
     public static SpireReturn<Music> Prefix(TempMusic __instance, String key) {
-        if(Gensokyo.tempmusic.containsKey(key)) {
-            return SpireReturn.Return(MainMusic.newMusic(Gensokyo.tempmusic.get(key)));
+        if(CustomDungeon.tempmusic.containsKey(key)) {
+            return SpireReturn.Return(MainMusic.newMusic(CustomDungeon.tempmusic.get(key)));
         }
         return SpireReturn.Continue();
     }

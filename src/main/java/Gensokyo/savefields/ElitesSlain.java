@@ -15,7 +15,7 @@ public class ElitesSlain implements CustomSavable<Map<Integer, Integer>> {
     }
 
     public static void initialize() {
-        BaseMod.addSaveField("ActLikeIt:elitesSlain", bc = new ElitesSlain());
+        BaseMod.addSaveField("Gensokyo:elitesSlain", bc = new ElitesSlain());
     }
 
 

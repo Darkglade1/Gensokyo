@@ -1,169 +1,34 @@
 package Gensokyo.dungeon;
 
-import basemod.BaseMod;
-import com.badlogic.gdx.graphics.Color;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
-import com.megacrit.cardcrawl.core.Settings;
-import com.megacrit.cardcrawl.dungeons.*;
-import com.megacrit.cardcrawl.events.AbstractEvent;
-import com.megacrit.cardcrawl.helpers.EventHelper;
 import com.megacrit.cardcrawl.helpers.ImageMaster;
 import com.megacrit.cardcrawl.localization.UIStrings;
-import com.megacrit.cardcrawl.map.MapRoomNode;
 import com.megacrit.cardcrawl.monsters.MonsterInfo;
-import com.megacrit.cardcrawl.neow.NeowRoom;
-import com.megacrit.cardcrawl.random.Random;
-import com.megacrit.cardcrawl.rooms.EmptyRoom;
-import com.megacrit.cardcrawl.rooms.EventRoom;
 import com.megacrit.cardcrawl.saveAndContinue.SaveFile;
-import com.megacrit.cardcrawl.scenes.AbstractScene;
 import com.megacrit.cardcrawl.scenes.TheBottomScene;
 
-import java.lang.reflect.InvocationTargetException;
 import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.Iterator;
-import java.util.Map;
 
-public class Gensokyo extends AbstractDungeon {
-    public static Gensokyo datasource;
+public class Gensokyo extends CustomDungeon {
 
     public static String ID = "Gensokyo:Gensokyo";
     private static final UIStrings uiStrings = CardCrawlGame.languagePack.getUIString(ID);
     public static final String[] TEXT = uiStrings.TEXT;
     public static final String NAME = TEXT[0];
-    public static final String NUM = TEXT[1];
-
-    public int weakpreset;
-    public int strongpreset;
-    public int elitepreset;
-    protected boolean genericEvents;
-    protected AbstractScene savedScene;
-    protected Color savedFadeColor;
-    public boolean finalAct;
-    private Class<? extends AbstractEvent> onEnter = null;
-    public boolean hasEvent() {
-        return onEnter != null;
-    }
-
-    private String eventImg;
 
     public Gensokyo() {
-        super(NAME, ID, AbstractDungeon.player, new ArrayList<>());
-        this.name = NAME;
-        scene = new TheBottomScene();
-        scene.randomizeScene();
-        this.savedScene = scene;
-        this.eventImg = "images/ui/event/panel.png";
-        this.genericEvents = false;
-        this.savedFadeColor = Color.valueOf("0f220aff");
-        this.finalAct = false;
-
-        this.weakpreset = 3;
-        this.strongpreset = 12;
-        this.elitepreset = 10;
-
-        if(AbstractDungeon.actNum > 0) {
-            setupMisc(this, AbstractDungeon.actNum);
-        }
+        super(new TheBottomScene(), NAME, ID);
     }
 
-    //Constructor for when you encounter this act through progression.
-    public Gensokyo(Gensokyo cd, AbstractPlayer p, ArrayList<String> emptyList) {
-        super(NAME, ID, p, emptyList);
-        setupMisc(cd, AbstractDungeon.actNum);
-
-
-        AbstractDungeon.currMapNode = new MapRoomNode(0, -1);
-
-        if(cd.onEnter != null || AbstractDungeon.floorNum < 1) {
-            try {
-                if(cd.onEnter == null) {
-                    throw new ArithmeticException();
-                }
-                //Set the starting event
-                AbstractEvent ae = cd.onEnter.newInstance();
-
-                AbstractDungeon.currMapNode.room = new EventRoom();
-                AbstractDungeon.currMapNode.room.event = ae;
-                AbstractDungeon.overlayMenu.proceedButton.hide();
-                //If you try entering the room, it sets it to a random event, so just call onEnterRoom on the event instead.
-                ae.onEnterRoom();
-            } catch(Exception ex) {
-                if(!(ex instanceof ArithmeticException)) {
-                    ex.printStackTrace();
-                }
-                //Default Neow event.
-                AbstractDungeon.currMapNode.room = new NeowRoom(false);
-            }
-            AbstractDungeon.rs = RenderScene.EVENT;
-            AbstractDungeon.screen = CurrentScreen.NONE;
-            AbstractDungeon.isScreenUp = false;
-            AbstractDungeon.previousScreen = null;
-        } else {
-            AbstractDungeon.currMapNode.room = new EmptyRoom();
-        }
-    }
-    //Constructor for when you load this act from a savefile.
-    public Gensokyo(Gensokyo cd, AbstractPlayer p, SaveFile saveFile) {
-        super(NAME, p, saveFile);
-        CardCrawlGame.dungeon = this;
-        setupMisc(cd, saveFile.act_num);
-
-        if(AbstractDungeon.lastCombatMetricKey == null) {
-            AbstractDungeon.lastCombatMetricKey = "";
-        }
-
-        miscRng = new com.megacrit.cardcrawl.random.Random(Settings.seed + saveFile.floor_num);
-        firstRoomChosen = true;
-
-        populatePathTaken(saveFile);
-    }
-    private void setupMisc(Gensokyo cd, int actNum) {
-        //Copying data from the instance that was used for initialization.
-        if (scene != null && scene != cd.savedScene) {
-            scene.dispose();
-        }
-        scene = new TheBottomScene();
-        scene.randomizeScene();
-        fadeColor = cd.savedFadeColor;
-        //event bg needs to be set here, because it can't be set when the constructor of AbstractDungeon is executed yet.
-        AbstractDungeon.eventBackgroundImg = ImageMaster.loadImage(cd.eventImg);
-        initializeLevelSpecificChances();
-        mapRng = new com.megacrit.cardcrawl.random.Random(Settings.seed + actNum * 100);
-        generateMap();
-
-        if(cd.mainmusic != null) {
-            CardCrawlGame.music.changeBGM(cd.ID);
-        } else {
-//            switch(actNum) {
-//                case EXORDIUM:
-//                    CardCrawlGame.music.changeBGM(Exordium.ID);
-//                    break;
-//                case THECITY:
-//                    CardCrawlGame.music.changeBGM(TheCity.ID);
-//                    break;
-//                case THEBEYOND:
-//                    CardCrawlGame.music.changeBGM(TheBeyond.ID);
-//                    break;
-//                case THEENDING:
-//                    CardCrawlGame.music.changeBGM(TheEnding.ID);
-//                    break;
-//            }
-        }
+    public Gensokyo(CustomDungeon cd, AbstractPlayer p, ArrayList<String> emptyList) {
+        super(cd, p, emptyList);
     }
 
-    //Use of Reflection allows for instantiation, only requiring the 3 simple, mandatory constructors.
-    public Gensokyo fromProgression(AbstractPlayer p) throws NoSuchMethodException, IllegalAccessException, InvocationTargetException, InstantiationException {
-        datasource = this;
-        return this.getClass().getConstructor(Gensokyo.class, AbstractPlayer.class, ArrayList.class)
-                .newInstance(this, p, this.genericEvents  ? AbstractDungeon.specialOneTimeEventList : new ArrayList<>());
+    public Gensokyo(CustomDungeon cd, AbstractPlayer p, SaveFile saveFile) {
+        super(cd, p, saveFile);
     }
-    public Gensokyo fromSaveFile(AbstractPlayer p, SaveFile saveFile) throws NoSuchMethodException, IllegalAccessException, InvocationTargetException, InstantiationException {
-        datasource = this;
-        return this.getClass().getConstructor(Gensokyo.class, AbstractPlayer.class, SaveFile.class).newInstance(this, p, saveFile);
-    }
+
 
     @Override
     protected void initializeLevelSpecificChances() {
@@ -308,80 +173,6 @@ public class Gensokyo extends AbstractDungeon {
             eventBackgroundImg.dispose();
             eventBackgroundImg = null;
         }
-        eventBackgroundImg = ImageMaster.loadImage(eventImg);
-    }
-
-    //The main datafields this mod uses.
-    public static Map<Integer, ArrayList<String>> actnumbers = new HashMap<>();
-    public static Map<String, Gensokyo> dungeons = new HashMap<>();
-
-    //Give this the ID of a basegame act, and your act, and it'll register it.
-    public static void addAct(String replaces, Gensokyo cd) {
-        int actReplacement;
-        switch (replaces) {
-            case Exordium.ID:
-                actReplacement = EXORDIUM;
-                break;
-            case TheCity.ID:
-                actReplacement = THECITY;
-                break;
-            case TheBeyond.ID:
-                actReplacement = THEBEYOND;
-                break;
-            case TheEnding.ID:
-                actReplacement = THEENDING;
-                break;
-
-            default:
-                if(replaces.matches("\\d")) {
-                    actReplacement = Integer.parseInt(replaces);
-                } else {
-                    BaseMod.logger.error("Unable to add act \"" + cd.ID + "\".");
-                    return;
-                }
-        }
-        addAct(actReplacement, cd);
-    }
-    //Works with just a number, too. Exordium is 1 in this case.
-    public static void addAct(int actReplacement, Gensokyo cd) {
-        if(!dungeons.containsKey(Gensokyo.ID)) {
-            if(!actnumbers.containsKey(actReplacement)) {
-                actnumbers.put(actReplacement, new ArrayList<>());
-                actnumbers.get(actReplacement).add(Gensokyo.ID);
-            }
-            dungeons.put(Gensokyo.ID, cd);
-        } else {
-            BaseMod.logger.error("Act \"" + Gensokyo.ID + "\" already present.");
-        }
-    }
-    //Both the above functions can be called as object methods as well.
-    public void addAct(int actReplacement) {
-        addAct(actReplacement, this);
-    }
-    public void addAct(String replaces) {
-        addAct(replaces, this);
-    }
-
-
-    public static final int EXORDIUM = 1;
-    public static final int THECITY = 2;
-    public static final int THEBEYOND = 3;
-    public static final int THEENDING = 4;
-
-
-    //Very simple music functionality.
-    public String mainmusic = null;
-    public static Map<String, String> tempmusic = new HashMap<>();
-
-    public void setMainMusic(String path) {
-        mainmusic = path;
-    }
-    public void addTempMusic(String key, String path) {
-        if(tempmusic.containsKey(key)) {
-            BaseMod.logger.error("Temp Music key \"" + key + "\" already taken!");
-        } else {
-            BaseMod.logger.error("Adding Temp Music key: \"" + key + "\"");
-            tempmusic.put(key, path);
-        }
+        eventBackgroundImg = ImageMaster.loadImage("images/ui/event/panel.png");
     }
 }

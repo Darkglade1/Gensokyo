@@ -1,6 +1,7 @@
 package Gensokyo.patches;
 
-import Gensokyo.dungeon.Gensokyo;
+import Gensokyo.GensokyoMod;
+import Gensokyo.dungeon.CustomDungeon;
 import Gensokyo.savefields.BreadCrumbs;
 import Gensokyo.savefields.ElitesSlain;
 import basemod.ReflectionHacks;
@@ -71,7 +72,7 @@ public class VictoryOrDeathScreenPatch {
     private static void doThing(ArrayList<GameOverStat> stats) {
         Map<Integer, Integer> elitesKilled = ElitesSlain.getKilledElites();
         Map<Integer, String> breadcrumbs = BreadCrumbs.getBreadCrumbs();
-        String[] parts = CardCrawlGame.languagePack.getScoreString("Gensokyo:ElitesKilled").DESCRIPTIONS;
+        String[] parts = CardCrawlGame.languagePack.getScoreString(GensokyoMod.makeID("ElitesKilled")).DESCRIPTIONS;
         boolean displayDefaults = (CardCrawlGame.dungeon instanceof TheCity || CardCrawlGame.dungeon instanceof TheBeyond || CardCrawlGame.dungeon instanceof TheEnding);
 
         for(int i = 1; i <= AbstractDungeon.actNum; i++) {
@@ -96,8 +97,8 @@ public class VictoryOrDeathScreenPatch {
 
                 }
             } else if(customact) {
-                if(Gensokyo.dungeons.containsKey(breadcrumbs.get(i))) {
-                    localizedString = parts[0] + Gensokyo.dungeons.get(breadcrumbs.get(i)).name + parts[2];
+                if(CustomDungeon.dungeons.containsKey(breadcrumbs.get(i))) {
+                    localizedString = parts[0] + CustomDungeon.dungeons.get(breadcrumbs.get(i)).name + parts[2];
                 } else {
                     localizedString = parts[0] + parts[1] + " " + i + parts[2];
                 }

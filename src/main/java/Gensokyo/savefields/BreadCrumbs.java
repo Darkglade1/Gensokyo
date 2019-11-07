@@ -32,7 +32,7 @@ public class BreadCrumbs implements CustomSavable<Map<Integer, String>>,
 
     @Override
     public void receivePostInitialize() {
-        BaseMod.addSaveField("ActLikeIt:breadCrumbs", bc);
+        BaseMod.addSaveField("Gensokyo:breadCrumbs", bc);
 
         ElitesSlain.initialize(); //Doing this means I don't have to subscribe ElitesSlain to BaseMod.
     }

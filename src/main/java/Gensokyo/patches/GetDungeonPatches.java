@@ -1,6 +1,6 @@
 package Gensokyo.patches;
 
-import Gensokyo.dungeon.Gensokyo;
+import Gensokyo.dungeon.CustomDungeon;
 import basemod.BaseMod;
 import com.evacipated.cardcrawl.modthespire.lib.SpirePatch;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
@@ -14,7 +14,7 @@ public class GetDungeonPatches {
     public static class getDungeonThroughProgression {
         public static AbstractDungeon Postfix(AbstractDungeon dungeon, CardCrawlGame self, String key, AbstractPlayer p) {
             if (dungeon == null) {
-                Gensokyo cd = Gensokyo.dungeons.get(key);
+                CustomDungeon cd = CustomDungeon.dungeons.get(key);
                 try {
                     dungeon = cd.fromProgression(p);
                 }catch (Exception ex) {
@@ -30,7 +30,7 @@ public class GetDungeonPatches {
     public static class getDungeonThroughSavefile {
         public static AbstractDungeon Postfix(AbstractDungeon dungeon, CardCrawlGame self, String key, AbstractPlayer p, SaveFile save) {
             if (dungeon == null) {
-                Gensokyo cd = Gensokyo.dungeons.get(key);
+                CustomDungeon cd = CustomDungeon.dungeons.get(key);
                 try {
                     dungeon = cd.fromSaveFile(p, save);
                 }catch (Exception ex) {

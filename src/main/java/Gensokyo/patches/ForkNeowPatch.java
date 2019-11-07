@@ -1,6 +1,6 @@
 package Gensokyo.patches;
 
-import Gensokyo.dungeon.Gensokyo;
+import Gensokyo.dungeon.CustomDungeon;
 import com.evacipated.cardcrawl.modthespire.lib.*;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
@@ -27,16 +27,16 @@ public class ForkNeowPatch {
     //Sets a forkevent just before the Neow room is created
     public static SpireReturn<Void> Insert(Exordium __instance, AbstractPlayer p, ArrayList bleh) {
         ArrayList<String> availableActs = new ArrayList<>();
-        if(Gensokyo.actnumbers.containsKey(Gensokyo.EXORDIUM)) {
-            for(final String s : Gensokyo.actnumbers.get(Gensokyo.EXORDIUM)) {
-                Gensokyo cd = Gensokyo.dungeons.get(s);
+        if(CustomDungeon.actnumbers.containsKey(CustomDungeon.EXORDIUM)) {
+            for(final String s : CustomDungeon.actnumbers.get(CustomDungeon.EXORDIUM)) {
+                CustomDungeon cd = CustomDungeon.dungeons.get(s);
                 if(!cd.finalAct) {
                     availableActs.add(s);
                 }
             }
         }
         if(!availableActs.isEmpty()) {
-            AbstractDungeon.actNum = Gensokyo.EXORDIUM - 1;
+            AbstractDungeon.actNum = CustomDungeon.EXORDIUM - 1;
             AbstractDungeon.currMapNode.room = new GoToNextDungeonPatch.ForkEventRoom(null, false);
             AbstractDungeon.currMapNode.room.onPlayerEntry();
             return SpireReturn.Return(null);
