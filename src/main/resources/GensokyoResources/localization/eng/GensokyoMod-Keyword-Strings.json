@@ -4,5 +4,23 @@
       "lunacy"
     ],
     "DESCRIPTION": "Whenever a lunatic enemy attacks or applies a debuff, a random enemy is targeted instead."
+  },
+  {
+    "PROPER_NAME": "Red Cape",
+    "NAMES": [
+      "Red Cape",
+      "red_cape",
+      "Red_Cape"
+    ],
+    "DESCRIPTION": "A 1 cost Attack that deals damage, Retains, and exhausts."
+  },
+  {
+    "PROPER_NAME": "Blue Cape",
+    "NAMES": [
+      "Blue Cape",
+      "blue_cape",
+      "Blue_Cape"
+    ],
+    "DESCRIPTION": "A 1 cost Skill that gains Block, Retains, and exhausts."
   }
 ]

@@ -61,7 +61,7 @@ public class YinYangOrb extends CustomMonster {
 
     @Override
     public void die(boolean triggerRelics) {
-        super.die(triggerRelics);
+        super.die(false);
         if (delay > 0) {
             master.orbs[delay - 1][position - 1].remove(this);
         }

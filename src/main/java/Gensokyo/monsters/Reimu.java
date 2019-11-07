@@ -40,24 +40,27 @@ public class Reimu extends CustomMonster
     private static final byte ATTACK = 4;
     private static final byte ATTACK_DEBUFF = 5;
     private static final byte MEGA_DEBUFF = 6;
-    private static final int NORMAL_ATTACK_DAMAGE = 11;
-    private static final int A4_NORMAL_ATTACK_DAMAGE = 12;
-    private static final int DEBUFF_ATTACK_DAMAGE = 7;
-    private static final int A4_DEBUFF_ATTACK_DAMAGE = 8;
+    private static final int NORMAL_ATTACK_DAMAGE = 13;
+    private static final int A4_NORMAL_ATTACK_DAMAGE = 14;
+    private static final int DEBUFF_ATTACK_DAMAGE = 9;
+    private static final int A4_DEBUFF_ATTACK_DAMAGE = 10;
     private static final int DAZE_AMOUNT = 2;
     private static final int A19_DAZE_AMOUNT = 3;
     private static final int MEGA_DAZE_AMOUNT = 5;
     private static final int A19_MEGA_DAZE_AMOUNT = 2;
     private static final int DEBUFF_AMOUNT = 2;
     private static final int A19_DEBUFF_AMOUNT = 3;
-    private static final int BLOCK = 6;
-    private static final int A9_BLOCK = 8;
+    private static final int BLOCK = 9;
+    private static final int A9_BLOCK = 12;
+    private static final int STRENGTH_GAIN = 3;
+    private static final int A19_STRENGTH_GAIN = 4;
     private int normalDamage;
     private int debuffDamage;
     private int debuffAmount;
     private int block;
     private int dazes;
     private int megaDaze;
+    private int strengthGain;
     private static final int HP = 220;
     private static final int A9_HP = 230;
 
@@ -78,9 +81,11 @@ public class Reimu extends CustomMonster
         if (AbstractDungeon.ascensionLevel >= 19) {
             this.debuffAmount = A19_DEBUFF_AMOUNT;
             this.dazes = A19_DAZE_AMOUNT;
+            this.strengthGain = A19_STRENGTH_GAIN;
         } else {
             this.debuffAmount = DEBUFF_AMOUNT;
             this.dazes = DAZE_AMOUNT;
+            this.strengthGain = STRENGTH_GAIN;
         }
         if (AbstractDungeon.ascensionLevel >= 9) {
             this.setHp(A9_HP);
@@ -116,7 +121,7 @@ public class Reimu extends CustomMonster
         AbstractDungeon.scene.fadeOutAmbiance();
         AbstractDungeon.getCurrRoom().playBgmInstantly("Gensokyo/G Free.mp3");
         AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(AbstractDungeon.player, this, new Position(AbstractDungeon.player, 1)));
-        AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(this, this, new HakureiShrineMaidenPower(this)));
+        AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(this, this, new HakureiShrineMaidenPower(this, strengthGain)));
     }
 
     public int orbNum() {

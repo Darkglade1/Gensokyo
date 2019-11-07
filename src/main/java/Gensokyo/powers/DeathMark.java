@@ -1,6 +1,7 @@
 package Gensokyo.powers;
 
 import Gensokyo.GensokyoMod;
+import Gensokyo.actions.KillAction;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.common.DamageAction;
 import com.megacrit.cardcrawl.actions.common.ReducePowerAction;
@@ -10,6 +11,7 @@ import com.megacrit.cardcrawl.core.AbstractCreature;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.localization.PowerStrings;
+import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.powers.AbstractPower;
 
 
@@ -40,8 +42,12 @@ public class DeathMark extends AbstractPower {
     @Override
     public void atEndOfRound() {
         if (this.amount == 1) {
-            AbstractDungeon.actionManager.addToBottom(new DamageAction(this.owner, new DamageInfo(this.source, 9999), AbstractGameAction.AttackEffect.NONE));
-            AbstractDungeon.actionManager.addToBottom(new RemoveSpecificPowerAction(this.owner, this.owner, this.ID));
+            if (owner != AbstractDungeon.player) {
+                AbstractDungeon.actionManager.addToBottom(new KillAction((AbstractMonster)owner));
+            } else {
+                AbstractDungeon.actionManager.addToBottom(new DamageAction(this.owner, new DamageInfo(this.source, 9999), AbstractGameAction.AttackEffect.NONE));
+                AbstractDungeon.actionManager.addToBottom(new RemoveSpecificPowerAction(this.owner, this.owner, this.ID));
+            }
         } else {
             AbstractDungeon.actionManager.addToBottom(new ReducePowerAction(this.owner, this.owner, this.ID, 1));
             this.updateDescription();

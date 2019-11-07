@@ -13,8 +13,8 @@
   },
   "Gensokyo:RedCapeBlueCape": {
     "NAME": "Red Cape Blue Cape",
-    "DESCRIPTION": "Gain !B! Block. NL Deal !D! damage. NL Add Red Cape and Blue Cape to your hand.",
-    "UPGRADE_DESCRIPTION": "Gain !B! Block. NL Deal !D! damage. NL Add Red Cape+ and Blue Cape+ to your hand."
+    "DESCRIPTION": "Gain !B! Block. NL Deal !D! damage. NL Add gensokyo:Red_Cape and gensokyo:Blue_Cape to your hand.",
+    "UPGRADE_DESCRIPTION": "Gain !B! Block. NL Deal !D! damage. NL Add gensokyo:Red_Cape+ and gensokyo:Blue_Cape+ to your hand."
   },
   "Gensokyo:RedCape": {
     "NAME": "Red Cape",
