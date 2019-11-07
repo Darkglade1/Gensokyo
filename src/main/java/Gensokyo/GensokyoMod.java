@@ -224,7 +224,6 @@ public class GensokyoMod implements
     @SuppressWarnings("unused")
     public static void initialize() {
         GensokyoMod gensokyoMod = new GensokyoMod();
-        BaseMod.subscribe(gensokyoMod);
         BreadCrumbs.initialize();
         ElitesSlain.initialize();
     }
@@ -287,8 +286,7 @@ public class GensokyoMod implements
     @Override
     public void receiveEditRelics() {
         logger.info("Adding relics");
-        
-        // This adds a relic to the Shared pool. Every character can find this relic.
+
         BaseMod.addRelic(new PerfectCherryBlossom(), RelicType.SHARED);
         BaseMod.addRelic(new Mercy(), RelicType.SHARED);
         BaseMod.addRelic(new Justice(), RelicType.SHARED);

@@ -53,7 +53,7 @@ public class Gensokyo extends AbstractDungeon {
         scene.randomizeScene();
         this.savedScene = scene;
         this.eventImg = "images/ui/event/panel.png";
-        this.genericEvents = true;
+        this.genericEvents = false;
         this.savedFadeColor = Color.valueOf("0f220aff");
         this.finalAct = false;
 
@@ -177,15 +177,6 @@ public class Gensokyo extends AbstractDungeon {
         rareRelicChance = 17;
         colorlessRareChance = 0.3F;
         cardUpgradedChance = 0.0F;
-    }
-
-    //Flag determining if this act requires the 3 keys (if it's at or later than The Ending).
-    public void isFinalAct(boolean fin) {
-        this.finalAct = fin;
-    }
-    //Event that is executed at the start of the act.
-    public void onEnterEvent(Class<? extends AbstractEvent> event) {
-        this.onEnter = event;
     }
 
 
