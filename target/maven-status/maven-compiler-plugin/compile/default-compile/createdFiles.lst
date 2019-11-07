@@ -92,6 +92,7 @@ Gensokyo\actions\EtherealBombToHand$MakeEtherealStatEquivalentCopy.class
 Gensokyo\dungeon\Gensokyo.class
 Gensokyo\events\ACelestialsPlight.class
 Gensokyo\events\GardenOfTheSun.class
+Gensokyo\patches\EventFilterPatch$Locator.class
 Gensokyo\patches\VictoryOrDeathScreenPatch$DeathScreenPatch$Locator.class
 Gensokyo\vfx\TrainEffect.class
 Gensokyo\relics\PerfectCherryBlossom.class
@@ -143,6 +144,7 @@ Gensokyo\powers\DemonMask.class
 Gensokyo\cards\SpontaneousHumanCombustion.class
 Gensokyo\monsters\Komachi.class
 Gensokyo\relics\PortableGap.class
+Gensokyo\patches\EventFilterPatch.class
 Gensokyo\patches\VictoryOrDeathScreenPatch$DeathScreenPatch.class
 Gensokyo\util\RelicUtils$1.class
 Gensokyo\relics\LunaticRedEyes.class
