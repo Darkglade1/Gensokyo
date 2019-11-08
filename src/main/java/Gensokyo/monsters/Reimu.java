@@ -46,8 +46,8 @@ public class Reimu extends CustomMonster
     private static final int A4_DEBUFF_ATTACK_DAMAGE = 10;
     private static final int DAZE_AMOUNT = 2;
     private static final int A19_DAZE_AMOUNT = 3;
-    private static final int MEGA_DAZE_AMOUNT = 5;
-    private static final int A19_MEGA_DAZE_AMOUNT = 2;
+    private static final int MEGA_DAZE_AMOUNT = 6;
+    private static final int A19_MEGA_DAZE_AMOUNT = 8;
     private static final int DEBUFF_AMOUNT = 2;
     private static final int A19_DEBUFF_AMOUNT = 3;
     private static final int BLOCK = 9;
@@ -77,13 +77,14 @@ public class Reimu extends CustomMonster
         this.type = EnemyType.BOSS;
         this.dialogX = (this.hb_x - 70.0F) * Settings.scale;
         this.dialogY -= (this.hb_y - 55.0F) * Settings.scale;
-        this.megaDaze = MEGA_DAZE_AMOUNT;
         if (AbstractDungeon.ascensionLevel >= 19) {
             this.debuffAmount = A19_DEBUFF_AMOUNT;
+            this.megaDaze = A19_MEGA_DAZE_AMOUNT;
             this.dazes = A19_DAZE_AMOUNT;
             this.strengthGain = A19_STRENGTH_GAIN;
         } else {
             this.debuffAmount = DEBUFF_AMOUNT;
+            this.megaDaze = MEGA_DAZE_AMOUNT;
             this.dazes = DAZE_AMOUNT;
             this.strengthGain = STRENGTH_GAIN;
         }
@@ -169,9 +170,15 @@ public class Reimu extends CustomMonster
             }
             case MEGA_DEBUFF: {
                 runAnim("SpellCall");
-                AbstractDungeon.actionManager.addToBottom(new MakeTempCardInDiscardAction(new Dazed(), this.megaDaze));
-                if (AbstractDungeon.ascensionLevel >= 19) {
-                    AbstractDungeon.actionManager.addToBottom(new MakeTempCardInDiscardAction(new Dazed(), A19_MEGA_DAZE_AMOUNT));
+                int dazes = this.megaDaze;
+                while(dazes > 0) {
+                    if (dazes >= 5) {
+                        dazes -= 5;
+                        AbstractDungeon.actionManager.addToBottom(new MakeTempCardInDiscardAction(new Dazed(), 5));
+                    } else {
+                        AbstractDungeon.actionManager.addToBottom(new MakeTempCardInDiscardAction(new Dazed(), dazes));
+                        dazes = 0;
+                    }
                 }
                 break;
             }

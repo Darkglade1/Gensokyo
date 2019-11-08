@@ -187,12 +187,7 @@ public abstract class CustomDungeon extends AbstractDungeon {
         uncommonRelicChance = 33;
         rareRelicChance = 17;
         colorlessRareChance = 0.3F;
-        if (AbstractDungeon.ascensionLevel >= 12) {
-            cardUpgradedChance = 0.25F;
-        } else {
-            cardUpgradedChance = 0.5F;
-        }
-
+        cardUpgradedChance = 0.0F;
     }
 
     //Flag determining if this act requires the 3 keys (if it's at or later than The Ending).
