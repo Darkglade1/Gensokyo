@@ -37,9 +37,7 @@ import Gensokyo.events.ScarletDevilMansion;
 import Gensokyo.events.TheEnmasDilemma;
 import Gensokyo.events.ThoseEarthRabbits;
 import Gensokyo.monsters.Kokoro;
-import Gensokyo.monsters.Komachi;
 import Gensokyo.monsters.Reimu;
-import Gensokyo.monsters.YinYangOrb;
 import Gensokyo.monsters.Yukari;
 import Gensokyo.relics.Bombinomicon;
 import Gensokyo.relics.BookOfSpecters;
@@ -66,7 +64,6 @@ import basemod.interfaces.EditCardsSubscriber;
 import basemod.interfaces.EditKeywordsSubscriber;
 import basemod.interfaces.EditRelicsSubscriber;
 import basemod.interfaces.EditStringsSubscriber;
-import basemod.interfaces.PostDeathSubscriber;
 import basemod.interfaces.PostInitializeSubscriber;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.files.FileHandle;
@@ -74,17 +71,13 @@ import com.badlogic.gdx.graphics.Texture;
 import com.evacipated.cardcrawl.mod.stslib.Keyword;
 import com.evacipated.cardcrawl.modthespire.lib.SpireInitializer;
 import com.google.gson.Gson;
-import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.dungeons.Exordium;
-import com.megacrit.cardcrawl.dungeons.TheCity;
 import com.megacrit.cardcrawl.localization.CardStrings;
 import com.megacrit.cardcrawl.localization.EventStrings;
 import com.megacrit.cardcrawl.localization.MonsterStrings;
 import com.megacrit.cardcrawl.localization.PowerStrings;
 import com.megacrit.cardcrawl.localization.RelicStrings;
 import com.megacrit.cardcrawl.localization.UIStrings;
-import com.megacrit.cardcrawl.monsters.AbstractMonster;
-import javafx.util.Pair;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
@@ -100,15 +93,14 @@ public class GensokyoMod implements
         EditKeywordsSubscriber,
         PostInitializeSubscriber,
         AddAudioSubscriber {
-    // Make sure to implement the subscribers *you* are using (read basemod wiki). Editing cards? EditCardsSubscriber.
-    // Making relics? EditRelicsSubscriber. etc., etc., for a full list and how to make your own, visit the basemod wiki.
+
     public static final Logger logger = LogManager.getLogger(GensokyoMod.class.getName());
     private static String modID;
 
     //This is for the in-game mod settings panel.
     private static final String MODNAME = "Gensokyo";
-    private static final String AUTHOR = "Darkglade"; // And pretty soon - You!
-    private static final String DESCRIPTION = "A content mod inspired by Touhou Project.";
+    private static final String AUTHOR = "Darkglade";
+    private static final String DESCRIPTION = "An alternate Act 1 mod inspired by Touhou Project.";
     
     // =============== INPUT TEXTURE LOCATION =================
     
@@ -154,38 +146,12 @@ public class GensokyoMod implements
     
     public GensokyoMod() {
         logger.info("Subscribe to BaseMod hooks");
-        
-      /*
-           (   ( /(  (     ( /( (            (  `   ( /( )\ )    )\ ))\ )
-           )\  )\()) )\    )\()))\ )   (     )\))(  )\()|()/(   (()/(()/(
-         (((_)((_)((((_)( ((_)\(()/(   )\   ((_)()\((_)\ /(_))   /(_))(_))
-         )\___ _((_)\ _ )\ _((_)/(_))_((_)  (_()((_) ((_|_))_  _(_))(_))_
-        ((/ __| || (_)_\(_) \| |/ __| __| |  \/  |/ _ \|   \  |_ _||   (_)
-         | (__| __ |/ _ \ | .` | (_ | _|  | |\/| | (_) | |) |  | | | |) |
-          \___|_||_/_/ \_\|_|\_|\___|___| |_|  |_|\___/|___/  |___||___(_)
-      */
       
         setModID("Gensokyo");
-        // cool
-        // TODO: NOW READ THIS!!!!!!!!!!!!!!!:
-        
-        // 1. Go to your resources folder in the project panel, and refactor> rename GensokyoResources to
-        // yourModIDResources.
-        
-        // 2. Click on the localization > eng folder and press ctrl+shift+r, then select "Directory" (rather than in Project)
-        // replace all instances of Gensokyo with yourModID.
-        // Because your mod ID isn't the default. Your cards (and everything else) should have Your mod ID. Not mine.
-        
-        // 3. FINALLY and most importantly: Scroll up a bit. You may have noticed the image locations above don't use getModID()
-        // Change their locations to reflect your actual ID rather than Gensokyo. They get loaded before getID is a thing.
         
         logger.info("Done subscribing");
         
     }
-    
-    // ====== NO EDIT AREA ======
-    // DON'T TOUCH THIS STUFF. IT IS HERE FOR STANDARDIZATION BETWEEN MODS AND TO ENSURE GOOD CODE PRACTICES.
-    // IF YOU MODIFY THIS I WILL HUNT YOU DOWN AND DOWNVOTE YOUR MOD ON WORKSHOP
     
     public static void setModID(String ID) { // DON'T EDIT
         Gson coolG = new Gson(); // EY DON'T EDIT THIS
@@ -263,7 +229,7 @@ public class GensokyoMod implements
         // =============== EVENTS =================
 
         BaseMod.addEvent(ScarletDevilMansion.ID, ScarletDevilMansion.class, Gensokyo.ID);
-        BaseMod.addEvent(BorderOfDeath.ID, BorderOfDeath.class, Gensokyo.ID);
+        //BaseMod.addEvent(BorderOfDeath.ID, BorderOfDeath.class, Gensokyo.ID);
         BaseMod.addEvent(TheEnmasDilemma.ID, TheEnmasDilemma.class, Gensokyo.ID);
         BaseMod.addEvent(ACelestialsPlight.ID, ACelestialsPlight.class, Gensokyo.ID);
         BaseMod.addEvent(HakureiShrine.ID, HakureiShrine.class, Gensokyo.ID);
@@ -390,14 +356,6 @@ public class GensokyoMod implements
     
     @Override
     public void receiveEditKeywords() {
-        // Keywords on cards are supposed to be Capitalized, while in Keyword-String.json they're lowercase
-        //
-        // Multiword keywords on cards are done With_Underscores
-        //
-        // If you're using multiword keywords, the first element in your NAMES array in your keywords-strings.json has to be the same as the PROPER_NAME.
-        // That is, in Card-Strings.json you would have #yA_Long_Keyword (#y highlights the keyword in yellow).
-        // In Keyword-Strings.json you would have PROPER_NAME as A Long Keyword and the first element in NAMES be a long keyword, and the second element be a_long_keyword
-        
         Gson gson = new Gson();
         String json = Gdx.files.internal(getModID() + "Resources/localization/eng/GensokyoMod-Keyword-Strings.json").readString(String.valueOf(StandardCharsets.UTF_8));
         com.evacipated.cardcrawl.mod.stslib.Keyword[] keywords = gson.fromJson(json, com.evacipated.cardcrawl.mod.stslib.Keyword[].class);
@@ -405,7 +363,6 @@ public class GensokyoMod implements
         if (keywords != null) {
             for (Keyword keyword : keywords) {
                 BaseMod.addKeyword(getModID().toLowerCase(), keyword.PROPER_NAME, keyword.NAMES, keyword.DESCRIPTION);
-                //  getModID().toLowerCase() makes your keyword mod specific (it won't show up in other cards that use that word)
             }
         }
     }

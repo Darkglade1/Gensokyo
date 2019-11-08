@@ -192,8 +192,14 @@ public class Reimu extends CustomMonster
             setMove(MOVES[0], OPENING, Intent.UNKNOWN);
             this.firstMove = false;
         } else {
-            if (!this.lastMove(MEGA_DEBUFF) && !this.lastMoveBefore(MEGA_DEBUFF)) {
+            if (!this.lastMove(MEGA_DEBUFF) && !this.lastMoveBefore(MEGA_DEBUFF)) { //use this every 3 turns
                 this.setMove(MOVES[2], MEGA_DEBUFF, Intent.STRONG_DEBUFF);
+            } else if (this.lastMove(MEGA_DEBUFF) && this.lastMoveBefore(BLOCK_DEBUFF)) { //can't not attack for more than 2 turns
+                if (num % 2 == 0) {
+                    this.setMove(ATTACK_DEBUFF, Intent.ATTACK_DEBUFF, this.damage.get(1).base);
+                } else {
+                    this.setMove(ATTACK, Intent.ATTACK_DEBUFF, this.damage.get(0).base);
+                }
             } else if (num < 34) {
                 if (!this.lastMove(ATTACK)) {
                     this.setMove(ATTACK, Intent.ATTACK_DEBUFF, this.damage.get(0).base);
