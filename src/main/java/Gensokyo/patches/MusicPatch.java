@@ -18,6 +18,9 @@ public class MusicPatch {
 			case "Gensokyo/G Free.mp3": {
 				return MainMusic.newMusic("audio/music/Gensokyo/G Free.mp3");
 			}
+			case "Gensokyo/Wind God Girl.mp3": {
+				return MainMusic.newMusic("audio/music/Gensokyo/Wind God Girl.mp3");
+			}
 			default: {
 				return __result;
 			}

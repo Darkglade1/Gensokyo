@@ -1,6 +1,7 @@
 Gensokyo\patches\LunacyRetargetPatch.class
 Gensokyo\actions\YinYangMoveAction.class
 Gensokyo\relics\YoukaiFlower.class
+Gensokyo\powers\IllusionaryDominance.class
 Gensokyo\patches\TempMusicPatch.class
 Gensokyo\patches\VictoryOrDeathScreenPatch$VictoryScreenPatch$Locator.class
 Gensokyo\cards\GapWoman.class
@@ -34,6 +35,7 @@ Gensokyo\util\IDCheckDontTouchPls.class
 Gensokyo\patches\MusicPatch.class
 Gensokyo\actions\TekeTekeAction.class
 Gensokyo\GensokyoMod.class
+Gensokyo\monsters\Aya$AyaListener.class
 Gensokyo\patches\HighLightInvertiblePowerPatches$HighLight.class
 Gensokyo\events\ScarletDevilMansion.class
 Gensokyo\cards\LochNessMonster.class
@@ -80,6 +82,7 @@ Gensokyo\patches\InitializeDeckPatches.class
 Gensokyo\patches\GoToNextDungeonPatch$Locator.class
 Gensokyo\events\BambooForestOfTheLost.class
 Gensokyo\patches\AbstractRoomUpdateIncrementElitesPatch.class
+Gensokyo\monsters\Aya.class
 Gensokyo\events\HakureiShrine.class
 Gensokyo\actions\BookOfSpectersAction.class
 Gensokyo\cards\RedCapeBlueCape.class
@@ -105,6 +108,7 @@ Gensokyo\events\TheEnmasDilemma.class
 Gensokyo\patches\PatchingaPatchInBaseModBecauseRAAAAAAGH.class
 Gensokyo\monsters\Kokoro.class
 Gensokyo\patches\relics\PortableGapPatch.class
+Gensokyo\powers\Evasive.class
 Gensokyo\patches\relics\PortableGapPatch$IsConnectedTo.class
 Gensokyo\patches\relics\RezItemPatch$Locator.class
 Gensokyo\powers\LunacyPower.class

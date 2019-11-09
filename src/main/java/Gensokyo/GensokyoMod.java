@@ -36,6 +36,7 @@ import Gensokyo.events.HakureiShrine;
 import Gensokyo.events.ScarletDevilMansion;
 import Gensokyo.events.TheEnmasDilemma;
 import Gensokyo.events.ThoseEarthRabbits;
+import Gensokyo.monsters.Aya;
 import Gensokyo.monsters.Kokoro;
 import Gensokyo.monsters.Reimu;
 import Gensokyo.monsters.Yukari;
@@ -221,6 +222,7 @@ public class GensokyoMod implements
         BaseMod.addMonster(Yukari.ID, (BaseMod.GetMonster)Yukari::new);
         BaseMod.addMonster(Kokoro.ID, (BaseMod.GetMonster)Kokoro::new);
         BaseMod.addMonster(Reimu.ID, (BaseMod.GetMonster)Reimu::new);
+        BaseMod.addMonster(Aya.ID, (BaseMod.GetMonster)Aya::new);
         BaseMod.addBoss(Gensokyo.ID, Yukari.ID, "GensokyoResources/images/monsters/Yukari/Yukari.png", "GensokyoResources/images/monsters/Yukari/YukariOutline.png");
         BaseMod.addBoss(Gensokyo.ID, Kokoro.ID, "GensokyoResources/images/monsters/Kokoro/Kokoro.png", "GensokyoResources/images/monsters/Kokoro/KokoroOutline.png");
         BaseMod.addBoss(Gensokyo.ID, Reimu.ID, "GensokyoResources/images/monsters/Reimu/Reimu.png", "GensokyoResources/images/monsters/Reimu/ReimuOutline.png");

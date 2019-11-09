@@ -33,6 +33,7 @@ public class YinYangOrb extends CustomMonster {
     public YinYangOrb(float x, float y, int type, int position, int delay, Reimu master) {
         super(NAME, ID, HP, 0.0F, 0.0F, 160.0F, 120.0F, null, x, y);
         this.animation = new SpriterAnimation("GensokyoResources/images/monsters/YinYangOrb/Spriter/YinYangOrb.scml");
+        this.type = EnemyType.NORMAL;
         if (AbstractDungeon.ascensionLevel >= 9) {
             this.setHp(A9_HP * type);
         } else {

@@ -49,6 +49,17 @@
       ""
     ],
     "NAME": "Yin-Yang Orb"
+  },
+  "Gensokyo:Aya": {
+    "MOVES": [
+      "Illusionary Dominance",
+      "Dashing Grace",
+      "Gale Fan"
+    ],
+    "NAME": "Reporter of Fantasy",
+    "DIALOG": [
+      "This'll make for a great news article!"
+    ]
   }
 }
 

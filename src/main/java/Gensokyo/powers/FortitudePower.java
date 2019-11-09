@@ -56,8 +56,6 @@ public class FortitudePower extends AbstractPower {
     @Override
     public float atDamageReceive(float damage, DamageInfo.DamageType type) {
         if (type == DamageInfo.DamageType.NORMAL) {
-            System.out.println("Damage before reduction " + damage);
-            System.out.println("Damage after after reduction " + (damage * DAMAGE_REDUCTION));
             return damage * DAMAGE_REDUCTION;
         } else {
             return damage;

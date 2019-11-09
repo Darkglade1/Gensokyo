@@ -1,5 +1,6 @@
 package Gensokyo.dungeon;
 
+import Gensokyo.monsters.Aya;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.helpers.ImageMaster;
@@ -35,7 +36,7 @@ public class Gensokyo extends CustomDungeon {
         shopRoomChance = 0.05F;
         restRoomChance = 0.12F;
         treasureRoomChance = 0.0F;
-        eventRoomChance = 0.22F;
+        eventRoomChance = 0.25F;
         eliteRoomChance = 0.08F;
         smallChestChance = 50;
         mediumChestChance = 33;
@@ -86,7 +87,7 @@ public class Gensokyo extends CustomDungeon {
     protected void generateElites(int count) {
         ArrayList<MonsterInfo> monsters = new ArrayList();
         monsters.add(new MonsterInfo("Gremlin Nob", 1.0F));
-        monsters.add(new MonsterInfo("Lagavulin", 1.0F));
+        monsters.add(new MonsterInfo(Aya.ID, 1.0F));
         monsters.add(new MonsterInfo("3 Sentries", 1.0F));
         MonsterInfo.normalizeWeights(monsters);
         this.populateMonsterList(monsters, count, true);
