@@ -47,7 +47,7 @@ public class EventFilterPatch {
                     eventsToRemove.add(event);
                 }
             } else if (event.equals(GardenOfTheSun.ID)) {
-                if (AbstractDungeon.player.hasRelic(HappyFlower.ID)) {
+                if (AbstractDungeon.player.hasRelic(HappyFlower.ID) || !GardenOfTheSun.hasNonStrikeAttack()) {
                     eventsToRemove.add(event);
                 }
             }

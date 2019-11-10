@@ -294,7 +294,7 @@
       " #gObtain #gHappy #gFlower.",
       "[Locked] Requires: Card with ",
       " or more damage.",
-      "[Locked] Requires: Card that deals damage.",
+      "[Locked] Requires: Non-Strike Attack.",
       "[Run] #rLose #r",
       " #rHP",
       "[Leave]"

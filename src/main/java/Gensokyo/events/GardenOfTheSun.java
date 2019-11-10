@@ -3,6 +3,7 @@ package Gensokyo.events;
 import Gensokyo.GensokyoMod;
 import Gensokyo.relics.YoukaiFlower;
 import Gensokyo.util.RelicUtils;
+import basemod.helpers.BaseModCardTags;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
@@ -139,11 +140,11 @@ public class GardenOfTheSun extends AbstractImageEvent {
         AbstractCard highestDamageCard = null;
         for (AbstractCard card : AbstractDungeon.player.masterDeck.group) {
             if (highestDamageCard == null) {
-                if (card.baseDamage > 0) {
+                if (card.baseDamage > 0 && !card.tags.contains(BaseModCardTags.BASIC_STRIKE)) {
                     highestDamageCard = card;
                 }
             } else {
-                if (card.baseDamage > highestDamageCard.baseDamage) {
+                if (card.baseDamage > highestDamageCard.baseDamage && !card.tags.contains(BaseModCardTags.BASIC_STRIKE)) {
                     highestDamageCard = card;
                 }
             }
@@ -160,5 +161,14 @@ public class GardenOfTheSun extends AbstractImageEvent {
                 card = highestDamageCard;
             }
         }
+    }
+
+    public static boolean hasNonStrikeAttack() {
+        for (AbstractCard card: AbstractDungeon.player.masterDeck.group) {
+            if (card.baseDamage > 0 && !card.tags.contains(BaseModCardTags.BASIC_STRIKE)) {
+                return true;
+            }
+        }
+        return false;
     }
 }
