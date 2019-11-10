@@ -3,13 +3,16 @@ package Gensokyo.monsters;
 import Gensokyo.BetterSpriterAnimation;
 import Gensokyo.powers.FairyFury;
 import Gensokyo.powers.Immortality;
+import Gensokyo.powers.Strongest;
 import basemod.abstracts.CustomMonster;
 import com.brashmonkey.spriter.Animation;
 import com.brashmonkey.spriter.Player;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.animations.TalkAction;
+import com.megacrit.cardcrawl.actions.animations.VFXAction;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.actions.common.DamageAction;
+import com.megacrit.cardcrawl.actions.common.EscapeAction;
 import com.megacrit.cardcrawl.actions.common.HealAction;
 import com.megacrit.cardcrawl.actions.common.MakeTempCardInDiscardAction;
 import com.megacrit.cardcrawl.actions.common.RollMoveAction;
@@ -24,7 +27,9 @@ import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.powers.AbstractPower;
 import com.megacrit.cardcrawl.powers.StrengthPower;
 import com.megacrit.cardcrawl.relics.AbstractRelic;
+import com.megacrit.cardcrawl.vfx.combat.SmokeBombEffect;
 
+import java.util.ArrayList;
 import java.util.Iterator;
 
 public class Cirno extends CustomMonster
@@ -39,6 +44,7 @@ public class Cirno extends CustomMonster
     private static final byte ATTACK = 2;
     private static final byte DEBUFF_ATTACK = 3;
     private static final byte REVIVE = 4;
+    private static final byte LEAVE = 5;
     private static final int NORMAL_ATTACK_DAMAGE = 10;
     private static final int A3_NORMAL_ATTACK_DAMAGE = 11;
     private static final int NORMAL_ATTACK_HITS = 2;
@@ -99,6 +105,7 @@ public class Cirno extends CustomMonster
         AbstractDungeon.scene.fadeOutAmbiance();
         //AbstractDungeon.getCurrRoom().playBgmInstantly("Gensokyo/Wind God Girl.mp3");
         AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(this, this, new Immortality(this)));
+        AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(this, this, new Strongest(this)));
         AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(this, this, new FairyFury(this, STRENGTH_INCREMENT)));
         AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(this, this, new StrengthPower(this, NEGATIVE_STRENGTH), NEGATIVE_STRENGTH));
     }
@@ -138,14 +145,24 @@ public class Cirno extends CustomMonster
                 }
                 break;
             }
+            case LEAVE:
+                AbstractDungeon.actionManager.addToBottom(new TalkAction(this, DIALOG[1]));
+                AbstractDungeon.actionManager.addToBottom(new EscapeAction(this));
+                AbstractDungeon.actionManager.addToBottom(new SetMoveAction(this, LEAVE, Intent.ESCAPE));
+                this.animation.setFlip(true, false);
+                AbstractDungeon.getCurrRoom().cannotLose = false;
         }
-        AbstractDungeon.actionManager.addToBottom(new RollMoveAction(this));
+        for (AbstractMonster mo : AbstractDungeon.getCurrRoom().monsters.monsters) { //helps ensure all monsters flee at the same time
+            AbstractDungeon.actionManager.addToBottom(new RollMoveAction(mo));
+        }
     }
 
     @Override
     protected void getMove(final int num) {
         //buffs, does multi-attack, then alternates between debuff attack and multi-attack
-        if (this.halfDead) {
+        if(this.willLeave()) {
+            this.setMove(LEAVE, Intent.ESCAPE);
+        } else if (this.halfDead) {
             this.setMove(REVIVE, Intent.BUFF);
         } else if (this.firstMove) {
             this.setMove(MOVES[0], BUFF, Intent.UNKNOWN);
@@ -165,8 +182,12 @@ public class Cirno extends CustomMonster
         super.damage(info);
         if (this.currentHealth <= 0 && !this.halfDead) {
             this.halfDead = true;
-            Iterator var2 = this.powers.iterator();
+            if (this.hasPower(FairyFury.POWER_ID)) {
+                FairyFury fury = (FairyFury)this.getPower(FairyFury.POWER_ID);
+                fury.onTrigger();
+            }
 
+            Iterator var2 = this.powers.iterator();
             while (var2.hasNext()) {
                 AbstractPower p = (AbstractPower) var2.next();
                 p.onDeath();
@@ -178,10 +199,19 @@ public class Cirno extends CustomMonster
                 AbstractRelic r = (AbstractRelic) var2.next();
                 r.onMonsterDeath(this);
             }
-            if (this.nextMove != REVIVE) {
+            if (this.nextMove != REVIVE && this.nextMove != LEAVE) {
                 this.setMove(REVIVE, Intent.BUFF);
                 this.createIntent();
                 AbstractDungeon.actionManager.addToBottom(new SetMoveAction(this, REVIVE, Intent.BUFF));
+            }
+            ArrayList<AbstractPower> powersToRemove = new ArrayList<>();
+            for (AbstractPower power : this.powers) {
+                if (!(power instanceof Immortality) && !(power instanceof StrengthPower) && !(power instanceof FairyFury) && !(power instanceof Strongest)) {
+                    powersToRemove.add(power);
+                }
+            }
+            for (AbstractPower power : powersToRemove) {
+                this.powers.remove(power);
             }
         }
     }
@@ -195,7 +225,7 @@ public class Cirno extends CustomMonster
 
     @Override
     public boolean isDeadOrEscaped() {
-        if (!this.isDying) { //Removes half dead check so she can gain Strength while half dead
+        if (!this.isDying) { //Removes half dead check so she can gain powers while half dead
             if (this.isEscaping) {
                 return true;
             }
@@ -203,6 +233,13 @@ public class Cirno extends CustomMonster
         } else {
             return true;
         }
+    }
+
+    public boolean willLeave() {
+        if (this.hasPower(StrengthPower.POWER_ID)) {
+            return this.getPower(StrengthPower.POWER_ID).amount > 0;
+        }
+        return false;
     }
     
     static {

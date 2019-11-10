@@ -97,6 +97,10 @@
 },
 "Gensokyo:FairyFury": {
         "NAME": "Fairy's Fury",
-        "DESCRIPTIONS": ["Whenever another #yFairy dies, gains #b", " #yStrength."]
+        "DESCRIPTIONS": ["Whenever a #yFairy dies, gains #b", " #yStrength."]
+},
+"Gensokyo:Strongest": {
+        "NAME": "Strongest",
+        "DESCRIPTIONS": ["Maybe she'll leave you alone after she's #ypositive about her #yStrength . . ."]
 }
 }

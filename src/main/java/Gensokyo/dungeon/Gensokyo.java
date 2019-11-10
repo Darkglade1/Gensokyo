@@ -3,6 +3,12 @@ package Gensokyo.dungeon;
 import Gensokyo.monsters.Aya;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
+import com.megacrit.cardcrawl.core.Settings;
+import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
+import com.megacrit.cardcrawl.dungeons.Exordium;
+import com.megacrit.cardcrawl.dungeons.TheBeyond;
+import com.megacrit.cardcrawl.dungeons.TheCity;
+import com.megacrit.cardcrawl.dungeons.TheEnding;
 import com.megacrit.cardcrawl.helpers.ImageMaster;
 import com.megacrit.cardcrawl.localization.UIStrings;
 import com.megacrit.cardcrawl.monsters.MonsterInfo;
@@ -46,6 +52,41 @@ public class Gensokyo extends CustomDungeon {
         rareRelicChance = 17;
         colorlessRareChance = 0.3F;
         cardUpgradedChance = 0.0F;
+    }
+
+    @Override
+    public void setupMisc(CustomDungeon cd, int actNum) {
+        //Copying data from the instance that was used for initialization.
+        if (scene != null && scene != cd.savedScene) {
+            scene.dispose();
+        }
+        scene = new TheBottomScene();
+        fadeColor = cd.savedFadeColor;
+        this.name = cd.name;
+        //event bg needs to be set here, because it can't be set when the constructor of AbstractDungeon is executed yet.
+        AbstractDungeon.eventBackgroundImg = ImageMaster.loadImage(cd.eventImg);
+        initializeLevelSpecificChances();
+        mapRng = new com.megacrit.cardcrawl.random.Random(Settings.seed + actNum * 100);
+        generateMap();
+
+        if(cd.mainmusic != null) {
+            CardCrawlGame.music.changeBGM(cd.id);
+        } else {
+//            switch(actNum) {
+//                case EXORDIUM:
+//                    CardCrawlGame.music.changeBGM(Exordium.ID);
+//                    break;
+//                case THECITY:
+//                    CardCrawlGame.music.changeBGM(TheCity.ID);
+//                    break;
+//                case THEBEYOND:
+//                    CardCrawlGame.music.changeBGM(TheBeyond.ID);
+//                    break;
+//                case THEENDING:
+//                    CardCrawlGame.music.changeBGM(TheEnding.ID);
+//                    break;
+//            }
+        }
     }
 
 

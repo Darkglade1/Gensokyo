@@ -16,6 +16,7 @@ Gensokyo\relics\BookOfSpecters.class
 Gensokyo\vfx\EmptyEffect.class
 Gensokyo\cards\BlueCape.class
 Gensokyo\patches\CalcFinalScorePatch$VictoryScreenPatch.class
+Gensokyo\actions\LookForLeaderAction.class
 Gensokyo\patches\GetDungeonPatches$getDungeonThroughSavefile.class
 Gensokyo\patches\InitializeDeckPatches$AscensionPenaltiesPatch.class
 Gensokyo\dungeon\CustomDungeon.class
@@ -82,6 +83,7 @@ Gensokyo\powers\SpiderMask.class
 Gensokyo\patches\MainMusicPatch.class
 Gensokyo\relics\Mercy.class
 Gensokyo\relics\OccultBall.class
+Gensokyo\powers\Strongest.class
 Gensokyo\patches\InitializeDeckPatches.class
 Gensokyo\patches\GoToNextDungeonPatch$Locator.class
 Gensokyo\events\BambooForestOfTheLost.class

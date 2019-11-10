@@ -229,13 +229,12 @@ public class GensokyoMod implements
         BaseMod.addMonster(Kokoro.ID, (BaseMod.GetMonster)Kokoro::new);
         BaseMod.addMonster(Reimu.ID, (BaseMod.GetMonster)Reimu::new);
         BaseMod.addMonster(Aya.ID, (BaseMod.GetMonster)Aya::new);
-        Cirno cirno = new Cirno();
         BaseMod.addMonster(Cirno.ID, "Cirno", () -> new MonsterGroup(
                 new AbstractMonster[] {
-                        new GreaterFairy(-600.0F, 0.0F, cirno),
-                        new SunflowerFairy(-400.0F, 0.0F, cirno),
-                        new ZombieFairy(-200.0F, 0.0F, cirno),
-                        cirno
+                        new GreaterFairy(-600.0F, 0.0F, null),
+                        new SunflowerFairy(-400.0F, 0.0F, null),
+                        new ZombieFairy(-200.0F, 0.0F, null),
+                        new Cirno()
                 }));
         BaseMod.addBoss(Gensokyo.ID, Yukari.ID, "GensokyoResources/images/monsters/Yukari/Yukari.png", "GensokyoResources/images/monsters/Yukari/YukariOutline.png");
         BaseMod.addBoss(Gensokyo.ID, Kokoro.ID, "GensokyoResources/images/monsters/Kokoro/Kokoro.png", "GensokyoResources/images/monsters/Kokoro/KokoroOutline.png");

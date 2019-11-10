@@ -42,7 +42,7 @@ public abstract class CustomDungeon extends AbstractDungeon {
         return onEnter != null;
     }
 
-    private String eventImg;
+    public String eventImg;
 
     public CustomDungeon(AbstractScene scene, String NAME, String ID) {
         this(scene, NAME, ID, "images/ui/event/panel.png", false);
@@ -128,7 +128,8 @@ public abstract class CustomDungeon extends AbstractDungeon {
 
         populatePathTaken(saveFile);
     }
-    private void setupMisc(CustomDungeon cd, int actNum) {
+
+    public void setupMisc(CustomDungeon cd, int actNum) {
         //Copying data from the instance that was used for initialization.
         if (scene != null && scene != cd.savedScene) {
             scene.dispose();
@@ -145,20 +146,20 @@ public abstract class CustomDungeon extends AbstractDungeon {
         if(cd.mainmusic != null) {
             CardCrawlGame.music.changeBGM(cd.id);
         } else {
-//            switch(actNum) {
-//                case EXORDIUM:
-//                    CardCrawlGame.music.changeBGM(Exordium.ID);
-//                    break;
-//                case THECITY:
-//                    CardCrawlGame.music.changeBGM(TheCity.ID);
-//                    break;
-//                case THEBEYOND:
-//                    CardCrawlGame.music.changeBGM(TheBeyond.ID);
-//                    break;
-//                case THEENDING:
-//                    CardCrawlGame.music.changeBGM(TheEnding.ID);
-//                    break;
-//            }
+            switch(actNum) {
+                case EXORDIUM:
+                    CardCrawlGame.music.changeBGM(Exordium.ID);
+                    break;
+                case THECITY:
+                    CardCrawlGame.music.changeBGM(TheCity.ID);
+                    break;
+                case THEBEYOND:
+                    CardCrawlGame.music.changeBGM(TheBeyond.ID);
+                    break;
+                case THEENDING:
+                    CardCrawlGame.music.changeBGM(TheEnding.ID);
+                    break;
+            }
         }
     }
 

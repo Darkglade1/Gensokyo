@@ -69,7 +69,8 @@
     ],
     "NAME": "Strongest Fairy",
     "DIALOG": [
-      "I am the STRONGEST!"
+      "I am the STRONGEST!",
+      "Another victory for fairies!"
     ]
   },
   "Gensokyo:SunflowerFairy": {

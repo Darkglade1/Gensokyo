@@ -1,12 +1,15 @@
 package Gensokyo.monsters;
 
 import Gensokyo.BetterSpriterAnimation;
+import Gensokyo.actions.LookForLeaderAction;
 import Gensokyo.powers.FairyFury;
 import Gensokyo.powers.Immortality;
 import basemod.abstracts.CustomMonster;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
+import com.megacrit.cardcrawl.actions.animations.VFXAction;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.actions.common.DamageAction;
+import com.megacrit.cardcrawl.actions.common.EscapeAction;
 import com.megacrit.cardcrawl.actions.common.HealAction;
 import com.megacrit.cardcrawl.actions.common.RollMoveAction;
 import com.megacrit.cardcrawl.actions.common.SetMoveAction;
@@ -19,7 +22,9 @@ import com.megacrit.cardcrawl.powers.AbstractPower;
 import com.megacrit.cardcrawl.powers.MinionPower;
 import com.megacrit.cardcrawl.powers.WeakPower;
 import com.megacrit.cardcrawl.relics.AbstractRelic;
+import com.megacrit.cardcrawl.vfx.combat.SmokeBombEffect;
 
+import java.util.ArrayList;
 import java.util.Iterator;
 
 public class ZombieFairy extends CustomMonster
@@ -31,6 +36,7 @@ public class ZombieFairy extends CustomMonster
     public static final String[] DIALOG;
     private static final byte ATTACK = 1;
     private static final byte REVIVE = 2;
+    private static final byte LEAVE = 3;
     private static final int NORMAL_ATTACK_DAMAGE = 2;
     private static final int DEBUFF = 1;
     private static final int HP_MIN = 7;
@@ -38,7 +44,7 @@ public class ZombieFairy extends CustomMonster
     private static final int A_2_HP_MIN = 8;
     private static final int A_2_HP_MAX = 9;
     private int normalDamage;
-    private Cirno leader;
+    public Cirno leader;
 
     public ZombieFairy() {
         this(0.0f, 0.0f, null);
@@ -65,6 +71,7 @@ public class ZombieFairy extends CustomMonster
     public void usePreBattleAction() {
         AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(this, this, new MinionPower(this)));
         AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(this, this, new Immortality(this)));
+        AbstractDungeon.actionManager.addToBottom(new LookForLeaderAction(this));
     }
     
     @Override
@@ -85,13 +92,19 @@ public class ZombieFairy extends CustomMonster
                 }
                 break;
             }
+            case LEAVE:
+                AbstractDungeon.actionManager.addToBottom(new EscapeAction(this));
+                AbstractDungeon.actionManager.addToBottom(new SetMoveAction(this, LEAVE, Intent.ESCAPE));
+                this.animation.setFlip(true, false);
         }
         AbstractDungeon.actionManager.addToBottom(new RollMoveAction(this));
     }
 
     @Override
     protected void getMove(final int num) {
-        if (this.halfDead) {
+        if (leader != null && leader.willLeave()) {
+            this.setMove(LEAVE, Intent.ESCAPE);
+        } else if (this.halfDead) {
             this.setMove(REVIVE, Intent.BUFF);
         } else {
             this.setMove(ATTACK, Intent.ATTACK_DEBUFF, (this.damage.get(0)).base);
@@ -122,10 +135,19 @@ public class ZombieFairy extends CustomMonster
                 AbstractRelic r = (AbstractRelic) var2.next();
                 r.onMonsterDeath(this);
             }
-            if (this.nextMove != REVIVE) {
+            if (this.nextMove != REVIVE && this.nextMove != LEAVE) {
                 this.setMove(REVIVE, Intent.BUFF);
                 this.createIntent();
                 AbstractDungeon.actionManager.addToBottom(new SetMoveAction(this, REVIVE, Intent.BUFF));
+            }
+            ArrayList<AbstractPower> powersToRemove = new ArrayList<>();
+            for (AbstractPower power : this.powers) {
+                if (!(power instanceof Immortality)) {
+                    powersToRemove.add(power);
+                }
+            }
+            for (AbstractPower power : powersToRemove) {
+                this.powers.remove(power);
             }
         }
     }
