@@ -7,6 +7,7 @@ Gensokyo\patches\VictoryOrDeathScreenPatch$VictoryScreenPatch$Locator.class
 Gensokyo\cards\GapWoman.class
 Gensokyo\actions\KillAction.class
 Gensokyo\monsters\Yukari$YukariListener.class
+Gensokyo\monsters\Cirno$CirnoListener.class
 Gensokyo\relics\Bombinomicon.class
 Gensokyo\patches\InitializeDeckPatches$PreventDeckInitializationPatch.class
 Gensokyo\actions\FlexibleDiscoveryAction.class
@@ -25,6 +26,7 @@ Gensokyo\patches\relics\PerfectCherryBlossomPatch$Locator.class
 Gensokyo\patches\SetAreaNamePatch.class
 Gensokyo\monsters\Yukari.class
 Gensokyo\events\GetForked.class
+Gensokyo\monsters\Cirno.class
 Gensokyo\monsters\Reimu$ReimuListener.class
 Gensokyo\powers\HopeMask.class
 Gensokyo\patches\PreventConstructorCrashPatch.class
@@ -141,6 +143,7 @@ Gensokyo\patches\GetDungeonPatches$getDungeonThroughProgression.class
 Gensokyo\cards\MissMary.class
 Gensokyo\util\RelicUtils.class
 Gensokyo\cards\MenInBlack.class
+Gensokyo\powers\Immortality.class
 Gensokyo\actions\BookOfSpectersFollowUpAction.class
 Gensokyo\powers\UnstableBoundariesPower.class
 Gensokyo\actions\EtherealBombToHand.class

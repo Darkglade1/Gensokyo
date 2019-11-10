@@ -60,6 +60,35 @@
     "DIALOG": [
       "This'll make for a great news article!"
     ]
+  },
+  "Gensokyo:Cirno": {
+    "MOVES": [
+      "Boast",
+      "Perfect Freeze",
+      "Icicle Bomb"
+    ],
+    "NAME": "Strongest Fairy",
+    "DIALOG": [
+      "I am the STRONGEST!"
+    ]
+  },
+  "Gensokyo:SunflowerFairy": {
+    "MOVES": [
+
+    ],
+    "NAME": "Sunflower Fairy"
+  },
+  "Gensokyo:ZombieFairy": {
+    "MOVES": [
+
+    ],
+    "NAME": "Zombie Fairy"
+  },
+  "Gensokyo:GreaterFairy": {
+    "MOVES": [
+
+    ],
+    "NAME": "Greater Fairy"
   }
 }
 

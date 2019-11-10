@@ -86,5 +86,13 @@
 "Gensokyo:IllusionaryDominance": {
         "NAME": "Illusionary Dominance",
         "DESCRIPTIONS": ["The next time this creature receives unblocked attack damage this turn, loses #b", " #yStrength."]
+},
+"Gensokyo:Immortality": {
+        "NAME": "Immortality",
+        "DESCRIPTIONS": ["Whenever this creature dies, it revives next turn at full health."]
+},
+"Gensokyo:FairyVengeance": {
+        "NAME": "Fairy's Vengeance",
+        "DESCRIPTIONS": ["On death, applies #b", " #yVulnerable."]
 }
 }
