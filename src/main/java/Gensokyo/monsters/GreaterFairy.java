@@ -1,6 +1,7 @@
 package Gensokyo.monsters;
 
 import Gensokyo.BetterSpriterAnimation;
+import Gensokyo.powers.FairyFury;
 import Gensokyo.powers.FairyVengeance;
 import Gensokyo.powers.Immortality;
 import basemod.abstracts.CustomMonster;
@@ -16,7 +17,6 @@ import com.megacrit.cardcrawl.core.Settings;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.localization.MonsterStrings;
 import com.megacrit.cardcrawl.powers.AbstractPower;
-import com.megacrit.cardcrawl.powers.FrailPower;
 import com.megacrit.cardcrawl.powers.MinionPower;
 import com.megacrit.cardcrawl.relics.AbstractRelic;
 
@@ -35,16 +35,17 @@ public class GreaterFairy extends CustomMonster
     private static final int DEBUFF = 1;
     private static final int HP_MIN = 10;
     private static final int HP_MAX = 11;
-    private static final int A_2_HP_MIN = 12;
-    private static final int A_2_HP_MAX = 13;
+    private static final int A_2_HP_MIN = 11;
+    private static final int A_2_HP_MAX = 12;
     private int normalDamage;
+    private Cirno leader;
 
     public GreaterFairy() {
-        this(0.0f, 0.0f);
+        this(0.0f, 0.0f, null);
     }
 
-    public GreaterFairy(final float x, final float y) {
-        super(GreaterFairy.NAME, ID, HP_MAX, -5.0F, 0, 200.0f, 165.0f, null, x, y);
+    public GreaterFairy(final float x, final float y, Cirno leader) {
+        super(GreaterFairy.NAME, ID, HP_MAX, -5.0F, 0, 170.0f, 165.0f, null, x, y);
         this.animation = new BetterSpriterAnimation("GensokyoResources/images/monsters/Cirno/Spriter/CirnoAnimation.scml");
         this.type = EnemyType.NORMAL;
         this.dialogX = (this.hb_x - 70.0F) * Settings.scale;
@@ -57,6 +58,7 @@ public class GreaterFairy extends CustomMonster
         }
 
         this.damage.add(new DamageInfo(this, this.normalDamage));
+        this.leader = leader;
     }
 
     @Override
@@ -92,7 +94,7 @@ public class GreaterFairy extends CustomMonster
         if (this.halfDead) {
             this.setMove(REVIVE, Intent.BUFF);
         } else {
-            this.setMove(ATTACK, Intent.ATTACK_DEBUFF, (this.damage.get(0)).base);
+            this.setMove(ATTACK, Intent.ATTACK, (this.damage.get(0)).base);
         }
     }
 
@@ -101,6 +103,12 @@ public class GreaterFairy extends CustomMonster
         super.damage(info);
         if (this.currentHealth <= 0 && !this.halfDead) {
             this.halfDead = true;
+            if (leader != null) {
+                if (leader.hasPower(FairyFury.POWER_ID)) {
+                    FairyFury fury = (FairyFury)leader.getPower(FairyFury.POWER_ID);
+                    fury.onTrigger();
+                }
+            }
             Iterator var2 = this.powers.iterator();
 
             while (var2.hasNext()) {

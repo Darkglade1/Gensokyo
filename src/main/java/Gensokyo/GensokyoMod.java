@@ -38,9 +38,12 @@ import Gensokyo.events.TheEnmasDilemma;
 import Gensokyo.events.ThoseEarthRabbits;
 import Gensokyo.monsters.Aya;
 import Gensokyo.monsters.Cirno;
+import Gensokyo.monsters.GreaterFairy;
 import Gensokyo.monsters.Kokoro;
 import Gensokyo.monsters.Reimu;
+import Gensokyo.monsters.SunflowerFairy;
 import Gensokyo.monsters.Yukari;
+import Gensokyo.monsters.ZombieFairy;
 import Gensokyo.relics.Bombinomicon;
 import Gensokyo.relics.BookOfSpecters;
 import Gensokyo.relics.CelestialsFlawlessClothing;
@@ -80,6 +83,8 @@ import com.megacrit.cardcrawl.localization.MonsterStrings;
 import com.megacrit.cardcrawl.localization.PowerStrings;
 import com.megacrit.cardcrawl.localization.RelicStrings;
 import com.megacrit.cardcrawl.localization.UIStrings;
+import com.megacrit.cardcrawl.monsters.AbstractMonster;
+import com.megacrit.cardcrawl.monsters.MonsterGroup;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
@@ -224,7 +229,14 @@ public class GensokyoMod implements
         BaseMod.addMonster(Kokoro.ID, (BaseMod.GetMonster)Kokoro::new);
         BaseMod.addMonster(Reimu.ID, (BaseMod.GetMonster)Reimu::new);
         BaseMod.addMonster(Aya.ID, (BaseMod.GetMonster)Aya::new);
-        BaseMod.addMonster(Cirno.ID, (BaseMod.GetMonster)Cirno::new);
+        Cirno cirno = new Cirno();
+        BaseMod.addMonster(Cirno.ID, "Cirno", () -> new MonsterGroup(
+                new AbstractMonster[] {
+                        new GreaterFairy(-600.0F, 0.0F, cirno),
+                        new SunflowerFairy(-400.0F, 0.0F, cirno),
+                        new ZombieFairy(-200.0F, 0.0F, cirno),
+                        cirno
+                }));
         BaseMod.addBoss(Gensokyo.ID, Yukari.ID, "GensokyoResources/images/monsters/Yukari/Yukari.png", "GensokyoResources/images/monsters/Yukari/YukariOutline.png");
         BaseMod.addBoss(Gensokyo.ID, Kokoro.ID, "GensokyoResources/images/monsters/Kokoro/Kokoro.png", "GensokyoResources/images/monsters/Kokoro/KokoroOutline.png");
         BaseMod.addBoss(Gensokyo.ID, Reimu.ID, "GensokyoResources/images/monsters/Reimu/Reimu.png", "GensokyoResources/images/monsters/Reimu/ReimuOutline.png");

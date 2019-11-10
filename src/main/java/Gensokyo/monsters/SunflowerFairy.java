@@ -1,6 +1,7 @@
 package Gensokyo.monsters;
 
 import Gensokyo.BetterSpriterAnimation;
+import Gensokyo.powers.FairyFury;
 import Gensokyo.powers.Immortality;
 import basemod.abstracts.CustomMonster;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
@@ -30,20 +31,21 @@ public class SunflowerFairy extends CustomMonster
     public static final String[] DIALOG;
     private static final byte ATTACK = 1;
     private static final byte REVIVE = 2;
-    private static final int NORMAL_ATTACK_DAMAGE = 3;
+    private static final int NORMAL_ATTACK_DAMAGE = 2;
     private static final int DEBUFF = 1;
-    private static final int HP_MIN = 10;
-    private static final int HP_MAX = 11;
-    private static final int A_2_HP_MIN = 12;
-    private static final int A_2_HP_MAX = 13;
+    private static final int HP_MIN = 7;
+    private static final int HP_MAX = 8;
+    private static final int A_2_HP_MIN = 8;
+    private static final int A_2_HP_MAX = 9;
     private int normalDamage;
+    private Cirno leader;
 
     public SunflowerFairy() {
-        this(0.0f, 0.0f);
+        this(0.0f, 0.0f, null);
     }
 
-    public SunflowerFairy(final float x, final float y) {
-        super(SunflowerFairy.NAME, ID, HP_MAX, -5.0F, 0, 200.0f, 165.0f, null, x, y);
+    public SunflowerFairy(final float x, final float y, Cirno leader) {
+        super(SunflowerFairy.NAME, ID, HP_MAX, -5.0F, 0, 170.0f, 165.0f, null, x, y);
         this.animation = new BetterSpriterAnimation("GensokyoResources/images/monsters/Cirno/Spriter/CirnoAnimation.scml");
         this.type = EnemyType.NORMAL;
         this.dialogX = (this.hb_x - 70.0F) * Settings.scale;
@@ -56,6 +58,7 @@ public class SunflowerFairy extends CustomMonster
         }
 
         this.damage.add(new DamageInfo(this, this.normalDamage));
+        this.leader = leader;
     }
 
     @Override
@@ -100,6 +103,12 @@ public class SunflowerFairy extends CustomMonster
         super.damage(info);
         if (this.currentHealth <= 0 && !this.halfDead) {
             this.halfDead = true;
+            if (leader != null) {
+                if (leader.hasPower(FairyFury.POWER_ID)) {
+                    FairyFury fury = (FairyFury)leader.getPower(FairyFury.POWER_ID);
+                    fury.onTrigger();
+                }
+            }
             Iterator var2 = this.powers.iterator();
 
             while (var2.hasNext()) {

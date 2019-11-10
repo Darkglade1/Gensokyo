@@ -47,9 +47,11 @@ Gensokyo\powers\SturdyPower.class
 Gensokyo\cards\ManorOfTheDishes.class
 Gensokyo\powers\LionMask.class
 Gensokyo\cards\AbstractDefaultCard.class
+Gensokyo\powers\FairyVengeance.class
 Gensokyo\powers\SevenSchoolMysteriesPower.class
 Gensokyo\relics\Justice.class
 Gensokyo\patches\InitializeDeckPatches$AscensionPenaltiesPatch$Locator.class
+Gensokyo\powers\FairyFury.class
 Gensokyo\patches\relics\PerfectCherryBlossomPatch.class
 Gensokyo\patches\ContinueOntoHeartPatch.class
 Gensokyo\patches\PreventMapOpeningPatch.class
@@ -99,6 +101,7 @@ Gensokyo\powers\VigorPower.class
 Gensokyo\actions\EtherealBombToHand$MakeEtherealStatEquivalentCopy.class
 Gensokyo\dungeon\Gensokyo.class
 Gensokyo\events\ACelestialsPlight.class
+Gensokyo\monsters\GreaterFairy.class
 Gensokyo\events\GardenOfTheSun.class
 Gensokyo\patches\EventFilterPatch$Locator.class
 Gensokyo\patches\VictoryOrDeathScreenPatch$DeathScreenPatch$Locator.class
@@ -125,6 +128,7 @@ Gensokyo\powers\HakureiShrineMaidenPower.class
 Gensokyo\cards\TekeTeke.class
 Gensokyo\powers\SlitMouthedWomanPower.class
 Gensokyo\monsters\Reimu.class
+Gensokyo\monsters\ZombieFairy.class
 Gensokyo\patches\LunacyRetargetPatch$Locator.class
 Gensokyo\powers\HAARPPower.class
 Gensokyo\tags\Tags.class
@@ -136,6 +140,7 @@ Gensokyo\patches\HeartRoomPatch.class
 Gensokyo\cards\Apocalypse.class
 Gensokyo\powers\Position.class
 Gensokyo\patches\relics\RezItemPatch.class
+Gensokyo\monsters\SunflowerFairy.class
 Gensokyo\patches\CalcFinalScorePatch$DeathScreenPatch.class
 Gensokyo\events\FieldTripToAnotherWorld.class
 Gensokyo\cards\HAARP.class

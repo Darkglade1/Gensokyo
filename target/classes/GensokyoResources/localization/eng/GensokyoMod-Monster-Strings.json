@@ -71,6 +71,24 @@
     "DIALOG": [
       "I am the STRONGEST!"
     ]
+  },
+  "Gensokyo:SunflowerFairy": {
+    "MOVES": [
+
+    ],
+    "NAME": "Sunflower Fairy"
+  },
+  "Gensokyo:ZombieFairy": {
+    "MOVES": [
+
+    ],
+    "NAME": "Zombie Fairy"
+  },
+  "Gensokyo:GreaterFairy": {
+    "MOVES": [
+
+    ],
+    "NAME": "Greater Fairy"
   }
 }
 

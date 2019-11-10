@@ -94,5 +94,9 @@
 "Gensokyo:FairyVengeance": {
         "NAME": "Fairy's Vengeance",
         "DESCRIPTIONS": ["On death, applies #b", " #yVulnerable."]
+},
+"Gensokyo:FairyFury": {
+        "NAME": "Fairy's Fury",
+        "DESCRIPTIONS": ["Whenever another #yFairy dies, gains #b", " #yStrength."]
 }
 }

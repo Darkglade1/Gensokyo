@@ -90,5 +90,13 @@
 "Gensokyo:Immortality": {
         "NAME": "Immortality",
         "DESCRIPTIONS": ["Whenever this creature dies, it revives next turn at full health."]
+},
+"Gensokyo:FairyVengeance": {
+        "NAME": "Fairy's Vengeance",
+        "DESCRIPTIONS": ["On death, applies #b", " #yVulnerable."]
+},
+"Gensokyo:FairyFury": {
+        "NAME": "Fairy's Fury",
+        "DESCRIPTIONS": ["Whenever another #yFairy dies, gains #b", " #yStrength."]
 }
 }

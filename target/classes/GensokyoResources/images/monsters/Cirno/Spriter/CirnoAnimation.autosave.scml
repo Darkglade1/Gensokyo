@@ -32,32 +32,32 @@
             </mainline>
             <timeline id="0" name="0">
                 <key id="0" spin="0">
-                    <object folder="0" file="0" x="-51" y="163"/>
+                    <object folder="0" file="0" x="-58" y="161" angle="0"/>
                 </key>
             </timeline>
             <timeline id="1" name="1">
                 <key id="0" time="99" spin="0">
-                    <object folder="0" file="1" x="-45" y="161"/>
+                    <object folder="0" file="1" x="-52" y="159" angle="0"/>
                 </key>
             </timeline>
             <timeline id="2" name="2">
                 <key id="0" time="200" spin="0">
-                    <object folder="0" file="2" x="-51" y="161"/>
+                    <object folder="0" file="2" x="-58" y="159" angle="0"/>
                 </key>
             </timeline>
             <timeline id="3" name="3">
                 <key id="0" time="298" spin="0">
-                    <object folder="0" file="3" x="-45" y="161"/>
+                    <object folder="0" file="3" x="-52" y="159" angle="0"/>
                 </key>
             </timeline>
             <timeline id="4" name="4">
                 <key id="0" time="399" spin="0">
-                    <object folder="0" file="4" x="-51" y="161"/>
+                    <object folder="0" file="4" x="-58" y="159" angle="0"/>
                 </key>
             </timeline>
             <timeline id="5" name="5">
                 <key id="0" time="501" spin="0">
-                    <object folder="0" file="5" x="-45" y="163"/>
+                    <object folder="0" file="5" x="-52" y="161" angle="0"/>
                 </key>
             </timeline>
         </animation>

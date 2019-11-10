@@ -1,6 +1,7 @@
 package Gensokyo.monsters;
 
 import Gensokyo.BetterSpriterAnimation;
+import Gensokyo.powers.FairyFury;
 import Gensokyo.powers.Immortality;
 import basemod.abstracts.CustomMonster;
 import com.brashmonkey.spriter.Animation;
@@ -19,6 +20,7 @@ import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.core.Settings;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.localization.MonsterStrings;
+import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.powers.AbstractPower;
 import com.megacrit.cardcrawl.powers.StrengthPower;
 import com.megacrit.cardcrawl.relics.AbstractRelic;
@@ -46,6 +48,7 @@ public class Cirno extends CustomMonster
     private static final int A18_STATUS_COUNT = 2;
     private static final int STRENGTH = 1;
     private static final int NEGATIVE_STRENGTH = -10;
+    private static final int STRENGTH_INCREMENT = 1;
     private static final int HP_MIN = 20;
     private static final int HP_MAX = 21;
     private static final int A_2_HP_MIN = 22;
@@ -59,7 +62,7 @@ public class Cirno extends CustomMonster
     }
 
     public Cirno(final float x, final float y) {
-        super(Cirno.NAME, ID, HP_MAX, -5.0F, 0, 200.0f, 165.0f, null, x, y);
+        super(Cirno.NAME, ID, HP_MAX, -5.0F, 0, 170.0f, 165.0f, null, x, y);
         this.animation = new BetterSpriterAnimation("GensokyoResources/images/monsters/Cirno/Spriter/CirnoAnimation.scml");
         this.type = EnemyType.ELITE;
         this.dialogX = (this.hb_x - 70.0F) * Settings.scale;
@@ -96,6 +99,7 @@ public class Cirno extends CustomMonster
         AbstractDungeon.scene.fadeOutAmbiance();
         //AbstractDungeon.getCurrRoom().playBgmInstantly("Gensokyo/Wind God Girl.mp3");
         AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(this, this, new Immortality(this)));
+        AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(this, this, new FairyFury(this, STRENGTH_INCREMENT)));
         AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(this, this, new StrengthPower(this, NEGATIVE_STRENGTH), NEGATIVE_STRENGTH));
     }
     
@@ -182,9 +186,22 @@ public class Cirno extends CustomMonster
         }
     }
 
+    @Override
     public void die() {
         if (!AbstractDungeon.getCurrRoom().cannotLose) {
             super.die();
+        }
+    }
+
+    @Override
+    public boolean isDeadOrEscaped() {
+        if (!this.isDying) { //Removes half dead check so she can gain Strength while half dead
+            if (this.isEscaping) {
+                return true;
+            }
+            return false;
+        } else {
+            return true;
         }
     }
     
