@@ -80,5 +80,9 @@
   "Gensokyo:SlitMouthedWoman": {
     "NAME": "Slit Mouthed Woman",
     "DESCRIPTION": "The next time you are attacked, apply !M! Vulnerable to the attacker. NL The second next time you are attacked, the attacker loses !M! Strength. NL Exhaust."
+  },
+  "Gensokyo:Frozen": {
+    "NAME": "Frozen!",
+    "DESCRIPTION": "When this card is drawn, reduce its cost by !M! this combat. NL Exhaust."
   }
 }

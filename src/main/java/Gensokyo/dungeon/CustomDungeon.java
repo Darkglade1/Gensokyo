@@ -54,7 +54,7 @@ public abstract class CustomDungeon extends AbstractDungeon {
         this(scene, NAME, ID, eventImg, false);
     }
     public CustomDungeon(AbstractScene scene, String NAME, String ID, String eventImg, boolean genericEvents) {
-        this(scene, NAME, ID, eventImg, genericEvents, 2, 12, 10);
+        this(scene, NAME, ID, eventImg, genericEvents, 3, 12, 10);
     }
     public CustomDungeon(AbstractScene scene, String NAME, String ID, String eventImg, boolean genericEvents, int weakpreset, int strongpreset, int elitepreset) {
         super(NAME, ID, AbstractDungeon.player, new ArrayList<>());

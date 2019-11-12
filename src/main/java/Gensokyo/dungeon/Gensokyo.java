@@ -1,14 +1,11 @@
 package Gensokyo.dungeon;
 
 import Gensokyo.monsters.Aya;
+import Gensokyo.monsters.Cirno;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.core.Settings;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
-import com.megacrit.cardcrawl.dungeons.Exordium;
-import com.megacrit.cardcrawl.dungeons.TheBeyond;
-import com.megacrit.cardcrawl.dungeons.TheCity;
-import com.megacrit.cardcrawl.dungeons.TheEnding;
 import com.megacrit.cardcrawl.helpers.ImageMaster;
 import com.megacrit.cardcrawl.localization.UIStrings;
 import com.megacrit.cardcrawl.monsters.MonsterInfo;
@@ -129,7 +126,7 @@ public class Gensokyo extends CustomDungeon {
         ArrayList<MonsterInfo> monsters = new ArrayList();
         monsters.add(new MonsterInfo("Gremlin Nob", 1.0F));
         monsters.add(new MonsterInfo(Aya.ID, 1.0F));
-        monsters.add(new MonsterInfo("3 Sentries", 1.0F));
+        monsters.add(new MonsterInfo(Cirno.ID, 1.0F));
         MonsterInfo.normalizeWeights(monsters);
         this.populateMonsterList(monsters, count, true);
     }

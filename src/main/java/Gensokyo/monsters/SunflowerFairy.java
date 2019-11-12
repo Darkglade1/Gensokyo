@@ -37,10 +37,10 @@ public class SunflowerFairy extends CustomMonster
     private static final byte LEAVE = 3;
     private static final int NORMAL_ATTACK_DAMAGE = 2;
     private static final int DEBUFF = 1;
-    private static final int HP_MIN = 7;
-    private static final int HP_MAX = 8;
-    private static final int A_2_HP_MIN = 8;
-    private static final int A_2_HP_MAX = 9;
+    private static final int HP_MIN = 4;
+    private static final int HP_MAX = 5;
+    private static final int A_2_HP_MIN = 5;
+    private static final int A_2_HP_MAX = 6;
     private int normalDamage;
     public Cirno leader;
 

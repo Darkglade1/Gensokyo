@@ -119,6 +119,7 @@ Gensokyo\powers\Evasive.class
 Gensokyo\patches\relics\PortableGapPatch$IsConnectedTo.class
 Gensokyo\patches\relics\RezItemPatch$Locator.class
 Gensokyo\powers\LunacyPower.class
+Gensokyo\cards\Frozen.class
 Gensokyo\actions\InvertPowersAction.class
 Gensokyo\patches\SetAreaNamePatch$Locator.class
 Gensokyo\relics\NagashiBinaDoll.class

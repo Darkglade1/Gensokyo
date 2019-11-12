@@ -37,10 +37,10 @@ public class GreaterFairy extends CustomMonster
     private static final byte LEAVE = 3;
     private static final int NORMAL_ATTACK_DAMAGE = 5;
     private static final int DEBUFF = 1;
-    private static final int HP_MIN = 10;
-    private static final int HP_MAX = 11;
-    private static final int A_2_HP_MIN = 11;
-    private static final int A_2_HP_MAX = 12;
+    private static final int HP_MIN = 9;
+    private static final int HP_MAX = 10;
+    private static final int A_2_HP_MIN = 10;
+    private static final int A_2_HP_MAX = 11;
     private int normalDamage;
     public Cirno leader;
 
