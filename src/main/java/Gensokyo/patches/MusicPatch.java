@@ -21,11 +21,12 @@ public class MusicPatch {
 			case "Gensokyo/Wind God Girl.mp3": {
 				return MainMusic.newMusic("audio/music/Gensokyo/Wind God Girl.mp3");
 			}
+			case "Gensokyo/TomboyishGirl.mp3": {
+				return MainMusic.newMusic("audio/music/Gensokyo/TomboyishGirl.mp3");
+			}
 			default: {
 				return __result;
 			}
 		}
-		
 	}
-	
 }

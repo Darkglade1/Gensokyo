@@ -103,7 +103,7 @@ public class Cirno extends CustomMonster
         AbstractDungeon.getCurrRoom().cannotLose = true;
         CardCrawlGame.music.unsilenceBGM();
         AbstractDungeon.scene.fadeOutAmbiance();
-        //AbstractDungeon.getCurrRoom().playBgmInstantly("Gensokyo/Wind God Girl.mp3");
+        AbstractDungeon.getCurrRoom().playBgmInstantly("Gensokyo/TomboyishGirl.mp3");
         AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(this, this, new Immortality(this)));
         AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(this, this, new Strongest(this)));
         AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(this, this, new FairyFury(this, STRENGTH_INCREMENT)));

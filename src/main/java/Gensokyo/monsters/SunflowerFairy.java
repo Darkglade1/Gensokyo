@@ -6,7 +6,6 @@ import Gensokyo.powers.FairyFury;
 import Gensokyo.powers.Immortality;
 import basemod.abstracts.CustomMonster;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
-import com.megacrit.cardcrawl.actions.animations.VFXAction;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.actions.common.DamageAction;
 import com.megacrit.cardcrawl.actions.common.EscapeAction;
@@ -22,7 +21,6 @@ import com.megacrit.cardcrawl.powers.AbstractPower;
 import com.megacrit.cardcrawl.powers.FrailPower;
 import com.megacrit.cardcrawl.powers.MinionPower;
 import com.megacrit.cardcrawl.relics.AbstractRelic;
-import com.megacrit.cardcrawl.vfx.combat.SmokeBombEffect;
 
 import java.util.ArrayList;
 import java.util.Iterator;
@@ -52,7 +50,7 @@ public class SunflowerFairy extends CustomMonster
 
     public SunflowerFairy(final float x, final float y, Cirno leader) {
         super(SunflowerFairy.NAME, ID, HP_MAX, -5.0F, 0, 170.0f, 165.0f, null, x, y);
-        this.animation = new BetterSpriterAnimation("GensokyoResources/images/monsters/Cirno/Spriter/CirnoAnimation.scml");
+        this.animation = new BetterSpriterAnimation("GensokyoResources/images/monsters/FlowerFairy/Spriter/FlowerFairyAnimation.scml");
         this.type = EnemyType.NORMAL;
         this.dialogX = (this.hb_x - 70.0F) * Settings.scale;
         this.dialogY -= (this.hb_y - 55.0F) * Settings.scale;
