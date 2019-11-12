@@ -90,6 +90,14 @@
 
     ],
     "NAME": "Greater Fairy"
+  },
+  "Gensokyo:Mamizou": {
+    "MOVES": [
+    ],
+    "NAME": "Tanuki Disguiser",
+    "DIALOG": [
+      "Oh, I guess you found me out."
+    ]
   }
 }
 

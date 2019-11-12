@@ -41,10 +41,10 @@ public class Aya extends CustomMonster
     private static final int A8_BLOCK = 9;
     private static final int STRENGTH = 3;
     private static final int A18_STRENGTH = 4;
-    private static final int HP_MIN = 60;
-    private static final int HP_MAX = 61;
-    private static final int A_2_HP_MIN = 62;
-    private static final int A_2_HP_MAX = 63;
+    private static final int HP_MIN = 65;
+    private static final int HP_MAX = 66;
+    private static final int A_2_HP_MIN = 67;
+    private static final int A_2_HP_MAX = 68;
     private int normalDamage;
     private int debuffDamage;
     private int block;

@@ -41,6 +41,7 @@ import Gensokyo.monsters.Aya;
 import Gensokyo.monsters.Cirno;
 import Gensokyo.monsters.GreaterFairy;
 import Gensokyo.monsters.Kokoro;
+import Gensokyo.monsters.Mamizou;
 import Gensokyo.monsters.Reimu;
 import Gensokyo.monsters.SunflowerFairy;
 import Gensokyo.monsters.Yukari;
@@ -237,6 +238,7 @@ public class GensokyoMod implements
                         new ZombieFairy(-200.0F, 0.0F, null),
                         new Cirno()
                 }));
+        BaseMod.addMonster(Mamizou.ID, (BaseMod.GetMonster)Mamizou::new);
         BaseMod.addBoss(Gensokyo.ID, Yukari.ID, "GensokyoResources/images/monsters/Yukari/Yukari.png", "GensokyoResources/images/monsters/Yukari/YukariOutline.png");
         BaseMod.addBoss(Gensokyo.ID, Kokoro.ID, "GensokyoResources/images/monsters/Kokoro/Kokoro.png", "GensokyoResources/images/monsters/Kokoro/KokoroOutline.png");
         BaseMod.addBoss(Gensokyo.ID, Reimu.ID, "GensokyoResources/images/monsters/Reimu/Reimu.png", "GensokyoResources/images/monsters/Reimu/ReimuOutline.png");

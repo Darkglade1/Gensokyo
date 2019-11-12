@@ -102,5 +102,9 @@
 "Gensokyo:Strongest": {
         "NAME": "Strongest",
         "DESCRIPTIONS": ["Maybe she'll leave you alone after she's #ypositive about her #yStrength . . ."]
+},
+"Gensokyo:DisguisePower": {
+        "NAME": "???",
+        "DESCRIPTIONS": ["You're not sure if that's what you really think it is . . .", "You've exposed the trickster!"]
 }
 }

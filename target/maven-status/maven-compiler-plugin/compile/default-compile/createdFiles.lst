@@ -3,6 +3,7 @@ Gensokyo\actions\YinYangMoveAction.class
 Gensokyo\relics\YoukaiFlower.class
 Gensokyo\powers\IllusionaryDominance.class
 Gensokyo\patches\TempMusicPatch.class
+Gensokyo\powers\DisguisePower.class
 Gensokyo\patches\VictoryOrDeathScreenPatch$VictoryScreenPatch$Locator.class
 Gensokyo\cards\GapWoman.class
 Gensokyo\actions\KillAction.class
@@ -15,8 +16,10 @@ Gensokyo\powers\FortitudePower.class
 Gensokyo\relics\BookOfSpecters.class
 Gensokyo\vfx\EmptyEffect.class
 Gensokyo\cards\BlueCape.class
+Gensokyo\patches\onLoseHPPatch$Locator.class
 Gensokyo\patches\CalcFinalScorePatch$VictoryScreenPatch.class
 Gensokyo\actions\LookForLeaderAction.class
+Gensokyo\patches\onLoseHPPatch.class
 Gensokyo\patches\GetDungeonPatches$getDungeonThroughSavefile.class
 Gensokyo\patches\InitializeDeckPatches$AscensionPenaltiesPatch.class
 Gensokyo\dungeon\CustomDungeon.class
@@ -129,6 +132,7 @@ Gensokyo\savefields\ElitesSlain.class
 Gensokyo\powers\SpontaneousHumanCombustionPower.class
 Gensokyo\powers\HakureiShrineMaidenPower.class
 Gensokyo\cards\TekeTeke.class
+Gensokyo\monsters\Mamizou$MamizouListener.class
 Gensokyo\powers\SlitMouthedWomanPower.class
 Gensokyo\monsters\Reimu.class
 Gensokyo\monsters\ZombieFairy.class
@@ -148,6 +152,7 @@ Gensokyo\patches\CalcFinalScorePatch$DeathScreenPatch.class
 Gensokyo\events\FieldTripToAnotherWorld.class
 Gensokyo\cards\HAARP.class
 Gensokyo\patches\GetDungeonPatches$getDungeonThroughProgression.class
+Gensokyo\monsters\Mamizou.class
 Gensokyo\cards\MissMary.class
 Gensokyo\util\RelicUtils.class
 Gensokyo\cards\MenInBlack.class
