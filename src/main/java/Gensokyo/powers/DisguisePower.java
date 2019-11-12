@@ -1,11 +1,15 @@
 package Gensokyo.powers;
 
 import Gensokyo.GensokyoMod;
+import Gensokyo.monsters.Mamizou;
 import com.evacipated.cardcrawl.mod.stslib.powers.interfaces.OnLoseTempHpPower;
+import com.megacrit.cardcrawl.actions.utility.UseCardAction;
+import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.core.AbstractCreature;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.core.Settings;
+import com.megacrit.cardcrawl.helpers.Hitbox;
 import com.megacrit.cardcrawl.localization.PowerStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.monsters.exordium.GremlinNob;
@@ -22,20 +26,15 @@ public class DisguisePower extends AbstractPower implements OnLoseTempHpPower {
     public static final String[] DESCRIPTIONS = powerStrings.DESCRIPTIONS;
 
     public static AbstractMonster currentDisguise = null;
-    private float HB_X;
-    private float HB_Y;
-    private float HB_W;
-    private float HB_H;
+    private Hitbox originalIntentHb;
+    private int counter = 0;
 
-    public DisguisePower(AbstractCreature owner, float originalHB_X, float originalHB_Y, float originalHB_W, float originalHB_H) {
+    public DisguisePower(AbstractCreature owner, Hitbox originalHitbox) {
         name = NAME;
         ID = POWER_ID;
 
         this.owner = owner;
-        this.HB_X = originalHB_X;
-        this.HB_Y = originalHB_Y;
-        this.HB_W = originalHB_W;
-        this.HB_H = originalHB_H;
+        this.originalIntentHb = originalHitbox;
 
         type = PowerType.BUFF;
         isTurnBased = false;
@@ -47,18 +46,22 @@ public class DisguisePower extends AbstractPower implements OnLoseTempHpPower {
 
     @Override
     public void onInitialApplication() {
-        switchDisguise(0);
+        switchDisguise();
+        if (owner instanceof Mamizou) {
+            ((Mamizou)owner).hasDisguise = true;
+        }
     }
     @Override
     public void onRemove() {
         currentDisguise = null;
-        //this.owner.hb_x = this.HB_X;
-        //this.owner.hb_y = this.HB_Y;
-        //this.owner.hb_w = this.HB_W;
-        //this.owner.hb_h = this.HB_H;
+        if (owner instanceof AbstractMonster) {
+            AbstractMonster mo = (AbstractMonster)owner;
+            mo.intentHb = originalIntentHb;
+        }
     }
 
-    public void switchDisguise(int disguise) {
+    public void switchDisguise() {
+        int disguise = counter;
         switch(disguise) {
             case 0:
                 GremlinNob nob = new GremlinNob(0, 0);
@@ -73,16 +76,23 @@ public class DisguisePower extends AbstractPower implements OnLoseTempHpPower {
                 switching(sentry);
                 break;
         }
+        counter++;
+        if (counter > 2) {
+            counter = 0;
+        }
     }
 
     private void switching (AbstractMonster mo) {
         currentDisguise = mo;
         currentDisguise.drawX = this.owner.drawX;
         currentDisguise.drawY = this.owner.drawY;
-        //this.owner.hb_x = currentDisguise.hb_x;
-        //this.owner.hb_y = currentDisguise.hb_y;
-        //this.owner.hb_w = currentDisguise.hb_w;
-        //this.owner.hb_h = currentDisguise.hb_h;
+        if (mo instanceof GremlinNob) {
+            currentDisguise.drawX += 80.0F; //Centers Nob correctly
+        }
+        if (owner instanceof AbstractMonster) {
+            AbstractMonster m = (AbstractMonster)owner;
+            m.intentHb = mo.intentHb; //Moves the intent icon to more appropriate spot
+        }
         updateDescription();
     }
 

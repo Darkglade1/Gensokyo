@@ -8,6 +8,7 @@ import com.brashmonkey.spriter.Animation;
 import com.brashmonkey.spriter.Player;
 import com.evacipated.cardcrawl.mod.stslib.actions.tempHp.AddTemporaryHPAction;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
+import com.megacrit.cardcrawl.actions.animations.VFXAction;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.actions.common.DamageAction;
 import com.megacrit.cardcrawl.actions.common.RollMoveAction;
@@ -17,6 +18,7 @@ import com.megacrit.cardcrawl.core.Settings;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.localization.MonsterStrings;
 import com.megacrit.cardcrawl.rooms.AbstractRoom;
+import com.megacrit.cardcrawl.vfx.combat.SmokeBombEffect;
 
 public class Mamizou extends CustomMonster
 {
@@ -54,6 +56,7 @@ public class Mamizou extends CustomMonster
     private int block;
     private int strength;
     private int tempHP;
+    public boolean hasDisguise = false;
 
     public Mamizou() {
         this(0.0f, 0.0f);
@@ -99,24 +102,23 @@ public class Mamizou extends CustomMonster
         CardCrawlGame.music.unsilenceBGM();
         AbstractDungeon.scene.fadeOutAmbiance();
         //AbstractDungeon.getCurrRoom().playBgmInstantly("Gensokyo/Wind God Girl.mp3");
-        AbstractDungeon.actionManager.addToTop(new ApplyPowerAction(this, this, new DisguisePower(this, HB_X, HB_Y, HB_W, HB_H)));
+        AbstractDungeon.actionManager.addToTop(new ApplyPowerAction(this, this, new DisguisePower(this, this.intentHb)));
         AbstractDungeon.actionManager.addToBottom(new AddTemporaryHPAction(this, this, tempHP));
     }
     
     @Override
     public void takeTurn() {
         switch (this.nextMove) {
-//            case BUFF: {
-//                //runAnim("Spell");
-//                if (this.firstMove) {
-//                    AbstractDungeon.actionManager.addToBottom(new TalkAction(this, DIALOG[0]));
-//                    this.firstMove = false;
-//                }
-//                AbstractDungeon.actionManager.addToBottom(new GainBlockAction(this, this, this.block));
-//                AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(this, this, new StrengthPower(this, this.strength), this.strength));
-//                AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(this, this, new IllusionaryDominance(this, STRENGTH - 1, this), STRENGTH - 1));
-//                break;
-//            }
+            case BUFF: {
+                //runAnim("Spell");
+                if (this.hasPower(DisguisePower.POWER_ID)) {
+                    DisguisePower disguise = (DisguisePower)this.getPower(DisguisePower.POWER_ID);
+                    disguise.switchDisguise();
+                    AbstractDungeon.actionManager.addToBottom(new VFXAction(new SmokeBombEffect(this.hb.cX, this.hb.cY)));
+                    AbstractDungeon.actionManager.addToBottom(new AddTemporaryHPAction(this, this, tempHP));
+                }
+                break;
+            }
 //            case DEBUFF_ATTACK: {
 //                //runAnim("Fan");
 //                AbstractDungeon.actionManager.addToBottom(new DamageAction(AbstractDungeon.player, this.damage.get(1), AbstractGameAction.AttackEffect.SLASH_DIAGONAL));
@@ -136,7 +138,11 @@ public class Mamizou extends CustomMonster
 
     @Override
     protected void getMove(final int num) {
-        this.setMove(ATTACK, Intent.ATTACK, (this.damage.get(0)).base, NORMAL_ATTACK_HITS, true);
+        if(this.hasPower(DisguisePower.POWER_ID) && DisguisePower.currentDisguise == null) {
+            this.setMove(BUFF, Intent.UNKNOWN);
+        } else {
+            this.setMove(ATTACK, Intent.ATTACK, (this.damage.get(0)).base, NORMAL_ATTACK_HITS, true);
+        }
 //        if (this.firstMove) {
 //            this.setMove(MOVES[0], BUFF, Intent.DEFEND_BUFF);
 //        } else if (!this.lastMove(BUFF) && !this.lastMoveBefore(BUFF)) {
@@ -178,7 +184,18 @@ public class Mamizou extends CustomMonster
             }
             DisguisePower.currentDisguise.render(sb);
         } else {
-            super.render(sb);
+            if (hasDisguise) {
+                //Doesn't render her until her disguise power is applied so the player doesn't see a brief glimpse of her true form before she disguises
+                super.render(sb);
+            }
+        }
+    }
+
+    @Override
+    public void refreshIntentHbLocation() {
+        //Necessary check to allow us to position intent of disguises properly
+        if (this.hasPower(DisguisePower.POWER_ID) && DisguisePower.currentDisguise == null) {
+            super.refreshIntentHbLocation();
         }
     }
 
