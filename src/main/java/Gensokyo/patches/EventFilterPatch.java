@@ -2,6 +2,7 @@ package Gensokyo.patches;
 
 import Gensokyo.events.ClashOfLegends;
 import Gensokyo.events.DemonBookSeller;
+import Gensokyo.events.FieldTripToAnotherWorld;
 import Gensokyo.events.GardenOfTheSun;
 import Gensokyo.events.GoodsFromTheOutsideWorld;
 import Gensokyo.events.HakureiShrine;
@@ -48,6 +49,10 @@ public class EventFilterPatch {
                 }
             } else if (event.equals(GardenOfTheSun.ID)) {
                 if (AbstractDungeon.player.hasRelic(HappyFlower.ID) || !GardenOfTheSun.hasNonStrikeAttack()) {
+                    eventsToRemove.add(event);
+                }
+            } else if (event.equals(FieldTripToAnotherWorld.ID)) {
+                if (!FieldTripToAnotherWorld.hasNonBasicCard()) {
                     eventsToRemove.add(event);
                 }
             }

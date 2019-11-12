@@ -3,6 +3,7 @@ package Gensokyo;
 import Gensokyo.cards.Apocalypse;
 import Gensokyo.cards.CrescentMoonSlash;
 import Gensokyo.cards.EightFeetTall;
+import Gensokyo.cards.Frozen;
 import Gensokyo.cards.GapWoman;
 import Gensokyo.cards.HAARP;
 import Gensokyo.cards.Kunekune;
@@ -308,6 +309,7 @@ public class GensokyoMod implements
         BaseMod.addDynamicVariable(new DefaultSecondMagicNumber());
 
         BaseMod.addCard(new CrescentMoonSlash());
+        BaseMod.addCard(new Frozen());
 
         //Urban Legends
         BaseMod.addCard(new MissMary());

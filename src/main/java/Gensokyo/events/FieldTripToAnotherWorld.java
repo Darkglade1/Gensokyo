@@ -130,4 +130,12 @@ public class FieldTripToAnotherWorld extends AbstractImageEvent {
         return usedList.get(0);
     }
 
+    public static boolean hasNonBasicCard() {
+        for (AbstractCard c : CardGroup.getGroupWithoutBottledCards(AbstractDungeon.player.masterDeck).group) {
+            if (c.rarity != AbstractCard.CardRarity.BASIC) {
+                return true;
+            }
+        }
+        return false;
+    }
 }

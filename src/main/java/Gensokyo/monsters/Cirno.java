@@ -118,6 +118,7 @@ public class Cirno extends CustomMonster
                     this.firstMove = false;
                 }
                 AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(this, this, new StrengthPower(this, STRENGTH), STRENGTH));
+                AbstractDungeon.actionManager.addToBottom(new MakeTempCardInDiscardAction(new Frozen(), this.status));
                 break;
             }
             case DEBUFF_ATTACK: {
