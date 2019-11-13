@@ -23,6 +23,7 @@ Gensokyo\patches\onLoseHPPatch.class
 Gensokyo\patches\GetDungeonPatches$getDungeonThroughSavefile.class
 Gensokyo\patches\InitializeDeckPatches$AscensionPenaltiesPatch.class
 Gensokyo\dungeon\CustomDungeon.class
+Gensokyo\actions\DisguiseAction.class
 Gensokyo\events\DemonBookSeller.class
 Gensokyo\cards\RedCape.class
 Gensokyo\patches\GetDungeonPatches.class
@@ -136,6 +137,7 @@ Gensokyo\monsters\Mamizou$MamizouListener.class
 Gensokyo\powers\SlitMouthedWomanPower.class
 Gensokyo\monsters\Reimu.class
 Gensokyo\monsters\ZombieFairy.class
+Gensokyo\powers\PolymorphPower.class
 Gensokyo\patches\LunacyRetargetPatch$Locator.class
 Gensokyo\powers\HAARPPower.class
 Gensokyo\tags\Tags.class

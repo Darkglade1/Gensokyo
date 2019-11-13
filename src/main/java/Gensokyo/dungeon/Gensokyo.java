@@ -2,6 +2,7 @@ package Gensokyo.dungeon;
 
 import Gensokyo.monsters.Aya;
 import Gensokyo.monsters.Cirno;
+import Gensokyo.monsters.Mamizou;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.core.Settings;
@@ -124,7 +125,7 @@ public class Gensokyo extends CustomDungeon {
     @Override
     protected void generateElites(int count) {
         ArrayList<MonsterInfo> monsters = new ArrayList();
-        monsters.add(new MonsterInfo("Gremlin Nob", 1.0F));
+        monsters.add(new MonsterInfo(Mamizou.ID, 1.0F));
         monsters.add(new MonsterInfo(Aya.ID, 1.0F));
         monsters.add(new MonsterInfo(Cirno.ID, 1.0F));
         MonsterInfo.normalizeWeights(monsters);

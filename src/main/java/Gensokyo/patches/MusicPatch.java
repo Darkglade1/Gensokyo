@@ -24,6 +24,9 @@ public class MusicPatch {
 			case "Gensokyo/TomboyishGirl.mp3": {
 				return MainMusic.newMusic("audio/music/Gensokyo/TomboyishGirl.mp3");
 			}
+			case "Gensokyo/Futatsuiwa from Gensokyo.mp3": {
+				return MainMusic.newMusic("audio/music/Gensokyo/Futatsuiwa from Gensokyo.mp3");
+			}
 			default: {
 				return __result;
 			}

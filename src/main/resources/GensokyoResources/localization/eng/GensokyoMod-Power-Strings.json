@@ -106,5 +106,9 @@
 "Gensokyo:DisguisePower": {
         "NAME": "???",
         "DESCRIPTIONS": ["You're not sure if that's what you really think it is . . .", "You've exposed the trickster!"]
+},
+"Gensokyo:PolymorphPower": {
+        "NAME": "Polymorphed",
+        "DESCRIPTIONS": ["Your #yAttacks deal #b0 damage for #b", " turns.", " turn."]
 }
 }
