@@ -93,6 +93,7 @@ Gensokyo\patches\GoToNextDungeonPatch$Locator.class
 Gensokyo\events\BambooForestOfTheLost.class
 Gensokyo\patches\AbstractRoomUpdateIncrementElitesPatch.class
 Gensokyo\monsters\Aya.class
+Gensokyo\monsters\Animal.class
 Gensokyo\events\HakureiShrine.class
 Gensokyo\actions\BookOfSpectersAction.class
 Gensokyo\cards\RedCapeBlueCape.class
@@ -150,6 +151,7 @@ Gensokyo\cards\Apocalypse.class
 Gensokyo\powers\Position.class
 Gensokyo\patches\relics\RezItemPatch.class
 Gensokyo\monsters\SunflowerFairy.class
+Gensokyo\patches\PolymorphPatch$RenderPatch.class
 Gensokyo\patches\CalcFinalScorePatch$DeathScreenPatch.class
 Gensokyo\events\FieldTripToAnotherWorld.class
 Gensokyo\cards\HAARP.class
@@ -164,6 +166,7 @@ Gensokyo\powers\UnstableBoundariesPower.class
 Gensokyo\actions\EtherealBombToHand.class
 Gensokyo\patches\AfterDoorPatch$Locator.class
 Gensokyo\actions\SpawnOrbAction.class
+Gensokyo\patches\PolymorphPatch.class
 Gensokyo\patches\GoToNextDungeonPatch.class
 Gensokyo\actions\ExhaustRandomCurseInHandAction.class
 Gensokyo\patches\ContinueOntoHeartPatch$Locator.class
@@ -177,4 +180,5 @@ Gensokyo\patches\EventFilterPatch.class
 Gensokyo\patches\VictoryOrDeathScreenPatch$DeathScreenPatch.class
 Gensokyo\util\RelicUtils$1.class
 Gensokyo\relics\LunaticRedEyes.class
+Gensokyo\patches\PolymorphPatch$UpdatePatch.class
 Gensokyo\BetterSpriterAnimation.class

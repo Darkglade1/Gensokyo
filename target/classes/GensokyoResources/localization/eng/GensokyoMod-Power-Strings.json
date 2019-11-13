@@ -109,6 +109,6 @@
 },
 "Gensokyo:PolymorphPower": {
         "NAME": "Polymorphed",
-        "DESCRIPTIONS": ["ALL damage you deal is reduced to #b0 for #b", " turns.", " turn."]
+        "DESCRIPTIONS": ["Your #yAttacks deal #b0 damage for #b", " turns.", " turn."]
 }
 }

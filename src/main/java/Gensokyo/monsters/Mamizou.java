@@ -13,6 +13,7 @@ import com.evacipated.cardcrawl.mod.stslib.actions.tempHp.AddTemporaryHPAction;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.animations.AnimateSlowAttackAction;
 import com.megacrit.cardcrawl.actions.animations.FastShakeAction;
+import com.megacrit.cardcrawl.actions.animations.TalkAction;
 import com.megacrit.cardcrawl.actions.animations.VFXAction;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.actions.common.ChangeStateAction;
@@ -34,6 +35,7 @@ import com.megacrit.cardcrawl.monsters.exordium.GremlinNob;
 import com.megacrit.cardcrawl.monsters.exordium.Lagavulin;
 import com.megacrit.cardcrawl.monsters.exordium.Sentry;
 import com.megacrit.cardcrawl.powers.AngerPower;
+import com.megacrit.cardcrawl.powers.ArtifactPower;
 import com.megacrit.cardcrawl.powers.DexterityPower;
 import com.megacrit.cardcrawl.powers.StrengthPower;
 import com.megacrit.cardcrawl.powers.VulnerablePower;
@@ -74,12 +76,14 @@ public class Mamizou extends CustomMonster
     private static final int A3_NOB_BIG_ATTACK = 16;
     private static final int NOB_STRENGTH = 2;
     private static final int A18_NOB_STRENGTH = 3;
-    private static final int HP_MIN = 70;
-    private static final int HP_MAX = 74;
-    private static final int A_8_HP_MIN = 73;
-    private static final int A_8_HP_MAX = 78;
-    private static final int TEMP_HP = 36;
-    private static final int A_8_TEMP_HP = 38;
+    private static final int HP_MIN = 90;
+    private static final int HP_MAX = 92;
+    private static final int A_8_HP_MIN = 92;
+    private static final int A_8_HP_MAX = 94;
+    private static final int TEMP_HP = 45;
+    private static final int A_8_TEMP_HP = 47;
+    private static final int SENTRY_TEMP_HP = 20;
+    private static final int A_8_SENTRY_TEMP_HP = 22;
     private int sentryDamage;
     private int sentryDazes;
     private int sentryAttackDazes;
@@ -90,7 +94,9 @@ public class Mamizou extends CustomMonster
     private int nobStrength;
     private int form;
     private int tempHP;
+    private int sentryTempHP;
     private boolean polymorphing = false;
+    private boolean firstReveal = true;
 
     public AbstractMonster currentDisguise = null;
     private Hitbox originalIntentHb;
@@ -119,9 +125,11 @@ public class Mamizou extends CustomMonster
         if (AbstractDungeon.ascensionLevel >= 8) {
             this.setHp(A_8_HP_MIN, A_8_HP_MAX);
             this.tempHP = A_8_TEMP_HP;
+            this.sentryTempHP = A_8_SENTRY_TEMP_HP;
         } else {
             this.setHp(HP_MIN, HP_MAX);
             this.tempHP = TEMP_HP;
+            this.sentryTempHP = SENTRY_TEMP_HP;
         }
 
         if (AbstractDungeon.ascensionLevel >= 3) {
@@ -153,7 +161,8 @@ public class Mamizou extends CustomMonster
         originalIntentHb = this.intentHb;
         form = SENTRY_FORM;
         switchDisguise();
-        AbstractDungeon.actionManager.addToBottom(new AddTemporaryHPAction(this, this, tempHP));
+        AbstractDungeon.actionManager.addToBottom(new AddTemporaryHPAction(this, this, sentryTempHP));
+        AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(this, this, new ArtifactPower(this, 1)));
         AbstractDungeon.actionManager.addToBottom(new RollMoveAction(this));
     }
     
@@ -223,6 +232,7 @@ public class Mamizou extends CustomMonster
                 break;
             }
             case POLYMORPH: {
+                AbstractDungeon.actionManager.addToBottom(new VFXAction(new SmokeBombEffect(AbstractDungeon.player.hb.cX, AbstractDungeon.player.hb.cY)));
                 AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(AbstractDungeon.player, this, new PolymorphPower(AbstractDungeon.player, 1, true), 1));
                 polymorphing = false;
                 break;
@@ -292,6 +302,9 @@ public class Mamizou extends CustomMonster
         currentDisguise = mo;
         currentDisguise.drawX = this.drawX;
         currentDisguise.drawY = this.drawY;
+        if (this.hasPower(DisguisePower.POWER_ID)) {
+            this.getPower(DisguisePower.POWER_ID).updateDescription();
+        }
         if (mo instanceof GremlinNob) {
             currentDisguise.drawX += 80.0F; //Centers Nob correctly
             AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(this, this, new AngerPower(this, nobStrength), nobStrength));
@@ -301,12 +314,17 @@ public class Mamizou extends CustomMonster
 
     public void removeDisguise() {
         if (currentDisguise != null) {
+            AbstractDungeon.actionManager.addToTop(new VFXAction(new SmokeBombEffect(this.hb.cX, this.hb.cY)));
             currentDisguise = null;
             this.intentHb = originalIntentHb;
             polymorphing = true;
             this.setMove(POLYMORPH, Intent.STRONG_DEBUFF);
             this.createIntent();
             AbstractDungeon.actionManager.addToBottom(new SetMoveAction(this, POLYMORPH, Intent.STRONG_DEBUFF));
+            if (firstReveal) {
+                firstReveal = false;
+                AbstractDungeon.actionManager.addToBottom(new TalkAction(this, DIALOG[0]));
+            }
         }
     }
 

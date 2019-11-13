@@ -1,13 +1,17 @@
 package Gensokyo.powers;
 
 import Gensokyo.GensokyoMod;
+import Gensokyo.monsters.Animal;
 import com.megacrit.cardcrawl.actions.common.ReducePowerAction;
 import com.megacrit.cardcrawl.actions.common.RemoveSpecificPowerAction;
+import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.core.AbstractCreature;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
+import com.megacrit.cardcrawl.core.Settings;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.localization.PowerStrings;
+import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.powers.AbstractPower;
 
 
@@ -18,6 +22,7 @@ public class PolymorphPower extends AbstractPower {
     public static final String NAME = powerStrings.NAME;
     public static final String[] DESCRIPTIONS = powerStrings.DESCRIPTIONS;
     private boolean justApplied = false;
+    public static Animal animal = null;
 
     //private static final Texture tex84 = TextureLoader.getTexture(makePowerPath("Vigor84.png"));
    // private static final Texture tex32 = TextureLoader.getTexture(makePowerPath("Vigor32.png"));
@@ -45,6 +50,19 @@ public class PolymorphPower extends AbstractPower {
     }
 
     @Override
+    public void onInitialApplication() {
+        animal = new Animal();
+        animal.isPlayer = true;
+        animal.drawX = this.owner.drawX;
+        animal.drawY = this.owner.drawY;
+    }
+
+    @Override
+    public void onRemove() {
+        animal = null;
+    }
+
+    @Override
     public void atEndOfRound() {
         if (this.justApplied) {
             this.justApplied = false;
@@ -60,6 +78,22 @@ public class PolymorphPower extends AbstractPower {
     @Override
     public float atDamageGive(float damage, DamageInfo.DamageType type) {
         return 0;
+    }
+
+    @Override
+    public void onPlayCard(AbstractCard card, AbstractMonster m) {
+        if(card.type == AbstractCard.CardType.ATTACK) {
+            if (Settings.FAST_MODE) {
+                animal.useFastAttackAnimation();
+            } else {
+                animal.useSlowAttackAnimation();
+            }
+        }
+    }
+
+    @Override
+    public void onVictory() {
+        this.onRemove();
     }
 
     @Override

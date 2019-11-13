@@ -55,8 +55,17 @@ public class DisguisePower extends AbstractPower implements OnLoseTempHpPower {
     public int onLoseHp(int damageAmount) {
         if (mamizou != null) {
             mamizou.removeDisguise();
-            description = DESCRIPTIONS[1];
+            updateDescription();
         }
         return damageAmount;
+    }
+
+    @Override
+    public void updateDescription() {
+        if (mamizou != null && mamizou.currentDisguise == null) {
+            description = DESCRIPTIONS[1];
+        } else {
+            description = DESCRIPTIONS[0];
+        }
     }
 }
