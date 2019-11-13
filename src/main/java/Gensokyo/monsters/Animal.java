@@ -36,6 +36,9 @@ public class Animal extends CustomMonster {
             e.setTimeScale(0.8F);
         } else {
             this.animation = new BetterSpriterAnimation("GensokyoResources/images/monsters/Animals/Spriter/AnimalAnimation.scml");
+            if (AbstractDungeon.player.chosenClass == AbstractPlayer.PlayerClass.DEFECT) {
+                setAnimal("Crowbot");
+            }
         }
     }
 

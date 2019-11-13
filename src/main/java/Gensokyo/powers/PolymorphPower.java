@@ -22,7 +22,7 @@ public class PolymorphPower extends AbstractPower {
     public static final String NAME = powerStrings.NAME;
     public static final String[] DESCRIPTIONS = powerStrings.DESCRIPTIONS;
     private boolean justApplied = false;
-    public static Animal animal = null;
+    public Animal animal = null;
 
     //private static final Texture tex84 = TextureLoader.getTexture(makePowerPath("Vigor84.png"));
    // private static final Texture tex32 = TextureLoader.getTexture(makePowerPath("Vigor32.png"));
