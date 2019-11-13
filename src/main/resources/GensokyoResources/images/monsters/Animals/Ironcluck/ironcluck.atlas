@@ -1,0 +1,104 @@
+
+ironcluck.png
+size: 1024,2048
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+ironcluck_base_combat3/shadow
+  rotate: false
+  xy: 1, 1143
+  size: 1007, 195
+  orig: 1007, 195
+  offset: 0, 0
+  index: -1
+ironcluck_base_combat3/Wing_L
+  rotate: false
+  xy: 1, 1737
+  size: 112, 302
+  orig: 112, 302
+  offset: 0, 0
+  index: -1
+ironcluck_base_combat3/Sole_L
+  rotate: false
+  xy: 560, 944
+  size: 327, 122
+  orig: 327, 122
+  offset: 0, 0
+  index: -1
+ironcluck_base_combat3/Sole_R
+  rotate: false
+  xy: 1, 1597
+  size: 252, 138
+  orig: 252, 138
+  offset: 0, 0
+  index: -1
+ironcluck_base_combat3/Leg_L
+  rotate: false
+  xy: 269, 1737
+  size: 118, 245
+  orig: 118, 245
+  offset: 0, 0
+  index: -1
+ironcluck_base_combat3/Leg_R
+  rotate: false
+  xy: 115, 1737
+  size: 152, 218
+  orig: 152, 218
+  offset: 0, 0
+  index: -1
+ironcluck_base_combat3/Pant_L
+  rotate: false
+  xy: 749, 308
+  size: 271, 162
+  orig: 271, 162
+  offset: 0, 0
+  index: -1
+ironcluck_base_combat3/Pant_R
+  rotate: false
+  xy: 1, 1340
+  size: 347, 255
+  orig: 347, 255
+  offset: 0, 0
+  index: -1
+ironcluck_base_combat3/Neck
+  rotate: false
+  xy: 749, 472
+  size: 216, 103
+  orig: 216, 103
+  offset: 0, 0
+  index: -1
+ironcluck_base_combat3/Body
+  rotate: false
+  xy: 1, 1
+  size: 746, 608
+  orig: 746, 608
+  offset: 0, 0
+  index: -1
+ironcluck_base_combat3/Wattle
+  rotate: false
+  xy: 115, 1957
+  size: 76, 89
+  orig: 76, 89
+  offset: 0, 0
+  index: -1
+ironcluck_base_combat3/Head_C
+  rotate: false
+  xy: 560, 611
+  size: 439, 331
+  orig: 439, 331
+  offset: 0, 0
+  index: -1
+ironcluck_base_combat3/Head
+  rotate: false
+  xy: 749, 1
+  size: 261, 305
+  orig: 261, 305
+  offset: 0, 0
+  index: -1
+ironcluck_base_combat3/Wing_R
+  rotate: false
+  xy: 1, 611
+  size: 557, 530
+  orig: 557, 530
+  offset: 0, 0
+  index: -1
