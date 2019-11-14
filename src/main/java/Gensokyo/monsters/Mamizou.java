@@ -244,7 +244,7 @@ public class Mamizou extends CustomMonster
     @Override
     protected void getMove(final int num) {
         if (polymorphing) {
-            this.setMove(POLYMORPH, Intent.STRONG_DEBUFF);
+            this.setMove(MOVES[0], POLYMORPH, Intent.STRONG_DEBUFF);
         } else if(currentDisguise == null) {
             this.setMove(TRANSFORM, Intent.UNKNOWN);
         } else {
@@ -318,9 +318,9 @@ public class Mamizou extends CustomMonster
             currentDisguise = null;
             this.intentHb = originalIntentHb;
             polymorphing = true;
-            this.setMove(POLYMORPH, Intent.STRONG_DEBUFF);
+            this.setMove(MOVES[0], POLYMORPH, Intent.STRONG_DEBUFF);
             this.createIntent();
-            AbstractDungeon.actionManager.addToBottom(new SetMoveAction(this, POLYMORPH, Intent.STRONG_DEBUFF));
+            AbstractDungeon.actionManager.addToBottom(new SetMoveAction(this, MOVES[0], POLYMORPH, Intent.STRONG_DEBUFF));
             if (firstReveal) {
                 firstReveal = false;
                 AbstractDungeon.actionManager.addToBottom(new TalkAction(this, DIALOG[0]));

@@ -1,7 +1,7 @@
 package Gensokyo.relics;
 
 import Gensokyo.GensokyoMod;
-import Gensokyo.actions.EtherealBombToHand;
+import Gensokyo.actions.SpecialBombToHand;
 import Gensokyo.util.TextureLoader;
 import basemod.abstracts.CustomRelic;
 import com.badlogic.gdx.graphics.Texture;
@@ -22,9 +22,9 @@ public class Bombinomicon extends CustomRelic {
     }
 
     @Override
-    public void atTurnStart() {
+    public void atBattleStart() {
         this.flash();
-        AbstractDungeon.actionManager.addToBottom(new EtherealBombToHand());
+        AbstractDungeon.actionManager.addToBottom(new SpecialBombToHand());
     }
 
     @Override

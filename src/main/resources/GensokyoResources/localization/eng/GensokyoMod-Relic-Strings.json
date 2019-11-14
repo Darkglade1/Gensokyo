@@ -70,7 +70,7 @@
     "NAME": "Bombinomicon",
     "FLAVOR": "It likes bombs.",
     "DESCRIPTIONS": [
-      "At the start of your turn, add #yThe #yBomb with #yethereal and #yexhaust to your hand."
+      "At the start of combat, add #yThe #yBomb with #yRetain and #yExhaust to your hand."
     ]
   },
   "Gensokyo:BookOfSpecters": {
