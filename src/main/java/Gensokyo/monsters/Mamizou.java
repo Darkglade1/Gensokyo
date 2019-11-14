@@ -82,8 +82,8 @@ public class Mamizou extends CustomMonster
     private static final int A_8_HP_MAX = 94;
     private static final int TEMP_HP = 45;
     private static final int A_8_TEMP_HP = 47;
-    private static final int SENTRY_TEMP_HP = 20;
-    private static final int A_8_SENTRY_TEMP_HP = 22;
+    private static final int SENTRY_TEMP_HP = 25;
+    private static final int A_8_SENTRY_TEMP_HP = 27;
     private int sentryDamage;
     private int sentryDazes;
     private int sentryAttackDazes;

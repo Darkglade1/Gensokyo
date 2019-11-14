@@ -1,5 +1,9 @@
 package Gensokyo.actions;
 
+import Gensokyo.monsters.Cirno;
+import Gensokyo.monsters.GreaterFairy;
+import Gensokyo.monsters.SunflowerFairy;
+import Gensokyo.monsters.ZombieFairy;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
@@ -7,6 +11,8 @@ import com.megacrit.cardcrawl.core.Settings;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.helpers.ScreenShake;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
+import com.megacrit.cardcrawl.monsters.beyond.AwakenedOne;
+import com.megacrit.cardcrawl.monsters.beyond.Darkling;
 import com.megacrit.cardcrawl.vfx.combat.BlockImpactLineEffect;
 import com.megacrit.cardcrawl.vfx.combat.BlockedNumberEffect;
 import com.megacrit.cardcrawl.vfx.combat.BlockedWordEffect;
@@ -23,8 +29,8 @@ public class KillAction extends AbstractGameAction {
     private AbstractMonster m;
 
     public void update() {
-        if (m.id.equals("Darkling") || m.id.equals("AwakenedOne")) {
-            //band-aid fix for Darklings and the Awakened One due to their unique death effects
+        if (m.id.equals(Darkling.ID) || m.id.equals(AwakenedOne.ID) || m.id.equals(GreaterFairy.ID) || m.id.equals(SunflowerFairy.ID) || m.id.equals(ZombieFairy.ID) || m.id.equals(Cirno.ID)) {
+            //band-aid fix for any creature with half-dead mechanics
             m.damage(new DamageInfo(m, 9999, DamageInfo.DamageType.HP_LOSS));
         } else {
             m.currentHealth = 0;

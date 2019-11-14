@@ -101,7 +101,7 @@
 },
 "Gensokyo:Strongest": {
         "NAME": "Strongest",
-        "DESCRIPTIONS": ["Maybe she'll leave you alone after she's #ypositive about her #yStrength . . ."]
+        "DESCRIPTIONS": ["At the end of her turn, intends to leave if she has #ypositive #yStrength."]
 },
 "Gensokyo:DisguisePower": {
         "NAME": "???",
