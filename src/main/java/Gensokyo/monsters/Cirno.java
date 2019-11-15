@@ -222,18 +222,6 @@ public class Cirno extends CustomMonster
         }
     }
 
-    @Override
-    public boolean isDeadOrEscaped() {
-        if (!this.isDying) { //Removes half dead check so she can gain powers while half dead
-            if (this.isEscaping) {
-                return true;
-            }
-            return false;
-        } else {
-            return true;
-        }
-    }
-
     public boolean willLeave() {
         if (this.hasPower(StrengthPower.POWER_ID)) {
             return this.getPower(StrengthPower.POWER_ID).amount > 0;

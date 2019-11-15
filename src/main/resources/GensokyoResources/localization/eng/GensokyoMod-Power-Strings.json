@@ -97,7 +97,7 @@
 },
 "Gensokyo:FairyFury": {
         "NAME": "Fairy's Fury",
-        "DESCRIPTIONS": ["Whenever a #yFairy dies, gains #b", " #yStrength."]
+        "DESCRIPTIONS": ["Whenever a #yFairy dies, gains #b", " #yStrength. This effect cannot be prevented or altered."]
 },
 "Gensokyo:Strongest": {
         "NAME": "Strongest",
