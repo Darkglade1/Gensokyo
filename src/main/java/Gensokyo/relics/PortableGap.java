@@ -4,6 +4,7 @@ import Gensokyo.GensokyoMod;
 import Gensokyo.util.TextureLoader;
 import basemod.abstracts.CustomRelic;
 import com.badlogic.gdx.graphics.Texture;
+import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.rooms.AbstractRoom;
 
@@ -39,6 +40,7 @@ public class PortableGap extends CustomRelic {
         this.flash();
         justUsed = true;
         distanceTraveled = distance;
+        CardCrawlGame.sound.play("BLUNT_FAST");  // Play a hit sound
         AbstractDungeon.player.decreaseMaxHealth(MAX_HP_LOSS);
     }
 
