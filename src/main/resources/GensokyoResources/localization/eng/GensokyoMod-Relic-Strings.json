@@ -48,7 +48,7 @@
     "NAME": "Portable Gap",
     "FLAVOR": "As you stare into the abyss, a thousand eyes stare back at you.",
     "DESCRIPTIONS": [
-      "You may ignore paths and distances when choosing the next room to travel to."
+      "You may ignore paths and distances when choosing the next room to travel to. Whenever you use this effect, lose #r", " Max HP."
     ]
   },
   "Gensokyo:NagashiBinaDoll": {

@@ -61,7 +61,7 @@ public class PortableGapPatch
 
             for (MapEdge edge : start.getEdges()) {
                 MapRoomNode nextNode = getNode(edge.dstX, edge.dstY);
-                if (nextNode != null && nextNode.equals(end)) {
+                if (nextNode != null && nextNode.y == end.y) {
                     return depth;
                 }
                 int dist = getNodeDistance(nextNode, end, depth+1);
@@ -86,12 +86,32 @@ public class PortableGapPatch
             }
 
             int distance = IsConnectedTo.getNodeDistance(AbstractDungeon.getCurrMapNode(), __instance);
-            if (distance > 1) {
+            System.out.println(distance);
+            System.out.println(AbstractDungeon.getCurrMapNode().y);
+            System.out.println(__instance.y);
+            boolean normalConnection = isNormalConnectedTo(AbstractDungeon.getCurrMapNode(), __instance);
+            boolean specialConnection = AbstractDungeon.getCurrMapNode().isConnectedTo(__instance);
+            if (distance > 1 || (!normalConnection && specialConnection)) {
                 PortableGap portableGap = (PortableGap)AbstractDungeon.player.getRelic(PortableGap.ID);
                 if (portableGap != null) {
                     portableGap.onTrigger(distance);
                 }
             }
+        }
+
+        private static boolean isNormalConnectedTo(MapRoomNode currNode, MapRoomNode node) {
+            Iterator var2 = currNode.getEdges().iterator();
+
+            MapEdge edge;
+            do {
+                if (!var2.hasNext()) {
+                    return false;
+                }
+
+                edge = (MapEdge)var2.next();
+            } while(node.x != edge.dstX || node.y != edge.dstY);
+
+            return true;
         }
     }
 }

@@ -16,6 +16,7 @@ public class PortableGap extends CustomRelic {
 
     private static final Texture IMG = TextureLoader.getTexture(makeRelicPath("PortableGap.png"));
     private static final Texture OUTLINE = TextureLoader.getTexture(makeRelicOutlinePath("PortableGap.png"));
+    private static final int MAX_HP_LOSS = 2;
     private boolean justUsed = false;
     private int distanceTraveled = 0;
 
@@ -35,14 +36,16 @@ public class PortableGap extends CustomRelic {
 
     public void onTrigger(int distance)
     {
+        this.flash();
         justUsed = true;
         distanceTraveled = distance;
+        AbstractDungeon.player.decreaseMaxHealth(MAX_HP_LOSS);
     }
 
     // Description
     @Override
     public String getUpdatedDescription() {
-        return DESCRIPTIONS[0];
+        return DESCRIPTIONS[0] + MAX_HP_LOSS + DESCRIPTIONS[1];
     }
 
 }

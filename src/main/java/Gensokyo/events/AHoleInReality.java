@@ -26,8 +26,8 @@ public class AHoleInReality extends AbstractImageEvent {
 
     private int screenNum = 0;
 
-    private float HEALTH_LOSS_PERCENTAGE = 0.30F;
-    private float HEALTH_LOSS_PERCENTAGE_HIGH_ASCENSION = 0.40F;
+    private static final float HEALTH_LOSS_PERCENTAGE = 0.10F;
+    private static final float HEALTH_LOSS_PERCENTAGE_HIGH_ASCENSION = 0.15F;
 
     private int maxHealthLoss;
 
