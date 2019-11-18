@@ -3,7 +3,6 @@ package Gensokyo.monsters;
 import Gensokyo.BetterSpriterAnimation;
 import Gensokyo.actions.LookForLeaderAction;
 import Gensokyo.powers.FairyFury;
-import Gensokyo.powers.FairyVengeance;
 import Gensokyo.powers.Immortality;
 import basemod.abstracts.CustomMonster;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
@@ -20,6 +19,7 @@ import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.localization.MonsterStrings;
 import com.megacrit.cardcrawl.powers.AbstractPower;
 import com.megacrit.cardcrawl.powers.MinionPower;
+import com.megacrit.cardcrawl.powers.StrengthPower;
 import com.megacrit.cardcrawl.relics.AbstractRelic;
 
 import java.util.ArrayList;
@@ -36,11 +36,8 @@ public class GreaterFairy extends CustomMonster
     private static final byte REVIVE = 2;
     private static final byte LEAVE = 3;
     private static final int NORMAL_ATTACK_DAMAGE = 5;
-    private static final int DEBUFF = 1;
-    private static final int HP_MIN = 9;
-    private static final int HP_MAX = 10;
-    private static final int A_2_HP_MIN = 10;
-    private static final int A_2_HP_MAX = 11;
+    //private static final int DEBUFF = 1;
+    private static final int HP = 10;
     private int normalDamage;
     public Cirno leader;
 
@@ -49,17 +46,13 @@ public class GreaterFairy extends CustomMonster
     }
 
     public GreaterFairy(final float x, final float y, Cirno leader) {
-        super(GreaterFairy.NAME, ID, HP_MAX, -5.0F, 0, 170.0f, 165.0f, null, x, y);
+        super(GreaterFairy.NAME, ID, HP, -5.0F, 0, 170.0f, 165.0f, null, x, y);
         this.animation = new BetterSpriterAnimation("GensokyoResources/images/monsters/GreaterFairy/Spriter/GreaterFairyAnimation.scml");
         this.type = EnemyType.NORMAL;
         this.dialogX = (this.hb_x - 70.0F) * Settings.scale;
         this.dialogY -= (this.hb_y - 55.0F) * Settings.scale;
         this.normalDamage = NORMAL_ATTACK_DAMAGE;
-        if (AbstractDungeon.ascensionLevel >= 8) {
-            this.setHp(A_2_HP_MIN, A_2_HP_MAX);
-        } else {
-            this.setHp(HP_MIN, HP_MAX);
-        }
+        this.setHp(HP);
 
         this.damage.add(new DamageInfo(this, this.normalDamage));
         this.leader = leader;
@@ -69,7 +62,6 @@ public class GreaterFairy extends CustomMonster
     public void usePreBattleAction() {
         AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(this, this, new MinionPower(this)));
         AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(this, this, new Immortality(this)));
-        AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(this, this, new FairyVengeance(this, DEBUFF)));
         AbstractDungeon.actionManager.addToBottom(new LookForLeaderAction(this));
     }
     
@@ -140,7 +132,7 @@ public class GreaterFairy extends CustomMonster
             }
             ArrayList<AbstractPower> powersToRemove = new ArrayList<>();
             for (AbstractPower power : this.powers) {
-                if (!(power instanceof Immortality) && !(power instanceof FairyVengeance)) {
+                if (!(power instanceof Immortality) && !(power instanceof StrengthPower)) {
                     powersToRemove.add(power);
                 }
             }

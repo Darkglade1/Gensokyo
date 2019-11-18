@@ -1,18 +1,18 @@
 package Gensokyo.powers;
 
 import Gensokyo.GensokyoMod;
-import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
+import Gensokyo.cards.Frozen;
+import com.megacrit.cardcrawl.actions.common.MakeTempCardInDiscardAction;
 import com.megacrit.cardcrawl.core.AbstractCreature;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.localization.PowerStrings;
 import com.megacrit.cardcrawl.powers.AbstractPower;
-import com.megacrit.cardcrawl.powers.VulnerablePower;
 
 
-public class FairyVengeance extends AbstractPower {
+public class FairyOfIce extends AbstractPower {
 
-    public static final String POWER_ID = GensokyoMod.makeID("FairyVengeance");
+    public static final String POWER_ID = GensokyoMod.makeID("FairyOfIce");
     private static final PowerStrings powerStrings = CardCrawlGame.languagePack.getPowerStrings(POWER_ID);
     public static final String NAME = powerStrings.NAME;
     public static final String[] DESCRIPTIONS = powerStrings.DESCRIPTIONS;
@@ -20,7 +20,7 @@ public class FairyVengeance extends AbstractPower {
     //private static final Texture tex84 = TextureLoader.getTexture(makePowerPath("Evasive84.png"));
     //private static final Texture tex32 = TextureLoader.getTexture(makePowerPath("Evasive32.png"));
 
-    public FairyVengeance(AbstractCreature owner, int amount) {
+    public FairyOfIce(AbstractCreature owner, int amount) {
         name = NAME;
         ID = POWER_ID;
 
@@ -42,7 +42,7 @@ public class FairyVengeance extends AbstractPower {
     public void onDeath() {
         if (!AbstractDungeon.getCurrRoom().isBattleEnding()) {
             this.flashWithoutSound();
-            AbstractDungeon.actionManager.addToTop(new ApplyPowerAction(AbstractDungeon.player, null, new VulnerablePower(AbstractDungeon.player, this.amount, false), this.amount));
+            AbstractDungeon.actionManager.addToBottom(new MakeTempCardInDiscardAction(new Frozen(), this.amount));
         }
     }
 

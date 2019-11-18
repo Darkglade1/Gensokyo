@@ -3,6 +3,7 @@ package Gensokyo.monsters;
 import Gensokyo.BetterSpriterAnimation;
 import Gensokyo.cards.Frozen;
 import Gensokyo.powers.FairyFury;
+import Gensokyo.powers.FairyOfIce;
 import Gensokyo.powers.Immortality;
 import Gensokyo.powers.Strongest;
 import basemod.abstracts.CustomMonster;
@@ -13,6 +14,7 @@ import com.megacrit.cardcrawl.actions.animations.TalkAction;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.actions.common.DamageAction;
 import com.megacrit.cardcrawl.actions.common.EscapeAction;
+import com.megacrit.cardcrawl.actions.common.GainBlockAction;
 import com.megacrit.cardcrawl.actions.common.HealAction;
 import com.megacrit.cardcrawl.actions.common.MakeTempCardInDiscardAction;
 import com.megacrit.cardcrawl.actions.common.RollMoveAction;
@@ -25,6 +27,7 @@ import com.megacrit.cardcrawl.localization.MonsterStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.powers.AbstractPower;
 import com.megacrit.cardcrawl.powers.StrengthPower;
+import com.megacrit.cardcrawl.powers.ThornsPower;
 import com.megacrit.cardcrawl.relics.AbstractRelic;
 
 import java.util.ArrayList;
@@ -43,6 +46,7 @@ public class Cirno extends CustomMonster
     private static final byte DEBUFF_ATTACK = 3;
     private static final byte REVIVE = 4;
     private static final byte LEAVE = 5;
+    private static final byte GROUP_BUFF = 6;
     private static final int NORMAL_ATTACK_DAMAGE = 10;
     private static final int A3_NORMAL_ATTACK_DAMAGE = 11;
     private static final int NORMAL_ATTACK_HITS = 2;
@@ -50,16 +54,22 @@ public class Cirno extends CustomMonster
     private static final int A3_DEBUFF_ATTACK_DAMAGE = 11;
     private static final int STATUS_COUNT = 1;
     private static final int A18_STATUS_COUNT = 2;
+    private static final int GROUP_BUFF_AMT = 1;
+    private static final int A18_GROUP_BUFF_AMT = 2;
+    private static final int BLOCK = 2;
     private static final int STRENGTH = 1;
     private static final int NEGATIVE_STRENGTH = -10;
     private static final int STRENGTH_INCREMENT = 1;
     private static final int HP_MIN = 20;
     private static final int HP_MAX = 21;
-    private static final int A_2_HP_MIN = 22;
-    private static final int A_2_HP_MAX = 23;
+    private static final int A_2_HP_MIN = 21;
+    private static final int A_2_HP_MAX = 22;
+    private static final int BUFF_COUNTER_THESHOLD = 2;
     private int normalDamage;
     private int debuffDamage;
     private int status;
+    private int groupBuffAmt;
+    private int buffCounter = 0;
 
     public Cirno() {
         this(0.0f, 0.0f);
@@ -73,8 +83,10 @@ public class Cirno extends CustomMonster
         this.dialogY -= (this.hb_y - 55.0F) * Settings.scale;
         if (AbstractDungeon.ascensionLevel >= 18) {
             this.status = A18_STATUS_COUNT;
+            this.groupBuffAmt = A18_GROUP_BUFF_AMT;
         } else {
             this.status = STATUS_COUNT;
+            this.groupBuffAmt = GROUP_BUFF_AMT;
         }
         if (AbstractDungeon.ascensionLevel >= 8) {
             this.setHp(A_2_HP_MIN, A_2_HP_MAX);
@@ -105,6 +117,7 @@ public class Cirno extends CustomMonster
         AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(this, this, new Immortality(this)));
         AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(this, this, new Strongest(this)));
         AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(this, this, new FairyFury(this, STRENGTH_INCREMENT)));
+        AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(this, this, new FairyOfIce(this, this.status)));
         AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(this, this, new StrengthPower(this, NEGATIVE_STRENGTH), NEGATIVE_STRENGTH));
     }
     
@@ -125,6 +138,7 @@ public class Cirno extends CustomMonster
                 //runAnim("Fan");
                 AbstractDungeon.actionManager.addToBottom(new DamageAction(AbstractDungeon.player, this.damage.get(1), AbstractGameAction.AttackEffect.BLUNT_LIGHT));
                 AbstractDungeon.actionManager.addToBottom(new MakeTempCardInDiscardAction(new Frozen(), this.status));
+                buffCounter++;
                 break;
             }
             case ATTACK: {
@@ -132,6 +146,21 @@ public class Cirno extends CustomMonster
                 for (int i = 0; i < NORMAL_ATTACK_HITS; i++) {
                     AbstractDungeon.actionManager.addToBottom(new DamageAction(AbstractDungeon.player, this.damage.get(0), AbstractGameAction.AttackEffect.BLUNT_HEAVY));
                 }
+                buffCounter++;
+                break;
+            }
+            case GROUP_BUFF: {
+                //runAnim("Parasol");
+                AbstractDungeon.actionManager.addToBottom(new TalkAction(this, DIALOG[2]));
+                for (AbstractMonster mo : AbstractDungeon.getCurrRoom().monsters.monsters) {
+                    if (mo instanceof GreaterFairy) {
+                        AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(mo, this, new StrengthPower(mo, groupBuffAmt), groupBuffAmt));
+                    } else if (mo instanceof SunflowerFairy || mo instanceof ZombieFairy) {
+                        AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(mo, this, new ThornsPower(mo, groupBuffAmt), groupBuffAmt));
+                    }
+                    AbstractDungeon.actionManager.addToBottom(new GainBlockAction(mo, this, BLOCK));
+                }
+                buffCounter = 0;
                 break;
             }
             case REVIVE: {
@@ -158,15 +187,17 @@ public class Cirno extends CustomMonster
 
     @Override
     protected void getMove(final int num) {
-        //buffs, does multi-attack, then alternates between debuff attack and multi-attack
+        //buffs, does multi-attack, then alternates between debuff attack and multi-attack while using group buff when it's off cooldown
         if(this.willLeave()) {
             this.setMove(LEAVE, Intent.ESCAPE);
         } else if (this.halfDead) {
             this.setMove(REVIVE, Intent.BUFF);
         } else if (this.firstMove) {
             this.setMove(MOVES[0], BUFF, Intent.UNKNOWN);
+        } else if (this.buffCounter >= BUFF_COUNTER_THESHOLD) {
+            this.setMove(GROUP_BUFF, Intent.DEFEND_BUFF);
         } else {
-            if (this.lastMove(BUFF)) {
+            if (this.lastMove(GROUP_BUFF)) {
                 this.setMove(Cirno.MOVES[2], ATTACK, Intent.ATTACK, (this.damage.get(0)).base, NORMAL_ATTACK_HITS, true);
             } else if (this.lastMove(ATTACK)){
                 this.setMove(Cirno.MOVES[1], DEBUFF_ATTACK, Intent.ATTACK_DEBUFF, (this.damage.get(1)).base);
@@ -205,7 +236,7 @@ public class Cirno extends CustomMonster
             }
             ArrayList<AbstractPower> powersToRemove = new ArrayList<>();
             for (AbstractPower power : this.powers) {
-                if (!(power instanceof Immortality) && !(power instanceof StrengthPower) && !(power instanceof FairyFury) && !(power instanceof Strongest)) {
+                if (!(power instanceof Immortality) && !(power instanceof StrengthPower) && !(power instanceof FairyFury) && !(power instanceof Strongest) && !(power instanceof FairyOfIce)) {
                     powersToRemove.add(power);
                 }
             }

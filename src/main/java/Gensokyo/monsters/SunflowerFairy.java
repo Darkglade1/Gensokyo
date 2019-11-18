@@ -20,6 +20,7 @@ import com.megacrit.cardcrawl.localization.MonsterStrings;
 import com.megacrit.cardcrawl.powers.AbstractPower;
 import com.megacrit.cardcrawl.powers.FrailPower;
 import com.megacrit.cardcrawl.powers.MinionPower;
+import com.megacrit.cardcrawl.powers.ThornsPower;
 import com.megacrit.cardcrawl.relics.AbstractRelic;
 
 import java.util.ArrayList;
@@ -37,10 +38,7 @@ public class SunflowerFairy extends CustomMonster
     private static final byte LEAVE = 3;
     private static final int NORMAL_ATTACK_DAMAGE = 2;
     private static final int DEBUFF = 1;
-    private static final int HP_MIN = 4;
-    private static final int HP_MAX = 5;
-    private static final int A_2_HP_MIN = 5;
-    private static final int A_2_HP_MAX = 6;
+    private static final int HP = 4;
     private int normalDamage;
     public Cirno leader;
 
@@ -49,17 +47,13 @@ public class SunflowerFairy extends CustomMonster
     }
 
     public SunflowerFairy(final float x, final float y, Cirno leader) {
-        super(SunflowerFairy.NAME, ID, HP_MAX, -5.0F, 0, 170.0f, 165.0f, null, x, y);
+        super(SunflowerFairy.NAME, ID, HP, -5.0F, 0, 170.0f, 165.0f, null, x, y);
         this.animation = new BetterSpriterAnimation("GensokyoResources/images/monsters/FlowerFairy/Spriter/FlowerFairyAnimation.scml");
         this.type = EnemyType.NORMAL;
         this.dialogX = (this.hb_x - 70.0F) * Settings.scale;
         this.dialogY -= (this.hb_y - 55.0F) * Settings.scale;
         this.normalDamage = NORMAL_ATTACK_DAMAGE;
-        if (AbstractDungeon.ascensionLevel >= 8) {
-            this.setHp(A_2_HP_MIN, A_2_HP_MAX);
-        } else {
-            this.setHp(HP_MIN, HP_MAX);
-        }
+        this.setHp(HP);
 
         this.damage.add(new DamageInfo(this, this.normalDamage));
         this.leader = leader;
@@ -140,7 +134,7 @@ public class SunflowerFairy extends CustomMonster
             }
             ArrayList<AbstractPower> powersToRemove = new ArrayList<>();
             for (AbstractPower power : this.powers) {
-                if (!(power instanceof Immortality)) {
+                if (!(power instanceof Immortality) && !(power instanceof ThornsPower)) {
                     powersToRemove.add(power);
                 }
             }

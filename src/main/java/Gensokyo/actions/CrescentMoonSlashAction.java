@@ -76,8 +76,13 @@ public class CrescentMoonSlashAction extends AbstractGameAction {
                         AbstractDungeon.getCurrRoom().monsters.monsters.get(i).tint.changeColor(Color.WHITE.cpy());
                     }
                     AbstractMonster target = AbstractDungeon.getCurrRoom().monsters.monsters.get(i);
+                    boolean priorHalfDead = target.halfDead;
                     target.damage(new DamageInfo(this.source, this.damage[i], this.damageType));
+                    boolean postHalfDead = target.halfDead;
                     if ((target.isDying || target.currentHealth <= 0) && !target.halfDead) {
+                        this.repeat = true;
+                    }
+                    if (!priorHalfDead && postHalfDead) {
                         this.repeat = true;
                     }
                 }
