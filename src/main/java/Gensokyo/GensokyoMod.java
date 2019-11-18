@@ -25,7 +25,6 @@ import Gensokyo.events.AHoleInReality;
 import Gensokyo.events.ALandWhereOnlyIAmMissing;
 import Gensokyo.events.ASwiftSlash;
 import Gensokyo.events.BambooForestOfTheLost;
-import Gensokyo.events.BorderOfDeath;
 import Gensokyo.events.ClashOfLegends;
 import Gensokyo.events.DemonBookSeller;
 import Gensokyo.events.FieldTripToAnotherWorld;

@@ -39,7 +39,7 @@
   },
   "Gensokyo:LunaticRedEyes": {
     "NAME": "Lunatic Red Eyes",
-    "FLAVOR": "You feel your sanity slipping away the longer you look into these eyes . . .",
+    "FLAVOR": "These eyes have no effect on you. After all, you're already insane.",
     "DESCRIPTIONS": [
       "At the start of combat, apply #b", " #yLunacy to ALL enemies."
     ]
@@ -68,7 +68,7 @@
   },
   "Gensokyo:Bombinomicon": {
     "NAME": "Bombinomicon",
-    "FLAVOR": "It likes bombs.",
+    "FLAVOR": "Explode spectacularly on death.",
     "DESCRIPTIONS": [
       "At the start of combat, add #yThe #yBomb with #yRetain and #yExhaust to your hand."
     ]
