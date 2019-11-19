@@ -6,17 +6,13 @@ import Gensokyo.powers.VigorPower;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.actions.common.ReducePowerAction;
-import com.megacrit.cardcrawl.actions.common.RemoveSpecificPowerAction;
 import com.megacrit.cardcrawl.core.AbstractCreature;
 import com.megacrit.cardcrawl.core.Settings;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.powers.AbstractPower;
-import com.megacrit.cardcrawl.powers.DexterityPower;
-import com.megacrit.cardcrawl.powers.FocusPower;
 import com.megacrit.cardcrawl.powers.FrailPower;
 import com.megacrit.cardcrawl.powers.GainStrengthPower;
 import com.megacrit.cardcrawl.powers.LoseStrengthPower;
-import com.megacrit.cardcrawl.powers.StrengthPower;
 import com.megacrit.cardcrawl.powers.VulnerablePower;
 import com.megacrit.cardcrawl.powers.WeakPower;
 
@@ -33,31 +29,13 @@ public class InvertPowersAction extends AbstractGameAction {
 
     public void update() {
         for (AbstractPower power : target.powers) {
-            if (power instanceof StrengthPower) {
+            if (power.canGoNegative) {
                 if (power.amount > 0) {
                     if (!debuffsOnly) {
-                        AbstractDungeon.actionManager.addToTop(new ApplyPowerAction(target, target, new StrengthPower(target, -power.amount * 2), -power.amount * 2));
+                        AbstractDungeon.actionManager.addToTop(new ApplyPowerAction(target, target, power, -power.amount * 2));
                     }
                 } else {
-                    AbstractDungeon.actionManager.addToTop(new ApplyPowerAction(target, target, new StrengthPower(target, -power.amount * 2), -power.amount * 2));
-                }
-            }
-            else if (power instanceof DexterityPower) {
-                if (power.amount > 0) {
-                    if (!debuffsOnly){
-                        AbstractDungeon.actionManager.addToTop(new ApplyPowerAction(target, target, new DexterityPower(target, -power.amount * 2), -power.amount * 2));
-                    }
-                } else {
-                    AbstractDungeon.actionManager.addToTop(new ApplyPowerAction(target, target, new DexterityPower(target, -power.amount * 2), -power.amount * 2));
-                }
-            }
-            else if (power instanceof FocusPower) {
-                if (power.amount > 0) {
-                    if (!debuffsOnly){
-                        AbstractDungeon.actionManager.addToTop(new ApplyPowerAction(target, target, new FocusPower(target, -power.amount * 2), -power.amount * 2));
-                    }
-                } else {
-                    AbstractDungeon.actionManager.addToTop(new ApplyPowerAction(target, target, new FocusPower(target, -power.amount * 2), -power.amount * 2));
+                    AbstractDungeon.actionManager.addToTop(new ApplyPowerAction(target, target, power, -power.amount * 2));
                 }
             }
             else if (power instanceof VulnerablePower) {

@@ -30,7 +30,7 @@ public class DemonBookSeller extends AbstractImageEvent {
     private static final String[] OPTIONS = eventStrings.OPTIONS;
     public static final String IMG = makeEventPath("DemonBookSeller.png");
 
-    public static final int COST = 120;
+    public static final int COST = 140;
     private static final int BOOKS_FOR_SALE = 2;
     private boolean hasEnoughMoney;
     ArrayList<AbstractRelic> bookList;

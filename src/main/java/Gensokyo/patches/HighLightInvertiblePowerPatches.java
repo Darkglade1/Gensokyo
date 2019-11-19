@@ -46,7 +46,7 @@ public class HighLightInvertiblePowerPatches {
         }
 
         private static boolean isInvertible(AbstractPower power) {
-            if (power instanceof StrengthPower || power instanceof DexterityPower || power instanceof FocusPower
+            if (power.canGoNegative
                 || power instanceof VulnerablePower || power instanceof WeakPower || power instanceof FrailPower
                 || power instanceof FortitudePower || power instanceof VigorPower || power instanceof SturdyPower
                 || power instanceof GainStrengthPower || power instanceof LoseStrengthPower) {

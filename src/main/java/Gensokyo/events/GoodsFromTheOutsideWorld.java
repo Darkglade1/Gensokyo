@@ -27,9 +27,9 @@ public class GoodsFromTheOutsideWorld extends AbstractImageEvent {
     private boolean hasEnoughMoneyUncommon;
     private boolean hasEnoughMoneyRare;
 
-    public static int commonCost = 60;
-    public static int uncommonCost = 85;
-    public static int rareCost = 110;
+    public static int commonCost = 70;
+    public static int uncommonCost = 100;
+    public static int rareCost = 130;
 
     public GoodsFromTheOutsideWorld() {
         super(NAME, DESCRIPTIONS[0], IMG);
