@@ -100,7 +100,7 @@ public class Gensokyo extends CustomDungeon {
         ArrayList<MonsterInfo> monsters = new ArrayList();
         monsters.add(new MonsterInfo("Cultist", 2.0F));
         monsters.add(new MonsterInfo("Jaw Worm", 2.0F));
-        monsters.add(new MonsterInfo("2 Louse", 2.0F));
+        monsters.add(new MonsterInfo(EncounterIDs.KODAMA_2, 2.0F));
         monsters.add(new MonsterInfo("Small Slimes", 2.0F));
         MonsterInfo.normalizeWeights(monsters);
         this.populateMonsterList(monsters, count, false);
@@ -116,7 +116,7 @@ public class Gensokyo extends CustomDungeon {
         monsters.add(new MonsterInfo("Exordium Thugs", 1.5F));
         monsters.add(new MonsterInfo("Exordium Wildlife", 1.5F));
         monsters.add(new MonsterInfo("Red Slaver", 1.0F));
-        monsters.add(new MonsterInfo("3 Louse", 2.0F));
+        monsters.add(new MonsterInfo(EncounterIDs.KODAMA_3, 2.0F));
         monsters.add(new MonsterInfo("2 Fungi Beasts", 2.0F));
         MonsterInfo.normalizeWeights(monsters);
         this.populateFirstStrongEnemy(monsters, this.generateExclusions());
@@ -143,7 +143,7 @@ public class Gensokyo extends CustomDungeon {
                 }
                 break;
             case -1879712874:
-                if (var2.equals("2 Louse")) {
+                if (var2.equals(EncounterIDs.KODAMA_2)) {
                     var3 = 4;
                 }
                 break;
@@ -180,7 +180,7 @@ public class Gensokyo extends CustomDungeon {
                 retVal.add("Exordium Thugs");
                 break;
             case 4:
-                retVal.add("3 Louse");
+                retVal.add(EncounterIDs.KODAMA_3);
                 break;
             case 5:
                 retVal.add("Large Slime");

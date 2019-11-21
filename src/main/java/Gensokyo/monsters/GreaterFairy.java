@@ -86,6 +86,7 @@ public class GreaterFairy extends CustomMonster
                 AbstractDungeon.actionManager.addToBottom(new EscapeAction(this));
                 AbstractDungeon.actionManager.addToBottom(new SetMoveAction(this, LEAVE, Intent.ESCAPE));
                 this.animation.setFlip(true, false);
+                break;
         }
         AbstractDungeon.actionManager.addToBottom(new RollMoveAction(this));
     }

@@ -100,6 +100,30 @@
     "DIALOG": [
       "Oh, I guess you found me out."
     ]
+  },
+  "Gensokyo:RedKodama": {
+    "MOVES": [
+
+    ],
+    "NAME": "Kodama"
+  },
+  "Gensokyo:GreyKodama": {
+    "MOVES": [
+
+    ],
+    "NAME": "Kodama"
+  },
+  "Gensokyo:YellowKodama": {
+    "MOVES": [
+
+    ],
+    "NAME": "Kodama"
+  },
+  "Gensokyo:WhiteKodama": {
+    "MOVES": [
+
+    ],
+    "NAME": "Kodama"
   }
 }
 

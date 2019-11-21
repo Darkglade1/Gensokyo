@@ -179,6 +179,7 @@ public class Cirno extends CustomMonster
                 AbstractDungeon.actionManager.addToBottom(new SetMoveAction(this, LEAVE, Intent.ESCAPE));
                 this.animation.setFlip(true, false);
                 AbstractDungeon.getCurrRoom().cannotLose = false;
+                break;
         }
         for (AbstractMonster mo : AbstractDungeon.getCurrRoom().monsters.monsters) { //helps ensure all monsters flee at the same time
             AbstractDungeon.actionManager.addToBottom(new RollMoveAction(mo));

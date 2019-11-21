@@ -19,6 +19,7 @@ import Gensokyo.cards.SlitMouthedWoman;
 import Gensokyo.cards.SpontaneousHumanCombustion;
 import Gensokyo.cards.TekeTeke;
 import Gensokyo.cards.TurboGranny;
+import Gensokyo.dungeon.EncounterIDs;
 import Gensokyo.dungeon.Gensokyo;
 import Gensokyo.events.ACelestialsPlight;
 import Gensokyo.events.AHoleInReality;
@@ -41,6 +42,10 @@ import Gensokyo.monsters.Cirno;
 import Gensokyo.monsters.GreaterFairy;
 import Gensokyo.monsters.Kokoro;
 import Gensokyo.monsters.Mamizou;
+import Gensokyo.monsters.NormalEnemies.GreyKodama;
+import Gensokyo.monsters.NormalEnemies.RedKodama;
+import Gensokyo.monsters.NormalEnemies.WhiteKodama;
+import Gensokyo.monsters.NormalEnemies.YellowKodama;
 import Gensokyo.monsters.Reimu;
 import Gensokyo.monsters.SunflowerFairy;
 import Gensokyo.monsters.Yukari;
@@ -77,6 +82,7 @@ import com.badlogic.gdx.graphics.Texture;
 import com.evacipated.cardcrawl.mod.stslib.Keyword;
 import com.evacipated.cardcrawl.modthespire.lib.SpireInitializer;
 import com.google.gson.Gson;
+import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.dungeons.Exordium;
 import com.megacrit.cardcrawl.localization.CardStrings;
 import com.megacrit.cardcrawl.localization.EventStrings;
@@ -92,6 +98,8 @@ import org.apache.logging.log4j.Logger;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.nio.charset.StandardCharsets;
+import java.util.ArrayList;
+import java.util.Collections;
 
 @SpireInitializer
 public class GensokyoMod implements
@@ -229,6 +237,7 @@ public class GensokyoMod implements
         BaseMod.addMonster(Yukari.ID, (BaseMod.GetMonster)Yukari::new);
         BaseMod.addMonster(Kokoro.ID, (BaseMod.GetMonster)Kokoro::new);
         BaseMod.addMonster(Reimu.ID, (BaseMod.GetMonster)Reimu::new);
+
         BaseMod.addMonster(Aya.ID, (BaseMod.GetMonster)Aya::new);
         BaseMod.addMonster(Cirno.ID, "Cirno", () -> new MonsterGroup(
                 new AbstractMonster[] {
@@ -238,9 +247,16 @@ public class GensokyoMod implements
                         new Cirno()
                 }));
         BaseMod.addMonster(Mamizou.ID, (BaseMod.GetMonster)Mamizou::new);
+
+        BaseMod.addMonster(EncounterIDs.KODAMA_2, "2_Kodama", () -> new MonsterGroup(generateKodamaGroup(2)));
+        BaseMod.addMonster(EncounterIDs.KODAMA_3, "3_Kodama", () -> new MonsterGroup(generateKodamaGroup(3)));
+
+
         BaseMod.addBoss(Gensokyo.ID, Yukari.ID, "GensokyoResources/images/monsters/Yukari/Yukari.png", "GensokyoResources/images/monsters/Yukari/YukariOutline.png");
         BaseMod.addBoss(Gensokyo.ID, Kokoro.ID, "GensokyoResources/images/monsters/Kokoro/Kokoro.png", "GensokyoResources/images/monsters/Kokoro/KokoroOutline.png");
         BaseMod.addBoss(Gensokyo.ID, Reimu.ID, "GensokyoResources/images/monsters/Reimu/Reimu.png", "GensokyoResources/images/monsters/Reimu/ReimuOutline.png");
+
+
 
         
         // =============== EVENTS =================
@@ -266,6 +282,40 @@ public class GensokyoMod implements
         // =============== /EVENTS/ =================
 
         logger.info("Done loading badge Image and mod options");
+    }
+
+    private AbstractMonster[] generateKodamaGroup(int groupSize) {
+        if (groupSize != 2 && groupSize != 3) {
+            return null;
+        }
+        float[] groupPositionsSize2 = {-450.0F, -150.0F};
+        float[] groupPositionsSize3 = {-550.0F, -300.0F, -50.0F};
+        ArrayList<Integer> monstersList = new ArrayList<>();
+        monstersList.add(1);
+        monstersList.add(2);
+        monstersList.add(3);
+        monstersList.add(4);
+        Collections.shuffle(monstersList, AbstractDungeon.monsterRng.random);
+        float[] groupToUse;
+        AbstractMonster[] monsters = new AbstractMonster[groupSize];
+        if (groupSize == 2) {
+            groupToUse = groupPositionsSize2;
+        } else {
+            groupToUse = groupPositionsSize3;
+        }
+        for (int i = 0; i < groupSize; i++) {
+            if (monstersList.get(i) == 1) {
+                monsters[i] = new RedKodama(groupToUse[i], 0.0F);
+            } else if (monstersList.get(i) == 2) {
+                monsters[i] = new GreyKodama(groupToUse[i], 0.0F);
+            } else if (monstersList.get(i) == 3) {
+                monsters[i] = new YellowKodama(groupToUse[i], 0.0F);
+            } else if (monstersList.get(i) == 4) {
+                monsters[i] = new WhiteKodama(groupToUse[i], 0.0F);
+            }
+        }
+
+        return monsters;
     }
     
     // =============== / POST-INITIALIZE/ =================
