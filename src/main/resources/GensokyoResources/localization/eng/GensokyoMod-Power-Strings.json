@@ -110,5 +110,9 @@
 "Gensokyo:PolymorphPower": {
         "NAME": "Polymorphed",
         "DESCRIPTIONS": ["Your #yAttacks deal #b0 damage for #b", " turns.", " turn."]
+},
+"Gensokyo:Grudge": {
+        "NAME": "Grudge",
+        "DESCRIPTIONS": ["At end of turn, resets #yStrength to #b0 then gains #yStrength equal to ALL your #pCurses."]
 }
 }

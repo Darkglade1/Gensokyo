@@ -44,6 +44,7 @@ import Gensokyo.monsters.Kokoro;
 import Gensokyo.monsters.Mamizou;
 import Gensokyo.monsters.NormalEnemies.GreyKodama;
 import Gensokyo.monsters.NormalEnemies.RedKodama;
+import Gensokyo.monsters.NormalEnemies.VengefulSpirit;
 import Gensokyo.monsters.NormalEnemies.WhiteKodama;
 import Gensokyo.monsters.NormalEnemies.YellowKodama;
 import Gensokyo.monsters.Reimu;
@@ -250,6 +251,7 @@ public class GensokyoMod implements
 
         BaseMod.addMonster(EncounterIDs.KODAMA_2, "2_Kodama", () -> new MonsterGroup(generateKodamaGroup(2)));
         BaseMod.addMonster(EncounterIDs.KODAMA_3, "3_Kodama", () -> new MonsterGroup(generateKodamaGroup(3)));
+        BaseMod.addMonster(VengefulSpirit.ID, (BaseMod.GetMonster)VengefulSpirit::new);
 
 
         BaseMod.addBoss(Gensokyo.ID, Yukari.ID, "GensokyoResources/images/monsters/Yukari/Yukari.png", "GensokyoResources/images/monsters/Yukari/YukariOutline.png");
@@ -286,7 +288,7 @@ public class GensokyoMod implements
 
     private AbstractMonster[] generateKodamaGroup(int groupSize) {
         if (groupSize != 2 && groupSize != 3) {
-            return null;
+            groupSize = 3; //default to 3
         }
         float[] groupPositionsSize2 = {-450.0F, -150.0F};
         float[] groupPositionsSize3 = {-550.0F, -300.0F, -50.0F};

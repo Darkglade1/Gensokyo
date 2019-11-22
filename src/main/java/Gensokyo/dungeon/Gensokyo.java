@@ -3,6 +3,7 @@ package Gensokyo.dungeon;
 import Gensokyo.monsters.Aya;
 import Gensokyo.monsters.Cirno;
 import Gensokyo.monsters.Mamizou;
+import Gensokyo.monsters.NormalEnemies.VengefulSpirit;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.core.Settings;
@@ -111,7 +112,7 @@ public class Gensokyo extends CustomDungeon {
         monsters.add(new MonsterInfo("Blue Slaver", 2.0F));
         monsters.add(new MonsterInfo("Gremlin Gang", 1.0F));
         monsters.add(new MonsterInfo("Looter", 2.0F));
-        monsters.add(new MonsterInfo("Large Slime", 2.0F));
+        monsters.add(new MonsterInfo(VengefulSpirit.ID, 2.0F));
         monsters.add(new MonsterInfo("Lots of Slimes", 1.0F));
         monsters.add(new MonsterInfo("Exordium Thugs", 1.5F));
         monsters.add(new MonsterInfo("Exordium Wildlife", 1.5F));

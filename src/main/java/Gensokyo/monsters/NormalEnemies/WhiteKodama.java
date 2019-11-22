@@ -23,10 +23,10 @@ public class WhiteKodama extends CustomMonster
     public static final String[] MOVES;
     public static final String[] DIALOG;
     private static final byte DEBUFF_ATTACK = 1;
-    private static final byte BUFF_ATTACK = 2;
+    private static final byte BLOCK_ATTACK = 2;
     private static final int DEBUFF_ATTACK_DAMAGE = 2;
-    private static final int BUFF_ATTACK_DAMAGE = 4;
-    private static final int A2_BUFF_ATTACK_DAMAGE = 5;
+    private static final int BLOCK_ATTACK_DAMAGE = 4;
+    private static final int A2_BLOCK_ATTACK_DAMAGE = 5;
     private static final int BLOCK = 3;
     private static final int A7_BLOCK = 4;
     private static final int DEBUFF = 1;
@@ -35,7 +35,7 @@ public class WhiteKodama extends CustomMonster
     private static final int A7_HP_MIN = 18;
     private static final int A7_HP_MAX = 20;
     private int debuffDamage;
-    private int buffAttackDamage;
+    private int blockAttackDamage;
     private int block;
     private int debuff;
 
@@ -59,15 +59,15 @@ public class WhiteKodama extends CustomMonster
 
         this.debuffDamage = DEBUFF_ATTACK_DAMAGE;
         if (AbstractDungeon.ascensionLevel >= 2) {
-            this.buffAttackDamage = A2_BUFF_ATTACK_DAMAGE;
+            this.blockAttackDamage = A2_BLOCK_ATTACK_DAMAGE;
         } else {
-            this.buffAttackDamage = BUFF_ATTACK_DAMAGE;
+            this.blockAttackDamage = BLOCK_ATTACK_DAMAGE;
         }
 
         this.debuff = DEBUFF;
 
         this.damage.add(new DamageInfo(this, this.debuffDamage));
-        this.damage.add(new DamageInfo(this, this.buffAttackDamage));
+        this.damage.add(new DamageInfo(this, this.blockAttackDamage));
     }
     
     @Override
@@ -78,7 +78,7 @@ public class WhiteKodama extends CustomMonster
                 AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(AbstractDungeon.player, this, new WeakPower(AbstractDungeon.player, debuff, true)));
                 break;
             }
-            case BUFF_ATTACK: {
+            case BLOCK_ATTACK: {
                 AbstractDungeon.actionManager.addToBottom(new DamageAction(AbstractDungeon.player, this.damage.get(1), AbstractGameAction.AttackEffect.BLUNT_LIGHT));
                 for (AbstractMonster mo : AbstractDungeon.getCurrRoom().monsters.monsters) {
                     AbstractDungeon.actionManager.addToBottom(new GainBlockAction(mo, this, block));
@@ -91,8 +91,8 @@ public class WhiteKodama extends CustomMonster
 
     @Override
     protected void getMove(final int num) {
-        if (num < 50 && !this.lastTwoMoves(BUFF_ATTACK)) {
-            this.setMove(BUFF_ATTACK, Intent.ATTACK_BUFF, this.damage.get(1).base);
+        if (num < 50 && !this.lastTwoMoves(BLOCK_ATTACK)) {
+            this.setMove(BLOCK_ATTACK, Intent.ATTACK_DEFEND, this.damage.get(1).base);
         } else {
             this.setMove(DEBUFF_ATTACK, Intent.ATTACK_DEBUFF, this.damage.get(0).base);
         }
