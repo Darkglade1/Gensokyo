@@ -21,6 +21,7 @@ import Gensokyo.cards.TekeTeke;
 import Gensokyo.cards.TurboGranny;
 import Gensokyo.dungeon.EncounterIDs;
 import Gensokyo.dungeon.Gensokyo;
+import Gensokyo.events.ABanquetForGhosts;
 import Gensokyo.events.ACelestialsPlight;
 import Gensokyo.events.AHoleInReality;
 import Gensokyo.events.ALandWhereOnlyIAmMissing;
@@ -286,6 +287,7 @@ public class GensokyoMod implements
         BaseMod.addEvent(BambooForestOfTheLost.ID, BambooForestOfTheLost.class, Gensokyo.ID);
         BaseMod.addEvent(GardenOfTheSun.ID, GardenOfTheSun.class, Gensokyo.ID);
         BaseMod.addEvent(DemonBookSeller.ID, DemonBookSeller.class, Gensokyo.ID);
+        BaseMod.addEvent(ABanquetForGhosts.ID, ABanquetForGhosts.class, Gensokyo.ID);
         
         // =============== /EVENTS/ =================
 

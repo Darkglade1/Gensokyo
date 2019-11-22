@@ -315,6 +315,25 @@
       "[Leave]"
     ]
   },
+  "Gensokyo:ABanquetForGhosts": {
+    "NAME": "A Banquet for Ghosts",
+    "DESCRIPTIONS": [
+      "A #gdelightful aroma permeates the air, drawing you to a clearing where a lone woman sat at a table filled to the brim with exotic dishes. #pGhostly butterflies flutter about, an otherworldly addition to what was otherwise a mundane scene. NL NL The woman has yet to notice you, too busy devouring everything in front of her.",
+      "It has been a long time since you ate; surely, the woman wouldn't mind if a fruit or two went #rmissing from the table. NL NL You dart forward and snatch your prize - NL NL #rSearing #rpain made itself known all over your body as the butterflies swarmed you, pressing their #rburning #bcoldness against your vulnerable body as you sought to escape with your ill-gotten gains in hand.",
+      "You make it out of the clearing, the #pghostly creatures finally ceasing their pursuit. Glancing back, you notice the woman had not even glanced up from her endeavors to shove one plate into her mouth after another. NL NL You bite down on the fruit you had taken, feeling its #gwarmth spread throughout your body. NL NL Hopefully, you wouldn't have to do something quite as #pharrowing for your next meal.",
+      "You sit down next to her. She doesn't seem to notice, polishing off one final plate of food before finally casting an ~inquisitive~ glance at you. \"A visitor? I don’t get many of those down here. To what do I owe the pleasure?\" NL NL You proffer the food you had brought. She eyes it #yexcitedly before snatching it up. \"Oh, it’s fresh! How wonderful; please, feel free to indulge yourself in exchange.\" NL NL The two of you ate in silence - you took the opportunity to sample various exotic dishes you had never seen before while she munched on the snack you had given her.",
+      "\"It’s nice, isn’t it? To eat in the company of someone else. I don’t often have the opportunity to do so, unfortunately.\" She #ysmiles at you, a smile that seems just a little tainted by #psadness despite her happy visage. NL NL \"Here, take this.\" She offers you a dainty little thing, a flawless cherry blossom. NL NL \"Feel free to come again with any other delicacies you stumble across, hmm?\" NL NL You gingerly accept the #yflower, telling her that you would keep her offer in mind.",
+      "You step away, content to leave the #pdead to their own devices."
+    ],
+    "OPTIONS": [
+      "[Continue]",
+      "[Steal some food] #rLose #r",
+      " #rHP. #gObtain ",
+      "[Offer her some food] #rLose ",
+      ". #gObtain #ga #gSpecial #gRelic.",
+      "[Leave]"
+    ]
+  },
   "Gensokyo:ForkInTheRoad": {
     "NAME": "Fork in the Road",
     "DESCRIPTIONS": [
