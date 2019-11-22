@@ -42,11 +42,15 @@ import Gensokyo.monsters.Cirno;
 import Gensokyo.monsters.GreaterFairy;
 import Gensokyo.monsters.Kokoro;
 import Gensokyo.monsters.Mamizou;
+import Gensokyo.monsters.NormalEnemies.GreaterFairyNormal;
 import Gensokyo.monsters.NormalEnemies.GreyKodama;
+import Gensokyo.monsters.NormalEnemies.MaidFairyNormal;
 import Gensokyo.monsters.NormalEnemies.RedKodama;
+import Gensokyo.monsters.NormalEnemies.SunflowerFairyNormal;
 import Gensokyo.monsters.NormalEnemies.VengefulSpirit;
 import Gensokyo.monsters.NormalEnemies.WhiteKodama;
 import Gensokyo.monsters.NormalEnemies.YellowKodama;
+import Gensokyo.monsters.NormalEnemies.ZombieFairyNormal;
 import Gensokyo.monsters.Reimu;
 import Gensokyo.monsters.SunflowerFairy;
 import Gensokyo.monsters.Yukari;
@@ -251,6 +255,8 @@ public class GensokyoMod implements
 
         BaseMod.addMonster(EncounterIDs.KODAMA_2, "2_Kodama", () -> new MonsterGroup(generateKodamaGroup(2)));
         BaseMod.addMonster(EncounterIDs.KODAMA_3, "3_Kodama", () -> new MonsterGroup(generateKodamaGroup(3)));
+        BaseMod.addMonster(EncounterIDs.FAIRIES_3, "3_Fairies", () -> new MonsterGroup(generateFairyGroup(3)));
+        BaseMod.addMonster(EncounterIDs.FAIRIES_5, "5_Fairies", () -> new MonsterGroup(generateFairyGroup(5)));
         BaseMod.addMonster(VengefulSpirit.ID, (BaseMod.GetMonster)VengefulSpirit::new);
 
 
@@ -314,6 +320,43 @@ public class GensokyoMod implements
                 monsters[i] = new YellowKodama(groupToUse[i], 0.0F);
             } else if (monstersList.get(i) == 4) {
                 monsters[i] = new WhiteKodama(groupToUse[i], 0.0F);
+            }
+        }
+
+        return monsters;
+    }
+
+    private AbstractMonster[] generateFairyGroup(int groupSize) {
+        if (groupSize != 3 && groupSize != 5) {
+            groupSize = 5; //default to 5
+        }
+        float[] groupPositionsSize3 = {-550.0F, -300.0F, -50.0F};
+        float[] groupPositionsSize5 = {-600.0F, -450.0F, -300.0F, -150.0F, 0.0F};
+        ArrayList<Integer> monstersList = new ArrayList<>();
+        monstersList.add(1);
+        monstersList.add(2);
+        monstersList.add(3);
+        monstersList.add(4);
+        if (groupSize == 5) {
+            monstersList.add(AbstractDungeon.monsterRng.random(1, 4)); //adds a randomly chosen duplicate for the 5th fairy
+        }
+        Collections.shuffle(monstersList, AbstractDungeon.monsterRng.random);
+        float[] groupToUse;
+        AbstractMonster[] monsters = new AbstractMonster[groupSize];
+        if (groupSize == 5) {
+            groupToUse = groupPositionsSize5;
+        } else {
+            groupToUse = groupPositionsSize3;
+        }
+        for (int i = 0; i < groupSize; i++) {
+            if (monstersList.get(i) == 1) {
+                monsters[i] = new GreaterFairyNormal(groupToUse[i], 0.0F);
+            } else if (monstersList.get(i) == 2) {
+                monsters[i] = new SunflowerFairyNormal(groupToUse[i], 0.0F);
+            } else if (monstersList.get(i) == 3) {
+                monsters[i] = new ZombieFairyNormal(groupToUse[i], 0.0F);
+            } else if (monstersList.get(i) == 4) {
+                monsters[i] = new MaidFairyNormal(groupToUse[i], 0.0F);
             }
         }
 

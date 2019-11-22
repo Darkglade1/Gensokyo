@@ -92,6 +92,12 @@
     ],
     "NAME": "Greater Fairy"
   },
+  "Gensokyo:MaidFairy": {
+    "MOVES": [
+
+    ],
+    "NAME": "Maid Fairy"
+  },
   "Gensokyo:Mamizou": {
     "MOVES": [
       "Futatsuiwa Clan's Curse"

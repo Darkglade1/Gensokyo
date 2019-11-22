@@ -114,5 +114,13 @@
 "Gensokyo:Grudge": {
         "NAME": "Grudge",
         "DESCRIPTIONS": ["At end of turn, resets #yStrength to #b0 then gains #yStrength equal to ALL your #pCurses."]
+},
+"Gensokyo:StrengthInNumbers": {
+        "NAME": "Strength in Numbers",
+        "DESCRIPTIONS": ["Whenever an enemy dies, loses #b", " #yStrength this turn."]
+},
+"Gensokyo:CowardlyImmortality": {
+        "NAME": "Immortality",
+        "DESCRIPTIONS": ["Whenever this creature dies, it revives next turn at full health. Flees after dying #b", " more times.", " more time."]
 }
 }

@@ -102,7 +102,7 @@ public class Gensokyo extends CustomDungeon {
         monsters.add(new MonsterInfo("Cultist", 2.0F));
         monsters.add(new MonsterInfo("Jaw Worm", 2.0F));
         monsters.add(new MonsterInfo(EncounterIDs.KODAMA_2, 2.0F));
-        monsters.add(new MonsterInfo("Small Slimes", 2.0F));
+        monsters.add(new MonsterInfo(EncounterIDs.FAIRIES_3, 2.0F));
         MonsterInfo.normalizeWeights(monsters);
         this.populateMonsterList(monsters, count, false);
     }
@@ -113,7 +113,7 @@ public class Gensokyo extends CustomDungeon {
         monsters.add(new MonsterInfo("Gremlin Gang", 1.0F));
         monsters.add(new MonsterInfo("Looter", 2.0F));
         monsters.add(new MonsterInfo(VengefulSpirit.ID, 2.0F));
-        monsters.add(new MonsterInfo("Lots of Slimes", 1.0F));
+        monsters.add(new MonsterInfo(EncounterIDs.FAIRIES_5, 1.0F));
         monsters.add(new MonsterInfo("Exordium Thugs", 1.5F));
         monsters.add(new MonsterInfo("Exordium Wildlife", 1.5F));
         monsters.add(new MonsterInfo("Red Slaver", 1.0F));
