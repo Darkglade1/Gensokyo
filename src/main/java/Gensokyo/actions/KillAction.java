@@ -2,6 +2,9 @@ package Gensokyo.actions;
 
 import Gensokyo.monsters.Cirno;
 import Gensokyo.monsters.GreaterFairy;
+import Gensokyo.monsters.NormalEnemies.GreaterFairyNormal;
+import Gensokyo.monsters.NormalEnemies.SunflowerFairyNormal;
+import Gensokyo.monsters.NormalEnemies.ZombieFairyNormal;
 import Gensokyo.monsters.SunflowerFairy;
 import Gensokyo.monsters.ZombieFairy;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
@@ -29,7 +32,7 @@ public class KillAction extends AbstractGameAction {
     private AbstractMonster m;
 
     public void update() {
-        if (m.id.equals(Darkling.ID) || m.id.equals(AwakenedOne.ID) || m.id.equals(GreaterFairy.ID) || m.id.equals(SunflowerFairy.ID) || m.id.equals(ZombieFairy.ID) || m.id.equals(Cirno.ID)) {
+        if (m.id.equals(Darkling.ID) || m.id.equals(AwakenedOne.ID) || m.id.equals(GreaterFairy.ID) || m.id.equals(SunflowerFairy.ID) || m.id.equals(ZombieFairy.ID) || m.id.equals(Cirno.ID) || m.id.equals(GreaterFairyNormal.ID) || m.id.equals(SunflowerFairyNormal.ID) || m.id.equals(ZombieFairyNormal.ID)) {
             //band-aid fix for any creature with half-dead mechanics
             m.damage(new DamageInfo(m, 9999, DamageInfo.DamageType.HP_LOSS));
         } else {

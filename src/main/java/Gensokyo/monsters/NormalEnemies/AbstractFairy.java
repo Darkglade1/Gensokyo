@@ -1,5 +1,6 @@
 package Gensokyo.monsters.NormalEnemies;
 
+import Gensokyo.actions.SetDeadAction;
 import Gensokyo.powers.CowardlyImmortality;
 import Gensokyo.powers.OnKillPower;
 import Gensokyo.powers.StrengthInNumbers;
@@ -84,6 +85,9 @@ public abstract class AbstractFairy extends CustomMonster
         AbstractDungeon.actionManager.addToBottom(new EscapeAction(this));
         AbstractDungeon.actionManager.addToBottom(new SetMoveAction(this, LEAVE, Intent.ESCAPE));
         this.animation.setFlip(true, false);
+        //Need this so phantom enemies don't end up still taking turns for some reason and prolonging combat.
+        //Needs to be in an action so the sprite doesn't instantly disappear
+        AbstractDungeon.actionManager.addToBottom(new SetDeadAction(this));
         if (isLastFairy()) {
             AbstractDungeon.getCurrRoom().cannotLose = false;
         }
