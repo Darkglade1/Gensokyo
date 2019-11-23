@@ -3,6 +3,7 @@ package Gensokyo.dungeon;
 import Gensokyo.monsters.Aya;
 import Gensokyo.monsters.Cirno;
 import Gensokyo.monsters.Mamizou;
+import Gensokyo.monsters.NormalEnemies.CorruptedTreant;
 import Gensokyo.monsters.NormalEnemies.LivingMonolith;
 import Gensokyo.monsters.NormalEnemies.VengefulSpirit;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
@@ -117,7 +118,7 @@ public class Gensokyo extends CustomDungeon {
         monsters.add(new MonsterInfo(EncounterIDs.FAIRIES_5, 1.0F));
         monsters.add(new MonsterInfo("Exordium Thugs", 1.5F));
         monsters.add(new MonsterInfo("Exordium Wildlife", 1.5F));
-        monsters.add(new MonsterInfo("Red Slaver", 1.0F));
+        monsters.add(new MonsterInfo(CorruptedTreant.ID, 1.0F));
         monsters.add(new MonsterInfo(EncounterIDs.KODAMA_3, 2.0F));
         monsters.add(new MonsterInfo("2 Fungi Beasts", 2.0F));
         MonsterInfo.normalizeWeights(monsters);

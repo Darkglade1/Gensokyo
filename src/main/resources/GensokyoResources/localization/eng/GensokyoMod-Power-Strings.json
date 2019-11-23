@@ -122,5 +122,9 @@
 "Gensokyo:CowardlyImmortality": {
         "NAME": "Immortality",
         "DESCRIPTIONS": ["Whenever this creature dies, it revives next turn at full health. Flees after dying #b", " more times.", " more time."]
+},
+"Gensokyo:RottingWood": {
+        "NAME": "Rotting Wood",
+        "DESCRIPTIONS": ["After receiving #b", " more damage, deals #b", " damage to you."]
 }
 }

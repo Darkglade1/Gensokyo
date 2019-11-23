@@ -142,6 +142,12 @@
       "Charging Up!"
     ],
     "NAME": "Living Monolith"
+  },
+  "Gensokyo:CorruptedTreant": {
+    "MOVES": [
+
+    ],
+    "NAME": "Corrupted Treant"
   }
 }
 
