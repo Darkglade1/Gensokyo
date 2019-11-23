@@ -27,7 +27,13 @@ public class FortitudePower extends AbstractPower {
     private static final Texture tex84 = TextureLoader.getTexture(makePowerPath("Fortitude84.png"));
     private static final Texture tex32 = TextureLoader.getTexture(makePowerPath("Fortitude32.png"));
 
+    private boolean justApplied = false;
+
     public FortitudePower(AbstractCreature owner, int amount) {
+        this(owner, amount, false);
+    }
+
+    public FortitudePower(AbstractCreature owner, int amount, boolean sourceMonster) {
         name = NAME;
         ID = POWER_ID;
 
@@ -37,6 +43,10 @@ public class FortitudePower extends AbstractPower {
         type = PowerType.BUFF;
         isTurnBased = true;
 
+        if (sourceMonster) {
+            this.justApplied = true;
+        }
+
         this.region128 = new TextureAtlas.AtlasRegion(tex84, 0, 0, 84, 84);
         this.region48 = new TextureAtlas.AtlasRegion(tex32, 0, 0, 32, 32);
 
@@ -45,12 +55,15 @@ public class FortitudePower extends AbstractPower {
 
     @Override
     public void atEndOfRound() {
-        if (this.amount == 0) {
-            AbstractDungeon.actionManager.addToBottom(new RemoveSpecificPowerAction(this.owner, this.owner, ID));
+        if (this.justApplied) {
+            this.justApplied = false;
         } else {
-            AbstractDungeon.actionManager.addToBottom(new ReducePowerAction(this.owner, this.owner, ID, 1));
+            if (this.amount == 0) {
+                AbstractDungeon.actionManager.addToBottom(new RemoveSpecificPowerAction(this.owner, this.owner, ID));
+            } else {
+                AbstractDungeon.actionManager.addToBottom(new ReducePowerAction(this.owner, this.owner, ID, 1));
+            }
         }
-        updateDescription();
     }
 
     @Override

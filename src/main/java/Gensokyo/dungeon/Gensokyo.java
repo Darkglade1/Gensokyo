@@ -3,6 +3,7 @@ package Gensokyo.dungeon;
 import Gensokyo.monsters.Aya;
 import Gensokyo.monsters.Cirno;
 import Gensokyo.monsters.Mamizou;
+import Gensokyo.monsters.NormalEnemies.LivingMonolith;
 import Gensokyo.monsters.NormalEnemies.VengefulSpirit;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
@@ -109,7 +110,7 @@ public class Gensokyo extends CustomDungeon {
     @Override
     protected void generateStrongEnemies(int count) {
         ArrayList<MonsterInfo> monsters = new ArrayList();
-        monsters.add(new MonsterInfo("Blue Slaver", 2.0F));
+        monsters.add(new MonsterInfo(LivingMonolith.ID, 2.0F));
         monsters.add(new MonsterInfo("Gremlin Gang", 1.0F));
         monsters.add(new MonsterInfo("Looter", 2.0F));
         monsters.add(new MonsterInfo(VengefulSpirit.ID, 2.0F));

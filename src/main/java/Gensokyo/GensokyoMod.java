@@ -45,6 +45,7 @@ import Gensokyo.monsters.Kokoro;
 import Gensokyo.monsters.Mamizou;
 import Gensokyo.monsters.NormalEnemies.GreaterFairyNormal;
 import Gensokyo.monsters.NormalEnemies.GreyKodama;
+import Gensokyo.monsters.NormalEnemies.LivingMonolith;
 import Gensokyo.monsters.NormalEnemies.MaidFairyNormal;
 import Gensokyo.monsters.NormalEnemies.RedKodama;
 import Gensokyo.monsters.NormalEnemies.SunflowerFairyNormal;
@@ -259,6 +260,7 @@ public class GensokyoMod implements
         BaseMod.addMonster(EncounterIDs.FAIRIES_3, "3_Fairies", () -> new MonsterGroup(generateFairyGroup(3)));
         BaseMod.addMonster(EncounterIDs.FAIRIES_5, "5_Fairies", () -> new MonsterGroup(generateFairyGroup(5)));
         BaseMod.addMonster(VengefulSpirit.ID, (BaseMod.GetMonster)VengefulSpirit::new);
+        BaseMod.addMonster(LivingMonolith.ID, (BaseMod.GetMonster)LivingMonolith::new);
 
 
         BaseMod.addBoss(Gensokyo.ID, Yukari.ID, "GensokyoResources/images/monsters/Yukari/Yukari.png", "GensokyoResources/images/monsters/Yukari/YukariOutline.png");

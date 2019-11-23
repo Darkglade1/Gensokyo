@@ -136,6 +136,12 @@
 
     ],
     "NAME": "Vengeful Spirit"
+  },
+  "Gensokyo:LivingMonolith": {
+    "MOVES": [
+      "Charging Up!"
+    ],
+    "NAME": "Living Monolith"
   }
 }
 
