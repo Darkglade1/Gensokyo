@@ -5,6 +5,7 @@ import Gensokyo.monsters.Cirno;
 import Gensokyo.monsters.Mamizou;
 import Gensokyo.monsters.NormalEnemies.CorruptedTreant;
 import Gensokyo.monsters.NormalEnemies.LivingMonolith;
+import Gensokyo.monsters.NormalEnemies.Python;
 import Gensokyo.monsters.NormalEnemies.VengefulSpirit;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
@@ -101,7 +102,7 @@ public class Gensokyo extends CustomDungeon {
     @Override
     protected void generateWeakEnemies(int count) {
         ArrayList<MonsterInfo> monsters = new ArrayList();
-        monsters.add(new MonsterInfo("Cultist", 2.0F));
+        monsters.add(new MonsterInfo(Python.ID, 2.0F));
         monsters.add(new MonsterInfo("Jaw Worm", 2.0F));
         monsters.add(new MonsterInfo(EncounterIDs.KODAMA_2, 2.0F));
         monsters.add(new MonsterInfo(EncounterIDs.FAIRIES_3, 2.0F));

@@ -148,6 +148,12 @@
 
     ],
     "NAME": "Corrupted Treant"
+  },
+  "Gensokyo:Python": {
+    "MOVES": [
+
+    ],
+    "NAME": "Python"
   }
 }
 

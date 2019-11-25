@@ -48,6 +48,7 @@ import Gensokyo.monsters.NormalEnemies.GreaterFairyNormal;
 import Gensokyo.monsters.NormalEnemies.GreyKodama;
 import Gensokyo.monsters.NormalEnemies.LivingMonolith;
 import Gensokyo.monsters.NormalEnemies.MaidFairyNormal;
+import Gensokyo.monsters.NormalEnemies.Python;
 import Gensokyo.monsters.NormalEnemies.RedKodama;
 import Gensokyo.monsters.NormalEnemies.SunflowerFairyNormal;
 import Gensokyo.monsters.NormalEnemies.VengefulSpirit;
@@ -263,6 +264,7 @@ public class GensokyoMod implements
         BaseMod.addMonster(VengefulSpirit.ID, (BaseMod.GetMonster)VengefulSpirit::new);
         BaseMod.addMonster(LivingMonolith.ID, (BaseMod.GetMonster)LivingMonolith::new);
         BaseMod.addMonster(CorruptedTreant.ID, (BaseMod.GetMonster)CorruptedTreant::new);
+        BaseMod.addMonster(Python.ID, (BaseMod.GetMonster)Python::new);
 
 
         BaseMod.addBoss(Gensokyo.ID, Yukari.ID, "GensokyoResources/images/monsters/Yukari/Yukari.png", "GensokyoResources/images/monsters/Yukari/YukariOutline.png");
