@@ -27,10 +27,10 @@ public class GreyKodama extends CustomMonster
     private static final int BUFF_ATTACK_DAMAGE = 3;
     private static final int BUFF = 1;
     private static final int A17_BUFF = 2;
-    private static final int HP_MIN = 16;
-    private static final int HP_MAX = 18;
-    private static final int A7_HP_MIN = 17;
-    private static final int A7_HP_MAX = 19;
+    private static final int HP_MIN = 17;
+    private static final int HP_MAX = 21;
+    private static final int A7_HP_MIN = 18;
+    private static final int A7_HP_MAX = 22;
     private int normalDamage;
     private int buffAttackDamage;
     private int buff;

@@ -154,6 +154,12 @@
 
     ],
     "NAME": "Python"
+  },
+  "Gensokyo:Gryphon": {
+    "MOVES": [
+
+    ],
+    "NAME": "Gryphon"
   }
 }
 

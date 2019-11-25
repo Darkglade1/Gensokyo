@@ -46,6 +46,7 @@ import Gensokyo.monsters.Mamizou;
 import Gensokyo.monsters.NormalEnemies.CorruptedTreant;
 import Gensokyo.monsters.NormalEnemies.GreaterFairyNormal;
 import Gensokyo.monsters.NormalEnemies.GreyKodama;
+import Gensokyo.monsters.NormalEnemies.Gryphon;
 import Gensokyo.monsters.NormalEnemies.LivingMonolith;
 import Gensokyo.monsters.NormalEnemies.MaidFairyNormal;
 import Gensokyo.monsters.NormalEnemies.Python;
@@ -265,6 +266,7 @@ public class GensokyoMod implements
         BaseMod.addMonster(LivingMonolith.ID, (BaseMod.GetMonster)LivingMonolith::new);
         BaseMod.addMonster(CorruptedTreant.ID, (BaseMod.GetMonster)CorruptedTreant::new);
         BaseMod.addMonster(Python.ID, (BaseMod.GetMonster)Python::new);
+        BaseMod.addMonster(Gryphon.ID, (BaseMod.GetMonster)Gryphon::new);
 
 
         BaseMod.addBoss(Gensokyo.ID, Yukari.ID, "GensokyoResources/images/monsters/Yukari/Yukari.png", "GensokyoResources/images/monsters/Yukari/YukariOutline.png");
