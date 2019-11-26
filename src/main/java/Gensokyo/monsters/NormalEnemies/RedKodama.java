@@ -22,14 +22,14 @@ public class RedKodama extends CustomMonster
     public static final String[] DIALOG;
     private static final byte ATTACK = 1;
     private static final byte DEBUFF = 2;
-    private static final int NORMAL_ATTACK_DAMAGE = 7;
-    private static final int A2_NORMAL_ATTACK_DAMAGE = 8;
+    private static final int NORMAL_ATTACK_DAMAGE = 6;
+    private static final int A2_NORMAL_ATTACK_DAMAGE = 7;
     private static final int STATUS = 1;
     private static final int A17_STATUS = 2;
-    private static final int HP_MIN = 17;
-    private static final int HP_MAX = 21;
-    private static final int A7_HP_MIN = 18;
-    private static final int A7_HP_MAX = 22;
+    private static final int HP_MIN = 16;
+    private static final int HP_MAX = 20;
+    private static final int A7_HP_MIN = 17;
+    private static final int A7_HP_MAX = 21;
     private int normalDamage;
     private int status;
 
