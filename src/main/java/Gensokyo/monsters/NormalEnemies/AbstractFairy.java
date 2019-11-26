@@ -65,9 +65,9 @@ public abstract class AbstractFairy extends CustomMonster
             }
 
             if (this.nextMove != REVIVE && this.nextMove != LEAVE) {
-                this.setMove(REVIVE, Intent.BUFF);
+                this.setMove(REVIVE, Intent.NONE);
                 this.createIntent();
-                AbstractDungeon.actionManager.addToBottom(new SetMoveAction(this, REVIVE, Intent.BUFF));
+                AbstractDungeon.actionManager.addToBottom(new SetMoveAction(this, REVIVE, Intent.NONE));
             }
             ArrayList<AbstractPower> powersToRemove = new ArrayList<>();
             for (AbstractPower power : this.powers) {

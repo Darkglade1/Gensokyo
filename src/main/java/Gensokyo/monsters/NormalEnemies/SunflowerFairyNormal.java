@@ -91,7 +91,7 @@ public class SunflowerFairyNormal extends AbstractFairy
         if (this.deathCounter >= MAX_DEATHS) {
             this.setMove(LEAVE, Intent.ESCAPE);
         } else if (this.halfDead) {
-            this.setMove(REVIVE, Intent.BUFF);
+            this.setMove(REVIVE, Intent.NONE);
         } else {
             if (num < 40) {
                 this.setMove(APPLY_DEBUFF, Intent.DEBUFF);

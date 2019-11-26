@@ -98,7 +98,7 @@ public class SunflowerFairy extends CustomMonster
         if (leader != null && leader.willLeave()) {
             this.setMove(LEAVE, Intent.ESCAPE);
         } else if (this.halfDead) {
-            this.setMove(REVIVE, Intent.BUFF);
+            this.setMove(REVIVE, Intent.NONE);
         } else {
             this.setMove(ATTACK, Intent.ATTACK_DEBUFF, (this.damage.get(0)).base);
         }
@@ -129,9 +129,9 @@ public class SunflowerFairy extends CustomMonster
                 r.onMonsterDeath(this);
             }
             if (this.nextMove != REVIVE && this.nextMove != LEAVE) {
-                this.setMove(REVIVE, Intent.BUFF);
+                this.setMove(REVIVE, Intent.NONE);
                 this.createIntent();
-                AbstractDungeon.actionManager.addToBottom(new SetMoveAction(this, REVIVE, Intent.BUFF));
+                AbstractDungeon.actionManager.addToBottom(new SetMoveAction(this, REVIVE, Intent.NONE));
             }
             ArrayList<AbstractPower> powersToRemove = new ArrayList<>();
             for (AbstractPower power : this.powers) {

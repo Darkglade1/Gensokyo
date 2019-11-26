@@ -192,7 +192,7 @@ public class Cirno extends CustomMonster
         if(this.willLeave()) {
             this.setMove(LEAVE, Intent.ESCAPE);
         } else if (this.halfDead) {
-            this.setMove(REVIVE, Intent.BUFF);
+            this.setMove(REVIVE, Intent.NONE);
         } else if (this.firstMove) {
             this.setMove(MOVES[0], BUFF, Intent.UNKNOWN);
         } else if (this.buffCounter >= BUFF_COUNTER_THESHOLD) {
@@ -231,9 +231,9 @@ public class Cirno extends CustomMonster
                 r.onMonsterDeath(this);
             }
             if (this.nextMove != REVIVE && this.nextMove != LEAVE) {
-                this.setMove(REVIVE, Intent.BUFF);
+                this.setMove(REVIVE, Intent.NONE);
                 this.createIntent();
-                AbstractDungeon.actionManager.addToBottom(new SetMoveAction(this, REVIVE, Intent.BUFF));
+                AbstractDungeon.actionManager.addToBottom(new SetMoveAction(this, REVIVE, Intent.NONE));
             }
             ArrayList<AbstractPower> powersToRemove = new ArrayList<>();
             for (AbstractPower power : this.powers) {

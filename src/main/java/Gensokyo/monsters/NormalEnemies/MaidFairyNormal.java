@@ -101,7 +101,7 @@ public class MaidFairyNormal extends AbstractFairy
         if (this.deathCounter >= MAX_DEATHS) {
             this.setMove(LEAVE, Intent.ESCAPE);
         } else if (this.halfDead) {
-            this.setMove(REVIVE, Intent.BUFF);
+            this.setMove(REVIVE, Intent.NONE);
         } else {
             if (num < 40) {
                 this.setMove(BLOCK_ATTACK, Intent.ATTACK_DEFEND, this.damage.get(1).base);

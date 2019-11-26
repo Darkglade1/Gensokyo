@@ -97,7 +97,7 @@ public class GreaterFairyNormal extends AbstractFairy
         if (this.deathCounter >= MAX_DEATHS) {
             this.setMove(LEAVE, Intent.ESCAPE);
         } else if (this.halfDead) {
-            this.setMove(REVIVE, Intent.BUFF);
+            this.setMove(REVIVE, Intent.NONE);
         } else {
             if (num < 40) {
                 this.setMove(MULTI_ATTACK, Intent.ATTACK, this.damage.get(1).base, MULTI_HITS, true);

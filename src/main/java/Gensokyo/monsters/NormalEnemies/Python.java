@@ -5,6 +5,7 @@ import basemod.abstracts.CustomMonster;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.actions.common.DamageAction;
+import com.megacrit.cardcrawl.actions.common.RemoveSpecificPowerAction;
 import com.megacrit.cardcrawl.actions.common.RollMoveAction;
 import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
@@ -87,7 +88,13 @@ public class Python extends CustomMonster
             this.setMove(DEBUFF, Intent.DEBUFF);
         }
     }
-    
+
+    @Override
+    public void die(boolean triggerRelics) {
+        super.die(triggerRelics);
+        AbstractDungeon.actionManager.addToBottom(new RemoveSpecificPowerAction(AbstractDungeon.player, this, ConstrictedPower.POWER_ID));
+    }
+
     static {
         monsterStrings = CardCrawlGame.languagePack.getMonsterStrings("Gensokyo:Python");
         NAME = Python.monsterStrings.NAME;
