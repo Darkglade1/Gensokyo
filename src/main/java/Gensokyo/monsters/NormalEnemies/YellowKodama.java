@@ -88,7 +88,7 @@ public class YellowKodama extends CustomMonster
                 AbstractDungeon.actionManager.addToBottom(new VFXAction(new LightningEffect(AbstractDungeon.player.drawX, AbstractDungeon.player.drawY)));
                 AbstractDungeon.actionManager.addToBottom(new SFXAction("ORB_LIGHTNING_EVOKE", 0.1F));
                 AbstractDungeon.actionManager.addToBottom(new DamageAction(AbstractDungeon.player, this.damage.get(1), AbstractGameAction.AttackEffect.NONE));
-                AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(this, this, new StrengthPower(this, buff)));
+                AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(this, this, new StrengthPower(this, buff), buff));
                 break;
             }
         }
@@ -99,8 +99,10 @@ public class YellowKodama extends CustomMonster
     protected void getMove(final int num) {
         if (num < 50 && !this.lastTwoMoves(BUFF_ATTACK)) {
             this.setMove(BUFF_ATTACK, Intent.ATTACK_BUFF, this.damage.get(1).base);
-        } else {
+        } else if (!this.lastTwoMoves(DEBUFF_ATTACK)){
             this.setMove(DEBUFF_ATTACK, Intent.ATTACK_DEBUFF, this.damage.get(0).base);
+        } else {
+            this.setMove(BUFF_ATTACK, Intent.ATTACK_BUFF, this.damage.get(1).base);
         }
     }
     

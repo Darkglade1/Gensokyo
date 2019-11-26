@@ -1,4 +1,4 @@
-//package Gensokyo.scences;
+//package Gensokyo.scenes;
 //
 //import com.badlogic.gdx.graphics.Color;
 //import com.badlogic.gdx.graphics.g2d.SpriteBatch;

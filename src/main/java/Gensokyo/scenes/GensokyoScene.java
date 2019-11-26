@@ -1,4 +1,4 @@
-//package Gensokyo.scences;
+//package Gensokyo.scenes;
 //
 //import Gensokyo.GensokyoMod;
 //import com.badlogic.gdx.Gdx;

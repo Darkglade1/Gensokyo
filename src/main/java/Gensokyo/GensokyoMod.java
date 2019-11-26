@@ -49,6 +49,7 @@ import Gensokyo.monsters.NormalEnemies.GreyKodama;
 import Gensokyo.monsters.NormalEnemies.Gryphon;
 import Gensokyo.monsters.NormalEnemies.LivingMonolith;
 import Gensokyo.monsters.NormalEnemies.MaidFairyNormal;
+import Gensokyo.monsters.NormalEnemies.MoonRabbit;
 import Gensokyo.monsters.NormalEnemies.Python;
 import Gensokyo.monsters.NormalEnemies.RedKodama;
 import Gensokyo.monsters.NormalEnemies.SunflowerFairyNormal;
@@ -267,7 +268,17 @@ public class GensokyoMod implements
         BaseMod.addMonster(CorruptedTreant.ID, (BaseMod.GetMonster)CorruptedTreant::new);
         BaseMod.addMonster(Python.ID, (BaseMod.GetMonster)Python::new);
         BaseMod.addMonster(Gryphon.ID, (BaseMod.GetMonster)Gryphon::new);
-
+        BaseMod.addMonster(EncounterIDs.RABBITS_2, "2_Rabbits", () -> new MonsterGroup(
+                new AbstractMonster[] {
+                        new MoonRabbit(-450.0F, 0.0F, MoonRabbit.TANKER),
+                        new MoonRabbit(-150.0F, 0.0F, MoonRabbit.BUFFER),
+                }));
+        BaseMod.addMonster(EncounterIDs.GRYPHON_AND_RABBIT, "Gryphon_and_Rabbit", () -> new MonsterGroup(
+                new AbstractMonster[] {
+                        new Gryphon(-450.0F, 0.0F),
+                        new MoonRabbit(-150.0F, 0.0F, MoonRabbit.SHIELDER),
+                }));
+        BaseMod.addMonster(EncounterIDs.PYTHON_AND_KODAMA, "Python_and_Kodama", () -> new MonsterGroup(generatePythonAndKodomaGroup()));
 
         BaseMod.addBoss(Gensokyo.ID, Yukari.ID, "GensokyoResources/images/monsters/Yukari/Yukari.png", "GensokyoResources/images/monsters/Yukari/YukariOutline.png");
         BaseMod.addBoss(Gensokyo.ID, Kokoro.ID, "GensokyoResources/images/monsters/Kokoro/Kokoro.png", "GensokyoResources/images/monsters/Kokoro/KokoroOutline.png");
@@ -367,6 +378,31 @@ public class GensokyoMod implements
                 monsters[i] = new ZombieFairyNormal(groupToUse[i], 0.0F);
             } else if (monstersList.get(i) == 4) {
                 monsters[i] = new MaidFairyNormal(groupToUse[i], 0.0F);
+            }
+        }
+
+        return monsters;
+    }
+
+    private AbstractMonster[] generatePythonAndKodomaGroup() {
+        int groupSize = 2;
+        float[] groupPositionsSize2 = {-450.0F, -150.0F};
+        ArrayList<Integer> monstersList = new ArrayList<>();
+        monstersList.add(1);
+        monstersList.add(2);
+        monstersList.add(3);
+        Collections.shuffle(monstersList, AbstractDungeon.monsterRng.random);
+        float[] groupToUse;
+        AbstractMonster[] monsters = new AbstractMonster[groupSize];
+        groupToUse = groupPositionsSize2;
+        monsters[0] = new Python(groupToUse[0], 0.0F);
+        for (int i = 1; i < groupSize; i++) {
+            if (monstersList.get(i) == 1) {
+                monsters[i] = new RedKodama(groupToUse[i], 0.0F);
+            } else if (monstersList.get(i) == 2) {
+                monsters[i] = new GreyKodama(groupToUse[i], 0.0F);
+            } else if (monstersList.get(i) == 3) {
+                monsters[i] = new YellowKodama(groupToUse[i], 0.0F);
             }
         }
 

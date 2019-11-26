@@ -16,7 +16,8 @@ public class PatchingaPatchInJungleBecauseRAAAAAAGH
             paramtypez={
                     ProceedButton.class,
                     AbstractRoom.class
-            }
+            },
+            optional = true
     )
     public static class GoToNextDungeonPatch
     {

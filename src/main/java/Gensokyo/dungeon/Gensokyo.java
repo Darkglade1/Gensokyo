@@ -114,15 +114,15 @@ public class Gensokyo extends CustomDungeon {
     protected void generateStrongEnemies(int count) {
         ArrayList<MonsterInfo> monsters = new ArrayList();
         monsters.add(new MonsterInfo(LivingMonolith.ID, 2.0F));
-        monsters.add(new MonsterInfo("Gremlin Gang", 1.0F));
-        monsters.add(new MonsterInfo("Looter", 2.0F));
+        //monsters.add(new MonsterInfo("Gremlin Gang", 1.0F));
+        //monsters.add(new MonsterInfo("Looter", 2.0F));
         monsters.add(new MonsterInfo(VengefulSpirit.ID, 2.0F));
         monsters.add(new MonsterInfo(EncounterIDs.FAIRIES_5, 1.0F));
-        monsters.add(new MonsterInfo("Exordium Thugs", 1.5F));
-        monsters.add(new MonsterInfo("Exordium Wildlife", 1.5F));
+        monsters.add(new MonsterInfo(EncounterIDs.GRYPHON_AND_RABBIT, 1.5F));
+        monsters.add(new MonsterInfo(EncounterIDs.PYTHON_AND_KODAMA, 1.5F));
         monsters.add(new MonsterInfo(CorruptedTreant.ID, 1.0F));
         monsters.add(new MonsterInfo(EncounterIDs.KODAMA_3, 2.0F));
-        monsters.add(new MonsterInfo("2 Fungi Beasts", 2.0F));
+        monsters.add(new MonsterInfo(EncounterIDs.RABBITS_2, 2.0F));
         MonsterInfo.normalizeWeights(monsters);
         this.populateFirstStrongEnemy(monsters, this.generateExclusions());
         this.populateMonsterList(monsters, count, false);
@@ -139,57 +139,21 @@ public class Gensokyo extends CustomDungeon {
     @Override
     protected ArrayList<String> generateExclusions() {
         ArrayList<String> retVal = new ArrayList();
-        String var2 = monsterList.get(monsterList.size() - 1);
-        byte var3 = -1;
-        switch(var2.hashCode()) {
-            case -2013219467:
-                if (var2.equals("Looter")) {
-                    var3 = 0;
-                }
-                break;
-            case -1879712874:
-                if (var2.equals(EncounterIDs.KODAMA_2)) {
-                    var3 = 4;
-                }
-                break;
-            case -1508851536:
-                if (var2.equals("Cultist")) {
-                    var3 = 2;
-                }
-                break;
-            case -548386477:
-                if (var2.equals("Jaw Worm")) {
-                    var3 = 1;
-                }
-                break;
-            case 70731812:
-                if (var2.equals("Small Slimes")) {
-                    var3 = 5;
-                }
-                break;
-            case 1637395457:
-                if (var2.equals("Blue Slaver")) {
-                    var3 = 3;
-                }
-        }
-
-        switch(var3) {
-            case 0:
-                retVal.add("Exordium Thugs");
-            case 1:
-            case 2:
-            default:
-                break;
-            case 3:
-                retVal.add("Red Slaver");
-                retVal.add("Exordium Thugs");
-                break;
-            case 4:
+        switch (monsterList.get(monsterList.size() - 1))
+        {
+            case EncounterIDs.KODAMA_2:
+                retVal.add(EncounterIDs.PYTHON_AND_KODAMA);
                 retVal.add(EncounterIDs.KODAMA_3);
                 break;
-            case 5:
-                retVal.add("Large Slime");
-                retVal.add("Lots of Slimes");
+            case EncounterIDs.FAIRIES_3:
+                retVal.add(EncounterIDs.FAIRIES_5);
+                break;
+            case Gryphon.ID:
+                retVal.add(EncounterIDs.GRYPHON_AND_RABBIT);
+                break;
+            case Python.ID:
+                retVal.add(EncounterIDs.PYTHON_AND_KODAMA);
+                break;
         }
 
         return retVal;

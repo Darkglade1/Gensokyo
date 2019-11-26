@@ -85,10 +85,12 @@ public class GreyKodama extends CustomMonster
 
     @Override
     protected void getMove(final int num) {
-        if (num < 40 && !this.lastTwoMoves(BUFF_ATTACK)) {
+        if (num < 50 && !this.lastTwoMoves(BUFF_ATTACK)) {
             this.setMove(BUFF_ATTACK, Intent.ATTACK_BUFF, this.damage.get(1).base);
-        } else {
+        } else if (!this.lastTwoMoves(ATTACK)){
             this.setMove(ATTACK, Intent.ATTACK, this.damage.get(0).base);
+        } else {
+            this.setMove(BUFF_ATTACK, Intent.ATTACK_BUFF, this.damage.get(1).base);
         }
     }
     

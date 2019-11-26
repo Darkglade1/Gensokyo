@@ -80,10 +80,12 @@ public class RedKodama extends CustomMonster
 
     @Override
     protected void getMove(final int num) {
-        if (num < 40 && !this.lastTwoMoves(DEBUFF)) {
+        if (num < 50 && !this.lastTwoMoves(DEBUFF)) {
             this.setMove(DEBUFF, Intent.DEBUFF);
-        } else {
+        } else if (!this.lastTwoMoves(ATTACK)){
             this.setMove(ATTACK, Intent.ATTACK, this.damage.get(0).base);
+        } else {
+            this.setMove(DEBUFF, Intent.DEBUFF);
         }
     }
     

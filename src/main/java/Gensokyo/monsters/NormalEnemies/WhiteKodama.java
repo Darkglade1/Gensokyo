@@ -93,8 +93,10 @@ public class WhiteKodama extends CustomMonster
     protected void getMove(final int num) {
         if (num < 50 && !this.lastTwoMoves(BLOCK_ATTACK)) {
             this.setMove(BLOCK_ATTACK, Intent.ATTACK_DEFEND, this.damage.get(1).base);
-        } else {
+        } else if (!this.lastTwoMoves(DEBUFF_ATTACK)){
             this.setMove(DEBUFF_ATTACK, Intent.ATTACK_DEBUFF, this.damage.get(0).base);
+        } else {
+            this.setMove(BLOCK_ATTACK, Intent.ATTACK_DEFEND, this.damage.get(1).base);
         }
     }
     
