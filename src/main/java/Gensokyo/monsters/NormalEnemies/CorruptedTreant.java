@@ -28,8 +28,8 @@ public class CorruptedTreant extends CustomMonster
     private static final int A2_ATTACK_DAMAGE = 10;
     private static final int DEBUFF_AMOUNT = 1;
     private static final int POWER_THRESHOLD = 15;
-    private static final int POWER_DAMAGE = 6;
-    private static final int A17_POWER_DAMAGE = 8;
+    private static final int POWER_DAMAGE = 4;
+    private static final int A17_POWER_DAMAGE = 5;
     private static final int HP_MIN = 48;
     private static final int HP_MAX = 52;
     private static final int A7_HP_MIN = 50;

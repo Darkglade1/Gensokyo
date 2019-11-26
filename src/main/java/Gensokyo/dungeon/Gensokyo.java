@@ -5,6 +5,7 @@ import Gensokyo.monsters.Cirno;
 import Gensokyo.monsters.Mamizou;
 import Gensokyo.monsters.NormalEnemies.CorruptedTreant;
 import Gensokyo.monsters.NormalEnemies.Gryphon;
+import Gensokyo.monsters.NormalEnemies.Kitsune;
 import Gensokyo.monsters.NormalEnemies.LivingMonolith;
 import Gensokyo.monsters.NormalEnemies.Python;
 import Gensokyo.monsters.NormalEnemies.VengefulSpirit;
@@ -115,7 +116,7 @@ public class Gensokyo extends CustomDungeon {
         ArrayList<MonsterInfo> monsters = new ArrayList();
         monsters.add(new MonsterInfo(LivingMonolith.ID, 2.0F));
         //monsters.add(new MonsterInfo("Gremlin Gang", 1.0F));
-        //monsters.add(new MonsterInfo("Looter", 2.0F));
+        monsters.add(new MonsterInfo(Kitsune.ID, 2.0F));
         monsters.add(new MonsterInfo(VengefulSpirit.ID, 2.0F));
         monsters.add(new MonsterInfo(EncounterIDs.FAIRIES_5, 1.0F));
         monsters.add(new MonsterInfo(EncounterIDs.GRYPHON_AND_RABBIT, 1.5F));

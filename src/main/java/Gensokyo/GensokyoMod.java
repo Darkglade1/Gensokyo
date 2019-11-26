@@ -47,6 +47,7 @@ import Gensokyo.monsters.NormalEnemies.CorruptedTreant;
 import Gensokyo.monsters.NormalEnemies.GreaterFairyNormal;
 import Gensokyo.monsters.NormalEnemies.GreyKodama;
 import Gensokyo.monsters.NormalEnemies.Gryphon;
+import Gensokyo.monsters.NormalEnemies.Kitsune;
 import Gensokyo.monsters.NormalEnemies.LivingMonolith;
 import Gensokyo.monsters.NormalEnemies.MaidFairyNormal;
 import Gensokyo.monsters.NormalEnemies.MoonRabbit;
@@ -266,6 +267,7 @@ public class GensokyoMod implements
         BaseMod.addMonster(VengefulSpirit.ID, (BaseMod.GetMonster)VengefulSpirit::new);
         BaseMod.addMonster(LivingMonolith.ID, (BaseMod.GetMonster)LivingMonolith::new);
         BaseMod.addMonster(CorruptedTreant.ID, (BaseMod.GetMonster)CorruptedTreant::new);
+        BaseMod.addMonster(Kitsune.ID, (BaseMod.GetMonster)Kitsune::new);
         BaseMod.addMonster(Python.ID, (BaseMod.GetMonster)Python::new);
         BaseMod.addMonster(Gryphon.ID, (BaseMod.GetMonster)Gryphon::new);
         BaseMod.addMonster(EncounterIDs.RABBITS_2, "2_Rabbits", () -> new MonsterGroup(

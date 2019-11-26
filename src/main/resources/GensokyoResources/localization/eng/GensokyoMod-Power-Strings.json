@@ -126,5 +126,9 @@
 "Gensokyo:RottingWood": {
         "NAME": "Rotting Wood",
         "DESCRIPTIONS": ["After receiving #b", " more damage, deals #b", " damage to you."]
+},
+"Gensokyo:Trickster": {
+        "NAME": "Trickster",
+        "DESCRIPTIONS": ["The first card you play each turn is #yexhausted."]
 }
 }

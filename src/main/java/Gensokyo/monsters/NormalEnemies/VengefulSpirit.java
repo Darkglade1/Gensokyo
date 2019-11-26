@@ -32,8 +32,8 @@ public class VengefulSpirit extends CustomMonster
     private static final int A2_DEBUFF_ATTACK_DAMAGE = 6;
     private static final int BLOCK_ATTACK_DAMAGE = 4;
     private static final int A2_BLOCK_ATTACK_DAMAGE = 5;
-    private static final int BLOCK = 7;
-    private static final int A7_BLOCK = 8;
+    private static final int BLOCK = 5;
+    private static final int A7_BLOCK = 6;
     private static final int DEBUFF = 1;
     private static final int MAJOR_CURSE_AMT = 1;
     private static final int MINOR_CURSE_AMT = 1;

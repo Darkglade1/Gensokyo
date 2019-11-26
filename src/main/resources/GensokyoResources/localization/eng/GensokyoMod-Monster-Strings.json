@@ -166,6 +166,12 @@
 
     ],
     "NAME": "Moon Rabbit"
+  },
+  "Gensokyo:Kitsune": {
+    "MOVES": [
+
+    ],
+    "NAME": "Kitsune"
   }
 }
 
