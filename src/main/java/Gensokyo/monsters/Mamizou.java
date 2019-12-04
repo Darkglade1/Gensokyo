@@ -232,6 +232,7 @@ public class Mamizou extends CustomMonster
                 break;
             }
             case POLYMORPH: {
+                runAnim("SpellC");
                 AbstractDungeon.actionManager.addToBottom(new VFXAction(new SmokeBombEffect(AbstractDungeon.player.hb.cX, AbstractDungeon.player.hb.cY)));
                 AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(AbstractDungeon.player, this, new PolymorphPower(AbstractDungeon.player, 1, true), 1));
                 polymorphing = false;
@@ -365,7 +366,7 @@ public class Mamizou extends CustomMonster
 
     @Override
     public void die(boolean triggerRelics) {
-        //runAnim("Defeat");
+        runAnim("Defeat");
         super.die(triggerRelics);
     }
 
