@@ -125,7 +125,7 @@ public class Cirno extends CustomMonster
     public void takeTurn() {
         switch (this.nextMove) {
             case BUFF: {
-                //runAnim("Spell");
+                runAnim("SpellCall");
                 if (this.firstMove) {
                     AbstractDungeon.actionManager.addToBottom(new TalkAction(this, DIALOG[0]));
                     this.firstMove = false;
@@ -135,14 +135,14 @@ public class Cirno extends CustomMonster
                 break;
             }
             case DEBUFF_ATTACK: {
-                //runAnim("Fan");
+                runAnim("Punch");
                 AbstractDungeon.actionManager.addToBottom(new DamageAction(AbstractDungeon.player, this.damage.get(1), AbstractGameAction.AttackEffect.BLUNT_LIGHT));
                 AbstractDungeon.actionManager.addToBottom(new MakeTempCardInDiscardAction(new Frozen(), this.status));
                 buffCounter++;
                 break;
             }
             case ATTACK: {
-                //runAnim("Parasol");
+                runAnim("Punch");
                 for (int i = 0; i < NORMAL_ATTACK_HITS; i++) {
                     AbstractDungeon.actionManager.addToBottom(new DamageAction(AbstractDungeon.player, this.damage.get(0), AbstractGameAction.AttackEffect.BLUNT_HEAVY));
                 }
@@ -150,7 +150,7 @@ public class Cirno extends CustomMonster
                 break;
             }
             case GROUP_BUFF: {
-                //runAnim("Parasol");
+                runAnim("SpellCall");
                 AbstractDungeon.actionManager.addToBottom(new TalkAction(this, DIALOG[2]));
                 for (AbstractMonster mo : AbstractDungeon.getCurrRoom().monsters.monsters) {
                     if (mo instanceof GreaterFairy) {
@@ -174,6 +174,7 @@ public class Cirno extends CustomMonster
                 break;
             }
             case LEAVE:
+                runAnim("Walk");
                 AbstractDungeon.actionManager.addToBottom(new TalkAction(this, DIALOG[1]));
                 AbstractDungeon.actionManager.addToBottom(new EscapeAction(this));
                 AbstractDungeon.actionManager.addToBottom(new SetMoveAction(this, LEAVE, Intent.ESCAPE));
@@ -268,12 +269,6 @@ public class Cirno extends CustomMonster
         DIALOG = Cirno.monsterStrings.DIALOG;
     }
 
-    @Override
-    public void die(boolean triggerRelics) {
-        //runAnim("Defeat");
-        super.die(triggerRelics);
-    }
-
     //Runs a specific animation
     public void runAnim(String animation) {
         ((BetterSpriterAnimation)this.animation).myPlayer.setAnimation(animation);
@@ -282,13 +277,6 @@ public class Cirno extends CustomMonster
     //Resets character back to idle animation
     public void resetAnimation() {
         ((BetterSpriterAnimation)this.animation).myPlayer.setAnimation("Idle");
-    }
-
-    //Prevents any further animation once the death animation is finished
-    public void stopAnimation() {
-        int time = ((BetterSpriterAnimation)this.animation).myPlayer.getAnimation().length;
-        ((BetterSpriterAnimation)this.animation).myPlayer.setTime(time);
-        ((BetterSpriterAnimation)this.animation).myPlayer.speed = 0;
     }
 
     public class CirnoListener implements Player.PlayerListener {
@@ -300,9 +288,7 @@ public class Cirno extends CustomMonster
         }
 
         public void animationFinished(Animation animation){
-            if (animation.name.equals("Defeat")) {
-                character.stopAnimation();
-            } else if (!animation.name.equals("Idle")) {
+            if (!animation.name.equals("Walk") && !animation.name.equals("Idle")) {
                 character.resetAnimation();
             }
         }
