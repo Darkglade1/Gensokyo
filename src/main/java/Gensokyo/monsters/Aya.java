@@ -100,7 +100,7 @@ public class Aya extends CustomMonster
     public void takeTurn() {
         switch (this.nextMove) {
             case BUFF: {
-                //runAnim("Spell");
+                runAnim("Spellcard");
                 if (this.firstMove) {
                     AbstractDungeon.actionManager.addToBottom(new TalkAction(this, DIALOG[0]));
                     this.firstMove = false;
@@ -111,13 +111,13 @@ public class Aya extends CustomMonster
                 break;
             }
             case DEBUFF_ATTACK: {
-                //runAnim("Fan");
+                runAnim("AttackDash");
                 AbstractDungeon.actionManager.addToBottom(new DamageAction(AbstractDungeon.player, this.damage.get(1), AbstractGameAction.AttackEffect.SLASH_DIAGONAL));
                 AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(AbstractDungeon.player, this, new WeakPower(AbstractDungeon.player, DEBUFF_AMOUNT, true), DEBUFF_AMOUNT));
                 break;
             }
             case ATTACK: {
-                //runAnim("Parasol");
+                runAnim("AttackFan");
                 for (int i = 0; i < NORMAL_ATTACK_HITS; i++) {
                     AbstractDungeon.actionManager.addToBottom(new DamageAction(AbstractDungeon.player, this.damage.get(0), AbstractGameAction.AttackEffect.BLUNT_LIGHT));
                 }
@@ -157,7 +157,7 @@ public class Aya extends CustomMonster
 
     @Override
     public void die(boolean triggerRelics) {
-        //runAnim("Defeat");
+        runAnim("Defeat");
         super.die(triggerRelics);
     }
 
