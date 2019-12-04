@@ -1,10 +1,12 @@
 package Gensokyo.monsters;
 
+import Gensokyo.BetterSpriterAnimation;
 import Gensokyo.powers.DeathMark;
 import Gensokyo.powers.Vengeance;
 import Gensokyo.relics.CelestialsFlawlessClothing;
 import basemod.abstracts.CustomMonster;
-import basemod.animations.SpriterAnimation;
+import com.brashmonkey.spriter.Animation;
+import com.brashmonkey.spriter.Player;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.animations.TalkAction;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
@@ -21,7 +23,6 @@ import com.megacrit.cardcrawl.powers.AbstractPower;
 import com.megacrit.cardcrawl.powers.FrailPower;
 import com.megacrit.cardcrawl.powers.IntangiblePlayerPower;
 import com.megacrit.cardcrawl.powers.WeakPower;
-import com.megacrit.cardcrawl.rooms.AbstractRoom;
 
 public class Komachi extends CustomMonster
 {
@@ -60,8 +61,8 @@ public class Komachi extends CustomMonster
     }
     
     public Komachi(final float x, final float y) {
-        super(Komachi.NAME, ID, HP_MAX, -5.0F, 0, 280.0f, 255.0f, null, x, y);
-        this.animation = new SpriterAnimation("GensokyoResources/images/monsters/Komachi/Spriter/KomachiAnimations.scml");
+        super(Komachi.NAME, ID, HP_MAX, -5.0F, 0, 240.0f, 255.0f, null, x, y);
+        this.animation = new BetterSpriterAnimation("GensokyoResources/images/monsters/Komachi/Spriter/KomachiAnimations.scml");
         this.type = AbstractMonster.EnemyType.ELITE;
         this.dialogX = (this.hb_x - 70.0F) * Settings.scale;
         this.dialogY -= (this.hb_y - 55.0F) * Settings.scale;
@@ -87,6 +88,9 @@ public class Komachi extends CustomMonster
             this.deathCounter = DEATH_COUNTER;
         }
         this.damage.add(new DamageInfo(this, this.scytheDmg));
+
+        Player.PlayerListener listener = new KomachiListener(this);
+        ((BetterSpriterAnimation)this.animation).myPlayer.addListener(listener);
     }
 
     @Override
@@ -115,6 +119,7 @@ public class Komachi extends CustomMonster
     public void takeTurn() {
         switch (this.nextMove) {
             case 1: {
+                runAnim("Scythe");
                 if (scytheIntent == Intent.ATTACK_DEBUFF) {
                     for (AbstractPower power : AbstractDungeon.player.powers) {
                         if (power.type == AbstractPower.PowerType.BUFF) {
@@ -126,11 +131,13 @@ public class Komachi extends CustomMonster
                 break;
             }
             case 2: {
+                runAnim("SpellB");
                 AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(AbstractDungeon.player, this, new WeakPower(AbstractDungeon.player, WEAK_AMT, true), WEAK_AMT));
                 AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(AbstractDungeon.player, this, new FrailPower(AbstractDungeon.player, FRAIL_AMT, true), FRAIL_AMT));
                 break;
             }
             case 3: {
+                runAnim("SpellB");
                 if (tier >= 0 && tier - 1 < DIALOG.length) {
                     AbstractDungeon.actionManager.addToBottom(new TalkAction(this, Komachi.DIALOG[tier - 1]));
                 }
@@ -163,5 +170,65 @@ public class Komachi extends CustomMonster
         NAME = Komachi.monsterStrings.NAME;
         MOVES = Komachi.monsterStrings.MOVES;
         DIALOG = Komachi.monsterStrings.DIALOG;
+    }
+
+    @Override
+    public void die(boolean triggerRelics) {
+        runAnim("Defeat");
+        super.die(triggerRelics);
+    }
+
+    //Runs a specific animation
+    public void runAnim(String animation) {
+        ((BetterSpriterAnimation)this.animation).myPlayer.setAnimation(animation);
+    }
+
+    //Resets character back to idle animation
+    public void resetAnimation() {
+        ((BetterSpriterAnimation)this.animation).myPlayer.setAnimation("Idle");
+    }
+
+    //Prevents any further animation once the death animation is finished
+    public void stopAnimation() {
+        int time = ((BetterSpriterAnimation)this.animation).myPlayer.getAnimation().length;
+        ((BetterSpriterAnimation)this.animation).myPlayer.setTime(time);
+        ((BetterSpriterAnimation)this.animation).myPlayer.speed = 0;
+    }
+
+    public class KomachiListener implements Player.PlayerListener {
+
+        private Komachi character;
+
+        public KomachiListener(Komachi character) {
+            this.character = character;
+        }
+
+        public void animationFinished(Animation animation){
+            if (animation.name.equals("Defeat")) {
+                character.stopAnimation();
+            } else if (!animation.name.equals("Idle")) {
+                character.resetAnimation();
+            }
+        }
+
+        //UNUSED
+        public void animationChanged(Animation var1, Animation var2){
+
+        }
+
+        //UNUSED
+        public void preProcess(Player var1){
+
+        }
+
+        //UNUSED
+        public void postProcess(Player var1){
+
+        }
+
+        //UNUSED
+        public void mainlineKeyChanged(com.brashmonkey.spriter.Mainline.Key var1, com.brashmonkey.spriter.Mainline.Key var2){
+
+        }
     }
 }
