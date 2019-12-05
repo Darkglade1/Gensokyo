@@ -47,7 +47,8 @@ public class Komachi extends CustomMonster
     private int deathCounter;
     private static final int WEAK_AMT = 2;
     private static final int FRAIL_AMT = 2;
-    private static float actMultiplier = 1.0f;
+    private static float actMultiplier = 0.0f;
+    private static final float ACT_1_MULTIPLIER = 1.0f;
     private static final float ACT_2_MULTIPLIER = 1.5f;
     private static final float ACT_3_MULTIPLIER = 2.0f;
     private static final float ACT_4_MULTIPLIER = 2.5f;
@@ -66,11 +67,13 @@ public class Komachi extends CustomMonster
         this.type = AbstractMonster.EnemyType.ELITE;
         this.dialogX = (this.hb_x - 70.0F) * Settings.scale;
         this.dialogY -= (this.hb_y - 55.0F) * Settings.scale;
-        if (AbstractDungeon.actNum == 2) {
+        if (AbstractDungeon.actNum == 1) {
+            actMultiplier = ACT_1_MULTIPLIER;
+        } else if (AbstractDungeon.actNum == 2) {
             actMultiplier = ACT_2_MULTIPLIER;
         } else if (AbstractDungeon.actNum == 3) {
             actMultiplier = ACT_3_MULTIPLIER;
-        } else if (AbstractDungeon.actNum == 4) {
+        } else {
             actMultiplier = ACT_4_MULTIPLIER;
         }
         if (AbstractDungeon.ascensionLevel >= 8) {

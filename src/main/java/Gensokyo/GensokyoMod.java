@@ -25,6 +25,7 @@ import Gensokyo.events.ABanquetForGhosts;
 import Gensokyo.events.ACelestialsPlight;
 import Gensokyo.events.AHoleInReality;
 import Gensokyo.events.ALandWhereOnlyIAmMissing;
+import Gensokyo.events.AMomentFractured;
 import Gensokyo.events.ASwiftSlash;
 import Gensokyo.events.BambooForestOfTheLost;
 import Gensokyo.events.ClashOfLegends;
@@ -309,6 +310,7 @@ public class GensokyoMod implements
         BaseMod.addEvent(GardenOfTheSun.ID, GardenOfTheSun.class, Gensokyo.ID);
         BaseMod.addEvent(DemonBookSeller.ID, DemonBookSeller.class, Gensokyo.ID);
         BaseMod.addEvent(ABanquetForGhosts.ID, ABanquetForGhosts.class, Gensokyo.ID);
+        BaseMod.addEvent(AMomentFractured.ID, AMomentFractured.class, Gensokyo.ID);
         
         // =============== /EVENTS/ =================
 
