@@ -30,51 +30,39 @@ public class AMomentFractured extends AbstractImageEvent {
 
     public AMomentFractured() {
         super(NAME, DESCRIPTIONS[0], IMG);
-
-        this.imageEventText.setDialogOption(OPTIONS[1]);
-        this.imageEventText.setDialogOption(OPTIONS[2]);
-        this.imageEventText.setDialogOption(OPTIONS[3]);
+        this.imageEventText.setDialogOption(OPTIONS[0]);
     }
 
     @Override
-    protected void buttonEffect(int buttonPressed) { // This is the event:
+    protected void buttonEffect(int buttonPressed) {
         switch (screenNum) {
             case 0:
-                switch (buttonPressed) {
-                    case 0: //Encounter a normal enemy
-                        this.imageEventText.updateBodyText(DESCRIPTIONS[1]);
-                        screenNum = 1;
-                        this.imageEventText.updateDialogOption(0, OPTIONS[0]);
-                        this.imageEventText.clearRemainingOptions();
-
-                        encounterNormalEnemy();
-                        break;
-                    case 1: // Encounter an elite enemy
-                        this.imageEventText.updateBodyText(DESCRIPTIONS[3]);
-                        screenNum = 2;
-                        this.imageEventText.updateDialogOption(0, OPTIONS[3]);
-                        this.imageEventText.clearRemainingOptions();
-
-                        encounterEliteEnemy();
-                        break;
-                    case 2: // Encounter a random event
-                        this.imageEventText.updateBodyText(DESCRIPTIONS[3]);
-                        screenNum = 2;
-                        this.imageEventText.updateDialogOption(0, OPTIONS[3]);
-                        this.imageEventText.clearRemainingOptions();
-
-                        encounterRandomEvent();
-                        break;
-                }
+                this.imageEventText.updateBodyText(DESCRIPTIONS[1]);
+                screenNum = 1;
                 break;
             case 1:
                 this.imageEventText.updateBodyText(DESCRIPTIONS[2]);
                 screenNum = 2;
-                this.imageEventText.updateDialogOption(0, OPTIONS[3]);
-                this.imageEventText.clearRemainingOptions();
+                this.imageEventText.clearAllDialogs();
+                this.imageEventText.setDialogOption(OPTIONS[1]);
+                this.imageEventText.setDialogOption(OPTIONS[2]);
+                this.imageEventText.setDialogOption(OPTIONS[3]);
                 break;
             case 2:
-                this.openMap();
+                switch (buttonPressed) {
+                    case 0: //Encounter a normal enemy
+                        screenNum = 3;
+                        encounterNormalEnemy();
+                        break;
+                    case 1: // Encounter an elite enemy
+                        screenNum = 3;
+                        encounterEliteEnemy();
+                        break;
+                    case 2: // Encounter a random event
+                        screenNum = 3;
+                        encounterRandomEvent();
+                        break;
+                }
                 break;
             default:
                 this.openMap();
@@ -86,7 +74,6 @@ public class AMomentFractured extends AbstractImageEvent {
         final MapRoomNode cur = AbstractDungeon.currMapNode;
         final MapRoomNode node = new MapRoomNode(cur.x, cur.y);
         node.room = new MonsterRoom();
-        AbstractDungeon.monsterList.remove(0);
         final ArrayList<MapEdge> curEdges = cur.getEdges();
         for (final MapEdge edge : curEdges) {
             node.addEdge(edge);
@@ -103,6 +90,7 @@ public class AMomentFractured extends AbstractImageEvent {
         AbstractDungeon.player.preBattlePrep();
         AbstractDungeon.scene.nextRoom(node.room);
         AbstractDungeon.rs = AbstractDungeon.RenderScene.NORMAL;
+        AbstractDungeon.monsterList.remove(0);
     }
 
     private void encounterEliteEnemy() {
@@ -110,7 +98,6 @@ public class AMomentFractured extends AbstractImageEvent {
         final MapRoomNode cur2 = AbstractDungeon.currMapNode;
         final MapRoomNode node2 = new MapRoomNode(cur2.x, cur2.y);
         node2.room = new MonsterRoomElite();
-        AbstractDungeon.eliteMonsterList.remove(0);
         final ArrayList<MapEdge> curEdges2 = cur2.getEdges();
         for (final MapEdge edge : curEdges2) {
             node2.addEdge(edge);
@@ -127,6 +114,7 @@ public class AMomentFractured extends AbstractImageEvent {
         AbstractDungeon.player.preBattlePrep();
         AbstractDungeon.scene.nextRoom(node2.room);
         AbstractDungeon.rs = AbstractDungeon.RenderScene.NORMAL;
+        AbstractDungeon.eliteMonsterList.remove(0);
     }
 
     private void encounterRandomEvent() {

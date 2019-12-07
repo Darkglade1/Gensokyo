@@ -337,17 +337,15 @@
   "Gensokyo:AMomentFractured": {
     "NAME": "A Moment, Fractured",
     "DESCRIPTIONS": [
-      "You find something #pstrange on the ground. A crack in reality, with #rribbons adorning its ends and a dozen eyes staring at you from within its depths. NL NL You feel a sudden urge to ~jump~ into it. NL NL There is no way that plan can go wrong.",
-      "You fall into the #pabyss, tumbling through a dimension that was neither ~here~ nor ~there,~ neither #rhot nor #bcold, neither @strange@ nor @shallow.@ NL NL And the #peyes. The #peyes were @everywhere,@ following your descent, thousands upon thousands of gazes #r@boring@ into you, watching, waiting. NL NL It’s too much. The #peyes were mocking you, judging you, their constant gaze building up a very real @pressure@ within you -",
-      "Something @snaps.@ You're not sure when, but you find yourself outside of that #rhellish landscape, finally free of that #pabyss. NL NL But the #peyes. The #peyes are still there, all around you, watching, waiting. NL NL There is no escape from the #peyes.",
-      "You manage to reign in your sudden urge. Trusting your life to some freaky hole in the ground didn't sound appealing to you."
+      "The world ~shifts~ before your eyes. Your surroundings fragment, distorting into a #pchaotic mess. Memories warp and manifest, roaming the corridors, figments of imagination that only exist to fade away. NL NL \"Which world are we going to visit this time, Mary?\" NL NL \"We haven't been to that strange land of #billusions in a while, have we? Or perhaps we could take a look at that space station again . . .\" NL NL \"The space station again? Do you really want to get #rcut #rup again that badly?\"",
+      "\"We’ll be better prepared this time! And besides, didn't you think the #gflora looked cool?\" NL NL \"When it wasn't trying to eat us, yeah.\" NL NL There are two girls in this #pimpossible realm with you, two girls who look entirely too much at ease given the #pstrangeness of the situation. NL NL \"Oh? Look, Renko! Another traveler is here!\" NL NL \"I didn't think anyone other than your clan could find this place.\" She turns towards you. \"What brings you here to the crossroad between worlds?\"",
+      "You explain that you have no idea what this place is or how you even got here. NL NL \"Ah, is that so? That’s unfortunate; people fall through the cracks sometimes.\" She waves a hand, tearing a #p@rift@ in reality before you. \"Here, I’ll send you back out. Make sure you think hard about where you want to end up!\""
     ],
     "OPTIONS": [
       "[Continue]",
       "[Encounter a normal enemy]",
       "[Encounter an elite enemy]",
-      "[Encounter a random event]",
-      "[Leave]"
+      "[Encounter a random event]"
     ]
   },
   "Gensokyo:ForkInTheRoad": {
