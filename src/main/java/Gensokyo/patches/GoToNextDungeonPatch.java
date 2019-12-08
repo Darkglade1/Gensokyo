@@ -2,10 +2,19 @@ package Gensokyo.patches;
 
 import Gensokyo.dungeon.CustomDungeon;
 import Gensokyo.events.GetForked;
-import basemod.BaseMod;
-import com.evacipated.cardcrawl.modthespire.lib.*;
+import com.evacipated.cardcrawl.modthespire.lib.LineFinder;
+import com.evacipated.cardcrawl.modthespire.lib.Matcher;
+import com.evacipated.cardcrawl.modthespire.lib.SpireInsertLocator;
+import com.evacipated.cardcrawl.modthespire.lib.SpireInsertPatch;
+import com.evacipated.cardcrawl.modthespire.lib.SpirePatch;
+import com.evacipated.cardcrawl.modthespire.lib.SpireReturn;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
-import com.megacrit.cardcrawl.dungeons.*;
+import com.megacrit.cardcrawl.core.Settings;
+import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
+import com.megacrit.cardcrawl.dungeons.Exordium;
+import com.megacrit.cardcrawl.dungeons.TheBeyond;
+import com.megacrit.cardcrawl.dungeons.TheCity;
+import com.megacrit.cardcrawl.dungeons.TheEnding;
 import com.megacrit.cardcrawl.rooms.AbstractRoom;
 import com.megacrit.cardcrawl.rooms.EventRoom;
 import com.megacrit.cardcrawl.ui.buttons.ProceedButton;
@@ -34,15 +43,17 @@ public class GoToNextDungeonPatch {
                     CardCrawlGame.nextDungeon = TheBeyond.ID;
                     break;
                 case CustomDungeon.THEENDING:
-                    CardCrawlGame.nextDungeon = TheEnding.ID;
+                    if (Settings.isEndless) {
+                        CardCrawlGame.nextDungeon = Exordium.ID;
+                    } else {
+                        CardCrawlGame.nextDungeon = TheEnding.ID;
+                    }
                     break;
-
                 default:
                     CardCrawlGame.nextDungeon = Exordium.ID;
                     break;
             }
         }
-
         return SpireReturn.Continue();
     }
 

@@ -16,6 +16,7 @@ import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.helpers.ImageMaster;
 import com.megacrit.cardcrawl.localization.UIStrings;
 import com.megacrit.cardcrawl.monsters.MonsterInfo;
+import com.megacrit.cardcrawl.neow.NeowEvent;
 import com.megacrit.cardcrawl.saveAndContinue.SaveFile;
 import com.megacrit.cardcrawl.scenes.TheBottomScene;
 
@@ -30,6 +31,7 @@ public class Gensokyo extends CustomDungeon {
 
     public Gensokyo() {
         super(new TheBottomScene(), NAME, ID);
+        this.onEnterEvent(NeowEvent.class);
     }
 
     public Gensokyo(CustomDungeon cd, AbstractPlayer p, ArrayList<String> emptyList) {
@@ -64,6 +66,7 @@ public class Gensokyo extends CustomDungeon {
         if (scene != null && scene != cd.savedScene) {
             scene.dispose();
         }
+
         scene = new TheBottomScene();
         fadeColor = cd.savedFadeColor;
         this.name = cd.name;
