@@ -5,9 +5,12 @@ import Gensokyo.actions.KillAction;
 import Gensokyo.util.TextureLoader;
 import basemod.abstracts.CustomRelic;
 import com.badlogic.gdx.graphics.Texture;
+import com.evacipated.cardcrawl.mod.stslib.relics.OnPlayerDeathRelic;
 import com.megacrit.cardcrawl.actions.animations.VFXAction;
 import com.megacrit.cardcrawl.actions.common.RelicAboveCreatureAction;
 import com.megacrit.cardcrawl.actions.utility.SFXAction;
+import com.megacrit.cardcrawl.cards.DamageInfo;
+import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.AbstractCreature;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
@@ -19,7 +22,7 @@ import java.util.Iterator;
 import static Gensokyo.GensokyoMod.makeRelicOutlinePath;
 import static Gensokyo.GensokyoMod.makeRelicPath;
 
-public class PerfectCherryBlossom extends CustomRelic {
+public class PerfectCherryBlossom extends CustomRelic implements OnPlayerDeathRelic {
 
     public static final String ID = GensokyoMod.makeID("PerfectCherryBlossom");
 
@@ -75,6 +78,15 @@ public class PerfectCherryBlossom extends CustomRelic {
 
         AbstractDungeon.player.heal(healAmt, true);
         this.counter = 0;
+    }
+
+    @Override
+    public boolean onPlayerDeath(AbstractPlayer p, DamageInfo damageInfo) {
+        if (this.counter != 0) {
+            this.onTrigger(AbstractDungeon.player);
+            return false;
+        }
+        return true;
     }
 
     // Description

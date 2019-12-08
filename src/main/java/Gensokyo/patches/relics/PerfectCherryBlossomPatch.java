@@ -18,7 +18,6 @@ import javassist.CtBehavior;
         paramtypez = DamageInfo.class
 )
 
-// A patch that increases the drop rate of Arcana cards
 public class PerfectCherryBlossomPatch {
     @SpireInsertPatch(locator = Locator.class)
     public static void trigger(AbstractPlayer instance, DamageInfo info) {
