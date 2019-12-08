@@ -6,14 +6,6 @@ import static com.megacrit.cardcrawl.core.CardCrawlGame.languagePack;
 
 public abstract class AbstractDefaultCard extends CustomCard {
 
-    // Custom Abstract Cards can be a bit confusing. While this is a simple base for simply adding a second magic number,
-    // if you're new to modding I suggest you skip this file until you know what unique things that aren't provided
-    // by default, that you need in your own cards.
-
-    // In this example, we use a custom Abstract Card in order to define a new magic number. From here on out, we can
-    // simply use that in our cards, so long as we put "extends AbstractDynamicCard" instead of "extends CustomCard" at the start.
-    // In simple terms, it's for things that we don't want to define again and again in every single card we make.
-
     public int defaultSecondMagicNumber;        // Just like magic number, or any number for that matter, we want our regular, modifiable stat
     public int defaultBaseSecondMagicNumber;    // And our base stat - the number in it's base state. It will reset to that by default.
     public boolean upgradedDefaultSecondMagicNumber; // A boolean to check whether the number has been upgraded or not.

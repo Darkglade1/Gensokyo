@@ -41,7 +41,7 @@
     "NAME": "Lunatic Red Eyes",
     "FLAVOR": "These eyes have no effect on you. After all, you're already insane.",
     "DESCRIPTIONS": [
-      "At the start of combat, apply #b", " #yLunacy to ALL enemies."
+      "At the start of combat, apply #b", " #ygensokyo:Lunacy to ALL enemies."
     ]
   },
   "Gensokyo:PortableGap": {
@@ -70,7 +70,7 @@
     "NAME": "Bombinomicon",
     "FLAVOR": "Explode spectacularly on death.",
     "DESCRIPTIONS": [
-      "At the start of combat, add #yThe #yBomb with #yRetain and #yExhaust to your hand."
+      "At the start of combat, add #yThe #yBomb with #yRetain and #yExhaust to your hand.", "Retain. NL ", " NL Exhaust."
     ]
   },
   "Gensokyo:BookOfSpecters": {
