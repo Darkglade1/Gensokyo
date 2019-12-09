@@ -9,6 +9,7 @@ import Gensokyo.monsters.NormalEnemies.Kitsune;
 import Gensokyo.monsters.NormalEnemies.LivingMonolith;
 import Gensokyo.monsters.NormalEnemies.Python;
 import Gensokyo.monsters.NormalEnemies.VengefulSpirit;
+import Gensokyo.scenes.GensokyoScene;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.core.Settings;
@@ -67,7 +68,7 @@ public class Gensokyo extends CustomDungeon {
             scene.dispose();
         }
 
-        scene = new TheBottomScene();
+        scene = new GensokyoScene();
         fadeColor = cd.savedFadeColor;
         this.name = cd.name;
         //event bg needs to be set here, because it can't be set when the constructor of AbstractDungeon is executed yet.
