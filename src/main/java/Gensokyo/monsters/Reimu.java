@@ -72,7 +72,7 @@ public class Reimu extends CustomMonster
     }
 
     public Reimu(final float x, final float y) {
-        super(Reimu.NAME, ID, HP, -5.0F, 0, 280.0f, 265.0f, null, x, y);
+        super(Reimu.NAME, ID, HP, -5.0F, 0, 260.0f, 265.0f, null, x, y);
         this.animation = new BetterSpriterAnimation("GensokyoResources/images/monsters/Reimu/Spriter/ReimuAnimations.scml");
         this.type = EnemyType.BOSS;
         this.dialogX = (this.hb_x - 70.0F) * Settings.scale;

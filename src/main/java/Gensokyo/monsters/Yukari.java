@@ -50,8 +50,8 @@ public class Yukari extends CustomMonster
     private static final int NORMAL_ATTACK_HITS = 2;
     private static final int DEBUFF_ATTACK_DAMAGE = 14;
     private static final int A4_DEBUFF_ATTACK_DAMAGE = 16;
-    private static final int TRAIN_ATTACK_DAMAGE = 8;
-    private static final int A4_TRAIN_ATTACK_DAMAGE = 9;
+    private static final int TRAIN_ATTACK_DAMAGE = 7;
+    private static final int A4_TRAIN_ATTACK_DAMAGE = 8;
     private static final int TRAIN_ATTACK_HITS = 3;
     private static final int DEBUFF_AMOUNT = 2;
     private static final int STRENGTH_DRAIN_AMOUNT = 2;

@@ -1,9 +1,9 @@
-scene.png
+HakureiShrine.png
 size: 2048,2048
 format: RGBA8888
 filter: Linear,Linear
 repeat: none
-mod/bg1
+mod/HakureiShrine
   rotate: false
   xy: 2, 2
   size: 1920, 1080
@@ -17,6 +17,20 @@ format: RGBA8888
 filter: Linear,Linear
 repeat: none
 mod/TanukiForest
+  rotate: false
+  xy: 2, 2
+  size: 1920, 1080
+  orig: 1920, 1080
+  offset: 0, 0
+  index: -1
+
+
+TanukiForestNight.png
+size: 2048,2048
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+mod/TanukiForestNight
   rotate: false
   xy: 2, 2
   size: 1920, 1080
@@ -43,6 +57,19 @@ format: RGBA8888
 filter: Linear,Linear
 repeat: none
 mod/ConcertStage
+  rotate: false
+  xy: 2, 2
+  size: 1920, 1080
+  orig: 1920, 1080
+  offset: 0, 0
+  index: -1
+
+Shop.png
+size: 2048,2048
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+mod/Shop
   rotate: false
   xy: 2, 2
   size: 1920, 1080

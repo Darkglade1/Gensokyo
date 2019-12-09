@@ -2,6 +2,7 @@ package Gensokyo.scenes;
 
 import Gensokyo.monsters.Kokoro;
 import Gensokyo.monsters.Mamizou;
+import Gensokyo.monsters.Reimu;
 import Gensokyo.monsters.Yukari;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.Color;
@@ -15,6 +16,7 @@ import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.rooms.AbstractRoom;
 import com.megacrit.cardcrawl.rooms.CampfireUI;
 import com.megacrit.cardcrawl.rooms.MonsterRoomBoss;
+import com.megacrit.cardcrawl.rooms.ShopRoom;
 import com.megacrit.cardcrawl.scenes.AbstractScene;
 
 public class GensokyoScene extends AbstractScene {
@@ -34,9 +36,9 @@ public class GensokyoScene extends AbstractScene {
         super("GensokyoResources/images/scene/atlas.atlas");
         topBar = ImageMaster.loadImage("GensokyoResources/images/scene/topbar.png");
 
-        this.bg = this.atlas.findRegion("mod/bg1");
+        this.bg = this.atlas.findRegion("mod/TanukiForest");
         this.fg = this.atlas.findRegion("mod/fg");
-        this.ceil = this.atlas.findRegion("mod/ceiling");
+        //this.ceil = this.atlas.findRegion("mod/ceiling");
         this.fgGlow = this.atlas.findRegion("mod/fgGlow");
         //this.floor = this.atlas.findRegion("mod/floor");
         this.mg1 = this.atlas.findRegion("mod/mg1");
@@ -61,16 +63,27 @@ public class GensokyoScene extends AbstractScene {
         if (room instanceof MonsterRoomBoss) {
             CardCrawlGame.music.silenceBGM();
         }
-        for (AbstractMonster mo : room.monsters.monsters) {
-            if (mo instanceof Mamizou) {
-                this.bg = this.atlas.findRegion("mod/TanukiForest");
+        if (room.monsters != null) {
+            for (AbstractMonster mo : room.monsters.monsters) {
+                if (mo instanceof Mamizou) {
+                    this.bg = this.atlas.findRegion("mod/TanukiForestNight");
+                }
+                else if (mo instanceof Yukari) {
+                    this.bg = this.atlas.findRegion("mod/ConcertStage");
+                }
+                else if (mo instanceof Kokoro) {
+                    this.bg = this.atlas.findRegion("mod/HumanVillage");
+                }
+                else if (mo instanceof Reimu) {
+                    this.bg = this.atlas.findRegion("mod/HakureiShrine");
+                } else {
+                    this.bg = this.atlas.findRegion("mod/TanukiForest");
+                }
             }
-            if (mo instanceof Yukari) {
-                this.bg = this.atlas.findRegion("mod/ConcertStage");
-            }
-            if (mo instanceof Kokoro) {
-                this.bg = this.atlas.findRegion("mod/HumanVillage");
-            }
+        } else if (room instanceof ShopRoom) {
+            this.bg = this.atlas.findRegion("mod/Shop");
+        } else {
+            this.bg = this.atlas.findRegion("mod/TanukiForest");
         }
         this.fadeInAmbiance();
     }
