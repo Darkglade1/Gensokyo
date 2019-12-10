@@ -64,6 +64,32 @@ mod/ConcertStage
   offset: 0, 0
   index: -1
 
+FancyPlace.png
+size: 2048,2048
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+mod/FancyPlace
+  rotate: false
+  xy: 2, 2
+  size: 1920, 1080
+  orig: 1920, 1080
+  offset: 0, 0
+  index: -1
+
+GenbuRavineCloudy.png
+size: 2048,2048
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+mod/GenbuRavineCloudy
+  rotate: false
+  xy: 2, 2
+  size: 1920, 1080
+  orig: 1920, 1080
+  offset: 0, 0
+  index: -1
+
 Shop.png
 size: 2048,2048
 format: RGBA8888
@@ -75,27 +101,6 @@ mod/Shop
   size: 1920, 1080
   orig: 1920, 1080
   offset: 0, 0
-  index: -1
-  
-
-scene2.png
-size: 2048,2048
-format: RGBA8888
-filter: Linear,Linear
-repeat: none
-mod/floor
-  rotate: false
-  xy: 2, 937
-  size: 1920, 460
-  orig: 1920, 1080
-  offset: 0, 0
-  index: -1
-mod/mg1
-  rotate: false
-  xy: 2, 2
-  size: 1920, 933
-  orig: 1920, 1136
-  offset: 0, 147
   index: -1
   
 scene2.jpg
@@ -142,17 +147,4 @@ mod/campfireGlow
   size: 701, 242
   orig: 244, 0
   offset: 0,0
-  index: -1
-
-scene.jpg
-size: 2048,1024
-format: RGBA8888
-filter: Nearest,Nearest
-repeat: none
-bg
-  rotate: false
-  xy: 2, 2
-  size: 1920, 1016
-  orig: 1920, 1016
-  offset: 0, 0
   index: -1

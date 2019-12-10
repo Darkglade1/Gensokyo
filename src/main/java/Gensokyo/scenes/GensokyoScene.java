@@ -1,5 +1,7 @@
 package Gensokyo.scenes;
 
+import Gensokyo.monsters.Aya;
+import Gensokyo.monsters.Cirno;
 import Gensokyo.monsters.Kokoro;
 import Gensokyo.monsters.Mamizou;
 import Gensokyo.monsters.Reimu;
@@ -34,14 +36,14 @@ public class GensokyoScene extends AbstractScene {
 
     public GensokyoScene() {
         super("GensokyoResources/images/scene/atlas.atlas");
-        topBar = ImageMaster.loadImage("GensokyoResources/images/scene/topbar.png");
+        //topBar = ImageMaster.loadImage("GensokyoResources/images/scene/topbar.png");
 
         this.bg = this.atlas.findRegion("mod/TanukiForest");
-        this.fg = this.atlas.findRegion("mod/fg");
+        //this.fg = this.atlas.findRegion("mod/fg");
         //this.ceil = this.atlas.findRegion("mod/ceiling");
-        this.fgGlow = this.atlas.findRegion("mod/fgGlow");
+        //this.fgGlow = this.atlas.findRegion("mod/fgGlow");
         //this.floor = this.atlas.findRegion("mod/floor");
-        this.mg1 = this.atlas.findRegion("mod/mg1");
+        //this.mg1 = this.atlas.findRegion("mod/mg1");
 
         this.ambianceName = "AMBIANCE_CITY";
         this.fadeInAmbiance();
@@ -67,14 +69,15 @@ public class GensokyoScene extends AbstractScene {
             for (AbstractMonster mo : room.monsters.monsters) {
                 if (mo instanceof Mamizou) {
                     this.bg = this.atlas.findRegion("mod/TanukiForestNight");
-                }
-                else if (mo instanceof Yukari) {
+                } else if (mo instanceof Aya) {
+                    this.bg = this.atlas.findRegion("mod/FancyPlace");
+                } else if (mo instanceof Cirno) {
+                    this.bg = this.atlas.findRegion("mod/GenbuRavineCloudy");
+                } else if (mo instanceof Yukari) {
                     this.bg = this.atlas.findRegion("mod/ConcertStage");
-                }
-                else if (mo instanceof Kokoro) {
+                } else if (mo instanceof Kokoro) {
                     this.bg = this.atlas.findRegion("mod/HumanVillage");
-                }
-                else if (mo instanceof Reimu) {
+                } else if (mo instanceof Reimu) {
                     this.bg = this.atlas.findRegion("mod/HakureiShrine");
                 } else {
                     this.bg = this.atlas.findRegion("mod/TanukiForest");
@@ -95,7 +98,7 @@ public class GensokyoScene extends AbstractScene {
         sb.setBlendFunction(Gdx.gl20.GL_SRC_ALPHA, Gdx.gl20.GL_ONE_MINUS_SRC_ALPHA);
         //this.renderAtlasRegionIf(sb, this.floor, true);
         // this.renderAtlasRegionIf(sb, this.ceil, true);
-        this.renderAtlasRegionIf(sb, this.mg1, true);
+        //this.renderAtlasRegionIf(sb, this.mg1, true);
     }
 
     @Override
