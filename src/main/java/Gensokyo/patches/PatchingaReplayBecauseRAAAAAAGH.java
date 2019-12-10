@@ -19,8 +19,8 @@ import javassist.CtBehavior;
 import java.util.ArrayList;
 
 @SpirePatch(cls = "com.megacrit.cardcrawl.mod.replay.vfx.campfire.CampfireExploreEffect", method = "update", optional = true)
-public class ReplayNeowRandomEventPatch {
-	@SpireInsertPatch(locator = ReplayNeowRandomEventPatch.Locator.class)
+public class PatchingaReplayBecauseRAAAAAAGH {
+	@SpireInsertPatch(locator = PatchingaReplayBecauseRAAAAAAGH.Locator.class)
 	public static SpireReturn<Void> FixHardcodedEvents() {
 		if (AbstractDungeon.id.equals(Gensokyo.ID)) {
 			ArrayList<String> possibleEvents = new ArrayList<>(AbstractDungeon.eventList);
