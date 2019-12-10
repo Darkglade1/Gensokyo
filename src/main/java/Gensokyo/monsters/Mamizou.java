@@ -156,7 +156,7 @@ public class Mamizou extends CustomMonster
     public void usePreBattleAction() {
         CardCrawlGame.music.unsilenceBGM();
         AbstractDungeon.scene.fadeOutAmbiance();
-        AbstractDungeon.getCurrRoom().playBgmInstantly("Gensokyo/Futatsuiwa from Gensokyo.mp3");
+        AbstractDungeon.getCurrRoom().playBgmInstantly("Gensokyo/Futatsuiwa from Gensokyo.ogg");
         AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(this, this, new DisguisePower(this, this)));
         originalIntentHb = this.intentHb;
         form = SENTRY_FORM;

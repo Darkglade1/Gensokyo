@@ -92,7 +92,7 @@ public class Aya extends CustomMonster
     public void usePreBattleAction() {
         CardCrawlGame.music.unsilenceBGM();
         AbstractDungeon.scene.fadeOutAmbiance();
-        AbstractDungeon.getCurrRoom().playBgmInstantly("Gensokyo/Wind God Girl.mp3");
+        AbstractDungeon.getCurrRoom().playBgmInstantly("Gensokyo/Wind God Girl.ogg");
         AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(this, this, new Evasive(this, 1)));
     }
     

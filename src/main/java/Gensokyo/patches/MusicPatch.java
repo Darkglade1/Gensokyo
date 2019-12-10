@@ -9,23 +9,23 @@ public class MusicPatch {
 	
 	public static Music Postfix(Music __result, TempMusic __instance, final String key) {
 		switch (key) {
-            case "Gensokyo/Necrofantasia.mp3": {
-                return MainMusic.newMusic("audio/music/Gensokyo/Necrofantasia.mp3");
+            case "Gensokyo/Necrofantasia.ogg": {
+                return MainMusic.newMusic("audio/music/Gensokyo/Necrofantasia.ogg");
             }
-			case "Gensokyo/TheLostEmotion.mp3": {
-				return MainMusic.newMusic("audio/music/Gensokyo/TheLostEmotion.mp3");
+			case "Gensokyo/TheLostEmotion.ogg": {
+				return MainMusic.newMusic("audio/music/Gensokyo/TheLostEmotion.ogg");
 			}
-			case "Gensokyo/G Free.mp3": {
-				return MainMusic.newMusic("audio/music/Gensokyo/G Free.mp3");
+			case "Gensokyo/G Free.ogg": {
+				return MainMusic.newMusic("audio/music/Gensokyo/G Free.ogg");
 			}
-			case "Gensokyo/Wind God Girl.mp3": {
-				return MainMusic.newMusic("audio/music/Gensokyo/Wind God Girl.mp3");
+			case "Gensokyo/Wind God Girl.ogg": {
+				return MainMusic.newMusic("audio/music/Gensokyo/Wind God Girl.ogg");
 			}
-			case "Gensokyo/TomboyishGirl.mp3": {
-				return MainMusic.newMusic("audio/music/Gensokyo/TomboyishGirl.mp3");
+			case "Gensokyo/TomboyishGirl.ogg": {
+				return MainMusic.newMusic("audio/music/Gensokyo/TomboyishGirl.ogg");
 			}
-			case "Gensokyo/Futatsuiwa from Gensokyo.mp3": {
-				return MainMusic.newMusic("audio/music/Gensokyo/Futatsuiwa from Gensokyo.mp3");
+			case "Gensokyo/Futatsuiwa from Gensokyo.ogg": {
+				return MainMusic.newMusic("audio/music/Gensokyo/Futatsuiwa from Gensokyo.ogg");
 			}
 			default: {
 				return __result;

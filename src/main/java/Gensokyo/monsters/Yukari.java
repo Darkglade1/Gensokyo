@@ -117,7 +117,7 @@ public class Yukari extends CustomMonster
     public void usePreBattleAction() {
         CardCrawlGame.music.unsilenceBGM();
         AbstractDungeon.scene.fadeOutAmbiance();
-        AbstractDungeon.getCurrRoom().playBgmInstantly("Gensokyo/Necrofantasia.mp3");
+        AbstractDungeon.getCurrRoom().playBgmInstantly("Gensokyo/Necrofantasia.ogg");
         AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(this, this, new UnstableBoundariesPower(this)));
     }
     
