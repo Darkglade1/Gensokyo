@@ -122,5 +122,4 @@ public class GensokyoScene extends AbstractScene {
         sb.setColor(Color.WHITE);
         this.renderAtlasRegionIf(sb, this.campfireKindling, true);
     }
-
 }
