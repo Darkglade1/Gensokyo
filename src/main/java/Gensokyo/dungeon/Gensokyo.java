@@ -10,10 +10,17 @@ import Gensokyo.monsters.NormalEnemies.LivingMonolith;
 import Gensokyo.monsters.NormalEnemies.Python;
 import Gensokyo.monsters.NormalEnemies.VengefulSpirit;
 import Gensokyo.scenes.GensokyoScene;
+import basemod.ReflectionHacks;
+import com.megacrit.cardcrawl.audio.MainMusic;
+import com.megacrit.cardcrawl.audio.MusicMaster;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.core.Settings;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
+import com.megacrit.cardcrawl.dungeons.Exordium;
+import com.megacrit.cardcrawl.dungeons.TheBeyond;
+import com.megacrit.cardcrawl.dungeons.TheCity;
+import com.megacrit.cardcrawl.dungeons.TheEnding;
 import com.megacrit.cardcrawl.helpers.ImageMaster;
 import com.megacrit.cardcrawl.localization.UIStrings;
 import com.megacrit.cardcrawl.monsters.MonsterInfo;
@@ -33,6 +40,7 @@ public class Gensokyo extends CustomDungeon {
     public Gensokyo() {
         super(new TheBottomScene(), NAME, ID);
         this.onEnterEvent(NeowEvent.class);
+        this.setMainMusic("audio/music/Gensokyo/ThemeOfEasternStory.ogg");
     }
 
     public Gensokyo(CustomDungeon cd, AbstractPlayer p, ArrayList<String> emptyList) {
@@ -77,23 +85,28 @@ public class Gensokyo extends CustomDungeon {
         mapRng = new com.megacrit.cardcrawl.random.Random(Settings.seed + actNum * 100);
         generateMap();
 
+        ArrayList<MainMusic> tracks = (ArrayList) ReflectionHacks.getPrivate(CardCrawlGame.music, MusicMaster.class, "mainTrack");
+        for(final MainMusic t : tracks) {
+            t.kill();
+        }
+
         if(cd.mainmusic != null) {
             CardCrawlGame.music.changeBGM(cd.id);
         } else {
-//            switch(actNum) {
-//                case EXORDIUM:
-//                    CardCrawlGame.music.changeBGM(Exordium.ID);
-//                    break;
-//                case THECITY:
-//                    CardCrawlGame.music.changeBGM(TheCity.ID);
-//                    break;
-//                case THEBEYOND:
-//                    CardCrawlGame.music.changeBGM(TheBeyond.ID);
-//                    break;
-//                case THEENDING:
-//                    CardCrawlGame.music.changeBGM(TheEnding.ID);
-//                    break;
-//            }
+            switch(actNum) {
+                case EXORDIUM:
+                    CardCrawlGame.music.changeBGM(Exordium.ID);
+                    break;
+                case THECITY:
+                    CardCrawlGame.music.changeBGM(TheCity.ID);
+                    break;
+                case THEBEYOND:
+                    CardCrawlGame.music.changeBGM(TheBeyond.ID);
+                    break;
+                case THEENDING:
+                    CardCrawlGame.music.changeBGM(TheEnding.ID);
+                    break;
+            }
         }
     }
 
