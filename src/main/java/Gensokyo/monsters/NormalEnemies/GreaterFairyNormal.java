@@ -23,14 +23,14 @@ public class GreaterFairyNormal extends AbstractFairy
     public static final String[] DIALOG;
     private static final byte ATTACK = 1;
     private static final byte MULTI_ATTACK = 2;
-    private static final int NORMAL_ATTACK_DAMAGE = 6;
-    private static final int A2_NORMAL_ATTACK_DAMAGE = 7;
+    private static final int NORMAL_ATTACK_DAMAGE = 7;
+    private static final int A2_NORMAL_ATTACK_DAMAGE = 8;
     private static final int MULTI_ATTACK_DAMAGE = 4;
     private static final int A2_MULTI_ATTACK_DAMAGE = 5;
     private static final int MULTI_HITS = 2;
-    private static final int HP_MIN = 6;
+    private static final int HP_MIN = 7;
     private static final int HP_MAX = 9;
-    private static final int A7_HP_MIN = 6;
+    private static final int A7_HP_MIN = 7;
     private static final int A7_HP_MAX = 10;
     private int normalDamage;
     private int multiHitDamage;

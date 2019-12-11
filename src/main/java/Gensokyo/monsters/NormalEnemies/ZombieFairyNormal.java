@@ -25,12 +25,12 @@ public class ZombieFairyNormal extends AbstractFairy
     public static final String[] DIALOG;
     private static final byte ATTACK = 1;
     private static final byte APPLY_DEBUFF = 2;
-    private static final int NORMAL_ATTACK_DAMAGE = 5;
-    private static final int A2_NORMAL_ATTACK_DAMAGE = 6;
+    private static final int NORMAL_ATTACK_DAMAGE = 6;
+    private static final int A2_NORMAL_ATTACK_DAMAGE = 7;
     private static final int DEBUFF = 1;
-    private static final int HP_MIN = 5;
+    private static final int HP_MIN = 6;
     private static final int HP_MAX = 8;
-    private static final int A7_HP_MIN = 5;
+    private static final int A7_HP_MIN = 6;
     private static final int A7_HP_MAX = 9;
     private int normalDamage;
 
