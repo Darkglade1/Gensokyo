@@ -35,9 +35,9 @@ public class HakureiShrine extends AbstractImageEvent {
     private boolean hasEnoughMoney;
     private boolean hasMoney;
 
-    public static int upgradeCost = 70;
-    private static int upgradeAmount = 2;
-    private static int healthCost;
+    public static final int upgradeCost = 80;
+    private static final int upgradeAmount = 2;
+    private int healthCost;
     private int healthGain;
 
     public HakureiShrine() {

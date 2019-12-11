@@ -4,6 +4,7 @@ import Gensokyo.BetterSpriterAnimation;
 import Gensokyo.actions.SpawnOrbAction;
 import Gensokyo.powers.HakureiShrineMaidenPower;
 import Gensokyo.powers.Position;
+import Gensokyo.powers.SealedPower;
 import basemod.abstracts.CustomMonster;
 import com.brashmonkey.spriter.Animation;
 import com.brashmonkey.spriter.Player;
@@ -46,20 +47,21 @@ public class Reimu extends CustomMonster
     private static final int A4_DEBUFF_ATTACK_DAMAGE = 10;
     private static final int DAZE_AMOUNT = 2;
     private static final int A19_DAZE_AMOUNT = 3;
-    private static final int MEGA_DAZE_AMOUNT = 6;
-    private static final int A19_MEGA_DAZE_AMOUNT = 8;
+//    private static final int MEGA_DAZE_AMOUNT = 6;
+//    private static final int A19_MEGA_DAZE_AMOUNT = 8;
     private static final int DEBUFF_AMOUNT = 2;
-    private static final int A19_DEBUFF_AMOUNT = 3;
+    //private static final int A19_DEBUFF_AMOUNT = 3;
     private static final int BLOCK = 9;
-    private static final int A9_BLOCK = 12;
+    private static final int A9_BLOCK = 11;
     private static final int STRENGTH_GAIN = 3;
     private static final int A19_STRENGTH_GAIN = 4;
+    private static final int MAX_DEBUFF = 3;
     private int normalDamage;
     private int debuffDamage;
     private int debuffAmount;
     private int block;
     private int dazes;
-    private int megaDaze;
+    //private int megaDaze;
     private int strengthGain;
     private static final int HP = 220;
     private static final int A9_HP = 230;
@@ -77,14 +79,12 @@ public class Reimu extends CustomMonster
         this.type = EnemyType.BOSS;
         this.dialogX = (this.hb_x - 70.0F) * Settings.scale;
         this.dialogY -= (this.hb_y - 55.0F) * Settings.scale;
+
+        this.debuffAmount = DEBUFF_AMOUNT;
         if (AbstractDungeon.ascensionLevel >= 19) {
-            this.debuffAmount = A19_DEBUFF_AMOUNT;
-            this.megaDaze = A19_MEGA_DAZE_AMOUNT;
             this.dazes = A19_DAZE_AMOUNT;
             this.strengthGain = A19_STRENGTH_GAIN;
         } else {
-            this.debuffAmount = DEBUFF_AMOUNT;
-            this.megaDaze = MEGA_DAZE_AMOUNT;
             this.dazes = DAZE_AMOUNT;
             this.strengthGain = STRENGTH_GAIN;
         }
@@ -170,16 +170,7 @@ public class Reimu extends CustomMonster
             }
             case MEGA_DEBUFF: {
                 runAnim("SpellCall");
-                int dazes = this.megaDaze;
-                while(dazes > 0) {
-                    if (dazes >= 5) {
-                        dazes -= 5;
-                        AbstractDungeon.actionManager.addToBottom(new MakeTempCardInDiscardAction(new Dazed(), 5));
-                    } else {
-                        AbstractDungeon.actionManager.addToBottom(new MakeTempCardInDiscardAction(new Dazed(), dazes));
-                        dazes = 0;
-                    }
-                }
+                AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(AbstractDungeon.player, this, new SealedPower(AbstractDungeon.player, 1), 1));
                 break;
             }
         }
@@ -192,7 +183,7 @@ public class Reimu extends CustomMonster
             setMove(MOVES[0], OPENING, Intent.UNKNOWN);
             this.firstMove = false;
         } else {
-            if (!this.lastMove(MEGA_DEBUFF) && !this.lastMoveBefore(MEGA_DEBUFF)) { //use this every 3 turns
+            if (!this.lastMove(MEGA_DEBUFF) && !this.lastMoveBefore(MEGA_DEBUFF) && canMegaDebuff()) { //use this every 3 turns until player has max stacks of the debuff
                 this.setMove(MOVES[2], MEGA_DEBUFF, Intent.STRONG_DEBUFF);
             } else if (this.lastMove(MEGA_DEBUFF) && this.lastMoveBefore(BLOCK_DEBUFF)) { //can't not attack for more than 2 turns
                 if (num % 2 == 0) {
@@ -232,6 +223,15 @@ public class Reimu extends CustomMonster
                 }
             }
         }
+    }
+
+    private boolean canMegaDebuff() {
+        if (AbstractDungeon.player.hasPower(SealedPower.POWER_ID)) {
+            if (AbstractDungeon.player.getPower(SealedPower.POWER_ID).amount >= MAX_DEBUFF) {
+                return false;
+            }
+        }
+        return true;
     }
     
     static {

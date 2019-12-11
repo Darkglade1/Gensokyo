@@ -79,6 +79,10 @@
         "NAME": "Hakurei Shrine Maiden",
         "DESCRIPTIONS": ["At the end of her turn, summon #b2 #yYin-Yang #yOrbs. If there are no #yYin-Yang #yOrbs alive, summon #b4 instead and gains #b", " #yStrength."]
 },
+"Gensokyo:SealedPower": {
+        "NAME": "Sealed",
+        "DESCRIPTIONS": ["At the start of your turn, discard #b", " card.", " cards."]
+},
 "Gensokyo:Evasive": {
         "NAME": "Evasive",
         "DESCRIPTIONS": ["Every other #yAttack you play deals #b0 damage to this creature."]
