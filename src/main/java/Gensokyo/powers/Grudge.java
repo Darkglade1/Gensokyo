@@ -1,6 +1,9 @@
 package Gensokyo.powers;
 
 import Gensokyo.GensokyoMod;
+import Gensokyo.util.TextureLoader;
+import com.badlogic.gdx.graphics.Texture;
+import com.badlogic.gdx.graphics.g2d.TextureAtlas;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.actions.common.RemoveSpecificPowerAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
@@ -11,6 +14,8 @@ import com.megacrit.cardcrawl.localization.PowerStrings;
 import com.megacrit.cardcrawl.powers.AbstractPower;
 import com.megacrit.cardcrawl.powers.StrengthPower;
 
+import static Gensokyo.GensokyoMod.makePowerPath;
+
 
 public class Grudge extends AbstractPower {
 
@@ -19,8 +24,8 @@ public class Grudge extends AbstractPower {
     public static final String NAME = powerStrings.NAME;
     public static final String[] DESCRIPTIONS = powerStrings.DESCRIPTIONS;
 
-    //private static final Texture tex84 = TextureLoader.getTexture(makePowerPath("Grudge84.png"));
-    //private static final Texture tex32 = TextureLoader.getTexture(makePowerPath("Grudge32.png"));
+    private static final Texture tex84 = TextureLoader.getTexture(makePowerPath("Grudge84.png"));
+    private static final Texture tex32 = TextureLoader.getTexture(makePowerPath("Grudge32.png"));
 
     public Grudge(AbstractCreature owner) {
         name = NAME;
@@ -31,9 +36,8 @@ public class Grudge extends AbstractPower {
         type = PowerType.BUFF;
         isTurnBased = false;
 
-        this.loadRegion("wraithForm");
-        //this.region128 = new TextureAtlas.AtlasRegion(tex84, 0, 0, 84, 84);
-        //this.region48 = new TextureAtlas.AtlasRegion(tex32, 0, 0, 32, 32);
+        this.region128 = new TextureAtlas.AtlasRegion(tex84, 0, 0, 84, 84);
+        this.region48 = new TextureAtlas.AtlasRegion(tex32, 0, 0, 32, 32);
 
         updateDescription();
     }

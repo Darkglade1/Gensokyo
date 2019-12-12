@@ -1,6 +1,9 @@
 package Gensokyo.powers;
 
 import Gensokyo.GensokyoMod;
+import Gensokyo.util.TextureLoader;
+import com.badlogic.gdx.graphics.Texture;
+import com.badlogic.gdx.graphics.g2d.TextureAtlas;
 import com.evacipated.cardcrawl.mod.stslib.powers.abstracts.TwoAmountPower;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.common.DamageAction;
@@ -10,6 +13,8 @@ import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.localization.PowerStrings;
 
+import static Gensokyo.GensokyoMod.makePowerPath;
+
 public class RottingWood extends TwoAmountPower {
     public static final String POWER_ID = GensokyoMod.makeID("RottingWood");
     private static final PowerStrings powerStrings = CardCrawlGame.languagePack.getPowerStrings(POWER_ID);
@@ -17,8 +22,8 @@ public class RottingWood extends TwoAmountPower {
     public static final String[] DESCRIPTIONS = powerStrings.DESCRIPTIONS;
     private int threshold;
 
-    //private static final Texture tex84 = TextureLoader.getTexture(makePowerPath("RottingWood84.png"));
-   // private static final Texture tex32 = TextureLoader.getTexture(makePowerPath("RottingWood32.png"));
+    private static final Texture tex84 = TextureLoader.getTexture(makePowerPath("RottingWood84.png"));
+    private static final Texture tex32 = TextureLoader.getTexture(makePowerPath("RottingWood32.png"));
 
     public RottingWood(AbstractCreature owner, int threshold, int powerDamage) {
         this.name = NAME;
@@ -28,9 +33,9 @@ public class RottingWood extends TwoAmountPower {
         this.threshold = threshold;
         this.amount2 = threshold;
         this.type = PowerType.BUFF;
-        this.loadRegion("sadistic");
-        //this.region128 = new TextureAtlas.AtlasRegion(tex84, 0, 0, 84, 84);
-        //this.region48 = new TextureAtlas.AtlasRegion(tex32, 0, 0, 32, 32);
+
+        this.region128 = new TextureAtlas.AtlasRegion(tex84, 0, 0, 84, 84);
+        this.region48 = new TextureAtlas.AtlasRegion(tex32, 0, 0, 32, 32);
         updateDescription();
     }
 

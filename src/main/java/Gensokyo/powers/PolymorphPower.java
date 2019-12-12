@@ -2,6 +2,9 @@ package Gensokyo.powers;
 
 import Gensokyo.GensokyoMod;
 import Gensokyo.monsters.Animal;
+import Gensokyo.util.TextureLoader;
+import com.badlogic.gdx.graphics.Texture;
+import com.badlogic.gdx.graphics.g2d.TextureAtlas;
 import com.megacrit.cardcrawl.actions.common.ReducePowerAction;
 import com.megacrit.cardcrawl.actions.common.RemoveSpecificPowerAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
@@ -14,6 +17,8 @@ import com.megacrit.cardcrawl.localization.PowerStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.powers.AbstractPower;
 
+import static Gensokyo.GensokyoMod.makePowerPath;
+
 
 public class PolymorphPower extends AbstractPower {
 
@@ -24,8 +29,8 @@ public class PolymorphPower extends AbstractPower {
     private boolean justApplied = false;
     public Animal animal = null;
 
-    //private static final Texture tex84 = TextureLoader.getTexture(makePowerPath("Vigor84.png"));
-   // private static final Texture tex32 = TextureLoader.getTexture(makePowerPath("Vigor32.png"));
+    private static final Texture tex84 = TextureLoader.getTexture(makePowerPath("Polymorph84.png"));
+    private static final Texture tex32 = TextureLoader.getTexture(makePowerPath("Polymorph32.png"));
 
     public PolymorphPower(AbstractCreature owner, int amount, boolean isSourceMonster) {
         name = NAME;
@@ -42,9 +47,8 @@ public class PolymorphPower extends AbstractPower {
             this.justApplied = true;
         }
 
-        this.loadRegion("flight");
-        //this.region128 = new TextureAtlas.AtlasRegion(tex84, 0, 0, 84, 84);
-        //this.region48 = new TextureAtlas.AtlasRegion(tex32, 0, 0, 32, 32);
+        this.region128 = new TextureAtlas.AtlasRegion(tex84, 0, 0, 84, 84);
+        this.region48 = new TextureAtlas.AtlasRegion(tex32, 0, 0, 32, 32);
 
         updateDescription();
     }

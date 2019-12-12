@@ -2,6 +2,9 @@ package Gensokyo.powers;
 
 import Gensokyo.GensokyoMod;
 import Gensokyo.monsters.Aya;
+import Gensokyo.util.TextureLoader;
+import com.badlogic.gdx.graphics.Texture;
+import com.badlogic.gdx.graphics.g2d.TextureAtlas;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.actions.common.RemoveSpecificPowerAction;
 import com.megacrit.cardcrawl.cards.DamageInfo;
@@ -12,6 +15,8 @@ import com.megacrit.cardcrawl.localization.PowerStrings;
 import com.megacrit.cardcrawl.powers.AbstractPower;
 import com.megacrit.cardcrawl.powers.StrengthPower;
 
+import static Gensokyo.GensokyoMod.makePowerPath;
+
 public class IllusionaryDominance extends AbstractPower {
     public static final String POWER_ID = GensokyoMod.makeID("IllusionaryDominance");
     private static final PowerStrings powerStrings = CardCrawlGame.languagePack.getPowerStrings(POWER_ID);
@@ -19,8 +24,8 @@ public class IllusionaryDominance extends AbstractPower {
     public static final String[] DESCRIPTIONS = powerStrings.DESCRIPTIONS;
     Aya aya;
 
-    //private static final Texture tex84 = TextureLoader.getTexture(makePowerPath("IllusionaryDominance84.png"));
-    //private static final Texture tex32 = TextureLoader.getTexture(makePowerPath("IllusionaryDominance32.png"));
+    private static final Texture tex84 = TextureLoader.getTexture(makePowerPath("IllusionaryDominance84.png"));
+    private static final Texture tex32 = TextureLoader.getTexture(makePowerPath("IllusionaryDominance32.png"));
 
     public IllusionaryDominance(AbstractCreature owner, int amount, Aya aya) {
         this.name = NAME;
@@ -30,9 +35,9 @@ public class IllusionaryDominance extends AbstractPower {
         this.aya = aya;
         this.type = PowerType.DEBUFF;
         this.isTurnBased = false;
-        this.loadRegion("afterImage");
-//        this.region128 = new TextureAtlas.AtlasRegion(tex84, 0, 0, 84, 84);
-//        this.region48 = new TextureAtlas.AtlasRegion(tex32, 0, 0, 32, 32);
+
+        this.region128 = new TextureAtlas.AtlasRegion(tex84, 0, 0, 84, 84);
+        this.region48 = new TextureAtlas.AtlasRegion(tex32, 0, 0, 32, 32);
         updateDescription();
     }
 

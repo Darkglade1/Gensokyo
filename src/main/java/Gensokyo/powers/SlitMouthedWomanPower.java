@@ -1,6 +1,9 @@
 package Gensokyo.powers;
 
 import Gensokyo.GensokyoMod;
+import Gensokyo.util.TextureLoader;
+import com.badlogic.gdx.graphics.Texture;
+import com.badlogic.gdx.graphics.g2d.TextureAtlas;
 import com.evacipated.cardcrawl.mod.stslib.powers.abstracts.TwoAmountPower;
 import com.evacipated.cardcrawl.mod.stslib.powers.interfaces.NonStackablePower;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
@@ -15,6 +18,8 @@ import com.megacrit.cardcrawl.localization.PowerStrings;
 import com.megacrit.cardcrawl.powers.StrengthPower;
 import com.megacrit.cardcrawl.powers.VulnerablePower;
 
+import static Gensokyo.GensokyoMod.makePowerPath;
+
 
 public class SlitMouthedWomanPower extends TwoAmountPower implements NonStackablePower {
 
@@ -22,6 +27,9 @@ public class SlitMouthedWomanPower extends TwoAmountPower implements NonStackabl
     private static final PowerStrings powerStrings = CardCrawlGame.languagePack.getPowerStrings(POWER_ID);
     public static final String NAME = powerStrings.NAME;
     public static final String[] DESCRIPTIONS = powerStrings.DESCRIPTIONS;
+
+    private static final Texture tex84 = TextureLoader.getTexture(makePowerPath("SlitMouth84.png"));
+    private static final Texture tex32 = TextureLoader.getTexture(makePowerPath("SlitMouth32.png"));
 
     private final int NUM_PROCS = 2;
 
@@ -36,7 +44,8 @@ public class SlitMouthedWomanPower extends TwoAmountPower implements NonStackabl
         type = PowerType.BUFF;
         isTurnBased = false;
 
-        this.loadRegion("phantasmal");
+        this.region128 = new TextureAtlas.AtlasRegion(tex84, 0, 0, 84, 84);
+        this.region48 = new TextureAtlas.AtlasRegion(tex32, 0, 0, 32, 32);
 
         updateDescription();
     }
