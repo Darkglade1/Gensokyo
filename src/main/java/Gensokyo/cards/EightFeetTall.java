@@ -36,7 +36,7 @@ public class EightFeetTall extends AbstractDefaultCard {
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
         if (!(m.type == AbstractMonster.EnemyType.BOSS)) {
-            AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(m, p, new DeathMark(m, p, this.magicNumber), this.magicNumber, AbstractGameAction.AttackEffect.NONE));
+            AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(m, p, new DeathMark(m, this.magicNumber), this.magicNumber, AbstractGameAction.AttackEffect.NONE));
         }
     }
 

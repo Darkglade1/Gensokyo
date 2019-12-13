@@ -37,7 +37,6 @@ public class KillAction extends AbstractGameAction {
             //band-aid fix for any creature with half-dead mechanics
             m.damage(new DamageInfo(m, 9999, DamageInfo.DamageType.HP_LOSS));
         } else {
-            m.currentHealth = 0;
             loseHP(9999);
             m.die();
         }

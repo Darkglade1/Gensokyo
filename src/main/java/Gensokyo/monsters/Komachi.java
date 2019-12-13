@@ -144,7 +144,7 @@ public class Komachi extends CustomMonster
                 if (tier >= 0 && tier - 1 < DIALOG.length) {
                     AbstractDungeon.actionManager.addToBottom(new TalkAction(this, Komachi.DIALOG[tier - 1]));
                 }
-                AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(AbstractDungeon.player, this, new DeathMark(AbstractDungeon.player, this, deathCounter), 0));
+                AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(AbstractDungeon.player, this, new DeathMark(AbstractDungeon.player, deathCounter), 0));
                 break;
             }
         }

@@ -6,7 +6,7 @@
     <groupId>gensokyo</groupId>
     <artifactId>Gensokyo</artifactId>
     <name>Gensokyo</name>
-    <version>1.1.6</version>
+    <version>1.8.6</version>
     <description>An alternate Act 1 mod inspired by Touhou Project.</description>
 
     <properties>
