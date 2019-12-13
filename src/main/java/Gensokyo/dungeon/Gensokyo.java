@@ -10,27 +10,19 @@ import Gensokyo.monsters.NormalEnemies.LivingMonolith;
 import Gensokyo.monsters.NormalEnemies.Python;
 import Gensokyo.monsters.NormalEnemies.VengefulSpirit;
 import Gensokyo.scenes.GensokyoScene;
-import basemod.ReflectionHacks;
-import com.megacrit.cardcrawl.audio.MainMusic;
-import com.megacrit.cardcrawl.audio.MusicMaster;
+import actlikeit.dungeons.CustomDungeon;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
-import com.megacrit.cardcrawl.core.Settings;
-import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
-import com.megacrit.cardcrawl.dungeons.Exordium;
-import com.megacrit.cardcrawl.dungeons.TheBeyond;
-import com.megacrit.cardcrawl.dungeons.TheCity;
-import com.megacrit.cardcrawl.dungeons.TheEnding;
 import com.megacrit.cardcrawl.helpers.ImageMaster;
 import com.megacrit.cardcrawl.localization.UIStrings;
 import com.megacrit.cardcrawl.monsters.MonsterInfo;
 import com.megacrit.cardcrawl.neow.NeowEvent;
 import com.megacrit.cardcrawl.saveAndContinue.SaveFile;
-import com.megacrit.cardcrawl.scenes.TheBottomScene;
+import com.megacrit.cardcrawl.scenes.AbstractScene;
 
 import java.util.ArrayList;
 
-public class Gensokyo extends CustomDungeon {
+public class Gensokyo extends actlikeit.dungeons.CustomDungeon {
 
     public static String ID = "Gensokyo:Gensokyo";
     private static final UIStrings uiStrings = CardCrawlGame.languagePack.getUIString(ID);
@@ -38,9 +30,15 @@ public class Gensokyo extends CustomDungeon {
     public static final String NAME = TEXT[0];
 
     public Gensokyo() {
-        super(new TheBottomScene(), NAME, ID);
+        super(NAME, ID);
         this.onEnterEvent(NeowEvent.class);
         this.setMainMusic("audio/music/Gensokyo/ThemeOfEasternStory.ogg");
+        this.addTempMusic("Necrofantasia", "audio/music/Gensokyo/Necrofantasia.ogg");
+        this.addTempMusic("TheLostEmotion", "audio/music/Gensokyo/TheLostEmotion.ogg");
+        this.addTempMusic("G Free", "audio/music/Gensokyo/G Free.ogg");
+        this.addTempMusic("Wind God Girl", "audio/music/Gensokyo/Wind God Girl.ogg");
+        this.addTempMusic("TomboyishGirl", "audio/music/Gensokyo/TomboyishGirl.ogg");
+        this.addTempMusic("Futatsuiwa from Gensokyo", "audio/music/Gensokyo/Futatsuiwa from Gensokyo.ogg");
     }
 
     public Gensokyo(CustomDungeon cd, AbstractPlayer p, ArrayList<String> emptyList) {
@@ -51,8 +49,15 @@ public class Gensokyo extends CustomDungeon {
         super(cd, p, saveFile);
     }
 
+    public Gensokyo(String NAME, String ID, boolean genericEvents) {
+        super(NAME, ID, false);
+    }
 
     @Override
+    public AbstractScene DungeonScene() {
+        return new GensokyoScene();
+    }
+
     protected void initializeLevelSpecificChances() {
         shopRoomChance = 0.05F;
         restRoomChance = 0.12F;
@@ -68,48 +73,6 @@ public class Gensokyo extends CustomDungeon {
         colorlessRareChance = 0.3F;
         cardUpgradedChance = 0.0F;
     }
-
-    @Override
-    public void setupMisc(CustomDungeon cd, int actNum) {
-        //Copying data from the instance that was used for initialization.
-        if (scene != null && scene != cd.savedScene) {
-            scene.dispose();
-        }
-
-        scene = new GensokyoScene();
-        fadeColor = cd.savedFadeColor;
-        this.name = cd.name;
-        //event bg needs to be set here, because it can't be set when the constructor of AbstractDungeon is executed yet.
-        AbstractDungeon.eventBackgroundImg = ImageMaster.loadImage(cd.eventImg);
-        initializeLevelSpecificChances();
-        mapRng = new com.megacrit.cardcrawl.random.Random(Settings.seed + actNum * 100);
-        generateMap();
-
-        ArrayList<MainMusic> tracks = (ArrayList) ReflectionHacks.getPrivate(CardCrawlGame.music, MusicMaster.class, "mainTrack");
-        for(final MainMusic t : tracks) {
-            t.kill();
-        }
-
-        if(cd.mainmusic != null) {
-            CardCrawlGame.music.changeBGM(cd.id);
-        } else {
-            switch(actNum) {
-                case EXORDIUM:
-                    CardCrawlGame.music.changeBGM(Exordium.ID);
-                    break;
-                case THECITY:
-                    CardCrawlGame.music.changeBGM(TheCity.ID);
-                    break;
-                case THEBEYOND:
-                    CardCrawlGame.music.changeBGM(TheBeyond.ID);
-                    break;
-                case THEENDING:
-                    CardCrawlGame.music.changeBGM(TheEnding.ID);
-                    break;
-            }
-        }
-    }
-
 
     @Override
     protected void generateMonsters() {
@@ -186,7 +149,6 @@ public class Gensokyo extends CustomDungeon {
     @Override
     protected void initializeEventList() {
         // Events are added via BaseMod in GensokyoMod.receivePostInitialize()
-        specialOneTimeEventList.clear(); //gets rid of these global events
     }
 
     @Override

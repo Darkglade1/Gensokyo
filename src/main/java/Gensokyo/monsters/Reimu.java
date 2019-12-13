@@ -120,9 +120,7 @@ public class Reimu extends CustomMonster
 
     @Override
     public void usePreBattleAction() {
-        CardCrawlGame.music.unsilenceBGM();
-        AbstractDungeon.scene.fadeOutAmbiance();
-        AbstractDungeon.getCurrRoom().playBgmInstantly("Gensokyo/G Free.ogg");
+        AbstractDungeon.getCurrRoom().playBgmInstantly("G Free");
         AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(AbstractDungeon.player, this, new Position(AbstractDungeon.player, 1)));
         AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(this, this, new HakureiShrineMaidenPower(this, strengthGain)));
     }

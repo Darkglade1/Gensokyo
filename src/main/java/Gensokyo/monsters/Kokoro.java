@@ -166,9 +166,7 @@ public class Kokoro extends CustomMonster
 
     @Override
     public void usePreBattleAction() {
-        CardCrawlGame.music.unsilenceBGM();
-        AbstractDungeon.scene.fadeOutAmbiance();
-        AbstractDungeon.getCurrRoom().playBgmInstantly("Gensokyo/TheLostEmotion.ogg");
+        AbstractDungeon.getCurrRoom().playBgmInstantly("TheLostEmotion");
         AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(this, this, new FoxMask(this, 1)));
         mask = FOX_MASK;
     }
