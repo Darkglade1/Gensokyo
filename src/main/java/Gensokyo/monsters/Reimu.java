@@ -41,6 +41,8 @@ public class Reimu extends CustomMonster
     private static final byte ATTACK = 4;
     private static final byte ATTACK_DEBUFF = 5;
     private static final byte MEGA_DEBUFF = 6;
+    private static final int HP = 220;
+    private static final int A9_HP = 230;
     private static final int NORMAL_ATTACK_DAMAGE = 13;
     private static final int A4_NORMAL_ATTACK_DAMAGE = 14;
     private static final int DEBUFF_ATTACK_DAMAGE = 9;
@@ -56,6 +58,7 @@ public class Reimu extends CustomMonster
     private static final int STRENGTH_GAIN = 3;
     private static final int A19_STRENGTH_GAIN = 4;
     private static final int MAX_DEBUFF = 3;
+    private static final int DEBUFF_COUNTER_THESHOLD = 3;
     private int normalDamage;
     private int debuffDamage;
     private int debuffAmount;
@@ -63,8 +66,7 @@ public class Reimu extends CustomMonster
     private int dazes;
     //private int megaDaze;
     private int strengthGain;
-    private static final int HP = 220;
-    private static final int A9_HP = 230;
+    private int debuffCounter = DEBUFF_COUNTER_THESHOLD; //start at threshold so she uses it immediately
 
     public static final float orbOffset = 225.0F * Settings.scale;
     public ArrayList[][] orbs = new ArrayList[3][3];
@@ -150,12 +152,14 @@ public class Reimu extends CustomMonster
                 runAnim("CloseAttack");
                 AbstractDungeon.actionManager.addToBottom(new DamageAction(AbstractDungeon.player, this.damage.get(0), AbstractGameAction.AttackEffect.BLUNT_HEAVY));
                 AbstractDungeon.actionManager.addToBottom(new MakeTempCardInDiscardAction(new Dazed(), this.dazes - 1));
+                debuffCounter++;
                 break;
             }
             case ATTACK_DEBUFF: {
                 runAnim("CloseAttack");
                 AbstractDungeon.actionManager.addToBottom(new DamageAction(AbstractDungeon.player, this.damage.get(1), AbstractGameAction.AttackEffect.BLUNT_LIGHT));
                 AbstractDungeon.actionManager.addToBottom(new MakeTempCardInDiscardAction(new Dazed(), this.dazes));
+                debuffCounter++;
                 break;
             }
             case BLOCK_DEBUFF: {
@@ -166,11 +170,13 @@ public class Reimu extends CustomMonster
                         AbstractDungeon.actionManager.addToBottom(new GainBlockAction(mo, this, this.block));
                     }
                 }
+                debuffCounter++;
                 break;
             }
             case MEGA_DEBUFF: {
                 runAnim("SpellCall");
                 AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(AbstractDungeon.player, this, new SealedPower(AbstractDungeon.player, 1), 1));
+                debuffCounter = 0;
                 break;
             }
         }
@@ -183,7 +189,7 @@ public class Reimu extends CustomMonster
             setMove(MOVES[0], OPENING, Intent.UNKNOWN);
             this.firstMove = false;
         } else {
-            if (!this.lastMove(MEGA_DEBUFF) && !this.lastMoveBefore(MEGA_DEBUFF) && canMegaDebuff()) { //use this every 3 turns until player has max stacks of the debuff
+            if (this.debuffCounter >= DEBUFF_COUNTER_THESHOLD && canMegaDebuff()) { //use this every few turns until player has max stacks of the debuff
                 this.setMove(MOVES[2], MEGA_DEBUFF, Intent.STRONG_DEBUFF);
             } else if (this.lastMove(MEGA_DEBUFF) && this.lastMoveBefore(BLOCK_DEBUFF)) { //can't not attack for more than 2 turns
                 if (num % 2 == 0) {
