@@ -74,8 +74,6 @@ import Gensokyo.relics.OccultBall;
 import Gensokyo.relics.PerfectCherryBlossom;
 import Gensokyo.relics.PortableGap;
 import Gensokyo.relics.YoukaiFlower;
-import Gensokyo.savefields.BreadCrumbs;
-import Gensokyo.savefields.ElitesSlain;
 import Gensokyo.util.IDCheckDontTouchPls;
 import Gensokyo.util.TextureLoader;
 import Gensokyo.variables.DefaultCustomVariable;
@@ -226,8 +224,6 @@ public class GensokyoMod implements
     public static void initialize() {
         GensokyoMod gensokyoMod = new GensokyoMod();
         BaseMod.subscribe(gensokyoMod);
-        BreadCrumbs.initialize();
-        ElitesSlain.initialize();
     }
     
     

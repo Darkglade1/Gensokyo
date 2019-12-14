@@ -66,9 +66,9 @@ public class Kokoro extends CustomMonster
     private static final int A4_FOX_DEBUFF_ATTACK_DAMAGE = 8;
     private static final int FOX_STATUS_COUNT = 1;
     private static final int A19_FOX_STATUS_COUNT = 2;
-    private static final int SPIDER_ATTACK_DAMAGE = 8;
-    private static final int A4_SPIDER_ATTACK_DAMAGE = 9;
-    private static final int SPIDER_WEAK = 2;
+    private static final int SPIDER_ATTACK_DAMAGE = 11;
+    private static final int A4_SPIDER_ATTACK_DAMAGE = 12;
+    private static final int SPIDER_DEBUFF = 1;
     private static final int SPIDER_LIFE_STEAL_ATTACK_DAMAGE = 12;
     private static final int A4_SPIDER_LIFE_STEAL_ATTACK_DAMAGE = 13;
     private static final int HOPE_WEAK = 2;
@@ -191,7 +191,7 @@ public class Kokoro extends CustomMonster
                     runAnim("Spider");
                     AbstractDungeon.actionManager.addToBottom(new VFXAction(new WebEffect(AbstractDungeon.player, this.hb.cX - 70.0F * Settings.scale, this.hb.cY + 10.0F * Settings.scale)));
                     AbstractDungeon.actionManager.addToBottom(new DamageAction(AbstractDungeon.player, this.damage.get(2), AbstractGameAction.AttackEffect.POISON));
-                    AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(AbstractDungeon.player, this, new WeakPower(AbstractDungeon.player, SPIDER_WEAK, true), SPIDER_WEAK));
+                    AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(AbstractDungeon.player, this, new FrailPower(AbstractDungeon.player, SPIDER_DEBUFF, true), SPIDER_DEBUFF));
                 } else if (mask == HOPE_MASK) {
                     runAnim("MaskChange");
                     AbstractDungeon.actionManager.addToBottom(new GainBlockAction(this, this, this.block));

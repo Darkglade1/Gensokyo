@@ -57,8 +57,8 @@ public class Yukari extends CustomMonster
     private static final int STRENGTH_DRAIN_AMOUNT = 2;
     private static final int WOUND_AMOUNT = 1;
     private static final int A19_WOUND_AMOUNT = 2;
-    private static final int BLOCK = 10;
-    private static final int A9_BLOCK = 12;
+    private static final int BLOCK = 9;
+    private static final int A9_BLOCK = 11;
     private int normalDamage;
     private int debuffDamage;
     private int trainDamage;

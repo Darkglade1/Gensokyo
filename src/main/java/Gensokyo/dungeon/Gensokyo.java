@@ -13,7 +13,6 @@ import Gensokyo.scenes.GensokyoScene;
 import actlikeit.dungeons.CustomDungeon;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
-import com.megacrit.cardcrawl.helpers.ImageMaster;
 import com.megacrit.cardcrawl.localization.UIStrings;
 import com.megacrit.cardcrawl.monsters.MonsterInfo;
 import com.megacrit.cardcrawl.neow.NeowEvent;
@@ -141,27 +140,7 @@ public class Gensokyo extends actlikeit.dungeons.CustomDungeon {
     }
 
     @Override
-    protected void initializeBoss() {
-        bossList.clear();
-        // Bosses are added via BaseMod in GensokyoMod.receivePostInitialize()
-    }
-
-    @Override
-    protected void initializeEventList() {
-        // Events are added via BaseMod in GensokyoMod.receivePostInitialize()
-    }
-
-    @Override
     protected void initializeShrineList() {
         //No shrines
-    }
-
-    @Override
-    protected void initializeEventImg() {
-        if (eventBackgroundImg != null) {
-            eventBackgroundImg.dispose();
-            eventBackgroundImg = null;
-        }
-        eventBackgroundImg = ImageMaster.loadImage("images/ui/event/panel.png");
     }
 }
