@@ -45,17 +45,17 @@ public class Evasive extends AbstractPower {
     @Override
     public void onAfterUseCard(AbstractCard card, UseCardAction action) {
         if (card.type == AbstractCard.CardType.ATTACK) {
-            if (this.amount == 2) {
+            if (this.amount >= 3) {
                 this.amount = 1;
             } else {
-                this.amount = 2;
+                this.amount++;
             }
         }
     }
 
     @Override
     public float atDamageReceive(float damage, DamageInfo.DamageType type) {
-        if (this.amount == 2 && type == DamageInfo.DamageType.NORMAL) {
+        if (this.amount >= 3 && type == DamageInfo.DamageType.NORMAL) {
             return 0;
         } else {
             return damage;

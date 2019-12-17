@@ -85,7 +85,7 @@
 },
 "Gensokyo:Evasive": {
         "NAME": "Evasive",
-        "DESCRIPTIONS": ["Every other #yAttack you play deals #b0 damage to this creature."]
+        "DESCRIPTIONS": ["Every #b3rd #yAttack you play deals #b0 damage to this creature."]
 },
 "Gensokyo:IllusionaryDominance": {
         "NAME": "Illusionary Dominance",

@@ -6,6 +6,11 @@ import com.megacrit.cardcrawl.helpers.RelicLibrary;
 import com.megacrit.cardcrawl.relics.AbstractRelic;
 
 public class RelicUtils {
+
+    private RelicUtils() {
+        throw new AssertionError();
+    }
+
     public static boolean removeRelicFromPool(AbstractRelic r, boolean allPools) {
         if(allPools) {
             AbstractDungeon.bossRelicPool.removeIf(id -> id.equals(r.relicId));
