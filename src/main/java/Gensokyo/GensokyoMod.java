@@ -10,6 +10,7 @@ import Gensokyo.cards.Kunekune;
 import Gensokyo.cards.LittleGreenMen;
 import Gensokyo.cards.LochNessMonster;
 import Gensokyo.cards.ManorOfTheDishes;
+import Gensokyo.cards.MarisaTwilightSpark;
 import Gensokyo.cards.MenInBlack;
 import Gensokyo.cards.MissMary;
 import Gensokyo.cards.MonkeysPaw;
@@ -91,6 +92,7 @@ import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.files.FileHandle;
 import com.badlogic.gdx.graphics.Texture;
 import com.evacipated.cardcrawl.mod.stslib.Keyword;
+import com.evacipated.cardcrawl.modthespire.Loader;
 import com.evacipated.cardcrawl.modthespire.lib.SpireInitializer;
 import com.google.gson.Gson;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
@@ -133,6 +135,12 @@ public class GensokyoMod implements
     
     //Mod Badge - A small icon that appears in the mod settings menu next to your mod.
     public static final String BADGE_IMAGE = "GensokyoResources/images/Badge.png";
+
+    private static boolean hasMarisa;
+
+    static {
+        hasMarisa = Loader.isModLoaded("TS05_Marisa");
+    }
     
     // =============== MAKE IMAGE PATHS =================
     
@@ -471,6 +479,10 @@ public class GensokyoMod implements
         BaseMod.addCard(new SevenSchoolMysteries());
         BaseMod.addCard(new Apocalypse());
         BaseMod.addCard(new SlitMouthedWoman());
+
+        if (hasMarisa) {
+            BaseMod.addCard(new MarisaTwilightSpark());
+        }
     }
     
     // ================ /ADD CARDS/ ===================

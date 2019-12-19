@@ -84,5 +84,9 @@
   "Gensokyo:Frozen": {
     "NAME": "Frozen!",
     "DESCRIPTION": "When this card is drawn, reduce its cost by !M! this combat. NL Exhaust."
+  },
+  "Gensokyo:MarisaTwilightSpark": {
+    "NAME": "Twilight Spark",
+    "DESCRIPTION": "Exhaust any number of cards. Increase this card's damage by !M! for each card exhausted. NL Amplify  [E]  [E]  [E] : Deal !D! damage to ALL enemies instead."
   }
 }
