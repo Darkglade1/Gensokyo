@@ -40,6 +40,7 @@ import Gensokyo.events.HakureiShrine;
 import Gensokyo.events.ScarletDevilMansion;
 import Gensokyo.events.TheEnmasDilemma;
 import Gensokyo.events.ThoseEarthRabbits;
+import Gensokyo.events.marisaEvents.AnOldGhost;
 import Gensokyo.monsters.Aya;
 import Gensokyo.monsters.Cirno;
 import Gensokyo.monsters.GreaterFairy;
@@ -136,7 +137,7 @@ public class GensokyoMod implements
     //Mod Badge - A small icon that appears in the mod settings menu next to your mod.
     public static final String BADGE_IMAGE = "GensokyoResources/images/Badge.png";
 
-    private static boolean hasMarisa;
+    public static boolean hasMarisa;
 
     static {
         hasMarisa = Loader.isModLoaded("TS05_Marisa");
@@ -315,6 +316,10 @@ public class GensokyoMod implements
         BaseMod.addEvent(DemonBookSeller.ID, DemonBookSeller.class, Gensokyo.ID);
         BaseMod.addEvent(ABanquetForGhosts.ID, ABanquetForGhosts.class, Gensokyo.ID);
         BaseMod.addEvent(AMomentFractured.ID, AMomentFractured.class, Gensokyo.ID);
+
+        if (hasMarisa) {
+            BaseMod.addEvent(AnOldGhost.ID, AnOldGhost.class, Gensokyo.ID);
+        }
         
         // =============== /EVENTS/ =================
 

@@ -1,11 +1,15 @@
 package Gensokyo.util;
 
+import Gensokyo.GensokyoMod;
 import Gensokyo.events.ClashOfLegends;
 import Gensokyo.events.DemonBookSeller;
 import Gensokyo.events.FieldTripToAnotherWorld;
 import Gensokyo.events.GardenOfTheSun;
 import Gensokyo.events.GoodsFromTheOutsideWorld;
 import Gensokyo.events.HakureiShrine;
+import Gensokyo.events.marisaEvents.AnOldGhost;
+import ThMod.characters.Marisa;
+import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.relics.HappyFlower;
 
@@ -45,8 +49,19 @@ public class EventFilter {
                 if (!FieldTripToAnotherWorld.hasNonBasicCard()) {
                     eventsToRemove.add(event);
                 }
+            } else if (MarisaSpecificFilter(event)) {
+                eventsToRemove.add(event);
             }
         }
         return eventsToRemove;
+    }
+
+    private static boolean MarisaSpecificFilter(String event) {
+        if (GensokyoMod.hasMarisa && !(AbstractDungeon.player instanceof Marisa)) {
+            if (event.equals(AnOldGhost.ID)) {
+                return true;
+            }
+        }
+        return false;
     }
 }

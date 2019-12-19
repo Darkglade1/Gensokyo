@@ -35,6 +35,7 @@ public class MarisaTwilightSpark extends AbstractDefaultCard {
 
     public MarisaTwilightSpark() {
         super(ID, IMG, COST, TYPE, COLOR, RARITY, TARGET);
+        this.isMultiDamage = true;
         baseDamage = DAMAGE;
         magicNumber = baseMagicNumber = BONUS_DAMAGE;
         this.tags.add(SPARK);
@@ -43,9 +44,11 @@ public class MarisaTwilightSpark extends AbstractDefaultCard {
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
         if (ThMod.Amplified(this, AMP)) {
+            this.type = CardType.ATTACK;
             AbstractDungeon.actionManager.addToBottom(new VFXAction(new MindblastEffect(p.dialogX, p.dialogY, false)));
             AbstractDungeon.actionManager.addToBottom(new DamageAllEnemiesAction(p, this.multiDamage, this.damageTypeForTurn, AbstractGameAction.AttackEffect.NONE));
         } else {
+            this.type = CardType.SKILL; //Hack to make it not consume damage buffs when not casting it for damage. Works in conjunction with TwilightSparkHackyPatch to achieve this.
             AbstractDungeon.actionManager.addToBottom(new CallbackExhaustAction(BaseMod.MAX_HAND_SIZE, false, true, true, cards -> cards.forEach(card->this.baseDamage += magicNumber)));
         }
     }

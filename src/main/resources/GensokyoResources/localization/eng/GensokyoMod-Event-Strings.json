@@ -347,5 +347,21 @@
       "[Encounter an elite enemy]",
       "[Encounter a random event]"
     ]
+  },
+  "Gensokyo:MarisaAnOldGhost": {
+    "NAME": "An Old Ghost",
+    "DESCRIPTIONS": [
+      "The gravestone is #pold and #pworn, left crumbling by the passage of time. The offerings you had left before are gone, whisked away by a #pphantasmal #pspirit. NL NL A drop of #rblood is all it takes, and as you nurse your bleeding finger, smoke billows around you, coalescing into a familiar shape. NL NL \"It's been a long time, child. I was beginning to wonder if you’ve forgotten about your old mentor.\" NL NL You grin and declare that the sun would burn out long before that happened.",
+      "\"I see your confidence is still as ~boundless~ as ever. And your #rstrength has grown to match it too. Perhaps I can finally teach you my #yultimate #ytechnique . . . ?\" NL NL You gasp in excitement. Madam Mima's ultimate technique? What could it possibly be? NL NL You can already feel your heart @racing@ in anticipation.",
+      "\"I see your confidence is still as ~boundless~ as ever. But aren't you forgetting something? Where's that #ytechnique of yours that you're so #yfond of, the one that you stole from that flower youkai?\" NL NL You frown. She's right. Something #yimportant is missing, something that you once held #gdear to your heart. NL NL \"I suppose I could help you remember. You were quite insistent on showing it to me dozens of times, after all.\"",
+      "Your eyes widen in #y@amazement@ as your old teacher shows you something amazing, something truly #gwonderful. NL NL The #ySpark she unleashes #rtears through the forest, transforming an entire acre into a #rscorched #pwasteland. NL NL It's one of the most beautiful things you’ve ever seen. NL NL And now it’s all yours.",
+      "\"Oh? I thought you would've jumped at the chance to learn more from me.\" NL NL You shake your head, telling her that from now on, you would improve on your own terms and no one else's. NL NL \"Stubborn, aren't you? Well, it's your #ploss.\" NL NL The faint wisps disappear, leaving you alone next to the gravestone once more."
+    ],
+    "OPTIONS": [
+      "[Continue]",
+      "[Accept her teaching] #gObtain ",
+      "[Decline]",
+      "[Leave]"
+    ]
   }
 }
