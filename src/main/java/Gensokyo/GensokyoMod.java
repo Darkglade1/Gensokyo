@@ -1,6 +1,9 @@
 package Gensokyo;
 
 import Gensokyo.cards.Apocalypse;
+import Gensokyo.cards.BlessingOfConstitution;
+import Gensokyo.cards.BlessingOfFortitude;
+import Gensokyo.cards.BlessingOfVigor;
 import Gensokyo.cards.CrescentMoonSlash;
 import Gensokyo.cards.EightFeetTall;
 import Gensokyo.cards.Frozen;
@@ -41,6 +44,7 @@ import Gensokyo.events.ScarletDevilMansion;
 import Gensokyo.events.TheEnmasDilemma;
 import Gensokyo.events.ThoseEarthRabbits;
 import Gensokyo.events.marisaEvents.AnOldGhost;
+import Gensokyo.events.marisaEvents.JustAVisit;
 import Gensokyo.monsters.Aya;
 import Gensokyo.monsters.Cirno;
 import Gensokyo.monsters.GreaterFairy;
@@ -319,6 +323,7 @@ public class GensokyoMod implements
 
         if (hasMarisa) {
             BaseMod.addEvent(AnOldGhost.ID, AnOldGhost.class, Gensokyo.ID);
+            BaseMod.addEvent(JustAVisit.ID, JustAVisit.class, Gensokyo.ID);
         }
         
         // =============== /EVENTS/ =================
@@ -487,6 +492,9 @@ public class GensokyoMod implements
 
         if (hasMarisa) {
             BaseMod.addCard(new MarisaTwilightSpark());
+            BaseMod.addCard(new BlessingOfVigor());
+            BaseMod.addCard(new BlessingOfFortitude());
+            BaseMod.addCard(new BlessingOfConstitution());
         }
     }
     

@@ -363,5 +363,21 @@
       "[Decline]",
       "[Leave]"
     ]
+  },
+  "Gensokyo:MarisaJustAVisit": {
+    "NAME": "Just a Visit",
+    "DESCRIPTIONS": [
+      "As you cruise through the air on your broom, you spot a familiar red torii gate off to the side. It's been a while since you’ve dropped by, hasn't it? NL NL Landing in front of the #ydonation box, you notice that it’s as #pbarren as ever. NL NL Maybe . . . you should do something about that.",
+      "The #ycoins rattle quietly as they strike the bottom, and you feel a bit more at ease. This upcoming winter was looking to be rather chilly, after all. NL NL \"Marisa? What're you doing here?\" NL NL You leap away from the box as Reimu steps out of the shrine, eyeing you curiously. You tell her that you’re just here to bug her. NL NL \"I see you have nothing better to do. Well, come in before you catch a #bcold, I guess.\" NL NL You grin as you make yourself at home while she goes to brew tea. Relaxing after a successful youkai extermination always felt nice. Especially with some #ggood company around.",
+      "You yawn as your eyes #pdroop. As much as you would like to hang around some more, your body’s needs would not be denied. NL NL It would be better if you headed straight home and got some rest."
+    ],
+    "OPTIONS": [
+      "[Hang out]",
+      "[Donate] #rLose #r",
+      " #rGold. #gObtain ",
+      "[Locked] Requires: ",
+      " Gold",
+      "[Leave]"
+    ]
   }
 }
