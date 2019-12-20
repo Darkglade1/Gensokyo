@@ -143,4 +143,11 @@ public class Gensokyo extends actlikeit.dungeons.CustomDungeon {
     protected void initializeShrineList() {
         //No shrines
     }
+
+    @Override
+    protected void initializeEventList() {
+        // Events are added via BaseMod in GensokyoMod.receivePostInitialize()
+        specialOneTimeEventList.clear(); //gets rid of these global events
+        shrineList.clear(); //gets rid of this shit too just in case
+    }
 }

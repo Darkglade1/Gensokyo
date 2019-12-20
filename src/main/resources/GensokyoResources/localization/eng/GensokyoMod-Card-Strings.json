@@ -87,6 +87,6 @@
   },
   "Gensokyo:MarisaTwilightSpark": {
     "NAME": "Twilight Spark",
-    "DESCRIPTION": "Exhaust any number of cards. Increase this card's damage by !M! for each card exhausted. NL Amplify  [E]  [E]  [E] : Deal !D! damage to ALL enemies instead."
+    "DESCRIPTION": "Exhaust any number of cards. Increase this card's damage by !M! for each card exhausted. Counts as a Skill. NL Amplify  [E]  [E]  [E] : Deal !D! damage to ALL enemies instead. Counts as an Attack."
   }
 }

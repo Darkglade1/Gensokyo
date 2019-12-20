@@ -4,12 +4,13 @@ import Gensokyo.GensokyoMod;
 import Gensokyo.events.ClashOfLegends;
 import Gensokyo.events.DemonBookSeller;
 import Gensokyo.events.FieldTripToAnotherWorld;
+import Gensokyo.events.ForestOfMagic;
 import Gensokyo.events.GardenOfTheSun;
 import Gensokyo.events.GoodsFromTheOutsideWorld;
 import Gensokyo.events.HakureiShrine;
+import Gensokyo.events.ScarletDevilMansion;
 import Gensokyo.events.marisaEvents.AnOldGhost;
 import ThMod.characters.Marisa;
-import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.relics.HappyFlower;
 
@@ -49,7 +50,8 @@ public class EventFilter {
                 if (!FieldTripToAnotherWorld.hasNonBasicCard()) {
                     eventsToRemove.add(event);
                 }
-            } else if (MarisaSpecificFilter(event)) {
+            }
+            if (MarisaSpecificFilter(event)) {
                 eventsToRemove.add(event);
             }
         }
@@ -57,8 +59,20 @@ public class EventFilter {
     }
 
     private static boolean MarisaSpecificFilter(String event) {
+        //Filter out these events if the player is not Marisa
         if (GensokyoMod.hasMarisa && !(AbstractDungeon.player instanceof Marisa)) {
             if (event.equals(AnOldGhost.ID)) {
+                return true;
+            }
+            //Filter out these events if the player is Marisa
+        } else if (GensokyoMod.hasMarisa && AbstractDungeon.player instanceof Marisa) {
+            if (event.equals(ScarletDevilMansion.ID)) {
+                return true;
+            } else if (event.equals(ForestOfMagic.ID)) {
+                return true;
+            } else if (event.equals(HakureiShrine.ID)) {
+                return true;
+            } else if (event.equals(GoodsFromTheOutsideWorld.ID)) {
                 return true;
             }
         }

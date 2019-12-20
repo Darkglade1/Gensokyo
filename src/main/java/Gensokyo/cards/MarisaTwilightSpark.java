@@ -8,6 +8,7 @@ import basemod.BaseMod;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.animations.VFXAction;
 import com.megacrit.cardcrawl.actions.common.DamageAllEnemiesAction;
+import com.megacrit.cardcrawl.actions.common.ModifyDamageAction;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
@@ -49,7 +50,7 @@ public class MarisaTwilightSpark extends AbstractDefaultCard {
             AbstractDungeon.actionManager.addToBottom(new DamageAllEnemiesAction(p, this.multiDamage, this.damageTypeForTurn, AbstractGameAction.AttackEffect.NONE));
         } else {
             this.type = CardType.SKILL; //Hack to make it not consume damage buffs when not casting it for damage. Works in conjunction with TwilightSparkHackyPatch to achieve this.
-            AbstractDungeon.actionManager.addToBottom(new CallbackExhaustAction(BaseMod.MAX_HAND_SIZE, false, true, true, cards -> cards.forEach(card->this.baseDamage += magicNumber)));
+            AbstractDungeon.actionManager.addToBottom(new CallbackExhaustAction(BaseMod.MAX_HAND_SIZE, false, true, true, cards -> cards.forEach(card-> AbstractDungeon.actionManager.addToBottom(new ModifyDamageAction(this.uuid, this.magicNumber)))));
         }
     }
 
