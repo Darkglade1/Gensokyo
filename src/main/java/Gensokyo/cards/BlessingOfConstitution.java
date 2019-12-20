@@ -13,7 +13,7 @@ import static Gensokyo.GensokyoMod.makeCardPath;
 public class BlessingOfConstitution extends AbstractDefaultCard {
 
     public static final String ID = GensokyoMod.makeID(BlessingOfConstitution.class.getSimpleName());
-    public static final String IMG = makeCardPath("Frozen.png");
+    public static final String IMG = makeCardPath("BlessingOfConstitution.png");
 
     private static final CardRarity RARITY = CardRarity.SPECIAL;
     private static final CardTarget TARGET = CardTarget.SELF;

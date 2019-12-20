@@ -51,6 +51,10 @@ public class EventFilter {
                 if (!FieldTripToAnotherWorld.hasNonBasicCard()) {
                     eventsToRemove.add(event);
                 }
+            } else if (event.equals(JustAVisit.ID)) {
+                if (!(AbstractDungeon.player.gold >= JustAVisit.COST)) {
+                    eventsToRemove.add(event);
+                }
             }
             if (MarisaSpecificFilter(event)) {
                 eventsToRemove.add(event);

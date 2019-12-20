@@ -13,7 +13,7 @@ import static Gensokyo.GensokyoMod.makeCardPath;
 public class BlessingOfVigor extends AbstractDefaultCard {
 
     public static final String ID = GensokyoMod.makeID(BlessingOfVigor.class.getSimpleName());
-    public static final String IMG = makeCardPath("Frozen.png");
+    public static final String IMG = makeCardPath("BlessingOfVigor.png");
 
     private static final CardRarity RARITY = CardRarity.SPECIAL;
     private static final CardTarget TARGET = CardTarget.SELF;
