@@ -52,6 +52,10 @@ public class Gensokyo extends actlikeit.dungeons.CustomDungeon {
         super(NAME, ID, false);
     }
 
+    public Gensokyo(String NAME, String ID, String eventImg, boolean genericEvents, int weakpreset, int strongpreset, int elitepreset) {
+        super(NAME, ID, eventImg, genericEvents, 3, 12, 10);
+    }
+
     @Override
     public AbstractScene DungeonScene() {
         return new GensokyoScene();
@@ -142,5 +146,12 @@ public class Gensokyo extends actlikeit.dungeons.CustomDungeon {
     @Override
     protected void initializeShrineList() {
         //No shrines
+    }
+
+    @Override
+    protected void initializeEventList() {
+        // Events are added via BaseMod in GensokyoMod.receivePostInitialize()
+        specialOneTimeEventList.clear(); //gets rid of these global events
+        shrineList.clear(); //gets rid of this shit too just in case
     }
 }

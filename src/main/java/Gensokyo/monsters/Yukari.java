@@ -2,7 +2,9 @@ package Gensokyo.monsters;
 
 import Gensokyo.BetterSpriterAnimation;
 import Gensokyo.actions.InvertPowersAction;
+import Gensokyo.powers.FortitudePower;
 import Gensokyo.powers.UnstableBoundariesPower;
+import Gensokyo.powers.VigorPower;
 import Gensokyo.vfx.EmptyEffect;
 import Gensokyo.vfx.YukariTrainEffect;
 import basemod.abstracts.CustomMonster;
@@ -55,6 +57,7 @@ public class Yukari extends CustomMonster
     private static final int TRAIN_ATTACK_HITS = 3;
     private static final int DEBUFF_AMOUNT = 2;
     private static final int STRENGTH_DRAIN_AMOUNT = 2;
+    private static final int OPENING_AMOUNT = 1;
     private static final int WOUND_AMOUNT = 1;
     private static final int A19_WOUND_AMOUNT = 2;
     private static final int BLOCK = 9;
@@ -126,8 +129,13 @@ public class Yukari extends CustomMonster
                 runAnim("Spell");
                 AbstractDungeon.actionManager.addToBottom(new TalkAction(this, Yukari.DIALOG[0]));
                 AbstractDungeon.actionManager.addToBottom(new GainBlockAction(this, this, this.block));
-                AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(this, this, new StrengthPower(this, this.strengthDrain), this.strengthDrain));
-                AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(AbstractDungeon.player, this, new StrengthPower(AbstractDungeon.player, -this.strengthDrain), -this.strengthDrain));
+                AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(this, this, new StrengthPower(this, OPENING_AMOUNT), OPENING_AMOUNT));
+                AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(this, this, new VigorPower(this, OPENING_AMOUNT, true), OPENING_AMOUNT));
+                AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(this, this, new FortitudePower(this, OPENING_AMOUNT, true), OPENING_AMOUNT));
+                AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(AbstractDungeon.player, this, new StrengthPower(AbstractDungeon.player, -OPENING_AMOUNT), -OPENING_AMOUNT));
+                AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(AbstractDungeon.player, this, new WeakPower(AbstractDungeon.player, OPENING_AMOUNT, true), OPENING_AMOUNT));
+                AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(AbstractDungeon.player, this, new VulnerablePower(AbstractDungeon.player, OPENING_AMOUNT, true), OPENING_AMOUNT));
+                AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(AbstractDungeon.player, this, new FrailPower(AbstractDungeon.player, OPENING_AMOUNT, true), OPENING_AMOUNT));
                 break;
             }
             case STRENGTH_DRAIN: {
@@ -194,12 +202,13 @@ public class Yukari extends CustomMonster
         } else if (this.lastMove(LAST_WORD)) {
             useTrainTexture = true;
             this.setMove(Yukari.MOVES[4], TRAIN, Intent.ATTACK_BUFF, (this.damage.get(1)).base, TRAIN_ATTACK_HITS, true);
+        } else if (this.lastMove(OPENING)) {
+            this.setMove(Yukari.MOVES[1], STRENGTH_DRAIN, Intent.ATTACK_DEBUFF, (this.damage.get(2)).base);
         } else {
             if (this.useTrain && !this.lastMove(TRAIN) && !this.lastMoveBefore(TRAIN)) { //use train every 3 turns
                 useTrainTexture = true;
                 this.setMove(Yukari.MOVES[4], TRAIN, Intent.ATTACK_BUFF, (this.damage.get(1)).base, TRAIN_ATTACK_HITS, true);
-            }
-            else if (num < 35) {
+            } else if (num < 35) {
                 if (!this.lastMove(STRENGTH_DRAIN)) {
                     this.setMove(Yukari.MOVES[1], STRENGTH_DRAIN, Intent.ATTACK_DEBUFF, (this.damage.get(2)).base);
                 } else {
