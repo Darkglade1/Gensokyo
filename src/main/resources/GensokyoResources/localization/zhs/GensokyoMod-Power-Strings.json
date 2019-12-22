@@ -1,0 +1,138 @@
+{
+"Gensokyo:DeathMark": {
+        "NAME": "死亡标记",
+        "DESCRIPTIONS": ["在 #b", " 回合后死亡。", " 回合后死亡。"]
+},
+"Gensokyo:Vengeance": {
+        "NAME": "复仇",
+        "DESCRIPTIONS": [" #r江户时代气质的死神 在接连的战斗中变得更强……"]
+},
+"Gensokyo:UnstableBoundariesPower": {
+        "NAME": "不稳定境界",
+        "DESCRIPTIONS": ["每当你打出 #b", " 张牌， #y反转 所有单位能够翻转的 #y增益效果 和 #y负面效果 。"]
+},
+"Gensokyo:FortitudePower": {
+        "NAME": "坚韧",
+        "DESCRIPTIONS": ["从 #y攻击 受到的伤害减少 #b33% 。持续时间 #b", " 个回合 ", " 个回合。"]
+},
+"Gensokyo:VigorPower": {
+        "NAME": "威猛",
+        "DESCRIPTIONS": ["从 #y攻击 造成的伤害提高 #b34 。持续时间 #b", " 个回合。", " 个回合。"]
+},
+"Gensokyo:SturdyPower": {
+        "NAME": "强健",
+        "DESCRIPTIONS": ["在 #b", " 个回合内，提高 #b34% 获得的 #y格挡 。", " 个回合内，提高 #b34% 获得的 #y格挡 。"]
+},
+"Gensokyo:SpontaneousHumanCombustionPower": {
+        "NAME": "人体自燃",
+        "DESCRIPTIONS": ["你的回合结束时，受到 #b", " 点伤害并将伤害提高 #b", " 点。"]
+},
+"Gensokyo:ManorOfTheDishesPower": {
+        "NAME": "皿屋敷",
+        "DESCRIPTIONS": ["每当你打出 #b", " 张牌，获得 #b", " 层 #y无实体 。"]
+},
+"Gensokyo:LunacyPower": {
+        "NAME": "疯狂",
+        "DESCRIPTIONS": ["每当这名敌人攻击或给予负面效果，指向一名随机敌人。"]
+},
+"Gensokyo:HAARPPower": {
+        "NAME": "HAARP",
+        "DESCRIPTIONS": ["你的回合开始时， #y生成 #b", " 个 #y闪电充能球 。"]
+},
+"Gensokyo:SevenSchoolMysteriesPower": {
+        "NAME": "学院七怪谈",
+        "DESCRIPTIONS": ["每当你一回合内打出 #b", " 张牌，获得 #b", " 点 #y力量 和 #b", " #y敏捷 。"]
+},
+"Gensokyo:SlitMouthedWomanPower": {
+        "NAME": "裂口女",
+        "DESCRIPTIONS": ["下一次你受到攻击时，给予攻击者 #b", " 层 #y易伤 。再次受到攻击时，攻击者失去 #b", " 点 #y力量 。"]
+},
+"Gensokyo:FoxMask": {
+        "NAME": "妖狐面",
+        "DESCRIPTIONS": ["每当你打出一张 #y非攻击 牌，将 #b", " 张 #y晕眩 加入你的抽牌堆。"]
+},
+"Gensokyo:SpiderMask": {
+        "NAME": "大蜘蛛面",
+        "DESCRIPTIONS": ["每当你打出一张 #y攻击牌 ，本回合你不能打出 #y攻击牌 。"]
+},
+"Gensokyo:HopeMask": {
+        "NAME": "希望之面",
+        "DESCRIPTIONS": ["她的回合开始时，回复 #b", " #y生命。 当受到未被格挡的伤害时，本回合降低受到伤害数值的回复效果。"]
+},
+"Gensokyo:DemonMask": {
+        "NAME": "鬼婆面",
+        "DESCRIPTIONS": ["每当你打出一张 #y攻击牌 ，获得 #b", " 点 #y力量 。"]
+},
+"Gensokyo:LionMask": {
+        "NAME": "狮子面",
+        "DESCRIPTIONS": ["每当你打出一张 #y技能牌 ，受到 #b", " 点伤害。"]
+},
+"Gensokyo:PositionPower": {
+        "NAME": "符卡规则",
+        "DESCRIPTIONS": ["你在 #b", " 层。每当你打出一张 #y技能牌 ，向 #y上 移动 #b1 层。每当你打出一张 #y攻击牌 ，向 #y下 移动 #b1 层。"]
+},
+"Gensokyo:MonsterPositionPower": {
+        "NAME": "符卡规则",
+        "DESCRIPTIONS": ["这个飞行道具在 #b", " 层。 #b", " 回合后将到达你的位置。", " 回合后将到达你的位置。", "如果你们在相同高度将会对你造成伤害。"]
+},
+"Gensokyo:HakureiShrineMaidenPower": {
+        "NAME": "博丽神社的巫女",
+        "DESCRIPTIONS": ["她的回合结束时，将召唤 #b2 个 #y阴阳玉 。如果场上没有 #y阴阳玉 ，将召唤 #b4 个并获得 #b", " 点 #y力量 。"]
+},
+"Gensokyo:SealedPower": {
+        "NAME": "封印",
+        "DESCRIPTIONS": ["你的回合开始时，丢弃 #b", " 张牌。", " 张牌。"]
+},
+"Gensokyo:Evasive": {
+        "NAME": "闪避",
+        "DESCRIPTIONS": ["你打出的第三张 #y攻击牌 将对这个单位造成 #b0 点伤害。"]
+},
+"Gensokyo:IllusionaryDominance": {
+        "NAME": "幻想风靡",
+        "DESCRIPTIONS": ["本回合这个单位下一次受到的未被格挡的攻击伤害时，失去 #b", " 点 #y力量 。"]
+},
+"Gensokyo:Immortality": {
+        "NAME": "永生",
+        "DESCRIPTIONS": ["每当这个单位死亡时，下一回合满血复活。"]
+},
+"Gensokyo:FairyOfIce": {
+        "NAME": "冰之妖精",
+        "DESCRIPTIONS": ["死亡时，将 #b", " 张 #y冻结！ 加入你的弃牌堆。"]
+},
+"Gensokyo:FairyFury": {
+        "NAME": "妖精之怒",
+        "DESCRIPTIONS": ["每当一名 #y妖精 死亡时，获得 #b", " 点 #y力量 。这个效果不能被免疫或改变。"]
+},
+"Gensokyo:Strongest": {
+        "NAME": "最强",
+        "DESCRIPTIONS": ["她的回合结束时，如果有 #y正数力量 时将会离开。"]
+},
+"Gensokyo:DisguisePower": {
+        "NAME": "???",
+        "DESCRIPTIONS": ["你不能确定这是你认为的……", "你识破了伪装！"]
+},
+"Gensokyo:PolymorphPower": {
+        "NAME": "变形",
+        "DESCRIPTIONS": ["你的 #y攻击牌在  #b", " 个回合内造成 #b0 点伤害。", " 个回合内造成 #b0 点伤害。"]
+},
+"Gensokyo:Grudge": {
+        "NAME": "怨恨",
+        "DESCRIPTIONS": ["回合结束时，将 #y力量 变为 #b0 并获得等于你所有 #p诅咒 数量的 #y力量 。"]
+},
+"Gensokyo:StrengthInNumbers": {
+        "NAME": "人多势众",
+        "DESCRIPTIONS": ["每当一名敌人死亡，本回合失去 #b", " 点 #y力量 。"]
+},
+"Gensokyo:CowardlyImmortality": {
+        "NAME": "永生",
+        "DESCRIPTIONS": ["每当这个单位死亡，下一回合满血复活。死亡 #b", " 次后将会逃跑。", " 次后将会逃跑。"]
+},
+"Gensokyo:RottingWood": {
+        "NAME": "腐烂木质",
+        "DESCRIPTIONS": ["再受到 #b", " 点伤害，对你造成 #b", " 点伤害。"]
+},
+"Gensokyo:Trickster": {
+        "NAME": "诡计",
+        "DESCRIPTIONS": ["你每回合打出的第一张牌将会被 #y消耗 。"]
+}
+}

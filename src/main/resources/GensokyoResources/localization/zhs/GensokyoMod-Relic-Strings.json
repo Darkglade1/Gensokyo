@@ -1,0 +1,83 @@
+{
+  "Gensokyo:PerfectCherryBlossom": {
+    "NAME": "桜满咲",
+    "FLAVOR": "孤独少女给予友人的信物",
+    "DESCRIPTIONS": [
+      "下一次将要死亡时，回复 #b10% 最大生命的生命。每当你将要死亡时， #r杀死所有敌人 。"
+    ]
+  },
+  "Gensokyo:Mercy": {
+    "NAME": "仁慈",
+    "FLAVOR": "英勇正义皆无用，唯仁慈可祛邪魔。",
+    "DESCRIPTIONS": [
+      "每回合打出的第 #b", " 张 #y技能牌 ，获得 #b", " 点 #y格挡 。"
+    ]
+  },
+  "Gensokyo:Justice": {
+    "NAME": "正义",
+    "FLAVOR": "死灵有冤难诉，生者当为之声。",
+    "DESCRIPTIONS": [
+      "每回合打出的第 #b", " 张 #y攻击牌 ，对所有敌人造成 #b", " 点伤害。"
+    ]
+  },
+  "Gensokyo:CelestialsFlawlessClothing": {
+    "NAME": "无缝天衣",
+    "FLAVOR": "天国的触感",
+    "DESCRIPTIONS": [
+      "当你将要死亡时，回满血并将 #r江户时代气质的死神 加入当前战斗。只会在战斗并且在 #r江户时代气质的死神 未出现时。"
+    ]
+  },
+  "Gensokyo:OccultBall": {
+    "NAME": "神秘珠",
+    "FLAVOR": "据说集齐七个就能实现任何愿望。",
+    "DESCRIPTIONS": [
+      "每场战斗开始时，将一张随机 #y都市传说 加入你的手牌。偶尔会发现更多的 #y神秘珠 。",
+      "每场战斗开始时，将从 #b2 张 #y都市传说 中选择 #b1 张加入你的手牌。偶尔会发现更多的 #y神秘珠 。",
+      "每场战斗开始时，将从 #b3 张 #y都市传说 中选择 #b1 张加入你的手牌。偶尔会发现更多的 #y神秘珠 。",
+      "每场战斗开始时，将三张已升级的 #y都市传说 加入你的手牌。"
+    ]
+  },
+  "Gensokyo:LunaticRedEyes": {
+    "NAME": "幻朧月睨",
+    "FLAVOR": "这双红眼对已丧失理智之人并无作用，比如你",
+    "DESCRIPTIONS": [
+      "每场战斗开始时，给予所有敌人 #b", " 层 #ygensokyo:疯狂 。"
+    ]
+  },
+  "Gensokyo:PortableGap": {
+    "NAME": "传送隙间",
+    "FLAVOR": "当你凝视深渊时，千眼的深渊也凝视着你",
+    "DESCRIPTIONS": [
+      "你能够无视路线进入下个房间。每当你使用这个效果时， #r失去 #b", " 最大生命。"
+    ]
+  },
+  "Gensokyo:NagashiBinaDoll": {
+    "NAME": "流雏人形",
+    "FLAVOR": "如果靠近查看，几乎能看到厄运的卷须正渗入这人形之中。",
+    "DESCRIPTIONS": [
+      "你的回合结束时，随机 #y消耗 一张手牌中的 #p诅咒 。"
+    ]
+  },
+  "Gensokyo:YoukaiFlower": {
+    "NAME": "妖怪花",
+    "FLAVOR": "这朵花会扭动花茎紧盯着你的去向。",
+    "DESCRIPTIONS": [
+      "每 #b",
+      " 个回合，获得 [E] [E] 。"
+    ]
+  },
+  "Gensokyo:Bombinomicon": {
+    "NAME": "炸弹魔书",
+    "FLAVOR": "死亡的盛大绽放",
+    "DESCRIPTIONS": [
+      "每场战斗开始时，将带有 #y保留 、 #y消耗 的 #y炸弹 加入你的手牌。", " 保留 。 NL ", " NL 消耗 。"
+    ]
+  },
+  "Gensokyo:BookOfSpecters": {
+    "NAME": "怨灵之书",
+    "FLAVOR": "一名想要做几个朋友的死灵术士所著。",
+    "DESCRIPTIONS": [
+      "你的回合开始时，抽 #b", " 张牌，并丢弃其中的 #y非攻击牌 。 "
+    ]
+  }
+}

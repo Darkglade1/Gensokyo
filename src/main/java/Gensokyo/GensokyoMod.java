@@ -93,9 +93,11 @@ import com.badlogic.gdx.graphics.Texture;
 import com.evacipated.cardcrawl.mod.stslib.Keyword;
 import com.evacipated.cardcrawl.modthespire.lib.SpireInitializer;
 import com.google.gson.Gson;
+import com.megacrit.cardcrawl.core.Settings;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.dungeons.Exordium;
 import com.megacrit.cardcrawl.localization.CardStrings;
+import com.megacrit.cardcrawl.localization.CharacterStrings;
 import com.megacrit.cardcrawl.localization.EventStrings;
 import com.megacrit.cardcrawl.localization.MonsterStrings;
 import com.megacrit.cardcrawl.localization.PowerStrings;
@@ -477,52 +479,63 @@ public class GensokyoMod implements
     
     
     // ================ LOAD THE TEXT ===================
-    
+
+    private static String makeLocPath(Settings.GameLanguage language, String filename)
+    {
+        String ret = "localization/";
+        switch (language) {
+            case ZHS:
+                ret += "zhs/";
+                break;
+            default:
+                ret += "eng/";
+                break;
+        }
+        return getModID() + "Resources/" + (ret + filename + ".json");
+    }
+
+    private void loadLocFiles(Settings.GameLanguage language)
+    {
+        BaseMod.loadCustomStringsFile(CardStrings.class, makeLocPath(language, "GensokyoMod-Card-Strings"));
+        BaseMod.loadCustomStringsFile(EventStrings.class, makeLocPath(language, "GensokyoMod-Event-Strings"));
+        BaseMod.loadCustomStringsFile(MonsterStrings.class, makeLocPath(language, "GensokyoMod-Monster-Strings"));
+        BaseMod.loadCustomStringsFile(RelicStrings.class, makeLocPath(language, "GensokyoMod-Relic-Strings"));
+        BaseMod.loadCustomStringsFile(PowerStrings.class, makeLocPath(language, "GensokyoMod-Power-Strings"));
+        BaseMod.loadCustomStringsFile(UIStrings.class, makeLocPath(language, "GensokyoMod-ui"));
+    }
+
     @Override
-    public void receiveEditStrings() {
-        logger.info("You seeing this?");
-        logger.info("Beginning to edit strings for mod with ID: " + getModID());
-        
-        // CardStrings
-        BaseMod.loadCustomStringsFile(CardStrings.class,
-                getModID() + "Resources/localization/eng/GensokyoMod-Card-Strings.json");
-        
-        // PowerStrings
-        BaseMod.loadCustomStringsFile(PowerStrings.class,
-                getModID() + "Resources/localization/eng/GensokyoMod-Power-Strings.json");
-        
-        // RelicStrings
-        BaseMod.loadCustomStringsFile(RelicStrings.class,
-                getModID() + "Resources/localization/eng/GensokyoMod-Relic-Strings.json");
-        
-        // Event Strings
-        BaseMod.loadCustomStringsFile(EventStrings.class,
-                getModID() + "Resources/localization/eng/GensokyoMod-Event-Strings.json");
-
-        //Monster Strings
-        BaseMod.loadCustomStringsFile(MonsterStrings.class,
-                getModID() + "Resources/localization/eng/GensokyoMod-Monster-Strings.json");
-
-        BaseMod.loadCustomStringsFile(UIStrings.class,
-                getModID() + "Resources/localization/eng/GensokyoMod-ui.json");
-        
-        logger.info("Done edittting strings");
+    public void receiveEditStrings()
+    {
+        loadLocFiles(Settings.GameLanguage.ENG);
+        if (Settings.language != Settings.GameLanguage.ENG) {
+            loadLocFiles(Settings.language);
+        }
     }
     
     // ================ /LOAD THE TEXT/ ===================
     
     // ================ LOAD THE KEYWORDS ===================
-    
-    @Override
-    public void receiveEditKeywords() {
+
+    private void loadLocKeywords(Settings.GameLanguage language)
+    {
         Gson gson = new Gson();
-        String json = Gdx.files.internal(getModID() + "Resources/localization/eng/GensokyoMod-Keyword-Strings.json").readString(String.valueOf(StandardCharsets.UTF_8));
-        com.evacipated.cardcrawl.mod.stslib.Keyword[] keywords = gson.fromJson(json, com.evacipated.cardcrawl.mod.stslib.Keyword[].class);
-        
+        String json = Gdx.files.internal(makeLocPath(language, "GensokyoMod-Keyword-Strings")).readString(String.valueOf(StandardCharsets.UTF_8));
+        Keyword[] keywords = gson.fromJson(json, Keyword[].class);
+
         if (keywords != null) {
             for (Keyword keyword : keywords) {
                 BaseMod.addKeyword(getModID().toLowerCase(), keyword.PROPER_NAME, keyword.NAMES, keyword.DESCRIPTION);
             }
+        }
+    }
+
+    @Override
+    public void receiveEditKeywords()
+    {
+        loadLocKeywords(Settings.GameLanguage.ENG);
+        if (Settings.language != Settings.GameLanguage.ENG) {
+            loadLocKeywords(Settings.language);
         }
     }
     

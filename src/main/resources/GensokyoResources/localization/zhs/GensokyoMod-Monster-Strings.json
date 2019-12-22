@@ -1,0 +1,178 @@
+{
+  "Gensokyo:Komachi": {
+    "MOVES": [
+      "区分死者的镰刀",
+      "八重雾中渡",
+      "余命无几许"
+    ],
+    "NAME": "江户时代气质的死神",
+    "DIALOG": [
+      "咱干这活可没拿着多少报酬。",
+      "看来咱还是得渡你过去了 . . .",
+      "你又来了？",
+      "请死去吧。"
+    ]
+  },
+  "Gensokyo:Yukari": {
+    "MOVES": [
+      "幻想狂想穴",
+      "魅惑的诱饵",
+      "时空的破裂",
+      "圆月伞",
+      "废弃车站下车之旅",
+      "四重结界"
+    ],
+    "NAME": "境界的妖怪",
+    "DIALOG": [
+      "在我看来你惹的麻烦有点太多了。"
+    ]
+  },
+  "Gensokyo:Kokoro": {
+    "MOVES": [
+      "切换面具"
+    ],
+    "NAME": "表情丰富的扑克脸"
+  },
+  "Gensokyo:Reimu": {
+    "MOVES": [
+      "阴阳宝玉",
+      "二重大结界",
+      "封魔阵"
+    ],
+    "NAME": "乐园的巫女",
+    "DIALOG": [
+      "又是新的一天，又是新的异变。"
+    ]
+  },
+  "Gensokyo:YinYangOrb": {
+    "MOVES": [
+      ""
+    ],
+    "NAME": "阴阳玉"
+  },
+  "Gensokyo:Aya": {
+    "MOVES": [
+      "幻想风靡",
+      "疾走优美",
+      "烈风扇"
+    ],
+    "NAME": "捏造新闻记者",
+    "DIALOG": [
+      "这一定能搞个大新闻!"
+    ]
+  },
+  "Gensokyo:Cirno": {
+    "MOVES": [
+      "夸耀",
+      "完美冻结",
+      "冰爆"
+    ],
+    "NAME": "最强妖精",
+    "DIALOG": [
+      "我是最强的！",
+      "妖精的又一次胜利！",
+      "不要小看我们！"
+    ]
+  },
+  "Gensokyo:SunflowerFairy": {
+    "MOVES": [
+
+    ],
+    "NAME": "向日葵妖精"
+  },
+  "Gensokyo:ZombieFairy": {
+    "MOVES": [
+
+    ],
+    "NAME": "僵尸妖精"
+  },
+  "Gensokyo:GreaterFairy": {
+    "MOVES": [
+
+    ],
+    "NAME": "大妖精"
+  },
+  "Gensokyo:MaidFairy": {
+    "MOVES": [
+
+    ],
+    "NAME": "女仆妖精"
+  },
+  "Gensokyo:Mamizou": {
+    "MOVES": [
+      "二岩家的制裁"
+    ],
+    "NAME": "谁也捉不住的狸猫伪装者",
+    "DIALOG": [
+      "嚯，看来你看穿老朽的真身了"
+    ]
+  },
+  "Gensokyo:RedKodama": {
+    "MOVES": [
+
+    ],
+    "NAME": "红毛玉"
+  },
+  "Gensokyo:GreyKodama": {
+    "MOVES": [
+
+    ],
+    "NAME": "灰毛玉"
+  },
+  "Gensokyo:YellowKodama": {
+    "MOVES": [
+
+    ],
+    "NAME": "黄毛玉"
+  },
+  "Gensokyo:WhiteKodama": {
+    "MOVES": [
+
+    ],
+    "NAME": "白毛玉"
+  },
+  "Gensokyo:VengefulSpirit": {
+    "MOVES": [
+
+    ],
+    "NAME": "怨灵"
+  },
+  "Gensokyo:LivingMonolith": {
+    "MOVES": [
+      "正在充电！"
+    ],
+    "NAME": "石巨人"
+  },
+  "Gensokyo:CorruptedTreant": {
+    "MOVES": [
+
+    ],
+    "NAME": "堕落树人"
+  },
+  "Gensokyo:Python": {
+    "MOVES": [
+
+    ],
+    "NAME": "蟒蛇"
+  },
+  "Gensokyo:Gryphon": {
+    "MOVES": [
+
+    ],
+    "NAME": "狮鹫"
+  },
+  "Gensokyo:MoonRabbit": {
+    "MOVES": [
+
+    ],
+    "NAME": "月兔"
+  },
+  "Gensokyo:Kitsune": {
+    "MOVES": [
+
+    ],
+    "NAME": "狐狸"
+  }
+}
+
+
