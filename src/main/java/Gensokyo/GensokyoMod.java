@@ -252,10 +252,10 @@ public class GensokyoMod implements
         BaseMod.addMonster(Aya.ID, (BaseMod.GetMonster)Aya::new);
         BaseMod.addMonster(Cirno.ID, "Cirno", () -> new MonsterGroup(
                 new AbstractMonster[] {
-                        new GreaterFairy(-600.0F, 0.0F, null),
-                        new SunflowerFairy(-400.0F, 0.0F, null),
-                        new ZombieFairy(-200.0F, 0.0F, null),
-                        new Cirno()
+                        new GreaterFairy(-450.0F, 0.0F, null),
+                        new SunflowerFairy(-250.0F, 0.0F, null),
+                        new ZombieFairy(-50.0F, 0.0F, null),
+                        new Cirno(150.0F, 0.0F)
                 }));
         BaseMod.addMonster(Mamizou.ID, (BaseMod.GetMonster)Mamizou::new);
 
@@ -320,7 +320,7 @@ public class GensokyoMod implements
             groupSize = 3; //default to 3
         }
         float[] groupPositionsSize2 = {-450.0F, -150.0F};
-        float[] groupPositionsSize3 = {-550.0F, -300.0F, -50.0F};
+        float[] groupPositionsSize3 = {-450.0F, -200.0F, 50.0F};
         ArrayList<Integer> monstersList = new ArrayList<>();
         monstersList.add(1);
         monstersList.add(2);
@@ -353,8 +353,8 @@ public class GensokyoMod implements
         if (groupSize != 3 && groupSize != 5) {
             groupSize = 5; //default to 5
         }
-        float[] groupPositionsSize3 = {-550.0F, -300.0F, -50.0F};
-        float[] groupPositionsSize5 = {-600.0F, -450.0F, -300.0F, -150.0F, 0.0F};
+        float[] groupPositionsSize3 = {-450.0F, -200.0F, 50.0F};
+        float[] groupPositionsSize5 = {-450.0F, -300.0F, -150.0F, 0.0F, 150.0F};
         ArrayList<Integer> monstersList = new ArrayList<>();
         monstersList.add(1);
         monstersList.add(2);

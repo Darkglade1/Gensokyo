@@ -62,7 +62,7 @@ public class Komachi extends CustomMonster
     }
     
     public Komachi(final float x, final float y) {
-        super(Komachi.NAME, ID, HP_MAX, -5.0F, 0, 240.0f, 255.0f, null, x, y);
+        super(Komachi.NAME, ID, HP_MAX, -5.0F, 0, 220.0f, 255.0f, null, x, y);
         this.animation = new BetterSpriterAnimation("GensokyoResources/images/monsters/Komachi/Spriter/KomachiAnimations.scml");
         this.type = AbstractMonster.EnemyType.ELITE;
         this.dialogX = (this.hb_x - 70.0F) * Settings.scale;
