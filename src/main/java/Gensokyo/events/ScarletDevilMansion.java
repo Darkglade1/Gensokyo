@@ -32,8 +32,8 @@ public class ScarletDevilMansion extends AbstractImageEvent {
     private int screenNum = 0; // The initial screen we will see when encountering the event - screen 0;
     private boolean pickCard = false;
 
-    private float HEALTH_LOSS_PERCENTAGE = 0.20F; // 20%
-    private float HEALTH_LOSS_PERCENTAGE_HIGH_ASCENSION = 0.25F; // 25%
+    private static final float HEALTH_LOSS_PERCENTAGE = 0.20F; // 20%
+    private static final float HEALTH_LOSS_PERCENTAGE_HIGH_ASCENSION = 0.25F; // 25%
 
     private int healthdamage;
 

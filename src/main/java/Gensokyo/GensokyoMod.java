@@ -44,6 +44,7 @@ import Gensokyo.events.ScarletDevilMansion;
 import Gensokyo.events.TheEnmasDilemma;
 import Gensokyo.events.ThoseEarthRabbits;
 import Gensokyo.events.marisaEvents.AnOldGhost;
+import Gensokyo.events.marisaEvents.BookThief;
 import Gensokyo.events.marisaEvents.JustAVisit;
 import Gensokyo.monsters.Aya;
 import Gensokyo.monsters.Cirno;
@@ -324,6 +325,7 @@ public class GensokyoMod implements
         if (hasMarisa) {
             BaseMod.addEvent(AnOldGhost.ID, AnOldGhost.class, Gensokyo.ID);
             BaseMod.addEvent(JustAVisit.ID, JustAVisit.class, Gensokyo.ID);
+            BaseMod.addEvent(BookThief.ID, BookThief.class, Gensokyo.ID);
         }
         
         // =============== /EVENTS/ =================

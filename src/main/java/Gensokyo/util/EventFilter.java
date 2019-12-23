@@ -10,6 +10,7 @@ import Gensokyo.events.GoodsFromTheOutsideWorld;
 import Gensokyo.events.HakureiShrine;
 import Gensokyo.events.ScarletDevilMansion;
 import Gensokyo.events.marisaEvents.AnOldGhost;
+import Gensokyo.events.marisaEvents.BookThief;
 import Gensokyo.events.marisaEvents.JustAVisit;
 import ThMod.characters.Marisa;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
@@ -69,6 +70,8 @@ public class EventFilter {
             if (event.equals(AnOldGhost.ID)) {
                 return true;
             } else if (event.equals(JustAVisit.ID)) {
+                return true;
+            } else if (event.equals(BookThief.ID)) {
                 return true;
             }
             //Filter out these events if the player is Marisa
