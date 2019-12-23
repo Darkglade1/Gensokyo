@@ -8,6 +8,7 @@ import com.badlogic.gdx.graphics.g2d.TextureAtlas;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.core.AbstractCreature;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
+import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.localization.PowerStrings;
 import com.megacrit.cardcrawl.powers.AbstractPower;
 
@@ -52,6 +53,7 @@ public class Position extends AbstractPower {
                 this.flash();
                 amount--;
                 owner.drawY -= movement;
+                fixOrbPositioning();
             }
         }
         if (card.type == AbstractCard.CardType.SKILL) {
@@ -59,9 +61,16 @@ public class Position extends AbstractPower {
                 this.flash();
                 amount++;
                 owner.drawY += movement;
+                fixOrbPositioning();
             }
         }
         updateDescription();
+    }
+
+    private void fixOrbPositioning() {
+        for (int i = 0; i < AbstractDungeon.player.orbs.size(); i++) {
+            (AbstractDungeon.player.orbs.get(i)).setSlot(i, AbstractDungeon.player.maxOrbs);
+        }
     }
 
     @Override
