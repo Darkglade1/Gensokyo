@@ -37,6 +37,7 @@ import com.megacrit.cardcrawl.monsters.exordium.Sentry;
 import com.megacrit.cardcrawl.powers.AngerPower;
 import com.megacrit.cardcrawl.powers.ArtifactPower;
 import com.megacrit.cardcrawl.powers.DexterityPower;
+import com.megacrit.cardcrawl.powers.MetallicizePower;
 import com.megacrit.cardcrawl.powers.StrengthPower;
 import com.megacrit.cardcrawl.powers.VulnerablePower;
 import com.megacrit.cardcrawl.rooms.AbstractRoom;
@@ -76,6 +77,8 @@ public class Mamizou extends CustomMonster
     private static final int A3_NOB_BIG_ATTACK = 16;
     private static final int NOB_STRENGTH = 2;
     private static final int A18_NOB_STRENGTH = 3;
+    private static final int METALLCIZE = 2;
+    private static final int A18_METALLICIZE = 3;
     private static final int HP_MIN = 90;
     private static final int HP_MAX = 92;
     private static final int A_8_HP_MIN = 92;
@@ -92,6 +95,7 @@ public class Mamizou extends CustomMonster
     private int nobDebuff;
     private int nobAttack;
     private int nobStrength;
+    private int metallicize;
     private int form;
     private int tempHP;
     private int sentryTempHP;
@@ -116,11 +120,13 @@ public class Mamizou extends CustomMonster
             this.sentryDazes = A18_SENTRY_DAZES;
             this.sentryAttackDazes = A18_SENTRY_ATTACK_DAZES;
             this.lagaDebuff = A18_DEBUFF_AMOUNT;
+            this.metallicize = A18_METALLICIZE;
         } else {
             this.nobStrength = NOB_STRENGTH;
             this.sentryDazes = SENTRY_DAZES;
             this.sentryAttackDazes = SENTRY_ATTACK_DAZES;
             this.lagaDebuff = DEBUFF_AMOUNT;
+            this.metallicize = METALLCIZE;
         }
         if (AbstractDungeon.ascensionLevel >= 8) {
             this.setHp(A_8_HP_MIN, A_8_HP_MAX);
@@ -231,6 +237,13 @@ public class Mamizou extends CustomMonster
             }
             case POLYMORPH: {
                 runAnim("SpellC");
+                if (form == SENTRY_FORM) {
+                    AbstractDungeon.actionManager.addToBottom(new MakeTempCardInDiscardAction(new Dazed(), this.sentryDazes));
+                } else if (form == LAGA_FORM) {
+                    AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(this, this, new MetallicizePower(this, metallicize), metallicize));
+                } else if (form == NOB_FORM) {
+                    AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(this, this, new StrengthPower(this, nobStrength), nobStrength));
+                }
                 AbstractDungeon.actionManager.addToBottom(new VFXAction(new SmokeBombEffect(AbstractDungeon.player.hb.cX, AbstractDungeon.player.hb.cY)));
                 AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(AbstractDungeon.player, this, new PolymorphPower(AbstractDungeon.player, 1, true), 1));
                 polymorphing = false;
