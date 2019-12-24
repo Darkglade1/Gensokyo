@@ -79,6 +79,9 @@ public class Gensokyo extends actlikeit.dungeons.CustomDungeon {
 
     @Override
     protected void generateMonsters() {
+        this.weakpreset = 3;
+        this.strongpreset = 12;
+        this.elitepreset = 10;
         generateWeakEnemies(weakpreset);
         generateStrongEnemies(strongpreset);
         generateElites(elitepreset);
