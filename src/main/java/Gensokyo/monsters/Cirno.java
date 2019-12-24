@@ -26,6 +26,7 @@ import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.localization.MonsterStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.powers.AbstractPower;
+import com.megacrit.cardcrawl.powers.GainStrengthPower;
 import com.megacrit.cardcrawl.powers.StrengthPower;
 import com.megacrit.cardcrawl.powers.ThornsPower;
 import com.megacrit.cardcrawl.relics.AbstractRelic;
@@ -236,7 +237,7 @@ public class Cirno extends CustomMonster
             }
             ArrayList<AbstractPower> powersToRemove = new ArrayList<>();
             for (AbstractPower power : this.powers) {
-                if (!(power instanceof Immortality) && !(power instanceof StrengthPower) && !(power instanceof FairyFury) && !(power instanceof Strongest) && !(power instanceof FairyOfIce)) {
+                if (!(power instanceof Immortality) && !(power instanceof StrengthPower) && !(power instanceof GainStrengthPower) && !(power instanceof FairyFury) && !(power instanceof Strongest) && !(power instanceof FairyOfIce)) {
                     powersToRemove.add(power);
                 }
             }

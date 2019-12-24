@@ -91,6 +91,8 @@ public class AMomentFractured extends AbstractImageEvent {
         AbstractDungeon.scene.nextRoom(node.room);
         AbstractDungeon.rs = AbstractDungeon.RenderScene.NORMAL;
         AbstractDungeon.monsterList.remove(0);
+
+        cur.taken = true;
     }
 
     private void encounterEliteEnemy() {
@@ -115,6 +117,8 @@ public class AMomentFractured extends AbstractImageEvent {
         AbstractDungeon.scene.nextRoom(node2.room);
         AbstractDungeon.rs = AbstractDungeon.RenderScene.NORMAL;
         AbstractDungeon.eliteMonsterList.remove(0);
+
+        cur2.taken = true;
     }
 
     private void encounterRandomEvent() {
@@ -145,5 +149,7 @@ public class AMomentFractured extends AbstractImageEvent {
         AbstractDungeon.getCurrRoom().onPlayerEntry();
         AbstractDungeon.scene.nextRoom(node3.room);
         AbstractDungeon.rs = AbstractDungeon.RenderScene.EVENT;
+
+        cur3.taken = true;
     }
 }
