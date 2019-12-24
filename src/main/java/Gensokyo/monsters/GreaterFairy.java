@@ -36,7 +36,7 @@ public class GreaterFairy extends CustomMonster
     private static final byte ATTACK = 1;
     private static final byte REVIVE = 2;
     private static final byte LEAVE = 3;
-    private static final int NORMAL_ATTACK_DAMAGE = 5;
+    private static final int NORMAL_ATTACK_DAMAGE = 4;
     //private static final int DEBUFF = 1;
     private static final int HP = 10;
     private int normalDamage;

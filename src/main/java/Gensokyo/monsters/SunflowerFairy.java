@@ -36,7 +36,7 @@ public class SunflowerFairy extends CustomMonster
     private static final byte ATTACK = 1;
     private static final byte REVIVE = 2;
     private static final byte LEAVE = 3;
-    private static final int NORMAL_ATTACK_DAMAGE = 2;
+    private static final int NORMAL_ATTACK_DAMAGE = 1;
     private static final int DEBUFF = 1;
     private static final int HP = 4;
     private int normalDamage;
