@@ -29,7 +29,7 @@ public class Gensokyo extends actlikeit.dungeons.CustomDungeon {
     public static final String NAME = TEXT[0];
 
     public Gensokyo() {
-        super(NAME, ID);
+        super(NAME, ID, "images/ui/event/panel.png", false, 3, 12, 10);
         this.onEnterEvent(NeowEvent.class);
         this.setMainMusic("audio/music/Gensokyo/ThemeOfEasternStory.ogg");
         this.addTempMusic("Necrofantasia", "audio/music/Gensokyo/Necrofantasia.ogg");
@@ -46,14 +46,6 @@ public class Gensokyo extends actlikeit.dungeons.CustomDungeon {
 
     public Gensokyo(CustomDungeon cd, AbstractPlayer p, SaveFile saveFile) {
         super(cd, p, saveFile);
-    }
-
-    public Gensokyo(String NAME, String ID, boolean genericEvents) {
-        super(NAME, ID, false);
-    }
-
-    public Gensokyo(String NAME, String ID, String eventImg, boolean genericEvents, int weakpreset, int strongpreset, int elitepreset) {
-        super(NAME, ID, eventImg, genericEvents, 3, 12, 10);
     }
 
     @Override
@@ -79,9 +71,6 @@ public class Gensokyo extends actlikeit.dungeons.CustomDungeon {
 
     @Override
     protected void generateMonsters() {
-        this.weakpreset = 3;
-        this.strongpreset = 12;
-        this.elitepreset = 10;
         generateWeakEnemies(weakpreset);
         generateStrongEnemies(strongpreset);
         generateElites(elitepreset);
@@ -154,7 +143,7 @@ public class Gensokyo extends actlikeit.dungeons.CustomDungeon {
     @Override
     protected void initializeEventList() {
         // Events are added via BaseMod in GensokyoMod.receivePostInitialize()
-        specialOneTimeEventList.clear(); //gets rid of these global events
+        specialOneTimeEventList.clear(); //gets rid of these global events just in case
         shrineList.clear(); //gets rid of this shit too just in case
     }
 }
