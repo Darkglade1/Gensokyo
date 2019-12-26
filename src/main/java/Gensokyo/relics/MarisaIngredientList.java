@@ -1,6 +1,7 @@
 package Gensokyo.relics;
 
 import Gensokyo.GensokyoMod;
+import Gensokyo.actions.IngredientListBrewOption;
 import Gensokyo.util.TextureLoader;
 import basemod.abstracts.CustomRelic;
 import basemod.abstracts.CustomSavable;
@@ -12,6 +13,9 @@ import com.megacrit.cardcrawl.rooms.AbstractRoom;
 import com.megacrit.cardcrawl.rooms.EventRoom;
 import com.megacrit.cardcrawl.rooms.MonsterRoom;
 import com.megacrit.cardcrawl.rooms.MonsterRoomElite;
+import com.megacrit.cardcrawl.ui.campfire.AbstractCampfireOption;
+
+import java.util.ArrayList;
 
 import static Gensokyo.GensokyoMod.makeRelicOutlinePath;
 import static Gensokyo.GensokyoMod.makeRelicPath;
@@ -106,7 +110,14 @@ public class MarisaIngredientList extends CustomRelic implements CustomSavable<I
         fixDescription();
     }
 
-    public boolean ableToBrew() {
+    @Override
+    public void addCampfireOption(ArrayList<AbstractCampfireOption> options) {
+        if (ableToBrew()) {
+            options.add(new IngredientListBrewOption());
+        }
+    }
+
+    private boolean ableToBrew() {
         if (encounterProgress == encounterType.threshold && cardTypeProgress == cardType.threshold) {
             return true;
         }

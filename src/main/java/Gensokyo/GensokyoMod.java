@@ -175,8 +175,8 @@ public class GensokyoMod implements
         return getModID() + "Resources/images/effects/" + resourcePath;
     }
 
-    public static String makeAssetPath(String resourcePath) {
-        return getModID() + "Resources/images/assets/" + resourcePath;
+    public static String makeUIPath(String resourcePath) {
+        return getModID() + "Resources/images/ui/" + resourcePath;
     }
     
     // =============== /MAKE IMAGE PATHS/ =================

@@ -4,5 +4,11 @@
       "Gensokyo",
       "Act 1"
     ]
+  },
+  "Gensokyo:Brew Option": {
+    "TEXT": [
+      "Brew",
+      "Brew the Improbability Potion"
+    ]
   }
 }
