@@ -79,5 +79,14 @@
     "DESCRIPTIONS": [
       "At the start of your turn, draw #b", " cards. Discard all #ynon-Attack cards drawn this way. "
     ]
+  },
+  "Gensokyo:MarisaIngredientList": {
+    "NAME": "Ingredient List",
+    "FLAVOR": "A bunch of messy scribbles on a page. Apparently creates something known as the \"Improbability Potion\".",
+    "DESCRIPTIONS": [
+      "#yIngredients: NL 1. Encounter #b", " normal", " #relite", " enemy. ", " enemies. ", " #pevent. ", " #pevents. ", "/",
+      " NL 2. Obtain #b", " Common", " #bUncommon", " #yRare", " card. ", " cards. ",
+      " NL 3. Once the first two steps are complete, #gbrew the potion at a #ycampfire."
+    ]
   }
 }

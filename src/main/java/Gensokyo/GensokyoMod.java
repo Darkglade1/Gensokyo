@@ -75,6 +75,7 @@ import Gensokyo.relics.BookOfSpecters;
 import Gensokyo.relics.CelestialsFlawlessClothing;
 import Gensokyo.relics.Justice;
 import Gensokyo.relics.LunaticRedEyes;
+import Gensokyo.relics.MarisaIngredientList;
 import Gensokyo.relics.Mercy;
 import Gensokyo.relics.NagashiBinaDoll;
 import Gensokyo.relics.OccultBall;
@@ -452,6 +453,10 @@ public class GensokyoMod implements
         BaseMod.addRelic(new YoukaiFlower(), RelicType.SHARED);
         BaseMod.addRelic(new Bombinomicon(), RelicType.SHARED);
         BaseMod.addRelic(new BookOfSpecters(), RelicType.SHARED);
+
+        if (hasMarisa) {
+            BaseMod.addRelic(new MarisaIngredientList(), RelicType.SHARED);
+        }
 
         logger.info("Done adding relics!");
     }
