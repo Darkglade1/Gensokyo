@@ -1,13 +1,35 @@
 {
-  "Gensokyo:ScarletDevilMansion": {
-    "NAME": "Scarlet Devil Mansion",
+  "Gensokyo:BorderOfDeath": {
+    "NAME": "！ ！ ！ DEPRECATED ！ ！ ！",
     "DESCRIPTIONS": [
-      "You spot a grand manor rising in the distance, its #rcrimson walls ~looming~ over its surroundings like some kind of #rscarlet master. NL NL As you approach, you see a gatekeeper napping at her post, the half-open doors of the mansion beckoning you ever forward.",
-      "Inside, you feel a wave of dizziness wash over you as you realize that the ceiling is impossibly high. NL NL \"Oh? A visitor?\" NL NL You spot a gray-haired maid walking towards you, an amused smile ~dancing~ across her lips.",
-      "\"I suppose it would be rude of me to not show some hospitality. Would you like to visit the library, perhaps? It is one of the most expansive stores of knowledge in this land, I assure you. But if that is not to your liking, I could offer you one of the antique relics we have lying around if you are willing to offer a little . . . donation.\"",
-      "The maid leads you to the library where you meet a diminutive girl in purple. Her eyes are sharp as she scrutinizes you. NL NL \"If you #rsteal or #rdamage any of the books, I will #r~incinerate~ you.\" NL NL You decide it would be best if you did not test how serious she was about that.",
-      "\"Thank you very much.\" NL NL You see something streak by your face, something ~silvery~ and ~sharp~ . A flash of #rpain erupts from your cheek, and you smell the metallic tang of #r~blood~ - NL NL You blink. The pain was gone, and a bandage now adorned your face.",
-      "You turn to see the maid holding a vial of #rblood. NL NL \"I apologize for any discomfort you may have experienced; I'm usually much more efficient than that.\" NL NL She walks off into a side room and returns with a strange #yrelic in hand. NL NL \"Here you are. Feel free to come again any time you like; we could always use more ~donations~ , after all.\" NL NL You doubt you would want to come here again anytime soon."
+      "A thick ~fog~ descends upon you, enveloping you in a ~murky~ shroud。 You feel yourself grow #plight-headed as the fog’s ethereal fingers pull your consciousness away, depositing you in a memory of another time, watching actors in a play that had already been performed。 NL NL You see two women standing near a tree, a ~beautiful~ tree with boughs stretched out like a #ygrand invitation。 You see the blond one murmur something to her companion before stepping away, leaving the pink-haired woman alone with the tree。",
+      "You find yourself stepping forward, drawn by the overwhelming presence of ~something~ you had long since forgotten。 NL NL \"You probably shouldn't come any c失去r。\" NL NL You couldn't help but notice the #rbitterness in the woman’s voice as you ask her why。 NL NL \"I was born a #p~cursed~ child。 Born with hands stained #rred by something outside my control, #p~cursed~ with an ability that makes everyone around me perpetually #pfear for their lives。\"",
+      "You can ~smell~ it in the air, the stench of #rdeath。 You had thought it was coming from the #pyoukai tree, but now you can tell it had been ~emanating~ from the woman all along。 NL NL \"No one wants me。 No one wants to even ~be~ around me。 It would probably be for the best if I just …… disappeared。\" NL NL You see the slim #rdagger in the other woman’s hands。 You see her raise it, its ~trembling,~ silver point pressed ~precariously~ against her chest - ",
+      "She ~freezes~ as your voice reaches her, her head ~slowly~ ~swiveling~ towards you like she couldn't believe you had honestly proposed the notion that you would be her friend。 NL NL \"You …… you would #r@abandon@ me before long, just like the others！ They always do, once they’re fed up with living in perpetual fear of my ability！\" NL NL You tell her that you are #gimmortal, that you had long since forgotten what it meant to #pfear #pdeath。",
+      "She gives you an incredulous look。 NL NL ~\"Prove~ ~it！\"~ NL NL She holds out a hand。",
+      "You take her hand。 NL NL #rSearing #rpain flows through your body, every single one of your cells @screaming@ in #r~agony~ as the essence of #pdeath invaded ~every~ fiber of your being - NL NL The #rpain faded to a dull throb, and you felt your body #grestore itself as the ~world~ corrected the error that was your deceased self。 NL NL You see her ~staring~ at you, tears ~trickling~ down her face, ~dumbfounded~ that you were still upright instead of a #pcrumpled #pcorpse。",
+      "\"You’re …… you’re ~still~ #galive！\" NL NL She embraces you, burying her face in your chest as she ~sobbed。~ You #gcomfort her awkwardly, unused to this kind of ~intimate~ gesture。 You glance up and notice the other woman from before standing there, observing the two of you。 NL NL She smiles, ~whispering~ something only you could hear。 NL NL #g\"Thank #gyou。\" NL NL You wake up from the vision with a @start,@ a cherry blossom cradled in your hands that had not been there before。 Just what had happened?",
+      "#pDespair clouds her face as you stand there, unmoving。 NL NL \"You …… ~you’re~ just like the ~rest~ of them！\" NL NL The dagger rises, glinting ~silver~ in the moonlight。 NL NL @\"I@ #r@hate@ @all@ @of@ @you！\"@ NL NL #rBlood sprays across the tree’s trunk。",
+      "Her body ~crumples~ to the ground, finally at peace。 NL NL You wake up from the vision with a @start,@ the image of that #rblood-stained body still engraved in your mind。 Just what had happened?"
+    ],
+    "OPTIONS": [
+      "[继续]",
+      "[拒绝]",
+      "[证明] #r失去 #r",
+      "[阻止]",
+      "[离开]",
+      " #r最大生命。 #g获得一个特别的遗物。"
+    ]
+  },
+  "Gensokyo:ScarletDevilMansion": {
+    "NAME": "红魔馆",
+    "DESCRIPTIONS": [
+      "你看到一座宏伟的洋馆出现在地平线上, 它高耸的 #r深红色 墙壁 如同 #r绯红 的领主一般 ~俯瞰~ 着四周。 NL NL 当你靠近时, 你看到一个门卫在她的岗位上打着盹, 而半开的大门吸引着你更进一步。",
+      "进入馆中。当发现这里的天花板高得异常时，你感到一股眩晕感袭来。 NL NL “哦? 有客人?” NL NL 你看到一名银发女仆走向你, 脸上 ~闪烁~ 着愉快的笑容。",
+      "“也许出于礼貌我应当做些招待。你想去参观图书馆吗? 我可以保证它收藏了这地方最全的知识。 如果这不合你喜好, 我也可以从馆内堆放的古董遗物里挑一个给你，但你得捐献一点 …… 东西。”",
+      "女仆将你带到了图书馆，馆内有名紫色衣着的瘦小少女。她用尖锐的目光上下打量着你。 NL NL “如果你是来 #r偷 或者 #r损坏 书的, 那就把你 #r~烧成灰~ 好了。” NL NL 你觉得最好不要去试探这话是不是在开玩笑。",
+      "“非常感谢。” NL NL 你瞥见一道 ~尖锐~ 的 ~银色~ 光芒从脸旁划过。 随后脸颊上爆发出一阵 #r刺痛，散发出 #r~鲜血~ 的气味 - NL NL 你眨了眨眼。痛感消失了, 取而代之的是一段绷带。",
+      "你转身看到那女仆端着一小瓶 #r血液。 NL NL “抱歉令你感到不适了，我平时效率要高一些。” NL NL 她走开去耳房中带回了一个古怪的 #y遗物。 NL NL “拿好这个。你随时可以再来，我们会为你的 ~捐赠~ 找到适当的用途。” NL NL 或许你已经再也不想来这地方了。"
     ],
     "OPTIONS": [
       "[继续]",
@@ -19,12 +41,12 @@
     ]
   },
   "Gensokyo:TheEnmasDilemma": {
-    "NAME": "The Enma's Dilemma",
+    "NAME": "阎魔的抉择",
     "DESCRIPTIONS": [
-      "You find yourself next to a ~mist-shrouded~ river, a ~desolate~ place tinged with the lingering #pregrets of many. NL NL You see a woman ahead, a ~ghostly~ figure kneeling before her. NL NL \"Tell me.\" NL NL Her voice is stern, laced with authority, yet underlain with a current of #psadness. She does not turn to face you, but somehow it feels as if she were speaking directly into your very ~soul.~",
-      "\"Here is a man, a thief, a #rkiller, a criminal, someone who has #rruined countless lives. Yet he did it all for the sake of his kin, to support his #gfamily when no one else would. And in the end, he #rdied protecting his child from an even more @despicable@ #psinner.\" NL NL She paused, breathing out a ~tired~ sigh. NL NL \"What do you think his #yfate should be?\"",
-      "\"You are a #gkind soul.\" NL NL She waved her rod, and the soul before her ~vanished~ in a flicker of #ylight. NL NL \"But I do not have the ~privilege~ of being #gkind like you.\" NL NL The woman ~vanished,~ leaving you alone next to a riverbank, unsure of what exactly had just transpired.",
-      "\"You are right, I suppose.\" NL NL She waved her rod, and the soul before her ~vanished~ in a flicker of #ylight. NL NL \"It is a shame that even #rvictims of circumstance such as he must be #ppunished so. But I do not make the rules.\" NL NL The woman ~vanished,~ leaving you alone next to a riverbank, unsure of what exactly had just transpired."
+      "你正站在一条 ~迷雾笼罩~ 的河边, 一片 ~荒凉~ 的土地上，一种徘徊彷徨的  #p悔恨 气氛之中。 NL NL 不远处有一名女子, 面前跪着一个 ~幽灵~ 般的形体。 NL NL “回答我，” NL NL 她的声音充满威严, 却流露出些许 #p悲戚 。 她并没有转身面对你，但不知怎的，声音却仿佛直接触及了你的 ~灵魂~ 。",
+      "“一个人, 是窃贼，是 #r杀手 ，是罪犯，他 #r摧残 了无数生命。 但他所作所为皆为亲族,他是他 #g家人 的唯一支柱。他的生命在从一个更 @卑鄙@ 的 #p罪人 手下保护他的孩子时 #r终结 。” NL NL 她停顿了一下， ~疲惫~ 地长叹一口。 NL NL “你认为他的 #y归宿 应当如何?”",
+      "“你是个 #g善良 的人。” NL NL 她轻挥手中的棒, 那个灵魂便 ~消散~ 在一阵 #y闪光 之中。 NL NL “但我 ~无权~ 像你一样 #g善良 。” NL NL 女子 ~消失~ 了， 岸边只剩下你独自一人，好似方才无事发生过。",
+      "“你答对了。” NL NL 她轻挥手中的棒, 那个灵魂便 ~消散~ 在一阵 #y闪光 之中。 NL NL “即便如他这般 #r身不由己 ，罪人也必须 #p受罚 。无奈这些规矩不是我定的。” NL NL 女子 ~消失~ 了， 岸边只剩下你独自一人，好似方才无事发生过。"
     ],
     "OPTIONS": [
       "[继续]",
@@ -38,13 +60,13 @@
     ]
   },
   "Gensokyo:ACelestialsPlight": {
-    "NAME": "A Celestial's Plight",
+    "NAME": "天人的困境",
     "DESCRIPTIONS": [
-      "You see a #bblue-haired girl lounging on a stone in front of you, ~lazing~ around without a care in the world. NL NL Out of the corner of your eye, you see a #pshadowy figure materialize behind her, wielding a #p~menacing~ scythe that glinted darkly. NL NL The figure approaches the unsuspecting girl, raising their weapon high into the air . . .",
-      "You dash forward, throwing yourself in front of the girl just as the scythe comes swinging down - NL NL #r@SCHING!@ NL NL #rPain erupts from your chest as the sinister weapon cuts a nasty #rgash along your body. NL NL You see the attacker reel backward in surprise, right before a flying rock smacks into them and sends them hurtling away. NL NL \"Now, why did you have to go and do that?\"",
-      "You turn to see the girl regarding you with an ~annoyed~ look. NL NL \"I’ve been waiting for that one to muster up the courage to attack me for ~weeks!~ It was going to be a #y~glorious~ battle, one where I fight for my life against an #p@evil@ shinigami before finally prevailing! But you just had to go and ruin it.\" NL NL She sighs, looking you over with a critical eye. NL NL \"Well, I appreciate the thought, at least. While it was wholly #runnecessary and #runwelcome, I suppose I should try to return the #yfavor. Here.\"",
-      "She pushes a bundle of cloth into your arms. NL NL \"Since your clothes got #rshredded from that attack, you can have these, I guess.\" NL NL Her piece said, the girl spins around and walks away, mumbling under her breath about how it would be a long, #pboring two weeks while she waited for the next one to show up.",
-      "A #rred blur shoots past you, smacking into the #pshadowy figure and sending them flying into the distance. The blur coalesces into a #rscarlet-clothed woman, who proceeds to get into an ~argument~ with the girl. As the argument grows more #rheated, you see the girl @stomp@ her foot and fly away, upon which the woman shakes her head and follows in pursuit. NL NL As you watch them 离开, you notice many #ycoins scattered about the area, dropped by that #pshadowy figure. NL NL You decide to collect the #ycoins before moving on."
+      "你看到一个 #b蓝发 的少女懒散地坐在一块岩石上, 对周围环境 ~漫不经心~ 。 NL NL 你用余光瞥见一个 #p幽暗 的形体在她背后显现, 举着一把闪烁着暗光的 #p~恐怖~ 镰刀。 NL NL 这个形体缓缓接近毫无防备的少女, 将武器高举至空中 ……",
+      "你向前疾冲,在镰刀挥下的刹那挡在了少女的前方 - NL NL #r@嚓！@ NL NL 这把险恶的武器在你的胸膛上切开长长的一道 #r创口 ，带来一阵 #r剧痛。 NL NL 袭击者惊讶地向后踉跄, 随后被一颗飞来的巨石击飞。 NL NL “那么, 你刚才在做什么?”",
+      "你转头发现少女正一脸 ~不爽~ 地瞪着你。 NL NL “我可是等这家伙鼓起勇气来袭击我等了 ~许多天~ 了！ 这本该是我为自己的生命而对抗 #p@邪恶@ 死神直到最后一刻的一场 #y~光荣~ 的战斗！ 但你把这一切都破坏了。” NL NL 她吐了口气，用挑剔的目光打量了你一番。 NL NL “算了, 至少我还是欣赏你的想法。 虽然你的行动完全 #r没有意义 并且 #r多余 , 我还是给你点 #y回报 吧，拿着。”",
+      "她把一卷衣物塞到你手里。 NL NL “你的衣服被刚才的攻击 #r撕碎 了,那就换上这件吧。” NL NL 说完，少女便转身离开了，一边嘟囔着关于等待下一次袭击者出现的半个月有多漫长而 #p无聊 的话题。",
+      "一团 #r红色 影子从你身边略过, 正撞上那个 #p幽暗 的形体，并把它打飞到了远处。 那团影子收拢成了一位 #r绯色 衣着的女子, 她紧接着与少女 ~争吵~ 起来。 争吵越来越 #r激烈, 少女猛 @跺@ 一脚并飞走了, 女子摇了摇头并紧随其后。 NL NL 你看着她们离开, 注意到有许多那个 #p幽暗 形体的 #y钱币 散落在四周。 NL NL 你决定先把这些 #y钱币 收集起来再继续前进。"
     ],
     "OPTIONS": [
       "[继续]",
@@ -56,21 +78,21 @@
     ]
   },
   "Gensokyo:HakureiShrine": {
-    "NAME": "Hakurei Shrine",
+    "NAME": "博丽神社",
     "DESCRIPTIONS": [
-      "After a ~long~ trek up a mountain, you find yourself standing before a small, run-down shrine. A girl clad in red and white is sweeping the shrine’s grounds, giving you only a ~cursory~ glance before pointing to a large wooden box. NL NL #y\"Donations go in there.\" NL NL She resumes sweeping, leaving you with only those words.",
-      "The sound of #ycoins @clanging@ against the bottom of the box is almost deafening in the silent clearing. NL NL The girl’s ears ~twitch,~ like she couldn't believe what she was hearing, before she finally spins around with a #yradiant smile. NL NL \"Welcome to the Hakurei Shrine! What can I do for you?\" NL NL You explain that you are seeking a #yblessing. NL NL \"A #yblessing? I don’t actually know who the god enshrined here is, but I’m sure whoever it is can handle a simple #yblessing at least.\"",
-      "The girl puts her hands together and c失去s her eyes, mumbling something under her breath. A #y~glowing~ aura appears around her, @pulsing@ for a moment before #r@exploding@ outwards and ~enveloping~ you. NL NL For just a moment, it was as if your body was a ~cloud,~ and you could simply ~float~ away from all your #pworries and #ptroubles. NL NL Eventually, you come down from cloud nine to see the girl smiling smugly at you. NL NL \"That should do it. If you want another one, feel free to come back anytime! If you have the #ymoney, of course.\"",
-      "You decide that you didn't particularly care for #ydonating to a shrine with a caretaker so dismissive of visitors."
+      "经过一段 ~漫长~ 的山路, 你来到一处窄小, 破败的神社。 一个穿着红白色衣服的少女正打扫着神社前的空地, 她只 ~瞟~ 了你一眼就伸手指向一个大大的木箱。 NL NL #y“赛钱请到这边。” NL NL 扔下这句话，她便回去接着打扫了。",
+      "寂静的空地上， #y钱币 撞击箱底的 @叮当@ 声几乎震耳欲聋。 NL NL 少女的耳朵微微 ~颤动~ ，似乎不敢相信听到了什么, 直到她带着 #y灿烂 的笑容转过身来。 NL NL “欢迎光临博丽神社！您有何贵干?” NL NL 你表明你前来寻求 #y祝福 。 NL NL “ #y祝福 ? 我不太清楚这里供奉的是什么神明, 不过不管是什么，做点简单的 #y祝福 还是能行的吧。”",
+      "少女闭上眼睛，双手合十, 低声吟诵着什么。 一片 #y~发光~ 的灵气浮现在她身旁, @搏动@ 了一阵后 #r@迸发@ 开来并 ~包裹~ 了你。 NL NL 有一瞬间, 你感觉身体仿佛一片 ~云朵~ ，可以轻松地 ~摆脱~ 一切的 #p忧愁 与 #p烦恼 。 NL NL 不久，你从飘飘然的状态中恢复过来，看到少女带着得意的笑容面对着你。 NL NL “这样就可以了。你想要其他祝福的话可以随时再来！当然，要带着 #y钱 哦。”",
+      "你并不是很想再次给一个对访客如此轻蔑的主持所管理的神社 #y捐款 了。"
     ],
     "OPTIONS": [
       "[继续]",
-      "[捐赠] #r失去 #r",
+      "[赛钱] #r失去 #r",
       " #r金币。 #g升级 #g",
       " #g张随机牌。",
       "[锁定] 需要： ",
       " 金币",
-      "[捐赠] #r失去 #r",
+      "[赛钱] #r失去 #r",
       " #r金币。 #g回复 #g",
       " #g生命。",
       "[锁定] 需要： 金币",
@@ -81,17 +103,17 @@
     ]
   },
   "Gensokyo:ASwiftSlash": {
-    "NAME": "A Swift Slash",
+    "NAME": "一刀两断",
     "DESCRIPTIONS": [
-      "You spot a young swordswoman training in a garden, ~sweeping~ slashes and ~rapid~ thrusts flying through the air while a white blob curiously ~follows~ her movements. NL NL Her technique seems a little #rrigid, but you’re sure you could find a way to incorporate her movements into your own fighting style if you watched a little longer. NL NL Alternatively, it is possible that you would learn more if you were to go down there and ask her for a #yspar.",
-      "You watch, mesmerized, as the swordswoman @dashes@ from position to position like a #bwaterfall @crashing@ downstream, bursts of movement interspersed with ~quick~ slashes and thrusts. NL NL The style had its flaws, but you could certainly see the value of surprising an opponent with a burst of speed and ending the fight right then and there. NL NL The girl halts, sheathing her blade and wiping her brow. The display is over, it seems. NL NL You nod to yourself before turning away, ~musing~ over what you had learned.",
-      "The girl seems ~surprised~ at your sudden appearance and your request for a spar, but she swiftly regains her composure. NL NL \"Alright. Don’t expect me to hold back, though.\" NL NL @CLANG!@ NL NL The sound of your blades striking each other ~reverberate~ throughout the clearing. You both dash to-and-fro, looking for any #pweaknesses in the other’s guard to #rexploit. NL NL @CLANG!@ @CLANG!@",
-      "After what seems like an ~eternity~ but could’ve been no more than a few minutes, the two of you break apart, regarding each other with renewed #grespect. NL NL \"You’re pretty good. Not many people can keep up with me in an honest fight like that.\" NL NL You thank her for both the #ypraise and the spar. NL NL Sure enough, a spar had been enough to allow you to see techniques the other girl might not have used while simply training. NL NL Such techniques are sure to come in handy later."
+      "你看到一个年幼的剑士在庭院中练习剑术, 剑刃随着 ~广阔~ 的横扫与 ~快速~ 的刺击在空中飞舞，还有一个白色的团块怪异地 ~跟随~ 着她的行动。 NL NL 虽然她的动作看上去有些 #r僵硬 ，但你还是找到了将她的动作融入你自己战斗方式之中的途径，这需要一点时间来进一步观察她。 NL NL 另一方面,如果你与她 #y切磋 一番的话，说不定会学到更多。",
+      "你入神地观察着, 剑士在庭院间来回 @冲刺@ ，如同 @飞流直下@ 的#b瀑布, 疾速的奔跑间穿插着 ~迅捷~ 的劈斩与刺击。 NL NL 这种剑术有它的不足之处, 但你明确领悟了以爆发性的速度使敌人措手不及，并在下一刻终结战斗这一战术的价值。 NL NL 少女停下动作，收刀入鞘并擦了擦额头的汗。看来表演已经结束。 NL NL 你 ~回想~ 着所学到的技巧，点了点头。",
+      "少女因你的突然造访与切磋请求而倍感 ~惊讶~ ,但又迅速冷静下来。 NL NL “来吧，我不会手下留情的。” NL NL @铛！@ NL NL 刀剑碰撞的声音在空中 ~回荡~ 。你们剑刃交错而又分开, 寻找着对方防御中可 #r利用 的 #p弱点 。 NL NL @叮！@ @铛！@",
+      "如同 ~永恒~ 般的几分钟过后, 你们相互退开, 互相带着全新的 #g敬意。 NL NL “你很厉害，很少有人能与我旗鼓相当。” NL NL 你谢过她的 #y赞扬 和切磋。 NL NL 毫无疑问，这一场切磋足以让你学到那个少女在训练时未曾使出的技巧。 NL NL 这些技巧定能活用于下一次战斗。"
     ],
     "OPTIONS": [
       "[继续]",
       "[观察] #g升级一张牌。",
-      "[晶石] #g获得 新月斩. #r失去 #r",
+      "[切磋] #g获得新月斩。 #r失去 #r",
       " #r生命。",
       "[离开]",
       "选择一张牌升级",
@@ -99,13 +121,13 @@
     ]
   },
   "Gensokyo:ThoseEarthRabbits": {
-    "NAME": "Those Earth Rabbits",
+    "NAME": "地上的兔子们",
     "DESCRIPTIONS": [
-      "The #gbamboo #gforest you’ve walked into is thick, rife with ~twists~ and ~turns~ that would’ve made a lesser adventurer long since #r失去 their way. NL NL Out of the corner of your eye, you see something nestled between two stalks: a man-made #ybasket that seemed entirely out of place in this sea of #ggreenery. NL NL \"Hey! You there!\" NL NL Turning, you spot a tall girl with rabbit ears sprinting towards you, panting.",
-      "\"You - you wouldn't happen to have seen my medicine #ybasket around here, have you? I need to make some sales at the village, or my master is going to have my #rhide!\" NL NL You are about to inform her of where her #ybasket is when a soft voice suddenly whispers into your ear: NL NL \"Hey, just pretend you didn't see anything, and I’ll make it worth your while, yeah?\" NL NL You hear a soft #yclink as something is pushed into your hand . . .",
-      "You gently push the #pbribe away. NL NL \"Aw, you’re no fun.\" NL NL The presence behind you disappears as you point out the #ybasket nestled in the stalks of bamboo to the rabbit, who groans when she sees how high the basket is. NL NL \"Ugh, I swear that Tewi gets some #rsadistic pleasure from watching master punish me.\" NL NL You offer to help her grab her #ybasket, but as you stand underneath the stalks holding it up, you hear something @SNAP.@",
-      "#r@WHACK!@ NL NL You find yourself on the ground with a #rthrobbing head, the rabbit looking at you in concern with her #ybasket in hand. NL NL \"Sorry about that. I’m pretty sure that #pprank was meant for me, but it seems you took my place, huh?\" NL NL She helps you up before glancing at the sun and beginning to panic. NL NL \"Ack! I better get going or I’ll miss the market!\" NL NL She rushes off. \"I’ll be sure to repay the #gfavor later!\"",
-      "Your hand c失去s around the #pbribe as you coolly inform the rabbit that you have not, in fact, seen her medicine #ybasket around here anywhere. NL NL \"Gah! Where is it, then? Where could it @be?!\"@ NL NL As the rabbit rushes off, you hear a soft snicker behind you. NL NL \"Pleasure doing business with you, pal. If you’re in the mood for some #ggood #gluck later, I can help you out. But I should get going before she realizes that I’m slacking off again.\" NL NL The presence behind you vanishes, leaving you alone in the bamboo forest once more."
+      "你刚踏入的这片 #g竹林 非常茂密，充斥着 ~歧路~ 与 ~弯道~ , 缺乏经验的冒险者很容易在此 #r迷路 。 NL NL 你用眼角余光瞥见枝杈间放着一个东西:一个 由人制作的 #y篮子 ,看上去与这片 #g绿色 的海洋格格不入。 NL NL “喂！ 请等一下！” NL NL 转过身,你看到一个高个子的兔耳少女喘着粗气向你冲来。",
+      "“你 - 你在这附近看见我装着药的 #y篮子 了吗? 我要去村里卖药,不去的话师傅会把我 #r剥 了的！” NL NL 你刚要告诉她 #y篮子 的位置,突然一个轻柔的声音在你耳旁低语: NL NL “嘿,你假装什么也没见着,然后我会给你些好东西的,怎么样?” NL NL 你听到 #y叮 的一声,有什么东西放入了你的手里 ……",
+      "你悄悄地将 #p贿赂 推开。 NL NL “噢，你可真无聊。” NL NL 在你把枝杈间放着的 #y篮子 指给兔耳少女看时,背后的人消失了。 NL NL 少女看到篮子的高度后绝望地叫出声来, “啊啊啊！帝那家伙肯定想着看师傅惩罚我！” NL NL 你主动提出帮她取下 #y篮子 ,但当你站在放着篮子的竹子正下方时, 你听到一声 @咔嚓@",
+      "#r@嘭！@ NL NL 清醒过来时，你发现自己躺在地上，脑袋 #r抽痛 不止,兔耳少女手中拎着 #y篮子 ,一脸关切地看着你。 NL NL “对不起。我敢确定那个 #p陷阱 是针对我的,但是你替我触发了它,嗯?” NL NL 她扶你站起身来，看了眼太阳的高度，立刻慌了起来。 NL NL “啊！ 再不走集就要散了！” NL NL 她一溜烟跑远了。 “下次我一定 #g报答 你！”",
+      "你握紧手中的 #p贿赂 , 冷漠地告诉兔耳少女你完全没有见过她的药 #y篮子 。 NL NL “嘎啊！ 那它去哪儿了? 它可能在 @哪?！@ ” NL NL 等到兔耳少女跑远了, 你背后传来一阵窃笑。 NL NL “交易愉快,伙计。有机会我可以帮你找到 #g好运 。但现在我得走了，不能让她发现我又在偷懒。” NL NL 你背后的人消失了, 现在竹林中再度只有你孤身一人。"
     ],
     "OPTIONS": [
       "[继续]",
@@ -116,30 +138,30 @@
     ]
   },
   "Gensokyo:FieldTripToAnotherWorld": {
-    "NAME": "Field Trip to Another World",
+    "NAME": "异界之旅",
     "DESCRIPTIONS": [
-      "You come across a #pstrange sight - a figure that could only be described as an #p~ominous~ #pshadow was standing in the distance, several #pglowing, purple balls surrounding it. NL NL \"Ah! Hello there!\" NL NL Its voice is surprisingly . . . feminine? Even so, you steel yourself as it approaches. NL NL \"Say, how would you like the chance to make a #ywish come true?\" It points to the balls hovering around it. \"If you collect seven of these, even your ~wildest~ #gfantasies will become a reality!\"",
-      "#rSuspicious, you ask what the catch is. NL NL \"There is no catch! Well, not really. Other than the fact that you’ll have to #rfight the other people I gave a ball to in order to collect all of them.\" NL NL It tilts its head towards you, giving you the impression that it would be ~grinning~ if it had a face. NL NL \"So, what do you say? All you have to do is give me a little something of yours, and I’ll give you one of these bad boys to start out with. Not a bad #ydeal, right?\"",
-      "\"An #gexcellent choice!\" NL NL One of the balls flies over to hover next to you, its #peerie glow seemingly @twisting@ the very space around it. NL NL \"Try not to 失去 it too early, alright? I wouldn't mind meeting you again later.\" NL NL Before you can ask what those #pforeboding words meant, the #pshadow flickered into the distance, not a trace remaining of its passing.",
-      "\"Awwww.\" NL NL If the #pshadow had a face, you were sure it would be pouting right now. NL NL \"Well, that’s fine, I guess. I’ll just have to find someone else to pass these along to.\" NL NL Space folded around it, compressing it into a speck that vanished into thin air. NL NL You shake your head before moving on, #p~unsettled~ by what you had encountered."
+      "你目睹到一番 #p怪异 的景象 - 一个除 #p~不吉利的~ #p阴影 外无可描述的人形立在远处, 环绕着数个发着紫色 #p荧光 的球体。 NL NL “啊！ 你好！” NL NL 那东西的声音听起来竟然有点…… 像个女性? 即便如此,你还是在它接近时做好了战斗准备。 NL NL “你,想不想实现一个 #y愿望 ?” 它指了指身边环绕的球体。 “只要你收集齐七个, 无论多 ~荒诞~ 的 #g幻想 都能成真！”",
+      "你 #r将信将疑 地询问代价是什么。 NL NL “没有代价！ 噢,这么说也不准确。只不过你得从其他人那里把我给他们的球 #r夺 走才能集齐七个。” NL NL 他向你探过头来,如果有脸的话,它应该是在 ~咧嘴笑着~ 。 NL NL “所以,你考虑好了吗? 你只需要付出一点点东西,而我会给你一个这玩意来起步。这 #y交易 很棒,对吧?”",
+      "“ #g明智 之举！” NL NL 那些球体中的一个飞到你的身旁,它散发的 #p诡异 荧光似乎 @扭曲@ 了周围的每一寸空间。 NL NL “小心不要早早被人把它抢走了。我倒是不介意不久后再见你一次。” NL NL 你还没来得及问这些 #p预言 有什么含义,这个 #p影子 就闪烁到了远处,不留一丝痕迹。",
+      "“噢……” NL NL 如果这个 #p影子 有表情的话, 那现在一定是在噘嘴。 NL NL “好吧,你不要也罢。我去找合适的人选了。” NL NL 空间在它周围折叠,压缩成一个点后消散在空气中。 NL NL 你晃了晃脑袋,怀着对刚才遭遇的 #p~不安~ 继续前行。"
     ],
     "OPTIONS": [
       "[继续]",
       "[接受] #r失去 ",
-      " #g获得 #g神秘珠.",
+      " #g获得一个神秘珠。",
       "[锁定] 需要：非基础牌",
-      "[接受] #g获得 #g神秘珠.",
+      "[接受] #g获得获得一个神秘珠。",
       "[拒绝]",
       "[离开]"
     ]
   },
   "Gensokyo:AHoleInReality": {
-    "NAME": "A Hole in Reality",
+    "NAME": "实相裂隙",
     "DESCRIPTIONS": [
-      "You find something #pstrange on the ground. A crack in reality, with #rribbons adorning its ends and a dozen eyes staring at you from within its depths. NL NL You feel a sudden urge to ~jump~ into it. NL NL There is no way that plan can go wrong.",
-      "You fall into the #pabyss, tumbling through a dimension that was neither ~here~ nor ~there,~ neither #rhot nor #bcold, neither @strange@ nor @shallow.@ NL NL And the #peyes. The #peyes were @everywhere,@ following your descent, thousands upon thousands of gazes #r@boring@ into you, watching, waiting. NL NL It’s too much. The #peyes were mocking you, judging you, their constant gaze building up a very real @pressure@ within you -",
-      "Something @snaps.@ You're not sure when, but you find yourself outside of that #rhellish landscape, finally free of that #pabyss. NL NL But the #peyes. The #peyes are still there, all around you, watching, waiting. NL NL There is no escape from the #peyes.",
-      "You manage to reign in your sudden urge. Trusting your life to some freaky hole in the ground didn't sound appealing to you."
+      "你察觉到地面上有些 #p异样 。是一道现实的裂缝,边缘被 #r缎带 装点着,密密麻麻的眼睛从裂缝中望向你。 NL NL 你突然有一股 ~跳~ 入其中的冲动。 NL NL 这么做一定不会错的。",
+      "你落入 #p深渊, 陷入一个 无 ~此~ 无 ~彼~ ,不 #b冷 不 #r热 ,非 @深@ 非 @浅@ 的维度。 NL NL 那些 #p眼睛。那些 #p眼睛 @无处不在@ ,随着你无限地下落。千千万万的眼睛 #r@盯@ 着你, 观察着，静待着。 NL NL 眼睛实在太多了。这些 #p眼睛 蔑视你,评判你,以永恒的凝视将真正的 @恐慌@ 铭刻在你的理智之中 - ",
+      "有什么东西 @断裂@ 了。你不确定过了多久,但你已经离开了那个 #p@深渊@ ,摆脱了那番 #r地狱 般的镜象。 NL NL 然而那些 #p眼睛 。 那些 #p眼睛 仍在那里,在你的周围,观察着,静待着。 NL NL 对那些 #p眼睛 来说,无处可供藏身。",
+      "你努力控制住了冲动。把命交给地上的一个怪洞对你来说没什么吸引力。"
     ],
     "OPTIONS": [
       "[继续]",
@@ -149,11 +171,11 @@
     ]
   },
   "Gensokyo:GoodsFromTheOutsideWorld": {
-    "NAME": "Goods From the Outside World",
+    "NAME": "外界商品",
     "DESCRIPTIONS": [
-      "You find yourself before a quaint little #ystore, one that has been clearly worn down throughout the ages. NL NL \"A customer? How unusual.\" The shopkeeper peers at you through his glasses. \"Well, I don’t know what you’re looking for, but I’m sure one of these artifacts from the Outside World will suit your needs. Probably.\"",
-      "\"That one? Alright, then.\" NL NL He packages the #yitem up and hands it over as you give him the #ypayment. NL NL \"That was my first sale in a . . . very long time, actually. Feel free to come again anytime.\"",
-      "The shopkeeper doesn't even look up as you 离开, still engrossed in whatever book he’s reading."
+      "你走到一间相当小的 #y商店 前, 它看起来有些年头了。 NL NL “有人来了? 真是稀客。” 店主透过眼镜片端详着你。 “请便，虽然我不清楚你的需求，但这里的外界物品总会有你想要的，大概。”",
+      "“是那个吗?好的，稍等。” NL NL 他把 #y物品 包装起来交给你，取走了你 #y支付 的钱。 NL NL “其实这里已经很……久没有卖出过商品了。欢迎下次再来。”",
+      "当你离开时，店主仍沉浸在他读的书中,一眼不抬。"
     ],
     "OPTIONS": [
       "[购买] #r失去 #r",
@@ -166,33 +188,33 @@
     ]
   },
   "Gensokyo:ForestOfMagic": {
-    "NAME": "Forest of Magic",
+    "NAME": "魔法之森",
     "DESCRIPTIONS": [
-      "You find yourself in a #pdark and damp #gforest, filled with vines and insects and other unpleasant things. NL NL Not to mention the mushrooms. Mushrooms covered @EVERYTHING.@ The air is thick with their #yspores, and you could feel your breath getting shorter and shorter as the particles clogged your lungs. NL NL You see a break in the trees ahead, two houses in the distance. One of them is worn-down, plants nestling themselves on the roof and curling themselves around the windows. The other is nicer looking, clean white tiles lending itself a much more ~pristine~ appearance.",
-      "You knock on the door, and you hear someone rapidly approaching before the door is flung open. NL NL \"Welcome to the Kirisame Magic Shop! If it’s not bolted down, it’s probably for sale!\" NL NL A girl wearing a wide-brimmed witch hat greets you enthusiastically before noticing your rather #phaggard appearance. NL NL \"Ah, you’re not too used to the air around here, are you? Come in, come in; wouldn't want my first customer in a while to collapse outside.\" NL NL You step into the house to find that the floor is an utter mess.",
-      "\"So, was there anything in particular you were looking for? Or maybe ya wanted to ask me to #rexterminate a youkai or something?\" NL NL You explain that you are simply passing through and that you were caught off-guard by the forest’s #rhostile nature. NL NL \"A traveler, are you? That’s more interesting, actually; got any good tales to tell?\" NL NL You think for a moment before deciding upon an appropriate #ystory. The girl listens intently as you speak, interrupting you only a few times. Her expression is contemplative once you’ve finished, mind still somewhere within the ~faraway~ world you had spun for her.",
-      "\"That’s a #ggood story. Haven’t heard anything like that before.\" Her gaze sweeps across the room, taking in all the junk she had lying around. \"You can take something, if you want. Think of it as a souvenir of your encounter with an ordinary #pwitch.\" NL NL You glance around briefly, picking out something that seemed reasonably useful. NL NL \"In fact, I’ll also escort you out of this forest.\" She #ygrins as she pulls a broom out of somewhere. \"You can even ride behind me, if you want.\"",
-      "Seeing no reason to refuse, you sit on the broom behind her. NL NL @\"Hereeeeeeee@ @we@ @goooooo!\"@ NL NL As the two of you take off at speeds that were #rfar #rfaster than what you were comfortable with, you realize that this was a terrible, terrible #pmistake.",
-      "You knock on the door, and there is a brief pause before it opens with a quiet #pclick. There is no one in the doorway. As you step into the house, you blink in confusion when you see that no one appears to be around at all. NL NL The door c失去s behind you with a click. You spin around, finding a small doll hovering in the air to be the #pculprit. NL NL \"Are you lost, stranger?\" NL NL A blond, #ydoll-like girl emerges from one of the rooms, regarding you with a cool look. You explain that you are simply passing through, and that the forest’s hostile nature had caught you off-guard.",
-      "The girl nods, like she had expected such an explanation. \"If you did venture in #punprepared, you are #glucky to have made it this far.\" She sits down in a chair, her fingers busying themselves with a bundle of cloth in her hands. \"Once you’ve recovered, I can lead you out of here, I suppose.\" NL NL A doll carrying a tray approaches you, several #grefreshments neatly arranged before you. NL NL \"Drink that. It’ll help clear the spores from your system.\" NL NL You thank her before taking a sip from the cup, the bitter drink sending a #gsoothing feeling flowing throughout your body.",
-      "You watch, #ymesmerized, as the girl elegantly worked the cloth with thread and needle, turning what was once a mundane bundle of cloth into something more, something #gvibrant, something that seemed almost #galive - NL NL You blink. You don’t know how much time has passed, but you see the girl standing up, regarding her newest doll with a #ypleased expression. NL NL \"I see you’re feeling better now. We can 离开 now, if you wish.\" NL NL The girl stops at the doorway, turning back to look at you expectantly. You find yourself following her, almost as if your body was moving of its own accord."
+      "你身处一片 #p幽暗 潮湿的 #g森林 ,其中遍布着令人不适之物,如藤蔓、蚊虫等。 NL NL 真菌类就更不必提了。 @一切@ 都被蘑菇覆盖着,空气中布满了它们 #y孢子 ,这些微粒渐渐填满你的肺,使你呼吸越来越急促。 NL NL 前方的树林间出现了一个缺口,透过能看到两座房子。 一座已经破败不堪,植物在屋顶生根发芽,在窗户上盘旋缠绕。另一座看上去要好许多,洁白的砖墙使它的外表 ~焕然一新~ 。",
+      "你敲了敲门,随后听到有人飞奔而来撞开了房门。 NL NL “欢迎光临雾雨魔法店！只要门没锁上,大概就是开张！” NL NL 一个戴着宽边女巫帽的少女热情地欢迎着你,直到发现你神色有些 #p憔悴 。 NL NL “啊,你还不太习惯这里的环境吧? 快,快进来;可别让我的第一个顾客倒在外面了。” NL NL 你踏入房屋,发现地板是相当地脏乱。",
+      "“那么,你在寻找什么特定物品吗?或者你想雇我来 #r消灭 妖怪之类的吗?” NL NL 你解释说你只是路过,被这里 #r充满敌意 的环境搞得措手不及。 NL NL “你是旅行者?那更有趣了;有什么传说故事讲来听听吧?” NL NL 你略加思索,挑了一个合适的 #y故事 。少女专注地听你讲述着,很少打断你。你讲完故事,少女带着一副沉思的表情,心绪仍在你展现给她的那个 ~遥远~ 的世界之中。",
+      "“真是个 #g好 故事。我以前从未听过像这样的内容。” 她的目光在遍布整个房间的垃圾堆中翻找了一阵。 “你想的话可以带点东西走,就当成是与一个普通 #p女巫 会面的纪念品好了。” NL NL 你草草环视了房间,挑出一件还算有用的物品。 NL NL “我会顺便送你走出这片森林的。” 她从不知什么地方掏出一把扫帚, #y咧嘴一笑 。 “你也可以坐在我后面,随你啦。”",
+      "没什么好拒绝的,你在她身后坐到扫帚上。 NL NL @“起~~飞！”@ NL NL 等到你们以 #r远高于 承受极限的速度起飞时,你才意识到你的选择是一个非常,非常严重的 #p错误 。",
+      "你敲了敲门,等了一小会儿,轻轻的 #p咔嗒 声传来。并没有人在玄关迎接。你走进屋内,四下无人的景象令你困惑不已。 NL NL 房门在你背后咔嗒一声关上了。你立即转身,发现 #p罪魁祸首 竟是个浮在半空中的小小人偶。 NL NL “你迷路了吗,陌生人?” NL NL 一个有着, #y人偶 般外貌的金发少女从一间房间内出现,带着冷漠的表情看着你。你解释说你只是路过,被这里 #r充满敌意 的环境搞得措手不及。",
+      "少女好似接受了这理由般地点了点头。 “对于 #p毫无准备 的人来说,走这么远已经够 #g幸运 了。” 她座到一把椅子上,手中还忙着许多针线活。“我想,等你恢复好了,我就带你离开这里。” NL NL 一个人偶端着托盘飞向你,在你面前整齐地摆上了一些 #g茶点 。 NL NL “喝了它,就能把孢子从你身体里赶出去。” NL NL 你谢过她,举杯轻啜一口,苦涩的味道将 #g宽慰 感传遍了全身。",
+      "你 #y入神 地看着少女优雅地缝着衣物,将平平无奇的布料变得充实、 #g鲜活 、 #g具有生命 - NL NL 你眨了眨眼。不知道过了多久,少女站起身来,带着 #y满足 的笑容欣赏着刚作成的人偶。 NL NL “你看上去好多了。如果你方便的话,我们现在就出发。” NL NL 少女在玄关驻足,回望以期待的眼神。你不由自主地跟了上去。"
     ],
     "OPTIONS": [
       "[继续]",
-      "[破旧房屋] #g获得一个遗物。 #r被诅咒-笨拙。",
-      "[古朴房屋] #g获得 #g",
+      "[去破旧房屋] #g获得一个遗物。 #r被诅咒-笨拙。",
+      "[去崭新房屋] #g获得 #g",
       " #g最大生命。",
       "[离开]",
       "[成功逃脱]"
     ]
   },
   "Gensokyo:GoddessOfMisfortune": {
-    "NAME": "Goddess of Misfortune",
+    "NAME": "厄神",
     "DESCRIPTIONS": [
-      "You find yourself trekking along a mountain path, a ~long~ and #rarduous road that has seen the footfalls of many. NL NL \"Hello there!\" NL NL Further up the path, you see a girl with #baquamarine hair approach, her red dress swirling about as she spins towards you.",
-      "\"Say, how would you like a #ydoll to keep you safe from #pmisfortune? I’ve been trying to sell these, but no one’s been buying them, so now I’m giving them away!\" NL NL She holds out a #ydoll towards you. This c失去, you can almost ~see~ the waves of #pnegative energy emanating off her being, #pblack snakes that #pglared at you with a predator’s gaze.",
-      "You gingerly accept, being careful to not physically touch the #pmisfortune-laden girl. NL NL She #ybeams at you. \"Thank you very much! Make sure you give it lots and lots of #pmisfortune, alright?\" NL NL The girl spins away, leaving you uncertain as to whether she wished you ill or not.",
-      "\"Awwww.\" NL NL The girl frowns, but soon perks back up. NL NL \"I’m sure the next one will say yes! Off we go now . . .\" NL NL The girl spins away, allowing you to finally breathe easy."
+      "你在一条山路上前行, 道路 ~漫长~ 而 #r艰险 ,却布满了行人的痕迹。 NL NL “你好啊！” NL NL 路的远处,有一个 #b蓝绿色 头发，身着深红色长裙的少女旋转着接近你。",
+      "“你想要一个祛除 #p厄运 的 #y人偶 吗? 它们本来是商品的,但卖不出去,所以现在我免费送了。” NL NL 她向你展示着一个 #y人偶 。 在这个距离,你隐约可以的 ~看见~ 她身上散发出的 #p负面 能量,仿佛许多条 #p盯 着猎物的 #p黑 蛇。",
+      "你谨慎地接过人偶,小心翼翼地避免触碰到这个 #p厄运缠身 的少女。 NL NL 少女 #y眉开眼笑 。 “谢谢你啦！ 记得给它注入许多许多的 #p厄运 哦！” NL NL 少女旋转着离开了,你不知道她是在诅咒还是祝福你。",
+      "“噢……” NL NL 少女眉头微蹙,旋即振作起来。 NL NL “没关系,下一个人肯定会要的！我们走吧 ……” NL NL 少女旋转着离开，你长舒了一口气。"
     ],
     "OPTIONS": [
       "[继续]",
@@ -202,12 +224,12 @@
     ]
   },
   "Gensokyo:ClashOfLegends": {
-    "NAME": "Clash of Legends",
+    "NAME": "传说之战",
     "DESCRIPTIONS": [
-      "@CLANG!@ @WHAM!@ @BOOM!@ NL NL The sounds of combat pique your interest, and you creep c失去r to the source of the disturbance to find a myriad of #ycolorful characters duking it out in the sky above you. NL NL #rBullets of pure energy are being hurled everywhere, many of them simply dissipating harmlessly against the ground or one of the nearby buildings. Some of them hit their mark, sending several of the flying figures #rcrashing into the ground nearby, unconscious.",
-      "You see tendrils of #pblack energy rising from the fallen figures - you’re not quite sure what they are, but you can tell that they contain power.",
-      "You approach the downed combatants, flinching as the strands of power suddenly #ystreak towards you. NL NL You convulse as a #pforeign power #rinvades your body, bringing with it ~knowledge~ of an obscure legend, a tale that is simultaneously #greal and #rnot #rreal. NL NL The convulsions stop, and you are left with the utter certainty that you can ~make~ it real.",
-      "It would be better if you did not involve yourself in the affairs of others."
+      "@铛！@ @咣！@ @嘭！@ NL NL 战斗的声响激起了你的好奇,你慢慢接近骚动的发生地,发现上空有一大群 #y各色 人影厮杀着。 NL NL 纯粹能量构成的 #r弹幕 漫天飞舞,其中大部分仅是无害地消散在附近的地面与建筑上。也有一些击中了它们的目标,使一些飞翔的人影 #r坠落 到地上失去意识。",
+      "你看到一些 #p黑色 的能量卷须从坠落的人影上冒出 - 你不太确定那是些什么, 但你知道它们蕴含着能量。",
+      "你靠近一个倒下的人,突然 #y探 来的能量线让你有些退缩。 NL NL #r侵入 你体内的 #p陌生 能量使你抽搐起来,能量中还包含着关于一个亦 #g真 亦 #r幻 的怪异传说的 ~知识~ 。 NL NL 从抽搐中恢复过来,你敢肯定这传说已 ~成为~ 了事实。",
+      "做人最好不要多管闲事。"
     ],
     "OPTIONS": [
       "[继续]",
@@ -217,15 +239,15 @@
     ]
   },
   "Gensokyo:ALandWhereOnlyIAmMissing": {
-    "NAME": "A Land Where Only I Am Missing",
+    "NAME": "只有我不在的世界",
     "DESCRIPTIONS": [
-      "\"Hey! You there!\" NL NL A voice calls to you out of the blue. You blink, suddenly realizing that there is a #pstrange girl in front of you, #ysmiling at you like the two of you were already friends. NL NL \"Play with me!\"",
-      "You blink. Something is #poff. Something is #pmissing. There is a #r~gaping~ hole in your memories, a stretch of time that you could not recall experiencing. NL NL A face. There is a face, one that is so #psad yet smiles so #ybrightly. NL NL You try to remember - NL NL You blink. What are you idling around for, again? It is time to get moving. NL NL There is nothing important here."
+      "“嘿！这里！” NL NL 一个声音突然叫住你。你眨了眨眼,突然意识到面前站着一个 #p奇怪 的少女,仿佛你们早已是朋友地向你 #y微笑 。 NL NL “来陪我玩吧！”",
+      "你眨了眨眼。有什么东西 #p消失 了,有什么东西 #p遗忘 了。你的记忆中有一片 #r~空白~ ,你记不起那段时间经历了什么。 NL NL 是一个面孔，有一个非常 #p悲伤 却又笑得十分 #y灿烂 的面孔。 NL NL 你尝试回忆起发生的事情 - NL NL 你眨了眨眼。你在这里发什么呆呢?该走了。 NL NL 没什么重要的事情发生。"
     ],
     "OPTIONS": [
-      "[游玩一小会] #g移除一张牌。",
-      "[游玩一会] #r失去 #r",
-      "[游玩好一会] #r失去 #r",
+      "[玩一小会] #g移除一张牌。",
+      "[玩一会] #r失去 #r",
+      "[玩好一会] #r失去 #r",
       " #r生命。 #g移除两张牌。",
       " #r生命。 #g移除三张牌。",
       "[锁定] 需要：两张牌。",
@@ -238,31 +260,31 @@
     ]
   },
   "Gensokyo:BambooForestOfTheLost": {
-    "NAME": "Bamboo Forest of the Lost",
+    "NAME": "迷途竹林",
     "DESCRIPTIONS": [
-      "Thick bamboo shoots cover the path ahead, and as you look around, you find that bamboo is all you can see. There are no #ylandmarks, no indicators that any path you take will lead you out of this #pforsaken forest. NL NL \"Another one? The forest sure is crowded today.\" NL NL A white-haired woman emerges from the thicket with a rustle. She glances at you, then ~sighs~ in resignation. \"Well, out with it already. Are you headed to Eientei or the Human Village?\"",
-      "\"Figured as much. Stick c失去 and try not to get lost again.\" NL NL She spins around and walks away, leaving you no choice but to follow in her footsteps. The woman’s motions are #ydecisive, relentlessly #rcleaving a path through the forest with ease. Before long, you arrive at your destination, a large mansion nestled in a clearing surrounded by bamboo. NL NL You look around; the one who had led you here is already gone. Faced with no other options, you enter the abode. NL NL You see a woman in #rred and #bblue giving orders to a group of rabbits. As they scamper away, she turns to regard you with piercing eyes.",
-      "\"Ah, a patient.\" Her eyes rove over you, seemingly #ydiagnosing you at a glance. \"I have just what you need.\" She grabs several bottles of medicine off a shelf, dumping them into your hands. \"Take one of each #ytwice a day, every #ythree days, over the course of #yfour weeks. Understood?\" NL NL You protest, claiming that you don’t have the #ymoney to pay her for all of this. NL NL She smiles, shaking her head. \"You can pay me later; after all, #pdead patients don’t bring in money, do they?\"",
-      "\"Figured as much. Stick c失去 and try not to get lost again.\" NL NL She spins around and walks away, leaving you no choice but to follow in her footsteps. The woman’s motions are #ydecisive, relentlessly #rcleaving a path through the forest with ease. Before long, you arrive at your destination, a large collection of houses and other buildings encircled by wooden walls. NL NL \"Mokou! There you are!\" NL NL You notice your guide stiffen as a #rdisgruntled, silver-haired woman approached.",
-      "\"Where were you?! You said you would help me during my history lesson today!\" NL NL \"Ah, there were a lot of people lost today, so I was a bit preoccupied . . .\" NL NL A sigh. \"I suppose that’s alright then. But now that you’re here, don’t try to run off!\" She shoots you a gaze. \"I don’t think I’ve seen you around before. Why don’t you come along? It can’t hurt to learn more about the land you’re in, yes?\" NL NL Sensing that the woman would be #punlikely to take “no” for an answer, you reluctantly agree."
+      "茂密的竹林挡住了前方的道路,你环顾四周,除了竹子别无他物。既没有 #y地标 ,也没有人留下的标记来指引你走出这片 #p荒凉 的丛林。 NL NL “又有人来了? 今天竹林里可真热闹。” NL NL 随着一阵沙沙声,一个白发女子拨开竹丛走了出来。 她看了看你,无奈地 ~叹气~ 。 “好了,说吧。你要去永远亭还是人类村落?”",
+      "“了解。跟紧我,别再走丢了。” NL NL 她动身出发,你只好跟上她的脚步。女子的动作 #y干净利落 ,不断地 #r砍倒 竹子以开辟道路。不久,你们抵达了目的地,一座坐落在林间空地上的大庭院。 NL NL 你看了看四周; 带你来的女子已经离开了。你别无选择,只能踏入院内。 NL NL 你看到一个穿着 #r红 #b蓝 相间衣服的女子正向一群兔子发号施令。等到兔子们蹦跳着离开后,她转向你,带着仿佛洞察一切的眼神。",
+      "“啊,你是来看病的。”她的目光在你身上游走,似乎仅凭观察就能作 #y诊断 。“我这正好有你需要的。”她从架子上取下几个药瓶,放到你手中。 “一个疗程，每次 #y两 粒, #y三 日一次,持续 #y四 周。明白了吗?” NL NL 你反对说自己付不起全部药物的 #y钱 。 NL NL 她笑着摇头。 “你可以先欠着; 毕竟 #p死人 可不会付账,不是吗?”",
+      "“了解。跟紧我,别再走丢了。” NL NL 她动身出发,你只好跟上她的脚步。女子的动作 #y干净利落 ,不断地 #r砍倒 竹子以开辟道路。不久,你们抵达了目的地, 被木质高墙包围着的大群房屋与其他建筑。 NL NL “妹红！你在这儿啊！” NL NL 你看到一个银发女子带着 #r不满 走向神态僵硬的向导。",
+      "“你跑哪儿去了?！ 说好今天我教历史的时候来帮我忙的！” NL NL “啊,今天迷路的人有点多,我光顾着带他们了……” NL NL 一声叹气。 “这理由不错。但你现在在这就别想溜了！”她向你投来一道注视。 “我之前在这附近应该没见过你,跟我们一起来吧?了解些关于你所在地的知识没坏处的对吧?” NL NL 你感觉这女子 #p不像是 能接受否定回答的样子,只好勉强答应了。"
     ],
     "OPTIONS": [
       "[继续]",
-      "[永远亭] #g回复 #g",
+      "[永远亭] #g治疗 #g",
       " #g生命。",
-      "[人类村镇] #g选择并将 #g",
-      " #g张牌加入你的牌组。",
+      "[人类村落] #g选择并获得 #g",
+      " #g张牌。",
       "[离开]"
     ]
   },
   "Gensokyo:GardenOfTheSun": {
-    "NAME": "Garden of the Sun",
+    "NAME": "太阳花田",
     "DESCRIPTIONS": [
-      "You find yourself in a field full of #ysunflowers, a bountiful harvest of ~dazzling~ yellow as far as the eye can see. You notice that they seem to all be facing towards the sun, a captive audience unable to take their eyes off their namesake. NL NL \"Are you enjoying the flowers here?\" NL NL It was an innocent question, but as all the flowers swivel around to stare at you and the newcomer, you feel a twinge of #pdread creep down your spine.",
-      "The green-haired woman smiles at you, ignoring your #pdiscomfort as she looks you up and down. NL NL \"Say, you have a warrior’s look about you. Just how strong are you?\"",
-      "\"Impressive. Very impressive.\" NL NL You feel the tension in the air lessen as the woman regards you with newfound #grespect. \"I have a rather fickle child here with me, one who has only recently blossomed. She will not learn much by staying here amongst her kind - but I believe you have the strength to protect and #gnurture her.\" NL NL The woman hands you a flower in a pot. You watch it twist and turn, struggling like a newborn infant, before it finally turns to stare at you. NL NL \"Take good care of her, now. Don’t make me #pregret this.\"",
-      "\"Hmm. Not bad.\" NL NL You feel the tension in the air lessen as the woman regards you with something approaching #grespect. \"You are better than most, and I am feeling rather generous; so, I will give you one of the children here as a sign of my favor.\" NL NL The woman hands you a flower in a pot, a #gjoyous looking thing. You feel more #yenergetic just from holding it. NL NL \"Come back when you are stronger. Perhaps then you’ll truly be worth my time.\"",
-      "\"Running away? How rude.\" NL NL You feel something #rheat up the air behind you, a ~rolling,~ @thunderous@ wave that #r@crashed@ down on you as you narrowly dodge to the side of the massive laser that #rvaporizes everything in the area you had just occupied. NL NL Panting, you find yourself finally outside that field of flowers, #rburn marks traveling down one side of your body. NL NL You make a mental note to never go there again."
+      "你身处一片 #y向日葵 田之中, 所见之处 ~耀眼~ 的金黄漫无边际。你注意到它们似乎都朝向太阳，像是被表演所俘获的观众一般。 NL NL “你喜欢这些花儿吗?” NL NL 这本是个简单的问题, 但当所有的花盘都转向你和新来的那人时,你感到一股 #p寒意 爬上你的脊椎。",
+      "这绿发女子冲你微笑着,用令你 #p不适 的眼光上下打量你。 NL NL “我说, 你看起来是个战士。 你有多强？”",
+      "“出色，非常出色。” NL NL 你感到空气中的紧张感减弱了——因女子新找到了值得 #g尊重 的人。 “我有个相当机灵的孩子, 是最近刚刚开花的。她和同伴待在一起学不到什么了 - 但你应该有能力保护并 #g养育 她。” NL NL 女子交给你一盆花。 你看着它扭动，旋转，像初生的婴儿般挣扎着,直到它转向你并死死盯着你。 NL NL “从现在起照顾好她。不要让我 #p反悔 。”",
+      "“嗯，还行吧。” NL NL 你感到空气中的紧张感减弱了——因女子将你当作几乎值得 #g尊重 的人。 “你比大部分人强一些,而我是个慷慨的人; 所以, 作为信物，我会给你这些孩子中的一个” NL NL 女子交给你一盆花,这花看上去心情很 #g愉快 。仅仅握着这盆花，你就感到充满了 #y能量 。 NL NL “等你变得更强再回来吧。 或许到时候你能真正值得我认真起来。”",
+      "“逃跑? 真是无礼。” NL NL 你感到背后的空气被 #r加热 了, 一阵 ~震动~ @轰鸣@ 着的冲击波将你 #r@击倒@ 在地,刚好避开一发将你之前所在之处 #r蒸发 殆尽的光束。 NL NL 你气喘吁吁地逃出了花田, #r灼伤 的痕迹遍布你的半个身体。 NL NL 你在心里默默记下了，永远不要踏入此地。"
     ],
     "OPTIONS": [
       "[继续]",
@@ -279,11 +301,11 @@
     ]
   },
   "Gensokyo:DemonBookSeller": {
-    "NAME": "Demon Book Seller",
+    "NAME": "妖怪书屋",
     "DESCRIPTIONS": [
-      "You step into a store and you are immediately assailed by the scent of musty old pages and dried ink, along with the sense of something more #psinister, something . . . #pdemonic. NL NL \"Welcome to Suzunaan! Home of the @biggest@ collection of #pdemon books in Gensokyo!\" NL NL A quirky girl enthusiastically welcomes you, completely oblivious to the shelf of books radiating #pmalevolent intent behind her.",
-      "\"Thank you! Come again!\" NL NL As you walk out with your questionable purchase in tow, you sincerely hope the book isn’t going to start gnawing on your arm or something equally dubious.",
-      "Buying a #pdemonic book didn't sound like the brightest idea to you. "
+      "你刚走进一家店铺，就被眼前的场景所震慑：蒙尘的古卷，干涸的墨迹，以及一股 #p不详 的感觉, 一股…… #p邪气 。 NL NL “欢迎光临铃奈庵！ 这里有全幻想乡 @最全的@ #p妖怪 书！” NL NL 一个古怪的少女热情地招呼着你, 毫不在乎背后书架上散发着的 #p恶意 。",
+      "“多谢惠顾，欢迎下次再来！” NL NL 你带着可疑的商品踏出店门, 真希望这书不会突然咬上你的手臂，或者做出别的怪异举动。",
+      "购买 #p妖怪 书听起来可不是什么明智之举。"
     ],
     "OPTIONS": [
       "[购买] #r失去 #r",
@@ -294,14 +316,14 @@
     ]
   },
   "Gensokyo:ABanquetForGhosts": {
-    "NAME": "A Banquet for Ghosts",
+    "NAME": "亡灵盛宴",
     "DESCRIPTIONS": [
-      "A #gdelightful aroma permeates the air, drawing you to a clearing where a lone woman sat at a table filled to the brim with exotic dishes. #pGhostly butterflies flutter about, an otherworldly addition to what was otherwise a mundane scene. NL NL The woman has yet to notice you, too busy devouring everything in front of her.",
-      "It has been a long time since you ate; surely, the woman wouldn't mind if a fruit or two went #rmissing from the table. NL NL You dart forward and snatch your prize - NL NL #rSearing #rpain made itself known all over your body as the butterflies swarmed you, pressing their #rburning #bcoldness against your vulnerable body as you sought to escape with your ill-gotten gains in hand.",
-      "You make it out of the clearing, the #pghostly creatures finally ceasing their pursuit. Glancing back, you notice the woman had not even glanced up from her endeavors to shove one plate into her mouth after another. NL NL You bite down on the fruit you had taken, feeling its #gwarmth spread throughout your body. NL NL Hopefully, you wouldn't have to do something quite as #pharrowing for your next meal.",
-      "You sit down next to her. She doesn't seem to notice, polishing off one final plate of food before finally casting an ~inquisitive~ glance at you. \"A visitor? I don’t get many of those down here. To what do I owe the pleasure?\" NL NL You proffer the food you had brought. She eyes it #yexcitedly before snatching it up. \"Oh, it’s fresh! How wonderful; please, feel free to indulge yourself in exchange.\" NL NL The two of you ate in silence - you took the opportunity to sample various exotic dishes you had never seen before while she munched on the snack you had given her.",
-      "\"It’s nice, isn’t it? To eat in the company of someone else. I don’t often have the opportunity to do so, unfortunately.\" She #ysmiles at you, a smile that seems just a little tainted by #psadness despite her happy visage. NL NL \"Here, take this.\" She offers you a dainty little thing, a flawless cherry blossom. NL NL \"Feel free to come again with any other delicacies you stumble across, hmm?\" NL NL You gingerly accept the #yflower, telling her that you would keep her offer in mind.",
-      "You step away, content to 离开 the #pdead to their own devices."
+      "空气中飘荡着 #g令人快活 的 香气,牵着你走到一片空地,一个女子孤身一人坐在摆满了山珍海味的桌前。 #p幽灵 般的蝴蝶四处飞舞,让本来平凡的景象平添一番异样。 NL NL 女子没有注意到你,仍在狼吞虎咽着各种珍馐。",
+      "你已经粒米未进很久了;显然,这女子不会注意到桌上 #r丢失 了一两个水果的。 NL NL 你箭步上前掠走食物 - NL NL 在你打算带着赃物逃跑时,大群的蝴蝶涌来,你脆弱的肉体与它们那 #r灼人 的 #b冰冷 相接触, #r刺痛 感传遍了你的全身。",
+      "你终于逃了出来,那些 #p幽灵 般的生物停止了追击。偷偷往回一瞥,那女子丝毫不为所动,一盘又一盘地胡吃海塞着。 NL NL 你啃了口刚偷来水果,全身再次充满了 #g温暖 。 NL NL 幸好你不必为下一餐而再经历如此 #p恐怖 的事情了。",
+      "你在她身边坐下。 直到清理完最后一盘食物,女子才向你投来些许 ~好奇~ 的目光。“客人? 敝所少有人光顾,是什么风把您吹来了?” NL NL 你递上带来的食物。她 #y激动 地瞪大眼睛,一把抓住你递来的东西。“如此新鲜,何等美妙！ 请,随意享用。” NL NL 你们静静地吃着 - 你在她吞嚼着带来的小吃时终于有机会品尝各种异域佳肴。",
+      "“共进佳肴真是幸事, 可惜机不常有,人难长在。” 她向你 #y微笑 着,笑容中似乎染上了一抹 #p悲伤 。 NL NL “谨望纳之。” 她交给你一个精巧的物件,那是一朵完美无瑕的樱花。 NL NL “日后但遇四方美食,还望同来共享。” NL NL 你小心地接过 #y花朵, 回告她你已铭记于心。",
+      "你心满意足地离开,不再打扰那些 #p亡灵 们。"
     ],
     "OPTIONS": [
       "[继续]",
@@ -313,11 +335,11 @@
     ]
   },
   "Gensokyo:AMomentFractured": {
-    "NAME": "A Moment, Fractured",
+    "NAME": "时间断片",
     "DESCRIPTIONS": [
-      "The world ~shifts~ before your eyes. Your surroundings fragment, distorting into a #pchaotic mess. Memories warp and manifest, roaming the corridors, figments of imagination that only exist to fade away. NL NL \"Which world are we going to visit this time, Mary?\" NL NL \"We haven't been to that strange land of #billusions in a while, have we? Or perhaps we could take a look at that space station again . . .\" NL NL \"The space station again? Do you really want to get #rcut #rup again that badly?\"",
-      "\"We’ll be better prepared this time! And besides, didn't you think the #gflora looked cool?\" NL NL \"When it wasn't trying to eat us, yeah.\" NL NL There are two girls in this #pimpossible realm with you, two girls who look entirely too much at ease given the #pstrangeness of the situation. NL NL \"Oh? Look, Renko! Another traveler is here!\" NL NL \"I didn't think anyone other than your clan could find this place.\" She turns towards you. \"What brings you here to the crossroad between worlds?\"",
-      "You explain that you have no idea what this place is or how you even got here. NL NL \"Ah, is that so? That’s unfortunate; people fall through the cracks sometimes.\" She waves a hand, tearing a #p@rift@ in reality before you. \"Here, I’ll send you back out. Make sure you think hard about where you want to end up!\""
+      "世界在你眼前 ~变形~ 。 你周遭的景物破裂、歪曲成一团 #p混沌 。 记忆的片段扭曲，显现，在走廊间游荡；虚构的幻象产生，然后消逝。 NL NL “我们这次去哪个世界，梅莉?” NL NL “我们还没怎么去过那个 #b幻想 世界，对吧? 或者再去一次空间站也可以 ……” NL NL “再去一次空间站? 你那么想再被 #r割 #r伤 一次吗?”",
+      "“这次我们有所准备了！ 而且你不觉得空间站里的 #g丛林 很有趣吗?” NL NL “要是那一只不会袭击我们的话。” NL NL 这 #p超现实 的境地中除了你还存在着两名少女, 她们的轻松之态与周围的 #p怪异 完全不相称。 NL NL “嗯? 莲子，快看！ 那儿还有一个旅行者！” NL NL “除了你们家族没有人会找到这里吧。” 她转身看向你。 “你是怎么来到这世界交汇点的?”",
+      "你解释说你并不清楚这是哪里，也不知道是怎么进来的。 NL NL “啊，是这样吗? 太不幸了; 偶尔是会有人误入裂隙之中呢。” 她一摆手, 在你面前划开一条现实的 #p@开口@ 。 “我会送你出去。想好你要去哪里！”"
     ],
     "OPTIONS": [
       "[继续]",
