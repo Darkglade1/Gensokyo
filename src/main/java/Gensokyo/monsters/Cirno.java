@@ -116,7 +116,7 @@ public class Cirno extends CustomMonster
         AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(this, this, new Immortality(this)));
         AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(this, this, new Strongest(this)));
         AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(this, this, new FairyFury(this, STRENGTH_INCREMENT)));
-        AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(this, this, new FairyOfIce(this, this.status)));
+        //AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(this, this, new FairyOfIce(this, this.status)));
         AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(this, this, new StrengthPower(this, NEGATIVE_STRENGTH), NEGATIVE_STRENGTH));
     }
     
@@ -130,7 +130,7 @@ public class Cirno extends CustomMonster
                     this.firstMove = false;
                 }
                 AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(this, this, new StrengthPower(this, STRENGTH), STRENGTH));
-                AbstractDungeon.actionManager.addToBottom(new MakeTempCardInDiscardAction(new Frozen(), this.status + 1));
+                AbstractDungeon.actionManager.addToBottom(new MakeTempCardInDiscardAction(new Frozen(), this.status));
                 break;
             }
             case DEBUFF_ATTACK: {

@@ -54,7 +54,7 @@ public class Reimu extends CustomMonster
     private static final int DEBUFF_AMOUNT = 2;
     //private static final int A19_DEBUFF_AMOUNT = 3;
     private static final int BLOCK = 7;
-    private static final int A9_BLOCK = 9;
+    private static final int A9_BLOCK = 8;
     private static final int STRENGTH_GAIN = 3;
     private static final int A19_STRENGTH_GAIN = 4;
     private static final int MAX_DEBUFF = 3;

@@ -30,10 +30,10 @@ public class WhiteKodama extends CustomMonster
     private static final int BLOCK = 3;
     private static final int A7_BLOCK = 4;
     private static final int DEBUFF = 1;
-    private static final int HP_MIN = 17;
-    private static final int HP_MAX = 21;
-    private static final int A7_HP_MIN = 18;
-    private static final int A7_HP_MAX = 22;
+    private static final int HP_MIN = 18;
+    private static final int HP_MAX = 22;
+    private static final int A7_HP_MIN = 19;
+    private static final int A7_HP_MAX = 23;
     private int debuffDamage;
     private int blockAttackDamage;
     private int block;

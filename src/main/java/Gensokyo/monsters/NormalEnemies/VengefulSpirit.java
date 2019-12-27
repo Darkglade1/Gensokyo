@@ -38,10 +38,10 @@ public class VengefulSpirit extends CustomMonster
     private static final int MAJOR_CURSE_AMT = 1;
     private static final int MINOR_CURSE_AMT = 1;
     private static final int A17_MINOR_CURSE_AMT = 2;
-    private static final int HP_MIN = 68;
-    private static final int HP_MAX = 72;
-    private static final int A7_HP_MIN = 70;
-    private static final int A7_HP_MAX = 74;
+    private static final int HP_MIN = 63;
+    private static final int HP_MAX = 67;
+    private static final int A7_HP_MIN = 65;
+    private static final int A7_HP_MAX = 69;
     private int debuffDamage;
     private int blockAttackDamage;
     private int block;

@@ -62,10 +62,10 @@ public class Mamizou extends CustomMonster
     private static final int NOB_FORM = 2;
     private static final int SENTRY_DAMAGE = 9;
     private static final int A3_SENTRY_DAMAGE = 10;
-    private static final int SENTRY_DAZES = 3;
-    private static final int A18_SENTRY_DAZES = 4;
-    private static final int SENTRY_ATTACK_DAZES = 1;
-    private static final int A18_SENTRY_ATTACK_DAZES = 2;
+    private static final int SENTRY_DAZES = 2;
+    private static final int A18_SENTRY_DAZES = 3;
+    //private static final int SENTRY_ATTACK_DAZES = 1;
+    //private static final int A18_SENTRY_ATTACK_DAZES = 2;
     private static final int LAGA_ATTACK = 18;
     private static final int A3_LAGA_ATTACK = 20;
     private static final int DEBUFF_AMOUNT = 1;
@@ -89,7 +89,7 @@ public class Mamizou extends CustomMonster
     private static final int A_8_SENTRY_TEMP_HP = 27;
     private int sentryDamage;
     private int sentryDazes;
-    private int sentryAttackDazes;
+    //private int sentryAttackDazes;
     private int lagaAttack;
     private int lagaDebuff;
     private int nobDebuff;
@@ -115,17 +115,19 @@ public class Mamizou extends CustomMonster
         this.type = EnemyType.ELITE;
         this.dialogX = (this.hb_x - 70.0F) * Settings.scale;
         this.dialogY -= (this.hb_y - 55.0F) * Settings.scale;
+
+        this.lagaDebuff = DEBUFF_AMOUNT;
         if (AbstractDungeon.ascensionLevel >= 18) {
             this.nobStrength = A18_NOB_STRENGTH;
             this.sentryDazes = A18_SENTRY_DAZES;
-            this.sentryAttackDazes = A18_SENTRY_ATTACK_DAZES;
-            this.lagaDebuff = A18_DEBUFF_AMOUNT;
+            //this.sentryAttackDazes = A18_SENTRY_ATTACK_DAZES;
+            //this.lagaDebuff = A18_DEBUFF_AMOUNT;
             this.metallicize = A18_METALLICIZE;
         } else {
             this.nobStrength = NOB_STRENGTH;
             this.sentryDazes = SENTRY_DAZES;
-            this.sentryAttackDazes = SENTRY_ATTACK_DAZES;
-            this.lagaDebuff = DEBUFF_AMOUNT;
+            //this.sentryAttackDazes = SENTRY_ATTACK_DAZES;
+            //this.lagaDebuff = DEBUFF_AMOUNT;
             this.metallicize = METALLCIZE;
         }
         if (AbstractDungeon.ascensionLevel >= 8) {
@@ -223,7 +225,7 @@ public class Mamizou extends CustomMonster
                         AbstractDungeon.actionManager.addToBottom(new VFXAction(new SmallLaserEffect(AbstractDungeon.player.hb.cX, AbstractDungeon.player.hb.cY, this.hb.cX, this.hb.cY), 0.3F));
                     }
                     AbstractDungeon.actionManager.addToBottom(new DamageAction(AbstractDungeon.player, this.damage.get(0), AbstractGameAction.AttackEffect.NONE, Settings.FAST_MODE));
-                    AbstractDungeon.actionManager.addToBottom(new MakeTempCardInDiscardAction(new Dazed(), this.sentryAttackDazes));
+                    //AbstractDungeon.actionManager.addToBottom(new MakeTempCardInDiscardAction(new Dazed(), this.sentryAttackDazes));
                 } else if (form == LAGA_FORM) {
                     AbstractDungeon.actionManager.addToBottom(new ChangeStateAction(currentDisguise, "DEBUFF"));
                     AbstractDungeon.actionManager.addToBottom(new WaitAction(0.3F));
@@ -262,7 +264,7 @@ public class Mamizou extends CustomMonster
         } else {
             if (form == SENTRY_FORM) {
                 if (lastMove(FORM_MOVE_1)) {
-                    this.setMove(FORM_MOVE_2, Intent.ATTACK_DEBUFF, this.damage.get(0).base);
+                    this.setMove(FORM_MOVE_2, Intent.ATTACK, this.damage.get(0).base);
                 } else {
                     this.setMove(FORM_MOVE_1, Intent.DEBUFF);
                 }

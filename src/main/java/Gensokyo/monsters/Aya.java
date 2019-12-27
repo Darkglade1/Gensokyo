@@ -105,7 +105,7 @@ public class Aya extends CustomMonster
                 }
                 AbstractDungeon.actionManager.addToBottom(new GainBlockAction(this, this, this.block));
                 AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(this, this, new StrengthPower(this, this.strength), this.strength));
-                AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(this, this, new IllusionaryDominance(this, STRENGTH - 1, this), STRENGTH - 1));
+                AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(this, this, new IllusionaryDominance(this, strength - 1, this), strength - 1));
                 break;
             }
             case DEBUFF_ATTACK: {

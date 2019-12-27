@@ -57,28 +57,29 @@ public class Kokoro extends CustomMonster
     private static final int LION_DAMAGE = 1;
     private static final int A19_LION_DAMAGE = 2;
     private static final int MASK_STRENGTH_BUFF = 2;
+    private static final int A19_MASK_STRENGTH_BUFF = 3;
     private static final int BLOCK = 8;
-    private static final int A9_BLOCK = 10;
+    private static final int A9_BLOCK = 9;
     private static final int FOX_ATTACK_DAMAGE = 4;
     //private static final int A4_FOX_ATTACK_DAMAGE = 5; Too strong
     private static final int FOX_ATTACK_HITS = 3;
-    private static final int FOX_DEBUFF_ATTACK_DAMAGE = 7;
-    private static final int A4_FOX_DEBUFF_ATTACK_DAMAGE = 8;
+    private static final int FOX_DEBUFF_ATTACK_DAMAGE = 6;
+    private static final int A4_FOX_DEBUFF_ATTACK_DAMAGE = 7;
     private static final int FOX_STATUS_COUNT = 1;
     private static final int A19_FOX_STATUS_COUNT = 2;
-    private static final int SPIDER_ATTACK_DAMAGE = 11;
-    private static final int A4_SPIDER_ATTACK_DAMAGE = 12;
+    private static final int SPIDER_ATTACK_DAMAGE = 10;
+    private static final int A4_SPIDER_ATTACK_DAMAGE = 11;
     private static final int SPIDER_DEBUFF = 1;
-    private static final int SPIDER_LIFE_STEAL_ATTACK_DAMAGE = 12;
-    private static final int A4_SPIDER_LIFE_STEAL_ATTACK_DAMAGE = 13;
-    private static final int HOPE_WEAK = 2;
+    private static final int SPIDER_LIFE_STEAL_ATTACK_DAMAGE = 11;
+    private static final int A4_SPIDER_LIFE_STEAL_ATTACK_DAMAGE = 12;
+    private static final int HOPE_WEAK = 1;
     private static final int HOPE_ATTACK_DAMAGE = 9;
     private static final int A4_HOPE_ATTACK_DAMAGE = 10;
-    private static final int DEMON_ATTACK_DAMAGE_1 = 8;
-    private static final int A4_DEMON_ATTACK_DAMAGE_1 = 9;
+    private static final int DEMON_ATTACK_DAMAGE_1 = 7;
+    private static final int A4_DEMON_ATTACK_DAMAGE_1 = 8;
     private static final int DEMON_FRAIL = 3;
-    private static final int DEMON_ATTACK_DAMAGE_2 = 7;
-    private static final int A4_DEMON_ATTACK_DAMAGE_2 = 8;
+    private static final int DEMON_ATTACK_DAMAGE_2 = 6;
+    private static final int A4_DEMON_ATTACK_DAMAGE_2 = 7;
     private static final int DEMON_VULNERABLE = 3;
     private static final int LION_ATTACK_DAMAGE_1 = 16;
     private static final int A4_LION_ATTACK_DAMAGE_1 = 18;
@@ -99,6 +100,7 @@ public class Kokoro extends CustomMonster
     private int lionDamage1;
     private int lionDamage2;
     private int block;
+    private int maskStrengthBuff;
     private static final int HP = 230;
     private static final int A9_HP = 240;
 
@@ -112,16 +114,22 @@ public class Kokoro extends CustomMonster
         this.type = EnemyType.BOSS;
         this.dialogX = (this.hb_x - 70.0F) * Settings.scale;
         this.dialogY -= (this.hb_y - 55.0F) * Settings.scale;
+
+        this.hopeHeal = HOPE_HEAL;
+        this.demonStrength = DEMON_STRENGTH;
+        this.lionDamage = LION_DAMAGE;
         if (AbstractDungeon.ascensionLevel >= 19) {
-            this.hopeHeal = A19_HOPE_HEAL;
-            this.demonStrength = A19_DEMON_STRENGTH;
-            this.lionDamage = A19_LION_DAMAGE;
+            //this.hopeHeal = A19_HOPE_HEAL;
+            //this.demonStrength = A19_DEMON_STRENGTH;
+            //this.lionDamage = A19_LION_DAMAGE;
             this.status = A19_FOX_STATUS_COUNT;
+            this.maskStrengthBuff = A19_MASK_STRENGTH_BUFF;
         } else {
-            this.hopeHeal = HOPE_HEAL;
-            this.demonStrength = DEMON_STRENGTH;
-            this.lionDamage = LION_DAMAGE;
+//            this.hopeHeal = HOPE_HEAL;
+//            this.demonStrength = DEMON_STRENGTH;
+//            this.lionDamage = LION_DAMAGE;
             this.status = FOX_STATUS_COUNT;
+            this.maskStrengthBuff = MASK_STRENGTH_BUFF;
         }
         if (AbstractDungeon.ascensionLevel >= 9) {
             this.setHp(A9_HP);
@@ -258,7 +266,7 @@ public class Kokoro extends CustomMonster
                     AbstractDungeon.actionManager.addToBottom(new RemoveSpecificPowerAction(this, this, DemonMask.POWER_ID));
                     AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(this, this, new LionMask(this, lionDamage)));
                 }
-                AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(this, this, new StrengthPower(this, MASK_STRENGTH_BUFF), MASK_STRENGTH_BUFF));
+                AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(this, this, new StrengthPower(this, maskStrengthBuff), maskStrengthBuff));
                 break;
             }
         }
