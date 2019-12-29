@@ -44,8 +44,8 @@ public class MarisaIngredientList extends CustomRelic implements CustomSavable<I
 
     public static final String ID = GensokyoMod.makeID("MarisaIngredientList");
 
-    private static final Texture IMG = TextureLoader.getTexture(makeRelicPath("Justice.png"));
-    private static final Texture OUTLINE = TextureLoader.getTexture(makeRelicOutlinePath("Justice.png"));
+    private static final Texture IMG = TextureLoader.getTexture(makeRelicPath("IngredientList.png"));
+    private static final Texture OUTLINE = TextureLoader.getTexture(makeRelicOutlinePath("IngredientList.png"));
 
     private EncounterType encounterType;
     private CardType cardType;

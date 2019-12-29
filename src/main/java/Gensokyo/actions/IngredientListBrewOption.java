@@ -1,6 +1,6 @@
 package Gensokyo.actions;
 
-import Gensokyo.relics.PerfectCherryBlossom;
+import Gensokyo.relics.MarisaImprobabilityPotion;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.core.Settings;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
@@ -28,7 +28,7 @@ public class IngredientListBrewOption extends AbstractCampfireOption
     @Override
     public void useOption() {
         AbstractDungeon.effectList.add(new CampfireBubbleEffect(true));
-        AbstractRelic relic = RelicLibrary.getRelic(PerfectCherryBlossom.ID).makeCopy();
+        AbstractRelic relic = RelicLibrary.getRelic(MarisaImprobabilityPotion.ID).makeCopy();
         AbstractDungeon.getCurrRoom().spawnRelicAndObtain((float)(Settings.WIDTH / 2), (float)(Settings.HEIGHT / 2), relic);
         AbstractDungeon.getCurrRoom().phase = AbstractRoom.RoomPhase.COMPLETE;
     }

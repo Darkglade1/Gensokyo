@@ -88,5 +88,12 @@
       " NL 2. Obtain #b", " Common", " #bUncommon", " #yRare", " card. ", " cards. ",
       " NL 3. Once the first two steps are complete, #gbrew the potion at a #ycampfire."
     ]
+  },
+  "Gensokyo:MarisaImprobabilityPotion": {
+    "NAME": "Improbability Potion",
+    "FLAVOR": "It bestows the user with the ability to defy all odds.",
+    "DESCRIPTIONS": [
+      " [#2aecd7]Usable [#2aecd7]once [#2aecd7]per [#2aecd7]combat.[] NL Lose #b", " HP. Gain #b", " #yStrength and #yDexterity."
+    ]
   }
 }

@@ -75,6 +75,7 @@ import Gensokyo.relics.BookOfSpecters;
 import Gensokyo.relics.CelestialsFlawlessClothing;
 import Gensokyo.relics.Justice;
 import Gensokyo.relics.LunaticRedEyes;
+import Gensokyo.relics.MarisaImprobabilityPotion;
 import Gensokyo.relics.MarisaIngredientList;
 import Gensokyo.relics.Mercy;
 import Gensokyo.relics.NagashiBinaDoll;
@@ -456,6 +457,7 @@ public class GensokyoMod implements
 
         if (hasMarisa) {
             BaseMod.addRelic(new MarisaIngredientList(), RelicType.SHARED);
+            BaseMod.addRelic(new MarisaImprobabilityPotion(), RelicType.SHARED);
         }
 
         logger.info("Done adding relics!");
