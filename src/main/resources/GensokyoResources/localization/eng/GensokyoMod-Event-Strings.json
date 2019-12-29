@@ -395,5 +395,27 @@
       "[Leave]",
       "Add a card to your deck."
     ]
+  },
+  "Gensokyo:MarisaAHazardousHobby": {
+    "NAME": "A Hazardous Hobby",
+    "DESCRIPTIONS": [
+      "You #rbarge into Kourindou, making a #rracket. Kourin doesn't even look up as you enter. NL NL \"Are you here to pawn off something you \"collected\" again?\" NL NL You grin as you tell him that it is so. Although, if he picked up something #yinteresting lately, you wouldn't mind trading for it instead. NL NL \"The most exciting thing that popped in recently was a piece of #ypaper with some #yscribbles on it. I couldn't decipher most of it, but I did spot the word \"potion\" in there a few times.\"",
+      "He shows you the #ypaper in question, and you immediately find your curiosity piqued. The ingredients were unusual, the process was unconventional, and the result seemed dubious at best . . . NL NL But it was exactly the #puncertainty of it all that made potion-brewing so #gthrilling. NL NL \"Oh? Caught your fancy, did it?\"",
+      "You grimace as you notice him send you a knowing look. There went any prospect of weaseling the recipe out of him for free. NL NL \"Well? Do you want the money or the paper?\"",
+      "As much as the recipe intrigued you, you were unfortunately strapped for cash at the moment. NL NL A shame. Maybe next time.",
+      "You would have to steal some more extermination requests from Reimu to make up the financial deficit, but . . . NL NL Somehow, you already knew that this #ypotion would be worth it.",
+      "\"I see this is a tough decision for you. Well, feel free to come back once you've made up your mind.\""
+    ],
+    "OPTIONS": [
+      "[Continue]",
+      "[Money] #rLose ",
+      "[Recipe] #rLose ",
+      ". #gGain #g",
+      " #gGold.",
+      ". #gObtain #ga #gSpecial #gRelic.",
+      "[Can't decide]",
+      "[Locked] Requires: non-Basic, non-Curse card",
+      "[Leave]"
+    ]
   }
 }

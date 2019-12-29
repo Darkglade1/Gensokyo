@@ -43,6 +43,7 @@ import Gensokyo.events.HakureiShrine;
 import Gensokyo.events.ScarletDevilMansion;
 import Gensokyo.events.TheEnmasDilemma;
 import Gensokyo.events.ThoseEarthRabbits;
+import Gensokyo.events.marisaEvents.AHazardousHobby;
 import Gensokyo.events.marisaEvents.AnOldGhost;
 import Gensokyo.events.marisaEvents.BookThief;
 import Gensokyo.events.marisaEvents.JustAVisit;
@@ -328,6 +329,7 @@ public class GensokyoMod implements
             BaseMod.addEvent(AnOldGhost.ID, AnOldGhost.class, Gensokyo.ID);
             BaseMod.addEvent(JustAVisit.ID, JustAVisit.class, Gensokyo.ID);
             BaseMod.addEvent(BookThief.ID, BookThief.class, Gensokyo.ID);
+            BaseMod.addEvent(AHazardousHobby.ID, AHazardousHobby.class, Gensokyo.ID);
         }
         
         // =============== /EVENTS/ =================

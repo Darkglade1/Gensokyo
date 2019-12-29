@@ -9,6 +9,7 @@ import Gensokyo.events.GardenOfTheSun;
 import Gensokyo.events.GoodsFromTheOutsideWorld;
 import Gensokyo.events.HakureiShrine;
 import Gensokyo.events.ScarletDevilMansion;
+import Gensokyo.events.marisaEvents.AHazardousHobby;
 import Gensokyo.events.marisaEvents.AnOldGhost;
 import Gensokyo.events.marisaEvents.BookThief;
 import Gensokyo.events.marisaEvents.JustAVisit;
@@ -56,6 +57,10 @@ public class EventFilter {
                 if (!(AbstractDungeon.player.gold >= JustAVisit.COST)) {
                     eventsToRemove.add(event);
                 }
+            } else if (event.equals(AHazardousHobby.ID)) {
+                if (!(AHazardousHobby.hasRandomNonBasicCard())) {
+                    eventsToRemove.add(event);
+                }
             }
             if (MarisaSpecificFilter(event)) {
                 eventsToRemove.add(event);
@@ -72,6 +77,8 @@ public class EventFilter {
             } else if (event.equals(JustAVisit.ID)) {
                 return true;
             } else if (event.equals(BookThief.ID)) {
+                return true;
+            } else if (event.equals(AHazardousHobby.ID)) {
                 return true;
             }
             //Filter out these events if the player is Marisa
