@@ -28,8 +28,8 @@ public class ACelestialsPlight extends AbstractImageEvent {
 
     private int screenNum = 0;
 
-    private float HEALTH_LOSS_PERCENTAGE = 0.25F;
-    private float HEALTH_LOSS_PERCENTAGE_HIGH_ASCENSION = 0.30F;
+    private static final float HEALTH_LOSS_PERCENTAGE = 0.25F;
+    private static final float HEALTH_LOSS_PERCENTAGE_HIGH_ASCENSION = 0.30F;
     private int GOLD = 100;
 
     private int healthdamage;
@@ -59,7 +59,7 @@ public class ACelestialsPlight extends AbstractImageEvent {
                         this.imageEventText.clearRemainingOptions();
                         CardCrawlGame.screenShake.shake(ScreenShake.ShakeIntensity.MED, ScreenShake.ShakeDur.MED, false);
                         // Shake the screen
-                        CardCrawlGame.sound.play("BLUNT_FAST");  // Play a hit sound
+                        CardCrawlGame.sound.play("ATTACK_HEAVY");  // Play a hit sound
                         AbstractDungeon.player.damage(new DamageInfo(null, healthdamage));
                         AbstractRelic relic;
                         if (AbstractDungeon.player.hasRelic(CelestialsFlawlessClothing.ID)) {

@@ -51,8 +51,8 @@ public class ClashOfLegends extends AbstractImageEvent {
     public static final String IMG = makeEventPath("Clash.png");
 
     private int maxHpLoss;
-    private static final float MAX_HP_LOSS = 0.04F;
-    private static final float A15_MAXHP_LOSS = 0.06F;
+    private static final float MAX_HP_LOSS = 0.08F;
+    private static final float A15_MAX_HP_LOSS = 0.10F;
 
     private int screenNum = 0;
 
@@ -61,7 +61,7 @@ public class ClashOfLegends extends AbstractImageEvent {
         imageEventText.setDialogOption(OPTIONS[0]);
         this.noCardsInRewards = true;
         if (AbstractDungeon.ascensionLevel >= 15) {
-            this.maxHpLoss = (int)((float)AbstractDungeon.player.maxHealth * A15_MAXHP_LOSS);
+            this.maxHpLoss = (int)((float)AbstractDungeon.player.maxHealth * A15_MAX_HP_LOSS);
         } else {
             this.maxHpLoss = (int)((float)AbstractDungeon.player.maxHealth * MAX_HP_LOSS);
         }

@@ -70,7 +70,7 @@
     "NAME": "Bombinomicon",
     "FLAVOR": "Explode spectacularly on death.",
     "DESCRIPTIONS": [
-      "At the start of combat, add #yThe #yBomb with #yRetain and #yExhaust to your hand.", "Retain. NL ", " NL Exhaust."
+      "At the start of combat, add #yThe #yBomb+ with #yRetain and #yExhaust to your hand.", "Retain. NL ", " NL Exhaust."
     ]
   },
   "Gensokyo:BookOfSpecters": {

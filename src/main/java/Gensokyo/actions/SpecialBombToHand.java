@@ -23,6 +23,7 @@ public class SpecialBombToHand extends AbstractGameAction {
     public void update() {
         if (this.duration == Settings.ACTION_DUR_FAST) {
             AbstractCard c = new TheBomb();
+            c.upgrade();
             AlwaysRetainField.alwaysRetain.set(c, true);
             c.rawDescription = DESCRIPTION[1] + c.rawDescription;
 

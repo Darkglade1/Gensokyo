@@ -19,7 +19,7 @@ public class BookOfSpecters extends CustomRelic {
     private static final Texture IMG = TextureLoader.getTexture(makeRelicPath("BookOfSpecters.png"));
     private static final Texture OUTLINE = TextureLoader.getTexture(makeRelicOutlinePath("BookOfSpecters.png"));
 
-    private static final int DRAW = 3;
+    private static final int DRAW = 2;
 
     public BookOfSpecters() {
         super(ID, IMG, OUTLINE, RelicTier.SPECIAL, LandingSound.MAGICAL);

@@ -22,7 +22,7 @@ public class Bombinomicon extends CustomRelic {
     }
 
     @Override
-    public void atBattleStart() {
+    public void atBattleStartPreDraw() {
         this.flash();
         AbstractDungeon.actionManager.addToBottom(new SpecialBombToHand());
     }

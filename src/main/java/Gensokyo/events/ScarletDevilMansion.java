@@ -32,8 +32,8 @@ public class ScarletDevilMansion extends AbstractImageEvent {
     private int screenNum = 0; // The initial screen we will see when encountering the event - screen 0;
     private boolean pickCard = false;
 
-    private float HEALTH_LOSS_PERCENTAGE = 0.20F; // 20%
-    private float HEALTH_LOSS_PERCENTAGE_HIGH_ASCENSION = 0.25F; // 25%
+    private static final float HEALTH_LOSS_PERCENTAGE = 0.20F; // 20%
+    private static final float HEALTH_LOSS_PERCENTAGE_HIGH_ASCENSION = 0.25F; // 25%
 
     private int healthdamage;
 
@@ -123,7 +123,7 @@ public class ScarletDevilMansion extends AbstractImageEvent {
                         this.imageEventText.clearRemainingOptions();
                         CardCrawlGame.screenShake.shake(ScreenShake.ShakeIntensity.MED, ScreenShake.ShakeDur.MED, false);
                         // Shake the screen
-                        CardCrawlGame.sound.play("BLUNT_FAST");  // Play a hit sound
+                        CardCrawlGame.sound.play("ATTACK_DAGGER_1");  // Play a hit sound
                         AbstractDungeon.player.damage(new DamageInfo(null, healthdamage));
                         AbstractRelic relic = AbstractDungeon.returnRandomScreenlessRelic(AbstractDungeon.returnRandomRelicTier());
                         AbstractDungeon.getCurrRoom().spawnRelicAndObtain(this.drawX, this.drawY, relic);
