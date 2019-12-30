@@ -28,7 +28,7 @@ public class BookThief extends AbstractImageEvent {
     private static final String NAME = eventStrings.NAME;
     private static final String[] DESCRIPTIONS = eventStrings.DESCRIPTIONS;
     private static final String[] OPTIONS = eventStrings.OPTIONS;
-    public static final String IMG = makeEventPath("Yuuka.png");
+    public static final String IMG = makeEventPath("Library.png");
 
     private static final int LIBRARY_SIZE = 10;
 
@@ -52,6 +52,7 @@ public class BookThief extends AbstractImageEvent {
                         this.imageEventText.updateBodyText(DESCRIPTIONS[1]);
                         screenNum = 1;
                         this.imageEventText.updateDialogOption(0, OPTIONS[1]);
+                        this.imageEventText.loadImage(makeEventPath("PatchyMagic.png"));
 
                         this.pickCard = true;
                         CardGroup group = new CardGroup(CardGroup.CardGroupType.UNSPECIFIED);
@@ -137,7 +138,7 @@ public class BookThief extends AbstractImageEvent {
             AbstractDungeon.gridSelectScreen.selectedCards.clear();
             this.pickedCard = c;
             this.imageEventText.clearRemainingOptions();
-            this.imageEventText.setDialogOption(OPTIONS[2] + pickedCard.name + ".", pickedCard.makeCopy());
+            this.imageEventText.setDialogOption(OPTIONS[2] + pickedCard.name + ".", pickedCard.makeStatEquivalentCopy());
         }
 
     }
