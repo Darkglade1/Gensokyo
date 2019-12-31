@@ -47,6 +47,7 @@ import Gensokyo.events.marisaEvents.AHazardousHobby;
 import Gensokyo.events.marisaEvents.AnOldGhost;
 import Gensokyo.events.marisaEvents.BookThief;
 import Gensokyo.events.marisaEvents.JustAVisit;
+import Gensokyo.events.marisaEvents.Walpurgisnacht;
 import Gensokyo.monsters.Aya;
 import Gensokyo.monsters.Cirno;
 import Gensokyo.monsters.GreaterFairy;
@@ -330,6 +331,7 @@ public class GensokyoMod implements
             BaseMod.addEvent(JustAVisit.ID, JustAVisit.class, Gensokyo.ID);
             BaseMod.addEvent(BookThief.ID, BookThief.class, Gensokyo.ID);
             BaseMod.addEvent(AHazardousHobby.ID, AHazardousHobby.class, Gensokyo.ID);
+            BaseMod.addEvent(Walpurgisnacht.ID, Walpurgisnacht.class, Gensokyo.ID);
         }
         
         // =============== /EVENTS/ =================

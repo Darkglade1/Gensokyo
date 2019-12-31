@@ -417,5 +417,25 @@
       "[Locked] Requires: non-Basic, non-Curse card",
       "[Leave]"
     ]
+  },
+  "Gensokyo:MarisaWalpurgisnacht": {
+    "NAME": "Walpurgisnacht",
+    "DESCRIPTIONS": [
+      "Tonight is a #yspecial night. And not just because for once, you would be stepping in Voile as a guest instead of an intruder. NL NL \"You’re late, Marisa. Alice and I have been waiting on you for a while now.\" NL NL You toss the bag of ingredients you had been asked to bring onto a table. Gathering them up hadn't been easy, y'know? Some of them were quite #yrare. NL NL Patchy sighs as she looks over the regents. \"I suppose that's fair. In any case, it is time to begin the ritual.\"",
+      "You feel the #yspark of @excitement@ well up within you as you follow her. Walpurgisnacht was the night where the powers of witches like them were at their peak, and if Patchy’s plan worked out, they would be able to harness a little bit of that extra power all year long! NL NL Alice looks up as the two of you approach, glancing away from the intricate #pmagic #pcircle drawn on the ground. \"Ah, you’re finally here. The circle is as flawless as it'll ever be, so all that remains is to decide who goes first.\"",
+      "\"So eager to be the guinea pig, are you?\" Alice gestures for you to stand in the circle. \"But I suppose that's just like you.\" NL NL As the ceremony begins, you feel something #rburn inside you, a #rcinder that smolders and grows. It #rconsumes #peverything in its path, an #pinsatiable #phunger that swells into a #r@blazing@ #r@inferno@ - NL NL Your eyes shoot open. You can feel it. You can feel that your #yspark had grown, that it had gotten #ybrighter, stronger. NL NL You couldn't wait to unleash it upon the world.",
+      "\"As the one who created the magic circle we will all be using, it behooves me to ensure that it works properly, so I suppose I will be the one to take the plunge.\" NL NL Alice steps into the circle, and you take your place among the outskirts. The ceremony is short, brief, and disappointingly lacking a spectacular light show. NL NL You notice it when Alice opens her eyes. There is #psomething within those depths, something that hadn't been there before. NL NL What did she see, you wonder? What will #yyou see, you wonder?",
+      "\"As the one who came up with this plan, I think it is only proper if I lead the way.\" NL NL Patchy steps into the circle, and you take your place among the outskirts. The ceremony is short, brief, and disappointingly lacking a spectacular light show. NL NL You notice it when Patchy opens her eyes. There is #psomething within those depths, something that hadn't been there before. NL NL What did she see, you wonder? What will #yyou see, you wonder?"
+    ],
+    "OPTIONS": [
+      "[Continue]",
+      "[Offer to go first] #rLose #r",
+      " #rHP. #gUpgrade #gall #gSparks.",
+      "[Let Alice go first] #gObtain Alice's Gift+.",
+      "[Let Patchouli go first] #gTransform #ga #gcard #ginto #ga #grandom #gRare #gcard.",
+      "[Locked] Requires: Upgradeable Spark",
+      "[???]",
+      "Choose a Card to Transform"
+    ]
   }
 }
