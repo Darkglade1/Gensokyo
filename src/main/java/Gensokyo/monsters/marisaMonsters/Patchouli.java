@@ -167,8 +167,8 @@ public class Patchouli extends CustomMonster
         this.moves = new HashMap<>();
         this.moves.put(FIRE_MOVE_1, new EnemyMoveInfo(MOVE_1, Intent.BUFF, -1, 0, false));
         this.moves.put(FIRE_MOVE_2, new EnemyMoveInfo(MOVE_2, Intent.ATTACK, this.fireAttackDamage, 0, false));
-        this.moves.put(WATER_MOVE_1, new EnemyMoveInfo(MOVE_1, Intent.ATTACK_BUFF, this.waterHealDamage, 0, false));
-        this.moves.put(WATER_MOVE_2, new EnemyMoveInfo(MOVE_2, Intent.ATTACK_DEBUFF, this.waterDebuffDamage, 0, false));
+        this.moves.put(WATER_MOVE_1, new EnemyMoveInfo(MOVE_1, Intent.ATTACK_DEBUFF, this.waterDebuffDamage, 0, false));
+        this.moves.put(WATER_MOVE_2, new EnemyMoveInfo(MOVE_2, Intent.ATTACK_BUFF, this.waterHealDamage, 0, false));
         this.moves.put(WOOD_MOVE_1, new EnemyMoveInfo(MOVE_1, Intent.DEFEND_BUFF, -1, 0, false));
         this.moves.put(WOOD_MOVE_2, new EnemyMoveInfo(MOVE_2, Intent.ATTACK, this.woodMultiDamage, WOOD_ATTACK_HITS, true));
         this.moves.put(METAL_MOVE_1, new EnemyMoveInfo(MOVE_1, Intent.ATTACK, this.metalMultiDamage, METAL_HIT_COUNT, true));
