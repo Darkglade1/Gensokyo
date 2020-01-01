@@ -134,5 +134,9 @@
 "Gensokyo:Trickster": {
         "NAME": "Trickster",
         "DESCRIPTIONS": ["The first card you play each turn is #yexhausted."]
+},
+"Gensokyo:ElementalBarrier": {
+        "NAME": "Elemental Barrier",
+        "DESCRIPTIONS": ["Can only take #b", " more damage this turn. Whenever an elemental orb dies, increase this amount by #b", " and shifts intent."]
 }
 }

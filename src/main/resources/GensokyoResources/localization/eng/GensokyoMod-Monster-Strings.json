@@ -172,6 +172,51 @@
 
     ],
     "NAME": "Kitsune"
+  },
+  "Gensokyo:Patchouli": {
+    "MOVES": [
+      "Agni Shine",
+      "Royal Flare",
+      "Princess Undine",
+      "Bury in Lake",
+      "Sylphy Horn",
+      "Green Storm",
+      "Silver Dragon",
+      "Metal Fatigue",
+      "Trilithon Shake",
+      "Lazy Trilithon"
+    ],
+    "NAME": "Unmoving Great Library"
+  },
+  "Gensokyo:FireOrb": {
+    "MOVES": [
+
+    ],
+    "NAME": "Fire"
+  },
+  "Gensokyo:WaterOrb": {
+    "MOVES": [
+
+    ],
+    "NAME": "Water"
+  },
+  "Gensokyo:WoodOrb": {
+    "MOVES": [
+
+    ],
+    "NAME": "Wood"
+  },
+  "Gensokyo:MetalOrb": {
+    "MOVES": [
+
+    ],
+    "NAME": "Metal"
+  },
+  "Gensokyo:EarthOrb": {
+    "MOVES": [
+
+    ],
+    "NAME": "Earth"
   }
 }
 

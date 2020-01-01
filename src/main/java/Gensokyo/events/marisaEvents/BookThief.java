@@ -2,6 +2,7 @@ package Gensokyo.events.marisaEvents;
 
 import Gensokyo.GensokyoMod;
 import Gensokyo.monsters.Aya;
+import Gensokyo.monsters.marisaMonsters.Patchouli;
 import Gensokyo.relics.YoukaiFlower;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.cards.CardGroup;
@@ -12,6 +13,8 @@ import com.megacrit.cardcrawl.events.AbstractImageEvent;
 import com.megacrit.cardcrawl.helpers.MonsterHelper;
 import com.megacrit.cardcrawl.helpers.RelicLibrary;
 import com.megacrit.cardcrawl.localization.EventStrings;
+import com.megacrit.cardcrawl.monsters.MonsterGroup;
+import com.megacrit.cardcrawl.monsters.exordium.Looter;
 import com.megacrit.cardcrawl.unlock.UnlockTracker;
 import com.megacrit.cardcrawl.vfx.cardManip.PurgeCardEffect;
 import com.megacrit.cardcrawl.vfx.cardManip.ShowCardAndObtainEffect;
@@ -105,7 +108,7 @@ public class BookThief extends AbstractImageEvent {
             case 1:
                 switch (buttonPressed) {
                     case 0: // Stand your ground
-                        AbstractDungeon.getCurrRoom().monsters = MonsterHelper.getEncounter(Aya.ID);
+                        AbstractDungeon.getCurrRoom().monsters = new MonsterGroup(new Patchouli(0.0F, 0.0F));
                         AbstractDungeon.getCurrRoom().rewards.clear();
                         AbstractDungeon.getCurrRoom().addRelicToRewards(RelicLibrary.getRelic(YoukaiFlower.ID).makeCopy());
                         AbstractDungeon.getCurrRoom().eliteTrigger = true;
