@@ -23,8 +23,8 @@ public class ElementalBarrier extends AbstractPower {
     public static final String[] DESCRIPTIONS = powerStrings.DESCRIPTIONS;
     private int maxAmt;
 
-    private static final Texture tex84 = TextureLoader.getTexture(makePowerPath("Evasive84.png"));
-    private static final Texture tex32 = TextureLoader.getTexture(makePowerPath("Evasive32.png"));
+    private static final Texture tex84 = TextureLoader.getTexture(makePowerPath("Barrier84.png"));
+    private static final Texture tex32 = TextureLoader.getTexture(makePowerPath("Barrier32.png"));
 
     public ElementalBarrier(AbstractCreature owner, int amount) {
         name = NAME;

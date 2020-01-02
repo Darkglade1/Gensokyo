@@ -30,7 +30,6 @@ import com.megacrit.cardcrawl.powers.FrailPower;
 import com.megacrit.cardcrawl.powers.StrengthPower;
 import com.megacrit.cardcrawl.powers.WeakPower;
 
-import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -73,8 +72,8 @@ public class Patchouli extends CustomMonster
     private static final int A3_WATER_HEAL_DAMAGE = 9;
     private static final int WATER_DEBUFF_DAMAGE = 10;
     private static final int A3_WATER_DEBUFF_DAMAGE = 11;
-    private static final int WATER_STATUS_COUNT = 1;
-    private static final int A18_WATER_STATUS_COUNT = 2;
+    private static final int WATER_STATUS_COUNT = 2;
+    private static final int A18_WATER_STATUS_COUNT = 3;
     private static final int WOOD_BUFF_AMOUNT = 2;
     private static final int WOOD_MULTI_HIT_DAMAGE = 5;
     private static final int A3_WOOD_MULTI_HIT_DAMAGE = 6;
@@ -118,8 +117,8 @@ public class Patchouli extends CustomMonster
     }
 
     public Patchouli(final float x, final float y) {
-        super(Patchouli.NAME, ID, HP, -5.0F, 0, 200.0f, 265.0f, null, x, y);
-        this.animation = new BetterSpriterAnimation("GensokyoResources/images/monsters/Kokoro/Spriter/Kokoro.scml");
+        super(Patchouli.NAME, ID, HP, -5.0F, 0, 200.0f, 225.0f, null, x, y);
+        this.animation = new BetterSpriterAnimation("GensokyoResources/images/monsters/Patchouli/Spriter/PatchouliAnimation.scml");
         this.type = EnemyType.ELITE;
         this.dialogX = (this.hb_x - 70.0F) * Settings.scale;
         this.dialogY -= (this.hb_y - 55.0F) * Settings.scale;
@@ -360,7 +359,7 @@ public class Patchouli extends CustomMonster
 
     @Override
     public void die(boolean triggerRelics) {
-        runAnim("Defeat");
+        //runAnim("Defeat");
         super.die(triggerRelics);
         for (AbstractMonster mo : AbstractDungeon.getCurrRoom().monsters.monsters) {
             if (mo instanceof PatchyOrb) {
