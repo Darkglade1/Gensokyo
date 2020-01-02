@@ -1,6 +1,7 @@
 package Gensokyo.monsters.marisaMonsters;
 
 import Gensokyo.BetterSpriterAnimation;
+import Gensokyo.actions.PatchyOrbMoveAction;
 import Gensokyo.actions.UsePreBattleActionAction;
 import Gensokyo.cards.Frozen;
 import Gensokyo.powers.ElementalBarrier;
@@ -9,6 +10,7 @@ import basemod.abstracts.CustomMonster;
 import com.brashmonkey.spriter.Animation;
 import com.brashmonkey.spriter.Player;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
+import com.megacrit.cardcrawl.actions.animations.VFXAction;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.actions.common.DamageAction;
 import com.megacrit.cardcrawl.actions.common.GainBlockAction;
@@ -28,6 +30,7 @@ import com.megacrit.cardcrawl.powers.FrailPower;
 import com.megacrit.cardcrawl.powers.StrengthPower;
 import com.megacrit.cardcrawl.powers.WeakPower;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -58,14 +61,14 @@ public class Patchouli extends CustomMonster
     private static final byte EARTH_MOVE_2 = 9;
     private static final byte MOVE_1 = 10;
     private static final byte MOVE_2 = 11;
-    private static final int HEAL = 5;
-    private static final int A18_HEAL = 7;
+    private static final int HEAL = 10;
+    private static final int A18_HEAL = 13;
     private static final int STRENGTH = 2;
     private static final int A18_STRENGTH = 3;
-    private static final int BLOCK = 7;
-    private static final int A9_BLOCK = 8;
-    private static final int FIRE_ATTACK_DAMAGE = 30;
-    private static final int A3_FIRE_ATTACK_DAMAGE = 33;
+    private static final int BLOCK = 10;
+    private static final int A8_BLOCK = 11;
+    private static final int FIRE_ATTACK_DAMAGE = 35;
+    private static final int A3_FIRE_ATTACK_DAMAGE = 38;
     private static final int WATER_HEAL_DAMAGE = 8;
     private static final int A3_WATER_HEAL_DAMAGE = 9;
     private static final int WATER_DEBUFF_DAMAGE = 10;
@@ -73,17 +76,17 @@ public class Patchouli extends CustomMonster
     private static final int WATER_STATUS_COUNT = 1;
     private static final int A18_WATER_STATUS_COUNT = 2;
     private static final int WOOD_BUFF_AMOUNT = 2;
-    private static final int WOOD_MULTI_HIT_DAMAGE = 4;
-    private static final int A3_WOOD_MULTI_HIT_DAMAGE = 5;
+    private static final int WOOD_MULTI_HIT_DAMAGE = 5;
+    private static final int A3_WOOD_MULTI_HIT_DAMAGE = 6;
     private static final int WOOD_ATTACK_HITS = 3;
-    private static final int METAL_MULTI_HIT_DAMAGE = 7;
-    private static final int A3_METAL_MULTI_HIT_DAMAGE = 8;
+    private static final int METAL_MULTI_HIT_DAMAGE = 8;
+    private static final int A3_METAL_MULTI_HIT_DAMAGE = 10;
     private static final int METAL_HIT_COUNT = 2;
     private static final int METAL_DEBUFF_DAMAGE = 7;
     private static final int A3_METAL_DEBUFF_DAMAGE = 8;
     private static final int METAL_DEBUFF = 2;
-    private static final int EARTH_ATTACK_DAMAGE = 16;
-    private static final int A3_EARTH_ATTACK_DAMAGE = 18;
+    private static final int EARTH_ATTACK_DAMAGE = 20;
+    private static final int A3_EARTH_ATTACK_DAMAGE = 22;
     private static final int EARTH_DEBUFF_DAMAGE = 6;
     private static final int A3_EARTH_DEBUFF_DAMAGE = 7;
     private static final int EARTH_DEBUFF = 2;
@@ -104,7 +107,9 @@ public class Patchouli extends CustomMonster
     private static final int HP = 50;
     private static final int A8_HP = 55;
 
-    public static final int INVINCIBLE_THRESHOLD = 10;
+    public static final int STARTING_INVINCIBLE = 10;
+    public static final int INVINCIBLE_INCREMENT = 2;
+
     public static final float orbOffset = 400.0F * Settings.scale;
     public AbstractMonster[] orbs = new AbstractMonster[NUM_ELEMENTS];
 
@@ -129,7 +134,7 @@ public class Patchouli extends CustomMonster
         }
         if (AbstractDungeon.ascensionLevel >= 8) {
             this.setHp(A8_HP);
-            this.block = A9_BLOCK;
+            this.block = A8_BLOCK;
         } else {
             this.setHp(HP);
             this.block = BLOCK;
@@ -173,8 +178,8 @@ public class Patchouli extends CustomMonster
         this.moves.put(WOOD_MOVE_2, new EnemyMoveInfo(MOVE_2, Intent.ATTACK, this.woodMultiDamage, WOOD_ATTACK_HITS, true));
         this.moves.put(METAL_MOVE_1, new EnemyMoveInfo(MOVE_1, Intent.ATTACK, this.metalMultiDamage, METAL_HIT_COUNT, true));
         this.moves.put(METAL_MOVE_2, new EnemyMoveInfo(MOVE_2, Intent.ATTACK_DEBUFF, this.metalDebuffDamage, 0, false));
-        this.moves.put(EARTH_MOVE_1, new EnemyMoveInfo(MOVE_1, Intent.ATTACK, this.earthAttackDamage, 0, false));
-        this.moves.put(EARTH_MOVE_2, new EnemyMoveInfo(MOVE_2, Intent.ATTACK_DEBUFF, this.earthDebuffDamage, 0, false));
+        this.moves.put(EARTH_MOVE_1, new EnemyMoveInfo(MOVE_1, Intent.ATTACK_DEBUFF, this.earthDebuffDamage, 0, false));
+        this.moves.put(EARTH_MOVE_2, new EnemyMoveInfo(MOVE_2, Intent.ATTACK, this.earthAttackDamage, 0, false));
 
         Player.PlayerListener listener = new PatchouliListener(this);
         ((BetterSpriterAnimation)this.animation).myPlayer.addListener(listener);
@@ -183,7 +188,7 @@ public class Patchouli extends CustomMonster
     @Override
     public void usePreBattleAction() {
         AbstractDungeon.getCurrRoom().playBgmInstantly("TheLostEmotion");
-        AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(this, this, new ElementalBarrier(this, INVINCIBLE_THRESHOLD), INVINCIBLE_THRESHOLD));
+        AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(this, this, new ElementalBarrier(this, STARTING_INVINCIBLE), STARTING_INVINCIBLE));
         this.spawnOrbs();
         element = FIRE;
     }
@@ -196,8 +201,8 @@ public class Patchouli extends CustomMonster
                     AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(this, this, new StrengthPower(this, this.strength), this.strength));
                     this.useRoyalFlare = true;
                 } else if (element == WATER) {
-                    AbstractDungeon.actionManager.addToBottom(new DamageAction(AbstractDungeon.player, this.damage.get(1), AbstractGameAction.AttackEffect.POISON));
-                    AbstractDungeon.actionManager.addToBottom(new HealAction(this, this, this.heal));
+                    AbstractDungeon.actionManager.addToBottom(new DamageAction(AbstractDungeon.player, this.damage.get(2), AbstractGameAction.AttackEffect.POISON));
+                    AbstractDungeon.actionManager.addToBottom(new MakeTempCardInDiscardAction(new Frozen(), this.status));
                 } else if (element == WOOD) {
                     AbstractDungeon.actionManager.addToBottom(new GainBlockAction(this, this, this.block));
                     AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(this, this, new VigorPower(this, WOOD_BUFF_AMOUNT, true), WOOD_BUFF_AMOUNT));
@@ -206,7 +211,8 @@ public class Patchouli extends CustomMonster
                         AbstractDungeon.actionManager.addToBottom(new DamageAction(AbstractDungeon.player, this.damage.get(4), AbstractGameAction.AttackEffect.SLASH_HEAVY));
                     }
                 } else if (element == EARTH) {
-                    AbstractDungeon.actionManager.addToBottom(new DamageAction(AbstractDungeon.player, this.damage.get(6), AbstractGameAction.AttackEffect.BLUNT_HEAVY));
+                    AbstractDungeon.actionManager.addToBottom(new DamageAction(AbstractDungeon.player, this.damage.get(7), AbstractGameAction.AttackEffect.POISON));
+                    AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(AbstractDungeon.player, this, new FrailPower(AbstractDungeon.player, EARTH_DEBUFF, true), EARTH_DEBUFF));
                 }
                 break;
             }
@@ -215,8 +221,8 @@ public class Patchouli extends CustomMonster
                     AbstractDungeon.actionManager.addToBottom(new DamageAction(AbstractDungeon.player, this.damage.get(0), AbstractGameAction.AttackEffect.FIRE));
                     this.useRoyalFlare = false;
                 }   else if (element == WATER) {
-                    AbstractDungeon.actionManager.addToBottom(new DamageAction(AbstractDungeon.player, this.damage.get(2), AbstractGameAction.AttackEffect.POISON));
-                    AbstractDungeon.actionManager.addToBottom(new MakeTempCardInDiscardAction(new Frozen(), this.status));
+                    AbstractDungeon.actionManager.addToBottom(new DamageAction(AbstractDungeon.player, this.damage.get(1), AbstractGameAction.AttackEffect.POISON));
+                    AbstractDungeon.actionManager.addToBottom(new HealAction(this, this, this.heal));
                 } else if (element == WOOD) {
                     for (int i = 0; i < WOOD_ATTACK_HITS; i++) {
                         AbstractDungeon.actionManager.addToBottom(new DamageAction(AbstractDungeon.player, this.damage.get(3), AbstractGameAction.AttackEffect.SLASH_DIAGONAL));
@@ -225,8 +231,7 @@ public class Patchouli extends CustomMonster
                     AbstractDungeon.actionManager.addToBottom(new DamageAction(AbstractDungeon.player, this.damage.get(5), AbstractGameAction.AttackEffect.POISON));
                     AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(AbstractDungeon.player, this, new WeakPower(AbstractDungeon.player, METAL_DEBUFF, true), METAL_DEBUFF));
                 } else if (element == EARTH) {
-                    AbstractDungeon.actionManager.addToBottom(new DamageAction(AbstractDungeon.player, this.damage.get(7), AbstractGameAction.AttackEffect.POISON));
-                    AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(AbstractDungeon.player, this, new FrailPower(AbstractDungeon.player, EARTH_DEBUFF, true), EARTH_DEBUFF));
+                    AbstractDungeon.actionManager.addToBottom(new DamageAction(AbstractDungeon.player, this.damage.get(6), AbstractGameAction.AttackEffect.BLUNT_HEAVY));
                 }
                 break;
             }
@@ -281,14 +286,13 @@ public class Patchouli extends CustomMonster
         if (moveHistory.size() > 0) {
             this.moveHistory.remove(moveHistory.size() - 1); //Needed so she shifts from Move1 types to other Move1 types and vice versa for Move2 types if player kills an orb
         }
+        shiftOrbs();
         AbstractDungeon.actionManager.addToBottom(new RollMoveAction(this));
     }
 
     private void spawnOrbs() {
         float x = 0;
         float y = orbOffset;
-        System.out.println(x);
-        System.out.println(y);
         AbstractMonster orb = new FireOrb(x, y, this);
         orbs[0] = orb;
         AbstractDungeon.actionManager.addToBottom(new SpawnMonsterAction(orb, true));
@@ -296,8 +300,6 @@ public class Patchouli extends CustomMonster
 
         x = orbOffset * 0.60F;
         y = orbOffset * 0.60F;
-        System.out.println(x);
-        System.out.println(y);
         orb = new WaterOrb(x, y, this);
         orbs[1] = orb;
         AbstractDungeon.actionManager.addToBottom(new SpawnMonsterAction(orb, true));
@@ -305,8 +307,6 @@ public class Patchouli extends CustomMonster
 
         x = orbOffset * 0.60F;
         y = orbOffset * 0.10F;
-        System.out.println(x);
-        System.out.println(y);
         orb = new WoodOrb(x, y, this);
         orbs[2] = orb;
         AbstractDungeon.actionManager.addToBottom(new SpawnMonsterAction(orb, true));
@@ -314,8 +314,6 @@ public class Patchouli extends CustomMonster
 
         x = -orbOffset * 0.60F;
         y = orbOffset * 0.10F;
-        System.out.println(x);
-        System.out.println(y);
         orb = new MetalOrb(x, y, this);
         orbs[3] = orb;
         AbstractDungeon.actionManager.addToBottom(new SpawnMonsterAction(orb, true));
@@ -323,12 +321,29 @@ public class Patchouli extends CustomMonster
 
         x = -orbOffset * 0.60F;
         y = orbOffset * 0.60F;
-        System.out.println(x);
-        System.out.println(y);
         orb = new EarthOrb(x, y, this);
         orbs[4] = orb;
         AbstractDungeon.actionManager.addToBottom(new SpawnMonsterAction(orb, true));
         AbstractDungeon.actionManager.addToBottom(new UsePreBattleActionAction(orb));
+    }
+
+    //Visually rearranges the orbs
+    private void shiftOrbs() {
+        AbstractMonster[] newOrbs = new AbstractMonster[orbs.length];
+        for (int i = 0; i < orbs.length; i++) {
+            AbstractMonster orb = orbs[i];
+            if (i == 0) {
+                newOrbs[orbs.length - 1] = orb;
+                AbstractDungeon.actionManager.addToBottom(new VFXAction(new PatchyOrbMoveAction(orb, orb.drawX, orb.drawY, orbs[orbs.length - 1].drawX, orbs[orbs.length - 1].drawY)));
+            } else {
+                newOrbs[i - 1] = orb;
+                AbstractDungeon.actionManager.addToBottom(new VFXAction(new PatchyOrbMoveAction(orb, orb.drawX, orb.drawY, orbs[i - 1].drawX, orbs[i - 1].drawY)));
+            }
+        }
+        orbs = newOrbs;
+
+        AbstractDungeon.actionManager.addToBottom(new HealAction(orbs[0], orbs[0], orbs[0].maxHealth)); //new active orb is at slot 0
+        orbs[0].halfDead = false;
     }
 
     private void setMoveShortcut(byte next) {

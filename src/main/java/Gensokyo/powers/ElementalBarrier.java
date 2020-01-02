@@ -75,6 +75,6 @@ public class ElementalBarrier extends AbstractPower {
 
     @Override
     public void updateDescription() {
-        description = DESCRIPTIONS[0] + amount + DESCRIPTIONS[1] + Patchouli.INVINCIBLE_THRESHOLD + DESCRIPTIONS[2];
+        description = DESCRIPTIONS[0] + amount + DESCRIPTIONS[1] + Patchouli.INVINCIBLE_INCREMENT + DESCRIPTIONS[2];
     }
 }

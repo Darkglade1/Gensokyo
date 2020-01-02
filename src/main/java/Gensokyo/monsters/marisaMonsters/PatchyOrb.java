@@ -13,13 +13,12 @@ import com.megacrit.cardcrawl.relics.AbstractRelic;
 import java.util.ArrayList;
 import java.util.Iterator;
 
-import static Gensokyo.monsters.marisaMonsters.Patchouli.INVINCIBLE_THRESHOLD;
-
 public class PatchyOrb extends CustomMonster {
     protected static final int HP = 10;
     protected static final int A8_HP = 11;
     private float movement = Patchouli.orbOffset;
     private Patchouli master;
+    private int increaseAmount = Patchouli.INVINCIBLE_INCREMENT;
 
     public PatchyOrb(String name, String id, int maxHealth, float hb_x, float hb_y, float hb_w, float hb_h, String imgUrl, float offsetX, float offsetY, Patchouli master) {
         super(name, id, maxHealth, hb_x, hb_y, hb_w, hb_h, imgUrl, offsetX, offsetY);
@@ -67,11 +66,8 @@ public class PatchyOrb extends CustomMonster {
                 this.powers.remove(power);
             }
 
-            AbstractDungeon.actionManager.addToBottom(new HealAction(this, this, this.maxHealth));
-            this.halfDead = false;
-
             master.shiftIntent();
-            AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(master, master, new ElementalBarrier(master, INVINCIBLE_THRESHOLD), INVINCIBLE_THRESHOLD));
+            AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(master, master, new ElementalBarrier(master, increaseAmount), increaseAmount));
         }
     }
 
