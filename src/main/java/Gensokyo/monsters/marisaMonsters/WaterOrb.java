@@ -1,6 +1,6 @@
 package Gensokyo.monsters.marisaMonsters;
 
-import basemod.animations.SpriterAnimation;
+import Gensokyo.BetterSpriterAnimation;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.localization.MonsterStrings;
 
@@ -13,8 +13,8 @@ public class WaterOrb extends PatchyOrb {
 
     public WaterOrb(float x, float y, Patchouli master) {
         super(NAME, ID, HP, 0.0F, 0.0F, 140.0F, 120.0F, null, x, y, master);
-        this.animation = new SpriterAnimation("GensokyoResources/images/monsters/YinYangOrb/Spriter/YinYangOrb.scml");
         this.type = EnemyType.NORMAL;
+        ((BetterSpriterAnimation)this.animation).myPlayer.setAnimation("Water");
     }
 
     static {
