@@ -6,7 +6,7 @@ import basemod.abstracts.CustomMonster;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.actions.common.DamageAction;
-import com.megacrit.cardcrawl.actions.common.MakeTempCardInDiscardAction;
+import com.megacrit.cardcrawl.actions.common.MakeTempCardInDrawPileAction;
 import com.megacrit.cardcrawl.actions.common.RollMoveAction;
 import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.cards.status.Burn;
@@ -24,16 +24,16 @@ public class Kitsune extends CustomMonster
     public static final String[] DIALOG;
     private static final byte DEBUFF_ATTACK = 1;
     private static final byte ATTACK = 2;
-    private static final int DEBUFF_ATTACK_DAMAGE = 5;
-    private static final int A2_DEBUFF_ATTACK_DAMAGE = 6;
+    private static final int DEBUFF_ATTACK_DAMAGE = 6;
+    private static final int A2_DEBUFF_ATTACK_DAMAGE = 7;
     private static final int ATTACK_DAMAGE = 12;
     private static final int A2_ATTACK_DAMAGE = 13;
     private static final int STATUS = 1;
     private static final int A17_STATUS = 2;
-    private static final int HP_MIN = 42;
-    private static final int HP_MAX = 46;
-    private static final int A7_HP_MIN = 44;
-    private static final int A7_HP_MAX = 48;
+    private static final int HP_MIN = 46;
+    private static final int HP_MAX = 50;
+    private static final int A7_HP_MIN = 48;
+    private static final int A7_HP_MAX = 52;
     private int debuffDamage;
     private int attackDamage;
     private int status;
@@ -83,7 +83,7 @@ public class Kitsune extends CustomMonster
         switch (this.nextMove) {
             case DEBUFF_ATTACK: {
                 AbstractDungeon.actionManager.addToBottom(new DamageAction(AbstractDungeon.player, this.damage.get(0), AbstractGameAction.AttackEffect.FIRE));
-                AbstractDungeon.actionManager.addToBottom(new MakeTempCardInDiscardAction(new Burn(), status));
+                AbstractDungeon.actionManager.addToBottom(new MakeTempCardInDrawPileAction(new Burn(), status, true, true));
                 break;
             }
             case ATTACK: {

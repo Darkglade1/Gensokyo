@@ -33,10 +33,10 @@ public class LivingMonolith extends CustomMonster
     private static final int A2_ATTACK_DAMAGE = 17;
     private static final int VIGOR_BUFF = 3;
     private static final int FORTITUDE_BUFF = 1;
-    private static final int HP_MIN = 44;
-    private static final int HP_MAX = 48;
-    private static final int A7_HP_MIN = 46;
-    private static final int A7_HP_MAX = 50;
+    private static final int HP_MIN = 47;
+    private static final int HP_MAX = 51;
+    private static final int A7_HP_MIN = 49;
+    private static final int A7_HP_MAX = 53;
     private int bigAttackdamage;
     private int attackDamage;
 

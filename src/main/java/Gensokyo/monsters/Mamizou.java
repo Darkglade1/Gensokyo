@@ -77,8 +77,8 @@ public class Mamizou extends CustomMonster
     private static final int A3_NOB_BIG_ATTACK = 16;
     private static final int NOB_STRENGTH = 2;
     private static final int A18_NOB_STRENGTH = 3;
-    private static final int METALLCIZE = 2;
-    private static final int A18_METALLICIZE = 3;
+    private static final int METALLCIZE = 3;
+    private static final int A18_METALLICIZE = 4;
     private static final int HP_MIN = 90;
     private static final int HP_MAX = 92;
     private static final int A_8_HP_MIN = 92;

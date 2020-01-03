@@ -32,10 +32,10 @@ public class MoonRabbit extends CustomMonster
     private static final int A17_BUFF = 3;
     private static final int BLOCK = 5;
     private static final int A7_BLOCK = 6;
-    private static final int HP_MIN = 26;
-    private static final int HP_MAX = 29;
-    private static final int A7_HP_MIN = 28;
-    private static final int A7_HP_MAX = 31;
+    private static final int HP_MIN = 28;
+    private static final int HP_MAX = 31;
+    private static final int A7_HP_MIN = 30;
+    private static final int A7_HP_MAX = 33;
     public static final int BUFFER = 0;
     public static final int SHIELDER = 1;
     public static final int TANKER = 2;

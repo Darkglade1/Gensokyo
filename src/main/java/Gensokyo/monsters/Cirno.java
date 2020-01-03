@@ -51,8 +51,8 @@ public class Cirno extends CustomMonster
     private static final int NORMAL_ATTACK_DAMAGE = 10;
     private static final int A3_NORMAL_ATTACK_DAMAGE = 11;
     private static final int NORMAL_ATTACK_HITS = 2;
-    private static final int DEBUFF_ATTACK_DAMAGE = 10;
-    private static final int A3_DEBUFF_ATTACK_DAMAGE = 11;
+    private static final int DEBUFF_ATTACK_DAMAGE = 12;
+    private static final int A3_DEBUFF_ATTACK_DAMAGE = 13;
     private static final int STATUS_COUNT = 1;
     private static final int A18_STATUS_COUNT = 2;
     private static final int GROUP_BUFF_AMT = 1;

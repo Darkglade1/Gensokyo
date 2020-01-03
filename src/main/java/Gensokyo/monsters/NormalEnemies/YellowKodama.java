@@ -32,10 +32,10 @@ public class YellowKodama extends CustomMonster
     private static final int BUFF = 2;
     private static final int A17_BUFF = 3;
     private static final int DEBUFF = 1;
-    private static final int HP_MIN = 16;
-    private static final int HP_MAX = 20;
-    private static final int A7_HP_MIN = 17;
-    private static final int A7_HP_MAX = 21;
+    private static final int HP_MIN = 18;
+    private static final int HP_MAX = 22;
+    private static final int A7_HP_MIN = 19;
+    private static final int A7_HP_MAX = 23;
     private int debuffDamage;
     private int buffAttackDamage;
     private int buff;

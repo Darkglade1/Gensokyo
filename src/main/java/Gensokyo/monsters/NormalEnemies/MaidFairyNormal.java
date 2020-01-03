@@ -30,9 +30,9 @@ public class MaidFairyNormal extends AbstractFairy
     private static final int A2_BLOCK_ATTACK_DAMAGE = 5;
     private static final int BLOCK_GAIN = 5;
     private static final int A7_BLOCK_GAIN = 6;
-    private static final int HP_MIN = 6;
+    private static final int HP_MIN = 7;
     private static final int HP_MAX = 8;
-    private static final int A7_HP_MIN = 6;
+    private static final int A7_HP_MIN = 7;
     private static final int A7_HP_MAX = 9;
     private int normalDamage;
     private int blockDamage;

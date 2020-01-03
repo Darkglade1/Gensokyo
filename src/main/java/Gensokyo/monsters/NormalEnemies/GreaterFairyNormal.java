@@ -28,9 +28,9 @@ public class GreaterFairyNormal extends AbstractFairy
     private static final int MULTI_ATTACK_DAMAGE = 4;
     private static final int A2_MULTI_ATTACK_DAMAGE = 5;
     private static final int MULTI_HITS = 2;
-    private static final int HP_MIN = 7;
+    private static final int HP_MIN = 8;
     private static final int HP_MAX = 9;
-    private static final int A7_HP_MIN = 7;
+    private static final int A7_HP_MIN = 8;
     private static final int A7_HP_MAX = 10;
     private int normalDamage;
     private int multiHitDamage;
