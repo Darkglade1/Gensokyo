@@ -149,8 +149,7 @@ public class ScarletDevilMansion extends AbstractImageEvent {
     public void update() {
         super.update();
         if (this.pickCard && !AbstractDungeon.isScreenUp && !AbstractDungeon.gridSelectScreen.selectedCards.isEmpty()) {
-            AbstractCard c = AbstractDungeon.gridSelectScreen.selectedCards.get(0).makeCopy();
-            c.upgrade();
+            AbstractCard c = AbstractDungeon.gridSelectScreen.selectedCards.get(0).makeStatEquivalentCopy();
             AbstractDungeon.effectList.add(new ShowCardAndObtainEffect(c, (float)Settings.WIDTH / 2.0F, (float)Settings.HEIGHT / 2.0F));
             AbstractDungeon.gridSelectScreen.selectedCards.clear();
         }
