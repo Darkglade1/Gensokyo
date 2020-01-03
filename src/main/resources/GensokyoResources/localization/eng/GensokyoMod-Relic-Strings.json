@@ -95,5 +95,12 @@
     "DESCRIPTIONS": [
       " [#2aecd7]Usable [#2aecd7]once [#2aecd7]per [#2aecd7]combat.[] NL Lose #b", " HP. Gain #b", " #yStrength and #yDexterity."
     ]
+  },
+  "Gensokyo:MarisaPhilosophersStone": {
+    "NAME": "Philosopher's Stone",
+    "FLAVOR": "Said to transform lead into gold.",
+    "DESCRIPTIONS": [
+      "At the start of your turn, #yexhaust a card and add a random card of the #ynext #yrarity to your hand."
+    ]
   }
 }

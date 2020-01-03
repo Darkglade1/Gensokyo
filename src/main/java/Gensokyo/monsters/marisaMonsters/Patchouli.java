@@ -5,6 +5,7 @@ import Gensokyo.actions.PatchyOrbMoveAction;
 import Gensokyo.actions.UsePreBattleActionAction;
 import Gensokyo.cards.Frozen;
 import Gensokyo.powers.ElementalBarrier;
+import Gensokyo.powers.FortitudePower;
 import Gensokyo.powers.VigorPower;
 import basemod.abstracts.CustomMonster;
 import com.brashmonkey.spriter.Animation;
@@ -19,6 +20,7 @@ import com.megacrit.cardcrawl.actions.common.MakeTempCardInDiscardAction;
 import com.megacrit.cardcrawl.actions.common.RollMoveAction;
 import com.megacrit.cardcrawl.actions.common.SpawnMonsterAction;
 import com.megacrit.cardcrawl.actions.common.SuicideAction;
+import com.megacrit.cardcrawl.actions.unique.RemoveDebuffsAction;
 import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.core.Settings;
@@ -68,26 +70,26 @@ public class Patchouli extends CustomMonster
     private static final int A8_BLOCK = 11;
     private static final int FIRE_ATTACK_DAMAGE = 35;
     private static final int A3_FIRE_ATTACK_DAMAGE = 38;
-    private static final int WATER_HEAL_DAMAGE = 8;
-    private static final int A3_WATER_HEAL_DAMAGE = 9;
-    private static final int WATER_DEBUFF_DAMAGE = 10;
-    private static final int A3_WATER_DEBUFF_DAMAGE = 11;
+    private static final int WATER_HEAL_DAMAGE = 9;
+    private static final int A3_WATER_HEAL_DAMAGE = 10;
+    private static final int WATER_DEBUFF_DAMAGE = 11;
+    private static final int A3_WATER_DEBUFF_DAMAGE = 12;
     private static final int WATER_STATUS_COUNT = 2;
     private static final int A18_WATER_STATUS_COUNT = 3;
-    private static final int WOOD_BUFF_AMOUNT = 2;
-    private static final int WOOD_MULTI_HIT_DAMAGE = 5;
-    private static final int A3_WOOD_MULTI_HIT_DAMAGE = 6;
+    private static final int WOOD_BUFF_AMOUNT = 3;
+    private static final int WOOD_MULTI_HIT_DAMAGE = 6;
+    private static final int A3_WOOD_MULTI_HIT_DAMAGE = 7;
     private static final int WOOD_ATTACK_HITS = 3;
-    private static final int METAL_MULTI_HIT_DAMAGE = 8;
-    private static final int A3_METAL_MULTI_HIT_DAMAGE = 10;
+    private static final int METAL_MULTI_HIT_DAMAGE = 10;
+    private static final int A3_METAL_MULTI_HIT_DAMAGE = 11;
     private static final int METAL_HIT_COUNT = 2;
-    private static final int METAL_DEBUFF_DAMAGE = 7;
-    private static final int A3_METAL_DEBUFF_DAMAGE = 8;
+    private static final int METAL_DEBUFF_DAMAGE = 10;
+    private static final int A3_METAL_DEBUFF_DAMAGE = 11;
     private static final int METAL_DEBUFF = 2;
-    private static final int EARTH_ATTACK_DAMAGE = 20;
-    private static final int A3_EARTH_ATTACK_DAMAGE = 22;
-    private static final int EARTH_DEBUFF_DAMAGE = 6;
-    private static final int A3_EARTH_DEBUFF_DAMAGE = 7;
+    private static final int EARTH_ATTACK_DAMAGE = 22;
+    private static final int A3_EARTH_ATTACK_DAMAGE = 24;
+    private static final int EARTH_DEBUFF_DAMAGE = 9;
+    private static final int A3_EARTH_DEBUFF_DAMAGE = 10;
     private static final int EARTH_DEBUFF = 2;
 
     private int heal;
@@ -186,7 +188,7 @@ public class Patchouli extends CustomMonster
 
     @Override
     public void usePreBattleAction() {
-        AbstractDungeon.getCurrRoom().playBgmInstantly("TheLostEmotion");
+        AbstractDungeon.getCurrRoom().playBgmInstantly("LockedGirl");
         AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(this, this, new ElementalBarrier(this, STARTING_INVINCIBLE), STARTING_INVINCIBLE));
         this.spawnOrbs();
         element = FIRE;
@@ -204,7 +206,11 @@ public class Patchouli extends CustomMonster
                     AbstractDungeon.actionManager.addToBottom(new MakeTempCardInDiscardAction(new Frozen(), this.status));
                 } else if (element == WOOD) {
                     AbstractDungeon.actionManager.addToBottom(new GainBlockAction(this, this, this.block));
-                    AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(this, this, new VigorPower(this, WOOD_BUFF_AMOUNT, true), WOOD_BUFF_AMOUNT));
+                    if (this.hasPower(VigorPower.POWER_ID)) {
+                        AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(this, this, new FortitudePower(this, WOOD_BUFF_AMOUNT - 1, true), WOOD_BUFF_AMOUNT - 1));
+                    } else {
+                        AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(this, this, new VigorPower(this, WOOD_BUFF_AMOUNT, true), WOOD_BUFF_AMOUNT));
+                    }
                 } else if (element == METAL) {
                     for (int i = 0; i < METAL_HIT_COUNT; i++) {
                         AbstractDungeon.actionManager.addToBottom(new DamageAction(AbstractDungeon.player, this.damage.get(4), AbstractGameAction.AttackEffect.SLASH_HEAVY));
@@ -222,6 +228,7 @@ public class Patchouli extends CustomMonster
                 }   else if (element == WATER) {
                     AbstractDungeon.actionManager.addToBottom(new DamageAction(AbstractDungeon.player, this.damage.get(1), AbstractGameAction.AttackEffect.POISON));
                     AbstractDungeon.actionManager.addToBottom(new HealAction(this, this, this.heal));
+                    AbstractDungeon.actionManager.addToBottom(new RemoveDebuffsAction(this));
                 } else if (element == WOOD) {
                     for (int i = 0; i < WOOD_ATTACK_HITS; i++) {
                         AbstractDungeon.actionManager.addToBottom(new DamageAction(AbstractDungeon.player, this.damage.get(3), AbstractGameAction.AttackEffect.SLASH_DIAGONAL));

@@ -80,6 +80,7 @@ import Gensokyo.relics.Justice;
 import Gensokyo.relics.LunaticRedEyes;
 import Gensokyo.relics.MarisaImprobabilityPotion;
 import Gensokyo.relics.MarisaIngredientList;
+import Gensokyo.relics.MarisaPhilosophersStone;
 import Gensokyo.relics.Mercy;
 import Gensokyo.relics.NagashiBinaDoll;
 import Gensokyo.relics.OccultBall;
@@ -461,6 +462,7 @@ public class GensokyoMod implements
         if (hasMarisa) {
             BaseMod.addRelic(new MarisaIngredientList(), RelicType.SHARED);
             BaseMod.addRelic(new MarisaImprobabilityPotion(), RelicType.SHARED);
+            BaseMod.addRelic(new MarisaPhilosophersStone(), RelicType.SHARED);
         }
 
         logger.info("Done adding relics!");

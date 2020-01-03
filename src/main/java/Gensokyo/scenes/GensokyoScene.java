@@ -6,6 +6,7 @@ import Gensokyo.monsters.Kokoro;
 import Gensokyo.monsters.Mamizou;
 import Gensokyo.monsters.Reimu;
 import Gensokyo.monsters.Yukari;
+import Gensokyo.monsters.marisaMonsters.Patchouli;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.Texture;
@@ -20,6 +21,8 @@ import com.megacrit.cardcrawl.rooms.CampfireUI;
 import com.megacrit.cardcrawl.rooms.MonsterRoomBoss;
 import com.megacrit.cardcrawl.rooms.ShopRoom;
 import com.megacrit.cardcrawl.scenes.AbstractScene;
+
+import javax.sound.midi.Patch;
 
 public class GensokyoScene extends AbstractScene {
 
@@ -79,6 +82,8 @@ public class GensokyoScene extends AbstractScene {
                     this.bg = this.atlas.findRegion("mod/HumanVillage");
                 } else if (mo instanceof Reimu) {
                     this.bg = this.atlas.findRegion("mod/HakureiShrine");
+                } else if (mo instanceof Patchouli) {
+                    this.bg = this.atlas.findRegion("mod/Palace");
                 } else {
                     this.bg = this.atlas.findRegion("mod/TanukiForest");
                 }
