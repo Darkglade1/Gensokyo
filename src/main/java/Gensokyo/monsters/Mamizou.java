@@ -320,7 +320,7 @@ public class Mamizou extends CustomMonster
             this.getPower(DisguisePower.POWER_ID).updateDescription();
         }
         if (mo instanceof GremlinNob) {
-            currentDisguise.drawX += 80.0F; //Centers Nob correctly
+            currentDisguise.drawX += 80.0F * Settings.scale; //Centers Nob correctly
             AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(this, this, new AngerPower(this, nobStrength), nobStrength));
         }
         this.intentHb = mo.intentHb; //Moves the intent icon to more appropriate spot

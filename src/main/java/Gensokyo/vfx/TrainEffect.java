@@ -62,10 +62,10 @@ public class TrainEffect
 
     public void render(SpriteBatch sb) {
         sb.setColor(this.color);
-        sb.draw(this.TRAIN_REGION, this.offset * this.scaleWidth - this.TRAIN_REGION.getRegionWidth(), y - (this.TRAIN_REGION.getRegionHeight() * this.scaleHeight) / 2, 0.0F, 0.0F, this.TRAIN_REGION.getRegionWidth(), this.TRAIN_REGION.getRegionHeight(), this.scaleWidth, this.scaleHeight, 0.0F);
-        sb.draw(this.TRAIN_REGION, this.offset * this.scaleWidth - this.TRAIN_REGION.getRegionWidth() * 2, y - (this.TRAIN_REGION.getRegionHeight() * this.scaleHeight) / 2, 0.0F, 0.0F, this.TRAIN_REGION.getRegionWidth(), this.TRAIN_REGION.getRegionHeight(), this.scaleWidth, this.scaleHeight, 0.0F);
-        sb.draw(this.TRAIN_REGION, this.offset * this.scaleWidth - this.TRAIN_REGION.getRegionWidth() * 3, y - (this.TRAIN_REGION.getRegionHeight() * this.scaleHeight) / 2, 0.0F, 0.0F, this.TRAIN_REGION.getRegionWidth(), this.TRAIN_REGION.getRegionHeight(), this.scaleWidth, this.scaleHeight, 0.0F);
-        sb.draw(this.TRAIN_REGION, this.offset * this.scaleWidth - this.TRAIN_REGION.getRegionWidth() * 4, y - (this.TRAIN_REGION.getRegionHeight() * this.scaleHeight) / 2, 0.0F, 0.0F, this.TRAIN_REGION.getRegionWidth(), this.TRAIN_REGION.getRegionHeight(), this.scaleWidth, this.scaleHeight, 0.0F);
+        sb.draw(this.TRAIN_REGION, (this.offset - this.TRAIN_REGION.getRegionWidth()) * this.scaleWidth, y - (this.TRAIN_REGION.getRegionHeight() * this.scaleHeight) / 2, 0.0F, 0.0F, this.TRAIN_REGION.getRegionWidth(), this.TRAIN_REGION.getRegionHeight(), this.scaleWidth, this.scaleHeight, 0.0F);
+        sb.draw(this.TRAIN_REGION, (this.offset - this.TRAIN_REGION.getRegionWidth() * 2) * this.scaleWidth, y - (this.TRAIN_REGION.getRegionHeight() * this.scaleHeight) / 2, 0.0F, 0.0F, this.TRAIN_REGION.getRegionWidth(), this.TRAIN_REGION.getRegionHeight(), this.scaleWidth, this.scaleHeight, 0.0F);
+        sb.draw(this.TRAIN_REGION, (this.offset - this.TRAIN_REGION.getRegionWidth() * 3) * this.scaleWidth, y - (this.TRAIN_REGION.getRegionHeight() * this.scaleHeight) / 2, 0.0F, 0.0F, this.TRAIN_REGION.getRegionWidth(), this.TRAIN_REGION.getRegionHeight(), this.scaleWidth, this.scaleHeight, 0.0F);
+        sb.draw(this.TRAIN_REGION, (this.offset - this.TRAIN_REGION.getRegionWidth() * 4) * this.scaleWidth, y - (this.TRAIN_REGION.getRegionHeight() * this.scaleHeight) / 2, 0.0F, 0.0F, this.TRAIN_REGION.getRegionWidth(), this.TRAIN_REGION.getRegionHeight(), this.scaleWidth, this.scaleHeight, 0.0F);
     }
 
     public void dispose() {
