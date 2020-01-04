@@ -25,6 +25,7 @@ public class GreyKodama extends CustomMonster
     private static final int NORMAL_ATTACK_DAMAGE = 6;
     private static final int A2_NORMAL_ATTACK_DAMAGE = 7;
     private static final int BUFF_ATTACK_DAMAGE = 3;
+    private static final int A2_BUFF_ATTACK_DAMAGE = 4;
     private static final int BUFF = 1;
     private static final int A17_BUFF = 2;
     private static final int HP_MIN = 19;
@@ -51,11 +52,12 @@ public class GreyKodama extends CustomMonster
             this.setHp(HP_MIN, HP_MAX);
         }
 
-        this.buffAttackDamage = BUFF_ATTACK_DAMAGE;
         if (AbstractDungeon.ascensionLevel >= 2) {
             this.normalDamage = A2_NORMAL_ATTACK_DAMAGE;
+            this.buffAttackDamage = A2_BUFF_ATTACK_DAMAGE;
         } else {
             this.normalDamage = NORMAL_ATTACK_DAMAGE;
+            this.buffAttackDamage = BUFF_ATTACK_DAMAGE;
         }
 
         if (AbstractDungeon.ascensionLevel >= 17) {

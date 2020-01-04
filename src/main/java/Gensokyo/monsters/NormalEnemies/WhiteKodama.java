@@ -25,6 +25,7 @@ public class WhiteKodama extends CustomMonster
     private static final byte DEBUFF_ATTACK = 1;
     private static final byte BLOCK_ATTACK = 2;
     private static final int DEBUFF_ATTACK_DAMAGE = 3;
+    private static final int A2_DEBUFF_ATTACK_DAMAGE = 4;
     private static final int BLOCK_ATTACK_DAMAGE = 4;
     private static final int A2_BLOCK_ATTACK_DAMAGE = 5;
     private static final int BLOCK = 3;
@@ -57,11 +58,13 @@ public class WhiteKodama extends CustomMonster
             this.block = BLOCK;
         }
 
-        this.debuffDamage = DEBUFF_ATTACK_DAMAGE;
+
         if (AbstractDungeon.ascensionLevel >= 2) {
             this.blockAttackDamage = A2_BLOCK_ATTACK_DAMAGE;
+            this.debuffDamage = A2_DEBUFF_ATTACK_DAMAGE;
         } else {
             this.blockAttackDamage = BLOCK_ATTACK_DAMAGE;
+            this.debuffDamage = DEBUFF_ATTACK_DAMAGE;
         }
 
         this.debuff = DEBUFF;

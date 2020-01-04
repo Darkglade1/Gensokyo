@@ -27,6 +27,7 @@ public class YellowKodama extends CustomMonster
     private static final byte DEBUFF_ATTACK = 1;
     private static final byte BUFF_ATTACK = 2;
     private static final int DEBUFF_ATTACK_DAMAGE = 3;
+    private static final int A2_DEBUFF_ATTACK_DAMAGE = 4;
     private static final int BUFF_ATTACK_DAMAGE = 4;
     private static final int A2_BUFF_ATTACK_DAMAGE = 5;
     private static final int BUFF = 2;
@@ -57,11 +58,12 @@ public class YellowKodama extends CustomMonster
             this.setHp(HP_MIN, HP_MAX);
         }
 
-        this.debuffDamage = DEBUFF_ATTACK_DAMAGE;
         if (AbstractDungeon.ascensionLevel >= 2) {
             this.buffAttackDamage = A2_BUFF_ATTACK_DAMAGE;
+            this.debuffDamage = A2_DEBUFF_ATTACK_DAMAGE;
         } else {
             this.buffAttackDamage = BUFF_ATTACK_DAMAGE;
+            this.debuffDamage = DEBUFF_ATTACK_DAMAGE;
         }
 
         this.debuff = DEBUFF;

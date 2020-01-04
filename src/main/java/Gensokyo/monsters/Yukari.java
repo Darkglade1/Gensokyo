@@ -177,7 +177,7 @@ public class Yukari extends CustomMonster
                 for (int i = 0; i < TRAIN_ATTACK_HITS; i++) {
                     if (i == 0) {
                         AbstractDungeon.actionManager.addToBottom(new SFXAction("Gensokyo:Train"));
-                        AbstractDungeon.actionManager.addToBottom(new VFXAction(new YukariTrainEffect(), 0.5F));
+                        AbstractDungeon.actionManager.addToBottom(new VFXAction(new YukariTrainEffect(), 0.6F));
                     } else {
                         AbstractDungeon.actionManager.addToBottom(new VFXAction(new EmptyEffect(), 0.6F));
                     }
