@@ -15,7 +15,7 @@ import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import static Gensokyo.GensokyoMod.makeCardPath;
 import static com.megacrit.cardcrawl.core.CardCrawlGame.languagePack;
 
-public class RedCapeBlueCape extends AbstractDefaultCard {
+public class RedCapeBlueCape extends AbstractUrbanLegendCard {
 
     public static final String ID = GensokyoMod.makeID(RedCapeBlueCape.class.getSimpleName());
     public static final String IMG = makeCardPath("RedCapeBlueCape.png");
@@ -23,7 +23,6 @@ public class RedCapeBlueCape extends AbstractDefaultCard {
     private static final CardRarity RARITY = CardRarity.SPECIAL;
     private static final CardTarget TARGET = CardTarget.ENEMY;
     private static final CardType TYPE = CardType.ATTACK;
-    public static final CardColor COLOR = CardColor.COLORLESS;
 
     private static final int COST = 2;
     private static final int DAMAGE = 10;
@@ -32,7 +31,7 @@ public class RedCapeBlueCape extends AbstractDefaultCard {
     private static final int UPGRADE_PLUS_BLOCK = 3;
 
     public RedCapeBlueCape() {
-        super(ID, IMG, COST, TYPE, COLOR, RARITY, TARGET);
+        super(ID, IMG, COST, TYPE, RARITY, TARGET);
         baseDamage = DAMAGE;
         baseBlock = BLOCK;
         tags.add(Tags.URBAN_LEGEND);

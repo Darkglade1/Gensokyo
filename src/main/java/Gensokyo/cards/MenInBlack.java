@@ -11,7 +11,7 @@ import com.megacrit.cardcrawl.powers.IntangiblePlayerPower;
 
 import static Gensokyo.GensokyoMod.makeCardPath;
 
-public class MenInBlack extends AbstractDefaultCard {
+public class MenInBlack extends AbstractUrbanLegendCard {
 
     public static final String ID = GensokyoMod.makeID(MenInBlack.class.getSimpleName());
     public static final String IMG = makeCardPath("MenInBlack.png");
@@ -19,14 +19,13 @@ public class MenInBlack extends AbstractDefaultCard {
     private static final CardRarity RARITY = CardRarity.SPECIAL;
     private static final CardTarget TARGET = CardTarget.SELF;
     private static final CardType TYPE = CardType.SKILL;
-    public static final CardColor COLOR = CardColor.COLORLESS;
 
     private static final int COST = 2;
     private static final int UPGRADED_COST = 1;
     private static final int BUFF = 1;
 
     public MenInBlack() {
-        super(ID, IMG, COST, TYPE, COLOR, RARITY, TARGET);
+        super(ID, IMG, COST, TYPE, RARITY, TARGET);
         magicNumber = baseMagicNumber = BUFF;
         AlwaysRetainField.alwaysRetain.set(this, true);
         exhaust = true;

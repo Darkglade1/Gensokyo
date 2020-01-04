@@ -9,7 +9,7 @@ import com.megacrit.cardcrawl.monsters.AbstractMonster;
 
 import static Gensokyo.GensokyoMod.makeCardPath;
 
-public class BlueCape extends AbstractDefaultCard {
+public class BlueCape extends AbstractUrbanLegendCard {
 
     public static final String ID = GensokyoMod.makeID(BlueCape.class.getSimpleName());
     public static final String IMG = makeCardPath("BlueCape.png");
@@ -17,14 +17,13 @@ public class BlueCape extends AbstractDefaultCard {
     private static final CardRarity RARITY = CardRarity.SPECIAL;
     private static final CardTarget TARGET = CardTarget.SELF;
     private static final CardType TYPE = CardType.SKILL;
-    public static final CardColor COLOR = CardColor.COLORLESS;
 
     private static final int COST = 1;
     private static final int BLOCK = 10;
     private static final int UPGRADE_PLUS_BLOCK = 3;
 
     public BlueCape() {
-        super(ID, IMG, COST, TYPE, COLOR, RARITY, TARGET);
+        super(ID, IMG, COST, TYPE, RARITY, TARGET);
         baseBlock = BLOCK;
         AlwaysRetainField.alwaysRetain.set(this, true);
         exhaust = true;

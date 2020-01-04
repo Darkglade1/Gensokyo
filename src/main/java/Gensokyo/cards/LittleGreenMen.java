@@ -13,7 +13,7 @@ import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import static Gensokyo.GensokyoMod.makeCardPath;
 import static com.megacrit.cardcrawl.core.CardCrawlGame.languagePack;
 
-public class LittleGreenMen extends AbstractDefaultCard {
+public class LittleGreenMen extends AbstractUrbanLegendCard {
 
     public static final String ID = GensokyoMod.makeID(LittleGreenMen.class.getSimpleName());
     public static final String IMG = makeCardPath("LittleGreenMen.png");
@@ -21,13 +21,12 @@ public class LittleGreenMen extends AbstractDefaultCard {
     private static final CardRarity RARITY = CardRarity.SPECIAL;
     private static final CardTarget TARGET = CardTarget.SELF;
     private static final CardType TYPE = CardType.SKILL;
-    public static final CardColor COLOR = CardColor.COLORLESS;
 
     private static final int COST = 0;
     private static final int ENERGY = 1;
 
     public LittleGreenMen() {
-        super(ID, IMG, COST, TYPE, COLOR, RARITY, TARGET);
+        super(ID, IMG, COST, TYPE, RARITY, TARGET);
         magicNumber = baseMagicNumber = ENERGY;
         tags.add(Tags.URBAN_LEGEND);
     }

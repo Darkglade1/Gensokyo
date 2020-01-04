@@ -10,7 +10,7 @@ import com.megacrit.cardcrawl.monsters.AbstractMonster;
 
 import static Gensokyo.GensokyoMod.makeCardPath;
 
-public class SlitMouthedWoman extends AbstractDefaultCard {
+public class SlitMouthedWoman extends AbstractUrbanLegendCard {
 
     public static final String ID = GensokyoMod.makeID(SlitMouthedWoman.class.getSimpleName());
     public static final String IMG = makeCardPath("SlitMouthedWoman.png");
@@ -18,14 +18,13 @@ public class SlitMouthedWoman extends AbstractDefaultCard {
     private static final CardRarity RARITY = CardRarity.SPECIAL;
     private static final CardTarget TARGET = CardTarget.SELF;
     private static final CardType TYPE = CardType.SKILL;
-    public static final CardColor COLOR = CardColor.COLORLESS;
 
     private static final int COST = 1;
     private static final int DEBUFF = 3;
     private static final int UPGRADED_DEBUFF = 1;
 
     public SlitMouthedWoman() {
-        super(ID, IMG, COST, TYPE, COLOR, RARITY, TARGET);
+        super(ID, IMG, COST, TYPE, RARITY, TARGET);
         magicNumber = baseMagicNumber = DEBUFF;
         this.exhaust = true;
         tags.add(Tags.URBAN_LEGEND);

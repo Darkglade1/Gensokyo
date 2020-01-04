@@ -89,15 +89,19 @@ import basemod.interfaces.EditStringsSubscriber;
 import basemod.interfaces.PostInitializeSubscriber;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.files.FileHandle;
+import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.Texture;
 import com.evacipated.cardcrawl.mod.stslib.Keyword;
+import com.evacipated.cardcrawl.modthespire.lib.SpireEnum;
 import com.evacipated.cardcrawl.modthespire.lib.SpireInitializer;
 import com.google.gson.Gson;
+import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.core.Settings;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.dungeons.Exordium;
+import com.megacrit.cardcrawl.helpers.CardHelper;
+import com.megacrit.cardcrawl.helpers.CardLibrary;
 import com.megacrit.cardcrawl.localization.CardStrings;
-import com.megacrit.cardcrawl.localization.CharacterStrings;
 import com.megacrit.cardcrawl.localization.EventStrings;
 import com.megacrit.cardcrawl.localization.MonsterStrings;
 import com.megacrit.cardcrawl.localization.PowerStrings;
@@ -135,6 +139,28 @@ public class GensokyoMod implements
     
     //Mod Badge - A small icon that appears in the mod settings menu next to your mod.
     public static final String BADGE_IMAGE = "GensokyoResources/images/Badge.png";
+
+    public static class Enums {
+        @SpireEnum(name = "Urban Legend") // These two HAVE to have the same absolutely identical name.
+        public static AbstractCard.CardColor URBAN_LEGEND;
+        @SpireEnum(name = "Urban Legend") @SuppressWarnings("unused")
+        public static CardLibrary.LibraryType LIBRARY_COLOR;
+    }
+
+    public static final Color URBAN_LEGEND = CardHelper.getColor(0.0f, 0.0F, 0.0f);
+
+    // Card backgrounds - The actual rectangular card.
+    private static final String ATTACK_BLACK = "GensokyoResources/images/512/attack_blacky.png";
+    private static final String SKILL_BLACK = "GensokyoResources/images/512/skill_blacky.png";
+    private static final String POWER_BLACK = "GensokyoResources/images/512/power_blacky.png";
+
+    private static final String ENERGY_ORB_BLACK = "GensokyoResources/images/512/card_blacky_orb.png";
+    private static final String CARD_ENERGY_ORB = "GensokyoResources/images/512/card_small_orb_blacky.png";
+
+    private static final String ATTACK_BLACK_PORTRAIT = "GensokyoResources/images/1024/attack_blacky.png";
+    private static final String SKILL_BLACK_PORTRAIT = "GensokyoResources/images/1024/skill_blacky.png";
+    private static final String POWER_BLACK_PORTRAIT = "GensokyoResources/images/1024/power_blacky.png";
+    private static final String ENERGY_ORB_BLACK_PORTRAIT = "GensokyoResources/images/1024/card_small_orb_blacky.png";
     
     // =============== MAKE IMAGE PATHS =================
     
@@ -179,7 +205,11 @@ public class GensokyoMod implements
         setModID("Gensokyo");
         
         logger.info("Done subscribing");
-        
+        BaseMod.addColor(Enums.URBAN_LEGEND, URBAN_LEGEND, URBAN_LEGEND, URBAN_LEGEND,
+                URBAN_LEGEND, URBAN_LEGEND, URBAN_LEGEND, URBAN_LEGEND,
+                ATTACK_BLACK, SKILL_BLACK, POWER_BLACK, ENERGY_ORB_BLACK,
+                ATTACK_BLACK_PORTRAIT, SKILL_BLACK_PORTRAIT, POWER_BLACK_PORTRAIT,
+                ENERGY_ORB_BLACK_PORTRAIT, CARD_ENERGY_ORB);
     }
     
     public static void setModID(String ID) { // DON'T EDIT

@@ -11,7 +11,7 @@ import com.megacrit.cardcrawl.monsters.AbstractMonster;
 
 import static Gensokyo.GensokyoMod.makeCardPath;
 
-public class MonkeysPaw extends AbstractDefaultCard {
+public class MonkeysPaw extends AbstractUrbanLegendCard {
 
     public static final String ID = GensokyoMod.makeID(MonkeysPaw.class.getSimpleName());
     public static final String IMG = makeCardPath("MonkeysPaw.png");
@@ -19,14 +19,13 @@ public class MonkeysPaw extends AbstractDefaultCard {
     private static final CardRarity RARITY = CardRarity.SPECIAL;
     private static final CardTarget TARGET = CardTarget.SELF;
     private static final CardType TYPE = CardType.SKILL;
-    public static final CardColor COLOR = CardColor.COLORLESS;
 
     private static final int COST = 0;
     private static final int GOLD = 12;
     private static final int UPGRADED_GOLD = 3;
 
     public MonkeysPaw() {
-        super(ID, IMG, COST, TYPE, COLOR, RARITY, TARGET);
+        super(ID, IMG, COST, TYPE, RARITY, TARGET);
         magicNumber = baseMagicNumber = GOLD;
         exhaust = true;
         tags.add(Tags.URBAN_LEGEND);

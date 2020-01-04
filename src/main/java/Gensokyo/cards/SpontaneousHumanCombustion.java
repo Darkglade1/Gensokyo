@@ -11,7 +11,7 @@ import com.megacrit.cardcrawl.powers.StrengthPower;
 
 import static Gensokyo.GensokyoMod.makeCardPath;
 
-public class SpontaneousHumanCombustion extends AbstractDefaultCard {
+public class SpontaneousHumanCombustion extends AbstractUrbanLegendCard {
 
     public static final String ID = GensokyoMod.makeID(SpontaneousHumanCombustion.class.getSimpleName());
     public static final String IMG = makeCardPath("SpontaneousHumanCombustion.png");
@@ -19,7 +19,6 @@ public class SpontaneousHumanCombustion extends AbstractDefaultCard {
     private static final CardRarity RARITY = CardRarity.SPECIAL;
     private static final CardTarget TARGET = CardTarget.SELF;
     private static final CardType TYPE = CardType.POWER;
-    public static final CardColor COLOR = CardColor.COLORLESS;
 
     private static final int COST = 0;
     private static final int STRENGTH = 5;
@@ -27,7 +26,7 @@ public class SpontaneousHumanCombustion extends AbstractDefaultCard {
     public static final int SELF_DAMAGE = 1;
 
     public SpontaneousHumanCombustion() {
-        super(ID, IMG, COST, TYPE, COLOR, RARITY, TARGET);
+        super(ID, IMG, COST, TYPE, RARITY, TARGET);
         magicNumber = baseMagicNumber = STRENGTH;
         defaultSecondMagicNumber = defaultBaseSecondMagicNumber = SELF_DAMAGE;
         tags.add(Tags.URBAN_LEGEND);

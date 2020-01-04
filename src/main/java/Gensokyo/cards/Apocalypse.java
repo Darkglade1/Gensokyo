@@ -11,7 +11,7 @@ import com.megacrit.cardcrawl.monsters.AbstractMonster;
 
 import static Gensokyo.GensokyoMod.makeCardPath;
 
-public class Apocalypse extends AbstractDefaultCard {
+public class Apocalypse extends AbstractUrbanLegendCard {
 
     public static final String ID = GensokyoMod.makeID(Apocalypse.class.getSimpleName());
     public static final String IMG = makeCardPath("Apocalypse.png");
@@ -19,7 +19,6 @@ public class Apocalypse extends AbstractDefaultCard {
     private static final CardRarity RARITY = CardRarity.SPECIAL;
     private static final CardTarget TARGET = CardTarget.ALL_ENEMY;
     private static final CardType TYPE = CardType.ATTACK;
-    public static final CardColor COLOR = CardColor.COLORLESS;
 
     private static final int COST = 0;
     private static final int DAMAGE = 20;
@@ -28,7 +27,7 @@ public class Apocalypse extends AbstractDefaultCard {
     private static final int UPGRADE_PLUS_SELF_DMG = 5;
 
     public Apocalypse() {
-        super(ID, IMG, COST, TYPE, COLOR, RARITY, TARGET);
+        super(ID, IMG, COST, TYPE, RARITY, TARGET);
         baseDamage = DAMAGE;
         magicNumber = baseMagicNumber = SELF_DAMAGE;
         this.isMultiDamage = true;

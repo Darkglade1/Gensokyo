@@ -10,7 +10,7 @@ import com.megacrit.cardcrawl.monsters.AbstractMonster;
 
 import static Gensokyo.GensokyoMod.makeCardPath;
 
-public class ManorOfTheDishes extends AbstractDefaultCard {
+public class ManorOfTheDishes extends AbstractUrbanLegendCard {
 
     public static final String ID = GensokyoMod.makeID(ManorOfTheDishes.class.getSimpleName());
     public static final String IMG = makeCardPath("ManorOfTheDishes.png");
@@ -18,7 +18,6 @@ public class ManorOfTheDishes extends AbstractDefaultCard {
     private static final CardRarity RARITY = CardRarity.SPECIAL;
     private static final CardTarget TARGET = CardTarget.SELF;
     private static final CardType TYPE = CardType.POWER;
-    public static final CardColor COLOR = CardColor.COLORLESS;
 
     private static final int COST = 1;
     private static final int UPGRADED_COST = 0;
@@ -26,7 +25,7 @@ public class ManorOfTheDishes extends AbstractDefaultCard {
     public static final int cardThreshold = 10;
 
     public ManorOfTheDishes() {
-        super(ID, IMG, COST, TYPE, COLOR, RARITY, TARGET);
+        super(ID, IMG, COST, TYPE, RARITY, TARGET);
         magicNumber = baseMagicNumber = INTANGIBLE;
         defaultSecondMagicNumber = defaultBaseSecondMagicNumber = cardThreshold;
         tags.add(Tags.URBAN_LEGEND);

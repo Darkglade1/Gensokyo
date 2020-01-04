@@ -11,7 +11,7 @@ import com.megacrit.cardcrawl.monsters.AbstractMonster;
 
 import static Gensokyo.GensokyoMod.makeCardPath;
 
-public class LochNessMonster extends AbstractDefaultCard {
+public class LochNessMonster extends AbstractUrbanLegendCard {
 
     public static final String ID = GensokyoMod.makeID(LochNessMonster.class.getSimpleName());
     public static final String IMG = makeCardPath("LochNessMonster.png");
@@ -19,7 +19,6 @@ public class LochNessMonster extends AbstractDefaultCard {
     private static final CardRarity RARITY = CardRarity.SPECIAL;
     private static final CardTarget TARGET = CardTarget.ENEMY;
     private static final CardType TYPE = CardType.ATTACK;
-    public static final CardColor COLOR = CardColor.COLORLESS;
 
     private static final int COST = 3;
     private static final int DAMAGE = 4;
@@ -27,7 +26,7 @@ public class LochNessMonster extends AbstractDefaultCard {
     private static final int UPGRADE_HITS = 2;
 
     public LochNessMonster() {
-        super(ID, IMG, COST, TYPE, COLOR, RARITY, TARGET);
+        super(ID, IMG, COST, TYPE, RARITY, TARGET);
         baseDamage = DAMAGE;
         magicNumber = baseMagicNumber = HITS;
         tags.add(Tags.URBAN_LEGEND);

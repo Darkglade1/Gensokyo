@@ -11,7 +11,7 @@ import com.megacrit.cardcrawl.powers.PlatedArmorPower;
 
 import static Gensokyo.GensokyoMod.makeCardPath;
 
-public class TurboGranny extends AbstractDefaultCard {
+public class TurboGranny extends AbstractUrbanLegendCard {
 
     public static final String ID = GensokyoMod.makeID(TurboGranny.class.getSimpleName());
     public static final String IMG = makeCardPath("TurboGranny.png");
@@ -19,7 +19,6 @@ public class TurboGranny extends AbstractDefaultCard {
     private static final CardRarity RARITY = CardRarity.SPECIAL;
     private static final CardTarget TARGET = CardTarget.SELF;
     private static final CardType TYPE = CardType.POWER;
-    public static final CardColor COLOR = CardColor.COLORLESS;
 
     private static final int COST = 2;
     private static final int DEX = 3;
@@ -28,7 +27,7 @@ public class TurboGranny extends AbstractDefaultCard {
     private static final int UPGRADE_PLATED_ARMOR = 1;
 
     public TurboGranny() {
-        super(ID, IMG, COST, TYPE, COLOR, RARITY, TARGET);
+        super(ID, IMG, COST, TYPE, RARITY, TARGET);
         magicNumber = baseMagicNumber = DEX;
         defaultSecondMagicNumber = defaultBaseSecondMagicNumber = PLATED_ARMOR;
         tags.add(Tags.URBAN_LEGEND);

@@ -11,7 +11,7 @@ import com.megacrit.cardcrawl.monsters.AbstractMonster;
 
 import static Gensokyo.GensokyoMod.makeCardPath;
 
-public class RedCape extends AbstractDefaultCard {
+public class RedCape extends AbstractUrbanLegendCard {
 
     public static final String ID = GensokyoMod.makeID(RedCape.class.getSimpleName());
     public static final String IMG = makeCardPath("RedCape.png");
@@ -19,14 +19,13 @@ public class RedCape extends AbstractDefaultCard {
     private static final CardRarity RARITY = CardRarity.SPECIAL;
     private static final CardTarget TARGET = CardTarget.ENEMY;
     private static final CardType TYPE = CardType.ATTACK;
-    public static final CardColor COLOR = CardColor.COLORLESS;
 
     private static final int COST = 1;
     private static final int DAMAGE = 10;
     private static final int UPGRADE_PLUS_DMG = 3;
 
     public RedCape() {
-        super(ID, IMG, COST, TYPE, COLOR, RARITY, TARGET);
+        super(ID, IMG, COST, TYPE, RARITY, TARGET);
         baseDamage = DAMAGE;
         AlwaysRetainField.alwaysRetain.set(this, true);
         exhaust = true;

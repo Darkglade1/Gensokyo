@@ -10,7 +10,7 @@ import com.megacrit.cardcrawl.monsters.AbstractMonster;
 
 import static Gensokyo.GensokyoMod.makeCardPath;
 
-public class HAARP extends AbstractDefaultCard {
+public class HAARP extends AbstractUrbanLegendCard {
 
     public static final String ID = GensokyoMod.makeID(HAARP.class.getSimpleName());
     public static final String IMG = makeCardPath("HAARP.png");
@@ -18,14 +18,13 @@ public class HAARP extends AbstractDefaultCard {
     private static final CardRarity RARITY = CardRarity.SPECIAL;
     private static final CardTarget TARGET = CardTarget.SELF;
     private static final CardType TYPE = CardType.POWER;
-    public static final CardColor COLOR = CardColor.COLORLESS;
 
     private static final int COST = 2;
     private static final int CHANNEL = 1;
     private static final int UPGRADE_CHANNEL = 1;
 
     public HAARP() {
-        super(ID, IMG, COST, TYPE, COLOR, RARITY, TARGET);
+        super(ID, IMG, COST, TYPE, RARITY, TARGET);
         magicNumber = baseMagicNumber = CHANNEL;
         tags.add(Tags.URBAN_LEGEND);
     }

@@ -14,7 +14,7 @@ import com.megacrit.cardcrawl.monsters.AbstractMonster;
 
 import static Gensokyo.GensokyoMod.makeCardPath;
 
-public class TekeTeke extends AbstractDefaultCard {
+public class TekeTeke extends AbstractUrbanLegendCard {
 
     public static final String ID = GensokyoMod.makeID(TekeTeke.class.getSimpleName());
     public static final String IMG = makeCardPath("TekeTeke.png");
@@ -22,7 +22,6 @@ public class TekeTeke extends AbstractDefaultCard {
     private static final CardRarity RARITY = CardRarity.SPECIAL;
     private static final CardTarget TARGET = CardTarget.ALL_ENEMY;
     private static final CardType TYPE = CardType.ATTACK;
-    public static final CardColor COLOR = CardColor.COLORLESS;
 
     private static final int COST = 3;
     private static final int DAMAGE = 7;
@@ -36,7 +35,7 @@ public class TekeTeke extends AbstractDefaultCard {
     public boolean triggered = false;
 
     public TekeTeke() {
-        super(ID, IMG, COST, TYPE, COLOR, RARITY, TARGET);
+        super(ID, IMG, COST, TYPE, RARITY, TARGET);
         baseDamage = DAMAGE;
         magicNumber = baseMagicNumber = BOOST;
         defaultSecondMagicNumber = defaultBaseSecondMagicNumber = HITS;

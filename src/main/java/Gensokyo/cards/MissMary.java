@@ -13,7 +13,7 @@ import java.util.Iterator;
 
 import static Gensokyo.GensokyoMod.makeCardPath;
 
-public class MissMary extends AbstractDefaultCard {
+public class MissMary extends AbstractUrbanLegendCard {
 
     public static final String ID = GensokyoMod.makeID(MissMary.class.getSimpleName());
     public static final String IMG = makeCardPath("MissMary.png");
@@ -21,14 +21,13 @@ public class MissMary extends AbstractDefaultCard {
     private static final CardRarity RARITY = CardRarity.SPECIAL;
     private static final CardTarget TARGET = CardTarget.ALL_ENEMY;
     private static final CardType TYPE = CardType.SKILL;
-    public static final CardColor COLOR = CardColor.COLORLESS;
 
     private static final int COST = 1;
     private static final int UPGRADED_COST = 0;
     private static final int VULNERABLE = 99;
 
     public MissMary() {
-        super(ID, IMG, COST, TYPE, COLOR, RARITY, TARGET);
+        super(ID, IMG, COST, TYPE, RARITY, TARGET);
         magicNumber = baseMagicNumber = VULNERABLE;
         exhaust = true;
         tags.add(Tags.URBAN_LEGEND);
