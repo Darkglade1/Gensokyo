@@ -1,10 +1,12 @@
 package Gensokyo.monsters;
 
 import Gensokyo.BetterSpriterAnimation;
+import Gensokyo.GensokyoMod;
 import Gensokyo.actions.SpawnOrbAction;
 import Gensokyo.powers.HakureiShrineMaidenPower;
 import Gensokyo.powers.Position;
 import Gensokyo.powers.SealedPower;
+import ThMod.characters.Marisa;
 import basemod.abstracts.CustomMonster;
 import com.brashmonkey.spriter.Animation;
 import com.brashmonkey.spriter.Player;
@@ -140,7 +142,11 @@ public class Reimu extends CustomMonster
         switch (this.nextMove) {
             case OPENING: {
                 runAnim("SpellCall");
-                AbstractDungeon.actionManager.addToBottom(new TalkAction(this, Reimu.DIALOG[0]));
+                if (GensokyoMod.hasMarisa && AbstractDungeon.player instanceof Marisa) {
+                    AbstractDungeon.actionManager.addToBottom(new TalkAction(this, Reimu.DIALOG[1]));
+                } else {
+                    AbstractDungeon.actionManager.addToBottom(new TalkAction(this, Reimu.DIALOG[0]));
+                }
                 AbstractDungeon.actionManager.addToBottom(new SpawnOrbAction(this, 1));
                 AbstractDungeon.actionManager.addToBottom(new SpawnOrbAction(this, 2));
                 AbstractDungeon.actionManager.addToBottom(new SpawnOrbAction(this, 3));

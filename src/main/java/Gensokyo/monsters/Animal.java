@@ -1,6 +1,8 @@
 package Gensokyo.monsters;
 
 import Gensokyo.BetterSpriterAnimation;
+import Gensokyo.GensokyoMod;
+import ThMod.characters.Marisa;
 import basemod.abstracts.CustomMonster;
 import com.badlogic.gdx.math.MathUtils;
 import com.esotericsoftware.spine.AnimationState;
@@ -38,6 +40,8 @@ public class Animal extends CustomMonster {
             this.animation = new BetterSpriterAnimation("GensokyoResources/images/monsters/Animals/Spriter/AnimalAnimation.scml");
             if (AbstractDungeon.player.chosenClass == AbstractPlayer.PlayerClass.DEFECT) {
                 setAnimal("Crowbot");
+            } else if(GensokyoMod.hasMarisa && AbstractDungeon.player instanceof Marisa) {
+                setAnimal("Crow");
             }
         }
     }

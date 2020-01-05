@@ -37,6 +37,7 @@ public class GreaterFairy extends CustomMonster
     private static final byte REVIVE = 2;
     private static final byte LEAVE = 3;
     private static final int NORMAL_ATTACK_DAMAGE = 4;
+    private static final int A18_NORMAL_ATTACK_DAMAGE = 5;
     //private static final int DEBUFF = 1;
     private static final int HP = 10;
     private int normalDamage;
@@ -52,7 +53,11 @@ public class GreaterFairy extends CustomMonster
         this.type = EnemyType.NORMAL;
         this.dialogX = (this.hb_x - 70.0F) * Settings.scale;
         this.dialogY -= (this.hb_y - 55.0F) * Settings.scale;
-        this.normalDamage = NORMAL_ATTACK_DAMAGE;
+        if (AbstractDungeon.ascensionLevel >= 18) {
+            this.normalDamage = A18_NORMAL_ATTACK_DAMAGE;
+        } else {
+            this.normalDamage = NORMAL_ATTACK_DAMAGE;
+        }
         this.setHp(HP);
 
         this.damage.add(new DamageInfo(this, this.normalDamage));

@@ -129,7 +129,10 @@ import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.nio.charset.StandardCharsets;
 import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Collection;
 import java.util.Collections;
+import java.util.List;
 
 @SpireInitializer
 public class GensokyoMod implements
@@ -411,6 +414,8 @@ public class GensokyoMod implements
         }
         float[] groupPositionsSize3 = {-450.0F, -200.0F, 50.0F};
         float[] groupPositionsSize5 = {-450.0F, -300.0F, -150.0F, 0.0F, 150.0F};
+        Boolean[] groupWeakMembers3 = {true, false, false};
+        Boolean[] groupWeakMembers5 = {true, true, false, false, false};
         ArrayList<Integer> monstersList = new ArrayList<>();
         monstersList.add(1);
         monstersList.add(2);
@@ -419,23 +424,28 @@ public class GensokyoMod implements
         if (groupSize == 5) {
             monstersList.add(AbstractDungeon.monsterRng.random(1, 4)); //adds a randomly chosen duplicate for the 5th fairy
         }
-        Collections.shuffle(monstersList, AbstractDungeon.monsterRng.random);
         float[] groupToUse;
-        AbstractMonster[] monsters = new AbstractMonster[groupSize];
+        List<Boolean> weakGroup = new ArrayList<>();
         if (groupSize == 5) {
             groupToUse = groupPositionsSize5;
+            Collections.addAll(weakGroup, groupWeakMembers5);
         } else {
             groupToUse = groupPositionsSize3;
+            Collections.addAll(weakGroup, groupWeakMembers3);
         }
+        Collections.shuffle(monstersList, AbstractDungeon.monsterRng.random);
+        Collections.shuffle(weakGroup, AbstractDungeon.monsterRng.random);
+        AbstractMonster[] monsters = new AbstractMonster[groupSize];
         for (int i = 0; i < groupSize; i++) {
+            boolean isWeak = weakGroup.get(i);
             if (monstersList.get(i) == 1) {
-                monsters[i] = new GreaterFairyNormal(groupToUse[i], 0.0F);
+                monsters[i] = new GreaterFairyNormal(groupToUse[i], 0.0F, isWeak);
             } else if (monstersList.get(i) == 2) {
-                monsters[i] = new SunflowerFairyNormal(groupToUse[i], 0.0F);
+                monsters[i] = new SunflowerFairyNormal(groupToUse[i], 0.0F, isWeak);
             } else if (monstersList.get(i) == 3) {
-                monsters[i] = new ZombieFairyNormal(groupToUse[i], 0.0F);
+                monsters[i] = new ZombieFairyNormal(groupToUse[i], 0.0F, isWeak);
             } else if (monstersList.get(i) == 4) {
-                monsters[i] = new MaidFairyNormal(groupToUse[i], 0.0F);
+                monsters[i] = new MaidFairyNormal(groupToUse[i], 0.0F, isWeak);
             }
         }
 

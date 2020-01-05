@@ -30,20 +30,16 @@ public class MaidFairyNormal extends AbstractFairy
     private static final int A2_BLOCK_ATTACK_DAMAGE = 6;
     private static final int BLOCK_GAIN = 5;
     private static final int A7_BLOCK_GAIN = 6;
-    private static final int HP_MIN = 6;
-    private static final int HP_MAX = 8;
-    private static final int A7_HP_MIN = 7;
-    private static final int A7_HP_MAX = 9;
     private int normalDamage;
     private int blockDamage;
     private int block;
 
     public MaidFairyNormal() {
-        this(0.0f, 0.0f);
+        this(0.0f, 0.0f, false);
     }
 
-    public MaidFairyNormal(final float x, final float y) {
-        super(MaidFairyNormal.NAME, ID, HP_MAX, 0, 0, 130.0f, 165.0f, null, x, y);
+    public MaidFairyNormal(final float x, final float y, boolean isWeak) {
+        super(MaidFairyNormal.NAME, ID, HP_MAX, 0, 0, 130.0f, 165.0f, null, x, y, isWeak);
         this.animation = new BetterSpriterAnimation("GensokyoResources/images/monsters/MaidFairy/Spriter/MaidFairyAnimation.scml");
         this.type = EnemyType.NORMAL;
         this.dialogX = (this.hb_x - 70.0F) * Settings.scale;
@@ -54,13 +50,6 @@ public class MaidFairyNormal extends AbstractFairy
         } else {
             this.normalDamage = NORMAL_ATTACK_DAMAGE;
             this.blockDamage = BLOCK_ATTACK_DAMAGE;
-        }
-        if (AbstractDungeon.ascensionLevel >= 7) {
-            this.setHp(A7_HP_MIN, A7_HP_MAX);
-            this.block = A7_BLOCK_GAIN;
-        } else {
-            this.setHp(HP_MIN, HP_MAX);
-            this.block = BLOCK_GAIN;
         }
 
         this.damage.add(new DamageInfo(this, this.normalDamage));

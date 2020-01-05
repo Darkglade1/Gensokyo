@@ -29,19 +29,15 @@ public class GreaterFairyNormal extends AbstractFairy
     private static final int MULTI_ATTACK_DAMAGE = 3;
     private static final int A2_MULTI_ATTACK_DAMAGE = 4;
     private static final int MULTI_HITS = 2;
-    private static final int HP_MIN = 6;
-    private static final int HP_MAX = 8;
-    private static final int A7_HP_MIN = 7;
-    private static final int A7_HP_MAX = 9;
     private int strength;
     private int multiHitDamage;
 
     public GreaterFairyNormal() {
-        this(0.0f, 0.0f);
+        this(0.0f, 0.0f, false);
     }
 
-    public GreaterFairyNormal(final float x, final float y) {
-        super(GreaterFairyNormal.NAME, ID, HP_MAX, 0, 0, 130.0f, 165.0f, null, x, y);
+    public GreaterFairyNormal(final float x, final float y, boolean isWeak) {
+        super(GreaterFairyNormal.NAME, ID, HP_MAX, 0, 0, 130.0f, 165.0f, null, x, y, isWeak);
         this.animation = new BetterSpriterAnimation("GensokyoResources/images/monsters/GreaterFairy/Spriter/GreaterFairyAnimation.scml");
         this.type = EnemyType.NORMAL;
         this.dialogX = (this.hb_x - 70.0F) * Settings.scale;
@@ -51,11 +47,6 @@ public class GreaterFairyNormal extends AbstractFairy
             this.multiHitDamage = A2_MULTI_ATTACK_DAMAGE;
         } else {
             this.multiHitDamage = MULTI_ATTACK_DAMAGE;
-        }
-        if (AbstractDungeon.ascensionLevel >= 7) {
-            this.setHp(A7_HP_MIN, A7_HP_MAX);
-        } else {
-            this.setHp(HP_MIN, HP_MAX);
         }
 
         this.damage.add(new DamageInfo(this, this.multiHitDamage));

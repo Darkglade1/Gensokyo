@@ -13,6 +13,7 @@ import Gensokyo.events.marisaEvents.AHazardousHobby;
 import Gensokyo.events.marisaEvents.AnOldGhost;
 import Gensokyo.events.marisaEvents.BookThief;
 import Gensokyo.events.marisaEvents.JustAVisit;
+import Gensokyo.events.marisaEvents.Walpurgisnacht;
 import ThMod.characters.Marisa;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.relics.HappyFlower;
@@ -61,6 +62,10 @@ public class EventFilter {
                 if (!(AHazardousHobby.hasRandomNonBasicCard())) {
                     eventsToRemove.add(event);
                 }
+            } else if (event.equals(BookThief.ID)) {
+                if (!(AbstractDungeon.floorNum >= 4)) {
+                    eventsToRemove.add(event);
+                }
             }
             if (MarisaSpecificFilter(event)) {
                 eventsToRemove.add(event);
@@ -79,6 +84,8 @@ public class EventFilter {
             } else if (event.equals(BookThief.ID)) {
                 return true;
             } else if (event.equals(AHazardousHobby.ID)) {
+                return true;
+            } else if (event.equals(Walpurgisnacht.ID)) {
                 return true;
             }
             //Filter out these events if the player is Marisa

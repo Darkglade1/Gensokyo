@@ -28,18 +28,14 @@ public class ZombieFairyNormal extends AbstractFairy
     private static final int NORMAL_ATTACK_DAMAGE = 6;
     private static final int A2_NORMAL_ATTACK_DAMAGE = 7;
     private static final int DEBUFF = 1;
-    private static final int HP_MIN = 6;
-    private static final int HP_MAX = 8;
-    private static final int A7_HP_MIN = 7;
-    private static final int A7_HP_MAX = 9;
     private int normalDamage;
 
     public ZombieFairyNormal() {
-        this(0.0f, 0.0f);
+        this(0.0f, 0.0f, false);
     }
 
-    public ZombieFairyNormal(final float x, final float y) {
-        super(ZombieFairyNormal.NAME, ID, HP_MAX, 0, 0, 130.0f, 165.0f, null, x, y);
+    public ZombieFairyNormal(final float x, final float y, boolean isWeak) {
+        super(ZombieFairyNormal.NAME, ID, HP_MAX, 0, 0, 130.0f, 165.0f, null, x, y, isWeak);
         this.animation = new BetterSpriterAnimation("GensokyoResources/images/monsters/ZombieFairy/Spriter/ZombieFairyAnimation.scml");
         this.type = EnemyType.NORMAL;
         this.dialogX = (this.hb_x - 70.0F) * Settings.scale;
@@ -48,11 +44,6 @@ public class ZombieFairyNormal extends AbstractFairy
             this.normalDamage = A2_NORMAL_ATTACK_DAMAGE;
         } else {
             this.normalDamage = NORMAL_ATTACK_DAMAGE;
-        }
-        if (AbstractDungeon.ascensionLevel >= 7) {
-            this.setHp(A7_HP_MIN, A7_HP_MAX);
-        } else {
-            this.setHp(HP_MIN, HP_MAX);
         }
 
         this.damage.add(new DamageInfo(this, this.normalDamage));

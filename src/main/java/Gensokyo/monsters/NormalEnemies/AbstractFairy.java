@@ -21,14 +21,32 @@ import java.util.Iterator;
 
 public abstract class AbstractFairy extends CustomMonster
 {
-
+    protected static final int HP_MIN = 6;
+    protected static final int HP_MEDIUM= 7;
+    protected static final int HP_MAX = 8;
+    protected static final int A7_HP_MIN = 7;
+    protected static final int A7_HP_MEDIUM= 8;
+    protected static final int A7_HP_MAX = 9;
     protected static final byte REVIVE = 3;
     protected static final byte LEAVE = 4;
     public static final int MAX_DEATHS = 2;
     public int deathCounter = 0;
 
-    public AbstractFairy(String name, String id, int maxHealth, float hb_x, float hb_y, float hb_w, float hb_h, String imgUrl, float offsetX, float offsetY) {
+    public AbstractFairy(String name, String id, int maxHealth, float hb_x, float hb_y, float hb_w, float hb_h, String imgUrl, float offsetX, float offsetY, boolean isWeak) {
         super(name, id, maxHealth, hb_x, hb_y, hb_w, hb_h, imgUrl, offsetX, offsetY);
+        if (AbstractDungeon.ascensionLevel >= 7) {
+            if (isWeak) {
+                this.setHp(A7_HP_MIN);
+            } else {
+                this.setHp(A7_HP_MEDIUM, A7_HP_MAX);
+            }
+        } else {
+            if (isWeak) {
+                this.setHp(HP_MIN);
+            } else {
+                this.setHp(HP_MEDIUM, HP_MAX);
+            }
+        }
     }
 
     @Override
