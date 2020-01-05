@@ -2,7 +2,7 @@ package Gensokyo.events.marisaEvents;
 
 import Gensokyo.GensokyoMod;
 import Gensokyo.monsters.marisaMonsters.Patchouli;
-import Gensokyo.relics.MarisaPhilosophersStone;
+import Gensokyo.relics.marisaRelics.PhilosophersStone;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.cards.CardGroup;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
@@ -107,7 +107,7 @@ public class BookThief extends AbstractImageEvent {
                     case 0: // Stand your ground
                         AbstractDungeon.getCurrRoom().monsters = new MonsterGroup(new Patchouli(0.0F, 0.0F));
                         AbstractDungeon.getCurrRoom().rewards.clear();
-                        AbstractDungeon.getCurrRoom().addRelicToRewards(RelicLibrary.getRelic(MarisaPhilosophersStone.ID).makeCopy());
+                        AbstractDungeon.getCurrRoom().addRelicToRewards(RelicLibrary.getRelic(PhilosophersStone.ID).makeCopy());
                         AbstractDungeon.getCurrRoom().eliteTrigger = true;
                         AbstractDungeon.scene.nextRoom(AbstractDungeon.getCurrRoom()); //switches bg
                         this.enterCombatFromImage();

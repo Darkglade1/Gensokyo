@@ -1,8 +1,8 @@
 package Gensokyo.events.marisaEvents;
 
 import Gensokyo.GensokyoMod;
-import Gensokyo.relics.MarisaImprobabilityPotion;
-import Gensokyo.relics.MarisaIngredientList;
+import Gensokyo.relics.marisaRelics.ImprobabilityPotion;
+import Gensokyo.relics.marisaRelics.IngredientList;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
@@ -81,10 +81,10 @@ public class AHazardousHobby extends AbstractImageEvent {
                             AbstractDungeon.effectList.add(new PurgeCardEffect(this.cardOption));
                             AbstractDungeon.player.masterDeck.removeCard(this.cardOption);
                             AbstractRelic relic;
-                            if (AbstractDungeon.player.hasRelic(MarisaIngredientList.ID) || AbstractDungeon.player.hasRelic(MarisaImprobabilityPotion.ID)) {
+                            if (AbstractDungeon.player.hasRelic(IngredientList.ID) || AbstractDungeon.player.hasRelic(ImprobabilityPotion.ID)) {
                                 relic = RelicLibrary.getRelic(Circlet.ID).makeCopy();
                             } else {
-                                relic = RelicLibrary.getRelic(MarisaIngredientList.ID).makeCopy();
+                                relic = RelicLibrary.getRelic(IngredientList.ID).makeCopy();
                             }
                             AbstractDungeon.getCurrRoom().spawnRelicAndObtain(this.drawX, this.drawY, relic);
                         } else {

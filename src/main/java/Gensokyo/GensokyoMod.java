@@ -72,15 +72,14 @@ import Gensokyo.monsters.Reimu;
 import Gensokyo.monsters.SunflowerFairy;
 import Gensokyo.monsters.Yukari;
 import Gensokyo.monsters.ZombieFairy;
-import Gensokyo.monsters.marisaMonsters.Patchouli;
 import Gensokyo.relics.Bombinomicon;
 import Gensokyo.relics.BookOfSpecters;
 import Gensokyo.relics.CelestialsFlawlessClothing;
 import Gensokyo.relics.Justice;
 import Gensokyo.relics.LunaticRedEyes;
-import Gensokyo.relics.MarisaImprobabilityPotion;
-import Gensokyo.relics.MarisaIngredientList;
-import Gensokyo.relics.MarisaPhilosophersStone;
+import Gensokyo.relics.marisaRelics.ImprobabilityPotion;
+import Gensokyo.relics.marisaRelics.IngredientList;
+import Gensokyo.relics.marisaRelics.PhilosophersStone;
 import Gensokyo.relics.Mercy;
 import Gensokyo.relics.NagashiBinaDoll;
 import Gensokyo.relics.OccultBall;
@@ -493,9 +492,9 @@ public class GensokyoMod implements
         BaseMod.addRelic(new BookOfSpecters(), RelicType.SHARED);
 
         if (hasMarisa) {
-            BaseMod.addRelic(new MarisaIngredientList(), RelicType.SHARED);
-            BaseMod.addRelic(new MarisaImprobabilityPotion(), RelicType.SHARED);
-            BaseMod.addRelic(new MarisaPhilosophersStone(), RelicType.SHARED);
+            BaseMod.addRelic(new IngredientList(), RelicType.SHARED);
+            BaseMod.addRelic(new ImprobabilityPotion(), RelicType.SHARED);
+            BaseMod.addRelic(new PhilosophersStone(), RelicType.SHARED);
         }
 
         logger.info("Done adding relics!");

@@ -134,5 +134,9 @@
 "Gensokyo:Trickster": {
         "NAME": "诡计",
         "DESCRIPTIONS": ["你每回合打出的第一张牌将会被 #y消耗 。"]
+},
+"Gensokyo:ElementalBarrier": {
+        "NAME": "Elemental Barrier",
+        "DESCRIPTIONS": ["Can only take #b", " more damage this turn. Whenever an elemental orb dies, increase this amount by #b", " and shifts intent."]
 }
 }
