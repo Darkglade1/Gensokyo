@@ -28,7 +28,7 @@ public class ZombieFairyNormal extends AbstractFairy
     private static final int NORMAL_ATTACK_DAMAGE = 6;
     private static final int A2_NORMAL_ATTACK_DAMAGE = 7;
     private static final int DEBUFF = 1;
-    private static final int HP_MIN = 7;
+    private static final int HP_MIN = 6;
     private static final int HP_MAX = 8;
     private static final int A7_HP_MIN = 7;
     private static final int A7_HP_MAX = 9;
@@ -93,10 +93,12 @@ public class ZombieFairyNormal extends AbstractFairy
         } else if (this.halfDead) {
             this.setMove(REVIVE, Intent.NONE);
         } else {
-            if (num < 40) {
+            if (num < 50 && !this.lastTwoMoves(APPLY_DEBUFF)) {
                 this.setMove(APPLY_DEBUFF, Intent.DEBUFF);
-            } else {
+            } else if (!this.lastTwoMoves(ATTACK)){
                 this.setMove(ATTACK, Intent.ATTACK, (this.damage.get(0)).base);
+            } else {
+                this.setMove(APPLY_DEBUFF, Intent.DEBUFF);
             }
         }
     }

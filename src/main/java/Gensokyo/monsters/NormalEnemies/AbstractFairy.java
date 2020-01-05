@@ -12,6 +12,8 @@ import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.powers.AbstractPower;
+import com.megacrit.cardcrawl.powers.GainStrengthPower;
+import com.megacrit.cardcrawl.powers.StrengthPower;
 import com.megacrit.cardcrawl.relics.AbstractRelic;
 
 import java.util.ArrayList;
@@ -33,7 +35,9 @@ public abstract class AbstractFairy extends CustomMonster
     public void usePreBattleAction() {
         AbstractDungeon.getCurrRoom().cannotLose = true;
         AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(this, this, new CowardlyImmortality(this, MAX_DEATHS)));
-        AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(this, this, new StrengthInNumbers(this, 1)));
+        if (AbstractDungeon.ascensionLevel < 17) {
+            AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(this, this, new StrengthInNumbers(this, 1)));
+        }
     }
 
     @Override
@@ -71,7 +75,7 @@ public abstract class AbstractFairy extends CustomMonster
             }
             ArrayList<AbstractPower> powersToRemove = new ArrayList<>();
             for (AbstractPower power : this.powers) {
-                if (!(power instanceof CowardlyImmortality) && !(power instanceof StrengthInNumbers)) {
+                if (!(power instanceof CowardlyImmortality) && !(power instanceof StrengthInNumbers) && !(power instanceof StrengthPower) && !(power instanceof GainStrengthPower)) {
                     powersToRemove.add(power);
                 }
             }

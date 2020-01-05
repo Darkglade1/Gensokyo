@@ -135,7 +135,7 @@ public class SunflowerFairy extends CustomMonster
             }
             ArrayList<AbstractPower> powersToRemove = new ArrayList<>();
             for (AbstractPower power : this.powers) {
-                if (!(power instanceof Immortality) && !(power instanceof ThornsPower)) {
+                if (!(power instanceof Immortality) && !(power instanceof ThornsPower) && !(power instanceof MinionPower)) {
                     powersToRemove.add(power);
                 }
             }

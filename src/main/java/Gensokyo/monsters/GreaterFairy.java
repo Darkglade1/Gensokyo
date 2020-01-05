@@ -134,7 +134,7 @@ public class GreaterFairy extends CustomMonster
             }
             ArrayList<AbstractPower> powersToRemove = new ArrayList<>();
             for (AbstractPower power : this.powers) {
-                if (!(power instanceof Immortality) && !(power instanceof StrengthPower) && !(power instanceof GainStrengthPower)) {
+                if (!(power instanceof Immortality) && !(power instanceof StrengthPower) && !(power instanceof GainStrengthPower) && !(power instanceof MinionPower)) {
                     powersToRemove.add(power);
                 }
             }

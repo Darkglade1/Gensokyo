@@ -30,7 +30,7 @@ public class MaidFairyNormal extends AbstractFairy
     private static final int A2_BLOCK_ATTACK_DAMAGE = 6;
     private static final int BLOCK_GAIN = 5;
     private static final int A7_BLOCK_GAIN = 6;
-    private static final int HP_MIN = 7;
+    private static final int HP_MIN = 6;
     private static final int HP_MAX = 8;
     private static final int A7_HP_MIN = 7;
     private static final int A7_HP_MAX = 9;
@@ -103,10 +103,12 @@ public class MaidFairyNormal extends AbstractFairy
         } else if (this.halfDead) {
             this.setMove(REVIVE, Intent.NONE);
         } else {
-            if (num < 40) {
+            if (num < 50 && !this.lastTwoMoves(BLOCK_ATTACK)) {
                 this.setMove(BLOCK_ATTACK, Intent.ATTACK_DEFEND, this.damage.get(1).base);
-            } else {
+            } else if (!this.lastTwoMoves(ATTACK)){
                 this.setMove(ATTACK, Intent.ATTACK, (this.damage.get(0)).base);
+            } else {
+                this.setMove(BLOCK_ATTACK, Intent.ATTACK_DEFEND, this.damage.get(1).base);
             }
         }
     }
