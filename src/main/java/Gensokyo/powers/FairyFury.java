@@ -68,7 +68,7 @@ public class FairyFury extends AbstractPower  {
     @Override
     public void onRemove() {
         //In case the buff somehow gets removed
-        AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(this.owner, this.owner, new FairyFury(this.owner, 1)));
+        AbstractDungeon.actionManager.addToTop(new ApplyPowerAction(this.owner, this.owner, new FairyFury(this.owner, 1)));
     }
 
     @Override

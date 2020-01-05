@@ -1,6 +1,9 @@
 package Gensokyo;
 
 import Gensokyo.cards.Apocalypse;
+import Gensokyo.cards.BlessingOfConstitution;
+import Gensokyo.cards.BlessingOfFortitude;
+import Gensokyo.cards.BlessingOfVigor;
 import Gensokyo.cards.CrescentMoonSlash;
 import Gensokyo.cards.EightFeetTall;
 import Gensokyo.cards.Frozen;
@@ -10,6 +13,7 @@ import Gensokyo.cards.Kunekune;
 import Gensokyo.cards.LittleGreenMen;
 import Gensokyo.cards.LochNessMonster;
 import Gensokyo.cards.ManorOfTheDishes;
+import Gensokyo.cards.MarisaTwilightSpark;
 import Gensokyo.cards.MenInBlack;
 import Gensokyo.cards.MissMary;
 import Gensokyo.cards.MonkeysPaw;
@@ -39,6 +43,11 @@ import Gensokyo.events.HakureiShrine;
 import Gensokyo.events.ScarletDevilMansion;
 import Gensokyo.events.TheEnmasDilemma;
 import Gensokyo.events.ThoseEarthRabbits;
+import Gensokyo.events.marisaEvents.AHazardousHobby;
+import Gensokyo.events.marisaEvents.AnOldGhost;
+import Gensokyo.events.marisaEvents.BookThief;
+import Gensokyo.events.marisaEvents.JustAVisit;
+import Gensokyo.events.marisaEvents.Walpurgisnacht;
 import Gensokyo.monsters.Aya;
 import Gensokyo.monsters.Cirno;
 import Gensokyo.monsters.GreaterFairy;
@@ -63,11 +72,15 @@ import Gensokyo.monsters.Reimu;
 import Gensokyo.monsters.SunflowerFairy;
 import Gensokyo.monsters.Yukari;
 import Gensokyo.monsters.ZombieFairy;
+import Gensokyo.monsters.marisaMonsters.Patchouli;
 import Gensokyo.relics.Bombinomicon;
 import Gensokyo.relics.BookOfSpecters;
 import Gensokyo.relics.CelestialsFlawlessClothing;
 import Gensokyo.relics.Justice;
 import Gensokyo.relics.LunaticRedEyes;
+import Gensokyo.relics.MarisaImprobabilityPotion;
+import Gensokyo.relics.MarisaIngredientList;
+import Gensokyo.relics.MarisaPhilosophersStone;
 import Gensokyo.relics.Mercy;
 import Gensokyo.relics.NagashiBinaDoll;
 import Gensokyo.relics.OccultBall;
@@ -93,6 +106,7 @@ import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.Texture;
 import com.evacipated.cardcrawl.mod.stslib.Keyword;
 import com.evacipated.cardcrawl.modthespire.lib.SpireEnum;
+import com.evacipated.cardcrawl.modthespire.Loader;
 import com.evacipated.cardcrawl.modthespire.lib.SpireInitializer;
 import com.google.gson.Gson;
 import com.megacrit.cardcrawl.cards.AbstractCard;
@@ -161,6 +175,13 @@ public class GensokyoMod implements
     private static final String SKILL_BLACK_PORTRAIT = "GensokyoResources/images/1024/skill_blacky.png";
     private static final String POWER_BLACK_PORTRAIT = "GensokyoResources/images/1024/power_blacky.png";
     private static final String ENERGY_ORB_BLACK_PORTRAIT = "GensokyoResources/images/1024/card_small_orb_blacky.png";
+
+          
+    public static boolean hasMarisa;
+
+    static {
+        hasMarisa = Loader.isModLoaded("TS05_Marisa");
+    }
     
     // =============== MAKE IMAGE PATHS =================
     
@@ -188,8 +209,8 @@ public class GensokyoMod implements
         return getModID() + "Resources/images/effects/" + resourcePath;
     }
 
-    public static String makeAssetPath(String resourcePath) {
-        return getModID() + "Resources/images/assets/" + resourcePath;
+    public static String makeUIPath(String resourcePath) {
+        return getModID() + "Resources/images/ui/" + resourcePath;
     }
     
     // =============== /MAKE IMAGE PATHS/ =================
@@ -315,8 +336,6 @@ public class GensokyoMod implements
         BaseMod.addBoss(Gensokyo.ID, Kokoro.ID, "GensokyoResources/images/monsters/Kokoro/Kokoro.png", "GensokyoResources/images/monsters/Kokoro/KokoroOutline.png");
         BaseMod.addBoss(Gensokyo.ID, Reimu.ID, "GensokyoResources/images/monsters/Reimu/Reimu.png", "GensokyoResources/images/monsters/Reimu/ReimuOutline.png");
 
-
-
         
         // =============== EVENTS =================
 
@@ -339,6 +358,14 @@ public class GensokyoMod implements
         BaseMod.addEvent(DemonBookSeller.ID, DemonBookSeller.class, Gensokyo.ID);
         BaseMod.addEvent(ABanquetForGhosts.ID, ABanquetForGhosts.class, Gensokyo.ID);
         BaseMod.addEvent(AMomentFractured.ID, AMomentFractured.class, Gensokyo.ID);
+
+        if (hasMarisa) {
+            BaseMod.addEvent(AnOldGhost.ID, AnOldGhost.class, Gensokyo.ID);
+            BaseMod.addEvent(JustAVisit.ID, JustAVisit.class, Gensokyo.ID);
+            BaseMod.addEvent(BookThief.ID, BookThief.class, Gensokyo.ID);
+            BaseMod.addEvent(AHazardousHobby.ID, AHazardousHobby.class, Gensokyo.ID);
+            BaseMod.addEvent(Walpurgisnacht.ID, Walpurgisnacht.class, Gensokyo.ID);
+        }
         
         // =============== /EVENTS/ =================
 
@@ -465,6 +492,12 @@ public class GensokyoMod implements
         BaseMod.addRelic(new Bombinomicon(), RelicType.SHARED);
         BaseMod.addRelic(new BookOfSpecters(), RelicType.SHARED);
 
+        if (hasMarisa) {
+            BaseMod.addRelic(new MarisaIngredientList(), RelicType.SHARED);
+            BaseMod.addRelic(new MarisaImprobabilityPotion(), RelicType.SHARED);
+            BaseMod.addRelic(new MarisaPhilosophersStone(), RelicType.SHARED);
+        }
+
         logger.info("Done adding relics!");
     }
     
@@ -503,6 +536,13 @@ public class GensokyoMod implements
         BaseMod.addCard(new SevenSchoolMysteries());
         BaseMod.addCard(new Apocalypse());
         BaseMod.addCard(new SlitMouthedWoman());
+
+        if (hasMarisa) {
+            BaseMod.addCard(new MarisaTwilightSpark());
+            BaseMod.addCard(new BlessingOfVigor());
+            BaseMod.addCard(new BlessingOfFortitude());
+            BaseMod.addCard(new BlessingOfConstitution());
+        }
     }
     
     // ================ /ADD CARDS/ ===================

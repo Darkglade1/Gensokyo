@@ -27,6 +27,7 @@ public class EventFilterPatch {
         for (String event : eventsToRemove) {
             tmp[0].remove(event);
         }
+        System.out.println(tmp[0]);
     }
     private static class Locator extends SpireInsertLocator {
         @Override

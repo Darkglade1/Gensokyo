@@ -22,5 +22,23 @@
       "Blue_Cape"
     ],
     "DESCRIPTION": "A 1 cost Skill that gains Block, Retains, and exhausts."
+  },
+  {
+    "NAMES": [
+      "vigor"
+    ],
+    "DESCRIPTION": "Vigorous creatures deal #b34% more attack damage."
+  },
+  {
+    "NAMES": [
+      "fortitude"
+    ],
+    "DESCRIPTION": "Fortified creatures receive #b33% less attack damage."
+  },
+  {
+    "NAMES": [
+      "sturdy"
+    ],
+    "DESCRIPTION": "Sturdy creatures gain #b34% more block."
   }
 ]

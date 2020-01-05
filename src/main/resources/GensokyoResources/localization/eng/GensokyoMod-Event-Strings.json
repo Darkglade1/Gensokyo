@@ -347,5 +347,95 @@
       "[Encounter an elite enemy]",
       "[Encounter a random event]"
     ]
+  },
+  "Gensokyo:MarisaAnOldGhost": {
+    "NAME": "An Old Ghost",
+    "DESCRIPTIONS": [
+      "The gravestone is #pold and #pworn, left crumbling by the passage of time. The offerings you had left before are gone, whisked away by a #pphantasmal #pspirit. NL NL A drop of #rblood is all it takes, and as you nurse your bleeding finger, smoke billows around you, coalescing into a familiar shape. NL NL \"It's been a long time, child. I was beginning to wonder if you’ve forgotten about your old mentor.\" NL NL You grin and declare that the sun would burn out long before that happened.",
+      "\"I see your confidence is still as ~boundless~ as ever. And your #rstrength has grown to match it too. Perhaps I can finally teach you my #yultimate #ytechnique . . . ?\" NL NL You gasp in excitement. Madam Mima's ultimate technique? What could it possibly be? NL NL You can already feel your heart @racing@ in anticipation.",
+      "\"I see your confidence is still as ~boundless~ as ever. But aren't you forgetting something? Where's that #ytechnique of yours that you're so #yfond of, the one that you stole from that flower youkai?\" NL NL You frown. She's right. Something #yimportant is missing, something that you once held #gdear to your heart. NL NL \"I suppose I could help you remember. You were quite insistent on showing it to me dozens of times, after all.\"",
+      "Your eyes widen in #y@amazement@ as your old teacher shows you something amazing, something truly #gwonderful. NL NL The #ySpark she unleashes #rtears through the forest, transforming an entire acre into a #rscorched #pwasteland. NL NL It's one of the most beautiful things you’ve ever seen. NL NL And now it’s all yours.",
+      "\"Oh? I thought you would've jumped at the chance to learn more from me.\" NL NL You shake your head, telling her that from now on, you would improve on your own terms and no one else's. NL NL \"Stubborn, aren't you? Well, it's your #ploss.\" NL NL The faint wisps disappear, leaving you alone next to the gravestone once more."
+    ],
+    "OPTIONS": [
+      "[Continue]",
+      "[Accept her teaching] #gObtain ",
+      "[Decline]",
+      "[Leave]"
+    ]
+  },
+  "Gensokyo:MarisaJustAVisit": {
+    "NAME": "Just a Visit",
+    "DESCRIPTIONS": [
+      "As you cruise through the air on your broom, you spot a familiar red torii gate off to the side. It's been a while since you’ve dropped by, hasn't it? NL NL Landing in front of the #ydonation box, you notice that it’s as #pbarren as ever. NL NL Maybe . . . you should do something about that.",
+      "The #ycoins rattle quietly as they strike the bottom, and you feel a bit more at ease. This upcoming winter was looking to be rather chilly, after all. NL NL \"Marisa? What're you doing here?\" NL NL You leap away from the box as Reimu steps out of the shrine, eyeing you curiously. You tell her that you’re just here to bug her. NL NL \"I see you have nothing better to do. Well, come in before you catch a #bcold, I guess.\" NL NL You grin as you make yourself at home while she goes to brew tea.",
+      "You yawn as your eyes #pdroop. As much as you would like to hang around some more, your body’s needs would not be denied. NL NL It would be better if you headed straight home and got some rest."
+    ],
+    "OPTIONS": [
+      "[Hang out for a while]",
+      "[Donate] #rLose #r",
+      " #rGold. #gObtain ",
+      "[Locked] Requires: ",
+      " Gold",
+      "[Leave]"
+    ]
+  },
+  "Gensokyo:MarisaBookThief": {
+    "NAME": "Book Thief",
+    "DESCRIPTIONS": [
+      "You see that Meiling is #pasleep at her post. Once inside the manor, you can hear the sounds of Sakuya busying herself in the kitchen. NL NL How could you pass up such a perfect opportunity? NL NL You slip inside the mansion's library without a sound. Now, which book should you take today? Which grimoire of #pdark, #p@forbidden@ #psorcery, which tome of #y@crackling,@ #yelectrifying magic would nab your attention this time?",
+      "The book is locked with a complex magic seal. Getting it open will be a #ppain, but with such tight security, surely something #yworthwhile must be inside, right? NL NL \"Oh, it’s you again.\" You spin around. Patchouli is standing there, observing you with an exasperated look. NL NL \"If you think I'm letting you have that book without a fight . . .\" She raises a hand, and #belemental orbs of #ypower answer her call. \"Well, I’m sure you know the drill by now.\"",
+      "\"Hmm? I didn't think you had it in you to give up quietly.\" NL NL You sheepishly laugh, claiming that this book simply didn't look to be worth the effort. NL NL \"Is that so?\" She snatches the book from your hand and places it back on the shelf. \"In that case, I trust that you can see yourself out, yes?\" NL NL You quickly backpedal out of there, leaving empty-handed for once.",
+      "On second thought, taking another book when you haven't even finished reading your most recently \"borrowed\" book seemed a bit pointless."
+    ],
+    "OPTIONS": [
+      "[Take book] #gChoose #g1 #gof #g10 #gcards #gto #gadd #gto #gyour #gdeck.",
+      "[Stand your ground] #rFight. #gReward: #gSpecial #gRelic.",
+      "[Surrender the book] #rLose ",
+      "[Leave]",
+      "Add a card to your deck."
+    ]
+  },
+  "Gensokyo:MarisaAHazardousHobby": {
+    "NAME": "A Hazardous Hobby",
+    "DESCRIPTIONS": [
+      "You #rbarge into Kourindou, making a #rracket. Kourin doesn't even look up as you enter. NL NL \"Are you here to pawn off something you \"collected\" again?\" NL NL You grin as you tell him that it is so. Although, if he picked up something #yinteresting lately, you wouldn't mind trading for it instead. NL NL \"The most exciting thing that popped in recently was a piece of #ypaper with some #yscribbles on it. I couldn't decipher most of it, but I did spot the word \"potion\" in there a few times.\"",
+      "He shows you the #ypaper in question, and you immediately find your curiosity piqued. The ingredients were unusual, the process was unconventional, and the result seemed dubious at best . . . NL NL But it was exactly the #puncertainty of it all that made potion-brewing so #gthrilling. NL NL \"Oh? Caught your fancy, did it?\"",
+      "You grimace as you notice him send you a knowing look. There went any prospect of weaseling the recipe out of him for free. NL NL \"Well? Do you want the money or the paper?\"",
+      "As much as the recipe intrigued you, you were unfortunately strapped for cash at the moment. NL NL A shame. Maybe next time.",
+      "You would have to steal some more extermination requests from Reimu to make up the financial deficit, but . . . NL NL Somehow, you already knew that this #ypotion would be worth it.",
+      "\"I see this is a tough decision for you. Well, feel free to come back once you've made up your mind.\""
+    ],
+    "OPTIONS": [
+      "[Continue]",
+      "[Money] #rLose ",
+      "[Recipe] #rLose ",
+      ". #gGain #g",
+      " #gGold.",
+      ". #gObtain #ga #gSpecial #gRelic.",
+      "[Can't decide]",
+      "[Locked] Requires: non-Basic, non-Curse card",
+      "[Leave]"
+    ]
+  },
+  "Gensokyo:MarisaWalpurgisnacht": {
+    "NAME": "Walpurgisnacht",
+    "DESCRIPTIONS": [
+      "Tonight is a #yspecial night. And not just because for once, you would be stepping in Voile as a guest instead of an intruder. NL NL \"You’re late, Marisa. Alice and I have been waiting on you for a while now.\" NL NL You toss the bag of ingredients you had been asked to bring onto a table. Gathering them up hadn't been easy, y'know? Some of them were quite #yrare. NL NL Patchy sighs as she looks over the regents. \"I suppose that's fair. In any case, it is time to begin the ritual.\"",
+      "You feel the #yspark of @excitement@ well up within you as you follow her. Walpurgisnacht was the night where the powers of witches like them were at their peak, and if Patchy’s plan worked out, they would be able to harness a little bit of that extra power all year long! NL NL Alice looks up as the two of you approach, glancing away from the intricate #pmagic #pcircle drawn on the ground. \"Ah, you’re finally here. The circle is as flawless as it'll ever be, so all that remains is to decide who goes first.\"",
+      "\"So eager to be the guinea pig, are you?\" Alice gestures for you to stand in the circle. \"But I suppose that's just like you.\" NL NL As the ceremony begins, you feel something #rburn inside you, a #rcinder that smolders and grows. It #rconsumes #peverything in its path, an #pinsatiable #phunger that swells into a #r@blazing@ #r@inferno@ - NL NL Your eyes shoot open. You can feel it. You can feel that your #yspark had grown, that it had gotten #ybrighter, stronger. NL NL You couldn't wait to unleash it upon the world.",
+      "\"As the one who created the magic circle we will all be using, it behooves me to ensure that it works properly, so I suppose I will be the one to take the plunge.\" NL NL Alice steps into the circle, and you take your place among the outskirts. The ceremony is short, brief, and disappointingly lacking a spectacular light show. NL NL You notice it when Alice opens her eyes. There is #psomething within those depths, something that hadn't been there before. NL NL What did she see, you wonder? What will #yyou see, you wonder?",
+      "\"As the one who came up with this plan, I think it is only proper if I lead the way.\" NL NL Patchy steps into the circle, and you take your place among the outskirts. The ceremony is short, brief, and disappointingly lacking a spectacular light show. NL NL You notice it when Patchy opens her eyes. There is #psomething within those depths, something that hadn't been there before. NL NL What did she see, you wonder? What will #yyou see, you wonder?"
+    ],
+    "OPTIONS": [
+      "[Continue]",
+      "[Offer to go first] #rLose #r",
+      " #rHP. #gUpgrade #gall #gSparks.",
+      "[Let Alice go first] #gObtain Alice's Gift+.",
+      "[Let Patchouli go first] #gTransform #ga #gcard #ginto #ga #grandom #gRare #gcard.",
+      "[Locked] Requires: Upgradeable Spark",
+      "[???]",
+      "Choose a Card to Transform"
+    ]
   }
 }

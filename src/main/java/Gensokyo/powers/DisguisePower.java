@@ -56,15 +56,26 @@ public class DisguisePower extends AbstractPower implements OnLoseTempHpPower {
     @Override
     public void onRemove() {
         //Reapply power in case player somehow removes it
-        AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(this.owner, this.owner, new DisguisePower(this.owner, this.mamizou)));
+        AbstractDungeon.actionManager.addToTop(new ApplyPowerAction(this.owner, this.owner, new DisguisePower(this.owner, this.mamizou)));
     }
 
     //Needed a patch to get this to be called
+//    @Override
+//    public int onLoseHp(int damageAmount) {
+//        if (mamizou != null) {
+//            mamizou.removeDisguise();
+//            updateDescription();
+//        }
+//        return damageAmount;
+//    }
+
     @Override
-    public int onLoseHp(int damageAmount) {
-        if (mamizou != null) {
-            mamizou.removeDisguise();
-            updateDescription();
+    public int onAttacked(DamageInfo info, int damageAmount) {
+        if (damageAmount > 0) {
+            if (mamizou != null) {
+                mamizou.removeDisguise();
+                updateDescription();
+            }
         }
         return damageAmount;
     }

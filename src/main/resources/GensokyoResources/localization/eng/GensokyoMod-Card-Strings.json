@@ -84,5 +84,21 @@
   "Gensokyo:Frozen": {
     "NAME": "Frozen!",
     "DESCRIPTION": "When this card is drawn, reduce its cost by !M! this combat. NL Exhaust."
+  },
+  "Gensokyo:MarisaTwilightSpark": {
+    "NAME": "Twilight Spark",
+    "DESCRIPTION": "Exhaust any number of cards. Increase this card's damage by !M! for each card exhausted. Counts as a Skill. NL Amplify  [E]  [E]  [E] : Deal !D! damage to ALL enemies instead. Counts as an Attack."
+  },
+  "Gensokyo:BlessingOfVigor": {
+    "NAME": "Blessing of Vigor",
+    "DESCRIPTION": "Unplayable. NL Whenever you draw this card, draw a card and gain !M! gensokyo:Vigor."
+  },
+  "Gensokyo:BlessingOfFortitude": {
+    "NAME": "Blessing of Fortitude",
+    "DESCRIPTION": "Unplayable. NL Whenever you draw this card, draw a card and gain !M! gensokyo:Fortitude."
+  },
+  "Gensokyo:BlessingOfConstitution": {
+    "NAME": "Blessing of Constitution",
+    "DESCRIPTION": "Unplayable. NL Whenever you draw this card, draw a card and gain !M! gensokyo:Sturdy."
   }
 }
