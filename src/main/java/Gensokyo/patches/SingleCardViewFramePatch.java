@@ -21,18 +21,19 @@ import javassist.CtBehavior;
 public class SingleCardViewFramePatch {
     @SpireInsertPatch(locator = SingleCardViewFramePatch.Locator.class, localvars = {"tmpImg", "card"})
     public static void FixFrames(SingleCardViewPopup _instance, SpriteBatch sb,  @ByRef TextureAtlas.AtlasRegion tmpImg[], AbstractCard card) {
-        switch (card.type) {
-            case ATTACK:
-                tmpImg[0] = AbstractUrbanLegendCard.frames[3];
-                break;
-            case SKILL:
-                tmpImg[0] = AbstractUrbanLegendCard.frames[4];
-                break;
-            case POWER:
-                tmpImg[0] = AbstractUrbanLegendCard.frames[5];
-                break;
+        if (card instanceof AbstractUrbanLegendCard) {
+            switch (card.type) {
+                case ATTACK:
+                    tmpImg[0] = AbstractUrbanLegendCard.frames[3];
+                    break;
+                case SKILL:
+                    tmpImg[0] = AbstractUrbanLegendCard.frames[4];
+                    break;
+                case POWER:
+                    tmpImg[0] = AbstractUrbanLegendCard.frames[5];
+                    break;
+            }
         }
-
     }
     private static class Locator extends SpireInsertLocator {
         @Override
