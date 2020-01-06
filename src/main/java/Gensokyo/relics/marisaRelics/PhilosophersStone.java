@@ -2,6 +2,8 @@ package Gensokyo.relics.marisaRelics;
 
 import Gensokyo.GensokyoMod;
 import Gensokyo.actions.CallbackExhaustAction;
+import Gensokyo.cards.AbstractUrbanLegendCard;
+import Gensokyo.relics.OccultBall;
 import Gensokyo.util.TextureLoader;
 import basemod.abstracts.CustomRelic;
 import com.badlogic.gdx.graphics.Texture;
@@ -33,7 +35,9 @@ public class PhilosophersStone extends CustomRelic {
 
     private void transmuteCard(AbstractCard card) {
         AbstractCard c;
-        if (card.rarity == AbstractCard.CardRarity.RARE || card.rarity == AbstractCard.CardRarity.UNCOMMON) {
+        if (card instanceof AbstractUrbanLegendCard) {
+            c = OccultBall.return3TrulyRandomUrbanLegendInCombat(AbstractDungeon.cardRandomRng).get(0);
+        } else if (card.rarity == AbstractCard.CardRarity.RARE || card.rarity == AbstractCard.CardRarity.UNCOMMON) {
             c =  AbstractDungeon.getCard(AbstractCard.CardRarity.RARE).makeCopy();
         } else if (card.rarity == AbstractCard.CardRarity.COMMON) {
             c =  AbstractDungeon.getCard(AbstractCard.CardRarity.UNCOMMON).makeCopy();

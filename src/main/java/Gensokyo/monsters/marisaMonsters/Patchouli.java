@@ -198,6 +198,7 @@ public class Patchouli extends CustomMonster
     public void takeTurn() {
         switch (this.nextMove) {
             case MOVE_1: {
+                runAnim("SpellA");
                 if (element == FIRE) {
                     AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(this, this, new StrengthPower(this, this.strength), this.strength));
                     this.useRoyalFlare = true;
@@ -222,6 +223,7 @@ public class Patchouli extends CustomMonster
                 break;
             }
             case MOVE_2: {
+                runAnim("SpellB");
                 if (element == FIRE) {
                     AbstractDungeon.actionManager.addToBottom(new DamageAction(AbstractDungeon.player, this.damage.get(0), AbstractGameAction.AttackEffect.FIRE));
                     this.useRoyalFlare = false;
@@ -366,7 +368,7 @@ public class Patchouli extends CustomMonster
 
     @Override
     public void die(boolean triggerRelics) {
-        //runAnim("Defeat");
+        runAnim("Defeat");
         super.die(triggerRelics);
         for (AbstractMonster mo : AbstractDungeon.getCurrRoom().monsters.monsters) {
             if (mo instanceof PatchyOrb) {
