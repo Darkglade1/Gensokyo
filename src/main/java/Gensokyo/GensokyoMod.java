@@ -182,7 +182,8 @@ public class GensokyoMod implements
     public static boolean hasMarisa;
 
     static {
-        hasMarisa = Loader.isModLoaded("TS05_Marisa");
+        //hasMarisa = Loader.isModLoaded("TS05_Marisa");
+        hasMarisa = false;
     }
     
     // =============== MAKE IMAGE PATHS =================
