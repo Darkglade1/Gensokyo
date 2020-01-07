@@ -33,18 +33,6 @@
     ],
     "NAME": "表情丰富的扑克脸"
   },
-  "Gensokyo:Reimu": {
-    "MOVES": [
-      "阴阳宝玉",
-      "二重大结界",
-      "封魔阵"
-    ],
-    "NAME": "乐园的巫女",
-    "DIALOG": [
-      "又是新的一天，又是新的异变。",
-      "I won't hold back for you, Marisa."
-    ]
-  },
   "Gensokyo:YinYangOrb": {
     "MOVES": [
       ""
@@ -173,6 +161,18 @@
 
     ],
     "NAME": "狐狸"
+  },
+  "Gensokyo:Reimu": {
+    "MOVES": [
+      "阴阳宝玉",
+      "二重大结界",
+      "封魔阵"
+    ],
+    "NAME": "乐园的巫女",
+    "DIALOG": [
+      "又是新的一天，又是新的异变。",
+      "I won't hold back for you, Marisa."
+    ]
   },
   "Gensokyo:Patchouli": {
     "MOVES": [
