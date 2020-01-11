@@ -1,6 +1,8 @@
 package Gensokyo.monsters.NormalEnemies;
 
+import Gensokyo.actions.FairyCheckAction;
 import Gensokyo.actions.SetDeadAction;
+import Gensokyo.actions.SetFlipAction;
 import Gensokyo.powers.CowardlyImmortality;
 import Gensokyo.powers.OnKillPower;
 import Gensokyo.powers.StrengthInNumbers;
@@ -22,10 +24,10 @@ import java.util.Iterator;
 public abstract class AbstractFairy extends CustomMonster
 {
     protected static final int HP_MIN = 6;
-    protected static final int HP_MEDIUM= 7;
+    protected static final int HP_MEDIUM = 7;
     protected static final int HP_MAX = 8;
     protected static final int A7_HP_MIN = 7;
-    protected static final int A7_HP_MEDIUM= 8;
+    protected static final int A7_HP_MEDIUM = 8;
     protected static final int A7_HP_MAX = 9;
     protected static final byte REVIVE = 3;
     protected static final byte LEAVE = 4;
@@ -86,7 +88,9 @@ public abstract class AbstractFairy extends CustomMonster
                 }
             }
 
-            if (this.nextMove != REVIVE && this.nextMove != LEAVE) {
+            if (this.deathCounter >= MAX_DEATHS) {
+                Leave();
+            } else if (this.nextMove != REVIVE && this.nextMove != LEAVE) {
                 this.setMove(REVIVE, Intent.NONE);
                 this.createIntent();
                 AbstractDungeon.actionManager.addToBottom(new SetMoveAction(this, REVIVE, Intent.NONE));
@@ -104,18 +108,20 @@ public abstract class AbstractFairy extends CustomMonster
     }
 
     protected void Leave() {
+        AbstractDungeon.actionManager.addToBottom(new SetFlipAction(this));
         AbstractDungeon.actionManager.addToBottom(new EscapeAction(this));
         AbstractDungeon.actionManager.addToBottom(new SetMoveAction(this, LEAVE, Intent.ESCAPE));
-        this.animation.setFlip(true, false);
         //Need this so phantom enemies don't end up still taking turns for some reason and prolonging combat.
         //Needs to be in an action so the sprite doesn't instantly disappear
         AbstractDungeon.actionManager.addToBottom(new SetDeadAction(this));
-        if (isLastFairy()) {
-            AbstractDungeon.getCurrRoom().cannotLose = false;
-        }
+        AbstractDungeon.actionManager.addToBottom(new FairyCheckAction(this));
     }
 
-    protected boolean isLastFairy() {
+    public void setFlip(boolean horizontal, boolean vertical) {
+        this.animation.setFlip(horizontal, vertical);
+    }
+
+    public boolean isLastFairy() {
         for(AbstractMonster mo : AbstractDungeon.getCurrRoom().monsters.monsters) {
             if (mo instanceof AbstractFairy) {
                 if (!mo.isDead && !mo.isEscaping && !mo.isDying && mo != this) {

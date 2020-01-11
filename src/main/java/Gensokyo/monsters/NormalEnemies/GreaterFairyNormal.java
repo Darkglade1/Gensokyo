@@ -91,7 +91,7 @@ public class GreaterFairyNormal extends AbstractFairy
         } else {
             if (num < 50 && !this.lastTwoMoves(MULTI_ATTACK)) {
                 this.setMove(MULTI_ATTACK, Intent.ATTACK, this.damage.get(0).base, MULTI_HITS, true);
-            } else if (!this.lastTwoMoves(BUFF)){
+            } else if (!this.lastMove(BUFF)){
                 this.setMove(BUFF, Intent.BUFF);
             } else {
                 this.setMove(MULTI_ATTACK, Intent.ATTACK, this.damage.get(0).base, MULTI_HITS, true);

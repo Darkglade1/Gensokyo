@@ -44,6 +44,12 @@ public class MaidFairyNormal extends AbstractFairy
         this.type = EnemyType.NORMAL;
         this.dialogX = (this.hb_x - 70.0F) * Settings.scale;
         this.dialogY -= (this.hb_y - 55.0F) * Settings.scale;
+
+        if (AbstractDungeon.ascensionLevel >= 7) {
+            this.block = A7_BLOCK_GAIN;
+        } else {
+            this.block = BLOCK_GAIN;
+        }
         if (AbstractDungeon.ascensionLevel >= 2) {
             this.normalDamage = A2_NORMAL_ATTACK_DAMAGE;
             this.blockDamage = A2_BLOCK_ATTACK_DAMAGE;
