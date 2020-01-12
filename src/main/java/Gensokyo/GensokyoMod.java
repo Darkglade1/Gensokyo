@@ -69,6 +69,7 @@ import Gensokyo.monsters.NormalEnemies.WhiteKodama;
 import Gensokyo.monsters.NormalEnemies.YellowKodama;
 import Gensokyo.monsters.NormalEnemies.ZombieFairyNormal;
 import Gensokyo.monsters.Reimu;
+import Gensokyo.monsters.Sumireko;
 import Gensokyo.monsters.SunflowerFairy;
 import Gensokyo.monsters.Yukari;
 import Gensokyo.monsters.ZombieFairy;
@@ -339,6 +340,7 @@ public class GensokyoMod implements
         BaseMod.addBoss(Gensokyo.ID, Kokoro.ID, "GensokyoResources/images/monsters/Kokoro/Kokoro.png", "GensokyoResources/images/monsters/Kokoro/KokoroOutline.png");
         BaseMod.addBoss(Gensokyo.ID, Reimu.ID, "GensokyoResources/images/monsters/Reimu/Reimu.png", "GensokyoResources/images/monsters/Reimu/ReimuOutline.png");
 
+        BaseMod.addMonster(Sumireko.ID, (BaseMod.GetMonster)Sumireko::new);
         
         // =============== EVENTS =================
 

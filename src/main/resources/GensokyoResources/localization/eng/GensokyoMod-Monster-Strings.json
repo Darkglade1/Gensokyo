@@ -218,6 +218,17 @@
 
     ],
     "NAME": "Earth"
+  },
+  "Gensokyo:Sumireko": {
+    "MOVES": [
+      "Reaper's Scythe",
+      "Ferry of the Deep Fog",
+      "Your Days are Numbered"
+    ],
+    "NAME": "First President of The Secret Sealing Club",
+    "DIALOG": [
+      "Woah, I caught one!"
+    ]
   }
 }
 
