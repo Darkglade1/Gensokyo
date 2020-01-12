@@ -5,6 +5,7 @@ import Gensokyo.monsters.Sumireko;
 import Gensokyo.util.TextureLoader;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.TextureAtlas;
+import com.evacipated.cardcrawl.mod.stslib.powers.abstracts.TwoAmountPower;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.actions.utility.UseCardAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
@@ -15,11 +16,10 @@ import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.core.Settings;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.localization.PowerStrings;
-import com.megacrit.cardcrawl.powers.AbstractPower;
 
 import static Gensokyo.GensokyoMod.makePowerPath;
 
-public class Teleportation extends AbstractPower {
+public class Teleportation extends TwoAmountPower {
 
     public static final String POWER_ID = GensokyoMod.makeID("Teleportation");
     private static final PowerStrings powerStrings = CardCrawlGame.languagePack.getPowerStrings(POWER_ID);
@@ -30,18 +30,20 @@ public class Teleportation extends AbstractPower {
     public static final int RIGHT = 3;
     public static final int NUM_POSITIONS = 3;
     private static final float DAMAGE_MOD = 1.5F;
+    private static final int THRESHOLD = 3;
 
     private static final Texture tex84 = TextureLoader.getTexture(makePowerPath("SpellCard84.png"));
     private static final Texture tex32 = TextureLoader.getTexture(makePowerPath("SpellCard32.png"));
 
     public static float movement = 480.0F * Settings.scale;
 
-    public Teleportation(AbstractCreature owner, int amount) {
+    public Teleportation(AbstractCreature owner, int amount, int amount2) {
         name = NAME;
         ID = POWER_ID;
 
         this.owner = owner;
         this.amount = amount;
+        this.amount2 = amount2;
 
         type = PowerType.BUFF;
         isTurnBased = false;
@@ -54,6 +56,14 @@ public class Teleportation extends AbstractPower {
 
     @Override
     public void onUseCard(AbstractCard card, UseCardAction action) {
+        amount2++;
+        if (amount2 % THRESHOLD == 0) {
+            Teleport();
+            amount2 = 0;
+        }
+    }
+
+    private void Teleport() {
         amount++;
         if (amount > NUM_POSITIONS) {
             amount = LEFT;
@@ -132,6 +142,6 @@ public class Teleportation extends AbstractPower {
         } else {
             description = DESCRIPTIONS[2];
         }
-        description += DESCRIPTIONS[3];
+        description += DESCRIPTIONS[3] + THRESHOLD + DESCRIPTIONS[4];
     }
 }

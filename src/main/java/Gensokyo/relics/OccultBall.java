@@ -3,6 +3,7 @@ package Gensokyo.relics;
 import Gensokyo.GensokyoMod;
 import Gensokyo.actions.FinalOccultBallAction;
 import Gensokyo.actions.FlexibleDiscoveryAction;
+import Gensokyo.actions.OccultBallFightOption;
 import Gensokyo.cards.Apocalypse;
 import Gensokyo.cards.EightFeetTall;
 import Gensokyo.cards.GapWoman;
@@ -30,6 +31,7 @@ import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.helpers.PowerTip;
 import com.megacrit.cardcrawl.random.Random;
+import com.megacrit.cardcrawl.ui.campfire.AbstractCampfireOption;
 
 import java.util.ArrayList;
 import java.util.Collections;
@@ -129,6 +131,13 @@ public class OccultBall extends CustomRelic {
             if (roll < 15) {
                 AbstractDungeon.getCurrRoom().addRelicToRewards(new OccultBall());
             }
+        }
+    }
+
+    @Override
+    public void addCampfireOption(ArrayList<AbstractCampfireOption> options) {
+        if (this.counter == MAX_STACKS) {
+            options.add(new OccultBallFightOption());
         }
     }
 

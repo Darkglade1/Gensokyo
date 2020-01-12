@@ -5,6 +5,7 @@ import Gensokyo.powers.Teleportation;
 import basemod.abstracts.CustomMonster;
 import com.brashmonkey.spriter.Animation;
 import com.brashmonkey.spriter.Player;
+import com.evacipated.cardcrawl.mod.stslib.powers.abstracts.TwoAmountPower;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.animations.TalkAction;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
@@ -44,18 +45,19 @@ public class Sumireko extends CustomMonster
     private static final byte PSYCHOKINESIS = 3;
     private static final byte SUMMON = 4;
     private static final int GUN_DAMAGE = 12;
-    private static final int GUN_ACT_DAMAGE_BONUS = 4;
+    private static final int GUN_ACT_DAMAGE_BONUS = 5;
     private static final int A3_GUN_DAMAGE = 13;
     private static final int PYROKINESIS_DAMAGE = 7;
-    private static final int PYROKINESIS_ACT_DAMAGE_BONUS = 3;
+    private static final int PYROKINESIS_ACT_DAMAGE_BONUS = 4;
     private static final int A3_PYROKINESIS_DAMAGE = 8;
     private static final int BURN_AMT = 1;
     private static final int A18_BURN_AMT = 2;
     private static final int BLOCK = 8;
-    private static final int BLOCK_ACT_BONUS = 3;
+    private static final int BLOCK_ACT_BONUS = 4;
     private static final int A8_BLOCK = 9;
     private static final int BUFFER_AMT = 1;
     private static final int DEBUFF_AMT = 1;
+    private static final int HIGH_ACT_DEBUFF_AMT = 2;
     private static float actMultiplier = 0.0f;
     private static final float ACT_1_MULTIPLIER = 1.0f;
     private static final float ACT_2_MULTIPLIER = 1.5f;
@@ -94,15 +96,18 @@ public class Sumireko extends CustomMonster
         }
         if (AbstractDungeon.actNum == 1) {
             actMultiplier = ACT_1_MULTIPLIER;
+            this.debuffAmt = DEBUFF_AMT;
         } else if (AbstractDungeon.actNum == 2) {
             actMultiplier = ACT_2_MULTIPLIER;
+            this.debuffAmt = HIGH_ACT_DEBUFF_AMT;
         } else if (AbstractDungeon.actNum == 3) {
             actMultiplier = ACT_3_MULTIPLIER;
+            this.debuffAmt = HIGH_ACT_DEBUFF_AMT;
         } else {
             actMultiplier = ACT_4_MULTIPLIER;
+            this.debuffAmt = HIGH_ACT_DEBUFF_AMT;
         }
         this.buffer = BUFFER_AMT;
-        this.debuffAmt = DEBUFF_AMT;
         if (AbstractDungeon.ascensionLevel >= 18) {
             this.burnAmt = A18_BURN_AMT;
         } else {
@@ -138,11 +143,9 @@ public class Sumireko extends CustomMonster
 
     @Override
     public void usePreBattleAction() {
-        System.out.println(AbstractDungeon.player.drawX);
-        System.out.println(this.drawX);
         AbstractDungeon.actionManager.addToBottom(new TalkAction(this, DIALOG[0]));
-        AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(this, this, new Teleportation(this, Teleportation.RIGHT)));
-        AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(AbstractDungeon.player, AbstractDungeon.player, new Teleportation(AbstractDungeon.player, Teleportation.MIDDLE)));
+        AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(this, this, new Teleportation(this, Teleportation.RIGHT, 0)));
+        AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(AbstractDungeon.player, AbstractDungeon.player, new Teleportation(AbstractDungeon.player, Teleportation.MIDDLE, 0)));
         AbstractDungeon.player.drawX += Teleportation.movement;
     }
     
@@ -181,10 +184,13 @@ public class Sumireko extends CustomMonster
                 Sumireko doppel = new Sumireko(0.0F, 0.0F, true);
                 AbstractDungeon.actionManager.addToBottom(new SpawnMonsterAction(doppel, true));
                 int position;
+                int amount2;
                 if (this.hasPower(Teleportation.POWER_ID)) {
-                    position = this.getPower(Teleportation.POWER_ID).amount;
+                    position = getPower(Teleportation.POWER_ID).amount;
+                    amount2 = ((TwoAmountPower)getPower(Teleportation.POWER_ID)).amount2;
                 } else {
                     position = 0;
+                    amount2 = 0;
                 }
                 int spawnPosition;
                 if (position == Teleportation.RIGHT) {
@@ -200,7 +206,8 @@ public class Sumireko extends CustomMonster
                     spawnPosition = Teleportation.MIDDLE;
                     doppel.setFlip(true, false);
                 }
-                AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(doppel, doppel, new Teleportation(doppel, spawnPosition)));
+
+                AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(doppel, doppel, new Teleportation(doppel, spawnPosition, amount2)));
                 this.firstMove = false;
                 break;
             }
@@ -250,10 +257,13 @@ public class Sumireko extends CustomMonster
     public void die(boolean triggerRelics) {
         //runAnim("Defeat");
         super.die(triggerRelics);
-        for (AbstractMonster mo : AbstractDungeon.getCurrRoom().monsters.monsters) {
-            if (mo instanceof Sumireko) {
-                if (!mo.isDead && !mo.isDying) {
-                    AbstractDungeon.actionManager.addToBottom(new SuicideAction(mo));
+        if (!isDoppel) {
+            //kills off the doppel
+            for (AbstractMonster mo : AbstractDungeon.getCurrRoom().monsters.monsters) {
+                if (mo instanceof Sumireko) {
+                    if (!mo.isDead && !mo.isDying) {
+                        AbstractDungeon.actionManager.addToBottom(new SuicideAction(mo));
+                    }
                 }
             }
         }
