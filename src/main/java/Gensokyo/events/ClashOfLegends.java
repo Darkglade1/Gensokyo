@@ -18,6 +18,7 @@ import Gensokyo.cards.SlitMouthedWoman;
 import Gensokyo.cards.SpontaneousHumanCombustion;
 import Gensokyo.cards.TekeTeke;
 import Gensokyo.cards.TurboGranny;
+import Gensokyo.relics.OccultBall;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
@@ -113,24 +114,7 @@ public class ClashOfLegends extends AbstractImageEvent {
     }
 
     public static ArrayList<AbstractCard> returnUrbanLegendCardReward(Random rng) {
-        ArrayList<AbstractCard> list = new ArrayList<>();
-        list.add(new MissMary());
-        list.add(new SpontaneousHumanCombustion());
-        list.add(new RedCapeBlueCape());
-        list.add(new TekeTeke());
-        list.add(new Kunekune());
-        list.add(new HAARP());
-        list.add(new MenInBlack());
-        list.add(new LittleGreenMen());
-        list.add(new TurboGranny());
-        list.add(new MonkeysPaw());
-        list.add(new ManorOfTheDishes());
-        list.add(new LochNessMonster());
-        list.add(new GapWoman());
-        list.add(new EightFeetTall());
-        list.add(new SevenSchoolMysteries());
-        list.add(new Apocalypse());
-        list.add(new SlitMouthedWoman());
+        ArrayList<AbstractCard> list = OccultBall.getAllUrbanLegends();
         Collections.shuffle(list, rng.random);
 
         int numCards = 3;

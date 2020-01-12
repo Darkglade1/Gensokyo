@@ -221,9 +221,11 @@
   },
   "Gensokyo:Sumireko": {
     "MOVES": [
-      "Reaper's Scythe",
-      "Ferry of the Deep Fog",
-      "Your Days are Numbered"
+      "3D Printer Gun",
+      "Pyrokinesis",
+      "Bullet Cancel",
+      "Psychokinesis",
+      "Summon Doppelganger"
     ],
     "NAME": "First President of The Secret Sealing Club",
     "DIALOG": [

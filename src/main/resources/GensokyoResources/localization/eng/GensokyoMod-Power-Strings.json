@@ -138,5 +138,9 @@
 "Gensokyo:ElementalBarrier": {
         "NAME": "Elemental Barrier",
         "DESCRIPTIONS": ["Can only take #b", " more damage this turn. Whenever an elemental orb dies, increase this amount by #b", " and shifts intent."]
+},
+"Gensokyo:Teleportation": {
+        "NAME": "Teleportation",
+        "DESCRIPTIONS": ["This creature is on the #yleft.", "This creature is in the #ymiddle.", "This creature is on the #yright.", " Whenever you play a card, teleports to the right. Creatures in the middle take #b50% more damage from attacks."]
 }
 }

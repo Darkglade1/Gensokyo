@@ -38,11 +38,11 @@ public class Komachi extends CustomMonster
     private static final byte SCYTHE = 1;
     private static final byte DEBUFF = 2;
     private static final byte DEATH = 3;
-    private static final int SCYTHE_DAMAGE = 15;
+    private static final int SCYTHE_DAMAGE = 16;
     private static final int SCYTHE_ACT_DAMAGE_BONUS = 5;
     private static final int DEATH_COUNTER = 7;
-    private static final int A_2_SCYTHE_DAMAGE = 18;
-    private static final int A_2_DEATH_COUNTER = 6;
+    private static final int A3_SCYTHE_DAMAGE = 18;
+    private static final int A3_DEATH_COUNTER = 6;
     private int scytheDmg;
     private int deathCounter;
     private static final int WEAK_AMT = 2;
@@ -76,6 +76,12 @@ public class Komachi extends CustomMonster
         } else {
             actMultiplier = ACT_4_MULTIPLIER;
         }
+
+        if (AbstractDungeon.ascensionLevel >= 18) {
+            this.deathCounter = A3_DEATH_COUNTER;
+        } else {
+            this.deathCounter = DEATH_COUNTER;
+        }
         if (AbstractDungeon.ascensionLevel >= 8) {
             this.setHp((int)(A_2_HP_MIN * actMultiplier), (int)(A_2_HP_MAX * actMultiplier));
         }
@@ -83,12 +89,10 @@ public class Komachi extends CustomMonster
             this.setHp((int)(HP_MIN * actMultiplier), (int)(HP_MAX * actMultiplier));
         }
         if (AbstractDungeon.ascensionLevel >= 3) {
-            this.scytheDmg = A_2_SCYTHE_DAMAGE + (SCYTHE_ACT_DAMAGE_BONUS * (AbstractDungeon.actNum - 1));
-            this.deathCounter = A_2_DEATH_COUNTER;
+            this.scytheDmg = A3_SCYTHE_DAMAGE + (SCYTHE_ACT_DAMAGE_BONUS * (AbstractDungeon.actNum - 1));
         }
         else {
             this.scytheDmg = SCYTHE_DAMAGE + (SCYTHE_ACT_DAMAGE_BONUS * (AbstractDungeon.actNum - 1));
-            this.deathCounter = DEATH_COUNTER;
         }
         this.damage.add(new DamageInfo(this, this.scytheDmg));
 

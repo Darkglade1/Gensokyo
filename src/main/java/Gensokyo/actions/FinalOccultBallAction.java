@@ -1,22 +1,6 @@
 package Gensokyo.actions;
 
-import Gensokyo.cards.Apocalypse;
-import Gensokyo.cards.EightFeetTall;
-import Gensokyo.cards.GapWoman;
-import Gensokyo.cards.HAARP;
-import Gensokyo.cards.Kunekune;
-import Gensokyo.cards.LittleGreenMen;
-import Gensokyo.cards.LochNessMonster;
-import Gensokyo.cards.ManorOfTheDishes;
-import Gensokyo.cards.MenInBlack;
-import Gensokyo.cards.MissMary;
-import Gensokyo.cards.MonkeysPaw;
-import Gensokyo.cards.RedCapeBlueCape;
-import Gensokyo.cards.SevenSchoolMysteries;
-import Gensokyo.cards.SlitMouthedWoman;
-import Gensokyo.cards.SpontaneousHumanCombustion;
-import Gensokyo.cards.TekeTeke;
-import Gensokyo.cards.TurboGranny;
+import Gensokyo.relics.OccultBall;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.common.MakeTempCardInHandAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
@@ -49,23 +33,7 @@ public class FinalOccultBallAction extends AbstractGameAction {
         if (this.duration == this.startDuration) {
             if (this.numberOfCards > 0) {
                 CardGroup temp = new CardGroup(CardGroupType.UNSPECIFIED);
-                temp.addToTop(new MissMary());
-                temp.addToTop(new SpontaneousHumanCombustion());
-                temp.addToTop(new RedCapeBlueCape());
-                temp.addToTop(new TekeTeke());
-                temp.addToTop(new Kunekune());
-                temp.addToTop(new HAARP());
-                temp.addToTop(new MenInBlack());
-                temp.addToTop(new LittleGreenMen());
-                temp.addToTop(new TurboGranny());
-                temp.addToTop(new MonkeysPaw());
-                temp.addToTop(new ManorOfTheDishes());
-                temp.addToTop(new LochNessMonster());
-                temp.addToTop(new GapWoman());
-                temp.addToTop(new EightFeetTall());
-                temp.addToTop(new SevenSchoolMysteries());
-                temp.addToTop(new Apocalypse());
-                temp.addToTop(new SlitMouthedWoman());
+                temp.group = OccultBall.getAllUrbanLegends();
                 for (AbstractCard card : temp.group) {
                     card.upgrade();
                 }

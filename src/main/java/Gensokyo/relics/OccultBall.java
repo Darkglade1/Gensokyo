@@ -83,7 +83,7 @@ public class OccultBall extends CustomRelic {
         AbstractDungeon.actionManager.addToBottom(new RelicAboveCreatureAction(AbstractDungeon.player, this));
     }
 
-    public static ArrayList<AbstractCard> return3TrulyRandomUrbanLegendInCombat(Random rng) {
+    public static ArrayList<AbstractCard> getAllUrbanLegends() {
         ArrayList<AbstractCard> list = new ArrayList<>();
         list.add(new MissMary());
         list.add(new SpontaneousHumanCombustion());
@@ -102,6 +102,11 @@ public class OccultBall extends CustomRelic {
         list.add(new SevenSchoolMysteries());
         list.add(new Apocalypse());
         list.add(new SlitMouthedWoman());
+        return list;
+    }
+
+    public static ArrayList<AbstractCard> return3TrulyRandomUrbanLegendInCombat(Random rng) {
+        ArrayList<AbstractCard> list = getAllUrbanLegends();
         Collections.shuffle(list, rng.random);
         return new ArrayList<>(list.subList(0, 3));
     }
