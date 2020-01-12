@@ -1,6 +1,7 @@
 package Gensokyo.relics;
 
 import Gensokyo.GensokyoMod;
+import Gensokyo.actions.FinalOccultBallAction;
 import Gensokyo.actions.FlexibleDiscoveryAction;
 import Gensokyo.cards.Apocalypse;
 import Gensokyo.cards.EightFeetTall;
@@ -44,6 +45,8 @@ public class OccultBall extends CustomRelic {
     private static final Texture OUTLINE = TextureLoader.getTexture(makeRelicOutlinePath("OccultBall.png"));
 
     public static final int MAX_STACKS = 7;
+    public static final int SPECIAL_STACKS = 8;
+    private static final int NUM_CARDS = 3;
 
     public OccultBall() {
         super(ID, IMG, OUTLINE, RelicTier.SPECIAL, LandingSound.MAGICAL);
@@ -52,28 +55,31 @@ public class OccultBall extends CustomRelic {
 
     @Override
     public void atBattleStartPreDraw() {
-        ArrayList<AbstractCard> chosenCards = return3TrulyRandomUrbanLegendInCombat(AbstractDungeon.cardRandomRng);
-        if (counter == MAX_STACKS) {
-            for (int i = 0; i < chosenCards.size(); i++) {
-                AbstractCard card = chosenCards.get(i);
-                card.upgrade();
-                AbstractDungeon.actionManager.addToBottom(new MakeTempCardInHandAction(card, false));
-            }
-        } else if (counter == 1) {
-            AbstractDungeon.actionManager.addToBottom(new MakeTempCardInHandAction(chosenCards.get(0).makeCopy(), false));
-        } else if (counter >= 2) {
-            int upgrades = counter - 3;
-            if (upgrades > 0) {
-                for (int i = 0; i < upgrades; i++) {
-                    chosenCards.get(i).upgrade();
+        if (counter == SPECIAL_STACKS) {
+            AbstractDungeon.actionManager.addToBottom(new FinalOccultBallAction(NUM_CARDS));
+        } else {
+            ArrayList<AbstractCard> chosenCards = return3TrulyRandomUrbanLegendInCombat(AbstractDungeon.cardRandomRng);
+            if (counter == MAX_STACKS) {
+                for (int i = 0; i < chosenCards.size(); i++) {
+                    AbstractCard card = chosenCards.get(i);
+                    card.upgrade();
+                    AbstractDungeon.actionManager.addToBottom(new MakeTempCardInHandAction(card, false));
                 }
+            } else if (counter == 1) {
+                AbstractDungeon.actionManager.addToBottom(new MakeTempCardInHandAction(chosenCards.get(0).makeCopy(), false));
+            } else if (counter >= 2) {
+                int upgrades = counter - 3;
+                if (upgrades > 0) {
+                    for (int i = 0; i < upgrades; i++) {
+                        chosenCards.get(i).upgrade();
+                    }
+                }
+                if (counter == 2) {
+                    chosenCards.remove(0);
+                }
+                AbstractDungeon.actionManager.addToBottom(new FlexibleDiscoveryAction(chosenCards));
             }
-            if (counter == 2) {
-                chosenCards.remove(0);
-            }
-            AbstractDungeon.actionManager.addToBottom(new FlexibleDiscoveryAction(chosenCards));
         }
-
         AbstractDungeon.actionManager.addToBottom(new RelicAboveCreatureAction(AbstractDungeon.player, this));
     }
 
@@ -105,8 +111,8 @@ public class OccultBall extends CustomRelic {
             this.counter = 0;
         }
         this.counter++;
-        if (this.counter > MAX_STACKS) {
-            this.counter = MAX_STACKS;
+        if (this.counter > SPECIAL_STACKS) {
+            this.counter = SPECIAL_STACKS;
         }
         fixDescription();
     }
@@ -182,8 +188,10 @@ public class OccultBall extends CustomRelic {
             return DESCRIPTIONS[1];
         } else if (counter < MAX_STACKS) {
             return DESCRIPTIONS[2];
-        } else {
+        } else if (counter == MAX_STACKS){
             return DESCRIPTIONS[3];
+        } else {
+            return DESCRIPTIONS[4];
         }
     }
 }

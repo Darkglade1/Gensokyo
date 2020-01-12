@@ -10,5 +10,11 @@
       "Brew",
       "Brew the Improbability Potion"
     ]
+  },
+  "Gensokyo:OccultBallAction": {
+    "TEXT": [
+      "Choose an Urban Legend to add to your hand.",
+      "Choose any ", " Urban Legends to add to your hand."
+    ]
   }
 }
