@@ -164,7 +164,7 @@ public class GensokyoMod implements
         public static CardLibrary.LibraryType LIBRARY_COLOR;
     }
 
-    public static final Color URBAN_LEGEND = CardHelper.getColor(0.0f, 0.0F, 0.0f);
+    public static final Color URBAN_LEGEND = CardHelper.getColor(0, 0, 0);
 
     // Card backgrounds - The actual rectangular card.
     private static final String ATTACK_BLACK = "GensokyoResources/images/512/attack_blacky.png";
@@ -183,8 +183,7 @@ public class GensokyoMod implements
     public static boolean hasMarisa;
 
     static {
-        //hasMarisa = Loader.isModLoaded("TS05_Marisa");
-        hasMarisa = false;
+        hasMarisa = Loader.isModLoaded("TS05_Marisa");
     }
     
     // =============== MAKE IMAGE PATHS =================
@@ -592,6 +591,7 @@ public class GensokyoMod implements
         loadLocFiles(Settings.GameLanguage.ENG);
         if (Settings.language != Settings.GameLanguage.ENG) {
             loadLocFiles(Settings.language);
+            hasMarisa = false;
         }
     }
     

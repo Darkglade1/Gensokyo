@@ -28,6 +28,7 @@ import com.megacrit.cardcrawl.actions.common.MakeTempCardInHandAction;
 import com.megacrit.cardcrawl.actions.common.RelicAboveCreatureAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
+import com.megacrit.cardcrawl.core.Settings;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.helpers.PowerTip;
 import com.megacrit.cardcrawl.random.Random;
@@ -136,7 +137,7 @@ public class OccultBall extends CustomRelic {
 
     @Override
     public void addCampfireOption(ArrayList<AbstractCampfireOption> options) {
-        if (this.counter == MAX_STACKS) {
+        if (this.counter == MAX_STACKS && Settings.language == Settings.GameLanguage.ENG) {
             options.add(new OccultBallFightOption());
         }
     }

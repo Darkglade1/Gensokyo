@@ -218,6 +218,19 @@
 
     ],
     "NAME": "Earth"
+  },
+  "Gensokyo:Sumireko": {
+    "MOVES": [
+      "3D Printer Gun",
+      "Pyrokinesis",
+      "Bullet Cancel",
+      "Psychokinesis",
+      "Summon Doppelganger"
+    ],
+    "NAME": "First President of The Secret Sealing Club",
+    "DIALOG": [
+      "Woah, I caught one!"
+    ]
   }
 }
 

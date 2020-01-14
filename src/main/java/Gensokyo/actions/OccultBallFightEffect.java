@@ -3,7 +3,6 @@ package Gensokyo.actions;
 import Gensokyo.monsters.Sumireko;
 import Gensokyo.relics.OccultBall;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
-import com.megacrit.cardcrawl.actions.common.RollMoveAction;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.helpers.RelicLibrary;
@@ -12,7 +11,6 @@ import com.megacrit.cardcrawl.map.MapRoomNode;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.monsters.MonsterGroup;
 import com.megacrit.cardcrawl.rooms.MonsterRoom;
-import com.megacrit.cardcrawl.rooms.MonsterRoomElite;
 import com.megacrit.cardcrawl.vfx.AbstractGameEffect;
 
 import java.util.ArrayList;
@@ -20,7 +18,6 @@ import java.util.ArrayList;
 public class OccultBallFightEffect extends AbstractGameEffect {
 
     public OccultBallFightEffect() {
-
     }
 
     public void update() {
@@ -58,8 +55,6 @@ public class OccultBallFightEffect extends AbstractGameEffect {
     }
 
     public void render(SpriteBatch sb) {
-//        sb.setColor(this.screenColor);
-//        sb.draw(ImageMaster.WHITE_SQUARE_IMG, 0.0F, 0.0F, (float)Settings.WIDTH, (float)Settings.HEIGHT);
     }
 
     public void dispose() {

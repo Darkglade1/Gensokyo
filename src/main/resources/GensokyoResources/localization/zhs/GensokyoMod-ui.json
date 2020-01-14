@@ -10,5 +10,17 @@
       "Brew",
       "Brew the Improbability Potion"
     ]
+  },
+  "Gensokyo:Occult Ball Option": {
+    "TEXT": [
+      "You feel a strange tugging . . .",
+      "Fight a special elite enemy to obtain the last Occult Ball."
+    ]
+  },
+  "Gensokyo:OccultBallAction": {
+    "TEXT": [
+      "Choose an Urban Legend to add to your hand.",
+      "Choose any ", " Urban Legends to add to your hand."
+    ]
   }
 }
