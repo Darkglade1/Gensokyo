@@ -36,6 +36,13 @@ public class Animal extends CustomMonster {
             e.setTime(e.getEndTime() * MathUtils.random());
             this.stateData.setMix("Hit", "Idle", 0.1F);
             e.setTimeScale(0.8F);
+        } else if (AbstractDungeon.player.chosenClass == AbstractPlayer.PlayerClass.WATCHER) {
+            this.loadAnimation("images/monsters/theForest/timeEater/skeleton.atlas", "images/monsters/theForest/timeEater/skeleton.json", 2.0F);
+            AnimationState.TrackEntry e = this.state.setAnimation(0, "Idle", true);
+            this.flipHorizontal = true;
+            e.setTime(e.getEndTime() * MathUtils.random());
+            this.stateData.setMix("Hit", "Idle", 0.1F);
+            e.setTimeScale(0.8F);
         } else {
             this.animation = new BetterSpriterAnimation("GensokyoResources/images/monsters/Animals/Spriter/AnimalAnimation.scml");
             if (AbstractDungeon.player.chosenClass == AbstractPlayer.PlayerClass.DEFECT) {
