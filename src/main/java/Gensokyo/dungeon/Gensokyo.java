@@ -39,6 +39,7 @@ public class Gensokyo extends actlikeit.dungeons.CustomDungeon {
         this.addTempMusic("TomboyishGirl", "audio/music/Gensokyo/TomboyishGirl.ogg");
         this.addTempMusic("Futatsuiwa from Gensokyo", "audio/music/Gensokyo/Futatsuiwa from Gensokyo.ogg");
         this.addTempMusic("LockedGirl", "audio/music/Gensokyo/LockedGirl.ogg");
+        this.addTempMusic("LastOccult", "audio/music/Gensokyo/LastOccult.ogg");
     }
 
     public Gensokyo(CustomDungeon cd, AbstractPlayer p, ArrayList<String> emptyList) {

@@ -11,6 +11,7 @@ import com.megacrit.cardcrawl.map.MapRoomNode;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.monsters.MonsterGroup;
 import com.megacrit.cardcrawl.rooms.MonsterRoom;
+import com.megacrit.cardcrawl.rooms.RestRoom;
 import com.megacrit.cardcrawl.vfx.AbstractGameEffect;
 
 import java.util.ArrayList;
@@ -21,6 +22,9 @@ public class OccultBallFightEffect extends AbstractGameEffect {
     }
 
     public void update() {
+        if (AbstractDungeon.getCurrRoom() instanceof RestRoom) {
+            ((RestRoom)AbstractDungeon.getCurrRoom()).cutFireSound();
+        }
         CardCrawlGame.music.unsilenceBGM();
         final MapRoomNode cur2 = AbstractDungeon.currMapNode;
         final MapRoomNode node2 = new MapRoomNode(cur2.x, cur2.y);

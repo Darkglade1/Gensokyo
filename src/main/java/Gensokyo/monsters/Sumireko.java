@@ -143,6 +143,7 @@ public class Sumireko extends CustomMonster
 
     @Override
     public void usePreBattleAction() {
+        AbstractDungeon.getCurrRoom().playBgmInstantly("LastOccult");
         AbstractDungeon.actionManager.addToBottom(new TalkAction(this, DIALOG[0]));
         AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(this, this, new Teleportation(this, Teleportation.RIGHT, 0)));
         AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(AbstractDungeon.player, AbstractDungeon.player, new Teleportation(AbstractDungeon.player, Teleportation.MIDDLE, 0)));

@@ -16,7 +16,7 @@ public class OccultBallFightOption extends AbstractCampfireOption
     public OccultBallFightOption() {
         this.label = OccultBallFightOption.TEXT[0];
         this.description = TEXT[1];
-        this.img = ImageMaster.loadImage(makeUIPath("brew.png"));
+        this.img = ImageMaster.loadImage(makeUIPath("Outside.png"));
     }
     
     @Override

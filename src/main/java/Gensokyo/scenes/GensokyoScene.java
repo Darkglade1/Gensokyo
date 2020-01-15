@@ -5,6 +5,7 @@ import Gensokyo.monsters.Cirno;
 import Gensokyo.monsters.Kokoro;
 import Gensokyo.monsters.Mamizou;
 import Gensokyo.monsters.Reimu;
+import Gensokyo.monsters.Sumireko;
 import Gensokyo.monsters.Yukari;
 import Gensokyo.monsters.marisaMonsters.Patchouli;
 import com.badlogic.gdx.Gdx;
@@ -84,6 +85,8 @@ public class GensokyoScene extends AbstractScene {
                     this.bg = this.atlas.findRegion("mod/HakureiShrine");
                 } else if (mo instanceof Patchouli) {
                     this.bg = this.atlas.findRegion("mod/Palace");
+                } else if (mo instanceof Sumireko) {
+                    this.bg = this.atlas.findRegion("mod/OutsideWorld");
                 } else {
                     this.bg = this.atlas.findRegion("mod/TanukiForest");
                 }
