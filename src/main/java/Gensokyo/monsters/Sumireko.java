@@ -157,30 +157,30 @@ public class Sumireko extends CustomMonster
         }
         switch (this.nextMove) {
             case GUN: {
-                //runAnim("Scythe");
+                runAnim("Gun");
                 AbstractDungeon.actionManager.addToBottom(new DamageAction(AbstractDungeon.player, info, AbstractGameAction.AttackEffect.BLUNT_LIGHT));
                 break;
             }
             case PYROKINESIS: {
-                //runAnim("SpellB");
+                runAnim("PyroBlast");
                 AbstractDungeon.actionManager.addToBottom(new DamageAction(AbstractDungeon.player, info, AbstractGameAction.AttackEffect.FIRE));
                 AbstractDungeon.actionManager.addToBottom(new MakeTempCardInDiscardAction(new Burn(), burnAmt));
                 break;
             }
             case BULLET_CANCEL: {
-                //runAnim("SpellB");
+                runAnim("Special");
                 AbstractDungeon.actionManager.addToBottom(new GainBlockAction(this, this, this.block));
                 AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(this, this, new BufferPower(this, buffer), buffer));
                 break;
             }
             case PSYCHOKINESIS: {
-                //runAnim("SpellB");
+                runAnim("Special");
                 AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(AbstractDungeon.player, this, new WeakPower(AbstractDungeon.player, debuffAmt, true), debuffAmt));
                 AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(AbstractDungeon.player, this, new FrailPower(AbstractDungeon.player, debuffAmt, true), debuffAmt));
                 break;
             }
             case SUMMON: {
-                //runAnim("SpellB");
+                runAnim("Special");
                 Sumireko doppel = new Sumireko(0.0F, 0.0F, true);
                 AbstractDungeon.actionManager.addToBottom(new SpawnMonsterAction(doppel, true));
                 int position;
@@ -255,7 +255,7 @@ public class Sumireko extends CustomMonster
 
     @Override
     public void die(boolean triggerRelics) {
-        //runAnim("Defeat");
+        runAnim("Defeat");
         super.die(triggerRelics);
         if (!isDoppel) {
             //kills off the doppel
