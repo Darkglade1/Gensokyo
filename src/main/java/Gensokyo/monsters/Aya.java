@@ -3,7 +3,12 @@ package Gensokyo.monsters;
 import Gensokyo.BetterSpriterAnimation;
 import Gensokyo.powers.Evasive;
 import Gensokyo.powers.IllusionaryDominance;
+import Gensokyo.vfx.FlexibleCalmParticleEffect;
+import Gensokyo.vfx.FlexibleStanceAuraEffect;
 import basemod.abstracts.CustomMonster;
+import com.badlogic.gdx.Gdx;
+import com.badlogic.gdx.graphics.g2d.SpriteBatch;
+import com.badlogic.gdx.math.MathUtils;
 import com.brashmonkey.spriter.Animation;
 import com.brashmonkey.spriter.Player;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
@@ -19,6 +24,7 @@ import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.localization.MonsterStrings;
 import com.megacrit.cardcrawl.powers.StrengthPower;
 import com.megacrit.cardcrawl.powers.WeakPower;
+import com.megacrit.cardcrawl.stances.CalmStance;
 
 public class Aya extends CustomMonster
 {
@@ -50,6 +56,8 @@ public class Aya extends CustomMonster
     private int block;
     private int strength;
     public boolean debuffTriggered;
+    private float particleTimer;
+    private float particleTimer2;
 
     public Aya() {
         this(0.0f, 0.0f);
@@ -123,6 +131,28 @@ public class Aya extends CustomMonster
             }
         }
         AbstractDungeon.actionManager.addToBottom(new RollMoveAction(this));
+    }
+
+    @Override
+    public void render(SpriteBatch sb) {
+        super.render(sb);
+        if (this.hasPower(Evasive.POWER_ID)) {
+            if (this.getPower(Evasive.POWER_ID).amount == Evasive.THRESHOLD) {
+                if (!Settings.DISABLE_EFFECTS) {
+                    this.particleTimer -= Gdx.graphics.getDeltaTime();
+                    if (this.particleTimer < 0.0F) {
+                        this.particleTimer = 0.04F;
+                        AbstractDungeon.effectsQueue.add(new FlexibleCalmParticleEffect(this));
+                    }
+                }
+
+                this.particleTimer2 -= Gdx.graphics.getDeltaTime();
+                if (this.particleTimer2 < 0.0F) {
+                    this.particleTimer2 = MathUtils.random(0.45F, 0.55F);
+                    AbstractDungeon.effectsQueue.add(new FlexibleStanceAuraEffect(CalmStance.STANCE_ID, this));
+                }
+            }
+        }
     }
 
     @Override

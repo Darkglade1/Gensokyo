@@ -21,6 +21,7 @@ public class Evasive extends AbstractPower {
     private static final PowerStrings powerStrings = CardCrawlGame.languagePack.getPowerStrings(POWER_ID);
     public static final String NAME = powerStrings.NAME;
     public static final String[] DESCRIPTIONS = powerStrings.DESCRIPTIONS;
+    public static final int THRESHOLD = 3;
 
     private static final Texture tex84 = TextureLoader.getTexture(makePowerPath("Evasive84.png"));
     private static final Texture tex32 = TextureLoader.getTexture(makePowerPath("Evasive32.png"));
@@ -45,7 +46,7 @@ public class Evasive extends AbstractPower {
     @Override
     public void onAfterUseCard(AbstractCard card, UseCardAction action) {
         if (card.type == AbstractCard.CardType.ATTACK) {
-            if (this.amount >= 3) {
+            if (this.amount >= THRESHOLD) {
                 this.amount = 1;
             } else {
                 this.amount++;
@@ -55,7 +56,7 @@ public class Evasive extends AbstractPower {
 
     @Override
     public float atDamageReceive(float damage, DamageInfo.DamageType type) {
-        if (this.amount >= 3 && type == DamageInfo.DamageType.NORMAL) {
+        if (this.amount >= THRESHOLD && type == DamageInfo.DamageType.NORMAL) {
             return 0;
         } else {
             return damage;
