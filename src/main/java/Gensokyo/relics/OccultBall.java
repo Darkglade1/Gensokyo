@@ -5,6 +5,7 @@ import Gensokyo.actions.FinalOccultBallAction;
 import Gensokyo.actions.FlexibleDiscoveryAction;
 import Gensokyo.actions.OccultBallFightOption;
 import Gensokyo.cards.Apocalypse;
+import Gensokyo.cards.Doppelganger;
 import Gensokyo.cards.EightFeetTall;
 import Gensokyo.cards.GapWoman;
 import Gensokyo.cards.HAARP;
@@ -105,6 +106,9 @@ public class OccultBall extends CustomRelic {
         list.add(new SevenSchoolMysteries());
         list.add(new Apocalypse());
         list.add(new SlitMouthedWoman());
+        if (Settings.language == Settings.GameLanguage.ENG) {
+            list.add(new Doppelganger());
+        }
         return list;
     }
 

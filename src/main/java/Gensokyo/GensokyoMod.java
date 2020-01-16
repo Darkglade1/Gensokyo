@@ -5,6 +5,7 @@ import Gensokyo.cards.BlessingOfConstitution;
 import Gensokyo.cards.BlessingOfFortitude;
 import Gensokyo.cards.BlessingOfVigor;
 import Gensokyo.cards.CrescentMoonSlash;
+import Gensokyo.cards.Doppelganger;
 import Gensokyo.cards.EightFeetTall;
 import Gensokyo.cards.Frozen;
 import Gensokyo.cards.GapWoman;
@@ -547,6 +548,7 @@ public class GensokyoMod implements
         BaseMod.addCard(new SevenSchoolMysteries());
         BaseMod.addCard(new Apocalypse());
         BaseMod.addCard(new SlitMouthedWoman());
+        BaseMod.addCard(new Doppelganger());
 
         if (hasMarisa) {
             BaseMod.addCard(new MarisaTwilightSpark());

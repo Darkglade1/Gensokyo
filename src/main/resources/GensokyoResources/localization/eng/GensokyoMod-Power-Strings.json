@@ -142,5 +142,9 @@
 "Gensokyo:Teleportation": {
         "NAME": "Teleportation",
         "DESCRIPTIONS": ["This creature is on the #yleft.", "This creature is in the #ymiddle.", "This creature is on the #yright.", " Whenever you play #b", " cards, teleports to the right. Creatures in the middle take #b50% more damage from attacks."]
+},
+"Gensokyo:DoppelgangerPower": {
+        "NAME": "Doppelganger",
+        "DESCRIPTIONS": ["Your next #b", " card is", " cards are", " played twice."]
 }
 }
