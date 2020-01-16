@@ -9,6 +9,7 @@ import com.megacrit.cardcrawl.actions.utility.ScryAction;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
+import com.megacrit.cardcrawl.relics.ChemicalX;
 import com.megacrit.cardcrawl.ui.panels.EnergyPanel;
 
 import static Gensokyo.GensokyoMod.makeCardPath;
@@ -42,12 +43,14 @@ public class Doppelganger extends AbstractUrbanLegendCard {
             effect++;
         }
 
-        if (p.hasRelic("Chemical X")) {
+        if (p.hasRelic(ChemicalX.ID)) {
             effect += 2;
-            p.getRelic("Chemical X").flash();
+            p.getRelic(ChemicalX.ID).flash();
         }
-        AbstractDungeon.actionManager.addToBottom(new ScryAction(effect));
-        AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(p, p, new DoppelgangerPower(p, effect), effect));
+        if (effect > 0) {
+            AbstractDungeon.actionManager.addToBottom(new ScryAction(effect));
+            AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(p, p, new DoppelgangerPower(p, effect), effect));
+        }
 
         if (!this.freeToPlayOnce) {
             p.energy.use(EnergyPanel.totalCount);
