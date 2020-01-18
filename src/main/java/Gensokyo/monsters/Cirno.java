@@ -16,6 +16,7 @@ import com.megacrit.cardcrawl.actions.common.DamageAction;
 import com.megacrit.cardcrawl.actions.common.EscapeAction;
 import com.megacrit.cardcrawl.actions.common.GainBlockAction;
 import com.megacrit.cardcrawl.actions.common.HealAction;
+import com.megacrit.cardcrawl.actions.common.InstantKillAction;
 import com.megacrit.cardcrawl.actions.common.MakeTempCardInDiscardAction;
 import com.megacrit.cardcrawl.actions.common.RollMoveAction;
 import com.megacrit.cardcrawl.actions.common.SetMoveAction;
@@ -71,6 +72,7 @@ public class Cirno extends CustomMonster
     private int status;
     private int groupBuffAmt;
     private int buffCounter = 0;
+    private int originalMaxHP;
 
     public Cirno() {
         this(0.0f, 0.0f);
@@ -94,6 +96,7 @@ public class Cirno extends CustomMonster
         } else {
             this.setHp(HP_MIN, HP_MAX);
         }
+        originalMaxHP = this.maxHealth;
 
         if (AbstractDungeon.ascensionLevel >= 3) {
             this.normalDamage = A3_NORMAL_ATTACK_DAMAGE;
@@ -251,6 +254,10 @@ public class Cirno extends CustomMonster
     public void die() {
         if (!AbstractDungeon.getCurrRoom().cannotLose) {
             super.die();
+        }
+        if (this.maxHealth <= 0) {
+            this.maxHealth = originalMaxHP;
+            AbstractDungeon.actionManager.addToBottom(new InstantKillAction(this));
         }
     }
 

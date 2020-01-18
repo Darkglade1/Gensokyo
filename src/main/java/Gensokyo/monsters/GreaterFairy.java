@@ -10,6 +10,7 @@ import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.actions.common.DamageAction;
 import com.megacrit.cardcrawl.actions.common.EscapeAction;
 import com.megacrit.cardcrawl.actions.common.HealAction;
+import com.megacrit.cardcrawl.actions.common.InstantKillAction;
 import com.megacrit.cardcrawl.actions.common.RollMoveAction;
 import com.megacrit.cardcrawl.actions.common.SetMoveAction;
 import com.megacrit.cardcrawl.cards.DamageInfo;
@@ -42,6 +43,7 @@ public class GreaterFairy extends CustomMonster
     private static final int HP = 10;
     private int normalDamage;
     public Cirno leader;
+    private int originalMaxHP;
 
     public GreaterFairy() {
         this(0.0f, 0.0f, null);
@@ -59,7 +61,7 @@ public class GreaterFairy extends CustomMonster
             this.normalDamage = NORMAL_ATTACK_DAMAGE;
         }
         this.setHp(HP);
-
+        this.originalMaxHP = maxHealth;
         this.damage.add(new DamageInfo(this, this.normalDamage));
         this.leader = leader;
     }
@@ -152,6 +154,10 @@ public class GreaterFairy extends CustomMonster
     public void die() {
         if (!AbstractDungeon.getCurrRoom().cannotLose) {
             super.die();
+        }
+        if (this.maxHealth <= 0) {
+            this.maxHealth = originalMaxHP;
+            AbstractDungeon.actionManager.addToBottom(new InstantKillAction(this));
         }
     }
     

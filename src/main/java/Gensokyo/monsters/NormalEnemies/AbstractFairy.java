@@ -136,5 +136,8 @@ public abstract class AbstractFairy extends CustomMonster
         if (!AbstractDungeon.getCurrRoom().cannotLose) {
             super.die();
         }
+        if (this.maxHealth <= 0) { //Thank you Firefly, very cool
+            Leave();
+        }
     }
 }
