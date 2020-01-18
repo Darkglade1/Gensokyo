@@ -56,7 +56,6 @@ public class PatchyOrbMoveAction extends AbstractGameEffect {
                 mo.drawY = endY;
             }
         }
-        System.out.println("StartX: " + startX + " StartY: " + startY + " EndX: " + endX + " EndY: " + endY + " CurrentX: " + destinationX + " CurrentY: " + destinationY);
         if (mo.drawX == endX && mo.drawY == endY) {
             this.isDone = true;
         }

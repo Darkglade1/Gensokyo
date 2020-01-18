@@ -33,6 +33,7 @@ import com.megacrit.cardcrawl.core.Settings;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.helpers.PowerTip;
 import com.megacrit.cardcrawl.random.Random;
+import com.megacrit.cardcrawl.rooms.MonsterRoomBoss;
 import com.megacrit.cardcrawl.ui.campfire.AbstractCampfireOption;
 
 import java.util.ArrayList;
@@ -133,7 +134,7 @@ public class OccultBall extends CustomRelic {
     public void onVictory() {
         if (this.counter < MAX_STACKS) {
             int roll = AbstractDungeon.relicRng.random(0, 99);
-            if (roll < 18) {
+            if (roll < 18 || AbstractDungeon.getCurrRoom() instanceof MonsterRoomBoss) {
                 AbstractDungeon.getCurrRoom().addRelicToRewards(new OccultBall());
             }
         }

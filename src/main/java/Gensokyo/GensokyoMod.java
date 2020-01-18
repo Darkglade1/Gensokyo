@@ -340,7 +340,7 @@ public class GensokyoMod implements
         BaseMod.addBoss(Gensokyo.ID, Kokoro.ID, "GensokyoResources/images/monsters/Kokoro/Kokoro.png", "GensokyoResources/images/monsters/Kokoro/KokoroOutline.png");
         BaseMod.addBoss(Gensokyo.ID, Reimu.ID, "GensokyoResources/images/monsters/Reimu/Reimu.png", "GensokyoResources/images/monsters/Reimu/ReimuOutline.png");
 
-        BaseMod.addMonster(Sumireko.ID, (BaseMod.GetMonster)Sumireko::new);
+        //BaseMod.addMonster(Sumireko.ID, (BaseMod.GetMonster)Sumireko::new);
         
         // =============== EVENTS =================
 
