@@ -129,6 +129,11 @@ public class Teleportation extends TwoAmountPower {
     }
 
     @Override
+    public void onInitialApplication() {
+        fixOrbPositioning();
+    }
+
+    @Override
     public void onRemove() {
         AbstractDungeon.actionManager.addToTop(new ApplyPowerAction(this.owner, this.owner, this));
     }

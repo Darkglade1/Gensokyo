@@ -13,10 +13,7 @@
         <file id="9" name="Racoon/tile009.png" width="257" height="254" pivot_x="0" pivot_y="1"/>
         <file id="10" name="Racoon/tile010.png" width="256" height="254" pivot_x="0" pivot_y="1"/>
     </folder>
-    <folder id="1" name="Crowbot">
-        <file id="0" name="Crowbot/Crowbot.png" width="512" height="512" pivot_x="0" pivot_y="1"/>
-    </folder>
-    <folder id="2" name="Crow">
+    <folder id="1" name="Crow">
         <file id="0" name="Crow/tile000.png" width="257" height="256" pivot_x="0" pivot_y="1"/>
         <file id="1" name="Crow/tile001.png" width="257" height="256" pivot_x="0" pivot_y="1"/>
         <file id="2" name="Crow/tile002.png" width="257" height="256" pivot_x="0" pivot_y="1"/>
@@ -164,74 +161,62 @@
             </mainline>
             <timeline id="0" name="tile000_000">
                 <key id="0" spin="0">
-                    <object folder="2" file="0" x="-139" y="218"/>
+                    <object folder="1" file="0" x="-139" y="218" angle="0"/>
                 </key>
             </timeline>
             <timeline id="1" name="tile001_000">
                 <key id="0" time="100" spin="0">
-                    <object folder="2" file="1" x="-139" y="218"/>
+                    <object folder="1" file="1" x="-139" y="218" angle="0"/>
                 </key>
             </timeline>
             <timeline id="2" name="tile002_000">
                 <key id="0" time="200" spin="0">
-                    <object folder="2" file="2" x="-139" y="218"/>
+                    <object folder="1" file="2" x="-139" y="218" angle="0"/>
                 </key>
             </timeline>
             <timeline id="3" name="tile003_000">
                 <key id="0" time="298" spin="0">
-                    <object folder="2" file="3" x="-139" y="218"/>
+                    <object folder="1" file="3" x="-139" y="218" angle="0"/>
                 </key>
             </timeline>
             <timeline id="4" name="tile004_000">
                 <key id="0" time="399" spin="0">
-                    <object folder="2" file="4" x="-139" y="218"/>
+                    <object folder="1" file="4" x="-139" y="218" angle="0"/>
                 </key>
             </timeline>
             <timeline id="5" name="tile005_000">
                 <key id="0" time="501" spin="0">
-                    <object folder="2" file="5" x="-139" y="218"/>
+                    <object folder="1" file="5" x="-139" y="218" angle="0"/>
                 </key>
             </timeline>
             <timeline id="6" name="tile006_000">
                 <key id="0" time="601" spin="0">
-                    <object folder="2" file="6" x="-139" y="218"/>
+                    <object folder="1" file="6" x="-139" y="218" angle="0"/>
                 </key>
             </timeline>
             <timeline id="7" name="tile007_000">
                 <key id="0" time="699" spin="0">
-                    <object folder="2" file="7" x="-139" y="218"/>
+                    <object folder="1" file="7" x="-139" y="218" angle="0"/>
                 </key>
             </timeline>
             <timeline id="8" name="tile008_000">
                 <key id="0" time="800" spin="0">
-                    <object folder="2" file="8" x="-139" y="218"/>
+                    <object folder="1" file="8" x="-139" y="218" angle="0"/>
                 </key>
             </timeline>
             <timeline id="9" name="tile009_000">
                 <key id="0" time="900" spin="0">
-                    <object folder="2" file="9" x="-139" y="218"/>
+                    <object folder="1" file="9" x="-139" y="218" angle="0"/>
                 </key>
             </timeline>
             <timeline id="10" name="tile010_000">
                 <key id="0" time="999" spin="0">
-                    <object folder="2" file="10" x="-139" y="218"/>
+                    <object folder="1" file="10" x="-139" y="218" angle="0"/>
                 </key>
             </timeline>
             <timeline id="11" name="tile011">
                 <key id="0" time="1098" spin="0">
-                    <object folder="2" file="11" x="-139" y="218"/>
-                </key>
-            </timeline>
-        </animation>
-        <animation id="2" name="Crowbot" length="1000" interval="100">
-            <mainline>
-                <key id="0">
-                    <object_ref id="0" timeline="0" key="0" z_index="0"/>
-                </key>
-            </mainline>
-            <timeline id="0" name="Crowbot">
-                <key id="0" spin="0">
-                    <object folder="1" file="0" x="-180.428571" y="361.650794" angle="0" scale_x="0.7" scale_y="0.7"/>
+                    <object folder="1" file="11" x="-139" y="218" angle="0"/>
                 </key>
             </timeline>
         </animation>

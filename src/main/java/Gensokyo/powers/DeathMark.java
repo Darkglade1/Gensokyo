@@ -6,6 +6,7 @@ import Gensokyo.actions.YeetPlayerAction;
 import Gensokyo.util.TextureLoader;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.TextureAtlas;
+import com.megacrit.cardcrawl.actions.animations.VFXAction;
 import com.megacrit.cardcrawl.actions.common.ReducePowerAction;
 import com.megacrit.cardcrawl.actions.common.RemoveSpecificPowerAction;
 import com.megacrit.cardcrawl.core.AbstractCreature;
@@ -14,6 +15,7 @@ import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.localization.PowerStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.powers.AbstractPower;
+import com.megacrit.cardcrawl.vfx.CollectorCurseEffect;
 
 import static Gensokyo.GensokyoMod.makePowerPath;
 
@@ -48,6 +50,7 @@ public class DeathMark extends AbstractPower {
     public void atEndOfRound() {
         if (this.amount == 1) {
             if (owner != AbstractDungeon.player) {
+                AbstractDungeon.actionManager.addToBottom(new VFXAction(new CollectorCurseEffect(owner.hb.cX, owner.hb.cY), 2.0F));
                 AbstractDungeon.actionManager.addToBottom(new KillAction((AbstractMonster)owner));
             } else {
                 AbstractDungeon.actionManager.addToBottom(new YeetPlayerAction());
