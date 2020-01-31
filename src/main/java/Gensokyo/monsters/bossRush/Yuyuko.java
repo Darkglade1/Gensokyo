@@ -64,9 +64,9 @@ public class Yuyuko extends CustomMonster
     }
 
     public Yuyuko(final float x, final float y) {
-        super(NAME, ID, HP_MAX, -5.0F, 0, 230.0f, 285.0f, null, x, y);
+        super(NAME, ID, HP_MAX, -5.0F, 0, 230.0f, 295.0f, null, x, y);
         this.animation = new BetterSpriterAnimation("GensokyoResources/images/monsters/Yuyuko/Spriter/YuyukoAnimation.scml");
-        this.type = EnemyType.ELITE;
+        this.type = EnemyType.BOSS;
         this.dialogX = (this.hb_x - 70.0F) * Settings.scale;
         this.dialogY -= (this.hb_y - 55.0F) * Settings.scale;
         if (AbstractDungeon.ascensionLevel >= 18) {

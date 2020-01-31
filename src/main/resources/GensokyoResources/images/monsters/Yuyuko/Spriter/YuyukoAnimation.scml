@@ -7,27 +7,27 @@
         <file id="3" name="Idle/4.png" width="300" height="345" pivot_x="0" pivot_y="1"/>
     </folder>
     <entity id="0" name="Yuyuko">
-        <animation id="0" name="Idle" length="950" interval="100">
+        <animation id="0" name="Idle" length="1450" interval="100">
             <mainline>
                 <key id="0">
                     <object_ref id="0" timeline="0" key="0" z_index="0"/>
                 </key>
-                <key id="1" time="152">
+                <key id="1" time="400">
                     <object_ref id="0" timeline="1" key="0" z_index="0"/>
                 </key>
-                <key id="2" time="298">
+                <key id="2" time="601">
                     <object_ref id="0" timeline="2" key="0" z_index="0"/>
                 </key>
-                <key id="3" time="444">
+                <key id="3" time="799">
                     <object_ref id="0" timeline="3" key="0" z_index="0"/>
                 </key>
-                <key id="4" time="602">
+                <key id="4" time="1000">
                     <object_ref id="0" timeline="4" key="0" z_index="0"/>
                 </key>
-                <key id="5" time="748">
+                <key id="5" time="1200">
                     <object_ref id="0" timeline="5" key="0" z_index="0"/>
                 </key>
-                <key id="6" time="900">
+                <key id="6" time="1399">
                     <object_ref id="0" timeline="6" key="0" z_index="0"/>
                 </key>
             </mainline>
@@ -37,32 +37,32 @@
                 </key>
             </timeline>
             <timeline id="1" name="2">
-                <key id="0" time="152" spin="0">
+                <key id="0" time="400" spin="0">
                     <object folder="0" file="1" x="-181" y="328" angle="0"/>
                 </key>
             </timeline>
             <timeline id="2" name="3">
-                <key id="0" time="298" spin="0">
+                <key id="0" time="601" spin="0">
                     <object folder="0" file="2" x="-181" y="328" angle="0"/>
                 </key>
             </timeline>
             <timeline id="3" name="4">
-                <key id="0" time="444" spin="0">
+                <key id="0" time="799" spin="0">
                     <object folder="0" file="3" x="-181" y="328" angle="0"/>
                 </key>
             </timeline>
             <timeline id="4" name="3_000">
-                <key id="0" time="602" spin="0">
+                <key id="0" time="1000" spin="0">
                     <object folder="0" file="2" x="-181" y="328" angle="0"/>
                 </key>
             </timeline>
             <timeline id="5" name="2_000">
-                <key id="0" time="748" spin="0">
+                <key id="0" time="1200" spin="0">
                     <object folder="0" file="1" x="-181" y="328" angle="0"/>
                 </key>
             </timeline>
             <timeline id="6" name="1_000">
-                <key id="0" time="900" spin="0">
+                <key id="0" time="1399" spin="0">
                     <object folder="0" file="0" x="-181" y="328" angle="0"/>
                 </key>
             </timeline>
