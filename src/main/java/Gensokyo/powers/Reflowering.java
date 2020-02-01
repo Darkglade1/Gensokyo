@@ -24,8 +24,8 @@ public class Reflowering extends AbstractPower {
     public static final String[] DESCRIPTIONS = powerStrings.DESCRIPTIONS;
     private Yuyuko yuyuko;
 
-    private static final Texture tex84 = TextureLoader.getTexture(makePowerPath("DeathMark84.png"));
-    private static final Texture tex32 = TextureLoader.getTexture(makePowerPath("DeathMark32.png"));
+    private static final Texture tex84 = TextureLoader.getTexture(makePowerPath("Reflowering84.png"));
+    private static final Texture tex32 = TextureLoader.getTexture(makePowerPath("Reflowering32.png"));
 
     public Reflowering(AbstractCreature owner, Yuyuko yuyuko) {
         name = NAME;

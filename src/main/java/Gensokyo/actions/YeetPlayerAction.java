@@ -17,7 +17,6 @@ import com.megacrit.cardcrawl.potions.FairyPotion;
 import com.megacrit.cardcrawl.powers.AbstractPower;
 import com.megacrit.cardcrawl.relics.AbstractRelic;
 import com.megacrit.cardcrawl.relics.LizardTail;
-import com.megacrit.cardcrawl.relics.MarkOfTheBloom;
 import com.megacrit.cardcrawl.screens.DeathScreen;
 import com.megacrit.cardcrawl.vfx.combat.BlockedNumberEffect;
 import com.megacrit.cardcrawl.vfx.combat.HbBlockBrokenEffect;
