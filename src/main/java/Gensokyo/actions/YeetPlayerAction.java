@@ -47,7 +47,7 @@ public class YeetPlayerAction extends AbstractGameAction {
             AbstractDungeon.player.getRelic(PerfectCherryBlossom.ID).onTrigger();
         }
         boolean uGonDie = true;
-        if (p.hasPotion(FairyPotion.POTION_ID) && !p.hasRelic(MarkOfTheBloom.ID)) {
+        if (p.hasPotion(FairyPotion.POTION_ID)) {
             for (AbstractPotion q : p.potions) {
                 if (q.ID.equals(FairyPotion.POTION_ID)) {// 1834
                     q.flash();// 1835
@@ -58,9 +58,9 @@ public class YeetPlayerAction extends AbstractGameAction {
                     break;
                 }
             }
-        } else if (p.hasRelic(LizardTail.ID) && !p.hasRelic(MarkOfTheBloom.ID)) {
+        } else if (p.hasRelic(LizardTail.ID)) {
             AbstractRelic lizardTail = p.getRelic(LizardTail.ID);
-            if (!lizardTail.usedUp) {
+            if (lizardTail.counter == -1) {
                 p.getRelic(LizardTail.ID).onTrigger();
                 uGonDie = false;
             }

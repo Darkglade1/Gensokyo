@@ -234,9 +234,11 @@
   },
   "Gensokyo:Yuyuko": {
     "MOVES": [
-      "Resurrection Butterfly",
+      "Ghostly Butterfly",
       "Ghastly Dream",
-      "Ink-Black Cherry Blossom"
+      "Law of Mortality",
+      "Resurrection Butterfly",
+      "Saigyouji Parinirvana"
     ],
     "NAME": "Princess of the Netherworld",
     "DIALOG": [

@@ -1,35 +1,33 @@
 package Gensokyo.monsters.bossRush;
 
 import Gensokyo.BetterSpriterAnimation;
-import Gensokyo.GensokyoMod;
+import Gensokyo.actions.YeetPlayerAction;
+import Gensokyo.cards.Butterfly;
 import Gensokyo.powers.DeathTouch;
-import Gensokyo.powers.Evasive;
-import Gensokyo.powers.IllusionaryDominance;
-import Gensokyo.vfx.FlexibleCalmParticleEffect;
-import Gensokyo.vfx.FlexibleStanceAuraEffect;
+import Gensokyo.powers.Reflowering;
 import basemod.abstracts.CustomMonster;
-import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.graphics.g2d.TextureRegion;
-import com.badlogic.gdx.math.MathUtils;
-import com.brashmonkey.spriter.Animation;
-import com.brashmonkey.spriter.Player;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.animations.TalkAction;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.actions.common.DamageAction;
 import com.megacrit.cardcrawl.actions.common.GainBlockAction;
+import com.megacrit.cardcrawl.actions.common.MakeTempCardInDiscardAction;
 import com.megacrit.cardcrawl.actions.common.RollMoveAction;
 import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.core.Settings;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.localization.MonsterStrings;
-import com.megacrit.cardcrawl.powers.StrengthPower;
-import com.megacrit.cardcrawl.powers.WeakPower;
-import com.megacrit.cardcrawl.stances.CalmStance;
+import com.megacrit.cardcrawl.monsters.EnemyMoveInfo;
+import com.megacrit.cardcrawl.powers.VulnerablePower;
+
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Map;
 
 public class Yuyuko extends CustomMonster
 {
@@ -41,90 +39,133 @@ public class Yuyuko extends CustomMonster
     public static final String[] MOVES;
     public static final String[] DIALOG;
     private boolean firstMove = true;
-    private static final byte BUFF = 1;
-    private static final byte ATTACK = 2;
-    private static final byte DEBUFF_ATTACK = 3;
-    private static final int NORMAL_ATTACK_DAMAGE = 6;
-    private static final int A3_NORMAL_ATTACK_DAMAGE = 7;
-    private static final int NORMAL_ATTACK_HITS = 2;
-    private static final int DEBUFF_ATTACK_DAMAGE = 8;
-    private static final int A3_DEBUFF_ATTACK_DAMAGE = 9;
+    private static final byte GHOSTLY_BUTTERFLY = 0;
+    private static final byte GHASTLY_DREAM = 1;
+    private static final byte LAW_OF_MORTALITY = 2;
+    private static final byte RESURRECTION_BUTTERFLY = 3;
+    private static final byte SAIGYOUJI_PARINIRVANA = 4;
+    private static final int COOLDOWN = 2;
+    private static final int GHOSTLY_BUTTERFLY_DAMAGE = 16;
+    private static final int A4_GHOSTLY_BUTTERFLY_DAMAGE = 18;
+    private static final int GHASTLY_DREAM_DAMAGE = 20;
+    private static final int A4_GHASTLY_DREAM_DAMAGE = 22;
+    private static final int RESURRECTION_BUTTERFLY_DAMAGE = 13;
+    private static final int A4_RESURRECTION_BUTTERFLY_DAMAGE = 14;
+    private static final int BLOCK = 20;
+    private static final int A9_BLOCK = 22;
     private static final int DEBUFF_AMOUNT = 2;
-    private static final int BLOCK = 9;
-    private static final int A8_BLOCK = 10;
-    private static final int STRENGTH = 3;
-    private static final int A18_STRENGTH = 4;
-    private static final int HP_MIN = 70;
-    private static final int HP_MAX = 72;
-    private static final int A_2_HP_MIN = 72;
-    private static final int A_2_HP_MAX = 74;
-    private int normalDamage;
-    private int debuffDamage;
+    private static final int STATUS_COUNT = 2;
+    private static final int A19_STATUS_COUNT = 3;
+    private static final int FAN_INCREMENT = 1;
+    private static final int A19_FAN_INCREMENT = 2;
+    public static final int FAN_THRESHOLD = 10;
+    private static final int HP = 500;
+    private static final int A9_HP = 530;
+    private int ghostlyButterflyDamage;
+    private int ghastlyDreamDamage;
+    private int resurrectionButterflyDamage;
+    private int statusCount;
+    private int fanIncrement;
     private int block;
-    private int strength;
-
+    public int fanCounter;
+    private int turnCounter;
+    private Map<Byte, EnemyMoveInfo> moves;
 
     public Yuyuko() {
         this(0.0f, 0.0f);
     }
 
     public Yuyuko(final float x, final float y) {
-        super(NAME, ID, HP_MAX, -5.0F, 0, 230.0f, 295.0f, null, x, y);
+        super(NAME, ID, HP, -5.0F, 0, 230.0f, 295.0f, null, x, y);
         this.animation = new BetterSpriterAnimation("GensokyoResources/images/monsters/Yuyuko/Spriter/YuyukoAnimation.scml");
         this.type = EnemyType.BOSS;
         this.dialogX = (this.hb_x - 70.0F) * Settings.scale;
         this.dialogY -= (this.hb_y - 55.0F) * Settings.scale;
-        if (AbstractDungeon.ascensionLevel >= 18) {
-            this.strength = A18_STRENGTH;
+        if (AbstractDungeon.ascensionLevel >= 19) {
+            this.statusCount = A19_STATUS_COUNT;
+            this.fanIncrement = A19_FAN_INCREMENT;
         } else {
-            this.strength = STRENGTH;
+            this.statusCount = STATUS_COUNT;
+            this.fanIncrement = FAN_INCREMENT;
         }
-        if (AbstractDungeon.ascensionLevel >= 8) {
-            this.setHp(A_2_HP_MIN, A_2_HP_MAX);
-            this.block = A8_BLOCK;
+        if (AbstractDungeon.ascensionLevel >= 9) {
+            this.setHp(A9_HP);
+            this.block = A9_BLOCK;
         } else {
-            this.setHp(HP_MIN, HP_MAX);
+            this.setHp(HP);
             this.block = BLOCK;
         }
 
-        if (AbstractDungeon.ascensionLevel >= 3) {
-            this.normalDamage = A3_NORMAL_ATTACK_DAMAGE;
-            this.debuffDamage = A3_DEBUFF_ATTACK_DAMAGE;
+        if (AbstractDungeon.ascensionLevel >= 4) {
+            this.ghostlyButterflyDamage = A4_GHOSTLY_BUTTERFLY_DAMAGE;
+            this.ghastlyDreamDamage = A4_GHASTLY_DREAM_DAMAGE;
+            this.resurrectionButterflyDamage = A4_RESURRECTION_BUTTERFLY_DAMAGE;
         } else {
-            this.normalDamage = NORMAL_ATTACK_DAMAGE;
-            this.debuffDamage = DEBUFF_ATTACK_DAMAGE;
+            this.ghostlyButterflyDamage = GHOSTLY_BUTTERFLY_DAMAGE;
+            this.ghastlyDreamDamage = GHASTLY_DREAM_DAMAGE;
+            this.resurrectionButterflyDamage = RESURRECTION_BUTTERFLY_DAMAGE;
         }
-        this.damage.add(new DamageInfo(this, this.normalDamage));
-        this.damage.add(new DamageInfo(this, this.debuffDamage));
+        this.damage.add(new DamageInfo(this, this.ghostlyButterflyDamage));
+        this.damage.add(new DamageInfo(this, this.ghastlyDreamDamage));
+        this.damage.add(new DamageInfo(this, this.resurrectionButterflyDamage));
+
+        this.moves = new HashMap<>();
+        this.moves.put(GHOSTLY_BUTTERFLY, new EnemyMoveInfo(GHOSTLY_BUTTERFLY, Intent.ATTACK_DEBUFF, this.ghostlyButterflyDamage, 0, false));
+        this.moves.put(GHASTLY_DREAM, new EnemyMoveInfo(GHASTLY_DREAM, Intent.ATTACK, this.ghastlyDreamDamage, 0, false));
+        this.moves.put(LAW_OF_MORTALITY, new EnemyMoveInfo(LAW_OF_MORTALITY, Intent.DEBUFF, -1, 0, true));
+        this.moves.put(RESURRECTION_BUTTERFLY, new EnemyMoveInfo(RESURRECTION_BUTTERFLY, Intent.ATTACK_DEFEND, this.resurrectionButterflyDamage, 0, false));
+        this.moves.put(SAIGYOUJI_PARINIRVANA, new EnemyMoveInfo(SAIGYOUJI_PARINIRVANA, Intent.UNKNOWN, -1, 0, false));
+
         this.FAN_REGION = new TextureRegion(FAN);
     }
 
     @Override
     public void usePreBattleAction() {
         this.addToBot(new ApplyPowerAction(this, this, new DeathTouch(this)));
+        this.addToBot(new ApplyPowerAction(this, this, new Reflowering(this, this)));
     }
     
     @Override
     public void takeTurn() {
+        if (this.firstMove) {
+            AbstractDungeon.actionManager.addToBottom(new TalkAction(this, DIALOG[0]));
+            this.firstMove = false;
+        }
+        DamageInfo info = new DamageInfo(this, moves.get(this.nextMove).baseDamage, DamageInfo.DamageType.NORMAL);
+        if(info.base > -1) {
+            info.applyPowers(this, AbstractDungeon.player);
+        }
         switch (this.nextMove) {
-            case BUFF: {
-                if (this.firstMove) {
-                    AbstractDungeon.actionManager.addToBottom(new TalkAction(this, DIALOG[0]));
-                    this.firstMove = false;
-                }
+            case GHOSTLY_BUTTERFLY: {
+                AbstractDungeon.actionManager.addToBottom(new DamageAction(AbstractDungeon.player, info, AbstractGameAction.AttackEffect.BLUNT_LIGHT));
+                AbstractDungeon.actionManager.addToBottom(new MakeTempCardInDiscardAction(new Butterfly(), this.statusCount));
+                turnCounter++;
+                break;
+            }
+            case GHASTLY_DREAM: {
+                AbstractDungeon.actionManager.addToBottom(new DamageAction(AbstractDungeon.player, info, AbstractGameAction.AttackEffect.SLASH_DIAGONAL));
+                turnCounter++;
+                break;
+            }
+            case LAW_OF_MORTALITY: {
+                AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(AbstractDungeon.player, this, new VulnerablePower(AbstractDungeon.player, DEBUFF_AMOUNT, true), DEBUFF_AMOUNT));
+                //AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(AbstractDungeon.player, this, new FrailPower(AbstractDungeon.player, DEBUFF_AMOUNT, true), DEBUFF_AMOUNT));
+                turnCounter++;
+                break;
+            }
+            case RESURRECTION_BUTTERFLY: {
+                AbstractDungeon.actionManager.addToBottom(new DamageAction(AbstractDungeon.player, info, AbstractGameAction.AttackEffect.BLUNT_HEAVY));
                 AbstractDungeon.actionManager.addToBottom(new GainBlockAction(this, this, this.block));
-                AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(this, this, new StrengthPower(this, this.strength), this.strength));
-                break;
-            }
-            case DEBUFF_ATTACK: {
-                AbstractDungeon.actionManager.addToBottom(new DamageAction(AbstractDungeon.player, this.damage.get(1), AbstractGameAction.AttackEffect.SLASH_DIAGONAL));
-                AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(AbstractDungeon.player, this, new WeakPower(AbstractDungeon.player, DEBUFF_AMOUNT, true), DEBUFF_AMOUNT));
-                break;
-            }
-            case ATTACK: {
-                for (int i = 0; i < NORMAL_ATTACK_HITS; i++) {
-                    AbstractDungeon.actionManager.addToBottom(new DamageAction(AbstractDungeon.player, this.damage.get(0), AbstractGameAction.AttackEffect.BLUNT_LIGHT));
+                fanCounter += fanIncrement;
+                if (this.hasPower(Reflowering.POWER_ID)) {
+                    this.getPower(Reflowering.POWER_ID).flash();
+                    this.getPower(Reflowering.POWER_ID).amount = fanCounter;
                 }
+                turnCounter = 0;
+                break;
+            }
+            case SAIGYOUJI_PARINIRVANA: {
+                addToBot(new YeetPlayerAction());
                 break;
             }
         }
@@ -134,18 +175,29 @@ public class Yuyuko extends CustomMonster
     @Override
     protected void getMove(final int num) {
         if (this.firstMove) {
-            this.setMove(MOVES[0], BUFF, Intent.DEFEND_BUFF);
-        } else if (!this.lastMove(BUFF) && !this.lastMoveBefore(BUFF)) {
-            this.setMove(MOVES[0], BUFF, Intent.DEFEND_BUFF);
+            this.setMoveShortcut(GHOSTLY_BUTTERFLY);
+        } else if (this.fanCounter >= FAN_THRESHOLD) {
+            this.setMoveShortcut(SAIGYOUJI_PARINIRVANA);
+        } else if (turnCounter >= COOLDOWN) {
+            this.setMoveShortcut(RESURRECTION_BUTTERFLY);
         } else {
-            if (this.lastMove(BUFF)) {
-                this.setMove(MOVES[2], ATTACK, Intent.ATTACK, (this.damage.get(0)).base, NORMAL_ATTACK_HITS, true);
-            } else if (this.lastMove(ATTACK)){
-
-            } else {
-                this.setMove(MOVES[2], ATTACK, Intent.ATTACK, (this.damage.get(0)).base, NORMAL_ATTACK_HITS, true);
+            ArrayList<Byte> possibilities = new ArrayList<>();
+            if (!this.lastMove(GHOSTLY_BUTTERFLY)) {
+                possibilities.add(GHOSTLY_BUTTERFLY);
             }
+            if (!this.lastMove(GHASTLY_DREAM)) {
+                possibilities.add(GHASTLY_DREAM);
+            }
+            if (!this.lastMove(LAW_OF_MORTALITY)) {
+                possibilities.add(LAW_OF_MORTALITY);
+            }
+            this.setMoveShortcut(possibilities.get(AbstractDungeon.monsterRng.random(possibilities.size() - 1)));
         }
+    }
+
+    private void setMoveShortcut(byte next) {
+        EnemyMoveInfo info = this.moves.get(next);
+        this.setMove(MOVES[next], next, info.intent, info.baseDamage, info.multiplier, info.isMultiDamage);
     }
 
     @Override

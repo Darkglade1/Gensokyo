@@ -150,5 +150,9 @@
 "Gensokyo:DeathTouch": {
         "NAME": "Death Touch",
         "DESCRIPTIONS": ["If you receive unblocked attack damage from this creature, you #rdie."]
+},
+"Gensokyo:Reflowering": {
+        "NAME": "Reflowering",
+        "DESCRIPTIONS": ["Whenever you play a #yButterfly, add a #psoul to the fan. When the fan has #b", " #psouls . . ."]
 }
 }

@@ -4,6 +4,7 @@ import Gensokyo.cards.Apocalypse;
 import Gensokyo.cards.BlessingOfConstitution;
 import Gensokyo.cards.BlessingOfFortitude;
 import Gensokyo.cards.BlessingOfVigor;
+import Gensokyo.cards.Butterfly;
 import Gensokyo.cards.CrescentMoonSlash;
 import Gensokyo.cards.Doppelganger;
 import Gensokyo.cards.EightFeetTall;
@@ -530,6 +531,7 @@ public class GensokyoMod implements
 
         BaseMod.addCard(new CrescentMoonSlash());
         BaseMod.addCard(new Frozen());
+        BaseMod.addCard(new Butterfly());
 
         //Urban Legends
         BaseMod.addCard(new MissMary());
