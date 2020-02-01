@@ -108,6 +108,6 @@
   },
   "Gensokyo:Butterfly": {
     "NAME": "Butterfly",
-    "DESCRIPTION": "Gain !B! Block. NL Lose !M! HP. NL Exhaust."
+    "DESCRIPTION": "Retain. NL Gain !B! Block. NL Lose !M! HP. NL Exhaust."
   }
 }

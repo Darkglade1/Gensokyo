@@ -17,6 +17,7 @@ import com.megacrit.cardcrawl.potions.FairyPotion;
 import com.megacrit.cardcrawl.powers.AbstractPower;
 import com.megacrit.cardcrawl.relics.AbstractRelic;
 import com.megacrit.cardcrawl.relics.LizardTail;
+import com.megacrit.cardcrawl.relics.MarkOfTheBloom;
 import com.megacrit.cardcrawl.screens.DeathScreen;
 import com.megacrit.cardcrawl.vfx.combat.BlockedNumberEffect;
 import com.megacrit.cardcrawl.vfx.combat.HbBlockBrokenEffect;
@@ -46,7 +47,7 @@ public class YeetPlayerAction extends AbstractGameAction {
             AbstractDungeon.player.getRelic(PerfectCherryBlossom.ID).onTrigger();
         }
         boolean uGonDie = true;
-        if (p.hasPotion(FairyPotion.POTION_ID)) {
+        if (p.hasPotion(FairyPotion.POTION_ID) && !p.hasRelic(MarkOfTheBloom.ID)) {
             for (AbstractPotion q : p.potions) {
                 if (q.ID.equals(FairyPotion.POTION_ID)) {// 1834
                     q.flash();// 1835
@@ -57,7 +58,7 @@ public class YeetPlayerAction extends AbstractGameAction {
                     break;
                 }
             }
-        } else if (p.hasRelic(LizardTail.ID)) {
+        } else if (p.hasRelic(LizardTail.ID) && !p.hasRelic(MarkOfTheBloom.ID)) {
             AbstractRelic lizardTail = p.getRelic(LizardTail.ID);
             if (lizardTail.counter == -1) {
                 p.getRelic(LizardTail.ID).onTrigger();

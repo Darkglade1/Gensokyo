@@ -45,9 +45,7 @@ public class Reflowering extends AbstractPower {
     @Override
     public void onAfterUseCard(AbstractCard card, UseCardAction action) {
         if (card instanceof Butterfly) {
-            this.flash();
-            yuyuko.fanCounter++;
-            this.amount = yuyuko.fanCounter;
+            yuyuko.incrementFan();
         }
     }
 

@@ -45,12 +45,12 @@ public class Yuyuko extends CustomMonster
     private static final byte RESURRECTION_BUTTERFLY = 3;
     private static final byte SAIGYOUJI_PARINIRVANA = 4;
     private static final int COOLDOWN = 2;
-    private static final int GHOSTLY_BUTTERFLY_DAMAGE = 16;
-    private static final int A4_GHOSTLY_BUTTERFLY_DAMAGE = 18;
-    private static final int GHASTLY_DREAM_DAMAGE = 20;
-    private static final int A4_GHASTLY_DREAM_DAMAGE = 22;
-    private static final int RESURRECTION_BUTTERFLY_DAMAGE = 13;
-    private static final int A4_RESURRECTION_BUTTERFLY_DAMAGE = 14;
+    private static final int GHOSTLY_BUTTERFLY_DAMAGE = 20;
+    private static final int A4_GHOSTLY_BUTTERFLY_DAMAGE = 22;
+    private static final int GHASTLY_DREAM_DAMAGE = 26;
+    private static final int A4_GHASTLY_DREAM_DAMAGE = 28;
+    private static final int RESURRECTION_BUTTERFLY_DAMAGE = 16;
+    private static final int A4_RESURRECTION_BUTTERFLY_DAMAGE = 18;
     private static final int BLOCK = 20;
     private static final int A9_BLOCK = 22;
     private static final int DEBUFF_AMOUNT = 2;
@@ -105,9 +105,6 @@ public class Yuyuko extends CustomMonster
             this.ghastlyDreamDamage = GHASTLY_DREAM_DAMAGE;
             this.resurrectionButterflyDamage = RESURRECTION_BUTTERFLY_DAMAGE;
         }
-        this.damage.add(new DamageInfo(this, this.ghostlyButterflyDamage));
-        this.damage.add(new DamageInfo(this, this.ghastlyDreamDamage));
-        this.damage.add(new DamageInfo(this, this.resurrectionButterflyDamage));
 
         this.moves = new HashMap<>();
         this.moves.put(GHOSTLY_BUTTERFLY, new EnemyMoveInfo(GHOSTLY_BUTTERFLY, Intent.ATTACK_DEBUFF, this.ghostlyButterflyDamage, 0, false));
@@ -156,11 +153,7 @@ public class Yuyuko extends CustomMonster
             case RESURRECTION_BUTTERFLY: {
                 AbstractDungeon.actionManager.addToBottom(new DamageAction(AbstractDungeon.player, info, AbstractGameAction.AttackEffect.BLUNT_HEAVY));
                 AbstractDungeon.actionManager.addToBottom(new GainBlockAction(this, this, this.block));
-                fanCounter += fanIncrement;
-                if (this.hasPower(Reflowering.POWER_ID)) {
-                    this.getPower(Reflowering.POWER_ID).flash();
-                    this.getPower(Reflowering.POWER_ID).amount = fanCounter;
-                }
+                incrementFan();
                 turnCounter = 0;
                 break;
             }
@@ -170,6 +163,17 @@ public class Yuyuko extends CustomMonster
             }
         }
         AbstractDungeon.actionManager.addToBottom(new RollMoveAction(this));
+    }
+
+    public void incrementFan() {
+        fanCounter += fanIncrement;
+        if (fanCounter > FAN_THRESHOLD) {
+            fanCounter = FAN_THRESHOLD;
+        }
+        if (this.hasPower(Reflowering.POWER_ID)) {
+            this.getPower(Reflowering.POWER_ID).flash();
+            this.getPower(Reflowering.POWER_ID).amount = fanCounter;
+        }
     }
 
     @Override

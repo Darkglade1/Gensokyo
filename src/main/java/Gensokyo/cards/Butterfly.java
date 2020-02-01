@@ -1,6 +1,7 @@
 package Gensokyo.cards;
 
 import Gensokyo.GensokyoMod;
+import com.evacipated.cardcrawl.mod.stslib.fields.cards.AbstractCard.AlwaysRetainField;
 import com.megacrit.cardcrawl.actions.common.GainBlockAction;
 import com.megacrit.cardcrawl.actions.common.LoseHPAction;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
@@ -27,6 +28,7 @@ public class Butterfly extends AbstractDefaultCard {
         magicNumber = baseMagicNumber = HP_LOSS;
         baseBlock = BLOCK;
         exhaust = true;
+        selfRetain = true;
     }
 
     @Override
