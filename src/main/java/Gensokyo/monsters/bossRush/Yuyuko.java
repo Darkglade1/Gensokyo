@@ -180,17 +180,23 @@ public class Yuyuko extends CustomMonster
     }
 
     public void incrementFan(int amount) {
-        fanCounter += amount;
-        if (fanCounter > FAN_THRESHOLD) {
-            fanCounter = FAN_THRESHOLD;
-        }
-        if (this.hasPower(Reflowering.POWER_ID)) {
-            this.getPower(Reflowering.POWER_ID).flash();
-            this.getPower(Reflowering.POWER_ID).amount = fanCounter;
-        }
-        for (int i = 0; i < amount; i++) {
-            if (souls.size() < FAN_THRESHOLD) {
-                souls.add(new BetterSpriterAnimation("GensokyoResources/images/monsters/Yuyuko/BlueSoul/Spriter/BlueSoulAnimation.scml"));
+        if (fanCounter < FAN_THRESHOLD) {
+            fanCounter += amount;
+            if (fanCounter > FAN_THRESHOLD) {
+                fanCounter = FAN_THRESHOLD;
+            }
+            if (this.hasPower(Reflowering.POWER_ID)) {
+                this.getPower(Reflowering.POWER_ID).flash();
+                this.getPower(Reflowering.POWER_ID).amount = fanCounter;
+            }
+            for (int i = 0; i < amount; i++) {
+                if (souls.size() < FAN_THRESHOLD) {
+                    if (souls.size() < 5) {
+                        souls.add(new BetterSpriterAnimation("GensokyoResources/images/monsters/Yuyuko/BlueSoul/Spriter/BlueSoulAnimation.scml"));
+                    } else {
+                        souls.add(new BetterSpriterAnimation("GensokyoResources/images/monsters/Yuyuko/PurpleSoul/Spriter/PurpleSoulAnimation.scml"));
+                    }
+                }
             }
         }
     }
@@ -211,7 +217,7 @@ public class Yuyuko extends CustomMonster
             if (!this.lastMove(GHASTLY_DREAM)) {
                 possibilities.add(GHASTLY_DREAM);
             }
-            if (!this.lastMove(LAW_OF_MORTALITY)) {
+            if (!this.lastMove(LAW_OF_MORTALITY) && !this.lastMoveBefore(LAW_OF_MORTALITY)) {
                 possibilities.add(LAW_OF_MORTALITY);
             }
             this.setMoveShortcut(possibilities.get(AbstractDungeon.monsterRng.random(possibilities.size() - 1)));
