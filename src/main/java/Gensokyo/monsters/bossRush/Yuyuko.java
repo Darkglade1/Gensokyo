@@ -6,6 +6,7 @@ import Gensokyo.cards.Butterfly;
 import Gensokyo.powers.DeathTouch;
 import Gensokyo.powers.Reflowering;
 import basemod.abstracts.CustomMonster;
+import basemod.animations.AbstractAnimation;
 import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
@@ -74,6 +75,7 @@ public class Yuyuko extends CustomMonster
     public int fanCounter;
     private int turnCounter;
     private Map<Byte, EnemyMoveInfo> moves;
+    private ArrayList<AbstractAnimation> souls = new ArrayList<>();
 
     public Yuyuko() {
         this(0.0f, 0.0f);
@@ -186,6 +188,11 @@ public class Yuyuko extends CustomMonster
             this.getPower(Reflowering.POWER_ID).flash();
             this.getPower(Reflowering.POWER_ID).amount = fanCounter;
         }
+        for (int i = 0; i < amount; i++) {
+            if (souls.size() < FAN_THRESHOLD) {
+                souls.add(new BetterSpriterAnimation("GensokyoResources/images/monsters/Yuyuko/BlueSoul/Spriter/BlueSoulAnimation.scml"));
+            }
+        }
     }
 
     @Override
@@ -223,6 +230,20 @@ public class Yuyuko extends CustomMonster
         float scaleHeight = Settings.scale;
         sb.setColor(Color.WHITE);
         sb.draw(FAN_REGION, this.drawX - this.FAN_REGION.getRegionWidth() * scaleWidth, this.drawY + (this.FAN_REGION.getRegionHeight() * scaleHeight) / 2, 0.0F, 0.0F, this.FAN_REGION.getRegionWidth(), this.FAN_REGION.getRegionHeight(), scaleWidth, scaleHeight, 0.0F);
+        float xOffsetIncrement = 75.0F;
+        float yOffsetIncrement = 130.0F;
+        float xOffset = 160.0F;
+        float yOffset = 130.0F;
+        for (int i = 0; i < souls.size(); i++) {
+            AbstractAnimation soul = souls.get(i);
+            soul.renderSprite(sb, this.drawX - (this.FAN_REGION.getRegionWidth() - xOffset) * scaleWidth, this.drawY + ((this.FAN_REGION.getRegionHeight() + yOffset )* scaleHeight) / 2);
+            xOffset += xOffsetIncrement;
+            if (i < 4) {
+                yOffset += yOffsetIncrement;
+            } else if (i > 4) {
+                yOffset -= yOffsetIncrement;
+            }
+        }
     }
 
     static {
