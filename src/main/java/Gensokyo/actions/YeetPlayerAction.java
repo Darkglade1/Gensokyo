@@ -59,8 +59,11 @@ public class YeetPlayerAction extends AbstractGameAction {
                 }
             }
         } else if (p.hasRelic(LizardTail.ID) && !p.hasRelic(MarkOfTheBloom.ID)) {
-            p.getRelic(LizardTail.ID).onTrigger();
-            uGonDie = false;
+            AbstractRelic lizardTail = p.getRelic(LizardTail.ID);
+            if (!lizardTail.usedUp) {
+                p.getRelic(LizardTail.ID).onTrigger();
+                uGonDie = false;
+            }
         } else {
             if (uGonDie)
                 for (AbstractPower q : p.powers) {

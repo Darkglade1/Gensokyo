@@ -1,13 +1,18 @@
 package Gensokyo.monsters.bossRush;
 
 import Gensokyo.BetterSpriterAnimation;
+import Gensokyo.GensokyoMod;
+import Gensokyo.powers.DeathTouch;
 import Gensokyo.powers.Evasive;
 import Gensokyo.powers.IllusionaryDominance;
 import Gensokyo.vfx.FlexibleCalmParticleEffect;
 import Gensokyo.vfx.FlexibleStanceAuraEffect;
 import basemod.abstracts.CustomMonster;
 import com.badlogic.gdx.Gdx;
+import com.badlogic.gdx.graphics.Color;
+import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
+import com.badlogic.gdx.graphics.g2d.TextureRegion;
 import com.badlogic.gdx.math.MathUtils;
 import com.brashmonkey.spriter.Animation;
 import com.brashmonkey.spriter.Player;
@@ -28,6 +33,8 @@ import com.megacrit.cardcrawl.stances.CalmStance;
 
 public class Yuyuko extends CustomMonster
 {
+    private static final Texture FAN = new Texture("GensokyoResources/images/monsters/Yuyuko/Fan.png");
+    private TextureRegion FAN_REGION;
     public static final String ID = "Gensokyo:Yuyuko";
     private static final MonsterStrings monsterStrings;
     public static final String NAME;
@@ -55,9 +62,7 @@ public class Yuyuko extends CustomMonster
     private int debuffDamage;
     private int block;
     private int strength;
-    public boolean debuffTriggered;
-    private float particleTimer;
-    private float particleTimer2;
+
 
     public Yuyuko() {
         this(0.0f, 0.0f);
@@ -91,12 +96,12 @@ public class Yuyuko extends CustomMonster
         }
         this.damage.add(new DamageInfo(this, this.normalDamage));
         this.damage.add(new DamageInfo(this, this.debuffDamage));
+        this.FAN_REGION = new TextureRegion(FAN);
     }
 
     @Override
     public void usePreBattleAction() {
-        AbstractDungeon.getCurrRoom().playBgmInstantly("Wind God Girl");
-        AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(this, this, new Evasive(this, 1)));
+        this.addToBot(new ApplyPowerAction(this, this, new DeathTouch(this)));
     }
     
     @Override
@@ -136,17 +141,22 @@ public class Yuyuko extends CustomMonster
             if (this.lastMove(BUFF)) {
                 this.setMove(MOVES[2], ATTACK, Intent.ATTACK, (this.damage.get(0)).base, NORMAL_ATTACK_HITS, true);
             } else if (this.lastMove(ATTACK)){
-                if (debuffTriggered) {
-                    this.setMove(MOVES[1], DEBUFF_ATTACK, Intent.ATTACK_DEBUFF, (this.damage.get(1)).base);
-                } else {
-                    this.setMove(MOVES[2], ATTACK, Intent.ATTACK, (this.damage.get(0)).base, NORMAL_ATTACK_HITS, true);
-                }
+
             } else {
                 this.setMove(MOVES[2], ATTACK, Intent.ATTACK, (this.damage.get(0)).base, NORMAL_ATTACK_HITS, true);
             }
         }
     }
-    
+
+    @Override
+    public void render(SpriteBatch sb) {
+        super.render(sb);
+        float scaleWidth = 1.0F * Settings.scale;
+        float scaleHeight = Settings.scale;
+        sb.setColor(Color.WHITE);
+        sb.draw(FAN_REGION, this.drawX - this.FAN_REGION.getRegionWidth() * scaleWidth, this.drawY + (this.FAN_REGION.getRegionHeight() * scaleHeight) / 2, 0.0F, 0.0F, this.FAN_REGION.getRegionWidth(), this.FAN_REGION.getRegionHeight(), scaleWidth, scaleHeight, 0.0F);
+    }
+
     static {
         monsterStrings = CardCrawlGame.languagePack.getMonsterStrings("Gensokyo:Yuyuko");
         NAME = Yuyuko.monsterStrings.NAME;

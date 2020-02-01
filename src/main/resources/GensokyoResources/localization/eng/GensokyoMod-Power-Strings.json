@@ -146,5 +146,9 @@
 "Gensokyo:DoppelgangerPower": {
         "NAME": "Doppelganger",
         "DESCRIPTIONS": ["Your next #b", " card is", " cards are", " played twice."]
+},
+"Gensokyo:DeathTouch": {
+        "NAME": "Death Touch",
+        "DESCRIPTIONS": ["If you receive unblocked attack damage from this creature, you #rdie."]
 }
 }
