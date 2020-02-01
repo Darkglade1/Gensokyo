@@ -16,6 +16,7 @@ import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.actions.common.DamageAction;
 import com.megacrit.cardcrawl.actions.common.GainBlockAction;
 import com.megacrit.cardcrawl.actions.common.MakeTempCardInDiscardAction;
+import com.megacrit.cardcrawl.actions.common.MakeTempCardInHandAction;
 import com.megacrit.cardcrawl.actions.common.RollMoveAction;
 import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
@@ -24,6 +25,7 @@ import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.localization.MonsterStrings;
 import com.megacrit.cardcrawl.monsters.EnemyMoveInfo;
 import com.megacrit.cardcrawl.powers.VulnerablePower;
+import com.megacrit.cardcrawl.powers.WeakPower;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -44,16 +46,18 @@ public class Yuyuko extends CustomMonster
     private static final byte LAW_OF_MORTALITY = 2;
     private static final byte RESURRECTION_BUTTERFLY = 3;
     private static final byte SAIGYOUJI_PARINIRVANA = 4;
+    private static final byte BUTTERFLY_DELUSION = 5;
     private static final int COOLDOWN = 2;
-    private static final int GHOSTLY_BUTTERFLY_DAMAGE = 20;
-    private static final int A4_GHOSTLY_BUTTERFLY_DAMAGE = 22;
-    private static final int GHASTLY_DREAM_DAMAGE = 26;
-    private static final int A4_GHASTLY_DREAM_DAMAGE = 28;
+    private static final int GHOSTLY_BUTTERFLY_DAMAGE = 26;
+    private static final int A4_GHOSTLY_BUTTERFLY_DAMAGE = 28;
+    private static final int GHASTLY_DREAM_DAMAGE = 20;
+    private static final int A4_GHASTLY_DREAM_DAMAGE = 22;
     private static final int RESURRECTION_BUTTERFLY_DAMAGE = 16;
     private static final int A4_RESURRECTION_BUTTERFLY_DAMAGE = 18;
     private static final int BLOCK = 20;
     private static final int A9_BLOCK = 22;
     private static final int DEBUFF_AMOUNT = 2;
+    private static final int FIRST_TURN_STATUS_COUNT = 3;
     private static final int STATUS_COUNT = 2;
     private static final int A19_STATUS_COUNT = 3;
     private static final int FAN_INCREMENT = 1;
@@ -108,10 +112,11 @@ public class Yuyuko extends CustomMonster
 
         this.moves = new HashMap<>();
         this.moves.put(GHOSTLY_BUTTERFLY, new EnemyMoveInfo(GHOSTLY_BUTTERFLY, Intent.ATTACK_DEBUFF, this.ghostlyButterflyDamage, 0, false));
-        this.moves.put(GHASTLY_DREAM, new EnemyMoveInfo(GHASTLY_DREAM, Intent.ATTACK, this.ghastlyDreamDamage, 0, false));
+        this.moves.put(GHASTLY_DREAM, new EnemyMoveInfo(GHASTLY_DREAM, Intent.ATTACK_DEBUFF, this.ghastlyDreamDamage, 0, false));
         this.moves.put(LAW_OF_MORTALITY, new EnemyMoveInfo(LAW_OF_MORTALITY, Intent.DEBUFF, -1, 0, true));
         this.moves.put(RESURRECTION_BUTTERFLY, new EnemyMoveInfo(RESURRECTION_BUTTERFLY, Intent.ATTACK_DEFEND, this.resurrectionButterflyDamage, 0, false));
         this.moves.put(SAIGYOUJI_PARINIRVANA, new EnemyMoveInfo(SAIGYOUJI_PARINIRVANA, Intent.UNKNOWN, -1, 0, false));
+        this.moves.put(BUTTERFLY_DELUSION, new EnemyMoveInfo(BUTTERFLY_DELUSION, Intent.DEFEND_DEBUFF, -1, 0, false));
 
         this.FAN_REGION = new TextureRegion(FAN);
     }
@@ -141,6 +146,7 @@ public class Yuyuko extends CustomMonster
             }
             case GHASTLY_DREAM: {
                 AbstractDungeon.actionManager.addToBottom(new DamageAction(AbstractDungeon.player, info, AbstractGameAction.AttackEffect.SLASH_DIAGONAL));
+                AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(AbstractDungeon.player, this, new WeakPower(AbstractDungeon.player, DEBUFF_AMOUNT, true), DEBUFF_AMOUNT));
                 turnCounter++;
                 break;
             }
@@ -153,7 +159,7 @@ public class Yuyuko extends CustomMonster
             case RESURRECTION_BUTTERFLY: {
                 AbstractDungeon.actionManager.addToBottom(new DamageAction(AbstractDungeon.player, info, AbstractGameAction.AttackEffect.BLUNT_HEAVY));
                 AbstractDungeon.actionManager.addToBottom(new GainBlockAction(this, this, this.block));
-                incrementFan();
+                incrementFan(fanIncrement);
                 turnCounter = 0;
                 break;
             }
@@ -161,12 +167,18 @@ public class Yuyuko extends CustomMonster
                 addToBot(new YeetPlayerAction());
                 break;
             }
+            case BUTTERFLY_DELUSION: {
+                AbstractDungeon.actionManager.addToBottom(new GainBlockAction(this, this, this.block));
+                AbstractDungeon.actionManager.addToBottom(new MakeTempCardInHandAction(new Butterfly(), FIRST_TURN_STATUS_COUNT));
+                turnCounter++;
+                break;
+            }
         }
         AbstractDungeon.actionManager.addToBottom(new RollMoveAction(this));
     }
 
-    public void incrementFan() {
-        fanCounter += fanIncrement;
+    public void incrementFan(int amount) {
+        fanCounter += amount;
         if (fanCounter > FAN_THRESHOLD) {
             fanCounter = FAN_THRESHOLD;
         }
@@ -179,7 +191,7 @@ public class Yuyuko extends CustomMonster
     @Override
     protected void getMove(final int num) {
         if (this.firstMove) {
-            this.setMoveShortcut(GHOSTLY_BUTTERFLY);
+            this.setMoveShortcut(BUTTERFLY_DELUSION);
         } else if (this.fanCounter >= FAN_THRESHOLD) {
             this.setMoveShortcut(SAIGYOUJI_PARINIRVANA);
         } else if (turnCounter >= COOLDOWN) {
