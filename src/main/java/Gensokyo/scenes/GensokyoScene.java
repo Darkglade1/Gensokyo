@@ -7,6 +7,7 @@ import Gensokyo.monsters.Mamizou;
 import Gensokyo.monsters.Reimu;
 import Gensokyo.monsters.Sumireko;
 import Gensokyo.monsters.Yukari;
+import Gensokyo.monsters.bossRush.Yuyuko;
 import Gensokyo.monsters.marisaMonsters.Patchouli;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.Color;
@@ -87,6 +88,8 @@ public class GensokyoScene extends AbstractScene {
                     this.bg = this.atlas.findRegion("mod/Palace");
                 } else if (mo instanceof Sumireko) {
                     this.bg = this.atlas.findRegion("mod/OutsideWorld");
+                } else if (mo instanceof Yuyuko) {
+                    this.bg = this.atlas.findRegion("mod/ElegantPlace");
                 } else {
                     this.bg = this.atlas.findRegion("mod/TanukiForest");
                 }
