@@ -1,6 +1,8 @@
 package Gensokyo.monsters.bossRush;
 
 import Gensokyo.BetterSpriterAnimation;
+import Gensokyo.RazIntent.DeathIntent;
+import Gensokyo.RazIntent.IntentEnums;
 import Gensokyo.actions.YeetPlayerAction;
 import Gensokyo.cards.Butterfly;
 import Gensokyo.powers.DeathTouch;
@@ -117,7 +119,7 @@ public class Yuyuko extends CustomMonster
         this.moves.put(GHASTLY_DREAM, new EnemyMoveInfo(GHASTLY_DREAM, Intent.ATTACK_DEBUFF, this.ghastlyDreamDamage, 0, false));
         this.moves.put(LAW_OF_MORTALITY, new EnemyMoveInfo(LAW_OF_MORTALITY, Intent.DEBUFF, -1, 0, true));
         this.moves.put(RESURRECTION_BUTTERFLY, new EnemyMoveInfo(RESURRECTION_BUTTERFLY, Intent.ATTACK_DEFEND, this.resurrectionButterflyDamage, 0, false));
-        this.moves.put(SAIGYOUJI_PARINIRVANA, new EnemyMoveInfo(SAIGYOUJI_PARINIRVANA, Intent.UNKNOWN, -1, 0, false));
+        this.moves.put(SAIGYOUJI_PARINIRVANA, new EnemyMoveInfo(SAIGYOUJI_PARINIRVANA, IntentEnums.DEATH, -1, 0, false));
         this.moves.put(BUTTERFLY_DELUSION, new EnemyMoveInfo(BUTTERFLY_DELUSION, Intent.DEFEND_DEBUFF, -1, 0, false));
 
         this.FAN_REGION = new TextureRegion(FAN);

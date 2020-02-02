@@ -22,5 +22,11 @@
       "Choose an Urban Legend to add to your hand.",
       "Choose any ", " Urban Legends to add to your hand."
     ]
+  },
+  "Gensokyo:DeathIntent": {
+    "TEXT": [
+      "Death",
+      "This enemy intends to #rkill you."
+    ]
   }
 }
