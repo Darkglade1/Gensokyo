@@ -1,7 +1,6 @@
 package Gensokyo.monsters.bossRush;
 
 import Gensokyo.BetterSpriterAnimation;
-import Gensokyo.RazIntent.DeathIntent;
 import Gensokyo.RazIntent.IntentEnums;
 import Gensokyo.actions.YeetPlayerAction;
 import Gensokyo.cards.Butterfly;
@@ -13,12 +12,13 @@ import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.graphics.g2d.TextureRegion;
+import com.badlogic.gdx.math.MathUtils;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.animations.TalkAction;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.actions.common.DamageAction;
 import com.megacrit.cardcrawl.actions.common.GainBlockAction;
-import com.megacrit.cardcrawl.actions.common.MakeTempCardInDiscardAction;
+import com.megacrit.cardcrawl.actions.common.MakeTempCardInDrawPileAction;
 import com.megacrit.cardcrawl.actions.common.MakeTempCardInHandAction;
 import com.megacrit.cardcrawl.actions.common.RollMoveAction;
 import com.megacrit.cardcrawl.cards.DamageInfo;
@@ -144,7 +144,7 @@ public class Yuyuko extends CustomMonster
         switch (this.nextMove) {
             case GHOSTLY_BUTTERFLY: {
                 AbstractDungeon.actionManager.addToBottom(new DamageAction(AbstractDungeon.player, info, AbstractGameAction.AttackEffect.BLUNT_LIGHT));
-                AbstractDungeon.actionManager.addToBottom(new MakeTempCardInDiscardAction(new Butterfly(), this.statusCount));
+                AbstractDungeon.actionManager.addToBottom(new MakeTempCardInDrawPileAction(new Butterfly(), statusCount, true, true));
                 turnCounter++;
                 break;
             }
@@ -188,7 +188,7 @@ public class Yuyuko extends CustomMonster
                 fanCounter = FAN_THRESHOLD;
             }
             if (this.hasPower(Reflowering.POWER_ID)) {
-                this.getPower(Reflowering.POWER_ID).flash();
+                this.getPower(Reflowering.POWER_ID).flashWithoutSound();
                 this.getPower(Reflowering.POWER_ID).amount = fanCounter;
             }
             for (int i = 0; i < amount; i++) {
@@ -197,6 +197,11 @@ public class Yuyuko extends CustomMonster
                         souls.add(new BetterSpriterAnimation("GensokyoResources/images/monsters/Yuyuko/BlueSoul/Spriter/BlueSoulAnimation.scml"));
                     } else {
                         souls.add(new BetterSpriterAnimation("GensokyoResources/images/monsters/Yuyuko/PurpleSoul/Spriter/PurpleSoulAnimation.scml"));
+                    }
+                    if (MathUtils.randomBoolean()) {
+                        CardCrawlGame.sound.play("GHOST_ORB_IGNITE_1", 0.3F);
+                    } else {
+                        CardCrawlGame.sound.play("GHOST_ORB_IGNITE_2", 0.3F);
                     }
                 }
             }
