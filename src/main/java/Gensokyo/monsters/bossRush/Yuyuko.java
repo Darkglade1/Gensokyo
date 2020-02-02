@@ -159,7 +159,9 @@ public class Yuyuko extends CustomMonster
                 break;
             }
             case GHASTLY_DREAM: {
-                AbstractDungeon.actionManager.addToBottom(new DamageAction(AbstractDungeon.player, info, AbstractGameAction.AttackEffect.SLASH_DIAGONAL));
+                runAnim("SoulGrab");
+                AbstractDungeon.actionManager.addToBottom(new VFXAction(new EmptyEffect(), 1.0F));
+                AbstractDungeon.actionManager.addToBottom(new DamageAction(AbstractDungeon.player, info, AbstractGameAction.AttackEffect.POISON));
                 AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(AbstractDungeon.player, this, new WeakPower(AbstractDungeon.player, DEBUFF_AMOUNT, true), DEBUFF_AMOUNT));
                 turnCounter++;
                 break;
@@ -180,6 +182,8 @@ public class Yuyuko extends CustomMonster
                 break;
             }
             case SAIGYOUJI_PARINIRVANA: {
+                runAnim("SoulGrab");
+                AbstractDungeon.actionManager.addToBottom(new VFXAction(new EmptyEffect(), 1.0F));
                 addToBot(new YeetPlayerAction());
                 break;
             }
