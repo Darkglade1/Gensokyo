@@ -55,8 +55,8 @@ public class Yuyuko extends CustomMonster
     private static final byte SAIGYOUJI_PARINIRVANA = 4;
     private static final byte BUTTERFLY_DELUSION = 5;
     private static final int COOLDOWN = 2;
-    private static final int GHOSTLY_BUTTERFLY_DAMAGE = 26;
-    private static final int A4_GHOSTLY_BUTTERFLY_DAMAGE = 28;
+    private static final int GHOSTLY_BUTTERFLY_DAMAGE = 24;
+    private static final int A4_GHOSTLY_BUTTERFLY_DAMAGE = 26;
     private static final int GHASTLY_DREAM_DAMAGE = 20;
     private static final int A4_GHASTLY_DREAM_DAMAGE = 22;
     private static final int RESURRECTION_BUTTERFLY_DAMAGE = 16;
@@ -120,10 +120,10 @@ public class Yuyuko extends CustomMonster
         }
 
         this.moves = new HashMap<>();
-        this.moves.put(GHOSTLY_BUTTERFLY, new EnemyMoveInfo(GHOSTLY_BUTTERFLY, Intent.ATTACK_DEBUFF, this.ghostlyButterflyDamage, 0, false));
+        this.moves.put(GHOSTLY_BUTTERFLY, new EnemyMoveInfo(GHOSTLY_BUTTERFLY, Intent.ATTACK, this.ghostlyButterflyDamage, 0, false));
         this.moves.put(GHASTLY_DREAM, new EnemyMoveInfo(GHASTLY_DREAM, Intent.ATTACK_DEBUFF, this.ghastlyDreamDamage, 0, false));
         this.moves.put(LAW_OF_MORTALITY, new EnemyMoveInfo(LAW_OF_MORTALITY, Intent.DEBUFF, -1, 0, true));
-        this.moves.put(RESURRECTION_BUTTERFLY, new EnemyMoveInfo(RESURRECTION_BUTTERFLY, Intent.ATTACK_DEFEND, this.resurrectionButterflyDamage, 0, false));
+        this.moves.put(RESURRECTION_BUTTERFLY, new EnemyMoveInfo(RESURRECTION_BUTTERFLY, Intent.ATTACK_DEBUFF, this.resurrectionButterflyDamage, 0, false));
         this.moves.put(SAIGYOUJI_PARINIRVANA, new EnemyMoveInfo(SAIGYOUJI_PARINIRVANA, IntentEnums.DEATH, -1, 0, false));
         this.moves.put(BUTTERFLY_DELUSION, new EnemyMoveInfo(BUTTERFLY_DELUSION, Intent.DEFEND_DEBUFF, -1, 0, false));
 
@@ -153,7 +153,6 @@ public class Yuyuko extends CustomMonster
                 runAnim("ButterflyCircle");
                 AbstractDungeon.actionManager.addToBottom(new VFXAction(new EmptyEffect(), 1.3F));
                 AbstractDungeon.actionManager.addToBottom(new DamageAction(AbstractDungeon.player, info, AbstractGameAction.AttackEffect.POISON));
-                AbstractDungeon.actionManager.addToBottom(new MakeTempCardInDrawPileAction(new Butterfly(), statusCount, true, true));
                 turnCounter++;
                 break;
             }
@@ -161,7 +160,7 @@ public class Yuyuko extends CustomMonster
                 runAnim("SoulGrab");
                 AbstractDungeon.actionManager.addToBottom(new VFXAction(new EmptyEffect(), 1.0F));
                 AbstractDungeon.actionManager.addToBottom(new DamageAction(AbstractDungeon.player, info, AbstractGameAction.AttackEffect.POISON));
-                AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(AbstractDungeon.player, this, new WeakPower(AbstractDungeon.player, DEBUFF_AMOUNT, true), DEBUFF_AMOUNT));
+                AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(AbstractDungeon.player, this, new WeakPower(AbstractDungeon.player, DEBUFF_AMOUNT - 1, true), DEBUFF_AMOUNT - 1));
                 turnCounter++;
                 break;
             }
@@ -177,7 +176,8 @@ public class Yuyuko extends CustomMonster
                 runAnim("ButterflyCircle");
                 AbstractDungeon.actionManager.addToBottom(new VFXAction(new EmptyEffect(), 1.3F));
                 AbstractDungeon.actionManager.addToBottom(new DamageAction(AbstractDungeon.player, info, AbstractGameAction.AttackEffect.POISON));
-                AbstractDungeon.actionManager.addToBottom(new GainBlockAction(this, this, this.block));
+                AbstractDungeon.actionManager.addToBottom(new MakeTempCardInDrawPileAction(new Butterfly(), statusCount, true, true));
+                //AbstractDungeon.actionManager.addToBottom(new GainBlockAction(this, this, this.block));
                 incrementFan(fanIncrement);
                 turnCounter = 0;
                 break;
