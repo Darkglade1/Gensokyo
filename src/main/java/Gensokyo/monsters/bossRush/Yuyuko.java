@@ -4,8 +4,10 @@ import Gensokyo.BetterSpriterAnimation;
 import Gensokyo.RazIntent.IntentEnums;
 import Gensokyo.actions.YeetPlayerAction;
 import Gensokyo.cards.Butterfly;
+import Gensokyo.monsters.Aya;
 import Gensokyo.powers.DeathTouch;
 import Gensokyo.powers.Reflowering;
+import Gensokyo.vfx.EmptyEffect;
 import basemod.abstracts.CustomMonster;
 import basemod.animations.AbstractAnimation;
 import com.badlogic.gdx.graphics.Color;
@@ -13,8 +15,11 @@ import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.graphics.g2d.TextureRegion;
 import com.badlogic.gdx.math.MathUtils;
+import com.brashmonkey.spriter.Animation;
+import com.brashmonkey.spriter.Player;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.animations.TalkAction;
+import com.megacrit.cardcrawl.actions.animations.VFXAction;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.actions.common.DamageAction;
 import com.megacrit.cardcrawl.actions.common.GainBlockAction;
@@ -78,6 +83,7 @@ public class Yuyuko extends CustomMonster
     private int turnCounter;
     private Map<Byte, EnemyMoveInfo> moves;
     private ArrayList<AbstractAnimation> souls = new ArrayList<>();
+    private AbstractAnimation attackAnimations = new BetterSpriterAnimation("GensokyoResources/images/monsters/Yuyuko/AttackAnimations/Spriter/AttackAnimations.scml");
 
     public Yuyuko() {
         this(0.0f, 0.0f);
@@ -123,6 +129,8 @@ public class Yuyuko extends CustomMonster
         this.moves.put(BUTTERFLY_DELUSION, new EnemyMoveInfo(BUTTERFLY_DELUSION, Intent.DEFEND_DEBUFF, -1, 0, false));
 
         this.FAN_REGION = new TextureRegion(FAN);
+        Player.PlayerListener listener = new YuyukoListener(this);
+        ((BetterSpriterAnimation)this.attackAnimations).myPlayer.addListener(listener);
     }
 
     @Override
@@ -143,7 +151,9 @@ public class Yuyuko extends CustomMonster
         }
         switch (this.nextMove) {
             case GHOSTLY_BUTTERFLY: {
-                AbstractDungeon.actionManager.addToBottom(new DamageAction(AbstractDungeon.player, info, AbstractGameAction.AttackEffect.BLUNT_LIGHT));
+                runAnim("ButterflyCircle");
+                AbstractDungeon.actionManager.addToBottom(new VFXAction(new EmptyEffect(), 1.3F));
+                AbstractDungeon.actionManager.addToBottom(new DamageAction(AbstractDungeon.player, info, AbstractGameAction.AttackEffect.POISON));
                 AbstractDungeon.actionManager.addToBottom(new MakeTempCardInDrawPileAction(new Butterfly(), statusCount, true, true));
                 turnCounter++;
                 break;
@@ -161,7 +171,9 @@ public class Yuyuko extends CustomMonster
                 break;
             }
             case RESURRECTION_BUTTERFLY: {
-                AbstractDungeon.actionManager.addToBottom(new DamageAction(AbstractDungeon.player, info, AbstractGameAction.AttackEffect.BLUNT_HEAVY));
+                runAnim("ButterflyCircle");
+                AbstractDungeon.actionManager.addToBottom(new VFXAction(new EmptyEffect(), 1.3F));
+                AbstractDungeon.actionManager.addToBottom(new DamageAction(AbstractDungeon.player, info, AbstractGameAction.AttackEffect.POISON));
                 AbstractDungeon.actionManager.addToBottom(new GainBlockAction(this, this, this.block));
                 incrementFan(fanIncrement);
                 turnCounter = 0;
@@ -172,6 +184,8 @@ public class Yuyuko extends CustomMonster
                 break;
             }
             case BUTTERFLY_DELUSION: {
+                runAnim("ButterflyCircle");
+                AbstractDungeon.actionManager.addToBottom(new VFXAction(new EmptyEffect(), 1.3F));
                 AbstractDungeon.actionManager.addToBottom(new GainBlockAction(this, this, this.block));
                 AbstractDungeon.actionManager.addToBottom(new MakeTempCardInHandAction(new Butterfly(), FIRST_TURN_STATUS_COUNT));
                 turnCounter++;
@@ -257,6 +271,7 @@ public class Yuyuko extends CustomMonster
                 yOffset -= yOffsetIncrement;
             }
         }
+        attackAnimations.renderSprite(sb, AbstractDungeon.player.drawX, AbstractDungeon.player.drawY);
     }
 
     static {
@@ -264,5 +279,50 @@ public class Yuyuko extends CustomMonster
         NAME = Yuyuko.monsterStrings.NAME;
         MOVES = Yuyuko.monsterStrings.MOVES;
         DIALOG = Yuyuko.monsterStrings.DIALOG;
+    }
+
+    //Runs a specific animation
+    public void runAnim(String animation) {
+        ((BetterSpriterAnimation)this.attackAnimations).myPlayer.setAnimation(animation);
+    }
+
+    //Resets character back to idle animation
+    public void resetAnimation() {
+        ((BetterSpriterAnimation)this.attackAnimations).myPlayer.setAnimation("None");
+    }
+
+    public class YuyukoListener implements Player.PlayerListener {
+
+        private Yuyuko character;
+
+        public YuyukoListener(Yuyuko character) {
+            this.character = character;
+        }
+
+        public void animationFinished(Animation animation){
+            if (!animation.name.equals("None")) {
+                character.resetAnimation();
+            }
+        }
+
+        //UNUSED
+        public void animationChanged(Animation var1, Animation var2){
+
+        }
+
+        //UNUSED
+        public void preProcess(Player var1){
+
+        }
+
+        //UNUSED
+        public void postProcess(Player var1){
+
+        }
+
+        //UNUSED
+        public void mainlineKeyChanged(com.brashmonkey.spriter.Mainline.Key var1, com.brashmonkey.spriter.Mainline.Key var2){
+
+        }
     }
 }
