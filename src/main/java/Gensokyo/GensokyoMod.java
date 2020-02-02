@@ -489,6 +489,9 @@ public class GensokyoMod implements
     @Override
     public void receiveAddAudio() {
         BaseMod.addAudio("Gensokyo:Train", makeEffectPath("TrainSFX.ogg"));
+        BaseMod.addAudio("Gensokyo:ghost", makeEffectPath("ghostbreath.ogg"));
+        BaseMod.addAudio("Gensokyo:pest", makeEffectPath("pestilence.ogg"));
+        BaseMod.addAudio("Gensokyo:magic", makeEffectPath("magic.ogg"));
     }
     
     // ================ ADD RELICS ===================

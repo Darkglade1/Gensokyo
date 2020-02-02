@@ -25,6 +25,7 @@ import com.megacrit.cardcrawl.actions.common.GainBlockAction;
 import com.megacrit.cardcrawl.actions.common.MakeTempCardInDrawPileAction;
 import com.megacrit.cardcrawl.actions.common.MakeTempCardInHandAction;
 import com.megacrit.cardcrawl.actions.common.RollMoveAction;
+import com.megacrit.cardcrawl.actions.utility.SFXAction;
 import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.core.Settings;
@@ -151,6 +152,7 @@ public class Yuyuko extends CustomMonster
         switch (this.nextMove) {
             case GHOSTLY_BUTTERFLY: {
                 runAnim("ButterflyCircle");
+                CardCrawlGame.sound.playV("Gensokyo:pest", 2.5F);
                 AbstractDungeon.actionManager.addToBottom(new VFXAction(new EmptyEffect(), 1.3F));
                 AbstractDungeon.actionManager.addToBottom(new DamageAction(AbstractDungeon.player, info, AbstractGameAction.AttackEffect.POISON));
                 turnCounter++;
@@ -158,6 +160,7 @@ public class Yuyuko extends CustomMonster
             }
             case GHASTLY_DREAM: {
                 runAnim("SoulGrab");
+                CardCrawlGame.sound.playV("Gensokyo:ghost", 2.0F);
                 AbstractDungeon.actionManager.addToBottom(new VFXAction(new EmptyEffect(), 1.0F));
                 AbstractDungeon.actionManager.addToBottom(new DamageAction(AbstractDungeon.player, info, AbstractGameAction.AttackEffect.POISON));
                 AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(AbstractDungeon.player, this, new WeakPower(AbstractDungeon.player, DEBUFF_AMOUNT - 1, true), DEBUFF_AMOUNT - 1));
@@ -166,6 +169,7 @@ public class Yuyuko extends CustomMonster
             }
             case LAW_OF_MORTALITY: {
                 runAnim("MagicCircle");
+                CardCrawlGame.sound.playV("Gensokyo:magic", 2.3F);
                 AbstractDungeon.actionManager.addToBottom(new VFXAction(new EmptyEffect(), 1.0F));
                 AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(AbstractDungeon.player, this, new VulnerablePower(AbstractDungeon.player, DEBUFF_AMOUNT, true), DEBUFF_AMOUNT));
                 //AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(AbstractDungeon.player, this, new FrailPower(AbstractDungeon.player, DEBUFF_AMOUNT, true), DEBUFF_AMOUNT));
@@ -174,6 +178,7 @@ public class Yuyuko extends CustomMonster
             }
             case RESURRECTION_BUTTERFLY: {
                 runAnim("ButterflyCircle");
+                CardCrawlGame.sound.playV("Gensokyo:pest", 2.5F);
                 AbstractDungeon.actionManager.addToBottom(new VFXAction(new EmptyEffect(), 1.3F));
                 AbstractDungeon.actionManager.addToBottom(new DamageAction(AbstractDungeon.player, info, AbstractGameAction.AttackEffect.POISON));
                 AbstractDungeon.actionManager.addToBottom(new MakeTempCardInDrawPileAction(new Butterfly(), statusCount, true, true));
@@ -184,12 +189,14 @@ public class Yuyuko extends CustomMonster
             }
             case SAIGYOUJI_PARINIRVANA: {
                 runAnim("SoulGrab");
+                CardCrawlGame.sound.playV("Gensokyo:ghost", 2.0F);
                 AbstractDungeon.actionManager.addToBottom(new VFXAction(new EmptyEffect(), 1.0F));
                 addToBot(new YeetPlayerAction());
                 break;
             }
             case BUTTERFLY_DELUSION: {
                 runAnim("MagicCircle");
+                CardCrawlGame.sound.playV("Gensokyo:magic", 2.3F);
                 AbstractDungeon.actionManager.addToBottom(new VFXAction(new EmptyEffect(), 1.0F));
                 AbstractDungeon.actionManager.addToBottom(new GainBlockAction(this, this, this.block));
                 AbstractDungeon.actionManager.addToBottom(new MakeTempCardInHandAction(new Butterfly(), FIRST_TURN_STATUS_COUNT));
