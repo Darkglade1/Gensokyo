@@ -33,7 +33,11 @@
         <file id="11" name="SoulGrab/tile012.png" width="200" height="204" pivot_x="0" pivot_y="1"/>
         <file id="12" name="SoulGrab/tile013.png" width="200" height="204" pivot_x="0" pivot_y="1"/>
     </folder>
+    <folder id="2" name="MagicCircle">
+        <file id="0" name="MagicCircle/MagicCircle.png" width="128" height="127" pivot_x="0" pivot_y="1"/>
+    </folder>
     <entity id="0" name="VFX">
+        <obj_info name="bone_000" type="bone" w="77.3341" h="10"/>
         <animation id="0" name="None" length="1000" interval="100">
             <mainline>
                 <key id="0">
@@ -283,6 +287,66 @@
             <timeline id="12" name="tile013_000">
                 <key id="0" time="1200" spin="0">
                     <object folder="1" file="12" x="-84" y="168"/>
+                </key>
+            </timeline>
+        </animation>
+        <animation id="3" name="MagicCircle" length="1250" interval="100">
+            <mainline>
+                <key id="0">
+                    <bone_ref id="0" timeline="1" key="0"/>
+                    <object_ref id="0" parent="0" timeline="0" key="0" z_index="0"/>
+                </key>
+                <key id="1" time="199">
+                    <bone_ref id="0" timeline="1" key="1"/>
+                    <object_ref id="0" parent="0" timeline="0" key="0" z_index="0"/>
+                </key>
+                <key id="2" time="398">
+                    <bone_ref id="0" timeline="1" key="2"/>
+                    <object_ref id="0" parent="0" timeline="0" key="0" z_index="0"/>
+                </key>
+                <key id="3" time="598">
+                    <bone_ref id="0" timeline="1" key="3"/>
+                    <object_ref id="0" parent="0" timeline="0" key="0" z_index="0"/>
+                </key>
+                <key id="4" time="798">
+                    <bone_ref id="0" timeline="1" key="4"/>
+                    <object_ref id="0" parent="0" timeline="0" key="0" z_index="0"/>
+                </key>
+                <key id="5" time="1000">
+                    <bone_ref id="0" timeline="1" key="5"/>
+                    <object_ref id="0" parent="0" timeline="0" key="0" z_index="0"/>
+                </key>
+                <key id="6" time="1202">
+                    <bone_ref id="0" timeline="1" key="6"/>
+                    <object_ref id="0" parent="0" timeline="0" key="0" z_index="0"/>
+                </key>
+            </mainline>
+            <timeline id="0" name="MagicCircle">
+                <key id="0" spin="0">
+                    <object folder="2" file="0" x="-94.08677" y="-97.262028" angle="89.753037" scale_x="1.5" scale_y="1.5"/>
+                </key>
+            </timeline>
+            <timeline id="1" obj="0" name="bone_000" object_type="bone">
+                <key id="0" spin="-1">
+                    <bone x="1.666667" y="96.333333" angle="270.246963"/>
+                </key>
+                <key id="1" time="199" spin="-1">
+                    <bone x="1.666667" y="96.333333" angle="129.779349"/>
+                </key>
+                <key id="2" time="398" spin="-1">
+                    <bone x="1.666667" y="96.333333" angle="42.768825"/>
+                </key>
+                <key id="3" time="598" spin="-1">
+                    <bone x="1.666667" y="96.333333" angle="269.58482"/>
+                </key>
+                <key id="4" time="798" spin="-1">
+                    <bone x="1.666667" y="96.333333" angle="129.699073"/>
+                </key>
+                <key id="5" time="1000" spin="-1">
+                    <bone x="1.666667" y="96.333333" angle="39.02728"/>
+                </key>
+                <key id="6" time="1202">
+                    <bone x="1.666667" y="96.333333" angle="269.635064"/>
                 </key>
             </timeline>
         </animation>

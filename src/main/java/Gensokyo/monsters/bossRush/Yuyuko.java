@@ -4,7 +4,6 @@ import Gensokyo.BetterSpriterAnimation;
 import Gensokyo.RazIntent.IntentEnums;
 import Gensokyo.actions.YeetPlayerAction;
 import Gensokyo.cards.Butterfly;
-import Gensokyo.monsters.Aya;
 import Gensokyo.powers.DeathTouch;
 import Gensokyo.powers.Reflowering;
 import Gensokyo.vfx.EmptyEffect;
@@ -167,6 +166,8 @@ public class Yuyuko extends CustomMonster
                 break;
             }
             case LAW_OF_MORTALITY: {
+                runAnim("MagicCircle");
+                AbstractDungeon.actionManager.addToBottom(new VFXAction(new EmptyEffect(), 1.0F));
                 AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(AbstractDungeon.player, this, new VulnerablePower(AbstractDungeon.player, DEBUFF_AMOUNT, true), DEBUFF_AMOUNT));
                 //AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(AbstractDungeon.player, this, new FrailPower(AbstractDungeon.player, DEBUFF_AMOUNT, true), DEBUFF_AMOUNT));
                 turnCounter++;
@@ -188,8 +189,8 @@ public class Yuyuko extends CustomMonster
                 break;
             }
             case BUTTERFLY_DELUSION: {
-                runAnim("ButterflyCircle");
-                AbstractDungeon.actionManager.addToBottom(new VFXAction(new EmptyEffect(), 1.3F));
+                runAnim("MagicCircle");
+                AbstractDungeon.actionManager.addToBottom(new VFXAction(new EmptyEffect(), 1.0F));
                 AbstractDungeon.actionManager.addToBottom(new GainBlockAction(this, this, this.block));
                 AbstractDungeon.actionManager.addToBottom(new MakeTempCardInHandAction(new Butterfly(), FIRST_TURN_STATUS_COUNT));
                 turnCounter++;
