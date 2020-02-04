@@ -154,5 +154,9 @@
 "Gensokyo:Reflowering": {
         "NAME": "Reflowering",
         "DESCRIPTIONS": ["Whenever you play a #yButterfly, add a #psoul to the fan. When the fan has #b", " #psouls . . ."]
+},
+"Gensokyo:Guilt": {
+        "NAME": "Guilt",
+        "DESCRIPTIONS": ["You have #b", " #pGuilt. Whenever you deal unblocked attack damage, gain that much #pGuilt. If your #pGuilt exceeds your #gInnocence by at least #b", ", you #rlose."]
 }
 }

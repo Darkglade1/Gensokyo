@@ -5,6 +5,7 @@ import Gensokyo.RazIntent.IntentEnums;
 import Gensokyo.actions.YeetPlayerAction;
 import Gensokyo.cards.Butterfly;
 import Gensokyo.powers.DeathTouch;
+import Gensokyo.powers.Guilt;
 import Gensokyo.powers.Reflowering;
 import Gensokyo.vfx.EmptyEffect;
 import basemod.abstracts.CustomMonster;
@@ -77,6 +78,7 @@ public class Eiki extends CustomMonster
     private static final int FAN_INCREMENT = 1;
     private static final int A19_FAN_INCREMENT = 2;
     public static final int FAN_THRESHOLD = 10;
+    public static final int STARTING_GUILT = 7;
     private static final int HP = 500;
     private static final int A9_HP = 530;
     private int ghostlyButterflyDamage;
@@ -87,6 +89,7 @@ public class Eiki extends CustomMonster
     private int block;
     public int fanCounter;
     private int turnCounter;
+    public float angle = 0.0F;
     private Map<Byte, EnemyMoveInfo> moves;
     private ArrayList<AbstractAnimation> souls = new ArrayList<>();
     private AbstractAnimation attackAnimations = new BetterSpriterAnimation("GensokyoResources/images/monsters/Yuyuko/AttackAnimations/Spriter/AttackAnimations.scml");
@@ -144,7 +147,7 @@ public class Eiki extends CustomMonster
     @Override
     public void usePreBattleAction() {
 //        AbstractDungeon.getCurrRoom().playBgmInstantly("BorderOfLife");
-//        this.addToBot(new ApplyPowerAction(this, this, new DeathTouch(this)));
+        this.addToBot(new ApplyPowerAction(AbstractDungeon.player, this, new Guilt(AbstractDungeon.player, STARTING_GUILT, this), STARTING_GUILT));
 //        this.addToBot(new ApplyPowerAction(this, this, new Reflowering(this, this)));
     }
     
@@ -254,11 +257,20 @@ public class Eiki extends CustomMonster
         float armYOffset = 150.0F;
         float scaleXOffset = 17.0F;
         float scaleYOffset = 20.0F;
+
+        double radians = Math.toRadians(angle);
+        double length = Math.sin(radians) * (SCALE_RIGHT_ARM_REGION.getRegionWidth() + armXOffset);
+        //System.out.println(SCALE_RIGHT_ARM_REGION.getRegionWidth());
+        //System.out.println(length);
+        float offsetX = (float)(Math.sin(radians) * length);
+       // System.out.println(offsetX);
+        float offsetY = (float)(Math.cos(radians) * length);
+        //System.out.println(offsetY);
+        sb.draw(SCALE_RIGHT_ARM_REGION, (960.0F + armXOffset) * scaleWidth, AbstractDungeon.floorY + (SCALE_BODY_REGION.getRegionHeight() - armYOffset) * scaleHeight, 0.0F, SCALE_RIGHT_ARM_REGION.getRegionHeight() / 3.0F, SCALE_RIGHT_ARM_REGION.getRegionWidth(), SCALE_RIGHT_ARM_REGION.getRegionHeight(), scaleWidth, scaleHeight, -angle);
+        sb.draw(SCALE_RIGHT_SCALE_REGION, (960.0F + armXOffset + SCALE_RIGHT_ARM_REGION.getRegionWidth() - (SCALE_RIGHT_SCALE_REGION.getRegionWidth() / 2.0F) - scaleXOffset - offsetX) * scaleWidth, AbstractDungeon.floorY + (SCALE_BODY_REGION.getRegionHeight() - armYOffset - SCALE_RIGHT_SCALE_REGION.getRegionHeight() + scaleYOffset - offsetY) * scaleHeight, 0.0F, 0.0F, SCALE_RIGHT_SCALE_REGION.getRegionWidth(), SCALE_RIGHT_SCALE_REGION.getRegionHeight(), scaleWidth, scaleHeight, 0.0F);
+        sb.draw(SCALE_LEFT_ARM_REGION, (960.0F - armXOffset - SCALE_LEFT_ARM_REGION.getRegionWidth()) * scaleWidth, AbstractDungeon.floorY + (SCALE_BODY_REGION.getRegionHeight() - armYOffset) * scaleHeight, SCALE_LEFT_ARM_REGION.getRegionWidth(), SCALE_LEFT_ARM_REGION.getRegionHeight() / 3.0F, SCALE_LEFT_ARM_REGION.getRegionWidth(), SCALE_LEFT_ARM_REGION.getRegionHeight(), scaleWidth, scaleHeight, -angle);
+        sb.draw(SCALE_LEFT_SCALE_REGION, (960.0F - armXOffset - SCALE_LEFT_ARM_REGION.getRegionWidth() - (SCALE_LEFT_SCALE_REGION.getRegionWidth() / 2.0F) + scaleXOffset + offsetX) * scaleWidth, AbstractDungeon.floorY + (SCALE_BODY_REGION.getRegionHeight() - armYOffset - SCALE_LEFT_SCALE_REGION.getRegionHeight() + scaleYOffset + offsetY) * scaleHeight, 0.0F, 0.0F, SCALE_LEFT_SCALE_REGION.getRegionWidth(), SCALE_LEFT_SCALE_REGION.getRegionHeight(), scaleWidth, scaleHeight, 0.0F);
         sb.draw(SCALE_BODY_REGION, (960.0F - (SCALE_BODY_REGION.getRegionWidth() / 2.0F)) * scaleWidth, AbstractDungeon.floorY, 0.0F, 0.0F, SCALE_BODY_REGION.getRegionWidth(), SCALE_BODY_REGION.getRegionHeight(), scaleWidth, scaleHeight, 0.0F);
-        sb.draw(SCALE_RIGHT_ARM_REGION, (960.0F + armXOffset) * scaleWidth, AbstractDungeon.floorY + (SCALE_BODY_REGION.getRegionHeight() - armYOffset) * scaleHeight, 0.0F, 0.0F, SCALE_RIGHT_ARM_REGION.getRegionWidth(), SCALE_RIGHT_ARM_REGION.getRegionHeight(), scaleWidth, scaleHeight, 0.0F);
-        sb.draw(SCALE_RIGHT_SCALE_REGION, (960.0F + armXOffset + SCALE_RIGHT_ARM_REGION.getRegionWidth() - (SCALE_RIGHT_SCALE_REGION.getRegionWidth() / 2.0F) - scaleXOffset) * scaleWidth, AbstractDungeon.floorY + (SCALE_BODY_REGION.getRegionHeight() - armYOffset - SCALE_RIGHT_SCALE_REGION.getRegionHeight() + scaleYOffset) * scaleHeight, 0.0F, 0.0F, SCALE_RIGHT_SCALE_REGION.getRegionWidth(), SCALE_RIGHT_SCALE_REGION.getRegionHeight(), scaleWidth, scaleHeight, 0.0F);
-        sb.draw(SCALE_LEFT_ARM_REGION, (960.0F - armXOffset - SCALE_LEFT_ARM_REGION.getRegionWidth()) * scaleWidth, AbstractDungeon.floorY + (SCALE_BODY_REGION.getRegionHeight() - armYOffset) * scaleHeight, 0.0F, 0.0F, SCALE_LEFT_ARM_REGION.getRegionWidth(), SCALE_LEFT_ARM_REGION.getRegionHeight(), scaleWidth, scaleHeight, 0.0F);
-        sb.draw(SCALE_LEFT_SCALE_REGION, (960.0F - armXOffset - SCALE_LEFT_ARM_REGION.getRegionWidth() - (SCALE_LEFT_SCALE_REGION.getRegionWidth() / 2.0F) + scaleXOffset) * scaleWidth, AbstractDungeon.floorY + (SCALE_BODY_REGION.getRegionHeight() - armYOffset - SCALE_LEFT_SCALE_REGION.getRegionHeight() + scaleYOffset) * scaleHeight, 0.0F, 0.0F, SCALE_LEFT_SCALE_REGION.getRegionWidth(), SCALE_LEFT_SCALE_REGION.getRegionHeight(), scaleWidth, scaleHeight, 0.0F);
         float xOffsetIncrement = 75.0F;
         float yOffsetIncrement = 130.0F;
         float xOffset = 160.0F;
