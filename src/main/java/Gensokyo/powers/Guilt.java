@@ -52,6 +52,10 @@ public class Guilt extends AbstractPower {
             this.amount += damageAmount;
             float startAngle = eiki.angle;
             if (startAngle == 0.0F) {
+                AbstractDungeon.actionManager.addToBottom(new VFXAction(new BalanceShiftAction(eiki, startAngle, 10.0F)));
+            } else if (startAngle == 10.0F){
+                AbstractDungeon.actionManager.addToBottom(new VFXAction(new BalanceShiftAction(eiki, startAngle, 20.0F)));
+            } else if (startAngle == 20.0F){
                 AbstractDungeon.actionManager.addToBottom(new VFXAction(new BalanceShiftAction(eiki, startAngle, 30.0F)));
             } else {
                 AbstractDungeon.actionManager.addToBottom(new VFXAction(new BalanceShiftAction(eiki, startAngle, 0.0F)));
