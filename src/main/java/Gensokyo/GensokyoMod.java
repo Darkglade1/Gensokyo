@@ -77,6 +77,7 @@ import Gensokyo.monsters.Sumireko;
 import Gensokyo.monsters.SunflowerFairy;
 import Gensokyo.monsters.Yukari;
 import Gensokyo.monsters.ZombieFairy;
+import Gensokyo.monsters.bossRush.Eiki;
 import Gensokyo.monsters.bossRush.Yuyuko;
 import Gensokyo.relics.Bombinomicon;
 import Gensokyo.relics.BookOfSpecters;
@@ -346,6 +347,7 @@ public class GensokyoMod implements
 
         BaseMod.addMonster(Yuyuko.ID, (BaseMod.GetMonster) Yuyuko::new);
         CustomIntent.add(new DeathIntent());
+        BaseMod.addMonster(Eiki.ID, (BaseMod.GetMonster) Eiki::new);
         
         // =============== EVENTS =================
 

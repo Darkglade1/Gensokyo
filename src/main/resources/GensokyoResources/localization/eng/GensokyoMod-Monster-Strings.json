@@ -245,6 +245,20 @@
     "DIALOG": [
       "A lovely day for death, isn't it?"
     ]
+  },
+  "Gensokyo:Eiki": {
+    "MOVES": [
+      "Ghostly Butterfly",
+      "Ghastly Dream",
+      "Law of Mortality",
+      "Resurrection Butterfly",
+      "Saigyouji Parinirvana",
+      "Butterfly Delusion"
+    ],
+    "NAME": "Supreme Judge of Paradise",
+    "DIALOG": [
+      "I will see you answer for your misdeeds."
+    ]
   }
 }
 
