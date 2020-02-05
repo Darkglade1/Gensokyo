@@ -153,7 +153,7 @@ public class Yuyuko extends CustomMonster
         switch (this.nextMove) {
             case GHOSTLY_BUTTERFLY: {
                 runAnim("SoulGrab");
-                CardCrawlGame.sound.playV("Gensokyo:ghost", 1.5F);
+                CardCrawlGame.sound.playV("Gensokyo:ghost", 1.3F);
                 AbstractDungeon.actionManager.addToBottom(new VFXAction(new EmptyEffect(), 1.0F));
                 AbstractDungeon.actionManager.addToBottom(new DamageAction(AbstractDungeon.player, info, AbstractGameAction.AttackEffect.POISON));
                 turnCounter++;
@@ -161,7 +161,7 @@ public class Yuyuko extends CustomMonster
             }
             case GHASTLY_DREAM: {
                 runAnim("SoulGrab");
-                CardCrawlGame.sound.playV("Gensokyo:ghost", 1.5F);
+                CardCrawlGame.sound.playV("Gensokyo:ghost", 1.3F);
                 AbstractDungeon.actionManager.addToBottom(new VFXAction(new EmptyEffect(), 1.0F));
                 AbstractDungeon.actionManager.addToBottom(new DamageAction(AbstractDungeon.player, info, AbstractGameAction.AttackEffect.POISON));
                 AbstractDungeon.actionManager.addToBottom(new GainBlockAction(this, this, this.block));
@@ -170,7 +170,7 @@ public class Yuyuko extends CustomMonster
             }
             case LAW_OF_MORTALITY: {
                 runAnim("MagicCircle");
-                CardCrawlGame.sound.playV("Gensokyo:magic", 1.5F);
+                CardCrawlGame.sound.playV("Gensokyo:magic", 1.2F);
                 AbstractDungeon.actionManager.addToBottom(new VFXAction(new EmptyEffect(), 1.0F));
                 AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(AbstractDungeon.player, this, new VulnerablePower(AbstractDungeon.player, DEBUFF_AMOUNT, true), DEBUFF_AMOUNT));
                 //AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(AbstractDungeon.player, this, new FrailPower(AbstractDungeon.player, DEBUFF_AMOUNT, true), DEBUFF_AMOUNT));
@@ -179,7 +179,7 @@ public class Yuyuko extends CustomMonster
             }
             case RESURRECTION_BUTTERFLY: {
                 runAnim("ButterflyCircle");
-                CardCrawlGame.sound.playV("Gensokyo:pest", 1.5F);
+                CardCrawlGame.sound.playV("Gensokyo:pest", 1.3F);
                 AbstractDungeon.actionManager.addToBottom(new VFXAction(new EmptyEffect(), 1.3F));
                 AbstractDungeon.actionManager.addToBottom(new DamageAction(AbstractDungeon.player, info, AbstractGameAction.AttackEffect.POISON));
                 AbstractDungeon.actionManager.addToBottom(new MakeTempCardInDrawPileAction(new Butterfly(), statusCount, true, true));
@@ -190,14 +190,14 @@ public class Yuyuko extends CustomMonster
             }
             case SAIGYOUJI_PARINIRVANA: {
                 runAnim("SoulGrab");
-                CardCrawlGame.sound.playV("Gensokyo:ghost", 1.5F);
+                CardCrawlGame.sound.playV("Gensokyo:ghost", 1.3F);
                 AbstractDungeon.actionManager.addToBottom(new VFXAction(new EmptyEffect(), 1.0F));
                 addToBot(new YeetPlayerAction());
                 break;
             }
             case BUTTERFLY_DELUSION: {
                 runAnim("MagicCircle");
-                CardCrawlGame.sound.playV("Gensokyo:magic", 1.5F);
+                CardCrawlGame.sound.playV("Gensokyo:magic", 1.3F);
                 AbstractDungeon.actionManager.addToBottom(new VFXAction(new EmptyEffect(), 1.0F));
                 AbstractDungeon.actionManager.addToBottom(new GainBlockAction(this, this, this.block));
                 AbstractDungeon.actionManager.addToBottom(new MakeTempCardInHandAction(new Butterfly(), FIRST_TURN_STATUS_COUNT));

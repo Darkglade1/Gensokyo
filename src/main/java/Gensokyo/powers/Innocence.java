@@ -15,20 +15,18 @@ import com.megacrit.cardcrawl.powers.AbstractPower;
 
 import static Gensokyo.GensokyoMod.makePowerPath;
 
+public class Innocence extends AbstractPower {
 
-public class Guilt extends AbstractPower {
-
-    public static final String POWER_ID = GensokyoMod.makeID("Guilt");
+    public static final String POWER_ID = GensokyoMod.makeID("Innocence");
     private static final PowerStrings powerStrings = CardCrawlGame.languagePack.getPowerStrings(POWER_ID);
     public static final String NAME = powerStrings.NAME;
     public static final String[] DESCRIPTIONS = powerStrings.DESCRIPTIONS;
-    public static final int THRESHOLD = 20;
     private Eiki eiki;
 
     private static final Texture tex84 = TextureLoader.getTexture(makePowerPath("DeathTouch84.png"));
     private static final Texture tex32 = TextureLoader.getTexture(makePowerPath("DeathTouch32.png"));
 
-    public Guilt(AbstractCreature owner, int amount, Eiki eiki) {
+    public Innocence(AbstractCreature owner, int amount, Eiki eiki) {
         name = NAME;
         ID = POWER_ID;
 
@@ -45,10 +43,10 @@ public class Guilt extends AbstractPower {
     }
 
     @Override
-    public void onAttack(DamageInfo info, int damageAmount, AbstractCreature target) {
-        if (info.owner == this.owner && info.type == DamageInfo.DamageType.NORMAL && damageAmount > 0) {
+    public void wasHPLost(DamageInfo info, int damageAmount) {
+        if (info.owner != null && info.owner != this.owner && info.type == DamageInfo.DamageType.NORMAL && damageAmount > 0) {
             this.flash();
-            this.amount += damageAmount;
+            this.amount++;
             updateDescription();
             AbstractDungeon.actionManager.addToBottom(new BalanceShiftAction(this.eiki));
         }
@@ -56,6 +54,6 @@ public class Guilt extends AbstractPower {
 
     @Override
     public void updateDescription() {
-        description = DESCRIPTIONS[0] + amount + DESCRIPTIONS[1] + THRESHOLD + DESCRIPTIONS[2];
+        description = DESCRIPTIONS[0] + amount + DESCRIPTIONS[1];
     }
 }

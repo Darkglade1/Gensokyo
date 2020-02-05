@@ -2,11 +2,11 @@ package Gensokyo.monsters.bossRush;
 
 import Gensokyo.BetterSpriterAnimation;
 import Gensokyo.RazIntent.IntentEnums;
+import Gensokyo.actions.BalanceShiftAction;
 import Gensokyo.actions.YeetPlayerAction;
 import Gensokyo.cards.Butterfly;
-import Gensokyo.powers.DeathTouch;
 import Gensokyo.powers.Guilt;
-import Gensokyo.powers.Reflowering;
+import Gensokyo.powers.Innocence;
 import Gensokyo.vfx.EmptyEffect;
 import basemod.abstracts.CustomMonster;
 import basemod.animations.AbstractAnimation;
@@ -14,9 +14,6 @@ import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.graphics.g2d.TextureRegion;
-import com.badlogic.gdx.math.MathUtils;
-import com.brashmonkey.spriter.Animation;
-import com.brashmonkey.spriter.Player;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.animations.TalkAction;
 import com.megacrit.cardcrawl.actions.animations.VFXAction;
@@ -79,8 +76,8 @@ public class Eiki extends CustomMonster
     private static final int A19_FAN_INCREMENT = 2;
     public static final int FAN_THRESHOLD = 10;
     public static final int STARTING_GUILT = 7;
-    private static final int HP = 500;
-    private static final int A9_HP = 530;
+    private static final int HP = 150;
+    private static final int A9_HP = 160;
     private int ghostlyButterflyDamage;
     private int ghastlyDreamDamage;
     private int resurrectionButterflyDamage;
@@ -140,15 +137,17 @@ public class Eiki extends CustomMonster
         this.SCALE_BODY_REGION = new TextureRegion(SCALE_BODY);
         this.SCALE_RIGHT_ARM_REGION = new TextureRegion(SCALE_RIGHT_ARM);
         this.SCALE_RIGHT_SCALE_REGION = new TextureRegion(SCALE_RIGHT_SCALE);
-        this.SCALE_LEFT_ARM_REGION = new TextureRegion(SCALE_LEFT_ARM);
+        this.SCALE_LEFT_ARM_REGION = new TextureRegion(SCALE_RIGHT_ARM);
+        this.SCALE_LEFT_ARM_REGION.flip(false, true);
         this.SCALE_LEFT_SCALE_REGION = new TextureRegion(SCALE_LEFT_SCALE);
     }
 
     @Override
     public void usePreBattleAction() {
 //        AbstractDungeon.getCurrRoom().playBgmInstantly("BorderOfLife");
+        this.addToBot(new ApplyPowerAction(AbstractDungeon.player, this, new Innocence(AbstractDungeon.player, 0, this), 0));
         this.addToBot(new ApplyPowerAction(AbstractDungeon.player, this, new Guilt(AbstractDungeon.player, STARTING_GUILT, this), STARTING_GUILT));
-//        this.addToBot(new ApplyPowerAction(this, this, new Reflowering(this, this)));
+        //AbstractDungeon.actionManager.addToBottom(new BalanceShiftAction(this));
     }
     
     @Override
@@ -258,19 +257,18 @@ public class Eiki extends CustomMonster
         float scaleXOffset = 15.0F;
         float scaleYOffset = 30.0F;
 
+        //renders the balance scale and calculates offsets if the angle is changed
         double radians = Math.toRadians(angle / 2);
         double length = (Math.sin(radians) * (SCALE_RIGHT_ARM_REGION.getRegionWidth() - armXOffset)) * 2;
-        //System.out.println(SCALE_RIGHT_ARM_REGION.getRegionWidth() - armXOffset);
-        //System.out.println(length);
         float offsetX = (float)(Math.sin(radians) * length);
-        //System.out.println(offsetX);
         float offsetY = (float)(Math.cos(radians) * length);
-        //System.out.println(offsetY);
+
         sb.draw(SCALE_RIGHT_SCALE_REGION, (960.0F + armXOffset + SCALE_RIGHT_ARM_REGION.getRegionWidth() - (SCALE_RIGHT_SCALE_REGION.getRegionWidth() / 2.0F) - scaleXOffset - offsetX) * scaleWidth, AbstractDungeon.floorY + (SCALE_BODY_REGION.getRegionHeight() - armYOffset - SCALE_RIGHT_SCALE_REGION.getRegionHeight() + scaleYOffset - offsetY) * scaleHeight, 0.0F, 0.0F, SCALE_RIGHT_SCALE_REGION.getRegionWidth(), SCALE_RIGHT_SCALE_REGION.getRegionHeight(), scaleWidth, scaleHeight, 0.0F);
-        sb.draw(SCALE_RIGHT_ARM_REGION, (960.0F + armXOffset) * scaleWidth, AbstractDungeon.floorY + (SCALE_BODY_REGION.getRegionHeight() - armYOffset) * scaleHeight, 0.0F, SCALE_RIGHT_ARM_REGION.getRegionHeight() / 3.0F, SCALE_RIGHT_ARM_REGION.getRegionWidth(), SCALE_RIGHT_ARM_REGION.getRegionHeight(), scaleWidth, scaleHeight, -angle);
+        sb.draw(SCALE_RIGHT_ARM_REGION, (960.0F + armXOffset) * scaleWidth, AbstractDungeon.floorY + (SCALE_BODY_REGION.getRegionHeight() - armYOffset) * scaleHeight, 0.0F, (SCALE_RIGHT_ARM_REGION.getRegionHeight() / 2.0F) * scaleHeight, SCALE_RIGHT_ARM_REGION.getRegionWidth(), SCALE_RIGHT_ARM_REGION.getRegionHeight(), scaleWidth, scaleHeight, -angle);
         sb.draw(SCALE_LEFT_SCALE_REGION, (960.0F - armXOffset - SCALE_LEFT_ARM_REGION.getRegionWidth() - (SCALE_LEFT_SCALE_REGION.getRegionWidth() / 2.0F) + scaleXOffset + offsetX) * scaleWidth, AbstractDungeon.floorY + (SCALE_BODY_REGION.getRegionHeight() - armYOffset - SCALE_LEFT_SCALE_REGION.getRegionHeight() + scaleYOffset + offsetY) * scaleHeight, 0.0F, 0.0F, SCALE_LEFT_SCALE_REGION.getRegionWidth(), SCALE_LEFT_SCALE_REGION.getRegionHeight(), scaleWidth, scaleHeight, 0.0F);
-        sb.draw(SCALE_LEFT_ARM_REGION, (960.0F - armXOffset - SCALE_LEFT_ARM_REGION.getRegionWidth()) * scaleWidth, AbstractDungeon.floorY + (SCALE_BODY_REGION.getRegionHeight() - armYOffset) * scaleHeight, SCALE_LEFT_ARM_REGION.getRegionWidth(), SCALE_LEFT_ARM_REGION.getRegionHeight() / 3.0F, SCALE_LEFT_ARM_REGION.getRegionWidth(), SCALE_LEFT_ARM_REGION.getRegionHeight(), scaleWidth, scaleHeight, -angle);
+        sb.draw(SCALE_LEFT_ARM_REGION, (960.0F - armXOffset) * scaleWidth, AbstractDungeon.floorY + (SCALE_BODY_REGION.getRegionHeight() - armYOffset) * scaleHeight, 0.0F, (SCALE_LEFT_ARM_REGION.getRegionHeight() / 2.0F) * scaleHeight, SCALE_LEFT_ARM_REGION.getRegionWidth(), SCALE_LEFT_ARM_REGION.getRegionHeight(), scaleWidth, scaleHeight, -(angle + 180));
         sb.draw(SCALE_BODY_REGION, (960.0F - (SCALE_BODY_REGION.getRegionWidth() / 2.0F)) * scaleWidth, AbstractDungeon.floorY, 0.0F, 0.0F, SCALE_BODY_REGION.getRegionWidth(), SCALE_BODY_REGION.getRegionHeight(), scaleWidth, scaleHeight, 0.0F);
+
         float xOffsetIncrement = 75.0F;
         float yOffsetIncrement = 130.0F;
         float xOffset = 160.0F;
