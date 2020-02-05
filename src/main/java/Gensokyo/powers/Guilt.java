@@ -1,5 +1,6 @@
 package Gensokyo.powers;
 
+import Gensokyo.BetterSpriterAnimation;
 import Gensokyo.GensokyoMod;
 import Gensokyo.actions.BalanceShiftAction;
 import Gensokyo.monsters.bossRush.Eiki;
@@ -50,6 +51,9 @@ public class Guilt extends AbstractPower {
             this.flash();
             this.amount += damageAmount;
             updateDescription();
+            for (int i = 0; i < damageAmount; i++) {
+                eiki.guilt.add(new BetterSpriterAnimation("GensokyoResources/images/monsters/Eiki/Guilt/Spriter/GuiltAnimation.scml"));
+            }
             AbstractDungeon.actionManager.addToBottom(new BalanceShiftAction(this.eiki));
         }
     }

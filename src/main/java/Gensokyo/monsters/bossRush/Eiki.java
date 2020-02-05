@@ -88,7 +88,8 @@ public class Eiki extends CustomMonster
     private int turnCounter;
     public float angle = 0.0F;
     private Map<Byte, EnemyMoveInfo> moves;
-    private ArrayList<AbstractAnimation> souls = new ArrayList<>();
+    public ArrayList<AbstractAnimation> guilt = new ArrayList<>();
+    public ArrayList<AbstractAnimation> innocence = new ArrayList<>();
     private AbstractAnimation attackAnimations = new BetterSpriterAnimation("GensokyoResources/images/monsters/Yuyuko/AttackAnimations/Spriter/AttackAnimations.scml");
 
     public Eiki() {
@@ -147,7 +148,10 @@ public class Eiki extends CustomMonster
 //        AbstractDungeon.getCurrRoom().playBgmInstantly("BorderOfLife");
         this.addToBot(new ApplyPowerAction(AbstractDungeon.player, this, new Innocence(AbstractDungeon.player, 0, this), 0));
         this.addToBot(new ApplyPowerAction(AbstractDungeon.player, this, new Guilt(AbstractDungeon.player, STARTING_GUILT, this), STARTING_GUILT));
-        //AbstractDungeon.actionManager.addToBottom(new BalanceShiftAction(this));
+        AbstractDungeon.actionManager.addToBottom(new BalanceShiftAction(this));
+        for (int i = 0; i < STARTING_GUILT; i++) {
+            guilt.add(new BetterSpriterAnimation("GensokyoResources/images/monsters/Eiki/Guilt/Spriter/GuiltAnimation.scml"));
+        }
     }
     
     @Override
@@ -257,32 +261,40 @@ public class Eiki extends CustomMonster
         float scaleXOffset = 15.0F;
         float scaleYOffset = 30.0F;
 
-        //renders the balance scale and calculates offsets if the angle is changed
+        //calculates offsets if the angle is changed
         double radians = Math.toRadians(angle / 2);
         double length = (Math.sin(radians) * (SCALE_RIGHT_ARM_REGION.getRegionWidth() - armXOffset)) * 2;
         float offsetX = (float)(Math.sin(radians) * length);
         float offsetY = (float)(Math.cos(radians) * length);
 
+
+        //renders the guilt souls
+        float xOffsetIncrement = 25.0F;
+        float yOffsetIncrement = 40.0F;
+        float startX = 50.0F;
+        float startY = 35.0F;
+        float soulXOffset = startX;
+        float soulYOffset = startY;
+
+        for (int i = 1; i < guilt.size() + 1; i++) {
+            AbstractAnimation soul = guilt.get(i - 1);
+            soul.renderSprite(sb, (960.0F + armXOffset + SCALE_RIGHT_ARM_REGION.getRegionWidth() - (SCALE_RIGHT_SCALE_REGION.getRegionWidth() / 2.0F) - scaleXOffset - offsetX + soulXOffset) * scaleWidth, AbstractDungeon.floorY + (SCALE_BODY_REGION.getRegionHeight() - armYOffset - SCALE_RIGHT_SCALE_REGION.getRegionHeight() + scaleYOffset - offsetY + soulYOffset) * scaleHeight);
+            soulXOffset += xOffsetIncrement;
+            if (i % 4 == 0) {
+                soulYOffset += yOffsetIncrement;
+                soulXOffset = startX;
+            }
+        }
+
+
+        //renders the balance
         sb.draw(SCALE_RIGHT_SCALE_REGION, (960.0F + armXOffset + SCALE_RIGHT_ARM_REGION.getRegionWidth() - (SCALE_RIGHT_SCALE_REGION.getRegionWidth() / 2.0F) - scaleXOffset - offsetX) * scaleWidth, AbstractDungeon.floorY + (SCALE_BODY_REGION.getRegionHeight() - armYOffset - SCALE_RIGHT_SCALE_REGION.getRegionHeight() + scaleYOffset - offsetY) * scaleHeight, 0.0F, 0.0F, SCALE_RIGHT_SCALE_REGION.getRegionWidth(), SCALE_RIGHT_SCALE_REGION.getRegionHeight(), scaleWidth, scaleHeight, 0.0F);
         sb.draw(SCALE_RIGHT_ARM_REGION, (960.0F + armXOffset) * scaleWidth, AbstractDungeon.floorY + (SCALE_BODY_REGION.getRegionHeight() - armYOffset) * scaleHeight, 0.0F, (SCALE_RIGHT_ARM_REGION.getRegionHeight() / 2.0F) * scaleHeight, SCALE_RIGHT_ARM_REGION.getRegionWidth(), SCALE_RIGHT_ARM_REGION.getRegionHeight(), scaleWidth, scaleHeight, -angle);
         sb.draw(SCALE_LEFT_SCALE_REGION, (960.0F - armXOffset - SCALE_LEFT_ARM_REGION.getRegionWidth() - (SCALE_LEFT_SCALE_REGION.getRegionWidth() / 2.0F) + scaleXOffset + offsetX) * scaleWidth, AbstractDungeon.floorY + (SCALE_BODY_REGION.getRegionHeight() - armYOffset - SCALE_LEFT_SCALE_REGION.getRegionHeight() + scaleYOffset + offsetY) * scaleHeight, 0.0F, 0.0F, SCALE_LEFT_SCALE_REGION.getRegionWidth(), SCALE_LEFT_SCALE_REGION.getRegionHeight(), scaleWidth, scaleHeight, 0.0F);
         sb.draw(SCALE_LEFT_ARM_REGION, (960.0F - armXOffset) * scaleWidth, AbstractDungeon.floorY + (SCALE_BODY_REGION.getRegionHeight() - armYOffset) * scaleHeight, 0.0F, (SCALE_LEFT_ARM_REGION.getRegionHeight() / 2.0F) * scaleHeight, SCALE_LEFT_ARM_REGION.getRegionWidth(), SCALE_LEFT_ARM_REGION.getRegionHeight(), scaleWidth, scaleHeight, -(angle + 180));
         sb.draw(SCALE_BODY_REGION, (960.0F - (SCALE_BODY_REGION.getRegionWidth() / 2.0F)) * scaleWidth, AbstractDungeon.floorY, 0.0F, 0.0F, SCALE_BODY_REGION.getRegionWidth(), SCALE_BODY_REGION.getRegionHeight(), scaleWidth, scaleHeight, 0.0F);
 
-        float xOffsetIncrement = 75.0F;
-        float yOffsetIncrement = 130.0F;
-        float xOffset = 160.0F;
-        float yOffset = 130.0F;
-//        for (int i = 0; i < souls.size(); i++) {
-//            AbstractAnimation soul = souls.get(i);
-//            soul.renderSprite(sb, this.drawX - (this.FAN_REGION.getRegionWidth() - xOffset) * scaleWidth, this.drawY + ((this.FAN_REGION.getRegionHeight() + yOffset )* scaleHeight) / 2);
-//            xOffset += xOffsetIncrement;
-//            if (i < 4) {
-//                yOffset += yOffsetIncrement;
-//            } else if (i > 4) {
-//                yOffset -= yOffsetIncrement;
-//            }
-//        }
+
         attackAnimations.renderSprite(sb, AbstractDungeon.player.drawX, AbstractDungeon.player.drawY);
     }
 

@@ -1,5 +1,6 @@
 package Gensokyo.powers;
 
+import Gensokyo.BetterSpriterAnimation;
 import Gensokyo.GensokyoMod;
 import Gensokyo.actions.BalanceShiftAction;
 import Gensokyo.monsters.bossRush.Eiki;
@@ -48,6 +49,7 @@ public class Innocence extends AbstractPower {
             this.flash();
             this.amount++;
             updateDescription();
+            eiki.innocence.add(new BetterSpriterAnimation("GensokyoResources/images/monsters/Eiki/Innocence/Spriter/InnocenceAnimation.scml"));
             AbstractDungeon.actionManager.addToBottom(new BalanceShiftAction(this.eiki));
         }
     }
