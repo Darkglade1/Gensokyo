@@ -49,9 +49,13 @@ public class Guilt extends AbstractPower {
     public void onAttack(DamageInfo info, int damageAmount, AbstractCreature target) {
         if (info.owner == this.owner && info.type == DamageInfo.DamageType.NORMAL && damageAmount > 0) {
             this.flash();
-            this.amount += damageAmount;
+            int addedAmount = damageAmount;
+            if (addedAmount > THRESHOLD) {
+                addedAmount = THRESHOLD;
+            } 
+            this.amount += addedAmount;
             updateDescription();
-            for (int i = 0; i < damageAmount; i++) {
+            for (int i = 0; i < addedAmount; i++) {
                 eiki.guilt.add(new BetterSpriterAnimation("GensokyoResources/images/monsters/Eiki/Guilt/Spriter/GuiltAnimation.scml"));
             }
             AbstractDungeon.actionManager.addToBottom(new BalanceShiftAction(this.eiki));

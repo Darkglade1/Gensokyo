@@ -268,7 +268,7 @@ public class Eiki extends CustomMonster
         float offsetY = (float)(Math.cos(radians) * length);
 
 
-        //renders the guilt souls
+        //renders the souls
         float xOffsetIncrement = 25.0F;
         float yOffsetIncrement = 40.0F;
         float startX = 50.0F;
@@ -279,6 +279,20 @@ public class Eiki extends CustomMonster
         for (int i = 1; i < guilt.size() + 1; i++) {
             AbstractAnimation soul = guilt.get(i - 1);
             soul.renderSprite(sb, (960.0F + armXOffset + SCALE_RIGHT_ARM_REGION.getRegionWidth() - (SCALE_RIGHT_SCALE_REGION.getRegionWidth() / 2.0F) - scaleXOffset - offsetX + soulXOffset) * scaleWidth, AbstractDungeon.floorY + (SCALE_BODY_REGION.getRegionHeight() - armYOffset - SCALE_RIGHT_SCALE_REGION.getRegionHeight() + scaleYOffset - offsetY + soulYOffset) * scaleHeight);
+            soulXOffset += xOffsetIncrement;
+            if (i % 4 == 0) {
+                soulYOffset += yOffsetIncrement;
+                soulXOffset = startX;
+            }
+        }
+
+        soulXOffset = startX;
+        soulYOffset = startY;
+
+        for (int i = 1; i < innocence.size() + 1; i++) {
+            AbstractAnimation soul = innocence.get(i - 1);
+            System.out.println(innocence.size());
+            soul.renderSprite(sb, (960.0F - armXOffset - SCALE_LEFT_ARM_REGION.getRegionWidth() - (SCALE_LEFT_SCALE_REGION.getRegionWidth() / 2.0F) + scaleXOffset + offsetX + soulXOffset) * scaleWidth, AbstractDungeon.floorY + (SCALE_BODY_REGION.getRegionHeight() - armYOffset - SCALE_LEFT_SCALE_REGION.getRegionHeight() + scaleYOffset + offsetY + soulYOffset) * scaleHeight);
             soulXOffset += xOffsetIncrement;
             if (i % 4 == 0) {
                 soulYOffset += yOffsetIncrement;
