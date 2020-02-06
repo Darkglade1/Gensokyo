@@ -345,9 +345,9 @@ public class GensokyoMod implements
         BaseMod.addBoss(Gensokyo.ID, Kokoro.ID, "GensokyoResources/images/monsters/Kokoro/Kokoro.png", "GensokyoResources/images/monsters/Kokoro/KokoroOutline.png");
         BaseMod.addBoss(Gensokyo.ID, Reimu.ID, "GensokyoResources/images/monsters/Reimu/Reimu.png", "GensokyoResources/images/monsters/Reimu/ReimuOutline.png");
 
-        BaseMod.addMonster(Yuyuko.ID, (BaseMod.GetMonster) Yuyuko::new);
-        CustomIntent.add(new DeathIntent());
-        BaseMod.addMonster(Eiki.ID, (BaseMod.GetMonster) Eiki::new);
+//        BaseMod.addMonster(Yuyuko.ID, (BaseMod.GetMonster) Yuyuko::new);
+//        CustomIntent.add(new DeathIntent());
+//        BaseMod.addMonster(Eiki.ID, (BaseMod.GetMonster) Eiki::new);
         
         // =============== EVENTS =================
 

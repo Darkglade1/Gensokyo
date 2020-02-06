@@ -112,7 +112,7 @@ public class Patchouli extends CustomMonster
     public static final int STARTING_INVINCIBLE = 10;
     public static final int INVINCIBLE_INCREMENT = 2;
 
-    public static final float orbOffset = 400.0F * Settings.scale;
+    public static final float orbOffset = 400.0F;
     public AbstractMonster[] orbs = new AbstractMonster[NUM_ELEMENTS];
 
     public Patchouli() {
