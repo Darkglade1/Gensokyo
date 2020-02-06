@@ -97,8 +97,8 @@ public class Eiki extends CustomMonster
     }
 
     public Eiki(final float x, final float y) {
-        super(NAME, ID, HP, -5.0F, 0, 230.0f, 295.0f, null, x, y);
-        this.animation = new BetterSpriterAnimation("GensokyoResources/images/monsters/Yuyuko/Spriter/YuyukoAnimation.scml");
+        super(NAME, ID, HP, -5.0F, 0, 230.0f, 280.0f, null, x, y);
+        this.animation = new BetterSpriterAnimation("GensokyoResources/images/monsters/Eiki/Spriter/EikiAnimation.scml");
         this.type = EnemyType.BOSS;
         this.dialogX = (this.hb_x - 70.0F) * Settings.scale;
         this.dialogY -= (this.hb_y - 55.0F) * Settings.scale;
@@ -167,7 +167,7 @@ public class Eiki extends CustomMonster
         switch (this.nextMove) {
             case GHOSTLY_BUTTERFLY: {
                 //runAnim("SoulGrab");
-                CardCrawlGame.sound.playV("Gensokyo:ghost", 1.5F);
+                //CardCrawlGame.sound.playV("Gensokyo:ghost", 1.5F);
                 AbstractDungeon.actionManager.addToBottom(new VFXAction(new EmptyEffect(), 1.0F));
                 AbstractDungeon.actionManager.addToBottom(new DamageAction(AbstractDungeon.player, info, AbstractGameAction.AttackEffect.POISON));
                 turnCounter++;
@@ -175,7 +175,7 @@ public class Eiki extends CustomMonster
             }
             case GHASTLY_DREAM: {
                 //runAnim("SoulGrab");
-                CardCrawlGame.sound.playV("Gensokyo:ghost", 1.5F);
+                //CardCrawlGame.sound.playV("Gensokyo:ghost", 1.5F);
                 AbstractDungeon.actionManager.addToBottom(new VFXAction(new EmptyEffect(), 1.0F));
                 AbstractDungeon.actionManager.addToBottom(new DamageAction(AbstractDungeon.player, info, AbstractGameAction.AttackEffect.POISON));
                 AbstractDungeon.actionManager.addToBottom(new GainBlockAction(this, this, this.block));
@@ -184,7 +184,7 @@ public class Eiki extends CustomMonster
             }
             case LAW_OF_MORTALITY: {
                 //runAnim("MagicCircle");
-                CardCrawlGame.sound.playV("Gensokyo:magic", 1.5F);
+                //CardCrawlGame.sound.playV("Gensokyo:magic", 1.5F);
                 AbstractDungeon.actionManager.addToBottom(new VFXAction(new EmptyEffect(), 1.0F));
                 AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(AbstractDungeon.player, this, new VulnerablePower(AbstractDungeon.player, DEBUFF_AMOUNT, true), DEBUFF_AMOUNT));
                 //AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(AbstractDungeon.player, this, new FrailPower(AbstractDungeon.player, DEBUFF_AMOUNT, true), DEBUFF_AMOUNT));
@@ -193,7 +193,7 @@ public class Eiki extends CustomMonster
             }
             case RESURRECTION_BUTTERFLY: {
                 //runAnim("ButterflyCircle");
-                CardCrawlGame.sound.playV("Gensokyo:pest", 1.5F);
+                //CardCrawlGame.sound.playV("Gensokyo:pest", 1.5F);
                 AbstractDungeon.actionManager.addToBottom(new VFXAction(new EmptyEffect(), 1.3F));
                 AbstractDungeon.actionManager.addToBottom(new DamageAction(AbstractDungeon.player, info, AbstractGameAction.AttackEffect.POISON));
                 AbstractDungeon.actionManager.addToBottom(new MakeTempCardInDrawPileAction(new Butterfly(), statusCount, true, true));
@@ -204,14 +204,14 @@ public class Eiki extends CustomMonster
             }
             case SAIGYOUJI_PARINIRVANA: {
                // runAnim("SoulGrab");
-                CardCrawlGame.sound.playV("Gensokyo:ghost", 1.5F);
+                //CardCrawlGame.sound.playV("Gensokyo:ghost", 1.5F);
                 AbstractDungeon.actionManager.addToBottom(new VFXAction(new EmptyEffect(), 1.0F));
                 addToBot(new YeetPlayerAction());
                 break;
             }
             case BUTTERFLY_DELUSION: {
                 //runAnim("MagicCircle");
-                CardCrawlGame.sound.playV("Gensokyo:magic", 1.5F);
+                //CardCrawlGame.sound.playV("Gensokyo:magic", 1.5F);
                 AbstractDungeon.actionManager.addToBottom(new VFXAction(new EmptyEffect(), 1.0F));
                 AbstractDungeon.actionManager.addToBottom(new GainBlockAction(this, this, this.block));
                 AbstractDungeon.actionManager.addToBottom(new MakeTempCardInHandAction(new Butterfly(), FIRST_TURN_STATUS_COUNT));
