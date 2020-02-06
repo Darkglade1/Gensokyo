@@ -8,6 +8,7 @@ import com.badlogic.gdx.graphics.g2d.TextureAtlas;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.core.AbstractCreature;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
+import com.megacrit.cardcrawl.core.Settings;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.localization.PowerStrings;
 import com.megacrit.cardcrawl.powers.AbstractPower;
@@ -26,7 +27,7 @@ public class Position extends AbstractPower {
     private static final Texture tex32 = TextureLoader.getTexture(makePowerPath("SpellCard32.png"));
 
     private float originalY;
-    private static float movement = Reimu.orbOffset;
+    private static float movement = Reimu.orbOffset * Settings.scale;
 
     public Position(AbstractCreature owner, int amount) {
         name = NAME;

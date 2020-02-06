@@ -12,6 +12,7 @@ import com.megacrit.cardcrawl.actions.common.RollMoveAction;
 import com.megacrit.cardcrawl.actions.common.SuicideAction;
 import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
+import com.megacrit.cardcrawl.core.Settings;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.localization.MonsterStrings;
 
@@ -27,7 +28,7 @@ public class YinYangOrb extends CustomMonster {
     private static final byte ATTACK = 2;
     private int delay;
     private int position;
-    private float movement = Reimu.orbOffset;
+    private float movement = Reimu.orbOffset * Settings.scale;
     private Reimu master;
 
     public YinYangOrb(float x, float y, int type, int position, int delay, Reimu master) {

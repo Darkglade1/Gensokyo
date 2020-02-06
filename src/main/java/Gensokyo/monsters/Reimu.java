@@ -70,7 +70,7 @@ public class Reimu extends CustomMonster
     private int strengthGain;
     private int debuffCounter = DEBUFF_COUNTER_THESHOLD; //start at threshold so she uses it immediately
 
-    public static final float orbOffset = 225.0F * Settings.scale;
+    public static final float orbOffset = 225.0F;
     public ArrayList[][] orbs = new ArrayList[3][3];
 
     public Reimu() {

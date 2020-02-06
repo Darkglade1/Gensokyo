@@ -291,7 +291,6 @@ public class Eiki extends CustomMonster
 
         for (int i = 1; i < innocence.size() + 1; i++) {
             AbstractAnimation soul = innocence.get(i - 1);
-            System.out.println(innocence.size());
             soul.renderSprite(sb, (960.0F - armXOffset - SCALE_LEFT_ARM_REGION.getRegionWidth() - (SCALE_LEFT_SCALE_REGION.getRegionWidth() / 2.0F) + scaleXOffset + offsetX + soulXOffset) * scaleWidth, AbstractDungeon.floorY + (SCALE_BODY_REGION.getRegionHeight() - armYOffset - SCALE_LEFT_SCALE_REGION.getRegionHeight() + scaleYOffset + offsetY + soulYOffset) * scaleHeight);
             soulXOffset += xOffsetIncrement;
             if (i % 4 == 0) {
