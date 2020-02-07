@@ -23,7 +23,6 @@ public class Guilt extends AbstractPower {
     private static final PowerStrings powerStrings = CardCrawlGame.languagePack.getPowerStrings(POWER_ID);
     public static final String NAME = powerStrings.NAME;
     public static final String[] DESCRIPTIONS = powerStrings.DESCRIPTIONS;
-    public static final int THRESHOLD = 20;
     private Eiki eiki;
 
     private static final Texture tex84 = TextureLoader.getTexture(makePowerPath("DeathTouch84.png"));
@@ -47,12 +46,15 @@ public class Guilt extends AbstractPower {
 
     @Override
     public void onAttack(DamageInfo info, int damageAmount, AbstractCreature target) {
-        if (info.owner == this.owner && info.type == DamageInfo.DamageType.NORMAL && damageAmount > 0) {
+        if (info.owner == this.owner && target == eiki && info.type == DamageInfo.DamageType.NORMAL && damageAmount > 0) {
             this.flash();
             int addedAmount = damageAmount;
-            if (addedAmount > THRESHOLD) {
-                addedAmount = THRESHOLD;
-            } 
+            if (addedAmount > eiki.guiltThreshold) {
+                addedAmount = eiki.guiltThreshold;
+            }
+            if (addedAmount > eiki.currentHealth) {
+                addedAmount = eiki.currentHealth;
+            }
             this.amount += addedAmount;
             updateDescription();
             for (int i = 0; i < addedAmount; i++) {
@@ -64,6 +66,6 @@ public class Guilt extends AbstractPower {
 
     @Override
     public void updateDescription() {
-        description = DESCRIPTIONS[0] + amount + DESCRIPTIONS[1] + THRESHOLD + DESCRIPTIONS[2];
+        description = DESCRIPTIONS[0] + amount + DESCRIPTIONS[1] + eiki.guiltThreshold + DESCRIPTIONS[2];
     }
 }

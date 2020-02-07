@@ -248,16 +248,16 @@
   },
   "Gensokyo:Eiki": {
     "MOVES": [
-      "Ghostly Butterfly",
-      "Ghastly Dream",
-      "Law of Mortality",
-      "Resurrection Butterfly",
-      "Saigyouji Parinirvana",
-      "Butterfly Delusion"
+      "Last Judgement",
+      "Trial of Kings",
+      "Guilty or Not Guilty",
+      "Wandering Sin"
     ],
     "NAME": "Supreme Judge of Paradise",
     "DIALOG": [
-      "I will see you answer for your misdeeds."
+      "I will see you answer for your misdeeds.",
+      "I guess you were innocent after all.",
+      "The wages of sin is death."
     ]
   }
 }

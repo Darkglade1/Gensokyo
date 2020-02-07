@@ -162,5 +162,17 @@
 "Gensokyo:Innocence": {
         "NAME": "Innocence",
         "DESCRIPTIONS": ["You have #b", " #gInnocence. Whenever you receive unblocked attack damage, gain #b1 #gInnocence. If your #gInnocence exceeds your #rGuilt, you #gwin."]
+},
+"Gensokyo:Impartiality": {
+        "NAME": "Impartiality",
+        "DESCRIPTIONS": ["#yImmune to non-attack damage."]
+},
+"Gensokyo:Virtue": {
+        "NAME": "Virtue",
+        "DESCRIPTIONS": ["At the end of her turn, gains #b", " #yBlock. At the start of her turn, takes damage equal to the amount of #yblocked damage this turn. #b(", ")"]
+},
+"Gensokyo:Judgement": {
+        "NAME": "Judgement",
+        "DESCRIPTIONS": ["On victory, gain #b", " #gMax #gHP."]
 }
 }

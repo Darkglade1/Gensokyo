@@ -7,9 +7,12 @@ import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.math.Interpolation;
 import com.badlogic.gdx.math.MathUtils;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
+import com.megacrit.cardcrawl.actions.animations.TalkAction;
+import com.megacrit.cardcrawl.actions.common.EscapeAction;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.core.Settings;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
+import com.megacrit.cardcrawl.screens.DeathScreen;
 
 public class BalanceShiftAction extends AbstractGameAction {
     Eiki eiki;
@@ -18,6 +21,7 @@ public class BalanceShiftAction extends AbstractGameAction {
     private float endAngle;
     private boolean hasSetValues = false;
     public static final float MAX_ANGLE = 30.0F;
+    private int difference;
 
     public BalanceShiftAction(Eiki eiki) {
         this.actionType = ActionType.DAMAGE;
@@ -37,8 +41,8 @@ public class BalanceShiftAction extends AbstractGameAction {
             if (AbstractDungeon.player.hasPower(Innocence.POWER_ID)) {
                 innocence = AbstractDungeon.player.getPower(Innocence.POWER_ID).amount;
             }
-            int difference = guilt - innocence;
-            this.endAngle = difference * ((MAX_ANGLE) / Guilt.THRESHOLD);
+            difference = guilt - innocence;
+            this.endAngle = difference * ((MAX_ANGLE) / eiki.guiltThreshold);
             if (this.endAngle > MAX_ANGLE) {
                 this.endAngle = MAX_ANGLE;
             }
@@ -63,6 +67,16 @@ public class BalanceShiftAction extends AbstractGameAction {
         if (eiki.angle == endAngle) {
             if (startAngle != endAngle) {
                 CardCrawlGame.sound.playA("BELL", MathUtils.random(-0.2F, -0.3F));
+            }
+            if (difference >= eiki.guiltThreshold) {
+                AbstractDungeon.actionManager.addToBottom(new TalkAction(eiki, Eiki.DIALOG[2]));
+                AbstractDungeon.player.isDead = true;
+                AbstractDungeon.deathScreen = new DeathScreen(AbstractDungeon.getMonsters());
+                AbstractDungeon.actionManager.clearPostCombatActions();
+            } else if (difference < 0) {
+                AbstractDungeon.actionManager.addToBottom(new TalkAction(eiki, Eiki.DIALOG[1]));
+                AbstractDungeon.actionManager.addToBottom(new SetFlipAction(eiki));
+                AbstractDungeon.actionManager.addToBottom(new EscapeAction(eiki));
             }
             this.isDone = true;
         }

@@ -1,13 +1,15 @@
 package Gensokyo.actions;
 
 import Gensokyo.monsters.NormalEnemies.AbstractFairy;
+import Gensokyo.monsters.bossRush.Eiki;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.core.Settings;
+import com.megacrit.cardcrawl.monsters.AbstractMonster;
 
 public class SetFlipAction extends AbstractGameAction {
-    AbstractFairy mo;
+    AbstractMonster mo;
 
-    public SetFlipAction(AbstractFairy mo) {
+    public SetFlipAction(AbstractMonster mo) {
         this.actionType = ActionType.SPECIAL;
         this.duration = Settings.ACTION_DUR_FAST;
         this.mo = mo;
@@ -16,7 +18,12 @@ public class SetFlipAction extends AbstractGameAction {
     public void update() {
         this.isDone = false;
 
-        mo.setFlip(true, false);;
+        if (mo instanceof AbstractFairy) {
+            ((AbstractFairy)mo).setFlip(true, false);;
+        }
+        if (mo instanceof Eiki) {
+            ((Eiki)mo).setFlip(true, false);;
+        }
 
         this.isDone = true;
     }
