@@ -259,6 +259,20 @@
       "I guess you were innocent after all.",
       "The wages of sin is death."
     ]
+  },
+  "Gensokyo:Kaguya": {
+    "MOVES": [
+      "Ghostly Butterfly",
+      "Ghastly Dream",
+      "Law of Mortality",
+      "Resurrection Butterfly",
+      "Saigyouji Parinirvana",
+      "Butterfly Delusion"
+    ],
+    "NAME": "Sinner of Eternity",
+    "DIALOG": [
+      "I do hope you'll make this entertaining for me."
+    ]
   }
 }
 
