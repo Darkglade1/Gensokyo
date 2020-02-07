@@ -6,7 +6,6 @@ import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.TextureAtlas;
 import com.evacipated.cardcrawl.mod.stslib.powers.abstracts.TwoAmountPower;
 import com.evacipated.cardcrawl.mod.stslib.powers.interfaces.OnLoseBlockPower;
-import com.megacrit.cardcrawl.actions.common.DamageAction;
 import com.megacrit.cardcrawl.actions.common.GainBlockAction;
 import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.core.AbstractCreature;
@@ -25,8 +24,8 @@ public class Virtue extends TwoAmountPower implements OnLoseBlockPower {
     public static final String NAME = powerStrings.NAME;
     public static final String[] DESCRIPTIONS = powerStrings.DESCRIPTIONS;
 
-    private static final Texture tex84 = TextureLoader.getTexture(makePowerPath("Evasive84.png"));
-    private static final Texture tex32 = TextureLoader.getTexture(makePowerPath("Evasive32.png"));
+    private static final Texture tex84 = TextureLoader.getTexture(makePowerPath("Virtue84.png"));
+    private static final Texture tex32 = TextureLoader.getTexture(makePowerPath("Virtue32.png"));
 
     public Virtue(AbstractCreature owner, int amount) {
         name = NAME;
@@ -68,6 +67,7 @@ public class Virtue extends TwoAmountPower implements OnLoseBlockPower {
             AbstractDungeon.effectList.add(new StrikeEffect(this.owner, this.owner.hb.cX, this.owner.hb.cY, amount2));
             this.owner.healthBarUpdatedEvent();
             if (this.owner.currentHealth <= 0) {
+                this.owner.currentHealth = 0;
                 this.owner.damage(new DamageInfo(null, 0, DamageInfo.DamageType.NORMAL));
             }
         }

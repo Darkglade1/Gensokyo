@@ -25,8 +25,8 @@ public class Guilt extends AbstractPower {
     public static final String[] DESCRIPTIONS = powerStrings.DESCRIPTIONS;
     private Eiki eiki;
 
-    private static final Texture tex84 = TextureLoader.getTexture(makePowerPath("DeathTouch84.png"));
-    private static final Texture tex32 = TextureLoader.getTexture(makePowerPath("DeathTouch32.png"));
+    private static final Texture tex84 = TextureLoader.getTexture(makePowerPath("Guilt84.png"));
+    private static final Texture tex32 = TextureLoader.getTexture(makePowerPath("Guilt32.png"));
 
     public Guilt(AbstractCreature owner, int amount, Eiki eiki) {
         name = NAME;

@@ -20,8 +20,8 @@ public class Judgement extends AbstractPower {
     public static final String NAME = powerStrings.NAME;
     public static final String[] DESCRIPTIONS = powerStrings.DESCRIPTIONS;
 
-    private static final Texture tex84 = TextureLoader.getTexture(makePowerPath("Evasive84.png"));
-    private static final Texture tex32 = TextureLoader.getTexture(makePowerPath("Evasive32.png"));
+    private static final Texture tex84 = TextureLoader.getTexture(makePowerPath("Judgement84.png"));
+    private static final Texture tex32 = TextureLoader.getTexture(makePowerPath("Judgement32.png"));
 
     public Judgement(AbstractCreature owner, int amount) {
         name = NAME;

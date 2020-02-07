@@ -24,8 +24,8 @@ public class Innocence extends AbstractPower {
     public static final String[] DESCRIPTIONS = powerStrings.DESCRIPTIONS;
     private Eiki eiki;
 
-    private static final Texture tex84 = TextureLoader.getTexture(makePowerPath("DeathTouch84.png"));
-    private static final Texture tex32 = TextureLoader.getTexture(makePowerPath("DeathTouch32.png"));
+    private static final Texture tex84 = TextureLoader.getTexture(makePowerPath("Innocence84.png"));
+    private static final Texture tex32 = TextureLoader.getTexture(makePowerPath("Innocence32.png"));
 
     public Innocence(AbstractCreature owner, int amount, Eiki eiki) {
         name = NAME;

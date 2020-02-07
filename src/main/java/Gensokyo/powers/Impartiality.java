@@ -18,8 +18,8 @@ public class Impartiality extends AbstractPower {
     public static final String NAME = powerStrings.NAME;
     public static final String[] DESCRIPTIONS = powerStrings.DESCRIPTIONS;
 
-    private static final Texture tex84 = TextureLoader.getTexture(makePowerPath("Evasive84.png"));
-    private static final Texture tex32 = TextureLoader.getTexture(makePowerPath("Evasive32.png"));
+    private static final Texture tex84 = TextureLoader.getTexture(makePowerPath("Impartial84.png"));
+    private static final Texture tex32 = TextureLoader.getTexture(makePowerPath("Impartial32.png"));
 
     public Impartiality(AbstractCreature owner) {
         name = NAME;
