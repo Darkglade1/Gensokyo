@@ -3,10 +3,10 @@ package Gensokyo.monsters.bossRush;
 import Gensokyo.BetterSpriterAnimation;
 import Gensokyo.actions.BalanceShiftAction;
 import Gensokyo.powers.Guilt;
-import Gensokyo.powers.Impartiality;
+import Gensokyo.powers.Virtue;
 import Gensokyo.powers.Innocence;
 import Gensokyo.powers.Judgement;
-import Gensokyo.powers.Virtue;
+import Gensokyo.powers.Resolve;
 import basemod.abstracts.CustomMonster;
 import basemod.animations.AbstractAnimation;
 import com.badlogic.gdx.graphics.Color;
@@ -37,7 +37,7 @@ public class Eiki extends CustomMonster
     private static final Texture SCALE_BODY = new Texture("GensokyoResources/images/monsters/Eiki/Body.png");
     private static final Texture SCALE_RIGHT_ARM = new Texture("GensokyoResources/images/monsters/Eiki/RightArm.png");
     private static final Texture SCALE_RIGHT_SCALE = new Texture("GensokyoResources/images/monsters/Eiki/RightScale.png");
-    private static final Texture SCALE_LEFT_ARM = new Texture("GensokyoResources/images/monsters/Eiki/LeftArm.png");
+    //private static final Texture SCALE_LEFT_ARM = new Texture("GensokyoResources/images/monsters/Eiki/LeftArm.png");
     private static final Texture SCALE_LEFT_SCALE = new Texture("GensokyoResources/images/monsters/Eiki/LeftScale.png");
     private TextureRegion SCALE_BODY_REGION;
     private TextureRegion SCALE_RIGHT_ARM_REGION;
@@ -88,7 +88,6 @@ public class Eiki extends CustomMonster
     private Map<Byte, EnemyMoveInfo> moves;
     public ArrayList<AbstractAnimation> guilt = new ArrayList<>();
     public ArrayList<AbstractAnimation> innocence = new ArrayList<>();
-    private AbstractAnimation attackAnimations = new BetterSpriterAnimation("GensokyoResources/images/monsters/Yuyuko/AttackAnimations/Spriter/AttackAnimations.scml");
 
     public Eiki() {
         this(0.0f, 0.0f);
@@ -137,9 +136,9 @@ public class Eiki extends CustomMonster
 
     @Override
     public void usePreBattleAction() {
-//        AbstractDungeon.getCurrRoom().playBgmInstantly("BorderOfLife");
-        this.addToBot(new ApplyPowerAction(this, this, new Impartiality(this)));
-        this.addToBot(new ApplyPowerAction(this, this, new Virtue(this, VIRTUE_AMOUNT)));
+        AbstractDungeon.getCurrRoom().playBgmInstantly("FateOfSixtyYears");
+        this.addToBot(new ApplyPowerAction(this, this, new Virtue(this)));
+        this.addToBot(new ApplyPowerAction(this, this, new Resolve(this, VIRTUE_AMOUNT)));
         this.addToBot(new ApplyPowerAction(AbstractDungeon.player, this, new Innocence(AbstractDungeon.player, 0, this), 0));
         this.addToBot(new ApplyPowerAction(AbstractDungeon.player, this, new Guilt(AbstractDungeon.player, startingGuilt, this), startingGuilt));
         AbstractDungeon.actionManager.addToBottom(new BalanceShiftAction(this));
@@ -161,25 +160,17 @@ public class Eiki extends CustomMonster
         }
         switch (this.nextMove) {
             case LAST_JUDGEMENT: {
-                //runAnim("SoulGrab");
-                //CardCrawlGame.sound.playV("Gensokyo:ghost", 1.5F);
-                //AbstractDungeon.actionManager.addToBottom(new VFXAction(new EmptyEffect(), 1.0F));
                 AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(AbstractDungeon.player, this, new Judgement(AbstractDungeon.player, (int)(AbstractDungeon.player.maxHealth * JUDGEMENT_PERCENT))));
                 turnCounter++;
                 break;
             }
             case TRIAL: {
-                //runAnim("SoulGrab");
-                //CardCrawlGame.sound.playV("Gensokyo:ghost", 1.5F);
-                //AbstractDungeon.actionManager.addToBottom(new VFXAction(new EmptyEffect(), 1.0F));
+                this.useFastAttackAnimation();
                 AbstractDungeon.actionManager.addToBottom(new DamageAction(AbstractDungeon.player, info, AbstractGameAction.AttackEffect.BLUNT_HEAVY));
                 turnCounter++;
                 break;
             }
             case GUILTY_OR_NOT: {
-                //runAnim("MagicCircle");
-                //CardCrawlGame.sound.playV("Gensokyo:magic", 1.5F);
-                //AbstractDungeon.actionManager.addToBottom(new VFXAction(new EmptyEffect(), 1.0F));
                 int innocence = 0;
                 int guilt = 0;
                 if (AbstractDungeon.player.hasPower(Innocence.POWER_ID)) {
@@ -192,15 +183,13 @@ public class Eiki extends CustomMonster
                 if (difference < 0) {
                     difference = startingGuilt;
                 }
-                difference *= 2;
+                difference = (int)(difference * 1.5f);
                 AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(this, this, new StrengthPower(this, difference), difference));
                 turnCounter = 0;
                 break;
             }
             case WANDERING_SIN: {
-                //runAnim("ButterflyCircle");
-                //CardCrawlGame.sound.playV("Gensokyo:pest", 1.5F);
-                //AbstractDungeon.actionManager.addToBottom(new VFXAction(new EmptyEffect(), 1.3F));
+                this.useFastAttackAnimation();
                 AbstractDungeon.actionManager.addToBottom(new DamageAction(AbstractDungeon.player, info, AbstractGameAction.AttackEffect.POISON));
                 if (this.angle <= (BalanceShiftAction.MAX_ANGLE / 2)) {
                     AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(AbstractDungeon.player, this, new FrailPower(AbstractDungeon.player, DEBUFF_AMOUNT, true), DEBUFF_AMOUNT));
@@ -302,9 +291,6 @@ public class Eiki extends CustomMonster
         sb.draw(SCALE_LEFT_SCALE_REGION, (960.0F - armXOffset - SCALE_LEFT_ARM_REGION.getRegionWidth() - (SCALE_LEFT_SCALE_REGION.getRegionWidth() / 2.0F) + scaleXOffset + offsetX) * scaleWidth, AbstractDungeon.floorY + (SCALE_BODY_REGION.getRegionHeight() - armYOffset - SCALE_LEFT_SCALE_REGION.getRegionHeight() + scaleYOffset + offsetY) * scaleHeight, 0.0F, 0.0F, SCALE_LEFT_SCALE_REGION.getRegionWidth(), SCALE_LEFT_SCALE_REGION.getRegionHeight(), scaleWidth, scaleHeight, 0.0F);
         sb.draw(SCALE_LEFT_ARM_REGION, (960.0F - armXOffset) * scaleWidth, AbstractDungeon.floorY + (SCALE_BODY_REGION.getRegionHeight() - armYOffset) * scaleHeight, 0.0F, (SCALE_LEFT_ARM_REGION.getRegionHeight() / 2.0F) * scaleHeight, SCALE_LEFT_ARM_REGION.getRegionWidth(), SCALE_LEFT_ARM_REGION.getRegionHeight(), scaleWidth, scaleHeight, -(angle + 180));
         sb.draw(SCALE_BODY_REGION, (960.0F - (SCALE_BODY_REGION.getRegionWidth() / 2.0F)) * scaleWidth, AbstractDungeon.floorY, 0.0F, 0.0F, SCALE_BODY_REGION.getRegionWidth(), SCALE_BODY_REGION.getRegionHeight(), scaleWidth, scaleHeight, 0.0F);
-
-
-        attackAnimations.renderSprite(sb, AbstractDungeon.player.drawX, AbstractDungeon.player.drawY);
     }
 
     public void setFlip(boolean horizontal, boolean vertical) {

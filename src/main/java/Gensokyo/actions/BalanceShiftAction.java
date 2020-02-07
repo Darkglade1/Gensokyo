@@ -12,6 +12,7 @@ import com.megacrit.cardcrawl.actions.common.EscapeAction;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.core.Settings;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
+import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.screens.DeathScreen;
 
 public class BalanceShiftAction extends AbstractGameAction {
@@ -74,9 +75,15 @@ public class BalanceShiftAction extends AbstractGameAction {
                 AbstractDungeon.deathScreen = new DeathScreen(AbstractDungeon.getMonsters());
                 AbstractDungeon.actionManager.clearPostCombatActions();
             } else if (difference < 0) {
-                AbstractDungeon.actionManager.addToBottom(new TalkAction(eiki, Eiki.DIALOG[1]));
-                AbstractDungeon.actionManager.addToBottom(new SetFlipAction(eiki));
-                AbstractDungeon.actionManager.addToBottom(new EscapeAction(eiki));
+                for (AbstractMonster mo : AbstractDungeon.getCurrRoom().monsters.monsters) {
+                    if (mo instanceof Eiki) {
+                        AbstractDungeon.actionManager.addToBottom(new TalkAction(eiki, Eiki.DIALOG[1]));
+                        AbstractDungeon.actionManager.addToBottom(new SetFlipAction(eiki));
+                        AbstractDungeon.actionManager.addToBottom(new EscapeAction(eiki));
+                    } else {
+                        mo.die();;
+                    }
+                }
             }
             this.isDone = true;
         }

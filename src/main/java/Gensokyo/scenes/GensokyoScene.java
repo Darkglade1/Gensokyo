@@ -7,6 +7,7 @@ import Gensokyo.monsters.Mamizou;
 import Gensokyo.monsters.Reimu;
 import Gensokyo.monsters.Sumireko;
 import Gensokyo.monsters.Yukari;
+import Gensokyo.monsters.bossRush.Eiki;
 import Gensokyo.monsters.bossRush.Yuyuko;
 import Gensokyo.monsters.marisaMonsters.Patchouli;
 import com.badlogic.gdx.Gdx;
@@ -16,15 +17,12 @@ import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.graphics.g2d.TextureAtlas;
 import com.badlogic.gdx.math.MathUtils;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
-import com.megacrit.cardcrawl.helpers.ImageMaster;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.rooms.AbstractRoom;
 import com.megacrit.cardcrawl.rooms.CampfireUI;
 import com.megacrit.cardcrawl.rooms.MonsterRoomBoss;
 import com.megacrit.cardcrawl.rooms.ShopRoom;
 import com.megacrit.cardcrawl.scenes.AbstractScene;
-
-import javax.sound.midi.Patch;
 
 public class GensokyoScene extends AbstractScene {
 
@@ -90,6 +88,8 @@ public class GensokyoScene extends AbstractScene {
                     this.bg = this.atlas.findRegion("mod/OutsideWorld");
                 } else if (mo instanceof Yuyuko) {
                     this.bg = this.atlas.findRegion("mod/ElegantPlace");
+                } else if (mo instanceof Eiki) {
+                    this.bg = this.atlas.findRegion("mod/ConcertStage");
                 } else {
                     this.bg = this.atlas.findRegion("mod/TanukiForest");
                 }
