@@ -86,7 +86,7 @@ public class Kaguya extends CustomMonster
     }
 
     public Kaguya(final float x, final float y) {
-        super(NAME, ID, HP, -5.0F, 0, 230.0f, 295.0f, null, x, y);
+        super(NAME, ID, HP, -5.0F, 0, 230.0f, 255.0f, null, x, y);
         this.animation = new BetterSpriterAnimation("GensokyoResources/images/monsters/Kaguya/Spriter/KaguyaAnimation.scml");
         this.type = EnemyType.BOSS;
         this.dialogX = (this.hb_x - 70.0F) * Settings.scale;
