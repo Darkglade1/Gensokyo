@@ -2,7 +2,7 @@ package Gensokyo.monsters.marisaMonsters;
 
 import Gensokyo.BetterSpriterAnimation;
 import Gensokyo.actions.PatchyOrbMoveAction;
-import Gensokyo.actions.PatchyOrbRezAction;
+import Gensokyo.actions.RezAction;
 import Gensokyo.actions.UsePreBattleActionAction;
 import Gensokyo.cards.Frozen;
 import Gensokyo.powers.ElementalBarrier;
@@ -351,7 +351,7 @@ public class Patchouli extends CustomMonster
         }
         orbs = newOrbs;
 
-        AbstractDungeon.actionManager.addToBottom(new PatchyOrbRezAction(orbs[0])); //new active orb is at slot 0
+        AbstractDungeon.actionManager.addToBottom(new RezAction(orbs[0])); //new active orb is at slot 0
     }
 
     private void setMoveShortcut(byte next) {

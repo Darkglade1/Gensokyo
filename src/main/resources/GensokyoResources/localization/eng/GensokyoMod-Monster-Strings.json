@@ -262,16 +262,13 @@
   },
   "Gensokyo:Kaguya": {
     "MOVES": [
-      "Ghostly Butterfly",
-      "Ghastly Dream",
-      "Law of Mortality",
-      "Resurrection Butterfly",
-      "Saigyouji Parinirvana",
-      "Butterfly Delusion"
+      "Brilliant Dragon Bullet",
+      "Buddhist Diamond"
     ],
     "NAME": "Sinner of Eternity",
     "DIALOG": [
-      "I do hope you'll make this entertaining for me."
+      "I do hope you'll make this entertaining for me.",
+      "Well, that was fun."
     ]
   }
 }

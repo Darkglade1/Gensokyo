@@ -174,5 +174,13 @@
 "Gensokyo:Judgement": {
         "NAME": "Judgement",
         "DESCRIPTIONS": ["On victory, gain #b", " #gMax #gHP."]
+},
+"Gensokyo:HouraiImmortal": {
+        "NAME": "Hourai Immortal",
+        "DESCRIPTIONS": ["Whenever this creature dies, it revives at full HP."]
+},
+"Gensokyo:ImpossibleRequest": {
+        "NAME": "Lunatic Princess",
+        "DESCRIPTIONS": ["When you fulfill all the #pImpossible #pRequests, you #gwin."]
 }
 }

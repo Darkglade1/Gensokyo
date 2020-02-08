@@ -109,5 +109,29 @@
   "Gensokyo:Butterfly": {
     "NAME": "Butterfly",
     "DESCRIPTION": "Retain. NL Gain !B! Block. NL Lose !M! HP. NL Exhaust."
+  },
+  "Gensokyo:ImpossibleRequest": {
+    "NAME": "Impossible Request",
+    "DESCRIPTION": "gensokyo:Impossible_Request."
+  },
+  "Gensokyo:BuddhaStoneBowel": {
+    "NAME": "Buddha's Stone Bowel",
+    "DESCRIPTION": "gensokyo:Impossible_Request. NL Play an Attack, Skill, and Power in a single turn."
+  },
+  "Gensokyo:BulletBranchOfHourai": {
+    "NAME": "Bullet Branch of Hourai",
+    "DESCRIPTION": "gensokyo:Impossible_Request. NL Play !M! cards in a single turn."
+  },
+  "Gensokyo:FireRatsRobe": {
+    "NAME": "Fire Rat's Robe",
+    "DESCRIPTION": "gensokyo:Impossible_Request. NL Draw !M! cards in a single turn."
+  },
+  "Gensokyo:JewelFromTheDragonsNeck": {
+    "NAME": "Jewel from the Dragon's Neck",
+    "DESCRIPTION": "gensokyo:Impossible_Request. NL Deal !M! damage in a single turn."
+  },
+  "Gensokyo:SwallowsCowrieShell": {
+    "NAME": "Swallow's Cowrie Shell",
+    "DESCRIPTION": "gensokyo:Impossible_Request. NL Take no attack damage for !M! turns."
   }
 }

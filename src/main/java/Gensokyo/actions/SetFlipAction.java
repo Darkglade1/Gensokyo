@@ -2,6 +2,7 @@ package Gensokyo.actions;
 
 import Gensokyo.monsters.NormalEnemies.AbstractFairy;
 import Gensokyo.monsters.bossRush.Eiki;
+import Gensokyo.monsters.bossRush.Kaguya;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.core.Settings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
@@ -23,6 +24,9 @@ public class SetFlipAction extends AbstractGameAction {
         }
         if (mo instanceof Eiki) {
             ((Eiki)mo).setFlip(true, false);;
+        }
+        if (mo instanceof Kaguya) {
+            ((Kaguya)mo).setFlip(true, false);;
         }
 
         this.isDone = true;

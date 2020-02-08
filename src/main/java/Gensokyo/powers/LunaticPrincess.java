@@ -1,0 +1,161 @@
+package Gensokyo.powers;
+
+import Gensokyo.GensokyoMod;
+import Gensokyo.actions.SetFlipAction;
+import Gensokyo.cards.ImpossibleRequests.ImpossibleRequest;
+import Gensokyo.monsters.bossRush.Kaguya;
+import Gensokyo.util.TextureLoader;
+import com.badlogic.gdx.graphics.Texture;
+import com.badlogic.gdx.graphics.g2d.TextureAtlas;
+import com.megacrit.cardcrawl.actions.animations.TalkAction;
+import com.megacrit.cardcrawl.actions.common.EscapeAction;
+import com.megacrit.cardcrawl.actions.utility.UseCardAction;
+import com.megacrit.cardcrawl.cards.AbstractCard;
+import com.megacrit.cardcrawl.cards.DamageInfo;
+import com.megacrit.cardcrawl.core.AbstractCreature;
+import com.megacrit.cardcrawl.core.CardCrawlGame;
+import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
+import com.megacrit.cardcrawl.localization.PowerStrings;
+import com.megacrit.cardcrawl.monsters.AbstractMonster;
+import com.megacrit.cardcrawl.powers.AbstractPower;
+
+import static Gensokyo.GensokyoMod.makePowerPath;
+
+
+public class LunaticPrincess extends AbstractPower {
+
+    public static final String POWER_ID = GensokyoMod.makeID("ImpossibleRequest");
+    private static final PowerStrings powerStrings = CardCrawlGame.languagePack.getPowerStrings(POWER_ID);
+    public static final String NAME = powerStrings.NAME;
+    public static final String[] DESCRIPTIONS = powerStrings.DESCRIPTIONS;
+    private Kaguya kaguya;
+    private ImpossibleRequest request;
+    private boolean SKILL = false;
+    private boolean POWER = false;
+    private boolean ATTACK = false;
+    private boolean tookDamage = false;
+    private int counter = 0;
+
+    private static final Texture tex84 = TextureLoader.getTexture(makePowerPath("Evasive84.png"));
+    private static final Texture tex32 = TextureLoader.getTexture(makePowerPath("Evasive32.png"));
+
+    public LunaticPrincess(AbstractCreature owner, Kaguya kaguya, ImpossibleRequest request) {
+        name = NAME;
+        ID = POWER_ID;
+
+        this.owner = owner;
+        this.kaguya = kaguya;
+        this.request = request;
+
+        type = PowerType.BUFF;
+        isTurnBased = false;
+
+        this.region128 = new TextureAtlas.AtlasRegion(tex84, 0, 0, 84, 84);
+        this.region48 = new TextureAtlas.AtlasRegion(tex32, 0, 0, 32, 32);
+
+        updateDescription();
+    }
+
+    @Override
+    public void atStartOfTurn() {
+        SKILL = false;
+        POWER = false;
+        ATTACK = false;
+    }
+
+    @Override
+    public void onUseCard(AbstractCard card, UseCardAction action) {
+        if (request.requestCounter == ImpossibleRequest.BUDDHA_BOWL) {
+            System.out.println("Checked for buddha");
+            if (card.type == AbstractCard.CardType.ATTACK) {
+                System.out.println("Working on buddha");
+                ATTACK = true;
+            } else if (card.type == AbstractCard.CardType.SKILL) {
+                System.out.println("Working on buddha");
+                SKILL = true;
+            } else if (card.type == AbstractCard.CardType.POWER) {
+                System.out.println("Working on buddha");
+                POWER = true;
+            }
+
+            if (ATTACK && SKILL && POWER) {
+                System.out.println("Fulfilled buddha");
+                this.flash();
+                request.requestCounter++;
+                request.transform();
+                SKILL = false;
+                POWER = false;
+                ATTACK = false;
+            }
+        } else if (request.requestCounter == ImpossibleRequest.BULLET_BRANCH) {
+            counter++;
+            if (counter >= request.bulletBranchOfHourai.magicNumber) {
+                this.flash();
+                request.requestCounter++;
+                request.transform();
+                counter = 0;
+            }
+        }
+    }
+
+    @Override
+    public void onCardDraw(AbstractCard card) {
+        if (request.requestCounter == ImpossibleRequest.FIRE_RAT) {
+            counter++;
+            if (counter >= request.fireRatsRobe.magicNumber) {
+                this.flash();
+                request.requestCounter++;
+                request.transform();
+                counter = 0;
+            }
+        }
+    }
+
+    @Override
+    public void onAttack(DamageInfo info, int damageAmount, AbstractCreature target) {
+        if (request.requestCounter == ImpossibleRequest.JEWEL_FROM_DRAGON) {
+            if (info.owner == AbstractDungeon.player && damageAmount > 0) {
+                counter += damageAmount;
+                if (counter >= request.jewelFromDragon.magicNumber) {
+                    this.flash();
+                    request.requestCounter++;
+                    request.transform();
+                    counter = 0;
+                }
+            }
+        } else if (request.requestCounter == ImpossibleRequest.SWALLOW_SHELL) {
+            if (info.type == DamageInfo.DamageType.NORMAL && target == AbstractDungeon.player && damageAmount > 0) {
+                tookDamage = true;
+            }
+        }
+    }
+
+    @Override
+    public void atEndOfRound() {
+        if (request.requestCounter == ImpossibleRequest.SWALLOW_SHELL) {
+            if (tookDamage) {
+                counter = 0;
+            } else {
+                counter++;
+                if (counter >= request.swallowsCowrieShell.magicNumber) {
+                    for (AbstractMonster mo : AbstractDungeon.getCurrRoom().monsters.monsters) {
+                        if (mo instanceof Kaguya) {
+                            AbstractDungeon.getCurrRoom().cannotLose = false;
+                            AbstractDungeon.actionManager.addToBottom(new TalkAction(kaguya, Kaguya.DIALOG[1]));
+                            AbstractDungeon.actionManager.addToBottom(new SetFlipAction(kaguya));
+                            AbstractDungeon.actionManager.addToBottom(new EscapeAction(kaguya));
+                        } else {
+                            mo.die();;
+                        }
+                    }
+                }
+            }
+            tookDamage = false;
+        }
+    }
+
+    @Override
+    public void updateDescription() {
+        description = DESCRIPTIONS[0];
+    }
+}
