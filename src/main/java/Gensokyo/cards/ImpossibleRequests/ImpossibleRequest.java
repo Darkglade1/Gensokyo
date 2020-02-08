@@ -10,6 +10,7 @@ import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.Settings;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
+import com.megacrit.cardcrawl.vfx.cardManip.ShowCardAndAddToHandEffect;
 
 import static Gensokyo.GensokyoMod.makeCardPath;
 import static com.megacrit.cardcrawl.core.CardCrawlGame.languagePack;
@@ -72,13 +73,6 @@ public class ImpossibleRequest extends AbstractDefaultCard {
             System.out.println("Not null");
             this.rawDescription = languagePack.getCardStrings(cardToTransform.cardID).DESCRIPTION;
             System.out.println(rawDescription);
-            if (this.upgraded) {
-                cardToTransform.upgrade();
-                //Sets the card description to the upgraded version, if it exists.
-                if (languagePack.getCardStrings(cardToTransform.cardID).UPGRADE_DESCRIPTION != null) {
-                    this.rawDescription = languagePack.getCardStrings(cardToTransform.cardID).UPGRADE_DESCRIPTION;
-                }
-            }
 
             this.name = cardToTransform.name;
             this.target = cardToTransform.target;
@@ -262,26 +256,5 @@ public class ImpossibleRequest extends AbstractDefaultCard {
         if (cardToTransform != null) {
             cardToTransform.atTurnStart();
         }
-    }
-
-    @Override
-    public void triggerOnExhaust() {
-        this.addToBot(new MakeTempCardInHandAction(this.makeCopy()));
-    }
-
-    @Override
-    public AbstractCard makeStatEquivalentCopy() {
-        ImpossibleRequest request = new ImpossibleRequest();
-        request.requestCounter = this.requestCounter;
-        request.transform();
-        return request;
-    }
-
-    @Override
-    public AbstractCard makeCopy() {
-        ImpossibleRequest request = new ImpossibleRequest();
-        request.requestCounter = this.requestCounter;
-        request.transform();
-        return request;
     }
 }

@@ -179,8 +179,13 @@
         "NAME": "Hourai Immortal",
         "DESCRIPTIONS": ["Whenever this creature dies, it revives at full HP."]
 },
-"Gensokyo:ImpossibleRequest": {
+"Gensokyo:LunaticPrincess": {
         "NAME": "Lunatic Princess",
-        "DESCRIPTIONS": ["When you fulfill all the #pImpossible #pRequests, you #gwin."]
+        "DESCRIPTIONS": ["When you fulfill all the #pImpossible #pRequests, you #gwin.",
+                        " NL (You have played ", " an Attack", " a Skill", " a Power", ",", ".)",
+                        " card.)", " cards.)",
+                        " NL (You have drawn ",
+                        " NL (You have dealt ", " damage.)",
+                        " NL (You have taken no attack damage for ", " turn.)", " turns.)"]
 }
 }

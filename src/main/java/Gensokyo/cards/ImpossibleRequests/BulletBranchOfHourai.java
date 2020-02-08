@@ -26,6 +26,12 @@ public class BulletBranchOfHourai extends AbstractDefaultCard {
     }
 
     @Override
+    public float getTitleFontSize()
+    {
+        return 18;
+    }
+
+    @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
 
     }

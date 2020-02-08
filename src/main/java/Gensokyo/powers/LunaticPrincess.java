@@ -20,11 +20,12 @@ import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.powers.AbstractPower;
 
 import static Gensokyo.GensokyoMod.makePowerPath;
+import static com.megacrit.cardcrawl.core.CardCrawlGame.languagePack;
 
 
 public class LunaticPrincess extends AbstractPower {
 
-    public static final String POWER_ID = GensokyoMod.makeID("ImpossibleRequest");
+    public static final String POWER_ID = GensokyoMod.makeID("LunaticPrincess");
     private static final PowerStrings powerStrings = CardCrawlGame.languagePack.getPowerStrings(POWER_ID);
     public static final String NAME = powerStrings.NAME;
     public static final String[] DESCRIPTIONS = powerStrings.DESCRIPTIONS;
@@ -61,6 +62,7 @@ public class LunaticPrincess extends AbstractPower {
         SKILL = false;
         POWER = false;
         ATTACK = false;
+        updateRequest();
     }
 
     @Override
@@ -70,12 +72,15 @@ public class LunaticPrincess extends AbstractPower {
             if (card.type == AbstractCard.CardType.ATTACK) {
                 System.out.println("Working on buddha");
                 ATTACK = true;
+                updateRequest();
             } else if (card.type == AbstractCard.CardType.SKILL) {
                 System.out.println("Working on buddha");
                 SKILL = true;
+                updateRequest();
             } else if (card.type == AbstractCard.CardType.POWER) {
                 System.out.println("Working on buddha");
                 POWER = true;
+                updateRequest();
             }
 
             if (ATTACK && SKILL && POWER) {
@@ -83,17 +88,20 @@ public class LunaticPrincess extends AbstractPower {
                 this.flash();
                 request.requestCounter++;
                 request.transform();
+                updateRequest();
                 SKILL = false;
                 POWER = false;
                 ATTACK = false;
             }
         } else if (request.requestCounter == ImpossibleRequest.BULLET_BRANCH) {
             counter++;
+            updateRequest();
             if (counter >= request.bulletBranchOfHourai.magicNumber) {
                 this.flash();
                 request.requestCounter++;
                 request.transform();
                 counter = 0;
+                updateRequest();
             }
         }
     }
@@ -102,11 +110,13 @@ public class LunaticPrincess extends AbstractPower {
     public void onCardDraw(AbstractCard card) {
         if (request.requestCounter == ImpossibleRequest.FIRE_RAT) {
             counter++;
+            updateRequest();
             if (counter >= request.fireRatsRobe.magicNumber) {
                 this.flash();
                 request.requestCounter++;
                 request.transform();
                 counter = 0;
+                updateRequest();
             }
         }
     }
@@ -116,11 +126,13 @@ public class LunaticPrincess extends AbstractPower {
         if (request.requestCounter == ImpossibleRequest.JEWEL_FROM_DRAGON) {
             if (info.owner == AbstractDungeon.player && damageAmount > 0) {
                 counter += damageAmount;
+                updateRequest();
                 if (counter >= request.jewelFromDragon.magicNumber) {
                     this.flash();
                     request.requestCounter++;
                     request.transform();
                     counter = 0;
+                    updateRequest();
                 }
             }
         } else if (request.requestCounter == ImpossibleRequest.SWALLOW_SHELL) {
@@ -135,8 +147,10 @@ public class LunaticPrincess extends AbstractPower {
         if (request.requestCounter == ImpossibleRequest.SWALLOW_SHELL) {
             if (tookDamage) {
                 counter = 0;
+                updateRequest();
             } else {
                 counter++;
+                updateRequest();
                 if (counter >= request.swallowsCowrieShell.magicNumber) {
                     for (AbstractMonster mo : AbstractDungeon.getCurrRoom().monsters.monsters) {
                         if (mo instanceof Kaguya) {
@@ -152,6 +166,71 @@ public class LunaticPrincess extends AbstractPower {
             }
             tookDamage = false;
         }
+    }
+
+    private void updateRequest() {
+        request.rawDescription = languagePack.getCardStrings(request.cardToTransform.cardID).DESCRIPTION;
+        if (request.requestCounter == ImpossibleRequest.BUDDHA_BOWL) {
+            if (ATTACK || SKILL || POWER) {
+                request.rawDescription += DESCRIPTIONS[1];
+                if (ATTACK) {
+                    request.rawDescription += DESCRIPTIONS[2];
+                }
+                if (SKILL) {
+                    if (ATTACK) {
+                        request.rawDescription += DESCRIPTIONS[5];
+                    }
+                    request.rawDescription += DESCRIPTIONS[3];
+                }
+                if (POWER) {
+                    if (ATTACK || SKILL) {
+                        request.rawDescription += DESCRIPTIONS[5];
+                    }
+                    request.rawDescription += DESCRIPTIONS[4];
+                }
+                request.rawDescription += DESCRIPTIONS[6];
+            }
+        }
+        if (request.requestCounter == ImpossibleRequest.BULLET_BRANCH) {
+            if (counter > 0) {
+                request.rawDescription += DESCRIPTIONS[1];
+                request.rawDescription += counter;
+                if (counter == 1) {
+                    request.rawDescription += DESCRIPTIONS[7];
+                } else {
+                    request.rawDescription += DESCRIPTIONS[8];
+                }
+            }
+        }
+        if (request.requestCounter == ImpossibleRequest.FIRE_RAT) {
+            if (counter > 0) {
+                request.rawDescription += DESCRIPTIONS[9];
+                request.rawDescription += counter;
+                if (counter == 1) {
+                    request.rawDescription += DESCRIPTIONS[7];
+                } else {
+                    request.rawDescription += DESCRIPTIONS[8];
+                }
+            }
+        }
+        if (request.requestCounter == ImpossibleRequest.JEWEL_FROM_DRAGON) {
+            if (counter > 0) {
+                request.rawDescription += DESCRIPTIONS[10];
+                request.rawDescription += counter + DESCRIPTIONS[11];
+            }
+        }
+        if (request.requestCounter == ImpossibleRequest.SWALLOW_SHELL) {
+            if (counter > 0) {
+                request.rawDescription += DESCRIPTIONS[12];
+                request.rawDescription += counter;
+                if (counter == 1) {
+                    request.rawDescription += DESCRIPTIONS[13];
+                } else {
+                    request.rawDescription += DESCRIPTIONS[14];
+                }
+            }
+        }
+        request.initializeDescription();
     }
 
     @Override

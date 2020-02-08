@@ -26,6 +26,7 @@ import com.megacrit.cardcrawl.monsters.EnemyMoveInfo;
 import com.megacrit.cardcrawl.powers.AbstractPower;
 import com.megacrit.cardcrawl.powers.StrengthPower;
 import com.megacrit.cardcrawl.relics.AbstractRelic;
+import com.megacrit.cardcrawl.vfx.cardManip.ShowCardAndAddToHandEffect;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -104,8 +105,9 @@ public class Kaguya extends CustomMonster
 //        AbstractDungeon.getCurrRoom().playBgmInstantly("BorderOfLife");
         this.addToBot(new ApplyPowerAction(this, this, new HouraiImmortal(this)));
         ImpossibleRequest request = new ImpossibleRequest();
-        this.addToBot(new ApplyPowerAction(this, this, new LunaticPrincess(this, this, request)));
-        AbstractDungeon.actionManager.addToBottom(new MakeTempCardInHandAction(request, 1));
+        request.transform();
+        this.addToBot(new ApplyPowerAction(AbstractDungeon.player, this, new LunaticPrincess(AbstractDungeon.player, this, request)));
+        AbstractDungeon.effectList.add(new ShowCardAndAddToHandEffect(request));
     }
     
     @Override
