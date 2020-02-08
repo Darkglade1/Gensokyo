@@ -2,7 +2,6 @@ package Gensokyo.monsters.bossRush;
 
 import Gensokyo.BetterSpriterAnimation;
 import Gensokyo.actions.RezAction;
-import Gensokyo.cards.Butterfly;
 import Gensokyo.cards.ImpossibleRequests.ImpossibleRequest;
 import Gensokyo.powers.HouraiImmortal;
 import Gensokyo.powers.LunaticPrincess;
@@ -12,9 +11,7 @@ import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.animations.TalkAction;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.actions.common.DamageAction;
-import com.megacrit.cardcrawl.actions.common.HealAction;
 import com.megacrit.cardcrawl.actions.common.InstantKillAction;
-import com.megacrit.cardcrawl.actions.common.MakeTempCardInHandAction;
 import com.megacrit.cardcrawl.actions.common.RollMoveAction;
 import com.megacrit.cardcrawl.actions.common.SetMoveAction;
 import com.megacrit.cardcrawl.cards.DamageInfo;
@@ -102,7 +99,7 @@ public class Kaguya extends CustomMonster
     @Override
     public void usePreBattleAction() {
         AbstractDungeon.getCurrRoom().cannotLose = true;
-//        AbstractDungeon.getCurrRoom().playBgmInstantly("BorderOfLife");
+        AbstractDungeon.getCurrRoom().playBgmInstantly("LunaticPrincess");
         this.addToBot(new ApplyPowerAction(this, this, new HouraiImmortal(this)));
         ImpossibleRequest request = new ImpossibleRequest();
         request.transform();
@@ -191,9 +188,7 @@ public class Kaguya extends CustomMonster
 
             AbstractDungeon.actionManager.addToBottom(new RezAction(this));
 
-            this.setMoveShortcut(this.nextMove);
-            this.createIntent();
-            AbstractDungeon.actionManager.addToBottom(new SetMoveAction(this, this.nextMove, this.intent));
+            AbstractDungeon.onModifyPower();
         }
     }
 

@@ -8,6 +8,7 @@ import Gensokyo.monsters.Reimu;
 import Gensokyo.monsters.Sumireko;
 import Gensokyo.monsters.Yukari;
 import Gensokyo.monsters.bossRush.Eiki;
+import Gensokyo.monsters.bossRush.Kaguya;
 import Gensokyo.monsters.bossRush.Yuyuko;
 import Gensokyo.monsters.marisaMonsters.Patchouli;
 import com.badlogic.gdx.Gdx;
@@ -90,6 +91,8 @@ public class GensokyoScene extends AbstractScene {
                     this.bg = this.atlas.findRegion("mod/ElegantPlace");
                 } else if (mo instanceof Eiki) {
                     this.bg = this.atlas.findRegion("mod/ConcertStage");
+                } else if (mo instanceof Kaguya) {
+                    this.bg = this.atlas.findRegion("mod/Eientei");
                 } else {
                     this.bg = this.atlas.findRegion("mod/TanukiForest");
                 }

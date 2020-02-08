@@ -9,7 +9,6 @@ import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.TextureAtlas;
 import com.megacrit.cardcrawl.actions.animations.TalkAction;
 import com.megacrit.cardcrawl.actions.common.EscapeAction;
-import com.megacrit.cardcrawl.actions.common.ReducePowerAction;
 import com.megacrit.cardcrawl.actions.utility.UseCardAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.cards.DamageInfo;
@@ -38,8 +37,8 @@ public class LunaticPrincess extends AbstractPower {
     private boolean tookDamage = false;
     private int counter = 0;
 
-    private static final Texture tex84 = TextureLoader.getTexture(makePowerPath("Evasive84.png"));
-    private static final Texture tex32 = TextureLoader.getTexture(makePowerPath("Evasive32.png"));
+    private static final Texture tex84 = TextureLoader.getTexture(makePowerPath("Infinity84.png"));
+    private static final Texture tex32 = TextureLoader.getTexture(makePowerPath("Infinity32.png"));
 
     public LunaticPrincess(AbstractCreature owner, Kaguya kaguya, ImpossibleRequest request) {
         name = NAME;
@@ -149,7 +148,6 @@ public class LunaticPrincess extends AbstractPower {
     public void wasHPLost(DamageInfo info, int damageAmount) {
         if (request.requestCounter == ImpossibleRequest.SWALLOW_SHELL) {
             if (info.owner != null && info.owner != this.owner && info.type != DamageInfo.DamageType.HP_LOSS && info.type != DamageInfo.DamageType.THORNS && damageAmount > 0) {
-                System.out.println("took damage");
                 tookDamage = true;
             }
         }
@@ -158,7 +156,6 @@ public class LunaticPrincess extends AbstractPower {
     @Override
     public void atEndOfRound() {
         if (request.requestCounter == ImpossibleRequest.SWALLOW_SHELL) {
-            System.out.println(tookDamage);
             if (tookDamage) {
                 counter = 0;
                 updateRequest();

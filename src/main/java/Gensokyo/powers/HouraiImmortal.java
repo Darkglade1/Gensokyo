@@ -14,9 +14,6 @@ public class HouraiImmortal extends AbstractPower {
     public static final String NAME = powerStrings.NAME;
     public static final String[] DESCRIPTIONS = powerStrings.DESCRIPTIONS;
 
-    //private static final Texture tex84 = TextureLoader.getTexture(makePowerPath("Evasive84.png"));
-    //private static final Texture tex32 = TextureLoader.getTexture(makePowerPath("Evasive32.png"));
-
     public HouraiImmortal(AbstractCreature owner) {
         name = NAME;
         ID = POWER_ID;
@@ -27,9 +24,6 @@ public class HouraiImmortal extends AbstractPower {
         isTurnBased = false;
 
         this.loadRegion("regrow");
-
-        //this.region128 = new TextureAtlas.AtlasRegion(tex84, 0, 0, 84, 84);
-        //this.region48 = new TextureAtlas.AtlasRegion(tex32, 0, 0, 32, 32);
 
         updateDescription();
     }
