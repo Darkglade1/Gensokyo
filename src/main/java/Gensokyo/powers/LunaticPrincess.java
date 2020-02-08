@@ -9,6 +9,7 @@ import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.TextureAtlas;
 import com.megacrit.cardcrawl.actions.animations.TalkAction;
 import com.megacrit.cardcrawl.actions.common.EscapeAction;
+import com.megacrit.cardcrawl.actions.common.ReducePowerAction;
 import com.megacrit.cardcrawl.actions.utility.UseCardAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.cards.DamageInfo;
@@ -59,32 +60,38 @@ public class LunaticPrincess extends AbstractPower {
 
     @Override
     public void atStartOfTurn() {
-        SKILL = false;
-        POWER = false;
-        ATTACK = false;
+        if (request.requestCounter == ImpossibleRequest.BUDDHA_BOWL) {
+            SKILL = false;
+            POWER = false;
+            ATTACK = false;
+        }
+        if (request.requestCounter == ImpossibleRequest.BULLET_BRANCH) {
+            counter = 0;
+        }
+        if (request.requestCounter == ImpossibleRequest.FIRE_RAT) {
+            counter = 0;
+        }
+        if (request.requestCounter == ImpossibleRequest.JEWEL_FROM_DRAGON) {
+            counter = 0;
+        }
         updateRequest();
     }
 
     @Override
     public void onUseCard(AbstractCard card, UseCardAction action) {
         if (request.requestCounter == ImpossibleRequest.BUDDHA_BOWL) {
-            System.out.println("Checked for buddha");
             if (card.type == AbstractCard.CardType.ATTACK) {
-                System.out.println("Working on buddha");
                 ATTACK = true;
                 updateRequest();
             } else if (card.type == AbstractCard.CardType.SKILL) {
-                System.out.println("Working on buddha");
                 SKILL = true;
                 updateRequest();
             } else if (card.type == AbstractCard.CardType.POWER) {
-                System.out.println("Working on buddha");
                 POWER = true;
                 updateRequest();
             }
 
             if (ATTACK && SKILL && POWER) {
-                System.out.println("Fulfilled buddha");
                 this.flash();
                 request.requestCounter++;
                 request.transform();
@@ -135,8 +142,14 @@ public class LunaticPrincess extends AbstractPower {
                     updateRequest();
                 }
             }
-        } else if (request.requestCounter == ImpossibleRequest.SWALLOW_SHELL) {
-            if (info.type == DamageInfo.DamageType.NORMAL && target == AbstractDungeon.player && damageAmount > 0) {
+        }
+    }
+
+    @Override
+    public void wasHPLost(DamageInfo info, int damageAmount) {
+        if (request.requestCounter == ImpossibleRequest.SWALLOW_SHELL) {
+            if (info.owner != null && info.owner != this.owner && info.type != DamageInfo.DamageType.HP_LOSS && info.type != DamageInfo.DamageType.THORNS && damageAmount > 0) {
+                System.out.println("took damage");
                 tookDamage = true;
             }
         }
@@ -145,6 +158,7 @@ public class LunaticPrincess extends AbstractPower {
     @Override
     public void atEndOfRound() {
         if (request.requestCounter == ImpossibleRequest.SWALLOW_SHELL) {
+            System.out.println(tookDamage);
             if (tookDamage) {
                 counter = 0;
                 updateRequest();

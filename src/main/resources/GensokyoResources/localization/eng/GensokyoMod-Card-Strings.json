@@ -114,8 +114,8 @@
     "NAME": "Impossible Request",
     "DESCRIPTION": "gensokyo:Impossible_Request."
   },
-  "Gensokyo:BuddhaStoneBowel": {
-    "NAME": "Buddha's Stone Bowel",
+  "Gensokyo:BuddhaStoneBowl": {
+    "NAME": "Buddha's Stone Bowl",
     "DESCRIPTION": "gensokyo:Impossible_Request. NL Play an Attack, Skill, and Power in a single turn."
   },
   "Gensokyo:BulletBranchOfHourai": {
@@ -132,6 +132,6 @@
   },
   "Gensokyo:SwallowsCowrieShell": {
     "NAME": "Swallow's Cowrie Shell",
-    "DESCRIPTION": "gensokyo:Impossible_Request. NL Take no attack damage for !M! turns."
+    "DESCRIPTION": "gensokyo:Impossible_Request. NL Take no attack damage for !M! turns in a row."
   }
 }

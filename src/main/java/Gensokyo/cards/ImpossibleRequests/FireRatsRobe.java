@@ -10,7 +10,7 @@ import static Gensokyo.GensokyoMod.makeCardPath;
 public class FireRatsRobe extends AbstractDefaultCard {
 
     public static final String ID = GensokyoMod.makeID(FireRatsRobe.class.getSimpleName());
-    public static final String IMG = makeCardPath("CrescentMoonSlash.png");
+    public static final String IMG = makeCardPath("FireRatRobe.png");
 
     private static final CardRarity RARITY = CardRarity.CURSE;
     private static final CardTarget TARGET = CardTarget.NONE;

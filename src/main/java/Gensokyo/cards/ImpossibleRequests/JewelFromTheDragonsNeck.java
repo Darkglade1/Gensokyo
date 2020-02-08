@@ -10,7 +10,7 @@ import static Gensokyo.GensokyoMod.makeCardPath;
 public class JewelFromTheDragonsNeck extends AbstractDefaultCard {
 
     public static final String ID = GensokyoMod.makeID(JewelFromTheDragonsNeck.class.getSimpleName());
-    public static final String IMG = makeCardPath("CrescentMoonSlash.png");
+    public static final String IMG = makeCardPath("JewelFromDragonNeck.png");
 
     private static final CardRarity RARITY = CardRarity.CURSE;
     private static final CardTarget TARGET = CardTarget.NONE;

@@ -3,28 +3,28 @@ package Gensokyo.cards.ImpossibleRequests;
 import Gensokyo.GensokyoMod;
 import Gensokyo.cards.AbstractDefaultCard;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
-import com.evacipated.cardcrawl.mod.stslib.fields.cards.AbstractCard.AlwaysRetainField;
-import com.megacrit.cardcrawl.actions.common.MakeTempCardInHandAction;
+import com.evacipated.cardcrawl.mod.stslib.actions.common.MoveCardsAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.Settings;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
-import com.megacrit.cardcrawl.vfx.cardManip.ShowCardAndAddToHandEffect;
+
+import java.util.function.Predicate;
 
 import static Gensokyo.GensokyoMod.makeCardPath;
 import static com.megacrit.cardcrawl.core.CardCrawlGame.languagePack;
 
 public class ImpossibleRequest extends AbstractDefaultCard {
 
-    public AbstractDefaultCard buddhaStoneBowel = new BuddhaStoneBowel();
+    public AbstractDefaultCard buddhaStoneBowl = new BuddhaStoneBowl();
     public AbstractDefaultCard bulletBranchOfHourai = new BulletBranchOfHourai();
     public AbstractDefaultCard fireRatsRobe = new FireRatsRobe();
     public AbstractDefaultCard jewelFromDragon = new JewelFromTheDragonsNeck();
     public AbstractDefaultCard swallowsCowrieShell = new SwallowsCowrieShell();
     public AbstractDefaultCard cardToTransform;
 
-    public AbstractDefaultCard cardToPreviewBuddaStoneBowel;
+    public AbstractDefaultCard cardToPreviewBuddaStoneBowl;
     public AbstractDefaultCard cardToPreviewBulletBranch;
     public AbstractDefaultCard cardToPreviewFireRat;
     public AbstractDefaultCard cardToPreviewJewelFromDragon;
@@ -38,7 +38,7 @@ public class ImpossibleRequest extends AbstractDefaultCard {
     public int requestCounter = 0;
 
     public static final String ID = GensokyoMod.makeID(ImpossibleRequest.class.getSimpleName());
-    public static final String IMG = makeCardPath("CrescentMoonSlash.png");
+    public static final String IMG = makeCardPath("BuddhaStoneBowl.png");
 
     private static final CardRarity RARITY = CardRarity.CURSE;
     private static final CardTarget TARGET = CardTarget.NONE;
@@ -49,12 +49,12 @@ public class ImpossibleRequest extends AbstractDefaultCard {
 
     public ImpossibleRequest() {
         super(ID, IMG, COST, TYPE, COLOR, RARITY, TARGET);
-        AlwaysRetainField.alwaysRetain.set(this, true);
+        this.selfRetain = true;
     }
 
     public void transform() {
         if (requestCounter == BUDDHA_BOWL) {
-            cardToTransform = buddhaStoneBowel;
+            cardToTransform = buddhaStoneBowl;
         }
         else if (requestCounter == BULLET_BRANCH) {
             cardToTransform = bulletBranchOfHourai;
@@ -68,11 +68,8 @@ public class ImpossibleRequest extends AbstractDefaultCard {
         else if (requestCounter == SWALLOW_SHELL){
             cardToTransform = swallowsCowrieShell;
         }
-        System.out.println("Request is now: " + requestCounter);
         if (cardToTransform != null) {
-            System.out.println("Not null");
             this.rawDescription = languagePack.getCardStrings(cardToTransform.cardID).DESCRIPTION;
-            System.out.println(rawDescription);
 
             this.name = cardToTransform.name;
             this.target = cardToTransform.target;
@@ -83,7 +80,6 @@ public class ImpossibleRequest extends AbstractDefaultCard {
             this.energyOnUse = cardToTransform.energyOnUse;
             this.freeToPlayOnce = cardToTransform.freeToPlayOnce;
             this.exhaust = cardToTransform.exhaust;
-            this.retain = cardToTransform.retain;
             this.purgeOnUse = cardToTransform.purgeOnUse;
             this.baseDamage = cardToTransform.baseDamage;
             this.baseBlock = cardToTransform.baseBlock;
@@ -141,13 +137,13 @@ public class ImpossibleRequest extends AbstractDefaultCard {
     public void hover() {
         try {
             //Sets up these variables to indicate that a preview should be shown
-            cardToPreviewBuddaStoneBowel = buddhaStoneBowel;
+            cardToPreviewBuddaStoneBowl = buddhaStoneBowl;
             cardToPreviewBulletBranch = bulletBranchOfHourai;
             cardToPreviewFireRat = fireRatsRobe;
             cardToPreviewJewelFromDragon = jewelFromDragon;
             cardToPreviewSwallowShell = swallowsCowrieShell;
             if (upgraded) {
-                cardToPreviewBuddaStoneBowel.upgrade();
+                cardToPreviewBuddaStoneBowl.upgrade();
                 cardToPreviewBulletBranch.upgrade();
                 cardToPreviewFireRat.upgrade();
                 cardToPreviewJewelFromDragon.upgrade();
@@ -163,7 +159,7 @@ public class ImpossibleRequest extends AbstractDefaultCard {
     public void unhover() {
         super.unhover();
         //remove the preview when the user stops hovering over the card
-        cardToPreviewBuddaStoneBowel = null;
+        cardToPreviewBuddaStoneBowl = null;
         cardToPreviewBulletBranch = null;
         cardToPreviewFireRat = null;
         cardToPreviewJewelFromDragon = null;
@@ -203,8 +199,8 @@ public class ImpossibleRequest extends AbstractDefaultCard {
         xPosition2 = this.current_x + xOffset2;
         xPosition3 = this.current_x + xOffset3;
 
-        if (cardToPreviewBuddaStoneBowel != null) {
-            AbstractCard card = cardToPreviewBuddaStoneBowel.makeStatEquivalentCopy();
+        if (cardToPreviewBuddaStoneBowl != null) {
+            AbstractCard card = cardToPreviewBuddaStoneBowl.makeStatEquivalentCopy();
             if (card != null) {
                 card.drawScale = drawScale;
                 card.current_x = xPosition1;
@@ -256,5 +252,16 @@ public class ImpossibleRequest extends AbstractDefaultCard {
         if (cardToTransform != null) {
             cardToTransform.atTurnStart();
         }
+    }
+
+    @Override
+    public float getTitleFontSize() {
+        return cardToTransform.getTitleFontSize();
+    }
+
+    @Override
+    public void triggerOnExhaust() {
+        Predicate<AbstractCard> predicate = abstractCard -> abstractCard.cardID.equals(ImpossibleRequest.ID);
+        this.addToBot(new MoveCardsAction(AbstractDungeon.player.hand, AbstractDungeon.player.exhaustPile, predicate));
     }
 }

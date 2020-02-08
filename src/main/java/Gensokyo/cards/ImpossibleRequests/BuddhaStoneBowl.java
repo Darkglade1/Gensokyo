@@ -7,10 +7,10 @@ import com.megacrit.cardcrawl.monsters.AbstractMonster;
 
 import static Gensokyo.GensokyoMod.makeCardPath;
 
-public class BuddhaStoneBowel extends AbstractDefaultCard {
+public class BuddhaStoneBowl extends AbstractDefaultCard {
 
-    public static final String ID = GensokyoMod.makeID(BuddhaStoneBowel.class.getSimpleName());
-    public static final String IMG = makeCardPath("CrescentMoonSlash.png");
+    public static final String ID = GensokyoMod.makeID(BuddhaStoneBowl.class.getSimpleName());
+    public static final String IMG = makeCardPath("BuddhaStoneBowl.png");
 
     private static final CardRarity RARITY = CardRarity.CURSE;
     private static final CardTarget TARGET = CardTarget.NONE;
@@ -19,7 +19,7 @@ public class BuddhaStoneBowel extends AbstractDefaultCard {
 
     private static final int COST = -2;
 
-    public BuddhaStoneBowel() {
+    public BuddhaStoneBowl() {
         super(ID, IMG, COST, TYPE, COLOR, RARITY, TARGET);
     }
 
