@@ -5,6 +5,7 @@ import Gensokyo.actions.RezAction;
 import Gensokyo.cards.ImpossibleRequests.ImpossibleRequest;
 import Gensokyo.powers.HouraiImmortal;
 import Gensokyo.powers.LunaticPrincess;
+import actlikeit.dungeons.CustomDungeon;
 import basemod.abstracts.CustomMonster;
 import basemod.animations.AbstractAnimation;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
@@ -99,7 +100,7 @@ public class Kaguya extends CustomMonster
     @Override
     public void usePreBattleAction() {
         AbstractDungeon.getCurrRoom().cannotLose = true;
-        AbstractDungeon.getCurrRoom().playBgmInstantly("LunaticPrincess");
+        CustomDungeon.playTempMusicInstantly("LunaticPrincess");
         this.addToBot(new ApplyPowerAction(this, this, new HouraiImmortal(this)));
         ImpossibleRequest request = new ImpossibleRequest();
         request.transform();

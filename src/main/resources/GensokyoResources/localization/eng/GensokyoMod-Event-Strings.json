@@ -437,5 +437,16 @@
       "[???]",
       "Choose a Card to Transform"
     ]
+  },
+  "Gensokyo:AHistoryOfViolence": {
+    "NAME": "A History of Simulated Violence",
+    "DESCRIPTIONS": [
+      "You find yourself in a strange room, surrounded by #pstrange, #rmenacing figures. NL NL \"Well, well, what do we have here? Another challenger?\" NL NL The myriad of faces all stare down at you, gauging your #yworth. NL NL \"You're not getting out of here without going through all of us. So pick your #gpoison, yeah?\""
+    ],
+    "OPTIONS": [
+      "[Fight] ",
+      "[Locked] ",
+      ". Victory!"
+    ]
   }
 }

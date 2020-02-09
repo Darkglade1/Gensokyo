@@ -7,6 +7,7 @@ import Gensokyo.powers.Virtue;
 import Gensokyo.powers.Innocence;
 import Gensokyo.powers.Judgement;
 import Gensokyo.powers.Resolve;
+import actlikeit.dungeons.CustomDungeon;
 import basemod.abstracts.CustomMonster;
 import basemod.animations.AbstractAnimation;
 import com.badlogic.gdx.graphics.Color;
@@ -136,7 +137,7 @@ public class Eiki extends CustomMonster
 
     @Override
     public void usePreBattleAction() {
-        AbstractDungeon.getCurrRoom().playBgmInstantly("FateOfSixtyYears");
+        CustomDungeon.playTempMusicInstantly("FateOfSixtyYears");
         this.addToBot(new ApplyPowerAction(this, this, new Virtue(this)));
         this.addToBot(new ApplyPowerAction(this, this, new Resolve(this, VIRTUE_AMOUNT)));
         this.addToBot(new ApplyPowerAction(AbstractDungeon.player, this, new Innocence(AbstractDungeon.player, 0, this), 0));

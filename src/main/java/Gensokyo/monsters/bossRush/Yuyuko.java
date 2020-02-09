@@ -7,6 +7,7 @@ import Gensokyo.cards.Butterfly;
 import Gensokyo.powers.DeathTouch;
 import Gensokyo.powers.Reflowering;
 import Gensokyo.vfx.EmptyEffect;
+import actlikeit.dungeons.CustomDungeon;
 import basemod.abstracts.CustomMonster;
 import basemod.animations.AbstractAnimation;
 import com.badlogic.gdx.graphics.Color;
@@ -135,7 +136,7 @@ public class Yuyuko extends CustomMonster
 
     @Override
     public void usePreBattleAction() {
-        AbstractDungeon.getCurrRoom().playBgmInstantly("BorderOfLife");
+        CustomDungeon.playTempMusicInstantly("BorderOfLife");
         this.addToBot(new ApplyPowerAction(this, this, new DeathTouch(this)));
         this.addToBot(new ApplyPowerAction(this, this, new Reflowering(this, this)));
     }

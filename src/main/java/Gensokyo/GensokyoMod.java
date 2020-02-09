@@ -29,6 +29,7 @@ import Gensokyo.cards.TekeTeke;
 import Gensokyo.cards.TurboGranny;
 import Gensokyo.dungeon.EncounterIDs;
 import Gensokyo.dungeon.Gensokyo;
+import Gensokyo.dungeon.HistoryOfSimulatedViolence;
 import Gensokyo.events.ABanquetForGhosts;
 import Gensokyo.events.ACelestialsPlight;
 import Gensokyo.events.AHoleInReality;
@@ -120,6 +121,7 @@ import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.core.Settings;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.dungeons.Exordium;
+import com.megacrit.cardcrawl.dungeons.TheEnding;
 import com.megacrit.cardcrawl.helpers.CardHelper;
 import com.megacrit.cardcrawl.helpers.CardLibrary;
 import com.megacrit.cardcrawl.localization.CardStrings;
@@ -305,6 +307,7 @@ public class GensokyoMod implements
         BaseMod.registerModBadge(badgeTexture, MODNAME, AUTHOR, DESCRIPTION, settingsPanel);
 
         (new Gensokyo()).addAct(Exordium.ID);
+        (new HistoryOfSimulatedViolence()).addAct(TheEnding.ID);
 
         BaseMod.addMonster(Yukari.ID, (BaseMod.GetMonster)Yukari::new);
         BaseMod.addMonster(Kokoro.ID, (BaseMod.GetMonster)Kokoro::new);

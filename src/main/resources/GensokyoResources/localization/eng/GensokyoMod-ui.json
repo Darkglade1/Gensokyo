@@ -28,5 +28,11 @@
       "Death",
       "This enemy intends to #rkill you."
     ]
+  },
+  "Gensokyo:HistoryOfViolence": {
+    "TEXT": [
+      "History of Simulated Violence",
+      "Act 4"
+    ]
   }
 }
