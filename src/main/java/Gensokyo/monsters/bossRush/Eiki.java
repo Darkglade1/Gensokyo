@@ -147,7 +147,7 @@ public class Eiki extends CustomMonster
             guilt.add(new BetterSpriterAnimation("GensokyoResources/images/monsters/Eiki/Guilt/Spriter/GuiltAnimation.scml"));
         }
     }
-    
+
     @Override
     public void takeTurn() {
         if (this.firstMove) {

@@ -3,7 +3,7 @@ package Gensokyo.powers;
 import Gensokyo.GensokyoMod;
 import Gensokyo.actions.SetFlipAction;
 import Gensokyo.cards.ImpossibleRequests.ImpossibleRequest;
-import Gensokyo.monsters.bossRush.Kaguya;
+import Gensokyo.monsters.Kaguya;
 import Gensokyo.util.TextureLoader;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.TextureAtlas;
@@ -35,16 +35,17 @@ public class LunaticPrincess extends AbstractPower {
     private boolean POWER = false;
     private boolean ATTACK = false;
     private boolean tookDamage = false;
-    private int counter = 0;
+    public int counter = 0;
 
     private static final Texture tex84 = TextureLoader.getTexture(makePowerPath("Infinity84.png"));
     private static final Texture tex32 = TextureLoader.getTexture(makePowerPath("Infinity32.png"));
 
-    public LunaticPrincess(AbstractCreature owner, Kaguya kaguya, ImpossibleRequest request) {
+    public LunaticPrincess(AbstractCreature owner, int amount, Kaguya kaguya, ImpossibleRequest request) {
         name = NAME;
         ID = POWER_ID;
 
         this.owner = owner;
+        this.amount = amount;
         this.kaguya = kaguya;
         this.request = request;
 
@@ -92,8 +93,7 @@ public class LunaticPrincess extends AbstractPower {
 
             if (ATTACK && SKILL && POWER) {
                 this.flash();
-                request.requestCounter++;
-                request.transform();
+                request.completed = true;
                 updateRequest();
                 SKILL = false;
                 POWER = false;
@@ -104,8 +104,7 @@ public class LunaticPrincess extends AbstractPower {
             updateRequest();
             if (counter >= request.bulletBranchOfHourai.magicNumber) {
                 this.flash();
-                request.requestCounter++;
-                request.transform();
+                request.completed = true;
                 counter = 0;
                 updateRequest();
             }
@@ -119,8 +118,7 @@ public class LunaticPrincess extends AbstractPower {
             updateRequest();
             if (counter >= request.fireRatsRobe.magicNumber) {
                 this.flash();
-                request.requestCounter++;
-                request.transform();
+                request.completed = true;
                 counter = 0;
                 updateRequest();
             }
@@ -135,8 +133,7 @@ public class LunaticPrincess extends AbstractPower {
                 updateRequest();
                 if (counter >= request.jewelFromDragon.magicNumber) {
                     this.flash();
-                    request.requestCounter++;
-                    request.transform();
+                    request.completed = true;
                     counter = 0;
                     updateRequest();
                 }
@@ -163,16 +160,9 @@ public class LunaticPrincess extends AbstractPower {
                 counter++;
                 updateRequest();
                 if (counter >= request.swallowsCowrieShell.magicNumber) {
-                    for (AbstractMonster mo : AbstractDungeon.getCurrRoom().monsters.monsters) {
-                        if (mo instanceof Kaguya) {
-                            AbstractDungeon.getCurrRoom().cannotLose = false;
-                            AbstractDungeon.actionManager.addToBottom(new TalkAction(kaguya, Kaguya.DIALOG[1]));
-                            AbstractDungeon.actionManager.addToBottom(new SetFlipAction(kaguya));
-                            AbstractDungeon.actionManager.addToBottom(new EscapeAction(kaguya));
-                        } else {
-                            mo.die();;
-                        }
-                    }
+                    request.completed = true;
+                    counter = 0;
+                    updateRequest();
                 }
             }
             tookDamage = false;
@@ -181,63 +171,67 @@ public class LunaticPrincess extends AbstractPower {
 
     private void updateRequest() {
         request.rawDescription = languagePack.getCardStrings(request.cardToTransform.cardID).DESCRIPTION;
-        if (request.requestCounter == ImpossibleRequest.BUDDHA_BOWL) {
-            if (ATTACK || SKILL || POWER) {
-                request.rawDescription += DESCRIPTIONS[1];
-                if (ATTACK) {
-                    request.rawDescription += DESCRIPTIONS[2];
-                }
-                if (SKILL) {
+        if (request.completed) {
+            request.rawDescription += DESCRIPTIONS[15];
+        } else {
+            if (request.requestCounter == ImpossibleRequest.BUDDHA_BOWL) {
+                if (ATTACK || SKILL || POWER) {
+                    request.rawDescription += DESCRIPTIONS[1];
                     if (ATTACK) {
-                        request.rawDescription += DESCRIPTIONS[5];
+                        request.rawDescription += DESCRIPTIONS[2];
                     }
-                    request.rawDescription += DESCRIPTIONS[3];
-                }
-                if (POWER) {
-                    if (ATTACK || SKILL) {
-                        request.rawDescription += DESCRIPTIONS[5];
+                    if (SKILL) {
+                        if (ATTACK) {
+                            request.rawDescription += DESCRIPTIONS[5];
+                        }
+                        request.rawDescription += DESCRIPTIONS[3];
                     }
-                    request.rawDescription += DESCRIPTIONS[4];
-                }
-                request.rawDescription += DESCRIPTIONS[6];
-            }
-        }
-        if (request.requestCounter == ImpossibleRequest.BULLET_BRANCH) {
-            if (counter > 0) {
-                request.rawDescription += DESCRIPTIONS[1];
-                request.rawDescription += counter;
-                if (counter == 1) {
-                    request.rawDescription += DESCRIPTIONS[7];
-                } else {
-                    request.rawDescription += DESCRIPTIONS[8];
+                    if (POWER) {
+                        if (ATTACK || SKILL) {
+                            request.rawDescription += DESCRIPTIONS[5];
+                        }
+                        request.rawDescription += DESCRIPTIONS[4];
+                    }
+                    request.rawDescription += DESCRIPTIONS[6];
                 }
             }
-        }
-        if (request.requestCounter == ImpossibleRequest.FIRE_RAT) {
-            if (counter > 0) {
-                request.rawDescription += DESCRIPTIONS[9];
-                request.rawDescription += counter;
-                if (counter == 1) {
-                    request.rawDescription += DESCRIPTIONS[7];
-                } else {
-                    request.rawDescription += DESCRIPTIONS[8];
+            if (request.requestCounter == ImpossibleRequest.BULLET_BRANCH) {
+                if (counter > 0) {
+                    request.rawDescription += DESCRIPTIONS[1];
+                    request.rawDescription += counter;
+                    if (counter == 1) {
+                        request.rawDescription += DESCRIPTIONS[7];
+                    } else {
+                        request.rawDescription += DESCRIPTIONS[8];
+                    }
                 }
             }
-        }
-        if (request.requestCounter == ImpossibleRequest.JEWEL_FROM_DRAGON) {
-            if (counter > 0) {
-                request.rawDescription += DESCRIPTIONS[10];
-                request.rawDescription += counter + DESCRIPTIONS[11];
+            if (request.requestCounter == ImpossibleRequest.FIRE_RAT) {
+                if (counter > 0) {
+                    request.rawDescription += DESCRIPTIONS[9];
+                    request.rawDescription += counter;
+                    if (counter == 1) {
+                        request.rawDescription += DESCRIPTIONS[7];
+                    } else {
+                        request.rawDescription += DESCRIPTIONS[8];
+                    }
+                }
             }
-        }
-        if (request.requestCounter == ImpossibleRequest.SWALLOW_SHELL) {
-            if (counter > 0) {
-                request.rawDescription += DESCRIPTIONS[12];
-                request.rawDescription += counter;
-                if (counter == 1) {
-                    request.rawDescription += DESCRIPTIONS[13];
-                } else {
-                    request.rawDescription += DESCRIPTIONS[14];
+            if (request.requestCounter == ImpossibleRequest.JEWEL_FROM_DRAGON) {
+                if (counter > 0) {
+                    request.rawDescription += DESCRIPTIONS[10];
+                    request.rawDescription += counter + DESCRIPTIONS[11];
+                }
+            }
+            if (request.requestCounter == ImpossibleRequest.SWALLOW_SHELL) {
+                if (counter > 0) {
+                    request.rawDescription += DESCRIPTIONS[12];
+                    request.rawDescription += counter;
+                    if (counter == 1) {
+                        request.rawDescription += DESCRIPTIONS[13];
+                    } else {
+                        request.rawDescription += DESCRIPTIONS[14];
+                    }
                 }
             }
         }
@@ -246,6 +240,6 @@ public class LunaticPrincess extends AbstractPower {
 
     @Override
     public void updateDescription() {
-        description = DESCRIPTIONS[0];
+        description = DESCRIPTIONS[0] + Kaguya.PLAYER_STRENGTH_GAIN + DESCRIPTIONS[16] + this.amount + DESCRIPTIONS[17];
     }
 }

@@ -4,7 +4,9 @@ import Gensokyo.GensokyoMod;
 import Gensokyo.cards.AbstractDefaultCard;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.evacipated.cardcrawl.mod.stslib.actions.common.MoveCardsAction;
+import com.megacrit.cardcrawl.actions.common.ExhaustSpecificCardAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
+import com.megacrit.cardcrawl.cards.CardGroup;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.Settings;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
@@ -36,6 +38,7 @@ public class ImpossibleRequest extends AbstractDefaultCard {
     public static final int JEWEL_FROM_DRAGON = 3;
     public static final int SWALLOW_SHELL = 4;
     public int requestCounter = 0;
+    public boolean completed = false;
 
     public static final String ID = GensokyoMod.makeID(ImpossibleRequest.class.getSimpleName());
     public static final String IMG = makeCardPath("BuddhaStoneBowl.png");
@@ -67,6 +70,19 @@ public class ImpossibleRequest extends AbstractDefaultCard {
         }
         else if (requestCounter == SWALLOW_SHELL){
             cardToTransform = swallowsCowrieShell;
+        } else {
+            CardGroup group;
+            if (AbstractDungeon.player.hand.contains(this)) {
+                group = AbstractDungeon.player.hand;
+            }
+            else if (AbstractDungeon.player.drawPile.contains(this)) {
+                group = AbstractDungeon.player.drawPile;
+            }
+            else {
+                group = AbstractDungeon.player.discardPile;
+            }
+            this.name = languagePack.getCardStrings(ID).NAME;
+            AbstractDungeon.actionManager.addToBottom(new ExhaustSpecificCardAction(this, group));
         }
         if (cardToTransform != null) {
             this.rawDescription = languagePack.getCardStrings(cardToTransform.cardID).DESCRIPTION;
@@ -256,12 +272,18 @@ public class ImpossibleRequest extends AbstractDefaultCard {
 
     @Override
     public float getTitleFontSize() {
-        return cardToTransform.getTitleFontSize();
+        if (cardToTransform != null) {
+            return cardToTransform.getTitleFontSize();
+        } else {
+            return super.getTitleFontSize();
+        }
     }
 
     @Override
     public void triggerOnExhaust() {
-        Predicate<AbstractCard> predicate = abstractCard -> abstractCard.cardID.equals(ImpossibleRequest.ID);
-        this.addToBot(new MoveCardsAction(AbstractDungeon.player.hand, AbstractDungeon.player.exhaustPile, predicate));
+        if (this.requestCounter <= SWALLOW_SHELL) {
+            Predicate<AbstractCard> predicate = abstractCard -> abstractCard.cardID.equals(ImpossibleRequest.ID);
+            this.addToBot(new MoveCardsAction(AbstractDungeon.player.hand, AbstractDungeon.player.exhaustPile, predicate));
+        }
     }
 }

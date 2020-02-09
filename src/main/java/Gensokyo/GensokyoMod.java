@@ -1,7 +1,5 @@
 package Gensokyo;
 
-import Gensokyo.RazIntent.CustomIntent;
-import Gensokyo.RazIntent.DeathIntent;
 import Gensokyo.cards.Apocalypse;
 import Gensokyo.cards.BlessingOfConstitution;
 import Gensokyo.cards.BlessingOfFortitude;
@@ -29,7 +27,6 @@ import Gensokyo.cards.TekeTeke;
 import Gensokyo.cards.TurboGranny;
 import Gensokyo.dungeon.EncounterIDs;
 import Gensokyo.dungeon.Gensokyo;
-import Gensokyo.dungeon.HistoryOfSimulatedViolence;
 import Gensokyo.events.ABanquetForGhosts;
 import Gensokyo.events.ACelestialsPlight;
 import Gensokyo.events.AHoleInReality;
@@ -74,27 +71,24 @@ import Gensokyo.monsters.NormalEnemies.WhiteKodama;
 import Gensokyo.monsters.NormalEnemies.YellowKodama;
 import Gensokyo.monsters.NormalEnemies.ZombieFairyNormal;
 import Gensokyo.monsters.Reimu;
-import Gensokyo.monsters.Sumireko;
 import Gensokyo.monsters.SunflowerFairy;
 import Gensokyo.monsters.Yukari;
 import Gensokyo.monsters.ZombieFairy;
-import Gensokyo.monsters.bossRush.Eiki;
-import Gensokyo.monsters.bossRush.Kaguya;
-import Gensokyo.monsters.bossRush.Yuyuko;
+import Gensokyo.monsters.Kaguya;
 import Gensokyo.relics.Bombinomicon;
 import Gensokyo.relics.BookOfSpecters;
 import Gensokyo.relics.CelestialsFlawlessClothing;
 import Gensokyo.relics.Justice;
 import Gensokyo.relics.LunaticRedEyes;
-import Gensokyo.relics.marisaRelics.ImprobabilityPotion;
-import Gensokyo.relics.marisaRelics.IngredientList;
-import Gensokyo.relics.marisaRelics.PhilosophersStone;
 import Gensokyo.relics.Mercy;
 import Gensokyo.relics.NagashiBinaDoll;
 import Gensokyo.relics.OccultBall;
 import Gensokyo.relics.PerfectCherryBlossom;
 import Gensokyo.relics.PortableGap;
 import Gensokyo.relics.YoukaiFlower;
+import Gensokyo.relics.marisaRelics.ImprobabilityPotion;
+import Gensokyo.relics.marisaRelics.IngredientList;
+import Gensokyo.relics.marisaRelics.PhilosophersStone;
 import Gensokyo.util.IDCheckDontTouchPls;
 import Gensokyo.util.TextureLoader;
 import Gensokyo.variables.DefaultCustomVariable;
@@ -113,15 +107,14 @@ import com.badlogic.gdx.files.FileHandle;
 import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.Texture;
 import com.evacipated.cardcrawl.mod.stslib.Keyword;
-import com.evacipated.cardcrawl.modthespire.lib.SpireEnum;
 import com.evacipated.cardcrawl.modthespire.Loader;
+import com.evacipated.cardcrawl.modthespire.lib.SpireEnum;
 import com.evacipated.cardcrawl.modthespire.lib.SpireInitializer;
 import com.google.gson.Gson;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.core.Settings;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.dungeons.Exordium;
-import com.megacrit.cardcrawl.dungeons.TheEnding;
 import com.megacrit.cardcrawl.helpers.CardHelper;
 import com.megacrit.cardcrawl.helpers.CardLibrary;
 import com.megacrit.cardcrawl.localization.CardStrings;
@@ -139,8 +132,6 @@ import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.nio.charset.StandardCharsets;
 import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Collection;
 import java.util.Collections;
 import java.util.List;
 
@@ -307,7 +298,7 @@ public class GensokyoMod implements
         BaseMod.registerModBadge(badgeTexture, MODNAME, AUTHOR, DESCRIPTION, settingsPanel);
 
         (new Gensokyo()).addAct(Exordium.ID);
-        (new HistoryOfSimulatedViolence()).addAct(TheEnding.ID);
+        //(new HistoryOfSimulatedViolence()).addAct(TheEnding.ID);
 
         BaseMod.addMonster(Yukari.ID, (BaseMod.GetMonster)Yukari::new);
         BaseMod.addMonster(Kokoro.ID, (BaseMod.GetMonster)Kokoro::new);
@@ -349,9 +340,9 @@ public class GensokyoMod implements
         BaseMod.addBoss(Gensokyo.ID, Kokoro.ID, "GensokyoResources/images/monsters/Kokoro/Kokoro.png", "GensokyoResources/images/monsters/Kokoro/KokoroOutline.png");
         BaseMod.addBoss(Gensokyo.ID, Reimu.ID, "GensokyoResources/images/monsters/Reimu/Reimu.png", "GensokyoResources/images/monsters/Reimu/ReimuOutline.png");
 
-        BaseMod.addMonster(Yuyuko.ID, (BaseMod.GetMonster) Yuyuko::new);
-        CustomIntent.add(new DeathIntent());
-        BaseMod.addMonster(Eiki.ID, (BaseMod.GetMonster) Eiki::new);
+//        BaseMod.addMonster(Yuyuko.ID, (BaseMod.GetMonster) Yuyuko::new);
+//        CustomIntent.add(new DeathIntent());
+//        BaseMod.addMonster(Eiki.ID, (BaseMod.GetMonster) Eiki::new);
         BaseMod.addMonster(Kaguya.ID, (BaseMod.GetMonster) Kaguya::new);
         
         // =============== EVENTS =================

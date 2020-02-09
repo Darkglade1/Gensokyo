@@ -177,15 +177,17 @@
 },
 "Gensokyo:HouraiImmortal": {
         "NAME": "Hourai Immortal",
-        "DESCRIPTIONS": ["Whenever this creature dies, it revives at full HP."]
+        "DESCRIPTIONS": ["Whenever this creature dies, it revives at full HP and transforms the #pImpossible #pRequest. Flees after dying #b", " more time.", " more times."]
 },
 "Gensokyo:LunaticPrincess": {
         "NAME": "Lunatic Princess",
-        "DESCRIPTIONS": ["When you fulfill all the #pImpossible #pRequests, you #gwin.",
+        "DESCRIPTIONS": ["Whenever the #pImpossible #pRequest is transformed, if you fulfilled the condition, you gain #b",
                         " NL (You have played ", " an Attack", " a Skill", " a Power", ",", ".)",
                         " card.)", " cards.)",
                         " NL (You have drawn ",
                         " NL (You have dealt ", " damage.)",
-                        " NL (You have taken no attack damage for ", " turn.)", " turns.)"]
+                        " NL (You have taken no attack damage for ", " turn.)", " turns.)",
+                        " NL (Completed).",
+                        " #yStrength. If you didn't fulfill the request, the enemy gains #b", " #yStrength."]
 }
 }

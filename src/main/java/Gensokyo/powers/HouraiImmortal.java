@@ -14,11 +14,12 @@ public class HouraiImmortal extends AbstractPower {
     public static final String NAME = powerStrings.NAME;
     public static final String[] DESCRIPTIONS = powerStrings.DESCRIPTIONS;
 
-    public HouraiImmortal(AbstractCreature owner) {
+    public HouraiImmortal(AbstractCreature owner, int amount) {
         name = NAME;
         ID = POWER_ID;
 
         this.owner = owner;
+        this.amount = amount;
 
         type = PowerType.BUFF;
         isTurnBased = false;
@@ -30,6 +31,10 @@ public class HouraiImmortal extends AbstractPower {
 
     @Override
     public void updateDescription() {
-        description = DESCRIPTIONS[0];
+        if (amount == 1) {
+            description = DESCRIPTIONS[0] + amount + DESCRIPTIONS[1];
+        } else {
+            description = DESCRIPTIONS[0] + amount + DESCRIPTIONS[2];
+        }
     }
 }

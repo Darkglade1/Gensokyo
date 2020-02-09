@@ -18,7 +18,7 @@ public class FireRatsRobe extends AbstractDefaultCard {
     public static final CardColor COLOR = CardColor.CURSE;
 
     private static final int COST = -2;
-    private static final int CARDS_DRAWN_GOAL = 9;
+    private static final int CARDS_DRAWN_GOAL = 7;
 
     public FireRatsRobe() {
         super(ID, IMG, COST, TYPE, COLOR, RARITY, TARGET);

@@ -8,7 +8,7 @@ import Gensokyo.monsters.Reimu;
 import Gensokyo.monsters.Sumireko;
 import Gensokyo.monsters.Yukari;
 import Gensokyo.monsters.bossRush.Eiki;
-import Gensokyo.monsters.bossRush.Kaguya;
+import Gensokyo.monsters.Kaguya;
 import Gensokyo.monsters.bossRush.Yuyuko;
 import Gensokyo.monsters.marisaMonsters.Patchouli;
 import com.badlogic.gdx.Gdx;

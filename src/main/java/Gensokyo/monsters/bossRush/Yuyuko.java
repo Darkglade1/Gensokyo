@@ -140,7 +140,7 @@ public class Yuyuko extends CustomMonster
         this.addToBot(new ApplyPowerAction(this, this, new DeathTouch(this)));
         this.addToBot(new ApplyPowerAction(this, this, new Reflowering(this, this)));
     }
-    
+
     @Override
     public void takeTurn() {
         if (this.firstMove) {
