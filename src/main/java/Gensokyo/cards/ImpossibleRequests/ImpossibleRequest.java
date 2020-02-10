@@ -145,7 +145,11 @@ public class ImpossibleRequest extends AbstractDefaultCard {
     public void upgrade() {
         if (!upgraded) {
             upgradeName();
-            transform();
+            buddhaStoneBowl.upgrade();
+            bulletBranchOfHourai.upgrade();
+            fireRatsRobe.upgrade();
+            jewelFromDragon.upgrade();
+            swallowsCowrieShell.upgrade();
         }
     }
 

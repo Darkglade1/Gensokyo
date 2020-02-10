@@ -19,6 +19,7 @@ public class BulletBranchOfHourai extends AbstractDefaultCard {
 
     private static final int COST = -2;
     private static final int CARDS_PLAYED_GOAL = 4;
+    private static final int UPGRADE_GOAL = 1;
 
     public BulletBranchOfHourai() {
         super(ID, IMG, COST, TYPE, COLOR, RARITY, TARGET);
@@ -38,6 +39,10 @@ public class BulletBranchOfHourai extends AbstractDefaultCard {
 
     @Override
     public void upgrade() {
-
+        if (!this.upgraded) {
+            upgradeName();
+            upgradeMagicNumber(UPGRADE_GOAL);
+            initializeDescription();
+        }
     }
 }

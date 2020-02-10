@@ -36,6 +36,9 @@ public class BuddhaStoneBowl extends AbstractDefaultCard {
 
     @Override
     public void upgrade() {
-
+        if (!upgraded) {
+            upgradeName();
+            initializeDescription();
+        }
     }
 }

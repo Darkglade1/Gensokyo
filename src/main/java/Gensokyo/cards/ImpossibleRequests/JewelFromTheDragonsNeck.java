@@ -19,6 +19,7 @@ public class JewelFromTheDragonsNeck extends AbstractDefaultCard {
 
     private static final int COST = -2;
     private static final int DAMAGE_GOAL = 24;
+    private static final int UPGRADE_GOAL = 4;
 
     public JewelFromTheDragonsNeck() {
         super(ID, IMG, COST, TYPE, COLOR, RARITY, TARGET);
@@ -38,6 +39,10 @@ public class JewelFromTheDragonsNeck extends AbstractDefaultCard {
 
     @Override
     public void upgrade() {
-
+        if (!this.upgraded) {
+            upgradeName();
+            upgradeMagicNumber(UPGRADE_GOAL);
+            initializeDescription();
+        }
     }
 }

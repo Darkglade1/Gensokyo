@@ -6,6 +6,7 @@ import Gensokyo.monsters.Kaguya;
 import Gensokyo.util.TextureLoader;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.TextureAtlas;
+import com.evacipated.cardcrawl.mod.stslib.powers.interfaces.InvisiblePower;
 import com.megacrit.cardcrawl.actions.utility.UseCardAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.cards.DamageInfo;
@@ -19,7 +20,7 @@ import static Gensokyo.GensokyoMod.makePowerPath;
 import static com.megacrit.cardcrawl.core.CardCrawlGame.languagePack;
 
 
-public class LunaticPrincess extends AbstractPower {
+public class LunaticPrincess extends AbstractPower implements InvisiblePower {
 
     public static final String POWER_ID = GensokyoMod.makeID("LunaticPrincess");
     private static final PowerStrings powerStrings = CardCrawlGame.languagePack.getPowerStrings(POWER_ID);
@@ -140,15 +141,6 @@ public class LunaticPrincess extends AbstractPower {
         }
     }
 
-//    @Override
-//    public void wasHPLost(DamageInfo info, int damageAmount) {
-//        if (request.requestCounter == ImpossibleRequest.SWALLOW_SHELL) {
-//            if (info.owner != null && info.owner != this.owner && info.type != DamageInfo.DamageType.HP_LOSS && info.type != DamageInfo.DamageType.THORNS && damageAmount > 0) {
-//                tookDamage = true;
-//            }
-//        }
-//    }
-
     @Override
     public void onGainedBlock(float blockAmount) {
         if (request.requestCounter == ImpossibleRequest.SWALLOW_SHELL) {
@@ -162,25 +154,6 @@ public class LunaticPrincess extends AbstractPower {
             }
         }
     }
-
-//    @Override
-//    public void atEndOfRound() {
-//        if (request.requestCounter == ImpossibleRequest.SWALLOW_SHELL) {
-//            if (tookDamage) {
-//                counter = 0;
-//                updateRequest();
-//            } else {
-//                counter++;
-//                updateRequest();
-//                if (counter >= request.swallowsCowrieShell.magicNumber) {
-//                    request.completed = true;
-//                    counter = 0;
-//                    updateRequest();
-//                }
-//            }
-//            tookDamage = false;
-//        }
-//    }
 
     private void updateRequest() {
         request.rawDescription = languagePack.getCardStrings(request.cardToTransform.cardID).DESCRIPTION;
@@ -249,6 +222,6 @@ public class LunaticPrincess extends AbstractPower {
 
     @Override
     public void updateDescription() {
-        description = DESCRIPTIONS[0] + Kaguya.PLAYER_STRENGTH_GAIN + DESCRIPTIONS[16] + this.amount + DESCRIPTIONS[17];
+        description = "";
     }
 }

@@ -4,6 +4,7 @@ import Gensokyo.BetterSpriterAnimation;
 import Gensokyo.actions.RezAction;
 import Gensokyo.actions.SetFlipAction;
 import Gensokyo.cards.ImpossibleRequests.ImpossibleRequest;
+import Gensokyo.powers.BetterDrawReductionPower;
 import Gensokyo.powers.HouraiImmortal;
 import Gensokyo.powers.LunaticPrincess;
 import actlikeit.dungeons.CustomDungeon;
@@ -54,8 +55,8 @@ public class Kaguya extends CustomMonster
     private static final byte BUDDHIST_DIAMOND_4 = 4;
     private static final byte BUDDHIST_DIAMOND_5 = 5;
 
-    private static final int BRILLIANT_DRAGON_BULLET_DAMAGE = 7;
-    private static final int A4_BRILLIANT_DRAGON_BULLET_DAMAGE = 8;
+    private static final int BRILLIANT_DRAGON_BULLET_DAMAGE = 6;
+    private static final int A4_BRILLIANT_DRAGON_BULLET_DAMAGE = 7;
     private static final int BRILLIANT_DRAGON_BULLET_HITS = 2;
     private int brilliantDragonBulletDamage;
 
@@ -67,12 +68,12 @@ public class Kaguya extends CustomMonster
     private static final int A4_BUDDHIST_DIAMOND_DAMAGE_2 = 7;
     private int buddhistDiamondDamage2;
 
-    private static final int BUDDHIST_DIAMOND_DAMAGE_3 = 12;
-    private static final int A4_BUDDHIST_DIAMOND_DAMAGE_3 = 13;
+    private static final int BUDDHIST_DIAMOND_DAMAGE_3 = 11;
+    private static final int A4_BUDDHIST_DIAMOND_DAMAGE_3 = 12;
     private int buddhistDiamondDamage3;
 
-    private static final int BUDDHIST_DIAMOND_DAMAGE_4 = 11;
-    private static final int A4_BUDDHIST_DIAMOND_DAMAGE_4 = 12;
+    private static final int BUDDHIST_DIAMOND_DAMAGE_4 = 10;
+    private static final int A4_BUDDHIST_DIAMOND_DAMAGE_4 = 11;
     private int buddhistDiamondDamage4;
 
     private static final int BUDDHIST_DIAMOND_DAMAGE_5 = 9;
@@ -81,7 +82,7 @@ public class Kaguya extends CustomMonster
 
     public static final int PLAYER_STRENGTH_GAIN = 1;
     private static final int STRENGTH_GAIN = 2;
-    private static final int A19_STRENGTH_GAIN = 3;
+    //private static final int A19_STRENGTH_GAIN = 3;
     private int strengthGain;
 
     private static final int HP = 40;
@@ -107,11 +108,8 @@ public class Kaguya extends CustomMonster
         this.type = EnemyType.BOSS;
         this.dialogX = (this.hb_x - 70.0F) * Settings.scale;
         this.dialogY -= (this.hb_y - 55.0F) * Settings.scale;
-        if (AbstractDungeon.ascensionLevel >= 19) {
-            this.strengthGain = A19_STRENGTH_GAIN;
-        } else {
-            this.strengthGain = STRENGTH_GAIN;
-        }
+
+        this.strengthGain = STRENGTH_GAIN;
         if (AbstractDungeon.ascensionLevel >= 9) {
             this.setHp(A9_HP);
         } else {
@@ -150,6 +148,9 @@ public class Kaguya extends CustomMonster
         AbstractDungeon.getCurrRoom().cannotLose = true;
         CustomDungeon.playTempMusicInstantly("LunaticPrincess");
         request = new ImpossibleRequest();
+        if (AbstractDungeon.ascensionLevel >= 19) {
+            request.upgrade();
+        }
         request.transform();
         this.addToBot(new ApplyPowerAction(this, this, new HouraiImmortal(this, DEATH_THRESHOLD)));
         this.addToBot(new ApplyPowerAction(AbstractDungeon.player, this, new LunaticPrincess(AbstractDungeon.player, strengthGain, this, request)));
@@ -183,7 +184,7 @@ public class Kaguya extends CustomMonster
                 } else if (request.requestCounter == ImpossibleRequest.BULLET_BRANCH) {
                     AbstractDungeon.actionManager.addToBottom(new MakeTempCardInDrawPileAction(new VoidCard(), DEBUFF_AMT, true, true));
                 } else if (request.requestCounter == ImpossibleRequest.FIRE_RAT) {
-                    AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(AbstractDungeon.player, this, new DrawReductionPower(AbstractDungeon.player, DEBUFF_AMT), DEBUFF_AMT));
+                    AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(AbstractDungeon.player, this, new BetterDrawReductionPower(AbstractDungeon.player, DEBUFF_AMT), DEBUFF_AMT));
                 } else if (request.requestCounter == ImpossibleRequest.JEWEL_FROM_DRAGON) {
                     AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(AbstractDungeon.player, this, new WeakPower(AbstractDungeon.player, DEBUFF_AMT, true), DEBUFF_AMT));
                 } else {

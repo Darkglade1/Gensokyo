@@ -189,5 +189,9 @@
                         " NL (You have gained ", " Block.)", " turns.)",
                         " NL (Completed).",
                         " #yStrength. If you didn't fulfill the request, the enemy gains #b", " #yStrength."]
+},
+"Gensokyo:BetterDrawReduction": {
+        "NAME": "Draw Reduction",
+        "DESCRIPTIONS": ["Next turn, draw #b", " less card.", " less cards."]
 }
 }
