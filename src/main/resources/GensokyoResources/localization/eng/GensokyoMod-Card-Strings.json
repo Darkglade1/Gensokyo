@@ -132,6 +132,6 @@
   },
   "Gensokyo:SwallowsCowrieShell": {
     "NAME": "Swallow's Cowrie Shell",
-    "DESCRIPTION": "gensokyo:Impossible_Request. NL Take no attack damage for !M! turns in a row."
+    "DESCRIPTION": "gensokyo:Impossible_Request. NL Gain !M! Block in a single turn."
   }
 }

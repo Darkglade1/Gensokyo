@@ -18,7 +18,7 @@ public class JewelFromTheDragonsNeck extends AbstractDefaultCard {
     public static final CardColor COLOR = CardColor.CURSE;
 
     private static final int COST = -2;
-    private static final int DAMAGE_GOAL = 30;
+    private static final int DAMAGE_GOAL = 24;
 
     public JewelFromTheDragonsNeck() {
         super(ID, IMG, COST, TYPE, COLOR, RARITY, TARGET);

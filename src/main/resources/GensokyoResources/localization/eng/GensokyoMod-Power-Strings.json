@@ -186,7 +186,7 @@
                         " card.)", " cards.)",
                         " NL (You have drawn ",
                         " NL (You have dealt ", " damage.)",
-                        " NL (You have taken no attack damage for ", " turn.)", " turns.)",
+                        " NL (You have gained ", " Block.)", " turns.)",
                         " NL (Completed).",
                         " #yStrength. If you didn't fulfill the request, the enemy gains #b", " #yStrength."]
 }

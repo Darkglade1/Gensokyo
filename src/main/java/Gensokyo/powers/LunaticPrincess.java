@@ -1,14 +1,11 @@
 package Gensokyo.powers;
 
 import Gensokyo.GensokyoMod;
-import Gensokyo.actions.SetFlipAction;
 import Gensokyo.cards.ImpossibleRequests.ImpossibleRequest;
 import Gensokyo.monsters.Kaguya;
 import Gensokyo.util.TextureLoader;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.TextureAtlas;
-import com.megacrit.cardcrawl.actions.animations.TalkAction;
-import com.megacrit.cardcrawl.actions.common.EscapeAction;
 import com.megacrit.cardcrawl.actions.utility.UseCardAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.cards.DamageInfo;
@@ -16,7 +13,6 @@ import com.megacrit.cardcrawl.core.AbstractCreature;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.localization.PowerStrings;
-import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.powers.AbstractPower;
 
 import static Gensokyo.GensokyoMod.makePowerPath;
@@ -34,7 +30,7 @@ public class LunaticPrincess extends AbstractPower {
     private boolean SKILL = false;
     private boolean POWER = false;
     private boolean ATTACK = false;
-    private boolean tookDamage = false;
+    //private boolean tookDamage = false;
     public int counter = 0;
 
     private static final Texture tex84 = TextureLoader.getTexture(makePowerPath("Infinity84.png"));
@@ -72,6 +68,9 @@ public class LunaticPrincess extends AbstractPower {
             counter = 0;
         }
         if (request.requestCounter == ImpossibleRequest.JEWEL_FROM_DRAGON) {
+            counter = 0;
+        }
+        if (request.requestCounter == ImpossibleRequest.SWALLOW_SHELL) {
             counter = 0;
         }
         updateRequest();
@@ -141,33 +140,47 @@ public class LunaticPrincess extends AbstractPower {
         }
     }
 
+//    @Override
+//    public void wasHPLost(DamageInfo info, int damageAmount) {
+//        if (request.requestCounter == ImpossibleRequest.SWALLOW_SHELL) {
+//            if (info.owner != null && info.owner != this.owner && info.type != DamageInfo.DamageType.HP_LOSS && info.type != DamageInfo.DamageType.THORNS && damageAmount > 0) {
+//                tookDamage = true;
+//            }
+//        }
+//    }
+
     @Override
-    public void wasHPLost(DamageInfo info, int damageAmount) {
+    public void onGainedBlock(float blockAmount) {
         if (request.requestCounter == ImpossibleRequest.SWALLOW_SHELL) {
-            if (info.owner != null && info.owner != this.owner && info.type != DamageInfo.DamageType.HP_LOSS && info.type != DamageInfo.DamageType.THORNS && damageAmount > 0) {
-                tookDamage = true;
+            counter += blockAmount;
+            updateRequest();
+            if (counter >= request.swallowsCowrieShell.magicNumber) {
+                this.flash();
+                request.completed = true;
+                counter = 0;
+                updateRequest();
             }
         }
     }
 
-    @Override
-    public void atEndOfRound() {
-        if (request.requestCounter == ImpossibleRequest.SWALLOW_SHELL) {
-            if (tookDamage) {
-                counter = 0;
-                updateRequest();
-            } else {
-                counter++;
-                updateRequest();
-                if (counter >= request.swallowsCowrieShell.magicNumber) {
-                    request.completed = true;
-                    counter = 0;
-                    updateRequest();
-                }
-            }
-            tookDamage = false;
-        }
-    }
+//    @Override
+//    public void atEndOfRound() {
+//        if (request.requestCounter == ImpossibleRequest.SWALLOW_SHELL) {
+//            if (tookDamage) {
+//                counter = 0;
+//                updateRequest();
+//            } else {
+//                counter++;
+//                updateRequest();
+//                if (counter >= request.swallowsCowrieShell.magicNumber) {
+//                    request.completed = true;
+//                    counter = 0;
+//                    updateRequest();
+//                }
+//            }
+//            tookDamage = false;
+//        }
+//    }
 
     private void updateRequest() {
         request.rawDescription = languagePack.getCardStrings(request.cardToTransform.cardID).DESCRIPTION;
@@ -227,11 +240,7 @@ public class LunaticPrincess extends AbstractPower {
                 if (counter > 0) {
                     request.rawDescription += DESCRIPTIONS[12];
                     request.rawDescription += counter;
-                    if (counter == 1) {
-                        request.rawDescription += DESCRIPTIONS[13];
-                    } else {
-                        request.rawDescription += DESCRIPTIONS[14];
-                    }
+                    request.rawDescription += DESCRIPTIONS[13];
                 }
             }
         }

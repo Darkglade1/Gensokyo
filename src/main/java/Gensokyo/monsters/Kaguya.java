@@ -95,6 +95,7 @@ public class Kaguya extends CustomMonster
 
     private Map<Byte, EnemyMoveInfo> moves;
     private ImpossibleRequest request;
+    private int damage;
 
     public Kaguya() {
         this(0.0f, 0.0f);
@@ -161,10 +162,11 @@ public class Kaguya extends CustomMonster
             AbstractDungeon.actionManager.addToBottom(new TalkAction(this, DIALOG[0]));
             this.firstMove = false;
         }
-        DamageInfo info = new DamageInfo(this, moves.get(this.nextMove).baseDamage, DamageInfo.DamageType.NORMAL);
+        DamageInfo info = new DamageInfo(this, this.damage, DamageInfo.DamageType.NORMAL);
         if(info.base > -1) {
             info.applyPowers(this, AbstractDungeon.player);
         }
+
         switch (this.nextMove) {
             case BRILLIANT_DRAGON_BULLET: {
                 this.useFastAttackAnimation();
@@ -214,6 +216,7 @@ public class Kaguya extends CustomMonster
 
     private void setMoveShortcut(byte next) {
         EnemyMoveInfo info = this.moves.get(next);
+        this.damage = info.baseDamage;
         this.setMove(MOVES[info.nextMove], info.nextMove, info.intent, info.baseDamage, info.multiplier, info.isMultiDamage);
     }
 
