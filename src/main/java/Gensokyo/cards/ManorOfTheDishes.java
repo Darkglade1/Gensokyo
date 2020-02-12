@@ -19,8 +19,8 @@ public class ManorOfTheDishes extends AbstractUrbanLegendCard {
     private static final CardTarget TARGET = CardTarget.SELF;
     private static final CardType TYPE = CardType.POWER;
 
-    private static final int COST = 1;
-    private static final int UPGRADED_COST = 0;
+    private static final int COST = 2;
+    private static final int UPGRADED_COST = 1;
     private static final int INTANGIBLE = 1;
     public static final int cardThreshold = 10;
 

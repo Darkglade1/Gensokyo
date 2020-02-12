@@ -52,8 +52,8 @@ public class ClashOfLegends extends AbstractImageEvent {
     public static final String IMG = makeEventPath("Clash.png");
 
     private int maxHpLoss;
-    private static final float MAX_HP_LOSS = 0.08F;
-    private static final float A15_MAX_HP_LOSS = 0.10F;
+    private static final float MAX_HP_LOSS = 0.10F;
+    private static final float A15_MAX_HP_LOSS = 0.12F;
 
     private int screenNum = 0;
 
