@@ -1,6 +1,7 @@
 package Gensokyo.cards;
 
 import Gensokyo.GensokyoMod;
+import Gensokyo.actions.MonkeysPawGainGoldAction;
 import Gensokyo.tags.Tags;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.common.DamageAction;
@@ -35,9 +36,8 @@ public class MonkeysPaw extends AbstractUrbanLegendCard {
     public void use(AbstractPlayer p, AbstractMonster m) {
        int half = p.currentHealth / 2;
        if (half > 0) {
-           int goldGained = magicNumber * half;
            AbstractDungeon.actionManager.addToBottom(new DamageAction(p, new DamageInfo(p, half, DamageInfo.DamageType.HP_LOSS), AbstractGameAction.AttackEffect.POISON));
-           AbstractDungeon.player.gainGold(goldGained);
+           AbstractDungeon.actionManager.addToBottom(new MonkeysPawGainGoldAction(AbstractDungeon.player.currentHealth, magicNumber));
        }
     }
 

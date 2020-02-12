@@ -29,7 +29,8 @@ public class Doppelganger extends AbstractUrbanLegendCard {
     public Doppelganger() {
         super(ID, IMG, COST, TYPE, RARITY, TARGET);
         tags.add(Tags.URBAN_LEGEND);
-        AlwaysRetainField.alwaysRetain.set(this, true);
+        this.selfRetain = true;
+        this.exhaust = true;
     }
 
     @Override

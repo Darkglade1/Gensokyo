@@ -24,7 +24,7 @@ public class Justice extends CustomRelic {
 
     private boolean triggered = false;
     private static int TRIGGER_COUNT = 2;
-    private static int DAMAGE = 6;
+    private static int DAMAGE = 5;
 
     public Justice() {
         super(ID, IMG, OUTLINE, RelicTier.SPECIAL, LandingSound.MAGICAL);

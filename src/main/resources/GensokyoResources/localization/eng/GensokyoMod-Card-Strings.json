@@ -103,8 +103,8 @@
   },
   "Gensokyo:Doppelganger": {
     "NAME": "Doppelganger",
-    "DESCRIPTION": "Retain. NL Scry X. NL Your next X cards are played twice.",
-    "UPGRADE_DESCRIPTION": "Retain. NL Scry X + 1. NL Your next X + 1 cards are played twice."
+    "DESCRIPTION": "Retain. NL Scry X. NL Your next X cards are played twice. NL Exhaust.",
+    "UPGRADE_DESCRIPTION": "Retain. NL Scry X + 1. NL Your next X + 1 cards are played twice. NL Exhaust."
   },
   "Gensokyo:Butterfly": {
     "NAME": "Butterfly",

@@ -31,17 +31,16 @@ public class Position extends AbstractPower {
     private float position2;
     private float position3;
 
-    public Position(AbstractCreature owner, int amount) {
+    public Position(AbstractCreature owner) {
         name = NAME;
         ID = POWER_ID;
 
         this.owner = owner;
-        this.amount = amount;
+        this.amount = 1;
 
         type = PowerType.BUFF;
         isTurnBased = false;
-
-        //this.originalY = owner.drawY;
+        
         this.position1 = owner.drawY;
         this.position2 = owner.drawY + movement;
         this.position3 = owner.drawY + movement * 2;

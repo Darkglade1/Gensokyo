@@ -81,7 +81,11 @@ public class PolymorphPower extends AbstractPower {
 
     @Override
     public float atDamageGive(float damage, DamageInfo.DamageType type) {
-        return 0;
+        if (type == DamageInfo.DamageType.NORMAL) {
+            return 0;
+        } else {
+            return damage;
+        }
     }
 
     @Override
