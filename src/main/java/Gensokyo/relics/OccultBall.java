@@ -142,14 +142,13 @@ public class OccultBall extends CustomRelic {
 
     @Override
     public void addCampfireOption(ArrayList<AbstractCampfireOption> options) {
-        if (this.counter == MAX_STACKS && Settings.language == Settings.GameLanguage.ENG) {
+        if (this.counter == MAX_STACKS && Settings.language != Settings.GameLanguage.ZHS) {
             options.add(new OccultBallFightOption());
         }
     }
 
     @Override
-    public void instantObtain()
-    {
+    public void instantObtain() {
         if (AbstractDungeon.player.hasRelic(ID)) {
             OccultBall occultBall = (OccultBall) AbstractDungeon.player.getRelic(ID);
             occultBall.increment();
@@ -160,8 +159,7 @@ public class OccultBall extends CustomRelic {
     }
 
     @Override
-    public void instantObtain(AbstractPlayer p, int slot, boolean callOnEquip)
-    {
+    public void instantObtain(AbstractPlayer p, int slot, boolean callOnEquip) {
         if (AbstractDungeon.player.hasRelic(ID)) {
             OccultBall occultBall = (OccultBall) AbstractDungeon.player.getRelic(ID);
             occultBall.increment();
@@ -176,8 +174,7 @@ public class OccultBall extends CustomRelic {
     }
 
     @Override
-    public void obtain()
-    {
+    public void obtain() {
         if (AbstractDungeon.player.hasRelic(ID)) {
             OccultBall occultBall = (OccultBall) AbstractDungeon.player.getRelic(ID);
             occultBall.increment();

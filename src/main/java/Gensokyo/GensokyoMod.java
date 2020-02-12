@@ -134,6 +134,7 @@ import java.nio.charset.StandardCharsets;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
+import java.util.Set;
 
 @SpireInitializer
 public class GensokyoMod implements
@@ -603,7 +604,9 @@ public class GensokyoMod implements
         loadLocFiles(Settings.GameLanguage.ENG);
         if (Settings.language != Settings.GameLanguage.ENG) {
             loadLocFiles(Settings.language);
-            hasMarisa = false;
+            if (Settings.language == Settings.GameLanguage.ZHS) {
+                hasMarisa = false;
+            }
         }
     }
     
