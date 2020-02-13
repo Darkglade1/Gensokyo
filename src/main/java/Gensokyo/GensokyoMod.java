@@ -310,6 +310,8 @@ public class GensokyoMod implements
         BaseMod.addMonster(Reimu.ID, (BaseMod.GetMonster)Reimu::new);
 
         BaseMod.addMonster(Kaguya.ID, (BaseMod.GetMonster) Kaguya::new);
+        BaseMod.addMonster(Yuyuko.ID, (BaseMod.GetMonster) Yuyuko::new);
+        CustomIntent.add(new DeathIntent());
 
         BaseMod.addMonster(Aya.ID, (BaseMod.GetMonster)Aya::new);
         BaseMod.addMonster(Cirno.ID, "Cirno", () -> new MonsterGroup(
@@ -346,10 +348,10 @@ public class GensokyoMod implements
         //BaseMod.addBoss(Gensokyo.ID, Yukari.ID, "GensokyoResources/images/monsters/Yukari/Yukari.png", "GensokyoResources/images/monsters/Yukari/YukariOutline.png");
         //BaseMod.addBoss(Gensokyo.ID, Kokoro.ID, "GensokyoResources/images/monsters/Kokoro/Kokoro.png", "GensokyoResources/images/monsters/Kokoro/KokoroOutline.png");
         //BaseMod.addBoss(Gensokyo.ID, Reimu.ID, "GensokyoResources/images/monsters/Reimu/Reimu.png", "GensokyoResources/images/monsters/Reimu/ReimuOutline.png");
-        BaseMod.addBoss(Gensokyo.ID, Kaguya.ID, "GensokyoResources/images/monsters/Kaguya/Kaguya.png", "GensokyoResources/images/monsters/Kaguya/KaguyaOutline.png");
+        //BaseMod.addBoss(Gensokyo.ID, Kaguya.ID, "GensokyoResources/images/monsters/Kaguya/Kaguya.png", "GensokyoResources/images/monsters/Kaguya/KaguyaOutline.png");
+        BaseMod.addBoss(Gensokyo.ID, Yuyuko.ID, "GensokyoResources/images/monsters/Yuyuko/Yuyuko.png", "GensokyoResources/images/monsters/Yuyuko/YuyukoOutline.png");
 
-        BaseMod.addMonster(Yuyuko.ID, (BaseMod.GetMonster) Yuyuko::new);
-        CustomIntent.add(new DeathIntent());
+
 //        BaseMod.addMonster(Eiki.ID, (BaseMod.GetMonster) Eiki::new);
 
         

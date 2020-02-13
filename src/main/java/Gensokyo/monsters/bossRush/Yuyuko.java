@@ -68,18 +68,18 @@ public class Yuyuko extends CustomMonster
     //private static final int FIRST_TURN_STATUS_COUNT = 3;
     private static final int STATUS_COUNT = 2;
     private static final int A19_STATUS_COUNT = 3;
-//    private static final int FAN_INCREMENT = 1;
-//    private static final int A19_FAN_INCREMENT = 2;
+    private static final int FAN_INCREMENT = 1;
+    private static final int A19_FAN_INCREMENT = 2;
     public static final int FAN_THRESHOLD = 10;
     private static final int EXHAUST_AMT = 2;
-    private static final int EXHAUST_DURATION = 2;
+    private static final int EXHAUST_DURATION = 1;
     private static final int HP = 240;
     private static final int A9_HP = 250;
     private int ghostlyButterflyDamage;
     private int ghastlyDreamDamage;
     //private int resurrectionButterflyDamage;
     private int statusCount;
-    //private int fanIncrement;
+    private int fanIncrement;
     private int block;
     public int fanCounter;
     private int turnCounter;
@@ -99,10 +99,10 @@ public class Yuyuko extends CustomMonster
         this.dialogY -= (this.hb_y - 55.0F) * Settings.scale;
         if (AbstractDungeon.ascensionLevel >= 19) {
             this.statusCount = A19_STATUS_COUNT;
-            //this.fanIncrement = A19_FAN_INCREMENT;
+            this.fanIncrement = A19_FAN_INCREMENT;
         } else {
             this.statusCount = STATUS_COUNT;
-            //this.fanIncrement = FAN_INCREMENT;
+            this.fanIncrement = FAN_INCREMENT;
         }
         if (AbstractDungeon.ascensionLevel >= 9) {
             this.setHp(A9_HP);
@@ -185,7 +185,7 @@ public class Yuyuko extends CustomMonster
                 AbstractDungeon.actionManager.addToBottom(new VFXAction(new EmptyEffect(), 1.3F));
                 AbstractDungeon.actionManager.addToBottom(new GainBlockAction(this, this, this.block));
                 AbstractDungeon.actionManager.addToBottom(new MakeTempCardInDrawPileAction(new Butterfly(this), statusCount, true, true));
-                //incrementFan(fanIncrement);
+                incrementFan(fanIncrement);
                 turnCounter = 0;
                 break;
             }
