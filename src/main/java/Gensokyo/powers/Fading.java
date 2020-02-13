@@ -5,8 +5,8 @@ import Gensokyo.util.TextureLoader;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.TextureAtlas;
 import com.evacipated.cardcrawl.mod.stslib.powers.abstracts.TwoAmountPower;
-import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
-import com.megacrit.cardcrawl.cards.DamageInfo;
+import com.megacrit.cardcrawl.actions.common.ExhaustAction;
+import com.megacrit.cardcrawl.actions.common.ReducePowerAction;
 import com.megacrit.cardcrawl.core.AbstractCreature;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
@@ -15,9 +15,9 @@ import com.megacrit.cardcrawl.localization.PowerStrings;
 import static Gensokyo.GensokyoMod.makePowerPath;
 
 
-public class DeathTouch extends TwoAmountPower {
+public class Fading extends TwoAmountPower {
 
-    public static final String POWER_ID = GensokyoMod.makeID("DeathTouch");
+    public static final String POWER_ID = GensokyoMod.makeID("Fading");
     private static final PowerStrings powerStrings = CardCrawlGame.languagePack.getPowerStrings(POWER_ID);
     public static final String NAME = powerStrings.NAME;
     public static final String[] DESCRIPTIONS = powerStrings.DESCRIPTIONS;
@@ -25,7 +25,7 @@ public class DeathTouch extends TwoAmountPower {
     private static final Texture tex84 = TextureLoader.getTexture(makePowerPath("DeathTouch84.png"));
     private static final Texture tex32 = TextureLoader.getTexture(makePowerPath("DeathTouch32.png"));
 
-    public DeathTouch(AbstractCreature owner, int exhaustAmount, int exhaustDuration) {
+    public Fading(AbstractCreature owner, int exhaustAmount, int exhaustDuration) {
         name = NAME;
         ID = POWER_ID;
 
@@ -42,15 +42,17 @@ public class DeathTouch extends TwoAmountPower {
     }
 
     @Override
-    public void onAttack(DamageInfo info, int damageAmount, AbstractCreature target) {
-        if (info.owner == this.owner && info.type == DamageInfo.DamageType.NORMAL && target == AbstractDungeon.player && damageAmount > 0) {
-            this.flash();
-            this.addToBot(new ApplyPowerAction(AbstractDungeon.player, this.owner, new Fading(AbstractDungeon.player, amount2, amount), amount2));
-        }
+    public void atStartOfTurnPostDraw() {
+        AbstractDungeon.actionManager.addToBottom(new ExhaustAction(this.amount2, false));
+        AbstractDungeon.actionManager.addToBottom(new ReducePowerAction(this.owner, this.owner, POWER_ID, 1));
     }
 
     @Override
     public void updateDescription() {
-        description = DESCRIPTIONS[0] + amount2 + DESCRIPTIONS[1] + amount + DESCRIPTIONS[2];
+        if (amount == 1) {
+            description = DESCRIPTIONS[0] + amount + DESCRIPTIONS[1] + DESCRIPTIONS[3] + amount2 + DESCRIPTIONS[4];
+        } else {
+            description = DESCRIPTIONS[0] + amount + DESCRIPTIONS[2] + DESCRIPTIONS[3] + amount2 + DESCRIPTIONS[4];
+        }
     }
 }

@@ -1,5 +1,7 @@
 package Gensokyo;
 
+import Gensokyo.RazIntent.CustomIntent;
+import Gensokyo.RazIntent.DeathIntent;
 import Gensokyo.cards.Apocalypse;
 import Gensokyo.cards.BlessingOfConstitution;
 import Gensokyo.cards.BlessingOfFortitude;
@@ -11,6 +13,7 @@ import Gensokyo.cards.EightFeetTall;
 import Gensokyo.cards.Frozen;
 import Gensokyo.cards.GapWoman;
 import Gensokyo.cards.HAARP;
+import Gensokyo.cards.ImpossibleRequests.ImpossibleRequest;
 import Gensokyo.cards.Kunekune;
 import Gensokyo.cards.LittleGreenMen;
 import Gensokyo.cards.LochNessMonster;
@@ -75,6 +78,7 @@ import Gensokyo.monsters.SunflowerFairy;
 import Gensokyo.monsters.Yukari;
 import Gensokyo.monsters.ZombieFairy;
 import Gensokyo.monsters.Kaguya;
+import Gensokyo.monsters.bossRush.Yuyuko;
 import Gensokyo.relics.Bombinomicon;
 import Gensokyo.relics.BookOfSpecters;
 import Gensokyo.relics.CelestialsFlawlessClothing;
@@ -344,8 +348,8 @@ public class GensokyoMod implements
         //BaseMod.addBoss(Gensokyo.ID, Reimu.ID, "GensokyoResources/images/monsters/Reimu/Reimu.png", "GensokyoResources/images/monsters/Reimu/ReimuOutline.png");
         BaseMod.addBoss(Gensokyo.ID, Kaguya.ID, "GensokyoResources/images/monsters/Kaguya/Kaguya.png", "GensokyoResources/images/monsters/Kaguya/KaguyaOutline.png");
 
-//        BaseMod.addMonster(Yuyuko.ID, (BaseMod.GetMonster) Yuyuko::new);
-//        CustomIntent.add(new DeathIntent());
+        BaseMod.addMonster(Yuyuko.ID, (BaseMod.GetMonster) Yuyuko::new);
+        CustomIntent.add(new DeathIntent());
 //        BaseMod.addMonster(Eiki.ID, (BaseMod.GetMonster) Eiki::new);
 
         
@@ -539,7 +543,8 @@ public class GensokyoMod implements
 
         BaseMod.addCard(new CrescentMoonSlash());
         BaseMod.addCard(new Frozen());
-        BaseMod.addCard(new Butterfly());
+        BaseMod.addCard(new Butterfly(null));
+        BaseMod.addCard(new ImpossibleRequest());
 
         //Urban Legends
         BaseMod.addCard(new MissMary());

@@ -149,11 +149,15 @@
 },
 "Gensokyo:DeathTouch": {
         "NAME": "Death Touch",
-        "DESCRIPTIONS": ["If you receive unblocked attack damage from this creature, you #rdie."]
+        "DESCRIPTIONS": ["Whenever you receive attack damage from this enemy, #yexhaust #b", " cards at the start of your turn for #b", " turns."]
+},
+"Gensokyo:Fading": {
+        "NAME": "Fading",
+        "DESCRIPTIONS": ["For #b", " turn", " turns", ", at the start of your turn, #yexhaust #b", " cards."]
 },
 "Gensokyo:Reflowering": {
         "NAME": "Reflowering",
-        "DESCRIPTIONS": ["Whenever you play a #yButterfly, add a #psoul to the fan. When the fan has #b", " #psouls . . ."]
+        "DESCRIPTIONS": ["Whenever a #yButterfly is #yexhausted, add a #psoul to the fan. At end of round, if the fan has #b", " #psouls, intends to #rkill you."]
 },
 "Gensokyo:Guilt": {
         "NAME": "Guilt",
