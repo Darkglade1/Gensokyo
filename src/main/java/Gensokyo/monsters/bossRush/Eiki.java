@@ -2,11 +2,8 @@ package Gensokyo.monsters.bossRush;
 
 import Gensokyo.BetterSpriterAnimation;
 import Gensokyo.actions.BalanceShiftAction;
-import Gensokyo.powers.Guilt;
-import Gensokyo.powers.Virtue;
-import Gensokyo.powers.Innocence;
-import Gensokyo.powers.Judgement;
-import Gensokyo.powers.Resolve;
+import Gensokyo.powers.MirrorPower;
+import Gensokyo.powers.NextTurnInnocence;
 import actlikeit.dungeons.CustomDungeon;
 import basemod.abstracts.CustomMonster;
 import basemod.animations.AbstractAnimation;
@@ -20,15 +17,17 @@ import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.actions.common.DamageAction;
 import com.megacrit.cardcrawl.actions.common.RollMoveAction;
 import com.megacrit.cardcrawl.actions.common.SpawnMonsterAction;
+import com.megacrit.cardcrawl.actions.common.SuicideAction;
 import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.core.Settings;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.localization.MonsterStrings;
+import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.monsters.EnemyMoveInfo;
 import com.megacrit.cardcrawl.powers.FrailPower;
 import com.megacrit.cardcrawl.powers.StrengthPower;
-import com.megacrit.cardcrawl.powers.WeakPower;
+import com.megacrit.cardcrawl.powers.VulnerablePower;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -52,39 +51,36 @@ public class Eiki extends CustomMonster
     public static final String[] MOVES;
     public static final String[] DIALOG;
     private boolean firstMove = true;
-    private static final byte LAST_JUDGEMENT = 0;
-    private static final byte TRIAL = 1;
+    private static final byte CLEANSED_CRYSTAL_JUDGEMENT = 0;
+    private static final byte WANDERING_SIN = 1;
     private static final byte GUILTY_OR_NOT = 2;
-    private static final byte WANDERING_SIN = 3;
+    private static final byte ROD_OF_REMORSE = 3;
 
-    private static final int DEBUFF_AMOUNT = 2;
-    private static final float JUDGEMENT_PERCENT = 0.5F;
+    private static final int DEBUFF_AMOUNT = 1;
 
-    private static final float BONUS_HP_DAMAGE = 0.2F;
-    private int bonusDamage;
+    private static final int ROD_DAMAGE = 18;
+    private static final int A4_ROD_DAMAGE = 20;
+    private int rodDamage;
 
-    private static final int COOLDOWN = 3;
-    private int turnCounter = 0;
-
-    private static final int TRIAL_DAMAGE = 20;
-    private static final int A4_TRIAL_DAMAGE = 22;
-    private int trialDamage;
-
-    private static final int SIN_DAMAGE = 10;
-    private static final int A4_SIN_DAMAGE = 11;
+    private static final int SIN_DAMAGE = 13;
+    private static final int A4_SIN_DAMAGE = 14;
     private int sinDamage;
 
-    public static final int STARTING_GUILT = 7;
-    public static final int A19_STARTING_GUILT = 10;
-    private int startingGuilt;
+    private static final int STRENGTH = 3;
+    private static final int A19_STRENGTH = 4;
+    private int strength;
 
-    public static final int GUILT_THRESHOLD = 20;
-    public static final int A19_GUILT_THRESHOLD = 15;
-    public int guiltThreshold;
+    private static final float INNOCENCE_HEAL = 0.10F;
+    private static final float A19_INNOCENCE_HEAL = 0.13F;
+    private float innocenceHeal;
 
-    public static final int VIRTUE_AMOUNT = 20;
-    private static final int HP = 150;
-    private static final int A9_HP = 160;
+    public int guiltCount;
+    public int innocenceCount;
+
+    private static final int HP = 280;
+    private static final int A9_HP = 300;
+
+    private boolean mirrorDead = false;
 
     public float angle = 0.0F;
     private Map<Byte, EnemyMoveInfo> moves;
@@ -102,11 +98,11 @@ public class Eiki extends CustomMonster
         this.dialogX = (this.hb_x - 70.0F) * Settings.scale;
         this.dialogY -= (this.hb_y - 55.0F) * Settings.scale;
         if (AbstractDungeon.ascensionLevel >= 19) {
-            this.startingGuilt = A19_STARTING_GUILT;
-            this.guiltThreshold = A19_GUILT_THRESHOLD;
+            this.strength = A19_STRENGTH;
+            this.innocenceHeal = A19_INNOCENCE_HEAL;
         } else {
-            this.startingGuilt = STARTING_GUILT;
-            this.guiltThreshold = GUILT_THRESHOLD;
+            this.strength = STRENGTH;
+            this.innocenceHeal = INNOCENCE_HEAL;
         }
         if (AbstractDungeon.ascensionLevel >= 9) {
             this.setHp(A9_HP);
@@ -115,18 +111,18 @@ public class Eiki extends CustomMonster
         }
 
         if (AbstractDungeon.ascensionLevel >= 4) {
-            this.trialDamage = A4_TRIAL_DAMAGE;
+            this.rodDamage = A4_ROD_DAMAGE;
             this.sinDamage = A4_SIN_DAMAGE;
         } else {
-            this.trialDamage = TRIAL_DAMAGE;
+            this.rodDamage = ROD_DAMAGE;
             this.sinDamage = SIN_DAMAGE;
         }
 
         this.moves = new HashMap<>();
-        this.moves.put(LAST_JUDGEMENT, new EnemyMoveInfo(LAST_JUDGEMENT, Intent.UNKNOWN, -1, 0, false));
-        this.moves.put(TRIAL, new EnemyMoveInfo(TRIAL, Intent.ATTACK, this.trialDamage, 0, false));
-        this.moves.put(GUILTY_OR_NOT, new EnemyMoveInfo(GUILTY_OR_NOT, Intent.BUFF, -1, 0, true));
+        this.moves.put(CLEANSED_CRYSTAL_JUDGEMENT, new EnemyMoveInfo(CLEANSED_CRYSTAL_JUDGEMENT, Intent.UNKNOWN, -1, 0, false));
         this.moves.put(WANDERING_SIN, new EnemyMoveInfo(WANDERING_SIN, Intent.ATTACK_DEBUFF, this.sinDamage, 0, false));
+        this.moves.put(GUILTY_OR_NOT, new EnemyMoveInfo(GUILTY_OR_NOT, Intent.BUFF, -1, 0, false));
+        this.moves.put(ROD_OF_REMORSE, new EnemyMoveInfo(ROD_OF_REMORSE, Intent.ATTACK, this.rodDamage, 0, false));
 
         this.SCALE_BODY_REGION = new TextureRegion(SCALE_BODY);
         this.SCALE_RIGHT_ARM_REGION = new TextureRegion(SCALE_RIGHT_ARM);
@@ -139,14 +135,6 @@ public class Eiki extends CustomMonster
     @Override
     public void usePreBattleAction() {
         CustomDungeon.playTempMusicInstantly("FateOfSixtyYears");
-        this.addToBot(new ApplyPowerAction(this, this, new Virtue(this)));
-        this.addToBot(new ApplyPowerAction(this, this, new Resolve(this, VIRTUE_AMOUNT)));
-        this.addToBot(new ApplyPowerAction(AbstractDungeon.player, this, new Innocence(AbstractDungeon.player, 0, this), 0));
-        this.addToBot(new ApplyPowerAction(AbstractDungeon.player, this, new Guilt(AbstractDungeon.player, startingGuilt, this), startingGuilt));
-        AbstractDungeon.actionManager.addToBottom(new BalanceShiftAction(this));
-        for (int i = 0; i < STARTING_GUILT; i++) {
-            guilt.add(new BetterSpriterAnimation("GensokyoResources/images/monsters/Eiki/Guilt/Spriter/GuiltAnimation.scml"));
-        }
     }
 
     @Override
@@ -157,85 +145,100 @@ public class Eiki extends CustomMonster
         }
         DamageInfo info = new DamageInfo(this, moves.get(this.nextMove).baseDamage, DamageInfo.DamageType.NORMAL);
         if(info.base > -1) {
-            info.base += bonusDamage;
             info.applyPowers(this, AbstractDungeon.player);
         }
         switch (this.nextMove) {
-            case LAST_JUDGEMENT: {
-                AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(AbstractDungeon.player, this, new Judgement(AbstractDungeon.player, (int)(AbstractDungeon.player.maxHealth * JUDGEMENT_PERCENT))));
-                AbstractDungeon.actionManager.addToBottom(new SpawnMonsterAction(new Mirror(-100.0F, 0.0F), false));
-                turnCounter++;
-                break;
-            }
-            case TRIAL: {
-                this.useFastAttackAnimation();
-                AbstractDungeon.actionManager.addToBottom(new DamageAction(AbstractDungeon.player, info, AbstractGameAction.AttackEffect.BLUNT_HEAVY));
-                turnCounter++;
-                break;
-            }
-            case GUILTY_OR_NOT: {
-                int innocence = 0;
-                int guilt = 0;
-                if (AbstractDungeon.player.hasPower(Innocence.POWER_ID)) {
-                    innocence = AbstractDungeon.player.getPower(Innocence.POWER_ID).amount;
-                }
-                if (AbstractDungeon.player.hasPower(Guilt.POWER_ID)) {
-                    guilt = AbstractDungeon.player.getPower(Guilt.POWER_ID).amount;
-                }
-                int difference = guilt - innocence;
-                if (difference < 0) {
-                    difference = startingGuilt;
-                }
-                difference = (int)(difference * 1.5f);
-                AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(this, this, new StrengthPower(this, difference), difference));
-                turnCounter = 0;
+            case CLEANSED_CRYSTAL_JUDGEMENT: {
+                Mirror mirror = new Mirror(-100.0F, 0.0F, this);
+                AbstractDungeon.actionManager.addToBottom(new SpawnMonsterAction(mirror, true));
+                AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(mirror, this, new MirrorPower(mirror, mirror)));
                 break;
             }
             case WANDERING_SIN: {
                 this.useFastAttackAnimation();
                 AbstractDungeon.actionManager.addToBottom(new DamageAction(AbstractDungeon.player, info, AbstractGameAction.AttackEffect.POISON));
-                if (this.angle <= (BalanceShiftAction.MAX_ANGLE / 2)) {
-                    AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(AbstractDungeon.player, this, new FrailPower(AbstractDungeon.player, DEBUFF_AMOUNT, true), DEBUFF_AMOUNT));
-                } else {
-                    AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(AbstractDungeon.player, this, new WeakPower(AbstractDungeon.player, DEBUFF_AMOUNT, true), DEBUFF_AMOUNT));
+                AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(AbstractDungeon.player, this, new VulnerablePower(AbstractDungeon.player, DEBUFF_AMOUNT, true), DEBUFF_AMOUNT));
+                AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(AbstractDungeon.player, this, new FrailPower(AbstractDungeon.player, DEBUFF_AMOUNT, true), DEBUFF_AMOUNT));
+                break;
+            }
+            case GUILTY_OR_NOT: {
+                int difference = guiltCount - innocenceCount;
+                if (difference < 0) {
+                    difference = 0;
                 }
-                turnCounter++;
+                int bonusStrength = difference / 2;
+                if (!mirrorDead) {
+                    AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(this, this, new StrengthPower(this, this.strength + bonusStrength), this.strength + bonusStrength));
+                    for (AbstractMonster mo : AbstractDungeon.getCurrRoom().monsters.monsters) {
+                        if (mo instanceof Mirror) {
+                            AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(mo, this, new NextTurnInnocence(mo)));
+                        }
+                    }
+                } else {
+                    AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(this, this, new StrengthPower(this, (this.strength + bonusStrength) * 2), (this.strength + bonusStrength) * 2));
+                }
+                break;
+            }
+            case ROD_OF_REMORSE: {
+                this.useFastAttackAnimation();
+                AbstractDungeon.actionManager.addToBottom(new DamageAction(AbstractDungeon.player, info, AbstractGameAction.AttackEffect.BLUNT_HEAVY));
                 break;
             }
         }
         AbstractDungeon.actionManager.addToBottom(new RollMoveAction(this));
     }
 
+    public void mirrorDeath() {
+        mirrorDead = true;
+        AbstractDungeon.actionManager.addToBottom(new TalkAction(this, DIALOG[1]));
+    }
+
     @Override
     protected void getMove(final int num) {
         if (this.firstMove) {
-            this.setMoveShortcut(LAST_JUDGEMENT);
-        } else if (turnCounter >= COOLDOWN) {
-            this.setMoveShortcut(GUILTY_OR_NOT);
+            this.setMoveShortcut(CLEANSED_CRYSTAL_JUDGEMENT);
         } else {
-            ArrayList<Byte> possibilities = new ArrayList<>();
-            if (!this.lastTwoMoves(WANDERING_SIN)) {
-                possibilities.add(WANDERING_SIN);
+            if (!mirrorDead) {
+                if (this.lastMove(WANDERING_SIN)) {
+                    this.setMoveShortcut(GUILTY_OR_NOT);
+                } else if (this.lastMove(GUILTY_OR_NOT)) {
+                    this.setMoveShortcut(ROD_OF_REMORSE);
+                } else {
+                    this.setMoveShortcut(WANDERING_SIN);
+                }
+            } else {
+                if (this.lastMove(GUILTY_OR_NOT)) {
+                    this.setMoveShortcut(ROD_OF_REMORSE);
+                } else {
+                    this.setMoveShortcut(GUILTY_OR_NOT);
+                }
             }
-            if (!this.lastTwoMoves(TRIAL)) {
-                possibilities.add(TRIAL);
-            }
-            this.setMoveShortcut(possibilities.get(AbstractDungeon.monsterRng.random(possibilities.size() - 1)));
         }
     }
 
     private void setMoveShortcut(byte next) {
         EnemyMoveInfo info = this.moves.get(next);
-        bonusDamage = (int)(AbstractDungeon.player.currentHealth * BONUS_HP_DAMAGE);
-        int newBase = info.baseDamage + bonusDamage;
-        this.setMove(MOVES[next], next, info.intent, newBase, info.multiplier, info.isMultiDamage);
+        if (next == CLEANSED_CRYSTAL_JUDGEMENT) {
+            this.setMove(MOVES[next] + AbstractDungeon.player.title, next, info.intent, info.baseDamage, info.multiplier, info.isMultiDamage);
+        } else {
+            this.setMove(MOVES[next], next, info.intent, info.baseDamage, info.multiplier, info.isMultiDamage);
+        }
     }
 
-    @Override
-    public void damage(DamageInfo info) {
-        if (info.type == DamageInfo.DamageType.NORMAL) {
-            super.damage(info);
+    public void incrementGuilt(int amount) {
+        for (int i = 0; i < amount; i++) {
+            guilt.add(new BetterSpriterAnimation("GensokyoResources/images/monsters/Eiki/Guilt/Spriter/GuiltAnimation.scml"));
         }
+        guiltCount += amount;
+        AbstractDungeon.actionManager.addToBottom(new BalanceShiftAction(this));
+    }
+
+    public void incrementInnocence(int amount) {
+        for (int i = 0; i < amount; i++) {
+            innocence.add(new BetterSpriterAnimation("GensokyoResources/images/monsters/Eiki/Innocence/Spriter/InnocenceAnimation.scml"));
+        }
+        innocenceCount += amount;
+        AbstractDungeon.actionManager.addToBottom(new BalanceShiftAction(this));
     }
 
     @Override
@@ -296,8 +299,16 @@ public class Eiki extends CustomMonster
         sb.draw(SCALE_BODY_REGION, (960.0F - (SCALE_BODY_REGION.getRegionWidth() / 2.0F)) * scaleWidth, AbstractDungeon.floorY, 0.0F, 0.0F, SCALE_BODY_REGION.getRegionWidth(), SCALE_BODY_REGION.getRegionHeight(), scaleWidth, scaleHeight, 0.0F);
     }
 
-    public void setFlip(boolean horizontal, boolean vertical) {
-        this.animation.setFlip(horizontal, vertical);
+    @Override
+    public void die(boolean triggerRelics) {
+        super.die(triggerRelics);
+        for (AbstractMonster mo : AbstractDungeon.getCurrRoom().monsters.monsters) {
+            if (mo instanceof Mirror) {
+                if (!mo.isDead && !mo.isDying) {
+                    AbstractDungeon.actionManager.addToBottom(new SuicideAction(mo));
+                }
+            }
+        }
     }
 
     static {

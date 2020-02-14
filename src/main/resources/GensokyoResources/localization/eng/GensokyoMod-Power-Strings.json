@@ -159,25 +159,17 @@
         "NAME": "Reflowering",
         "DESCRIPTIONS": ["Whenever a #yButterfly is #yexhausted, add a #psoul to the fan. At end of round, if the fan has #b", " #psouls, intends to #rkill you."]
 },
-"Gensokyo:Guilt": {
-        "NAME": "Guilt",
-        "DESCRIPTIONS": ["You have #b", " #rGuilt. Whenever you deal unblocked attack damage, gain that much #rGuilt. If your #rGuilt exceeds your #gInnocence by at least #b", ", you #rlose."]
+"Gensokyo:NextTurnInnocence": {
+        "NAME": "Innocence",
+        "DESCRIPTIONS": ["Next turn, this creature's outgoing #yBlock gain is converted to healing instead."]
 },
 "Gensokyo:Innocence": {
         "NAME": "Innocence",
-        "DESCRIPTIONS": ["You have #b", " #gInnocence. Whenever you receive unblocked attack damage, gain #b1 #gInnocence. If your #gInnocence exceeds your #rGuilt, you #gwin."]
+        "DESCRIPTIONS": ["This turn, this creature's outgoing #yBlock gain is converted to healing instead."]
 },
-"Gensokyo:Virtue": {
-        "NAME": "Virtue",
-        "DESCRIPTIONS": ["#yImmune to non-attack damage."]
-},
-"Gensokyo:Resolve": {
-        "NAME": "Resolve",
-        "DESCRIPTIONS": ["At the end of her turn, gains #b", " #yBlock. At the start of her turn, takes damage equal to the amount of #yblocked damage this turn. #b(", ")"]
-},
-"Gensokyo:Judgement": {
-        "NAME": "Judgement",
-        "DESCRIPTIONS": ["On victory, gain #b", " #gMax #gHP."]
+"Gensokyo:MirrorPower": {
+        "NAME": "Mirror",
+        "DESCRIPTIONS": ["If you play a #yPower this turn, intends to #yBuff next turn. Otherwise, if you play more #ySkills than #yAttacks this turn, intends to #yDefend next turn. Otherwise, intends to #yAttack next turn.", " You have played #b", " #yAttack, #b", " #yAttacks, #b", " #ySkill, and #b", " #ySkills, and #b"," #yPower.", " #yPowers."]
 },
 "Gensokyo:HouraiImmortal": {
         "NAME": "Hourai Immortal",

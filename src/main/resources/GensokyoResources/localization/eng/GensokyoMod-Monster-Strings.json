@@ -248,21 +248,22 @@
   },
   "Gensokyo:Eiki": {
     "MOVES": [
-      "Last Judgement",
-      "Trial of Kings",
+      "Cleansed Crystal Judgement - ",
+      "Wandering Sin",
       "Guilty or Not Guilty",
-      "Wandering Sin"
+      "Rod of Remorse"
     ],
     "NAME": "Supreme Judge of Paradise",
     "DIALOG": [
-      "I will see you answer for your misdeeds.",
-      "I guess you were innocent after all.",
-      "The wages of sin is death."
+      "You will face your sins or be consumed by them.",
+      "Your resilience is impressive."
     ]
   },
   "Gensokyo:Mirror": {
     "MOVES": [
-
+      "Guilt",
+      "Innocence",
+      "Justice"
     ],
     "NAME": "Cleansed Crystal Mirror",
     "DIALOG": [
