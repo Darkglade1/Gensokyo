@@ -260,6 +260,15 @@
       "The wages of sin is death."
     ]
   },
+  "Gensokyo:Mirror": {
+    "MOVES": [
+
+    ],
+    "NAME": "Cleansed Crystal Mirror",
+    "DIALOG": [
+
+    ]
+  },
   "Gensokyo:Kaguya": {
     "MOVES": [
       "Brilliant Dragon Bullet",

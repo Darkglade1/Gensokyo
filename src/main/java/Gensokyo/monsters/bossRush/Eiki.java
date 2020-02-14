@@ -19,6 +19,7 @@ import com.megacrit.cardcrawl.actions.animations.TalkAction;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.actions.common.DamageAction;
 import com.megacrit.cardcrawl.actions.common.RollMoveAction;
+import com.megacrit.cardcrawl.actions.common.SpawnMonsterAction;
 import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.core.Settings;
@@ -91,7 +92,7 @@ public class Eiki extends CustomMonster
     public ArrayList<AbstractAnimation> innocence = new ArrayList<>();
 
     public Eiki() {
-        this(0.0f, 0.0f);
+        this(200.0f, 0.0f);
     }
 
     public Eiki(final float x, final float y) {
@@ -162,6 +163,7 @@ public class Eiki extends CustomMonster
         switch (this.nextMove) {
             case LAST_JUDGEMENT: {
                 AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(AbstractDungeon.player, this, new Judgement(AbstractDungeon.player, (int)(AbstractDungeon.player.maxHealth * JUDGEMENT_PERCENT))));
+                AbstractDungeon.actionManager.addToBottom(new SpawnMonsterAction(new Mirror(-100.0F, 0.0F), false));
                 turnCounter++;
                 break;
             }

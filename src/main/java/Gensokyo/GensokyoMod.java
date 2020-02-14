@@ -78,6 +78,7 @@ import Gensokyo.monsters.SunflowerFairy;
 import Gensokyo.monsters.Yukari;
 import Gensokyo.monsters.ZombieFairy;
 import Gensokyo.monsters.Kaguya;
+import Gensokyo.monsters.bossRush.Eiki;
 import Gensokyo.monsters.bossRush.Yuyuko;
 import Gensokyo.relics.Bombinomicon;
 import Gensokyo.relics.BookOfSpecters;
@@ -352,7 +353,7 @@ public class GensokyoMod implements
         BaseMod.addBoss(Gensokyo.ID, Yuyuko.ID, "GensokyoResources/images/monsters/Yuyuko/Yuyuko.png", "GensokyoResources/images/monsters/Yuyuko/YuyukoOutline.png");
 
 
-//        BaseMod.addMonster(Eiki.ID, (BaseMod.GetMonster) Eiki::new);
+        BaseMod.addMonster(Eiki.ID, (BaseMod.GetMonster) Eiki::new);
 
         
         // =============== EVENTS =================
