@@ -1,9 +1,11 @@
 package Gensokyo.patches;
 
+import basemod.animations.SpriterAnimation;
 import com.esotericsoftware.spine.AnimationState;
 import com.esotericsoftware.spine.AnimationStateData;
 import com.evacipated.cardcrawl.modthespire.lib.SpirePatch;
 import com.evacipated.cardcrawl.modthespire.lib.SpirePostfixPatch;
+import com.evacipated.cardcrawl.modthespire.lib.SpirePrefixPatch;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.AbstractCreature;
 
@@ -26,6 +28,34 @@ public class MirrorGetAnimationPatch {
     public static boolean isPlayerTrackEntry = false;
     public static boolean isPlayerStateData = false;
     public static boolean isPlayerTimeScale = false;
+
+    public static boolean canSpriterAnimation = false;
+    public static String spriterAnimation;
+
+    @SpirePatch(
+            clz= AbstractPlayer.class,
+            method=SpirePatch.CONSTRUCTOR
+    )
+    public static class NullEverything {
+        @SpirePrefixPatch
+        public static void nullEverything(AbstractPlayer _instance, String name, AbstractPlayer.PlayerClass className) {
+            playerAtlasURL = null;
+            playerSkeletonURL = null;
+            playerScale = 0.0F;
+            playerTrackIndex = 0;
+            playerAnimationName = null;
+            playerLoop = false;
+            playerFrom = null;
+            playerTo = null;
+            playerDuration = 0.0F;
+            playerTimeScale = 0.0F;
+            isPlayerTrackEntry = false;
+            isPlayerStateData = false;
+            isPlayerTimeScale = false;
+            //spriterAnimation = null; breaks stuff since we get this before the super call
+            canSpriterAnimation = true;
+        }
+    }
 
     @SpirePatch(
             clz= AbstractCreature.class,
@@ -92,6 +122,21 @@ public class MirrorGetAnimationPatch {
             if (isPlayerTimeScale) {
                 playerTimeScale = timeScale;
                 isPlayerTimeScale = false;
+            }
+        }
+    }
+
+    @SpirePatch(
+            clz= SpriterAnimation.class,
+            method=SpirePatch.CONSTRUCTOR
+
+    )
+    public static class GetSprite {
+        @SpirePostfixPatch
+        public static void getSprite(SpriterAnimation _instance, String filepath) {
+            if (canSpriterAnimation) {
+                spriterAnimation = filepath;
+                canSpriterAnimation = false;
             }
         }
     }

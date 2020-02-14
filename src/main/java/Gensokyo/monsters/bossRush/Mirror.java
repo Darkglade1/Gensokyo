@@ -4,6 +4,7 @@ import Gensokyo.patches.MirrorGetAnimationPatch;
 import Gensokyo.powers.FortitudePower;
 import Gensokyo.powers.VigorPower;
 import basemod.abstracts.CustomMonster;
+import basemod.animations.SpriterAnimation;
 import com.esotericsoftware.spine.AnimationState;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.animations.VFXAction;
@@ -58,6 +59,22 @@ public class Mirror extends CustomMonster
             } catch (Exception e) {
                 System.out.println(e);
                 System.out.println("Gensokyo: Someone decided to change up their animation");
+            }
+
+        } else if (AbstractDungeon.player.img != null) {
+            this.img = AbstractDungeon.player.img;
+        } else if (MirrorGetAnimationPatch.spriterAnimation != null) {
+            try {
+                this.animation = new SpriterAnimation(MirrorGetAnimationPatch.spriterAnimation);
+                this.animation.setFlip(true, false);
+            } catch (Exception ex) {
+                System.out.println(ex);
+                System.out.println("The mirror is fucking broken.");
+                this.name = Ironclad.NAMES[0];
+                this.loadAnimation("images/characters/ironclad/idle/skeleton.atlas", "images/characters/ironclad/idle/skeleton.json", 1.0F);
+                AnimationState.TrackEntry e = this.state.setAnimation(0, "Idle", true);
+                this.stateData.setMix("Hit", "Idle", 0.1F);
+                e.setTimeScale(0.6F);
             }
 
         } else {
