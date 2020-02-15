@@ -18,7 +18,7 @@ public class BulletBranchOfHourai extends AbstractDefaultCard {
     public static final CardColor COLOR = CardColor.CURSE;
 
     private static final int COST = -2;
-    private static final int CARDS_PLAYED_GOAL = 4;
+    private static final int CARDS_PLAYED_GOAL = 5;
     private static final int UPGRADE_GOAL = 1;
 
     public BulletBranchOfHourai() {

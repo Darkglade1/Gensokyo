@@ -1,8 +1,8 @@
 package Gensokyo.actions;
 
-import Gensokyo.powers.FortitudePower;
-import Gensokyo.powers.SturdyPower;
-import Gensokyo.powers.VigorPower;
+import Gensokyo.powers.act1.FortitudePower;
+import Gensokyo.powers.act1.SturdyPower;
+import Gensokyo.powers.act1.VigorPower;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.actions.common.ReducePowerAction;

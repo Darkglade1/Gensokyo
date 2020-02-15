@@ -1,6 +1,6 @@
 package Gensokyo.actions;
 
-import Gensokyo.relics.marisaRelics.ImprobabilityPotion;
+import Gensokyo.relics.act1.marisaRelics.ImprobabilityPotion;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.core.Settings;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;

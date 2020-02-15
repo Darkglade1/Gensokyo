@@ -1,9 +1,9 @@
 package Gensokyo.patches;
 
-import Gensokyo.monsters.Yukari;
-import Gensokyo.powers.FortitudePower;
-import Gensokyo.powers.SturdyPower;
-import Gensokyo.powers.VigorPower;
+import Gensokyo.monsters.act1.Yukari;
+import Gensokyo.powers.act1.FortitudePower;
+import Gensokyo.powers.act1.SturdyPower;
+import Gensokyo.powers.act1.VigorPower;
 import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.evacipated.cardcrawl.modthespire.lib.LineFinder;
@@ -15,12 +15,9 @@ import com.megacrit.cardcrawl.core.Settings;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.powers.AbstractPower;
-import com.megacrit.cardcrawl.powers.DexterityPower;
-import com.megacrit.cardcrawl.powers.FocusPower;
 import com.megacrit.cardcrawl.powers.FrailPower;
 import com.megacrit.cardcrawl.powers.GainStrengthPower;
 import com.megacrit.cardcrawl.powers.LoseStrengthPower;
-import com.megacrit.cardcrawl.powers.StrengthPower;
 import com.megacrit.cardcrawl.powers.VulnerablePower;
 import com.megacrit.cardcrawl.powers.WeakPower;
 import javassist.CtBehavior;

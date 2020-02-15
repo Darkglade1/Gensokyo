@@ -1,7 +1,7 @@
 package Gensokyo.actions;
 
-import Gensokyo.monsters.Reimu;
-import Gensokyo.monsters.YinYangOrb;
+import Gensokyo.monsters.act1.Reimu;
+import Gensokyo.monsters.act1.YinYangOrb;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.common.SpawnMonsterAction;
 import com.megacrit.cardcrawl.core.Settings;

@@ -1,6 +1,6 @@
 package Gensokyo.patches.relics;
 
-import Gensokyo.relics.PortableGap;
+import Gensokyo.relics.act1.PortableGap;
 import com.evacipated.cardcrawl.modthespire.lib.SpirePatch;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.core.Settings;

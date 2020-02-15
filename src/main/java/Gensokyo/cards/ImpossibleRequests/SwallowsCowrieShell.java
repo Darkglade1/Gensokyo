@@ -18,8 +18,8 @@ public class SwallowsCowrieShell extends AbstractDefaultCard {
     public static final CardColor COLOR = CardColor.CURSE;
 
     private static final int COST = -2;
-    private static final int BLOCK_GOAL = 20;
-    private static final int UPGRADE_GOAL = 3;
+    private static final int BLOCK_GOAL = 30;
+    private static final int UPGRADE_GOAL = 4;
 
     public SwallowsCowrieShell() {
         super(ID, IMG, COST, TYPE, COLOR, RARITY, TARGET);

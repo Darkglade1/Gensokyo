@@ -1,6 +1,6 @@
 package Gensokyo.patches;
 
-import Gensokyo.powers.LunacyPower;
+import Gensokyo.powers.act1.LunacyPower;
 import com.evacipated.cardcrawl.modthespire.lib.ByRef;
 import com.evacipated.cardcrawl.modthespire.lib.LineFinder;
 import com.evacipated.cardcrawl.modthespire.lib.Matcher;

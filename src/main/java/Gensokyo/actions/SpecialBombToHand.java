@@ -1,6 +1,6 @@
 package Gensokyo.actions;
 
-import Gensokyo.relics.Bombinomicon;
+import Gensokyo.relics.act1.Bombinomicon;
 import com.evacipated.cardcrawl.mod.stslib.fields.cards.AbstractCard.AlwaysRetainField;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;

@@ -1,7 +1,7 @@
 package Gensokyo.cards;
 
 import Gensokyo.GensokyoMod;
-import Gensokyo.powers.SevenSchoolMysteriesPower;
+import Gensokyo.powers.act1.SevenSchoolMysteriesPower;
 import Gensokyo.tags.Tags;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;

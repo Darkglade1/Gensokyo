@@ -1,16 +1,16 @@
 package Gensokyo.scenes;
 
-import Gensokyo.monsters.Aya;
-import Gensokyo.monsters.Cirno;
-import Gensokyo.monsters.Kokoro;
-import Gensokyo.monsters.Mamizou;
-import Gensokyo.monsters.Reimu;
-import Gensokyo.monsters.Sumireko;
-import Gensokyo.monsters.Yukari;
-import Gensokyo.monsters.bossRush.Eiki;
-import Gensokyo.monsters.Kaguya;
-import Gensokyo.monsters.bossRush.Yuyuko;
-import Gensokyo.monsters.marisaMonsters.Patchouli;
+import Gensokyo.monsters.act1.Aya;
+import Gensokyo.monsters.act1.Cirno;
+import Gensokyo.monsters.act1.Kokoro;
+import Gensokyo.monsters.act1.Mamizou;
+import Gensokyo.monsters.act1.Reimu;
+import Gensokyo.monsters.act1.Sumireko;
+import Gensokyo.monsters.act1.Yukari;
+import Gensokyo.monsters.act2.Eiki;
+import Gensokyo.monsters.act2.Kaguya;
+import Gensokyo.monsters.act2.Yuyuko;
+import Gensokyo.monsters.act1.marisaMonsters.Patchouli;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.Texture;

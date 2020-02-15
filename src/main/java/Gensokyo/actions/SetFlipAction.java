@@ -1,7 +1,7 @@
 package Gensokyo.actions;
 
-import Gensokyo.monsters.Kaguya;
-import Gensokyo.monsters.NormalEnemies.AbstractFairy;
+import Gensokyo.monsters.act2.Kaguya;
+import Gensokyo.monsters.act1.NormalEnemies.AbstractFairy;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.core.Settings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;

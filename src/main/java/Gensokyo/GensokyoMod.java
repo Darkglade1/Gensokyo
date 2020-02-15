@@ -30,70 +30,70 @@ import Gensokyo.cards.TekeTeke;
 import Gensokyo.cards.TurboGranny;
 import Gensokyo.dungeon.EncounterIDs;
 import Gensokyo.dungeon.Gensokyo;
-import Gensokyo.events.ABanquetForGhosts;
-import Gensokyo.events.ACelestialsPlight;
-import Gensokyo.events.AHoleInReality;
-import Gensokyo.events.ALandWhereOnlyIAmMissing;
-import Gensokyo.events.AMomentFractured;
-import Gensokyo.events.ASwiftSlash;
-import Gensokyo.events.BambooForestOfTheLost;
-import Gensokyo.events.ClashOfLegends;
-import Gensokyo.events.DemonBookSeller;
-import Gensokyo.events.FieldTripToAnotherWorld;
-import Gensokyo.events.ForestOfMagic;
-import Gensokyo.events.GardenOfTheSun;
-import Gensokyo.events.GoddessOfMisfortune;
-import Gensokyo.events.GoodsFromTheOutsideWorld;
-import Gensokyo.events.HakureiShrine;
-import Gensokyo.events.ScarletDevilMansion;
-import Gensokyo.events.TheEnmasDilemma;
-import Gensokyo.events.ThoseEarthRabbits;
-import Gensokyo.events.marisaEvents.AHazardousHobby;
-import Gensokyo.events.marisaEvents.AnOldGhost;
-import Gensokyo.events.marisaEvents.BookThief;
-import Gensokyo.events.marisaEvents.JustAVisit;
-import Gensokyo.events.marisaEvents.Walpurgisnacht;
-import Gensokyo.monsters.Aya;
-import Gensokyo.monsters.Cirno;
-import Gensokyo.monsters.GreaterFairy;
-import Gensokyo.monsters.Kokoro;
-import Gensokyo.monsters.Mamizou;
-import Gensokyo.monsters.NormalEnemies.CorruptedTreant;
-import Gensokyo.monsters.NormalEnemies.GreaterFairyNormal;
-import Gensokyo.monsters.NormalEnemies.GreyKodama;
-import Gensokyo.monsters.NormalEnemies.Gryphon;
-import Gensokyo.monsters.NormalEnemies.Kitsune;
-import Gensokyo.monsters.NormalEnemies.LivingMonolith;
-import Gensokyo.monsters.NormalEnemies.MaidFairyNormal;
-import Gensokyo.monsters.NormalEnemies.MoonRabbit;
-import Gensokyo.monsters.NormalEnemies.Python;
-import Gensokyo.monsters.NormalEnemies.RedKodama;
-import Gensokyo.monsters.NormalEnemies.SunflowerFairyNormal;
-import Gensokyo.monsters.NormalEnemies.VengefulSpirit;
-import Gensokyo.monsters.NormalEnemies.WhiteKodama;
-import Gensokyo.monsters.NormalEnemies.YellowKodama;
-import Gensokyo.monsters.NormalEnemies.ZombieFairyNormal;
-import Gensokyo.monsters.Reimu;
-import Gensokyo.monsters.SunflowerFairy;
-import Gensokyo.monsters.Yukari;
-import Gensokyo.monsters.ZombieFairy;
-import Gensokyo.monsters.Kaguya;
-import Gensokyo.monsters.bossRush.Eiki;
-import Gensokyo.monsters.bossRush.Yuyuko;
-import Gensokyo.relics.Bombinomicon;
-import Gensokyo.relics.BookOfSpecters;
-import Gensokyo.relics.CelestialsFlawlessClothing;
-import Gensokyo.relics.Justice;
-import Gensokyo.relics.LunaticRedEyes;
-import Gensokyo.relics.Mercy;
-import Gensokyo.relics.NagashiBinaDoll;
-import Gensokyo.relics.OccultBall;
-import Gensokyo.relics.PerfectCherryBlossom;
-import Gensokyo.relics.PortableGap;
-import Gensokyo.relics.YoukaiFlower;
-import Gensokyo.relics.marisaRelics.ImprobabilityPotion;
-import Gensokyo.relics.marisaRelics.IngredientList;
-import Gensokyo.relics.marisaRelics.PhilosophersStone;
+import Gensokyo.events.act1.ABanquetForGhosts;
+import Gensokyo.events.act1.ACelestialsPlight;
+import Gensokyo.events.act1.AHoleInReality;
+import Gensokyo.events.act1.ALandWhereOnlyIAmMissing;
+import Gensokyo.events.act1.AMomentFractured;
+import Gensokyo.events.act1.ASwiftSlash;
+import Gensokyo.events.act1.BambooForestOfTheLost;
+import Gensokyo.events.act1.ClashOfLegends;
+import Gensokyo.events.act1.DemonBookSeller;
+import Gensokyo.events.act1.FieldTripToAnotherWorld;
+import Gensokyo.events.act1.ForestOfMagic;
+import Gensokyo.events.act1.GardenOfTheSun;
+import Gensokyo.events.act1.GoddessOfMisfortune;
+import Gensokyo.events.act1.GoodsFromTheOutsideWorld;
+import Gensokyo.events.act1.HakureiShrine;
+import Gensokyo.events.act1.ScarletDevilMansion;
+import Gensokyo.events.act1.TheEnmasDilemma;
+import Gensokyo.events.act1.ThoseEarthRabbits;
+import Gensokyo.events.act1.marisaEvents.AHazardousHobby;
+import Gensokyo.events.act1.marisaEvents.AnOldGhost;
+import Gensokyo.events.act1.marisaEvents.BookThief;
+import Gensokyo.events.act1.marisaEvents.JustAVisit;
+import Gensokyo.events.act1.marisaEvents.Walpurgisnacht;
+import Gensokyo.monsters.act1.Aya;
+import Gensokyo.monsters.act1.Cirno;
+import Gensokyo.monsters.act1.GreaterFairy;
+import Gensokyo.monsters.act1.Kokoro;
+import Gensokyo.monsters.act1.Mamizou;
+import Gensokyo.monsters.act1.NormalEnemies.CorruptedTreant;
+import Gensokyo.monsters.act1.NormalEnemies.GreaterFairyNormal;
+import Gensokyo.monsters.act1.NormalEnemies.GreyKodama;
+import Gensokyo.monsters.act1.NormalEnemies.Gryphon;
+import Gensokyo.monsters.act1.NormalEnemies.Kitsune;
+import Gensokyo.monsters.act1.NormalEnemies.LivingMonolith;
+import Gensokyo.monsters.act1.NormalEnemies.MaidFairyNormal;
+import Gensokyo.monsters.act1.NormalEnemies.MoonRabbit;
+import Gensokyo.monsters.act1.NormalEnemies.Python;
+import Gensokyo.monsters.act1.NormalEnemies.RedKodama;
+import Gensokyo.monsters.act1.NormalEnemies.SunflowerFairyNormal;
+import Gensokyo.monsters.act1.NormalEnemies.VengefulSpirit;
+import Gensokyo.monsters.act1.NormalEnemies.WhiteKodama;
+import Gensokyo.monsters.act1.NormalEnemies.YellowKodama;
+import Gensokyo.monsters.act1.NormalEnemies.ZombieFairyNormal;
+import Gensokyo.monsters.act1.Reimu;
+import Gensokyo.monsters.act1.SunflowerFairy;
+import Gensokyo.monsters.act1.Yukari;
+import Gensokyo.monsters.act1.ZombieFairy;
+import Gensokyo.monsters.act2.Kaguya;
+import Gensokyo.monsters.act2.Eiki;
+import Gensokyo.monsters.act2.Yuyuko;
+import Gensokyo.relics.act1.Bombinomicon;
+import Gensokyo.relics.act1.BookOfSpecters;
+import Gensokyo.relics.act1.CelestialsFlawlessClothing;
+import Gensokyo.relics.act1.Justice;
+import Gensokyo.relics.act1.LunaticRedEyes;
+import Gensokyo.relics.act1.Mercy;
+import Gensokyo.relics.act1.NagashiBinaDoll;
+import Gensokyo.relics.act1.OccultBall;
+import Gensokyo.relics.act1.PerfectCherryBlossom;
+import Gensokyo.relics.act1.PortableGap;
+import Gensokyo.relics.act1.YoukaiFlower;
+import Gensokyo.relics.act1.marisaRelics.ImprobabilityPotion;
+import Gensokyo.relics.act1.marisaRelics.IngredientList;
+import Gensokyo.relics.act1.marisaRelics.PhilosophersStone;
 import Gensokyo.util.IDCheckDontTouchPls;
 import Gensokyo.util.TextureLoader;
 import Gensokyo.variables.DefaultCustomVariable;
@@ -139,7 +139,6 @@ import java.nio.charset.StandardCharsets;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
-import java.util.Set;
 
 @SpireInitializer
 public class GensokyoMod implements
@@ -303,16 +302,12 @@ public class GensokyoMod implements
         
         BaseMod.registerModBadge(badgeTexture, MODNAME, AUTHOR, DESCRIPTION, settingsPanel);
 
+        //Act 1
         (new Gensokyo()).addAct(Exordium.ID);
-        //(new HistoryOfSimulatedViolence()).addAct(TheEnding.ID);
 
         BaseMod.addMonster(Yukari.ID, (BaseMod.GetMonster)Yukari::new);
         BaseMod.addMonster(Kokoro.ID, (BaseMod.GetMonster)Kokoro::new);
         BaseMod.addMonster(Reimu.ID, (BaseMod.GetMonster)Reimu::new);
-
-        BaseMod.addMonster(Kaguya.ID, (BaseMod.GetMonster) Kaguya::new);
-        BaseMod.addMonster(Yuyuko.ID, (BaseMod.GetMonster) Yuyuko::new);
-        CustomIntent.add(new DeathIntent());
 
         BaseMod.addMonster(Aya.ID, (BaseMod.GetMonster)Aya::new);
         BaseMod.addMonster(Cirno.ID, "Cirno", () -> new MonsterGroup(
@@ -349,13 +344,20 @@ public class GensokyoMod implements
         //BaseMod.addBoss(Gensokyo.ID, Yukari.ID, "GensokyoResources/images/monsters/Yukari/Yukari.png", "GensokyoResources/images/monsters/Yukari/YukariOutline.png");
         //BaseMod.addBoss(Gensokyo.ID, Kokoro.ID, "GensokyoResources/images/monsters/Kokoro/Kokoro.png", "GensokyoResources/images/monsters/Kokoro/KokoroOutline.png");
         //BaseMod.addBoss(Gensokyo.ID, Reimu.ID, "GensokyoResources/images/monsters/Reimu/Reimu.png", "GensokyoResources/images/monsters/Reimu/ReimuOutline.png");
-        //BaseMod.addBoss(Gensokyo.ID, Kaguya.ID, "GensokyoResources/images/monsters/Kaguya/Kaguya.png", "GensokyoResources/images/monsters/Kaguya/KaguyaOutline.png");
-        BaseMod.addBoss(Gensokyo.ID, Yuyuko.ID, "GensokyoResources/images/monsters/Yuyuko/Yuyuko.png", "GensokyoResources/images/monsters/Yuyuko/YuyukoOutline.png");
 
 
+        //Act 2
+        BaseMod.addMonster(Kaguya.ID, (BaseMod.GetMonster) Kaguya::new);
+        BaseMod.addMonster(Yuyuko.ID, (BaseMod.GetMonster) Yuyuko::new);
+        CustomIntent.add(new DeathIntent());
         BaseMod.addMonster(Eiki.ID, (BaseMod.GetMonster) Eiki::new);
 
-        
+        //BaseMod.addBoss(Gensokyo.ID, Kaguya.ID, "GensokyoResources/images/monsters/Kaguya/Kaguya.png", "GensokyoResources/images/monsters/Kaguya/KaguyaOutline.png");
+        //BaseMod.addBoss(Gensokyo.ID, Yuyuko.ID, "GensokyoResources/images/monsters/Yuyuko/Yuyuko.png", "GensokyoResources/images/monsters/Yuyuko/YuyukoOutline.png");
+        BaseMod.addBoss(Gensokyo.ID, Eiki.ID, "GensokyoResources/images/monsters/Eiki/Eiki.png", "GensokyoResources/images/monsters/Eiki/EikiOutline.png");
+
+
+
         // =============== EVENTS =================
 
         BaseMod.addEvent(ScarletDevilMansion.ID, ScarletDevilMansion.class, Gensokyo.ID);

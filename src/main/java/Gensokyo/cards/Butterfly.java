@@ -1,7 +1,7 @@
 package Gensokyo.cards;
 
 import Gensokyo.GensokyoMod;
-import Gensokyo.monsters.bossRush.Yuyuko;
+import Gensokyo.monsters.act2.Yuyuko;
 import com.megacrit.cardcrawl.actions.common.GainBlockAction;
 import com.megacrit.cardcrawl.actions.common.LoseHPAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;

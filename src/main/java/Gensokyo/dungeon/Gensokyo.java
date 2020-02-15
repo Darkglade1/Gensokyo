@@ -1,14 +1,14 @@
 package Gensokyo.dungeon;
 
-import Gensokyo.monsters.Aya;
-import Gensokyo.monsters.Cirno;
-import Gensokyo.monsters.Mamizou;
-import Gensokyo.monsters.NormalEnemies.CorruptedTreant;
-import Gensokyo.monsters.NormalEnemies.Gryphon;
-import Gensokyo.monsters.NormalEnemies.Kitsune;
-import Gensokyo.monsters.NormalEnemies.LivingMonolith;
-import Gensokyo.monsters.NormalEnemies.Python;
-import Gensokyo.monsters.NormalEnemies.VengefulSpirit;
+import Gensokyo.monsters.act1.Aya;
+import Gensokyo.monsters.act1.Cirno;
+import Gensokyo.monsters.act1.Mamizou;
+import Gensokyo.monsters.act1.NormalEnemies.CorruptedTreant;
+import Gensokyo.monsters.act1.NormalEnemies.Gryphon;
+import Gensokyo.monsters.act1.NormalEnemies.Kitsune;
+import Gensokyo.monsters.act1.NormalEnemies.LivingMonolith;
+import Gensokyo.monsters.act1.NormalEnemies.Python;
+import Gensokyo.monsters.act1.NormalEnemies.VengefulSpirit;
 import Gensokyo.scenes.GensokyoScene;
 import actlikeit.dungeons.CustomDungeon;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;

@@ -1,7 +1,7 @@
 package Gensokyo.cards;
 
 import Gensokyo.GensokyoMod;
-import Gensokyo.powers.LunacyPower;
+import Gensokyo.powers.act1.LunacyPower;
 import Gensokyo.tags.Tags;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;

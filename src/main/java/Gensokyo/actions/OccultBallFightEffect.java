@@ -1,7 +1,7 @@
 package Gensokyo.actions;
 
-import Gensokyo.monsters.Sumireko;
-import Gensokyo.relics.OccultBall;
+import Gensokyo.monsters.act1.Sumireko;
+import Gensokyo.relics.act1.OccultBall;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;

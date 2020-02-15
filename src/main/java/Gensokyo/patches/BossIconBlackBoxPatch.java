@@ -1,9 +1,9 @@
 package Gensokyo.patches;
 
-import Gensokyo.monsters.Kaguya;
-import Gensokyo.monsters.Kokoro;
-import Gensokyo.monsters.Reimu;
-import Gensokyo.monsters.Yukari;
+import Gensokyo.monsters.act2.Kaguya;
+import Gensokyo.monsters.act1.Kokoro;
+import Gensokyo.monsters.act1.Reimu;
+import Gensokyo.monsters.act1.Yukari;
 import basemod.patches.com.megacrit.cardcrawl.dungeons.AbstractDungeon.CustomBosses;
 import com.evacipated.cardcrawl.modthespire.lib.LineFinder;
 import com.evacipated.cardcrawl.modthespire.lib.Matcher;
