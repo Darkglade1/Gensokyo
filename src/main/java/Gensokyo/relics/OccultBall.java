@@ -134,7 +134,7 @@ public class OccultBall extends CustomRelic {
     public void onVictory() {
         if (this.counter < MAX_STACKS) {
             int roll = AbstractDungeon.relicRng.random(0, 99);
-            if (roll < 18 || AbstractDungeon.getCurrRoom() instanceof MonsterRoomBoss) {
+            if (roll < 15 || AbstractDungeon.getCurrRoom() instanceof MonsterRoomBoss) {
                 AbstractDungeon.getCurrRoom().addRelicToRewards(new OccultBall());
             }
         }

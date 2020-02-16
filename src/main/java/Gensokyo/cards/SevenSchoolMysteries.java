@@ -19,9 +19,9 @@ public class SevenSchoolMysteries extends AbstractUrbanLegendCard {
     private static final CardTarget TARGET = CardTarget.SELF;
     private static final CardType TYPE = CardType.POWER;
 
-    private static final int COST = 0;
-    private static final int BUFF = 3;
-    private static final int UPGRADED_BUFF = 1;
+    private static final int COST = 1;
+    private static final int UPGRADED_COST = 0;
+    private static final int BUFF = 2;
     public static final int cardThreshold = 7;
 
     public SevenSchoolMysteries() {
@@ -46,7 +46,7 @@ public class SevenSchoolMysteries extends AbstractUrbanLegendCard {
     public void upgrade() {
         if (!upgraded) {
             upgradeName();
-            upgradeMagicNumber(UPGRADED_BUFF);
+            upgradeBaseCost(UPGRADED_COST);
             initializeDescription();
         }
     }
