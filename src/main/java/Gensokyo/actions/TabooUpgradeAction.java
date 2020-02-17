@@ -17,15 +17,12 @@ public class TabooUpgradeAction extends AbstractGameAction {
         this.card.magicNumber += this.amount;
         this.card.baseMagicNumber += this.amount;
         this.card.applyPowers();
-        this.card.initializeDescription();
-
 
         for (AbstractCard c : AbstractDungeon.player.discardPile.group) {
             if (c instanceof TabooFourOfAKind) {
                 c.magicNumber += this.amount;
                 c.baseMagicNumber += this.amount;
                 c.applyPowers();
-                c.initializeDescription();
             }
         }
 
@@ -34,7 +31,6 @@ public class TabooUpgradeAction extends AbstractGameAction {
                 c.magicNumber += this.amount;
                 c.baseMagicNumber += this.amount;
                 c.applyPowers();
-                c.initializeDescription();
             }
         }
 
@@ -43,7 +39,6 @@ public class TabooUpgradeAction extends AbstractGameAction {
                 c.magicNumber += this.amount;
                 c.baseMagicNumber += this.amount;
                 c.applyPowers();
-                c.initializeDescription();
             }
         }
 

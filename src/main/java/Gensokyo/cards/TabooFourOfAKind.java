@@ -77,14 +77,6 @@ public class TabooFourOfAKind extends AbstractDefaultCard {
     }
 
     @Override
-    public void initializeDescription() {
-        if (this.magicNumber != 1) {
-            rawDescription = languagePack.getCardStrings(cardID).UPGRADE_DESCRIPTION;
-        }
-        super.initializeDescription();
-    }
-
-    @Override
     public AbstractCard makeStatEquivalentCopy() {
         AbstractCard card = super.makeStatEquivalentCopy();
         card.magicNumber = card.baseMagicNumber; //because this doesn't get set for some reason
