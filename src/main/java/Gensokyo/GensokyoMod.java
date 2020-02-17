@@ -26,6 +26,7 @@ import Gensokyo.cards.RedCapeBlueCape;
 import Gensokyo.cards.SevenSchoolMysteries;
 import Gensokyo.cards.SlitMouthedWoman;
 import Gensokyo.cards.SpontaneousHumanCombustion;
+import Gensokyo.cards.TabooFourOfAKind;
 import Gensokyo.cards.TekeTeke;
 import Gensokyo.cards.TurboGranny;
 import Gensokyo.dungeon.EncounterIDs;
@@ -360,6 +361,7 @@ public class GensokyoMod implements
 
         // =============== EVENTS =================
 
+        //Act 1
         BaseMod.addEvent(ScarletDevilMansion.ID, ScarletDevilMansion.class, Gensokyo.ID);
         //BaseMod.addEvent(BorderOfDeath.ID, BorderOfDeath.class, Gensokyo.ID);
         BaseMod.addEvent(TheEnmasDilemma.ID, TheEnmasDilemma.class, Gensokyo.ID);
@@ -387,6 +389,9 @@ public class GensokyoMod implements
             BaseMod.addEvent(AHazardousHobby.ID, AHazardousHobby.class, Gensokyo.ID);
             BaseMod.addEvent(Walpurgisnacht.ID, Walpurgisnacht.class, Gensokyo.ID);
         }
+
+
+        //Act2
         
         // =============== /EVENTS/ =================
 
@@ -550,6 +555,7 @@ public class GensokyoMod implements
         BaseMod.addCard(new Frozen());
         BaseMod.addCard(new Butterfly(null));
         BaseMod.addCard(new ImpossibleRequest());
+        BaseMod.addCard(new TabooFourOfAKind());
 
         //Urban Legends
         BaseMod.addCard(new MissMary());

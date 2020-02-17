@@ -189,5 +189,9 @@
 "Gensokyo:BetterDrawReduction": {
         "NAME": "Draw Reduction",
         "DESCRIPTIONS": ["Next turn, draw #b", " less card.", " less cards."]
+},
+"Gensokyo:TabooFourOfAKindPower": {
+        "NAME": "Taboo \"Four of a Kind\"",
+        "DESCRIPTIONS": ["This turn, your next card is played #b", " additional ", "time.", "times."]
 }
 }
