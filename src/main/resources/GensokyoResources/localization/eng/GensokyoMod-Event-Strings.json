@@ -348,6 +348,24 @@
       "[Encounter a random event]"
     ]
   },
+  "Gensokyo:AndThenThereWereNone": {
+    "NAME": "And Then There Were None",
+    "DESCRIPTIONS": [
+      "#rBloodstains splatter the ground, the gruesome remains of several #punfortunate souls. NL NL \"They really were weak, weren't they? I'd be ashamed to be related to such inferior vampires.\" NL NL A strange girl sits amidst the carnage, crimson red adorning her sharp claws. Her eyes dart to you, pinning you in place with their intensity. NL NL “. . . You scent is like that of these #rblood-bats I slaughtered. Did you come from the same place, perhaps?\"",
+      "You do not answer, instead tensing your body to be ready to move at a moment's notice. NL NL \"Hmm, you seem like an interesting one. More interesting than these husks, anyway. How would you like to make a #ppact with me? All the power you could @ever@ want for just a ~little~ bit of #rblood.\" NL NL She holds out a grime-encrusted hand.",
+      "Blinding pain assaults your senses as your vision fades. You wake up amidst a pool of #rblood, dismembered limbs lying around, head spinning and eyes #pclouded over. NL NL You stumble away from the bloodshed. NL NL You stumble away from the bloodshed. NL NL You stumble away from the bloodshed. NL NL You stumble away from the bloodshed.",
+      "\"A pity. I suppose I'll have to find another toy to play with later.\" NL NL Her attention turns back to the corpses around her, giving you the opportunity to slip away."
+
+    ],
+    "OPTIONS": [
+      "[Continue]",
+      "[Accept her offer] #gReceive #g",
+      " #rLose #r",
+      " #rMax #rHP.",
+      "[Refuse]",
+      "[Leave]"
+    ]
+  },
   "Gensokyo:MarisaAnOldGhost": {
     "NAME": "An Old Ghost",
     "DESCRIPTIONS": [

@@ -54,6 +54,7 @@ import Gensokyo.events.act1.marisaEvents.AnOldGhost;
 import Gensokyo.events.act1.marisaEvents.BookThief;
 import Gensokyo.events.act1.marisaEvents.JustAVisit;
 import Gensokyo.events.act1.marisaEvents.Walpurgisnacht;
+import Gensokyo.events.act2.AndThenThereWereNone;
 import Gensokyo.monsters.act1.Aya;
 import Gensokyo.monsters.act1.Cirno;
 import Gensokyo.monsters.act1.GreaterFairy;
@@ -392,6 +393,7 @@ public class GensokyoMod implements
 
 
         //Act2
+        BaseMod.addEvent(AndThenThereWereNone.ID, AndThenThereWereNone.class, Gensokyo.ID);
         
         // =============== /EVENTS/ =================
 
