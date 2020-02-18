@@ -96,6 +96,7 @@ import Gensokyo.relics.act1.YoukaiFlower;
 import Gensokyo.relics.act1.marisaRelics.ImprobabilityPotion;
 import Gensokyo.relics.act1.marisaRelics.IngredientList;
 import Gensokyo.relics.act1.marisaRelics.PhilosophersStone;
+import Gensokyo.relics.act2.UndefinedDarkness;
 import Gensokyo.util.IDCheckDontTouchPls;
 import Gensokyo.util.TextureLoader;
 import Gensokyo.variables.DefaultCustomVariable;
@@ -518,6 +519,7 @@ public class GensokyoMod implements
     public void receiveEditRelics() {
         logger.info("Adding relics");
 
+        //Act 1
         BaseMod.addRelic(new PerfectCherryBlossom(), RelicType.SHARED);
         BaseMod.addRelic(new Mercy(), RelicType.SHARED);
         BaseMod.addRelic(new Justice(), RelicType.SHARED);
@@ -535,6 +537,9 @@ public class GensokyoMod implements
             BaseMod.addRelic(new ImprobabilityPotion(), RelicType.SHARED);
             BaseMod.addRelic(new PhilosophersStone(), RelicType.SHARED);
         }
+
+        //Act 2
+        BaseMod.addRelic(new UndefinedDarkness(), RelicType.SHARED);
 
         logger.info("Done adding relics!");
     }

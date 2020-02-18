@@ -81,6 +81,13 @@
       "At the start of your turn, draw #b", " cards. Discard all #ynon-Attack cards drawn this way. "
     ]
   },
+  "Gensokyo:UndefinedDarkness": {
+    "NAME": "Undefined Darkness",
+    "FLAVOR": "Fear comes in all shapes and sizes.",
+    "DESCRIPTIONS": [
+      "At the start of the next #b", " combats, #pobscure ALL cards in your deck. Transforms into a special relic once the counter reaches #b0.", "???"
+    ]
+  },
   "Gensokyo:MarisaIngredientList": {
     "NAME": "Ingredient List",
     "FLAVOR": "A bunch of messy scribbles on a page. Apparently creates something known as the \"Improbability Potion\".",
