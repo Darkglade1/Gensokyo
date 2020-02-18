@@ -96,6 +96,7 @@ import Gensokyo.relics.act1.YoukaiFlower;
 import Gensokyo.relics.act1.marisaRelics.ImprobabilityPotion;
 import Gensokyo.relics.act1.marisaRelics.IngredientList;
 import Gensokyo.relics.act1.marisaRelics.PhilosophersStone;
+import Gensokyo.relics.act2.ConquerorOfFear;
 import Gensokyo.relics.act2.UndefinedDarkness;
 import Gensokyo.util.IDCheckDontTouchPls;
 import Gensokyo.util.TextureLoader;
@@ -540,6 +541,7 @@ public class GensokyoMod implements
 
         //Act 2
         BaseMod.addRelic(new UndefinedDarkness(), RelicType.SHARED);
+        BaseMod.addRelic(new ConquerorOfFear(), RelicType.SHARED);
 
         logger.info("Done adding relics!");
     }

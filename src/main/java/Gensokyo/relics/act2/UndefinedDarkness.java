@@ -20,7 +20,7 @@ public class UndefinedDarkness extends CustomRelic {
     private static final Texture OUTLINE = TextureLoader.getTexture(makeRelicOutlinePath("Darkness.png"));
 
     public static final ArrayList<AbstractCard> obscuredCards = new ArrayList<>();
-    private static final int COMBATS = 3;
+    private static final int COMBATS = 2;
 
     public UndefinedDarkness() {
         super(ID, IMG, OUTLINE, RelicTier.SPECIAL, LandingSound.MAGICAL);
