@@ -6,6 +6,8 @@ import basemod.abstracts.CustomRelic;
 import com.badlogic.gdx.graphics.Texture;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
+import com.megacrit.cardcrawl.helpers.RelicLibrary;
+import com.megacrit.cardcrawl.relics.AbstractRelic;
 
 import java.util.ArrayList;
 
@@ -20,7 +22,7 @@ public class UndefinedDarkness extends CustomRelic {
     private static final Texture OUTLINE = TextureLoader.getTexture(makeRelicOutlinePath("Darkness.png"));
 
     public static final ArrayList<AbstractCard> obscuredCards = new ArrayList<>();
-    private static final int COMBATS = 2;
+    public static final int COMBATS = 2;
 
     public UndefinedDarkness() {
         super(ID, IMG, OUTLINE, RelicTier.SPECIAL, LandingSound.MAGICAL);
@@ -29,16 +31,23 @@ public class UndefinedDarkness extends CustomRelic {
 
     @Override
     public void atBattleStartPreDraw() {
-        this.flash();
-        obscuredCards.addAll(AbstractDungeon.player.drawPile.group);
-        obscuredCards.addAll(AbstractDungeon.player.discardPile.group);
-        obscuredCards.addAll(AbstractDungeon.player.hand.group);
+        if (this.counter > 0) {
+            this.flash();
+            obscuredCards.addAll(AbstractDungeon.player.drawPile.group);
+            obscuredCards.addAll(AbstractDungeon.player.discardPile.group);
+            obscuredCards.addAll(AbstractDungeon.player.hand.group);
+        }
     }
 
     @Override
     public void onVictory() {
         obscuredCards.clear();
         this.counter--;
+        if (this.counter <= 0) {
+            counter = 0;
+            AbstractRelic relic = RelicLibrary.getRelic(ConquerorOfFear.ID).makeCopy();
+            AbstractDungeon.getCurrRoom().addRelicToRewards(relic);
+        }
     }
 
     @Override

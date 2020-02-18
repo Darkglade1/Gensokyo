@@ -85,14 +85,14 @@
     "NAME": "Undefined Darkness",
     "FLAVOR": "Fear comes in all shapes and sizes.",
     "DESCRIPTIONS": [
-      "At the start of the next #b", " combats, #pobscure ALL cards in your deck. Transforms into a special relic once the counter reaches #b0.", "???"
+      "At the start of the next #b", " combats, #pobscure ALL cards in your deck. Afterwards, transforms into a #yspecial #yrelic.", "???"
     ]
   },
   "Gensokyo:ConquerorOfFear": {
     "NAME": "Conqueror of Fear",
     "FLAVOR": "The only thing we have to fear is fear itself.",
     "DESCRIPTIONS": [
-      "While there are #b", " or more cards in your discard pile, you gain an additional #b", " #yStrength and #yDexterity."
+      "While there are #b", " or more cards in your discard pile, you have an additional #b", " #yStrength and #yDexterity."
     ]
   },
   "Gensokyo:MarisaIngredientList": {
