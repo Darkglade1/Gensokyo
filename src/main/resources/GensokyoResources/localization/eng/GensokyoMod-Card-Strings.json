@@ -138,5 +138,9 @@
     "NAME": "Taboo \"Four of a Kind\"",
     "DESCRIPTION": "This turn, your next card is played !M! additional time(s). NL Increase the effect of ALL Taboo \"Four of a Kind\" by !Gensokyo:SecondMagic! this combat. NL You can only play 1 Taboo \"Four of a Kind\" each turn. NL Exhaust.",
     "EXTENDED_DESCRIPTION": ["I can only play 1 Taboo \"Four of a Kind\" each turn."]
+  },
+  "Gensokyo:AllTheWorldsEvil": {
+    "NAME": "All the World's Evil",
+    "DESCRIPTION": "Apply !M! Vulnerable to ALL characters."
   }
 }

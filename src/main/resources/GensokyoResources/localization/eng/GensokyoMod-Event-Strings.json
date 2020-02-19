@@ -375,10 +375,26 @@
     ],
     "OPTIONS": [
       "[Embrace] #rYour #rcards #rare #robscured #rfor #r",
-      " #rcombats. #gObtain #ga #gSpecial #gRelic.",
+      " #rcombats. #gAfter, #gobtain #ga #gSpecial #gRelic.",
       "[Be Consumed] #gRemove #g2 #gcards #gfrom #gyour #gdeck. #rBecome #rCursed #r- #rWrithe.",
       "[Locked] Requires: 2 Cards",
       "Select 2 Cards to Remove.",
+      "[Leave]"
+    ]
+  },
+  "Gensokyo:Impoverished": {
+    "NAME": "Impoverished",
+    "DESCRIPTIONS": [
+      "A young girl approaches you, holding out a cracked stone bowl. NL NL \"Could you spare some coin, mister?\"",
+      "#yGold flows from your pockets in an unceasing torrent, clattering into the bowl. They swiftly pile up, then just as swiftly, they disappear into the nether. NL NL The girl looks down with #psad eyes. NL NL \"It didn't work. But thank you for trying, mister.\" NL NL She trudges away, becoming a pitiful figure in the distance.",
+      "You step past the girl, continuing on your way. NL NL A shiver runs through your body, like a #psnake had coiled itself around you. NL NL You can't help but feel a little more #p~misfortunate.~"
+    ],
+    "OPTIONS": [
+      "[Offer: ",
+      " Gold] #rLose #rall #rGold. #gUpgrade #g",
+      " #grandom #gcard.",
+      " #grandom #gcards.",
+      "[Ignore her] #rBecome #rCursed.",
       "[Leave]"
     ]
   },

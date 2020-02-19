@@ -2,6 +2,7 @@ package Gensokyo;
 
 import Gensokyo.RazIntent.CustomIntent;
 import Gensokyo.RazIntent.DeathIntent;
+import Gensokyo.cards.AllTheWorldsEvil;
 import Gensokyo.cards.Apocalypse;
 import Gensokyo.cards.BlessingOfConstitution;
 import Gensokyo.cards.BlessingOfFortitude;
@@ -55,6 +56,7 @@ import Gensokyo.events.act1.marisaEvents.BookThief;
 import Gensokyo.events.act1.marisaEvents.JustAVisit;
 import Gensokyo.events.act1.marisaEvents.Walpurgisnacht;
 import Gensokyo.events.act2.AndThenThereWereNone;
+import Gensokyo.events.act2.Impoverished;
 import Gensokyo.events.act2.NightmareOfHeian;
 import Gensokyo.monsters.act1.Aya;
 import Gensokyo.monsters.act1.Cirno;
@@ -398,6 +400,7 @@ public class GensokyoMod implements
         //Act2
         BaseMod.addEvent(AndThenThereWereNone.ID, AndThenThereWereNone.class, Gensokyo.ID);
         BaseMod.addEvent(NightmareOfHeian.ID, NightmareOfHeian.class, Gensokyo.ID);
+        BaseMod.addEvent(Impoverished.ID, Impoverished.class, Gensokyo.ID);
         
         // =============== /EVENTS/ =================
 
@@ -567,6 +570,7 @@ public class GensokyoMod implements
         BaseMod.addCard(new Butterfly(null));
         BaseMod.addCard(new ImpossibleRequest());
         BaseMod.addCard(new TabooFourOfAKind());
+        BaseMod.addCard(new AllTheWorldsEvil());
 
         //Urban Legends
         BaseMod.addCard(new MissMary());

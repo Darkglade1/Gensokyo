@@ -85,7 +85,7 @@
     "NAME": "Undefined Darkness",
     "FLAVOR": "Fear comes in all shapes and sizes.",
     "DESCRIPTIONS": [
-      "At the start of the next #b", " combats, #pobscure ALL cards in your deck. Afterwards, transforms into a #yspecial #yrelic.", "???"
+      "Your cards are #pobscured for #b", " combats. After, obtain a #yspecial #yrelic.", "???"
     ]
   },
   "Gensokyo:ConquerorOfFear": {
