@@ -149,7 +149,15 @@
 },
 "Gensokyo:DeathTouch": {
         "NAME": "Death Touch",
-        "DESCRIPTIONS": ["Whenever you receive attack damage from this enemy, #yexhaust #b", " cards at the start of your turn for #b", " turns."]
+        "DESCRIPTIONS": ["Whenever you receive attack damage from this enemy, shuffle #b2 #yButterflys into the discard pile."]
+},
+"Gensokyo:DeathTouchWeak": {
+        "NAME": "Death Touch",
+        "DESCRIPTIONS": ["Whenever you receive attack damage from this enemy, you gain #b", " #yWeak."]
+},
+"Gensokyo:DeathTouchFrail": {
+        "NAME": "Death Touch",
+        "DESCRIPTIONS": ["Whenever you receive attack damage from this enemy, you gain #b", " #yFrail."]
 },
 "Gensokyo:Fading": {
         "NAME": "Fading",
@@ -157,7 +165,7 @@
 },
 "Gensokyo:Reflowering": {
         "NAME": "Reflowering",
-        "DESCRIPTIONS": ["Whenever a #yButterfly is #yexhausted, add a #psoul to the fan. At end of round, if the fan has #b", " #psouls, intends to #rkill you."]
+        "DESCRIPTIONS": ["Whenever a #yWandering #ySpirit dies or whenever you play a #yButterfly, add a #psoul to the fan. At end of round, if the fan has #b", " #psouls, intends to #rkill you."]
 },
 "Gensokyo:NextTurnInnocence": {
         "NAME": "Innocence",

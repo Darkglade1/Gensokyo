@@ -1,12 +1,9 @@
 package Gensokyo.cards;
 
 import Gensokyo.GensokyoMod;
-import Gensokyo.monsters.act2.Yuyuko;
 import com.megacrit.cardcrawl.actions.common.GainBlockAction;
 import com.megacrit.cardcrawl.actions.common.LoseHPAction;
-import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
-import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 
 import static Gensokyo.GensokyoMod.makeCardPath;
@@ -22,39 +19,25 @@ public class Butterfly extends AbstractDefaultCard {
     public static final CardColor COLOR = CardColor.COLORLESS;
 
     private static final int COST = 0;
-    private static final int BLOCK = 3;
-    private static final int HP_LOSS = 3;
+    private static final int BLOCK = 5;
+    private static final int HP_LOSS = 5;
 
-    Yuyuko yuyuko;
-
-    public Butterfly(Yuyuko yuyuko) {
+    public Butterfly() {
         super(ID, IMG, COST, TYPE, COLOR, RARITY, TARGET);
         magicNumber = baseMagicNumber = HP_LOSS;
         baseBlock = BLOCK;
-        this.yuyuko = yuyuko;
         exhaust = true;
         selfRetain = true;
     }
 
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
+        addToBot(new LoseHPAction(p, p, magicNumber));
         addToBot(new GainBlockAction(p, block));
-    }
-
-    @Override
-    public void triggerOnExhaust() {
-        addToBot(new LoseHPAction(AbstractDungeon.player, AbstractDungeon.player, magicNumber));
-        if (yuyuko != null) {
-            yuyuko.incrementFan(1); //because for some reason onExhaust in powers only works if the power is on the player
-        }
     }
 
     @Override
     public void upgrade() {
     }
 
-    @Override
-    public AbstractCard makeCopy() {
-        return new Butterfly(this.yuyuko);
-    }
 }

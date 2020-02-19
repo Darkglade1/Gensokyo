@@ -360,8 +360,8 @@ public class GensokyoMod implements
         BaseMod.addMonster(Eiki.ID, (BaseMod.GetMonster) Eiki::new);
 
         //BaseMod.addBoss(Gensokyo.ID, Kaguya.ID, "GensokyoResources/images/monsters/Kaguya/Kaguya.png", "GensokyoResources/images/monsters/Kaguya/KaguyaOutline.png");
-        //BaseMod.addBoss(Gensokyo.ID, Yuyuko.ID, "GensokyoResources/images/monsters/Yuyuko/Yuyuko.png", "GensokyoResources/images/monsters/Yuyuko/YuyukoOutline.png");
-        BaseMod.addBoss(Gensokyo.ID, Eiki.ID, "GensokyoResources/images/monsters/Eiki/Eiki.png", "GensokyoResources/images/monsters/Eiki/EikiOutline.png");
+        BaseMod.addBoss(Gensokyo.ID, Yuyuko.ID, "GensokyoResources/images/monsters/Yuyuko/Yuyuko.png", "GensokyoResources/images/monsters/Yuyuko/YuyukoOutline.png");
+        //BaseMod.addBoss(Gensokyo.ID, Eiki.ID, "GensokyoResources/images/monsters/Eiki/Eiki.png", "GensokyoResources/images/monsters/Eiki/EikiOutline.png");
 
 
 
@@ -567,7 +567,7 @@ public class GensokyoMod implements
 
         BaseMod.addCard(new CrescentMoonSlash());
         BaseMod.addCard(new Frozen());
-        BaseMod.addCard(new Butterfly(null));
+        BaseMod.addCard(new Butterfly());
         BaseMod.addCard(new ImpossibleRequest());
         BaseMod.addCard(new TabooFourOfAKind());
         BaseMod.addCard(new AllTheWorldsEvil());

@@ -239,11 +239,29 @@
       "Law of Mortality",
       "Resurrection Butterfly",
       "Saigyouji Parinirvana",
-      "Butterfly Delusion"
+      "Spirits that Died Well"
     ],
     "NAME": "Princess of the Netherworld",
     "DIALOG": [
       "A lovely day for death, isn't it?"
+    ]
+  },
+  "Gensokyo:BlueSoul": {
+    "MOVES": [
+
+    ],
+    "NAME": "Wandering Spirit",
+    "DIALOG": [
+
+    ]
+  },
+  "Gensokyo:PurpleSoul": {
+    "MOVES": [
+
+    ],
+    "NAME": "Wandering Spirit",
+    "DIALOG": [
+
     ]
   },
   "Gensokyo:Eiki": {

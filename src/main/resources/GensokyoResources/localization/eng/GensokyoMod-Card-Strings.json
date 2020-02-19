@@ -108,7 +108,7 @@
   },
   "Gensokyo:Butterfly": {
     "NAME": "Butterfly",
-    "DESCRIPTION": "Retain. NL Gain !B! Block. NL If this card is exhausted, lose !M! HP. NL Exhaust."
+    "DESCRIPTION": "Retain. NL Lose !M! HP. NL Gain !B! Block. NL Exhaust."
   },
   "Gensokyo:ImpossibleRequest": {
     "NAME": "Impossible Request",

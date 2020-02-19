@@ -1,21 +1,22 @@
 package Gensokyo.powers.act2;
 
 import Gensokyo.GensokyoMod;
+import Gensokyo.cards.Butterfly;
 import Gensokyo.util.TextureLoader;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.TextureAtlas;
-import com.evacipated.cardcrawl.mod.stslib.powers.abstracts.TwoAmountPower;
-import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
+import com.megacrit.cardcrawl.actions.common.MakeTempCardInDiscardAction;
 import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.core.AbstractCreature;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.localization.PowerStrings;
+import com.megacrit.cardcrawl.powers.AbstractPower;
 
 import static Gensokyo.GensokyoMod.makePowerPath;
 
 
-public class DeathTouch extends TwoAmountPower {
+public class DeathTouch extends AbstractPower {
 
     public static final String POWER_ID = GensokyoMod.makeID("DeathTouch");
     private static final PowerStrings powerStrings = CardCrawlGame.languagePack.getPowerStrings(POWER_ID);
@@ -25,13 +26,11 @@ public class DeathTouch extends TwoAmountPower {
     private static final Texture tex84 = TextureLoader.getTexture(makePowerPath("DeathTouch84.png"));
     private static final Texture tex32 = TextureLoader.getTexture(makePowerPath("DeathTouch32.png"));
 
-    public DeathTouch(AbstractCreature owner, int exhaustAmount, int exhaustDuration) {
+    public DeathTouch(AbstractCreature owner) {
         name = NAME;
         ID = POWER_ID;
 
         this.owner = owner;
-        this.amount = exhaustDuration;
-        this.amount2 = exhaustAmount;
 
         type = PowerType.BUFF;
 
@@ -45,12 +44,12 @@ public class DeathTouch extends TwoAmountPower {
     public void onAttack(DamageInfo info, int damageAmount, AbstractCreature target) {
         if (info.owner == this.owner && info.type == DamageInfo.DamageType.NORMAL && target == AbstractDungeon.player && damageAmount > 0) {
             this.flash();
-            this.addToBot(new ApplyPowerAction(AbstractDungeon.player, this.owner, new Fading(AbstractDungeon.player, amount2, amount), amount2));
+            this.addToBot(new MakeTempCardInDiscardAction(new Butterfly(), 2));
         }
     }
 
     @Override
     public void updateDescription() {
-        description = DESCRIPTIONS[0] + amount2 + DESCRIPTIONS[1] + amount + DESCRIPTIONS[2];
+        description = DESCRIPTIONS[0];
     }
 }

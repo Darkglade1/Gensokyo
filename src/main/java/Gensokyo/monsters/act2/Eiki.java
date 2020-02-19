@@ -77,8 +77,8 @@ public class Eiki extends CustomMonster
     public int guiltCount;
     public int innocenceCount;
 
-    private static final int HP = 280;
-    private static final int A9_HP = 300;
+    private static final int HP = 290;
+    private static final int A9_HP = 310;
 
     private boolean mirrorDead = false;
 
