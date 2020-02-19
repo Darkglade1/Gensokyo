@@ -21,7 +21,7 @@ public class ConquerorOfFear extends CustomRelic {
     private static final Texture OUTLINE = TextureLoader.getTexture(makeRelicOutlinePath("Conqueror.png"));
 
     private static final int THRESHOLD = 10;
-    private static final int BONUS_STATS = 2;
+    private static final int BONUS_STATS = 3;
     private boolean active = false;
 
     public ConquerorOfFear() {
