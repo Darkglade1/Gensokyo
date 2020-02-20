@@ -8,4 +8,5 @@ public class EncounterIDs {
     public static final String RABBITS_2 = "Gensokyo:2_Rabbits";
     public static final String GRYPHON_AND_RABBIT = "Gensokyo:Gryphon_and_Rabbit";
     public static final String PYTHON_AND_KODAMA = "Gensokyo:Python_and_Kodama";
+    public static final String ETERNAL_RIVALS = "Gensokyo:Eternal_Rivals";
 }

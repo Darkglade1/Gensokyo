@@ -298,6 +298,28 @@
       "I do hope you'll make this entertaining for me.",
       "Well, that was fun."
     ]
+  },
+  "Gensokyo:Byakuren": {
+    "MOVES": [
+      "Brilliant Dragon Bullet",
+      "Buddhist Diamond"
+    ],
+    "NAME": "Sealed Great Magician",
+    "DIALOG": [
+      "I do hope you'll make this entertaining for me.",
+      "Well, that was fun."
+    ]
+  },
+  "Gensokyo:Miko": {
+    "MOVES": [
+      "Brilliant Dragon Bullet",
+      "Buddhist Diamond"
+    ],
+    "NAME": "Supremely Gifted Hermit",
+    "DIALOG": [
+      "I do hope you'll make this entertaining for me.",
+      "Well, that was fun."
+    ]
   }
 }
 

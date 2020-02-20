@@ -201,5 +201,13 @@
 "Gensokyo:TabooFourOfAKindPower": {
         "NAME": "Taboo \"Four of a Kind\"",
         "DESCRIPTIONS": ["This turn, your next card is played #b", " additional ", "time.", "times."]
+},
+"Gensokyo:RivalPosition": {
+        "NAME": "Spell Card Rules",
+        "DESCRIPTIONS": ["This creature is in lane #b" , ". It is currently focused on its #rrival. Once the rival is defeated, it will focus on #ryou."]
+},
+"Gensokyo:RivalPlayerPosition": {
+        "NAME": "Spell Card Rules",
+        "DESCRIPTIONS": ["You are in lane #b" , ". Whenever you play a #ySkill, move #yUp #b1 lane. Whenever you play an #yAttack, move #yDown #b1 lane. If you are in an #runsafe lane, you will receive the effects of the rivals' single target moves instead.", " NL #yLane #b", " is unsafe."]
 }
 }

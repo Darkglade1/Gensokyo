@@ -82,8 +82,10 @@ import Gensokyo.monsters.act1.Reimu;
 import Gensokyo.monsters.act1.SunflowerFairy;
 import Gensokyo.monsters.act1.Yukari;
 import Gensokyo.monsters.act1.ZombieFairy;
+import Gensokyo.monsters.act2.Byakuren;
 import Gensokyo.monsters.act2.Kaguya;
 import Gensokyo.monsters.act2.Eiki;
+import Gensokyo.monsters.act2.Miko;
 import Gensokyo.monsters.act2.Yuyuko;
 import Gensokyo.relics.act1.Bombinomicon;
 import Gensokyo.relics.act1.BookOfSpecters;
@@ -358,6 +360,11 @@ public class GensokyoMod implements
         BaseMod.addMonster(Yuyuko.ID, (BaseMod.GetMonster) Yuyuko::new);
         CustomIntent.add(new DeathIntent());
         BaseMod.addMonster(Eiki.ID, (BaseMod.GetMonster) Eiki::new);
+        BaseMod.addMonster(EncounterIDs.ETERNAL_RIVALS, "The Eternal Rivals", () -> new MonsterGroup(
+                new AbstractMonster[] {
+                        new Miko(-960.0F, 0.0F),
+                        new Byakuren(),
+                }));
 
         //BaseMod.addBoss(Gensokyo.ID, Kaguya.ID, "GensokyoResources/images/monsters/Kaguya/Kaguya.png", "GensokyoResources/images/monsters/Kaguya/KaguyaOutline.png");
         BaseMod.addBoss(Gensokyo.ID, Yuyuko.ID, "GensokyoResources/images/monsters/Yuyuko/Yuyuko.png", "GensokyoResources/images/monsters/Yuyuko/YuyukoOutline.png");
