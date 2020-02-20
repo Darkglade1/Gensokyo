@@ -35,6 +35,7 @@ public class RivalPlayerPosition extends AbstractPower {
     private float position1;
     private float position2;
     private float position3;
+    private boolean firstTime = true;
 
     public ArrayList<Integer> unsafeLanes = new ArrayList<>();
 
@@ -96,6 +97,7 @@ public class RivalPlayerPosition extends AbstractPower {
         if (amount == 3) {
             owner.drawY = position3;
         }
+        owner.dialogY = owner.drawY - (owner.hb_y - 55.0F) * Settings.scale;
         fixOrbPositioning();
     }
 
@@ -119,11 +121,17 @@ public class RivalPlayerPosition extends AbstractPower {
         }
         if (power1 != null && power2 != null) {
 
-            power1.amount = newPosition(power1.amount);
-            power2.amount = newPosition(power2.amount);
+            if (!firstTime) {
+                power1.amount = newPosition(power1.amount);
+                power2.amount = newPosition(power2.amount);
+            } else {
+                firstTime = false;
+            }
 
             updateRivalPositions(power1);
             updateRivalPositions(power2);
+            power1.updateDescription();
+            power2.updateDescription();
 
             int difference = Math.abs(power1.amount - power2.amount);
             if (difference == 0) {

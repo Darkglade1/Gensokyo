@@ -209,5 +209,21 @@
 "Gensokyo:RivalPlayerPosition": {
         "NAME": "Spell Card Rules",
         "DESCRIPTIONS": ["You are in lane #b" , ". Whenever you play a #ySkill, move #yUp #b1 lane. Whenever you play an #yAttack, move #yDown #b1 lane. If you are in an #runsafe lane, you will receive the effects of the rivals' single target moves instead.", " NL #yLane #b", " is unsafe."]
+},
+"Gensokyo:TenDesires": {
+        "NAME": "Tenfold Listening",
+        "DESCRIPTIONS": ["Every other instance of #yattack #ydamage dealt to this creature deals #b0 damage."]
+},
+"Gensokyo:Purity": {
+        "NAME": "Purity",
+        "DESCRIPTIONS": ["Every other #ydebuff applied to this creature is #ynegated."]
+},
+"Gensokyo:Counter": {
+        "NAME": "Counter",
+        "DESCRIPTIONS": ["The next time this creature deals #yattack #ydamage, it takes twice that much damage."]
+},
+"Gensokyo:WishfulSoul": {
+        "NAME": "Strength Drain",
+        "DESCRIPTIONS": ["At end of round, loses up to #b", " #ypositive #yStrength and gives that amount to this debuff's source."]
 }
 }

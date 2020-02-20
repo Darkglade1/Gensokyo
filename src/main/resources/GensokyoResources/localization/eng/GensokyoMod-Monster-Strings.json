@@ -273,7 +273,7 @@
     ],
     "NAME": "Supreme Judge of Paradise",
     "DIALOG": [
-      "You will face your sins or be consumed by them.",
+      "You cannot escape the sins of your past.",
       "Your resilience is impressive."
     ]
   },
@@ -301,24 +301,29 @@
   },
   "Gensokyo:Byakuren": {
     "MOVES": [
-      "Brilliant Dragon Bullet",
-      "Buddhist Diamond"
+      "Star Maelstrom",
+      "Devil's Recitation",
+      "Superhuman Self",
+      "Indra's Thunder"
     ],
     "NAME": "Sealed Great Magician",
     "DIALOG": [
-      "I do hope you'll make this entertaining for me.",
-      "Well, that was fun."
+      "Your wicked magic has no place here, Miko.",
+      "It seems your immortality was just a fraud."
     ]
   },
   "Gensokyo:Miko": {
     "MOVES": [
-      "Brilliant Dragon Bullet",
-      "Buddhist Diamond"
+      "Golden Sword",
+      "Shukuchi Cape",
+      "Wishful Soul of Desire",
+      "Laser of Seventeen Articles",
+      "Red Cape Blue Cape"
     ],
     "NAME": "Supremely Gifted Hermit",
     "DIALOG": [
-      "I do hope you'll make this entertaining for me.",
-      "Well, that was fun."
+      "Your beliefs are a sham!",
+      "Your lack of training was your downfall."
     ]
   }
 }
