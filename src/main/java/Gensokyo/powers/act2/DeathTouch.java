@@ -26,11 +26,12 @@ public class DeathTouch extends AbstractPower {
     private static final Texture tex84 = TextureLoader.getTexture(makePowerPath("DeathTouch84.png"));
     private static final Texture tex32 = TextureLoader.getTexture(makePowerPath("DeathTouch32.png"));
 
-    public DeathTouch(AbstractCreature owner) {
+    public DeathTouch(AbstractCreature owner, int amount) {
         name = NAME;
         ID = POWER_ID;
 
         this.owner = owner;
+        this.amount = amount;
 
         type = PowerType.BUFF;
 
@@ -44,12 +45,12 @@ public class DeathTouch extends AbstractPower {
     public void onAttack(DamageInfo info, int damageAmount, AbstractCreature target) {
         if (info.owner == this.owner && info.type == DamageInfo.DamageType.NORMAL && target == AbstractDungeon.player && damageAmount > 0) {
             this.flash();
-            this.addToBot(new MakeTempCardInDiscardAction(new Butterfly(), 2));
+            this.addToBot(new MakeTempCardInDiscardAction(new Butterfly(), this.amount));
         }
     }
 
     @Override
     public void updateDescription() {
-        description = DESCRIPTIONS[0];
+        description = DESCRIPTIONS[0] + amount + DESCRIPTIONS[1];
     }
 }

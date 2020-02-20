@@ -4,13 +4,17 @@ import Gensokyo.BetterSpriterAnimation;
 import Gensokyo.actions.BalanceShiftAction;
 import Gensokyo.powers.act2.MirrorPower;
 import Gensokyo.powers.act2.NextTurnInnocence;
+import Gensokyo.vfx.FlexibleStanceAuraEffect;
+import Gensokyo.vfx.FlexibleWrathParticleEffect;
 import actlikeit.dungeons.CustomDungeon;
 import basemod.abstracts.CustomMonster;
 import basemod.animations.AbstractAnimation;
+import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.graphics.g2d.TextureRegion;
+import com.badlogic.gdx.math.MathUtils;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.animations.TalkAction;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
@@ -28,6 +32,7 @@ import com.megacrit.cardcrawl.monsters.EnemyMoveInfo;
 import com.megacrit.cardcrawl.powers.FrailPower;
 import com.megacrit.cardcrawl.powers.StrengthPower;
 import com.megacrit.cardcrawl.powers.VulnerablePower;
+import com.megacrit.cardcrawl.stances.WrathStance;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -86,6 +91,9 @@ public class Eiki extends CustomMonster
     private Map<Byte, EnemyMoveInfo> moves;
     public ArrayList<AbstractAnimation> guilt = new ArrayList<>();
     public ArrayList<AbstractAnimation> innocence = new ArrayList<>();
+
+    private float particleTimer;
+    private float particleTimer2;
 
     public Eiki() {
         this(200.0f, 0.0f);
@@ -299,6 +307,23 @@ public class Eiki extends CustomMonster
         sb.draw(SCALE_LEFT_SCALE_REGION, (960.0F - armXOffset - SCALE_LEFT_ARM_REGION.getRegionWidth() - (SCALE_LEFT_SCALE_REGION.getRegionWidth() / 2.0F) + scaleXOffset + offsetX) * scaleWidth, AbstractDungeon.floorY + (SCALE_BODY_REGION.getRegionHeight() - armYOffset - SCALE_LEFT_SCALE_REGION.getRegionHeight() + scaleYOffset + offsetY) * scaleHeight, 0.0F, 0.0F, SCALE_LEFT_SCALE_REGION.getRegionWidth(), SCALE_LEFT_SCALE_REGION.getRegionHeight(), scaleWidth, scaleHeight, 0.0F);
         sb.draw(SCALE_LEFT_ARM_REGION, (960.0F - armXOffset) * scaleWidth, AbstractDungeon.floorY + (SCALE_BODY_REGION.getRegionHeight() - armYOffset) * scaleHeight, 0.0F, (SCALE_LEFT_ARM_REGION.getRegionHeight() / 2.0F) * scaleHeight, SCALE_LEFT_ARM_REGION.getRegionWidth(), SCALE_LEFT_ARM_REGION.getRegionHeight(), scaleWidth, scaleHeight, -(angle + 180));
         sb.draw(SCALE_BODY_REGION, (960.0F - (SCALE_BODY_REGION.getRegionWidth() / 2.0F)) * scaleWidth, AbstractDungeon.floorY, 0.0F, 0.0F, SCALE_BODY_REGION.getRegionWidth(), SCALE_BODY_REGION.getRegionHeight(), scaleWidth, scaleHeight, 0.0F);
+
+        //Render particles when she uses debuff attack
+        if (this.nextMove == WANDERING_SIN) {
+            if (!Settings.DISABLE_EFFECTS) {
+                this.particleTimer -= Gdx.graphics.getDeltaTime();
+                if (this.particleTimer < 0.0F) {
+                    this.particleTimer = 0.05F;
+                    AbstractDungeon.effectsQueue.add(new FlexibleWrathParticleEffect(this));
+                }
+            }
+
+            this.particleTimer2 -= Gdx.graphics.getDeltaTime();
+            if (this.particleTimer2 < 0.0F) {
+                this.particleTimer2 = MathUtils.random(0.3F, 0.4F);
+                AbstractDungeon.effectsQueue.add(new FlexibleStanceAuraEffect(WrathStance.STANCE_ID, this));
+            }
+        }
     }
 
     @Override

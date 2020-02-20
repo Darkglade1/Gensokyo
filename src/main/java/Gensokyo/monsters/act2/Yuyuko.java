@@ -75,6 +75,7 @@ public class Yuyuko extends CustomMonster
     public static final int FAN_THRESHOLD = 10;
     private static final int HP = 260;
     private static final int A9_HP = 280;
+    private static final int BUTTERFLY_POWER = 2;
     private int ghostlyButterflyDamage;
     private int ghastlyDreamDamage;
     private int resurrectionButterflyDamage;
@@ -139,7 +140,7 @@ public class Yuyuko extends CustomMonster
     @Override
     public void usePreBattleAction() {
         CustomDungeon.playTempMusicInstantly("BorderOfLife");
-        this.addToBot(new ApplyPowerAction(this, this, new DeathTouch(this)));
+        this.addToBot(new ApplyPowerAction(this, this, new DeathTouch(this, BUTTERFLY_POWER)));
         this.addToBot(new ApplyPowerAction(this, this, new Reflowering(this, this)));
     }
 

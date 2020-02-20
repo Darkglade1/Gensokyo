@@ -149,7 +149,7 @@
 },
 "Gensokyo:DeathTouch": {
         "NAME": "Death Touch",
-        "DESCRIPTIONS": ["Whenever you receive attack damage from this enemy, shuffle #b2 #yButterflys into the discard pile."]
+        "DESCRIPTIONS": ["Whenever you receive attack damage from this enemy, shuffle #b", " #yButterflys into the discard pile."]
 },
 "Gensokyo:DeathTouchWeak": {
         "NAME": "Death Touch",

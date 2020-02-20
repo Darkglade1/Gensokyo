@@ -1,10 +1,16 @@
 package Gensokyo.monsters.act2;
 
 import Gensokyo.patches.MirrorGetAnimationPatch;
+import Gensokyo.powers.act1.Evasive;
 import Gensokyo.powers.act2.Innocence;
 import Gensokyo.powers.act2.NextTurnInnocence;
+import Gensokyo.vfx.FlexibleCalmParticleEffect;
+import Gensokyo.vfx.FlexibleStanceAuraEffect;
 import basemod.abstracts.CustomMonster;
 import basemod.animations.SpriterAnimation;
+import com.badlogic.gdx.Gdx;
+import com.badlogic.gdx.graphics.g2d.SpriteBatch;
+import com.badlogic.gdx.math.MathUtils;
 import com.esotericsoftware.spine.AnimationState;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
@@ -22,6 +28,7 @@ import com.megacrit.cardcrawl.localization.MonsterStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.monsters.EnemyMoveInfo;
 import com.megacrit.cardcrawl.powers.StrengthPower;
+import com.megacrit.cardcrawl.stances.CalmStance;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -58,6 +65,9 @@ public class Mirror extends CustomMonster
 
     private Map<Byte, EnemyMoveInfo> moves;
     private Eiki eiki;
+
+    private float particleTimer;
+    private float particleTimer2;
 
     public Mirror() {
         this(0.0f, 0.0f, null);
@@ -170,6 +180,26 @@ public class Mirror extends CustomMonster
         this.addToBot(new RemoveSpecificPowerAction(this, this, Innocence.POWER_ID));
         this.addToBot(new RemoveSpecificPowerAction(this, this, NextTurnInnocence.POWER_ID));
         AbstractDungeon.actionManager.addToBottom(new RollMoveAction(this));
+    }
+
+    @Override
+    public void render(SpriteBatch sb) {
+        super.render(sb);
+        if (this.hasPower(NextTurnInnocence.POWER_ID)) {
+            if (!Settings.DISABLE_EFFECTS) {
+                this.particleTimer -= Gdx.graphics.getDeltaTime();
+                if (this.particleTimer < 0.0F) {
+                    this.particleTimer = 0.04F;
+                    AbstractDungeon.effectsQueue.add(new FlexibleCalmParticleEffect(this));
+                }
+            }
+
+            this.particleTimer2 -= Gdx.graphics.getDeltaTime();
+            if (this.particleTimer2 < 0.0F) {
+                this.particleTimer2 = MathUtils.random(0.45F, 0.55F);
+                AbstractDungeon.effectsQueue.add(new FlexibleStanceAuraEffect(CalmStance.STANCE_ID, this));
+            }
+        }
     }
 
     public void setMoveShortcut(byte next) {

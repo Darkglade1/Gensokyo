@@ -23,8 +23,8 @@ public class DeathTouchFrail extends AbstractPower {
     public static final String NAME = powerStrings.NAME;
     public static final String[] DESCRIPTIONS = powerStrings.DESCRIPTIONS;
 
-    private static final Texture tex84 = TextureLoader.getTexture(makePowerPath("DeathTouch84.png"));
-    private static final Texture tex32 = TextureLoader.getTexture(makePowerPath("DeathTouch32.png"));
+    private static final Texture tex84 = TextureLoader.getTexture(makePowerPath("DeathTouchFrail84.png"));
+    private static final Texture tex32 = TextureLoader.getTexture(makePowerPath("DeathTouchFrail32.png"));
 
     public DeathTouchFrail(AbstractCreature owner, int amount) {
         name = NAME;
