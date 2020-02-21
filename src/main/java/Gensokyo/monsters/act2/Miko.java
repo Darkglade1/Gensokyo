@@ -128,7 +128,7 @@ public class Miko extends CustomMonster
             }
         }
         this.animation.setFlip(true, false);
-        this.dialogX -= 960.0F * Settings.scale;
+        //this.dialogX -= 960.0F * Settings.scale;
     }
     
     @Override
@@ -203,7 +203,7 @@ public class Miko extends CustomMonster
             if (!this.lastMove(STRONG_DEBUFF)) {
                 possibilities.add(STRONG_DEBUFF);
             }
-            if (!this.lastMove(DEFEND_DEBUFF) && rival.hasPower(StrengthPower.POWER_ID)) {
+            if (!this.lastMove(DEFEND_DEBUFF) && rival != null && rival.hasPower(StrengthPower.POWER_ID)) {
                 possibilities.add(DEFEND_DEBUFF);
             }
             if (!this.lastTwoMoves(ATTACK)) {

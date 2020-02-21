@@ -8,6 +8,7 @@ import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.actions.common.RemoveSpecificPowerAction;
 import com.megacrit.cardcrawl.core.AbstractCreature;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
+import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.localization.PowerStrings;
 import com.megacrit.cardcrawl.powers.AbstractPower;
 import com.megacrit.cardcrawl.powers.StrengthPower;
@@ -54,6 +55,7 @@ public class WishfulSoul extends AbstractPower {
                 }
                 this.addToBot(new ApplyPowerAction(this.source, this.source, new StrengthPower(this.source, drain), drain));
                 this.addToBot(new RemoveSpecificPowerAction(this.owner, this.owner, POWER_ID));
+                AbstractDungeon.onModifyPower();
             }
         }
     }
