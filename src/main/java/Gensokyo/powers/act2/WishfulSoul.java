@@ -22,6 +22,7 @@ public class WishfulSoul extends AbstractPower {
     public static final String NAME = powerStrings.NAME;
     public static final String[] DESCRIPTIONS = powerStrings.DESCRIPTIONS;
     private AbstractCreature source;
+    private boolean justApplied = true;
 
     private static final Texture tex84 = TextureLoader.getTexture(makePowerPath("Evasive84.png"));
     private static final Texture tex32 = TextureLoader.getTexture(makePowerPath("Evasive32.png"));
@@ -45,6 +46,10 @@ public class WishfulSoul extends AbstractPower {
 
     @Override
     public void atEndOfRound() {
+        if (justApplied) {
+            justApplied = false;
+            return;
+        }
         if (this.owner.hasPower(StrengthPower.POWER_ID)) {
             int amount = this.owner.getPower(StrengthPower.POWER_ID).amount;
             if (amount > 0) {

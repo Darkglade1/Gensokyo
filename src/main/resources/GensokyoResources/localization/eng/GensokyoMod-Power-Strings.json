@@ -212,7 +212,7 @@
 },
 "Gensokyo:TenDesires": {
         "NAME": "Tenfold Listening",
-        "DESCRIPTIONS": ["Every other instance of #yattack #ydamage dealt to this creature deals #b0 damage."]
+        "DESCRIPTIONS": ["Every other instance of #yattack #ydamage dealt to this creature is prevented."]
 },
 "Gensokyo:Purity": {
         "NAME": "Purity",
@@ -220,7 +220,7 @@
 },
 "Gensokyo:Counter": {
         "NAME": "Counter",
-        "DESCRIPTIONS": ["The next time this creature deals #yattack #ydamage, it takes twice that much damage."]
+        "DESCRIPTIONS": ["The next", " time ", " times ", "this creature deals #yattack #ydamage, it takes twice that much damage."]
 },
 "Gensokyo:WishfulSoul": {
         "NAME": "Strength Drain",

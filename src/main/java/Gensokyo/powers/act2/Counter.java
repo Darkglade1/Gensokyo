@@ -45,12 +45,14 @@ public class Counter extends AbstractPower {
     @Override
     public void onAttack(DamageInfo info, int damageAmount, AbstractCreature target) {
         if (info.owner == this.owner && info.type == DamageInfo.DamageType.NORMAL) {
-            if (damageAmount > 0) {
-                AbstractDungeon.actionManager.addToBottom(new DamageAction(this.owner, new DamageInfo(this.owner, info.base * MULTIPLIER)));
-               amount--;
-               if (amount == 0) {
-                   AbstractDungeon.actionManager.addToTop(new RemoveSpecificPowerAction(this.owner, this.owner, POWER_ID));
-               }
+            DamageInfo newInfo = new DamageInfo(this.owner, info.base);
+            newInfo.applyPowers(this.owner, this.owner);
+            newInfo.output *= MULTIPLIER;
+            AbstractDungeon.actionManager.addToBottom(new DamageAction(this.owner, newInfo));
+            amount--;
+            updateDescription();
+            if (amount == 0) {
+                AbstractDungeon.actionManager.addToTop(new RemoveSpecificPowerAction(this.owner, this.owner, POWER_ID));
             }
         }
     }
@@ -58,5 +60,10 @@ public class Counter extends AbstractPower {
     @Override
     public void updateDescription() {
         description = DESCRIPTIONS[0];
+        if (amount == 1) {
+            description += DESCRIPTIONS[1] + DESCRIPTIONS[3];
+        } else {
+            description += " #b" + amount + DESCRIPTIONS[2] + DESCRIPTIONS[3];
+        }
     }
 }

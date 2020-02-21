@@ -6,9 +6,15 @@ import Gensokyo.powers.act2.Purity;
 import Gensokyo.powers.act2.RivalPlayerPosition;
 import Gensokyo.powers.act2.RivalPosition;
 import Gensokyo.powers.act2.TenDesires;
+import Gensokyo.vfx.FlexibleCalmParticleEffect;
+import Gensokyo.vfx.FlexibleStanceAuraEffect;
 import basemod.abstracts.CustomMonster;
+import com.badlogic.gdx.Gdx;
+import com.badlogic.gdx.graphics.g2d.SpriteBatch;
+import com.badlogic.gdx.math.MathUtils;
 import com.brashmonkey.spriter.Animation;
 import com.brashmonkey.spriter.Player;
+import com.evacipated.cardcrawl.mod.stslib.actions.tempHp.AddTemporaryHPAction;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.animations.TalkAction;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
@@ -24,7 +30,7 @@ import com.megacrit.cardcrawl.localization.MonsterStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.monsters.EnemyMoveInfo;
 import com.megacrit.cardcrawl.powers.StrengthPower;
-import com.megacrit.cardcrawl.powers.WeakPower;
+import com.megacrit.cardcrawl.stances.CalmStance;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -63,10 +69,13 @@ public class Byakuren extends CustomMonster
     private static final int DEBUFF_AMT = 1;
 
     private static final int AOE_COOLDOWN = 3;
-    private int counter;
+    private int counter = -2; //Delay this by 2 turns the first time
 
     private static final int HP = 500;
     private static final int A9_HP = 530;
+
+    private float particleTimer;
+    private float particleTimer2;
 
     private Miko rival;
 
@@ -130,11 +139,15 @@ public class Byakuren extends CustomMonster
         this.addToBot(new ApplyPowerAction(this, this, new Purity(this)));
         AbstractDungeon.player.drawX += 480.0F * Settings.scale;
         AbstractDungeon.player.dialogX += 480.0F * Settings.scale;
-        AbstractDungeon.actionManager.addToBottom(new TalkAction(this, DIALOG[0]));
+        this.animation.setFlip(true, false);
     }
     
     @Override
     public void takeTurn() {
+        if (this.firstMove) {
+            AbstractDungeon.actionManager.addToBottom(new TalkAction(this, DIALOG[0]));
+            firstMove = false;
+        }
         DamageInfo info = new DamageInfo(this, moves.get(this.nextMove).baseDamage, DamageInfo.DamageType.NORMAL);
         AbstractCreature target;
         if (!rival.isDeadOrEscaped()) {
@@ -154,19 +167,19 @@ public class Byakuren extends CustomMonster
         switch (this.nextMove) {
             case ATTACK: {
                 AbstractDungeon.actionManager.addToBottom(new DamageAction(target, info, AbstractGameAction.AttackEffect.BLUNT_HEAVY));
-                AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(this, this, new StrengthPower(this, -DEBUFF_AMT), -DEBUFF_AMT));
+                //AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(this, this, new StrengthPower(this, -DEBUFF_AMT), -DEBUFF_AMT));
                 counter++;
                 break;
             }
             case BUFF: {
                 AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(this, this, new StrengthPower(this, strength), strength));
-                AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(this, this, new WeakPower(this, DEBUFF_AMT, true), DEBUFF_AMT));
+                //AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(this, this, new WeakPower(this, DEBUFF_AMT, true), DEBUFF_AMT));
                 counter++;
                 break;
             }
             case BUFF_BLOCK: {
                 AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(this, this, new VigorPower(this, BUFF_AMT, true), BUFF_AMT));
-                AbstractDungeon.actionManager.addToBottom(new GainBlockAction(this, block));
+                AbstractDungeon.actionManager.addToBottom(new AddTemporaryHPAction(this, this, block));
                 counter++;
                 break;
             }
@@ -190,13 +203,13 @@ public class Byakuren extends CustomMonster
             this.setMoveShortcut(AOE_ATTACK);
         } else {
             ArrayList<Byte> possibilities = new ArrayList<>();
-            if (!this.lastMove(BUFF)) {
+            if (!this.lastMove(BUFF) && !this.lastMoveBefore(BUFF)) {
                 possibilities.add(BUFF);
             }
             if (!this.lastMove(BUFF_BLOCK) && !this.lastMoveBefore(BUFF_BLOCK)) {
                 possibilities.add(BUFF_BLOCK);
             }
-            if (!this.lastTwoMoves(ATTACK)) {
+            if (!this.lastMove(ATTACK)) {
                 possibilities.add(ATTACK);
             }
             this.setMoveShortcut(possibilities.get(AbstractDungeon.monsterRng.random(possibilities.size() - 1)));
@@ -206,6 +219,28 @@ public class Byakuren extends CustomMonster
     private void setMoveShortcut(byte next) {
         EnemyMoveInfo info = this.moves.get(next);
         this.setMove(MOVES[next], next, info.intent, info.baseDamage, info.multiplier, info.isMultiDamage);
+    }
+
+    @Override
+    public void render(SpriteBatch sb) {
+        super.render(sb);
+        if (this.hasPower(Purity.POWER_ID)) {
+            if (this.getPower(Purity.POWER_ID).amount == Purity.THRESHOLD) {
+                if (!Settings.DISABLE_EFFECTS) {
+                    this.particleTimer -= Gdx.graphics.getDeltaTime();
+                    if (this.particleTimer < 0.0F) {
+                        this.particleTimer = 0.04F;
+                        AbstractDungeon.effectsQueue.add(new FlexibleCalmParticleEffect(this));
+                    }
+                }
+
+                this.particleTimer2 -= Gdx.graphics.getDeltaTime();
+                if (this.particleTimer2 < 0.0F) {
+                    this.particleTimer2 = MathUtils.random(0.45F, 0.55F);
+                    AbstractDungeon.effectsQueue.add(new FlexibleStanceAuraEffect(CalmStance.STANCE_ID, this));
+                }
+            }
+        }
     }
     
     static {

@@ -362,8 +362,8 @@ public class GensokyoMod implements
         BaseMod.addMonster(Eiki.ID, (BaseMod.GetMonster) Eiki::new);
         BaseMod.addMonster(EncounterIDs.ETERNAL_RIVALS, "The Eternal Rivals", () -> new MonsterGroup(
                 new AbstractMonster[] {
-                        new Miko(-960.0F, 0.0F),
-                        new Byakuren(),
+                        new Byakuren(-960.0F, 0.0F),
+                        new Miko(),
                 }));
 
         //BaseMod.addBoss(Gensokyo.ID, Kaguya.ID, "GensokyoResources/images/monsters/Kaguya/Kaguya.png", "GensokyoResources/images/monsters/Kaguya/KaguyaOutline.png");

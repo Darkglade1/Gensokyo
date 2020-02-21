@@ -2,9 +2,16 @@ package Gensokyo.monsters.act2;
 
 import Gensokyo.BetterSpriterAnimation;
 import Gensokyo.powers.act2.Counter;
+import Gensokyo.powers.act2.Purity;
 import Gensokyo.powers.act2.RivalPlayerPosition;
+import Gensokyo.powers.act2.TenDesires;
 import Gensokyo.powers.act2.WishfulSoul;
+import Gensokyo.vfx.FlexibleDivinityParticleEffect;
+import Gensokyo.vfx.FlexibleStanceAuraEffect;
 import basemod.abstracts.CustomMonster;
+import com.badlogic.gdx.Gdx;
+import com.badlogic.gdx.graphics.g2d.SpriteBatch;
+import com.badlogic.gdx.math.MathUtils;
 import com.brashmonkey.spriter.Animation;
 import com.brashmonkey.spriter.Player;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
@@ -24,6 +31,7 @@ import com.megacrit.cardcrawl.monsters.EnemyMoveInfo;
 import com.megacrit.cardcrawl.powers.FrailPower;
 import com.megacrit.cardcrawl.powers.StrengthPower;
 import com.megacrit.cardcrawl.powers.VulnerablePower;
+import com.megacrit.cardcrawl.stances.DivinityStance;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -66,11 +74,14 @@ public class Miko extends CustomMonster
     private static final int A19_STRENGTH_STEAL = 4;
     private int strengthSteal;
 
-    private static final int COOLDOWN = 2;
+    private static final int COOLDOWN = 3;
     private int counter;
 
     private static final int HP = 250;
     private static final int A9_HP = 265;
+
+    private float particleTimer;
+    private float particleTimer2;
 
     private Byakuren rival;
 
@@ -127,16 +138,11 @@ public class Miko extends CustomMonster
                 rival = (Byakuren) mo;
             }
         }
-        this.animation.setFlip(true, false);
-        //this.dialogX -= 960.0F * Settings.scale;
+        AbstractDungeon.actionManager.addToBottom(new TalkAction(this, DIALOG[0]));
     }
     
     @Override
     public void takeTurn() {
-        if (this.firstMove) {
-            AbstractDungeon.actionManager.addToBottom(new TalkAction(this, DIALOG[0]));
-            firstMove = false;
-        }
         DamageInfo info = new DamageInfo(this, moves.get(this.nextMove).baseDamage, DamageInfo.DamageType.NORMAL);
         AbstractCreature target;
         if (!rival.isDeadOrEscaped()) {
@@ -200,13 +206,13 @@ public class Miko extends CustomMonster
             this.setMoveShortcut(AOE_ATTACK);
         } else {
             ArrayList<Byte> possibilities = new ArrayList<>();
-            if (!this.lastMove(STRONG_DEBUFF)) {
+            if (!this.lastMove(STRONG_DEBUFF) && !this.lastMoveBefore(STRONG_DEBUFF)) {
                 possibilities.add(STRONG_DEBUFF);
             }
             if (!this.lastMove(DEFEND_DEBUFF) && rival != null && rival.hasPower(StrengthPower.POWER_ID)) {
                 possibilities.add(DEFEND_DEBUFF);
             }
-            if (!this.lastTwoMoves(ATTACK)) {
+            if (!this.lastMove(ATTACK)) {
                 possibilities.add(ATTACK);
             }
             this.setMoveShortcut(possibilities.get(AbstractDungeon.monsterRng.random(possibilities.size() - 1)));
@@ -216,6 +222,28 @@ public class Miko extends CustomMonster
     private void setMoveShortcut(byte next) {
         EnemyMoveInfo info = this.moves.get(next);
         this.setMove(MOVES[next], next, info.intent, info.baseDamage, info.multiplier, info.isMultiDamage);
+    }
+
+    @Override
+    public void render(SpriteBatch sb) {
+        super.render(sb);
+        if (this.hasPower(TenDesires.POWER_ID)) {
+            if (this.getPower(TenDesires.POWER_ID).amount == TenDesires.THRESHOLD) {
+                if (!Settings.DISABLE_EFFECTS) {
+                    this.particleTimer -= Gdx.graphics.getDeltaTime();
+                    if (this.particleTimer < 0.0F) {
+                        this.particleTimer = 0.04F;
+                        AbstractDungeon.effectsQueue.add(new FlexibleDivinityParticleEffect(this));
+                    }
+                }
+
+                this.particleTimer2 -= Gdx.graphics.getDeltaTime();
+                if (this.particleTimer2 < 0.0F) {
+                    this.particleTimer2 = MathUtils.random(0.45F, 0.55F);
+                    AbstractDungeon.effectsQueue.add(new FlexibleStanceAuraEffect(DivinityStance.STANCE_ID, this));
+                }
+            }
+        }
     }
     
     static {
