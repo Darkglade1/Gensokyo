@@ -1,5 +1,6 @@
 package Gensokyo.actions;
 
+import Gensokyo.monsters.act2.Byakuren;
 import Gensokyo.monsters.act2.Kaguya;
 import Gensokyo.monsters.act1.NormalEnemies.AbstractFairy;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
@@ -24,7 +25,9 @@ public class SetFlipAction extends AbstractGameAction {
         if (mo instanceof Kaguya) {
             ((Kaguya)mo).setFlip(true, false);;
         }
-
+        if (mo instanceof Byakuren) {
+            ((Byakuren)mo).setFlip(false, false);;
+        }
         this.isDone = true;
     }
 }

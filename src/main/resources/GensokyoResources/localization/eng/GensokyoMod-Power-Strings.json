@@ -220,7 +220,7 @@
 },
 "Gensokyo:Counter": {
         "NAME": "Counter",
-        "DESCRIPTIONS": ["The next", " time ", " times ", "this creature deals #yattack #ydamage, it takes twice that much damage."]
+        "DESCRIPTIONS": ["The next", " time ", " times ", "this creature deals #yattack #ydamage, it takes that much damage."]
 },
 "Gensokyo:WishfulSoul": {
         "NAME": "Strength Drain",

@@ -1,6 +1,8 @@
 package Gensokyo.monsters.act2;
 
 import Gensokyo.BetterSpriterAnimation;
+import Gensokyo.actions.AnimatedMoveActualAction;
+import Gensokyo.actions.SetFlipAction;
 import Gensokyo.powers.act1.VigorPower;
 import Gensokyo.powers.act2.Purity;
 import Gensokyo.powers.act2.RivalPlayerPosition;
@@ -19,7 +21,7 @@ import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.animations.TalkAction;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.actions.common.DamageAction;
-import com.megacrit.cardcrawl.actions.common.GainBlockAction;
+import com.megacrit.cardcrawl.actions.common.RemoveSpecificPowerAction;
 import com.megacrit.cardcrawl.actions.common.RollMoveAction;
 import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.core.AbstractCreature;
@@ -76,6 +78,9 @@ public class Byakuren extends CustomMonster
 
     private float particleTimer;
     private float particleTimer2;
+
+    public float originalX;
+    public float originalY;
 
     private Miko rival;
 
@@ -197,22 +202,42 @@ public class Byakuren extends CustomMonster
         AbstractDungeon.actionManager.addToBottom(new RollMoveAction(this));
     }
 
+    public void rivalDefeated() {
+        AbstractDungeon.actionManager.addToBottom(new RemoveSpecificPowerAction(this, this, RivalPosition.POWER_ID));
+        AbstractDungeon.actionManager.addToBottom(new RemoveSpecificPowerAction(AbstractDungeon.player, AbstractDungeon.player, RivalPlayerPosition.POWER_ID));
+        AbstractDungeon.actionManager.addToBottom(new TalkAction(this, DIALOG[1]));
+        AbstractDungeon.actionManager.addToBottom(new AnimatedMoveActualAction(this, this.drawX, this.drawY, originalX, originalY));
+        AbstractDungeon.actionManager.addToBottom(new SetFlipAction(this));
+    }
+
+    public void setFlip(boolean horizontal, boolean vertical) {
+        this.animation.setFlip(horizontal, vertical);
+    }
+
     @Override
     protected void getMove(final int num) {
-        if (this.counter >= AOE_COOLDOWN) {
-            this.setMoveShortcut(AOE_ATTACK);
+        if (this.firstMove || !rival.isDeadOrEscaped()) {
+            if (this.counter >= AOE_COOLDOWN) {
+                this.setMoveShortcut(AOE_ATTACK);
+            } else {
+                ArrayList<Byte> possibilities = new ArrayList<>();
+                if (!this.lastMove(BUFF) && !this.lastMoveBefore(BUFF)) {
+                    possibilities.add(BUFF);
+                }
+                if (!this.lastMove(BUFF_BLOCK) && !this.lastMoveBefore(BUFF_BLOCK)) {
+                    possibilities.add(BUFF_BLOCK);
+                }
+                if (!this.lastMove(ATTACK)) {
+                    possibilities.add(ATTACK);
+                }
+                this.setMoveShortcut(possibilities.get(AbstractDungeon.monsterRng.random(possibilities.size() - 1)));
+            }
         } else {
-            ArrayList<Byte> possibilities = new ArrayList<>();
-            if (!this.lastMove(BUFF) && !this.lastMoveBefore(BUFF)) {
-                possibilities.add(BUFF);
-            }
             if (!this.lastMove(BUFF_BLOCK) && !this.lastMoveBefore(BUFF_BLOCK)) {
-                possibilities.add(BUFF_BLOCK);
+                this.setMoveShortcut(BUFF_BLOCK);
+            } else {
+                this.setMoveShortcut(ATTACK);
             }
-            if (!this.lastMove(ATTACK)) {
-                possibilities.add(ATTACK);
-            }
-            this.setMoveShortcut(possibilities.get(AbstractDungeon.monsterRng.random(possibilities.size() - 1)));
         }
     }
 
@@ -253,6 +278,9 @@ public class Byakuren extends CustomMonster
     @Override
     public void die(boolean triggerRelics) {
         //runAnim("Defeat");
+        if (rival != null) {
+            rival.rivalDefeated();
+        }
         super.die(triggerRelics);
     }
 

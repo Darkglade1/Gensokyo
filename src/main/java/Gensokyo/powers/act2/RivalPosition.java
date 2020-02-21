@@ -4,10 +4,8 @@ import Gensokyo.GensokyoMod;
 import Gensokyo.util.TextureLoader;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.TextureAtlas;
-import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.core.AbstractCreature;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
-import com.megacrit.cardcrawl.core.Settings;
 import com.megacrit.cardcrawl.localization.PowerStrings;
 import com.megacrit.cardcrawl.powers.AbstractPower;
 
@@ -23,11 +21,6 @@ public class RivalPosition extends AbstractPower {
     private static final Texture tex84 = TextureLoader.getTexture(makePowerPath("SpellCard84.png"));
     private static final Texture tex32 = TextureLoader.getTexture(makePowerPath("SpellCard32.png"));
 
-    private static float movement = 225.0F * Settings.scale;
-    private static float position1 = movement * 1;
-    private static float position2 = movement * 2;
-    private static float position3 = movement * 3;
-
     public RivalPosition(AbstractCreature owner, int amount) {
         name = NAME;
         ID = POWER_ID;
@@ -42,11 +35,6 @@ public class RivalPosition extends AbstractPower {
         this.region48 = new TextureAtlas.AtlasRegion(tex32, 0, 0, 32, 32);
 
         updateDescription();
-    }
-
-    @Override
-    public void onRemove() {
-        this.addToBot(new ApplyPowerAction(this.owner, this.owner, this));
     }
 
     @Override

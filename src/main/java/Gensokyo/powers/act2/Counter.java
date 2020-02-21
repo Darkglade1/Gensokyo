@@ -21,7 +21,7 @@ public class Counter extends AbstractPower {
     private static final PowerStrings powerStrings = CardCrawlGame.languagePack.getPowerStrings(POWER_ID);
     public static final String NAME = powerStrings.NAME;
     public static final String[] DESCRIPTIONS = powerStrings.DESCRIPTIONS;
-    public static final int MULTIPLIER = 2;
+    //public static final int MULTIPLIER = 2;
 
     private static final Texture tex84 = TextureLoader.getTexture(makePowerPath("Evasive84.png"));
     private static final Texture tex32 = TextureLoader.getTexture(makePowerPath("Evasive32.png"));
@@ -47,7 +47,7 @@ public class Counter extends AbstractPower {
         if (info.owner == this.owner && info.type == DamageInfo.DamageType.NORMAL) {
             DamageInfo newInfo = new DamageInfo(this.owner, info.base);
             newInfo.applyPowers(this.owner, this.owner);
-            newInfo.output *= MULTIPLIER;
+            //newInfo.output *= MULTIPLIER;
             AbstractDungeon.actionManager.addToBottom(new DamageAction(this.owner, newInfo));
             amount--;
             updateDescription();

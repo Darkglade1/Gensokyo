@@ -1,7 +1,7 @@
 package Gensokyo.monsters.act1.marisaMonsters;
 
 import Gensokyo.BetterSpriterAnimation;
-import Gensokyo.actions.AnimatedMoveAction;
+import Gensokyo.actions.AnimatedMoveEffect;
 import Gensokyo.actions.RezAction;
 import Gensokyo.actions.UsePreBattleActionAction;
 import Gensokyo.cards.Frozen;
@@ -343,10 +343,10 @@ public class Patchouli extends CustomMonster
             AbstractMonster orb = orbs[i];
             if (i == 0) {
                 newOrbs[orbs.length - 1] = orb;
-                AbstractDungeon.actionManager.addToBottom(new VFXAction(new AnimatedMoveAction(orb, orb.drawX, orb.drawY, orbs[orbs.length - 1].drawX, orbs[orbs.length - 1].drawY)));
+                AbstractDungeon.actionManager.addToBottom(new VFXAction(new AnimatedMoveEffect(orb, orb.drawX, orb.drawY, orbs[orbs.length - 1].drawX, orbs[orbs.length - 1].drawY)));
             } else {
                 newOrbs[i - 1] = orb;
-                AbstractDungeon.actionManager.addToBottom(new VFXAction(new AnimatedMoveAction(orb, orb.drawX, orb.drawY, orbs[i - 1].drawX, orbs[i - 1].drawY)));
+                AbstractDungeon.actionManager.addToBottom(new VFXAction(new AnimatedMoveEffect(orb, orb.drawX, orb.drawY, orbs[i - 1].drawX, orbs[i - 1].drawY)));
             }
         }
         orbs = newOrbs;

@@ -1,9 +1,10 @@
 package Gensokyo.monsters.act2;
 
 import Gensokyo.BetterSpriterAnimation;
+import Gensokyo.actions.AnimatedMoveActualAction;
 import Gensokyo.powers.act2.Counter;
-import Gensokyo.powers.act2.Purity;
 import Gensokyo.powers.act2.RivalPlayerPosition;
+import Gensokyo.powers.act2.RivalPosition;
 import Gensokyo.powers.act2.TenDesires;
 import Gensokyo.powers.act2.WishfulSoul;
 import Gensokyo.vfx.FlexibleDivinityParticleEffect;
@@ -16,9 +17,11 @@ import com.brashmonkey.spriter.Animation;
 import com.brashmonkey.spriter.Player;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.animations.TalkAction;
+import com.megacrit.cardcrawl.actions.animations.VFXAction;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.actions.common.DamageAction;
 import com.megacrit.cardcrawl.actions.common.HealAction;
+import com.megacrit.cardcrawl.actions.common.RemoveSpecificPowerAction;
 import com.megacrit.cardcrawl.actions.common.RollMoveAction;
 import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.core.AbstractCreature;
@@ -32,6 +35,7 @@ import com.megacrit.cardcrawl.powers.FrailPower;
 import com.megacrit.cardcrawl.powers.StrengthPower;
 import com.megacrit.cardcrawl.powers.VulnerablePower;
 import com.megacrit.cardcrawl.stances.DivinityStance;
+import com.megacrit.cardcrawl.vfx.combat.GoldenSlashEffect;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -66,8 +70,8 @@ public class Miko extends CustomMonster
     private static final int DEBUFF_AMOUNT = 1;
     private int debuffDamage;
 
-    private static final float HEALING = 0.10F;
-    private static final float A9_HEALING = 0.12F;
+    private static final float HEALING = 0.07F;
+    private static final float A9_HEALING = 0.08F;
     private float healing;
 
     private static final int STRENGTH_STEAL = 3;
@@ -82,6 +86,9 @@ public class Miko extends CustomMonster
 
     private float particleTimer;
     private float particleTimer2;
+
+    public float originalX;
+    public float originalY;
 
     private Byakuren rival;
 
@@ -138,11 +145,20 @@ public class Miko extends CustomMonster
                 rival = (Byakuren) mo;
             }
         }
+        this.originalX = this.drawX;
+        this.originalY = this.drawY;
+        if (rival != null) {
+            rival.originalX = this.drawX;
+            rival.originalY = this.drawY;
+        }
         AbstractDungeon.actionManager.addToBottom(new TalkAction(this, DIALOG[0]));
     }
     
     @Override
     public void takeTurn() {
+        if (this.firstMove) {
+            firstMove = false;
+        }
         DamageInfo info = new DamageInfo(this, moves.get(this.nextMove).baseDamage, DamageInfo.DamageType.NORMAL);
         AbstractCreature target;
         if (!rival.isDeadOrEscaped()) {
@@ -162,7 +178,8 @@ public class Miko extends CustomMonster
         switch (this.nextMove) {
             case ATTACK: {
                 for (int i = 0; i < NORMAL_ATTACK_HITS; i++) {
-                    AbstractDungeon.actionManager.addToBottom(new DamageAction(target, info, AbstractGameAction.AttackEffect.SLASH_DIAGONAL));
+                    AbstractDungeon.actionManager.addToBottom(new VFXAction(new GoldenSlashEffect(target.hb.cX - 60.0F * Settings.scale, target.hb.cY, true), 0.0F));
+                    AbstractDungeon.actionManager.addToBottom(new DamageAction(target, info, AbstractGameAction.AttackEffect.NONE));
                 }
                 counter++;
                break;
@@ -200,22 +217,37 @@ public class Miko extends CustomMonster
         AbstractDungeon.actionManager.addToBottom(new RollMoveAction(this));
     }
 
+    public void rivalDefeated() {
+        AbstractDungeon.actionManager.addToBottom(new RemoveSpecificPowerAction(this, this, RivalPosition.POWER_ID));
+        AbstractDungeon.actionManager.addToBottom(new RemoveSpecificPowerAction(AbstractDungeon.player, AbstractDungeon.player, RivalPlayerPosition.POWER_ID));
+        AbstractDungeon.actionManager.addToBottom(new TalkAction(this, DIALOG[1]));
+        AbstractDungeon.actionManager.addToBottom(new AnimatedMoveActualAction(this, this.drawX, this.drawY, originalX, originalY));
+    }
+
     @Override
     protected void getMove(final int num) {
-        if (this.counter >= COOLDOWN) {
-            this.setMoveShortcut(AOE_ATTACK);
+        if (this.firstMove || !rival.isDeadOrEscaped()) {
+            if (this.counter >= COOLDOWN) {
+                this.setMoveShortcut(AOE_ATTACK);
+            } else {
+                ArrayList<Byte> possibilities = new ArrayList<>();
+                if (!this.lastMove(STRONG_DEBUFF) && !this.lastMoveBefore(STRONG_DEBUFF)) {
+                    possibilities.add(STRONG_DEBUFF);
+                }
+                if (!this.lastMove(DEFEND_DEBUFF) && rival != null && rival.hasPower(StrengthPower.POWER_ID)) {
+                    possibilities.add(DEFEND_DEBUFF);
+                }
+                if (!this.lastMove(ATTACK)) {
+                    possibilities.add(ATTACK);
+                }
+                this.setMoveShortcut(possibilities.get(AbstractDungeon.monsterRng.random(possibilities.size() - 1)));
+            }
         } else {
-            ArrayList<Byte> possibilities = new ArrayList<>();
-            if (!this.lastMove(STRONG_DEBUFF) && !this.lastMoveBefore(STRONG_DEBUFF)) {
-                possibilities.add(STRONG_DEBUFF);
+            if (!this.lastMove(DEBUFF_ATTACK)) {
+                this.setMoveShortcut(DEBUFF_ATTACK);
+            } else {
+                this.setMoveShortcut(ATTACK);
             }
-            if (!this.lastMove(DEFEND_DEBUFF) && rival != null && rival.hasPower(StrengthPower.POWER_ID)) {
-                possibilities.add(DEFEND_DEBUFF);
-            }
-            if (!this.lastMove(ATTACK)) {
-                possibilities.add(ATTACK);
-            }
-            this.setMoveShortcut(possibilities.get(AbstractDungeon.monsterRng.random(possibilities.size() - 1)));
         }
     }
 
@@ -256,6 +288,9 @@ public class Miko extends CustomMonster
     @Override
     public void die(boolean triggerRelics) {
         //runAnim("Defeat");
+        if (rival != null) {
+            rival.rivalDefeated();
+        }
         super.die(triggerRelics);
     }
 

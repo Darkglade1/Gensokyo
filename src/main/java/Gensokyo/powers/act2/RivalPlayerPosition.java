@@ -1,11 +1,10 @@
 package Gensokyo.powers.act2;
 
 import Gensokyo.GensokyoMod;
-import Gensokyo.actions.AnimatedMoveAction;
+import Gensokyo.actions.AnimatedMoveEffect;
 import Gensokyo.util.TextureLoader;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.TextureAtlas;
-import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.core.AbstractCreature;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
@@ -165,19 +164,21 @@ public class RivalPlayerPosition extends AbstractPower {
 
     private void updateRivalPositions(AbstractPower power) {
         if (power.amount == 1) {
-            AbstractDungeon.effectList.add(new AnimatedMoveAction((AbstractMonster)power.owner, power.owner.drawX, power.owner.drawY, power.owner.drawX, position1));
+            AbstractDungeon.effectList.add(new AnimatedMoveEffect((AbstractMonster)power.owner, power.owner.drawX, power.owner.drawY, power.owner.drawX, position1));
         }
         if (power.amount == 2) {
-            AbstractDungeon.effectList.add(new AnimatedMoveAction((AbstractMonster)power.owner, power.owner.drawX, power.owner.drawY, power.owner.drawX, position2));
+            AbstractDungeon.effectList.add(new AnimatedMoveEffect((AbstractMonster)power.owner, power.owner.drawX, power.owner.drawY, power.owner.drawX, position2));
         }
         if (power.amount == 3) {
-            AbstractDungeon.effectList.add(new AnimatedMoveAction((AbstractMonster)power.owner, power.owner.drawX, power.owner.drawY, power.owner.drawX, position3));
+            AbstractDungeon.effectList.add(new AnimatedMoveEffect((AbstractMonster)power.owner, power.owner.drawX, power.owner.drawY, power.owner.drawX, position3));
         }
     }
 
     @Override
     public void onRemove() {
-        this.addToBot(new ApplyPowerAction(this.owner, this.owner, this));
+        this.owner.drawY = position1;
+        AbstractDungeon.player.drawX -= 480.0F * Settings.scale;
+        super.onRemove();
     }
 
     @Override

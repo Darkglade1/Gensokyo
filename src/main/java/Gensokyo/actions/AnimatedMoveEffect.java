@@ -8,7 +8,7 @@ import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.vfx.AbstractGameEffect;
 
 //Uses the effect class instead of action so other things don't wait on this - speeding things up
-public class AnimatedMoveAction extends AbstractGameEffect {
+public class AnimatedMoveEffect extends AbstractGameEffect {
     AbstractMonster mo;
     private float graphicsAnimation;
     private float startX;
@@ -16,7 +16,7 @@ public class AnimatedMoveAction extends AbstractGameEffect {
     private float endX;
     private float endY;
 
-    public AnimatedMoveAction(AbstractMonster mo, float startX, float startY, float endX, float endY) {
+    public AnimatedMoveEffect(AbstractMonster mo, float startX, float startY, float endX, float endY) {
         this.duration = Settings.ACTION_DUR_FAST;
         this.mo = mo;
         this.startX = startX;
