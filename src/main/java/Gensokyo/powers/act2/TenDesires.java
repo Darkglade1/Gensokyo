@@ -20,8 +20,8 @@ public class TenDesires extends AbstractPower {
     public static final String[] DESCRIPTIONS = powerStrings.DESCRIPTIONS;
     public static final int THRESHOLD = 2;
 
-    private static final Texture tex84 = TextureLoader.getTexture(makePowerPath("Evasive84.png"));
-    private static final Texture tex32 = TextureLoader.getTexture(makePowerPath("Evasive32.png"));
+    private static final Texture tex84 = TextureLoader.getTexture(makePowerPath("Desire84.png"));
+    private static final Texture tex32 = TextureLoader.getTexture(makePowerPath("Desire32.png"));
 
     public TenDesires(AbstractCreature owner) {
         name = NAME;

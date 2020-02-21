@@ -24,8 +24,8 @@ public class WishfulSoul extends AbstractPower {
     private AbstractCreature source;
     private boolean justApplied = true;
 
-    private static final Texture tex84 = TextureLoader.getTexture(makePowerPath("Evasive84.png"));
-    private static final Texture tex32 = TextureLoader.getTexture(makePowerPath("Evasive32.png"));
+    private static final Texture tex84 = TextureLoader.getTexture(makePowerPath("Drain84.png"));
+    private static final Texture tex32 = TextureLoader.getTexture(makePowerPath("Drain32.png"));
 
     public WishfulSoul(AbstractCreature owner, AbstractCreature source, int amount) {
         name = NAME;

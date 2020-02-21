@@ -23,8 +23,8 @@ public class Counter extends AbstractPower {
     public static final String[] DESCRIPTIONS = powerStrings.DESCRIPTIONS;
     //public static final int MULTIPLIER = 2;
 
-    private static final Texture tex84 = TextureLoader.getTexture(makePowerPath("Evasive84.png"));
-    private static final Texture tex32 = TextureLoader.getTexture(makePowerPath("Evasive32.png"));
+    private static final Texture tex84 = TextureLoader.getTexture(makePowerPath("Counter84.png"));
+    private static final Texture tex32 = TextureLoader.getTexture(makePowerPath("Counter32.png"));
 
     public Counter(AbstractCreature owner) {
         name = NAME;

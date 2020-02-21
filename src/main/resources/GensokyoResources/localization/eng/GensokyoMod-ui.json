@@ -29,10 +29,10 @@
       "This enemy intends to #rkill you."
     ]
   },
-  "Gensokyo:HistoryOfViolence": {
+  "Gensokyo:AreaAttackIntent": {
     "TEXT": [
-      "History of Simulated Violence",
-      "Act 4"
+      "Area Attack",
+      "This enemy intends to deal #b", " damage to ALL other characters", ".", " times."
     ]
   }
 }

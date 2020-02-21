@@ -9,6 +9,8 @@ import com.megacrit.cardcrawl.core.AbstractCreature;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.localization.PowerStrings;
 import com.megacrit.cardcrawl.powers.AbstractPower;
+import com.megacrit.cardcrawl.powers.GainStrengthPower;
+import com.megacrit.cardcrawl.powers.StrengthPower;
 
 import static Gensokyo.GensokyoMod.makePowerPath;
 
@@ -19,9 +21,11 @@ public class Purity extends AbstractPower implements OnReceivePowerPower {
     public static final String NAME = powerStrings.NAME;
     public static final String[] DESCRIPTIONS = powerStrings.DESCRIPTIONS;
     public static final int THRESHOLD = 2;
+    private boolean justStrengthDown = false;
+    private boolean negateGainStrengthUp = false;
 
-    private static final Texture tex84 = TextureLoader.getTexture(makePowerPath("Evasive84.png"));
-    private static final Texture tex32 = TextureLoader.getTexture(makePowerPath("Evasive32.png"));
+    private static final Texture tex84 = TextureLoader.getTexture(makePowerPath("Purity84.png"));
+    private static final Texture tex32 = TextureLoader.getTexture(makePowerPath("Purity32.png"));
 
     public Purity(AbstractCreature owner) {
         name = NAME;
@@ -42,11 +46,32 @@ public class Purity extends AbstractPower implements OnReceivePowerPower {
     @Override
     public boolean onReceivePower(AbstractPower power, AbstractCreature target, AbstractCreature source) {
         if (power.type == PowerType.DEBUFF) {
+            //Handle temp Strength down effects
+            if (power instanceof StrengthPower) {
+                if (this.amount < THRESHOLD) {
+                    justStrengthDown = true;
+                } else {
+                    negateGainStrengthUp = true;
+                }
+            }
+            if (power instanceof GainStrengthPower) {
+                if (justStrengthDown) {
+                    justStrengthDown = false;
+                    return true;
+                }
+                if (negateGainStrengthUp) {
+                    negateGainStrengthUp = false;
+                    return false;
+                }
+            }
+            //Actual code
             if (this.amount >= THRESHOLD) {
                 this.amount = 1;
+                justStrengthDown = false;
                 return false;
             } else {
                 this.amount++;
+                negateGainStrengthUp = false;
             }
         }
         return true;

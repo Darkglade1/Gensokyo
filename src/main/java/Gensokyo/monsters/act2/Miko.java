@@ -1,6 +1,7 @@
 package Gensokyo.monsters.act2;
 
 import Gensokyo.BetterSpriterAnimation;
+import Gensokyo.RazIntent.IntentEnums;
 import Gensokyo.actions.AnimatedMoveActualAction;
 import Gensokyo.powers.act2.Counter;
 import Gensokyo.powers.act2.RivalPlayerPosition;
@@ -34,6 +35,7 @@ import com.megacrit.cardcrawl.monsters.EnemyMoveInfo;
 import com.megacrit.cardcrawl.powers.FrailPower;
 import com.megacrit.cardcrawl.powers.StrengthPower;
 import com.megacrit.cardcrawl.powers.VulnerablePower;
+import com.megacrit.cardcrawl.powers.WeakPower;
 import com.megacrit.cardcrawl.stances.DivinityStance;
 import com.megacrit.cardcrawl.vfx.combat.GoldenSlashEffect;
 
@@ -128,10 +130,10 @@ public class Miko extends CustomMonster
         }
 
         this.moves = new HashMap<>();
-        this.moves.put(ATTACK, new EnemyMoveInfo(ATTACK, Intent.ATTACK, this.normalDamage, NORMAL_ATTACK_HITS, true));
+        this.moves.put(ATTACK, new EnemyMoveInfo(ATTACK, Intent.ATTACK_DEBUFF, this.normalDamage, NORMAL_ATTACK_HITS, true));
         this.moves.put(STRONG_DEBUFF, new EnemyMoveInfo(STRONG_DEBUFF, Intent.STRONG_DEBUFF, -1, 0, false));
         this.moves.put(DEFEND_DEBUFF, new EnemyMoveInfo(DEFEND_DEBUFF, Intent.DEFEND_DEBUFF, -1, 0, false));
-        this.moves.put(AOE_ATTACK, new EnemyMoveInfo(AOE_ATTACK, Intent.ATTACK, this.aoeDamage, AOE_HITS, true));
+        this.moves.put(AOE_ATTACK, new EnemyMoveInfo(AOE_ATTACK, IntentEnums.ATTACK_AREA, this.aoeDamage, AOE_HITS, true));
         this.moves.put(DEBUFF_ATTACK, new EnemyMoveInfo(DEBUFF_ATTACK, Intent.ATTACK_DEBUFF, this.debuffDamage, 0, false));
 
         Player.PlayerListener listener = new ByakurenListener(this);
@@ -181,6 +183,7 @@ public class Miko extends CustomMonster
                     AbstractDungeon.actionManager.addToBottom(new VFXAction(new GoldenSlashEffect(target.hb.cX - 60.0F * Settings.scale, target.hb.cY, true), 0.0F));
                     AbstractDungeon.actionManager.addToBottom(new DamageAction(target, info, AbstractGameAction.AttackEffect.NONE));
                 }
+                AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(target, this, new WeakPower(target, DEBUFF_AMOUNT, true), DEBUFF_AMOUNT));
                 counter++;
                break;
             }
@@ -197,10 +200,14 @@ public class Miko extends CustomMonster
             }
             case AOE_ATTACK: {
                 for (int i = 0; i < NORMAL_ATTACK_HITS; i++) {
-                    AbstractDungeon.actionManager.addToBottom(new DamageAction(AbstractDungeon.player, info, AbstractGameAction.AttackEffect.SLASH_DIAGONAL));
+                    DamageInfo playerInfo = new DamageInfo(this, moves.get(this.nextMove).baseDamage, DamageInfo.DamageType.NORMAL);
+                    playerInfo.applyPowers(this, AbstractDungeon.player);
+                    AbstractDungeon.actionManager.addToBottom(new DamageAction(AbstractDungeon.player, playerInfo, AbstractGameAction.AttackEffect.SLASH_DIAGONAL));
                     for (AbstractMonster mo : AbstractDungeon.getCurrRoom().monsters.monsters) {
                         if (mo != this) {
-                            AbstractDungeon.actionManager.addToBottom(new DamageAction(mo, info, AbstractGameAction.AttackEffect.SLASH_DIAGONAL));
+                            DamageInfo monsterInfo = new DamageInfo(this, moves.get(this.nextMove).baseDamage, DamageInfo.DamageType.NORMAL);
+                            monsterInfo.applyPowers(this, mo);
+                            AbstractDungeon.actionManager.addToBottom(new DamageAction(mo, monsterInfo, AbstractGameAction.AttackEffect.SLASH_DIAGONAL));
                         }
                     }
                 }

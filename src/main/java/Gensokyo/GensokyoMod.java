@@ -1,5 +1,6 @@
 package Gensokyo;
 
+import Gensokyo.RazIntent.AreaAttackIntent;
 import Gensokyo.RazIntent.CustomIntent;
 import Gensokyo.RazIntent.DeathIntent;
 import Gensokyo.cards.AllTheWorldsEvil;
@@ -358,6 +359,7 @@ public class GensokyoMod implements
         //Act 2
         BaseMod.addMonster(Kaguya.ID, (BaseMod.GetMonster) Kaguya::new);
         BaseMod.addMonster(Yuyuko.ID, (BaseMod.GetMonster) Yuyuko::new);
+        CustomIntent.add(new AreaAttackIntent());
         CustomIntent.add(new DeathIntent());
         BaseMod.addMonster(Eiki.ID, (BaseMod.GetMonster) Eiki::new);
         BaseMod.addMonster(EncounterIDs.ETERNAL_RIVALS, "The Eternal Rivals", () -> new MonsterGroup(
@@ -365,6 +367,7 @@ public class GensokyoMod implements
                         new Byakuren(-960.0F, 0.0F),
                         new Miko(),
                 }));
+
 
         //BaseMod.addBoss(Gensokyo.ID, Kaguya.ID, "GensokyoResources/images/monsters/Kaguya/Kaguya.png", "GensokyoResources/images/monsters/Kaguya/KaguyaOutline.png");
         BaseMod.addBoss(Gensokyo.ID, Yuyuko.ID, "GensokyoResources/images/monsters/Yuyuko/Yuyuko.png", "GensokyoResources/images/monsters/Yuyuko/YuyukoOutline.png");

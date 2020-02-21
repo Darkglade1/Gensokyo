@@ -1,6 +1,7 @@
 package Gensokyo.monsters.act2;
 
 import Gensokyo.BetterSpriterAnimation;
+import Gensokyo.RazIntent.IntentEnums;
 import Gensokyo.actions.AnimatedMoveActualAction;
 import Gensokyo.actions.SetFlipAction;
 import Gensokyo.powers.act1.VigorPower;
@@ -121,7 +122,7 @@ public class Byakuren extends CustomMonster
         this.moves.put(ATTACK, new EnemyMoveInfo(ATTACK, Intent.ATTACK, this.normalDamage, 0, false));
         this.moves.put(BUFF, new EnemyMoveInfo(BUFF, Intent.BUFF, -1, 0, false));
         this.moves.put(BUFF_BLOCK, new EnemyMoveInfo(BUFF_BLOCK, Intent.DEFEND_BUFF, -1, 0, false));
-        this.moves.put(AOE_ATTACK, new EnemyMoveInfo(AOE_ATTACK, Intent.ATTACK, this.aoeDamage, 0, false));
+        this.moves.put(AOE_ATTACK, new EnemyMoveInfo(AOE_ATTACK, IntentEnums.ATTACK_AREA, this.aoeDamage, 0, false));
 
         Player.PlayerListener listener = new ByakurenListener(this);
         ((BetterSpriterAnimation)this.animation).myPlayer.addListener(listener);
@@ -172,13 +173,11 @@ public class Byakuren extends CustomMonster
         switch (this.nextMove) {
             case ATTACK: {
                 AbstractDungeon.actionManager.addToBottom(new DamageAction(target, info, AbstractGameAction.AttackEffect.BLUNT_HEAVY));
-                //AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(this, this, new StrengthPower(this, -DEBUFF_AMT), -DEBUFF_AMT));
                 counter++;
                 break;
             }
             case BUFF: {
                 AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(this, this, new StrengthPower(this, strength), strength));
-                //AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(this, this, new WeakPower(this, DEBUFF_AMT, true), DEBUFF_AMT));
                 counter++;
                 break;
             }
@@ -189,10 +188,14 @@ public class Byakuren extends CustomMonster
                 break;
             }
             case AOE_ATTACK: {
-                AbstractDungeon.actionManager.addToBottom(new DamageAction(AbstractDungeon.player, info, AbstractGameAction.AttackEffect.SLASH_HEAVY));
+                DamageInfo playerInfo = new DamageInfo(this, moves.get(this.nextMove).baseDamage, DamageInfo.DamageType.NORMAL);
+                playerInfo.applyPowers(this, AbstractDungeon.player);
+                AbstractDungeon.actionManager.addToBottom(new DamageAction(AbstractDungeon.player, playerInfo, AbstractGameAction.AttackEffect.SLASH_HEAVY));
                 for (AbstractMonster mo : AbstractDungeon.getCurrRoom().monsters.monsters) {
                     if (mo != this) {
-                        AbstractDungeon.actionManager.addToBottom(new DamageAction(mo, info, AbstractGameAction.AttackEffect.SLASH_HEAVY));
+                        DamageInfo monsterInfo = new DamageInfo(this, moves.get(this.nextMove).baseDamage, DamageInfo.DamageType.NORMAL);
+                        monsterInfo.applyPowers(this, mo);
+                        AbstractDungeon.actionManager.addToBottom(new DamageAction(mo, monsterInfo, AbstractGameAction.AttackEffect.SLASH_HEAVY));
                     }
                 }
                 counter = 0;

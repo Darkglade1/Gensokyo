@@ -6,7 +6,6 @@ import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.core.Settings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 
-//Uses the effect class instead of action so other things don't wait on this - speeding things up
 public class AnimatedMoveActualAction extends AbstractGameAction {
     AbstractMonster mo;
     private float graphicsAnimation;
