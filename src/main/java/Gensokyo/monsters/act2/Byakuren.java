@@ -59,8 +59,8 @@ public class Byakuren extends CustomMonster
     private static final int A4_NORMAL_ATTACK_DAMAGE = 40;
     private int normalDamage;
 
-    private static final int AOE_DAMAGE = 28;
-    private static final int A4_AOE_DAMAGE = 30;
+    private static final int AOE_DAMAGE = 24;
+    private static final int A4_AOE_DAMAGE = 26;
     private int aoeDamage;
 
     private static final int STRENGTH = 8;
@@ -179,22 +179,26 @@ public class Byakuren extends CustomMonster
         }
         switch (this.nextMove) {
             case ATTACK: {
+                runAnim("Magic");
                 AbstractDungeon.actionManager.addToBottom(new DamageAction(target, info, AbstractGameAction.AttackEffect.FIRE));
                 counter++;
                 break;
             }
             case BUFF: {
+                runAnim("Special");
                 AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(this, this, new StrengthPower(this, strength), strength));
                 counter++;
                 break;
             }
             case BUFF_BLOCK: {
+                runAnim("Special");
                 AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(this, this, new VigorPower(this, BUFF_AMT, true), BUFF_AMT));
                 AbstractDungeon.actionManager.addToBottom(new AddTemporaryHPAction(this, this, block));
                 counter++;
                 break;
             }
             case AOE_ATTACK: {
+                runAnim("Magic");
                 DamageInfo playerInfo = new DamageInfo(this, moves.get(this.nextMove).baseDamage, DamageInfo.DamageType.NORMAL);
                 playerInfo.applyPowers(this, AbstractDungeon.player);
                 AbstractDungeon.actionManager.addToBottom(new VFXAction(new LightningEffect(AbstractDungeon.player.drawX, AbstractDungeon.player.drawY)));
@@ -291,7 +295,7 @@ public class Byakuren extends CustomMonster
 
     @Override
     public void die(boolean triggerRelics) {
-        //runAnim("Defeat");
+        runAnim("Defeat");
         if (rival != null) {
             rival.rivalDefeated();
         }
