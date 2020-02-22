@@ -179,7 +179,7 @@ public class Byakuren extends CustomMonster
         }
         switch (this.nextMove) {
             case ATTACK: {
-                AbstractDungeon.actionManager.addToBottom(new DamageAction(target, info, AbstractGameAction.AttackEffect.BLUNT_HEAVY));
+                AbstractDungeon.actionManager.addToBottom(new DamageAction(target, info, AbstractGameAction.AttackEffect.FIRE));
                 counter++;
                 break;
             }

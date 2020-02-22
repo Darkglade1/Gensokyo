@@ -13,6 +13,7 @@ import Gensokyo.vfx.FlexibleDivinityParticleEffect;
 import Gensokyo.vfx.FlexibleStanceAuraEffect;
 import basemod.abstracts.CustomMonster;
 import com.badlogic.gdx.Gdx;
+import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.math.MathUtils;
 import com.brashmonkey.spriter.Animation;
@@ -25,6 +26,7 @@ import com.megacrit.cardcrawl.actions.common.DamageAction;
 import com.megacrit.cardcrawl.actions.common.HealAction;
 import com.megacrit.cardcrawl.actions.common.RemoveSpecificPowerAction;
 import com.megacrit.cardcrawl.actions.common.RollMoveAction;
+import com.megacrit.cardcrawl.actions.utility.SFXAction;
 import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.core.AbstractCreature;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
@@ -38,7 +40,9 @@ import com.megacrit.cardcrawl.powers.StrengthPower;
 import com.megacrit.cardcrawl.powers.VulnerablePower;
 import com.megacrit.cardcrawl.powers.WeakPower;
 import com.megacrit.cardcrawl.stances.DivinityStance;
+import com.megacrit.cardcrawl.vfx.BorderFlashEffect;
 import com.megacrit.cardcrawl.vfx.combat.GoldenSlashEffect;
+import com.megacrit.cardcrawl.vfx.combat.SmallLaserEffect;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -198,35 +202,43 @@ public class Miko extends CustomMonster
                 break;
             }
             case DEFEND_DEBUFF: {
-                runAnim("Cape");
+                runAnim("LastWord");
                 this.addToBot(new HealAction(this, this, (int)(this.maxHealth * healing)));
                 this.addToBot(new ApplyPowerAction(target, this, new WishfulSoul(target, this, strengthSteal), strengthSteal));
-                this.addToBot(new VFXAction(new EmptyEffect(), 1.3F));
+                this.addToBot(new VFXAction(new EmptyEffect(), 0.4F));
                 counter++;
                 break;
             }
             case AOE_ATTACK: {
-                runAnim("Sword");
+                runAnim("LastWord");
                 for (int i = 0; i < NORMAL_ATTACK_HITS; i++) {
                     DamageInfo playerInfo = new DamageInfo(this, moves.get(this.nextMove).baseDamage, DamageInfo.DamageType.NORMAL);
                     playerInfo.applyPowers(this, AbstractDungeon.player);
-                    AbstractDungeon.actionManager.addToBottom(new DamageAction(AbstractDungeon.player, playerInfo, AbstractGameAction.AttackEffect.SLASH_DIAGONAL));
+                    AbstractDungeon.actionManager.addToBottom(new SFXAction("ATTACK_MAGIC_BEAM_SHORT", 0.5F));
+                    AbstractDungeon.actionManager.addToBottom(new VFXAction(new BorderFlashEffect(Color.SKY)));
+                    AbstractDungeon.actionManager.addToBottom(new VFXAction(new SmallLaserEffect(AbstractDungeon.player.hb.cX, AbstractDungeon.player.hb.cY, this.hb.cX, this.hb.cY), 0.1F));
+                    AbstractDungeon.actionManager.addToBottom(new DamageAction(AbstractDungeon.player, playerInfo, AbstractGameAction.AttackEffect.NONE));
                     for (AbstractMonster mo : AbstractDungeon.getCurrRoom().monsters.monsters) {
                         if (mo != this) {
                             DamageInfo monsterInfo = new DamageInfo(this, moves.get(this.nextMove).baseDamage, DamageInfo.DamageType.NORMAL);
                             monsterInfo.applyPowers(this, mo);
-                            AbstractDungeon.actionManager.addToBottom(new DamageAction(mo, monsterInfo, AbstractGameAction.AttackEffect.SLASH_DIAGONAL));
+                            AbstractDungeon.actionManager.addToBottom(new SFXAction("ATTACK_MAGIC_BEAM_SHORT", 0.5F));
+                            AbstractDungeon.actionManager.addToBottom(new VFXAction(new BorderFlashEffect(Color.SKY)));
+                            AbstractDungeon.actionManager.addToBottom(new VFXAction(new SmallLaserEffect(mo.hb.cX, mo.hb.cY, this.hb.cX, this.hb.cY), 0.1F));
+                            AbstractDungeon.actionManager.addToBottom(new DamageAction(mo, monsterInfo, AbstractGameAction.AttackEffect.NONE));
                         }
                     }
                 }
-                this.addToBot(new VFXAction(new EmptyEffect(), 0.4F));
+                this.addToBot(new VFXAction(new EmptyEffect(), 0.2F));
                 counter = 0;
                 break;
             }
             case DEBUFF_ATTACK: {
+                runAnim("Sword");
                 AbstractDungeon.actionManager.addToBottom(new DamageAction(target, info, AbstractGameAction.AttackEffect.SLASH_DIAGONAL));
                 AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(target, this, new VulnerablePower(target, DEBUFF_AMOUNT, true), DEBUFF_AMOUNT));
                 AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(target, this, new FrailPower(target, DEBUFF_AMOUNT, true), DEBUFF_AMOUNT));
+                this.addToBot(new VFXAction(new EmptyEffect(), 0.4F));
                 break;
             }
         }
@@ -309,7 +321,7 @@ public class Miko extends CustomMonster
 
     @Override
     public void die(boolean triggerRelics) {
-        //runAnim("Defeat");
+        runAnim("Defeat");
         if (rival != null) {
             rival.rivalDefeated();
         }
