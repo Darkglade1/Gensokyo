@@ -41,7 +41,6 @@ import com.megacrit.cardcrawl.vfx.combat.LightningEffect;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
-import java.util.Random;
 
 public class Byakuren extends CustomMonster
 {
@@ -134,7 +133,7 @@ public class Byakuren extends CustomMonster
 
     @Override
     public void usePreBattleAction() {
-        if (new Random().nextBoolean()) {
+        if (AbstractDungeon.cardRandomRng.randomBoolean()) {
             AbstractDungeon.getCurrRoom().playBgmInstantly("CosmicMind");
         } else {
             AbstractDungeon.getCurrRoom().playBgmInstantly("TrueAdmin");
