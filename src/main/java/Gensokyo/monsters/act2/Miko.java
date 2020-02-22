@@ -8,6 +8,7 @@ import Gensokyo.powers.act2.RivalPlayerPosition;
 import Gensokyo.powers.act2.RivalPosition;
 import Gensokyo.powers.act2.TenDesires;
 import Gensokyo.powers.act2.WishfulSoul;
+import Gensokyo.vfx.EmptyEffect;
 import Gensokyo.vfx.FlexibleDivinityParticleEffect;
 import Gensokyo.vfx.FlexibleStanceAuraEffect;
 import basemod.abstracts.CustomMonster;
@@ -179,26 +180,33 @@ public class Miko extends CustomMonster
         }
         switch (this.nextMove) {
             case ATTACK: {
+                runAnim("Sword");
                 for (int i = 0; i < NORMAL_ATTACK_HITS; i++) {
                     AbstractDungeon.actionManager.addToBottom(new VFXAction(new GoldenSlashEffect(target.hb.cX - 60.0F * Settings.scale, target.hb.cY, true), 0.0F));
                     AbstractDungeon.actionManager.addToBottom(new DamageAction(target, info, AbstractGameAction.AttackEffect.NONE));
                 }
                 AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(target, this, new WeakPower(target, DEBUFF_AMOUNT, true), DEBUFF_AMOUNT));
+                this.addToBot(new VFXAction(new EmptyEffect(), 0.4F));
                 counter++;
                break;
             }
             case STRONG_DEBUFF: {
+                runAnim("Cape");
                 this.addToBot(new ApplyPowerAction(target, this, new Counter(target), 1));
+                this.addToBot(new VFXAction(new EmptyEffect(), 1.3F));
                 counter++;
                 break;
             }
             case DEFEND_DEBUFF: {
+                runAnim("Cape");
                 this.addToBot(new HealAction(this, this, (int)(this.maxHealth * healing)));
                 this.addToBot(new ApplyPowerAction(target, this, new WishfulSoul(target, this, strengthSteal), strengthSteal));
+                this.addToBot(new VFXAction(new EmptyEffect(), 1.3F));
                 counter++;
                 break;
             }
             case AOE_ATTACK: {
+                runAnim("Sword");
                 for (int i = 0; i < NORMAL_ATTACK_HITS; i++) {
                     DamageInfo playerInfo = new DamageInfo(this, moves.get(this.nextMove).baseDamage, DamageInfo.DamageType.NORMAL);
                     playerInfo.applyPowers(this, AbstractDungeon.player);
@@ -211,6 +219,7 @@ public class Miko extends CustomMonster
                         }
                     }
                 }
+                this.addToBot(new VFXAction(new EmptyEffect(), 0.4F));
                 counter = 0;
                 break;
             }
@@ -227,7 +236,7 @@ public class Miko extends CustomMonster
     public void rivalDefeated() {
         AbstractDungeon.actionManager.addToBottom(new RemoveSpecificPowerAction(this, this, RivalPosition.POWER_ID));
         AbstractDungeon.actionManager.addToBottom(new RemoveSpecificPowerAction(AbstractDungeon.player, AbstractDungeon.player, RivalPlayerPosition.POWER_ID));
-        AbstractDungeon.actionManager.addToBottom(new TalkAction(this, DIALOG[1], 0.5F, 2.0F));
+        AbstractDungeon.actionManager.addToBottom(new TalkAction(this, DIALOG[1], 0.0F, 2.0F));
         AbstractDungeon.actionManager.addToBottom(new AnimatedMoveActualAction(this, this.drawX, this.drawY, originalX, originalY));
         if (this.drawY > originalY) {
             runAnim("MoveDown");
