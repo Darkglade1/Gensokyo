@@ -136,7 +136,7 @@ public class Miko extends CustomMonster
         this.moves.put(AOE_ATTACK, new EnemyMoveInfo(AOE_ATTACK, IntentEnums.ATTACK_AREA, this.aoeDamage, AOE_HITS, true));
         this.moves.put(DEBUFF_ATTACK, new EnemyMoveInfo(DEBUFF_ATTACK, Intent.ATTACK_DEBUFF, this.debuffDamage, 0, false));
 
-        Player.PlayerListener listener = new ByakurenListener(this);
+        Player.PlayerListener listener = new MikoListener(this);
         ((BetterSpriterAnimation)this.animation).myPlayer.addListener(listener);
     }
 
@@ -227,8 +227,11 @@ public class Miko extends CustomMonster
     public void rivalDefeated() {
         AbstractDungeon.actionManager.addToBottom(new RemoveSpecificPowerAction(this, this, RivalPosition.POWER_ID));
         AbstractDungeon.actionManager.addToBottom(new RemoveSpecificPowerAction(AbstractDungeon.player, AbstractDungeon.player, RivalPlayerPosition.POWER_ID));
-        AbstractDungeon.actionManager.addToBottom(new TalkAction(this, DIALOG[1]));
+        AbstractDungeon.actionManager.addToBottom(new TalkAction(this, DIALOG[1], 0.5F, 2.0F));
         AbstractDungeon.actionManager.addToBottom(new AnimatedMoveActualAction(this, this.drawX, this.drawY, originalX, originalY));
+        if (this.drawY > originalY) {
+            runAnim("MoveDown");
+        }
     }
 
     @Override
@@ -321,11 +324,11 @@ public class Miko extends CustomMonster
         ((BetterSpriterAnimation)this.animation).myPlayer.speed = 0;
     }
 
-    public class ByakurenListener implements Player.PlayerListener {
+    public class MikoListener implements Player.PlayerListener {
 
         private Miko character;
 
-        public ByakurenListener(Miko character) {
+        public MikoListener(Miko character) {
             this.character = character;
         }
 

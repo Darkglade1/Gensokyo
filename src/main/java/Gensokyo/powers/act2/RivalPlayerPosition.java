@@ -2,6 +2,8 @@ package Gensokyo.powers.act2;
 
 import Gensokyo.GensokyoMod;
 import Gensokyo.actions.AnimatedMoveEffect;
+import Gensokyo.monsters.act2.Byakuren;
+import Gensokyo.monsters.act2.Miko;
 import Gensokyo.util.TextureLoader;
 import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.Texture;
@@ -168,35 +170,52 @@ public class RivalPlayerPosition extends AbstractPower {
     }
 
     private void updateRivalPositions(AbstractPower power) {
+        boolean moveUp = false;
+        boolean moveDown = false;
         if (power.amount == 1) {
             AbstractDungeon.effectList.add(new AnimatedMoveEffect((AbstractMonster)power.owner, power.owner.drawX, power.owner.drawY, power.owner.drawX, position1));
+            if (power.owner.drawY < position1) {
+                moveUp = true;
+            }
+            if (power.owner.drawY > position1) {
+                moveDown = true;
+            }
         }
         if (power.amount == 2) {
             AbstractDungeon.effectList.add(new AnimatedMoveEffect((AbstractMonster)power.owner, power.owner.drawX, power.owner.drawY, power.owner.drawX, position2));
+            if (power.owner.drawY < position2) {
+                moveUp = true;
+            }
+            if (power.owner.drawY > position2) {
+                moveDown = true;
+            }
         }
         if (power.amount == 3) {
             AbstractDungeon.effectList.add(new AnimatedMoveEffect((AbstractMonster)power.owner, power.owner.drawX, power.owner.drawY, power.owner.drawX, position3));
+            if (power.owner.drawY < position3) {
+                moveUp = true;
+            }
+            if (power.owner.drawY > position3) {
+                moveDown = true;
+            }
+        }
+        if (moveUp) {
+            if (power.owner instanceof Byakuren) {
+                ((Byakuren)power.owner).runAnim("MoveUp");
+            }
+            if (power.owner instanceof Miko) {
+                ((Miko)power.owner).runAnim("MoveUp");
+            }
+        }
+        if (moveDown) {
+            if (power.owner instanceof Byakuren) {
+                ((Byakuren)power.owner).runAnim("MoveDown");
+            }
+            if (power.owner instanceof Miko) {
+                ((Miko)power.owner).runAnim("MoveDown");
+            }
         }
     }
-
-//    @Override
-//    public void renderIcons(SpriteBatch sb, float x, float y, Color c) {
-//        super.renderIcons(sb, x, y, c);
-//        float scaleWidth = 1.0F * Settings.scale;
-//        float scaleHeight = Settings.scale;
-//        sb.setColor(Color.WHITE);
-//        for (Integer lane : unsafeLanes) {
-//            if (lane == 1) {
-//                sb.draw(X_REGION, this.owner.drawX, position1, 0.0F, 0.0F, this.X_REGION.getRegionWidth(), this.X_REGION.getRegionHeight(), scaleWidth, scaleHeight, 0.0F);
-//            }
-//            if (lane == 2) {
-//                sb.draw(X_REGION, this.owner.drawX, position2, 0.0F, 0.0F, this.X_REGION.getRegionWidth(), this.X_REGION.getRegionHeight(), scaleWidth, scaleHeight, 0.0F);
-//            }
-//            if (lane == 3) {
-//                sb.draw(X_REGION, this.owner.drawX, position3, 0.0F, 0.0F, this.X_REGION.getRegionWidth(), this.X_REGION.getRegionHeight(), scaleWidth, scaleHeight, 0.0F);
-//            }
-//        }
-//    }
 
     @Override
     public void onRemove() {

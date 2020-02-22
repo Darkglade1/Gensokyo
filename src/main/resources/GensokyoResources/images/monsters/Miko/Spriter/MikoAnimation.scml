@@ -16,6 +16,27 @@
         <file id="12" name="Idle/tile011.png" width="385" height="382" pivot_x="0" pivot_y="1"/>
         <file id="13" name="Idle/tile012.png" width="385" height="382" pivot_x="0" pivot_y="1"/>
     </folder>
+    <folder id="1" name="MoveDown">
+        <file id="0" name="MoveDown/tile009.png" width="386" height="386" pivot_x="0" pivot_y="1"/>
+        <file id="1" name="MoveDown/tile000.png" width="386" height="386" pivot_x="0" pivot_y="1"/>
+        <file id="2" name="MoveDown/tile001.png" width="386" height="386" pivot_x="0" pivot_y="1"/>
+        <file id="3" name="MoveDown/tile002.png" width="386" height="386" pivot_x="0" pivot_y="1"/>
+        <file id="4" name="MoveDown/tile003.png" width="386" height="386" pivot_x="0" pivot_y="1"/>
+        <file id="5" name="MoveDown/tile004.png" width="386" height="386" pivot_x="0" pivot_y="1"/>
+        <file id="6" name="MoveDown/tile005.png" width="386" height="386" pivot_x="0" pivot_y="1"/>
+        <file id="7" name="MoveDown/tile006.png" width="386" height="386" pivot_x="0" pivot_y="1"/>
+        <file id="8" name="MoveDown/tile007.png" width="386" height="386" pivot_x="0" pivot_y="1"/>
+        <file id="9" name="MoveDown/tile008.png" width="386" height="386" pivot_x="0" pivot_y="1"/>
+    </folder>
+    <folder id="2" name="MoveUp">
+        <file id="0" name="MoveUp/tile016.png" width="386" height="386" pivot_x="0" pivot_y="1"/>
+        <file id="1" name="MoveUp/tile010.png" width="386" height="386" pivot_x="0" pivot_y="1"/>
+        <file id="2" name="MoveUp/tile011.png" width="386" height="386" pivot_x="0" pivot_y="1"/>
+        <file id="3" name="MoveUp/tile012.png" width="386" height="386" pivot_x="0" pivot_y="1"/>
+        <file id="4" name="MoveUp/tile013.png" width="386" height="386" pivot_x="0" pivot_y="1"/>
+        <file id="5" name="MoveUp/tile014.png" width="386" height="386" pivot_x="0" pivot_y="1"/>
+        <file id="6" name="MoveUp/tile015.png" width="386" height="386" pivot_x="0" pivot_y="1"/>
+    </folder>
     <entity id="0" name="Miko">
         <animation id="0" name="Idle" length="1300" interval="100">
             <mainline>
@@ -104,6 +125,120 @@
                 </key>
                 <key id="13" time="1207" spin="0">
                     <object folder="0" file="0" x="-192" y="314" angle="0"/>
+                </key>
+            </timeline>
+        </animation>
+        <animation id="1" name="MoveDown" length="1000" interval="100">
+            <mainline>
+                <key id="0">
+                    <object_ref id="0" timeline="0" key="0" z_index="0"/>
+                </key>
+                <key id="1" time="100">
+                    <object_ref id="0" timeline="0" key="1" z_index="0"/>
+                </key>
+                <key id="2" time="200">
+                    <object_ref id="0" timeline="0" key="2" z_index="0"/>
+                </key>
+                <key id="3" time="300">
+                    <object_ref id="0" timeline="0" key="3" z_index="0"/>
+                </key>
+                <key id="4" time="400">
+                    <object_ref id="0" timeline="0" key="4" z_index="0"/>
+                </key>
+                <key id="5" time="500">
+                    <object_ref id="0" timeline="0" key="5" z_index="0"/>
+                </key>
+                <key id="6" time="600">
+                    <object_ref id="0" timeline="0" key="6" z_index="0"/>
+                </key>
+                <key id="7" time="700">
+                    <object_ref id="0" timeline="0" key="7" z_index="0"/>
+                </key>
+                <key id="8" time="800">
+                    <object_ref id="0" timeline="0" key="8" z_index="0"/>
+                </key>
+                <key id="9" time="900">
+                    <object_ref id="0" timeline="0" key="9" z_index="0"/>
+                </key>
+            </mainline>
+            <timeline id="0" name="tile000_000">
+                <key id="0" spin="0">
+                    <object folder="1" file="1" x="-184" y="274"/>
+                </key>
+                <key id="1" time="100" spin="0">
+                    <object folder="1" file="2" x="-184" y="274"/>
+                </key>
+                <key id="2" time="200" spin="0">
+                    <object folder="1" file="3" x="-184" y="274"/>
+                </key>
+                <key id="3" time="300" spin="0">
+                    <object folder="1" file="4" x="-184" y="274"/>
+                </key>
+                <key id="4" time="400" spin="0">
+                    <object folder="1" file="5" x="-184" y="274"/>
+                </key>
+                <key id="5" time="500" spin="0">
+                    <object folder="1" file="6" x="-184" y="274"/>
+                </key>
+                <key id="6" time="600" spin="0">
+                    <object folder="1" file="7" x="-184" y="274"/>
+                </key>
+                <key id="7" time="700" spin="0">
+                    <object folder="1" file="8" x="-184" y="274"/>
+                </key>
+                <key id="8" time="800" spin="0">
+                    <object folder="1" file="9" x="-184" y="274"/>
+                </key>
+                <key id="9" time="900" spin="0">
+                    <object folder="1" file="0" x="-184" y="274"/>
+                </key>
+            </timeline>
+        </animation>
+        <animation id="2" name="MoveUp" length="1000" interval="100">
+            <mainline>
+                <key id="0">
+                    <object_ref id="0" timeline="0" key="0" z_index="0"/>
+                </key>
+                <key id="1" time="142">
+                    <object_ref id="0" timeline="0" key="1" z_index="0"/>
+                </key>
+                <key id="2" time="285">
+                    <object_ref id="0" timeline="0" key="2" z_index="0"/>
+                </key>
+                <key id="3" time="428">
+                    <object_ref id="0" timeline="0" key="3" z_index="0"/>
+                </key>
+                <key id="4" time="571">
+                    <object_ref id="0" timeline="0" key="4" z_index="0"/>
+                </key>
+                <key id="5" time="714">
+                    <object_ref id="0" timeline="0" key="5" z_index="0"/>
+                </key>
+                <key id="6" time="857">
+                    <object_ref id="0" timeline="0" key="6" z_index="0"/>
+                </key>
+            </mainline>
+            <timeline id="0" name="tile010">
+                <key id="0" spin="0">
+                    <object folder="2" file="1" x="-175" y="293"/>
+                </key>
+                <key id="1" time="142" spin="0">
+                    <object folder="2" file="2" x="-175" y="293"/>
+                </key>
+                <key id="2" time="285" spin="0">
+                    <object folder="2" file="3" x="-175" y="293"/>
+                </key>
+                <key id="3" time="428" spin="0">
+                    <object folder="2" file="4" x="-175" y="293"/>
+                </key>
+                <key id="4" time="571" spin="0">
+                    <object folder="2" file="5" x="-175" y="293"/>
+                </key>
+                <key id="5" time="714" spin="0">
+                    <object folder="2" file="6" x="-175" y="293"/>
+                </key>
+                <key id="6" time="857" spin="0">
+                    <object folder="2" file="0" x="-175" y="293"/>
                 </key>
             </timeline>
         </animation>
