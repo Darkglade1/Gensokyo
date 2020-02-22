@@ -3,8 +3,11 @@ package Gensokyo.powers.act2;
 import Gensokyo.GensokyoMod;
 import Gensokyo.actions.AnimatedMoveEffect;
 import Gensokyo.util.TextureLoader;
+import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.Texture;
+import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.graphics.g2d.TextureAtlas;
+import com.badlogic.gdx.graphics.g2d.TextureRegion;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.core.AbstractCreature;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
@@ -29,6 +32,8 @@ public class RivalPlayerPosition extends AbstractPower {
 
     private static final Texture tex84 = TextureLoader.getTexture(makePowerPath("SpellCard84.png"));
     private static final Texture tex32 = TextureLoader.getTexture(makePowerPath("SpellCard32.png"));
+    private static final Texture X = TextureLoader.getTexture("GensokyoResources/images/monsters/Byakuren/X.png");
+    private TextureRegion X_REGION;
 
     private static float movement = 180.0F * Settings.scale;
     private float position1;
@@ -54,7 +59,7 @@ public class RivalPlayerPosition extends AbstractPower {
 
         this.region128 = new TextureAtlas.AtlasRegion(tex84, 0, 0, 84, 84);
         this.region48 = new TextureAtlas.AtlasRegion(tex32, 0, 0, 32, 32);
-
+        this.X_REGION = new TextureRegion(X);
         updateDescription();
     }
 
@@ -173,6 +178,25 @@ public class RivalPlayerPosition extends AbstractPower {
             AbstractDungeon.effectList.add(new AnimatedMoveEffect((AbstractMonster)power.owner, power.owner.drawX, power.owner.drawY, power.owner.drawX, position3));
         }
     }
+
+//    @Override
+//    public void renderIcons(SpriteBatch sb, float x, float y, Color c) {
+//        super.renderIcons(sb, x, y, c);
+//        float scaleWidth = 1.0F * Settings.scale;
+//        float scaleHeight = Settings.scale;
+//        sb.setColor(Color.WHITE);
+//        for (Integer lane : unsafeLanes) {
+//            if (lane == 1) {
+//                sb.draw(X_REGION, this.owner.drawX, position1, 0.0F, 0.0F, this.X_REGION.getRegionWidth(), this.X_REGION.getRegionHeight(), scaleWidth, scaleHeight, 0.0F);
+//            }
+//            if (lane == 2) {
+//                sb.draw(X_REGION, this.owner.drawX, position2, 0.0F, 0.0F, this.X_REGION.getRegionWidth(), this.X_REGION.getRegionHeight(), scaleWidth, scaleHeight, 0.0F);
+//            }
+//            if (lane == 3) {
+//                sb.draw(X_REGION, this.owner.drawX, position3, 0.0F, 0.0F, this.X_REGION.getRegionWidth(), this.X_REGION.getRegionHeight(), scaleWidth, scaleHeight, 0.0F);
+//            }
+//        }
+//    }
 
     @Override
     public void onRemove() {

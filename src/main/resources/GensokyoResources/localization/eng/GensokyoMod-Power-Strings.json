@@ -208,7 +208,7 @@
 },
 "Gensokyo:RivalPlayerPosition": {
         "NAME": "Spell Card Rules",
-        "DESCRIPTIONS": ["You are in lane #b" , ". Whenever you play a #ySkill, move #yUp #b1 lane. Whenever you play an #yAttack, move #yDown #b1 lane. If you are in an #runsafe lane, you will receive the effects of the rivals' single target moves instead.", " NL #yLane #b", " is unsafe."]
+        "DESCRIPTIONS": ["You are in lane #b" , ". Whenever you play a #ySkill, move #yUp #b1 lane. Whenever you play an #yAttack, move #yDown #b1 lane. NL If you are caught in the #rcrossfire, you will receive the effects of the rivals' single target moves instead.", " NL #yLane #b", " is in the #rcrossfire."]
 },
 "Gensokyo:TenDesires": {
         "NAME": "Tenfold Listening",

@@ -48,7 +48,9 @@ public class Counter extends AbstractPower {
             DamageInfo newInfo = new DamageInfo(this.owner, info.base);
             newInfo.applyPowers(this.owner, this.owner);
             //newInfo.output *= MULTIPLIER;
-            AbstractDungeon.actionManager.addToBottom(new DamageAction(this.owner, newInfo));
+            if (amount > 0) {
+                AbstractDungeon.actionManager.addToBottom(new DamageAction(this.owner, newInfo));
+            }
             amount--;
             updateDescription();
             if (amount == 0) {

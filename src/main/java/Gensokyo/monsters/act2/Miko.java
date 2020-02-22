@@ -57,18 +57,18 @@ public class Miko extends CustomMonster
     private static final byte AOE_ATTACK = 3;
     private static final byte DEBUFF_ATTACK = 4;
 
-    private static final int NORMAL_ATTACK_DAMAGE = 12;
-    private static final int A4_NORMAL_ATTACK_DAMAGE = 13;
+    private static final int NORMAL_ATTACK_DAMAGE = 15;
+    private static final int A4_NORMAL_ATTACK_DAMAGE = 16;
     private static final int NORMAL_ATTACK_HITS = 2;
     private int normalDamage;
 
-    private static final int AOE_DAMAGE = 8;
-    private static final int A4_AOE_DAMAGE = 9;
+    private static final int AOE_DAMAGE = 12;
+    private static final int A4_AOE_DAMAGE = 13;
     private static final int AOE_HITS = 2;
     private int aoeDamage;
 
-    private static final int DEBUFF_ATTACK_DAMAGE = 16;
-    private static final int A4_DEBUFF_ATTACK_DAMAGE = 18;
+    private static final int DEBUFF_ATTACK_DAMAGE = 18;
+    private static final int A4_DEBUFF_ATTACK_DAMAGE = 20;
     private static final int DEBUFF_AMOUNT = 1;
     private int debuffDamage;
 
@@ -76,8 +76,8 @@ public class Miko extends CustomMonster
     private static final float A9_HEALING = 0.08F;
     private float healing;
 
-    private static final int STRENGTH_STEAL = 3;
-    private static final int A19_STRENGTH_STEAL = 4;
+    private static final int STRENGTH_STEAL = 4;
+    private static final int A19_STRENGTH_STEAL = 5;
     private int strengthSteal;
 
     private static final int COOLDOWN = 3;

@@ -20,10 +20,12 @@ import com.brashmonkey.spriter.Player;
 import com.evacipated.cardcrawl.mod.stslib.actions.tempHp.AddTemporaryHPAction;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.animations.TalkAction;
+import com.megacrit.cardcrawl.actions.animations.VFXAction;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.actions.common.DamageAction;
 import com.megacrit.cardcrawl.actions.common.RemoveSpecificPowerAction;
 import com.megacrit.cardcrawl.actions.common.RollMoveAction;
+import com.megacrit.cardcrawl.actions.utility.SFXAction;
 import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.core.AbstractCreature;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
@@ -34,6 +36,7 @@ import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.monsters.EnemyMoveInfo;
 import com.megacrit.cardcrawl.powers.StrengthPower;
 import com.megacrit.cardcrawl.stances.CalmStance;
+import com.megacrit.cardcrawl.vfx.combat.LightningEffect;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -52,16 +55,16 @@ public class Byakuren extends CustomMonster
     private static final byte BUFF_BLOCK = 2;
     private static final byte AOE_ATTACK = 3;
 
-    private static final int NORMAL_ATTACK_DAMAGE = 30;
-    private static final int A4_NORMAL_ATTACK_DAMAGE = 33;
+    private static final int NORMAL_ATTACK_DAMAGE = 36;
+    private static final int A4_NORMAL_ATTACK_DAMAGE = 40;
     private int normalDamage;
 
-    private static final int AOE_DAMAGE = 20;
-    private static final int A4_AOE_DAMAGE = 22;
+    private static final int AOE_DAMAGE = 28;
+    private static final int A4_AOE_DAMAGE = 30;
     private int aoeDamage;
 
-    private static final int STRENGTH = 6;
-    private static final int A19_STRENGTH = 8;
+    private static final int STRENGTH = 8;
+    private static final int A19_STRENGTH = 10;
     private int strength;
 
     private static final int BLOCK = 20;
@@ -190,12 +193,16 @@ public class Byakuren extends CustomMonster
             case AOE_ATTACK: {
                 DamageInfo playerInfo = new DamageInfo(this, moves.get(this.nextMove).baseDamage, DamageInfo.DamageType.NORMAL);
                 playerInfo.applyPowers(this, AbstractDungeon.player);
-                AbstractDungeon.actionManager.addToBottom(new DamageAction(AbstractDungeon.player, playerInfo, AbstractGameAction.AttackEffect.SLASH_HEAVY));
+                AbstractDungeon.actionManager.addToBottom(new VFXAction(new LightningEffect(AbstractDungeon.player.drawX, AbstractDungeon.player.drawY)));
+                AbstractDungeon.actionManager.addToBottom(new SFXAction("ORB_LIGHTNING_EVOKE", 0.1F));
+                AbstractDungeon.actionManager.addToBottom(new DamageAction(AbstractDungeon.player, playerInfo, AbstractGameAction.AttackEffect.NONE));
                 for (AbstractMonster mo : AbstractDungeon.getCurrRoom().monsters.monsters) {
                     if (mo != this) {
                         DamageInfo monsterInfo = new DamageInfo(this, moves.get(this.nextMove).baseDamage, DamageInfo.DamageType.NORMAL);
                         monsterInfo.applyPowers(this, mo);
-                        AbstractDungeon.actionManager.addToBottom(new DamageAction(mo, monsterInfo, AbstractGameAction.AttackEffect.SLASH_HEAVY));
+                        AbstractDungeon.actionManager.addToBottom(new VFXAction(new LightningEffect(mo.drawX, mo.drawY)));
+                        AbstractDungeon.actionManager.addToBottom(new SFXAction("ORB_LIGHTNING_EVOKE", 0.1F));
+                        AbstractDungeon.actionManager.addToBottom(new DamageAction(mo, monsterInfo, AbstractGameAction.AttackEffect.NONE));
                     }
                 }
                 counter = 0;
