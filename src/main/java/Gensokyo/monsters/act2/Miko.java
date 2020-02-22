@@ -247,6 +247,9 @@ public class Miko extends CustomMonster
                 if (!this.lastMove(ATTACK)) {
                     possibilities.add(ATTACK);
                 }
+                if (possibilities.isEmpty()) {
+                    possibilities.add(STRONG_DEBUFF);
+                }
                 this.setMoveShortcut(possibilities.get(AbstractDungeon.monsterRng.random(possibilities.size() - 1)));
             }
         } else {

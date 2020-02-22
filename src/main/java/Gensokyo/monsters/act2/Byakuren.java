@@ -41,6 +41,7 @@ import com.megacrit.cardcrawl.vfx.combat.LightningEffect;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
+import java.util.Random;
 
 public class Byakuren extends CustomMonster
 {
@@ -133,7 +134,11 @@ public class Byakuren extends CustomMonster
 
     @Override
     public void usePreBattleAction() {
-        //AbstractDungeon.getCurrRoom().playBgmInstantly("Wind God Girl");
+        if (new Random().nextBoolean()) {
+            AbstractDungeon.getCurrRoom().playBgmInstantly("CosmicMind");
+        } else {
+            AbstractDungeon.getCurrRoom().playBgmInstantly("TrueAdmin");
+        }
         for (AbstractMonster mo : AbstractDungeon.getCurrRoom().monsters.monsters) {
             if (mo instanceof Miko) {
                 rival = (Miko)mo;

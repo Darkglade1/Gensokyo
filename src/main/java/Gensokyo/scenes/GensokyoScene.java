@@ -7,8 +7,10 @@ import Gensokyo.monsters.act1.Mamizou;
 import Gensokyo.monsters.act1.Reimu;
 import Gensokyo.monsters.act1.Sumireko;
 import Gensokyo.monsters.act1.Yukari;
+import Gensokyo.monsters.act2.Byakuren;
 import Gensokyo.monsters.act2.Eiki;
 import Gensokyo.monsters.act2.Kaguya;
+import Gensokyo.monsters.act2.Miko;
 import Gensokyo.monsters.act2.Yuyuko;
 import Gensokyo.monsters.act1.marisaMonsters.Patchouli;
 import com.badlogic.gdx.Gdx;
@@ -93,6 +95,8 @@ public class GensokyoScene extends AbstractScene {
                     this.bg = this.atlas.findRegion("mod/ConcertStage");
                 } else if (mo instanceof Kaguya) {
                     this.bg = this.atlas.findRegion("mod/Eientei");
+                } else if (mo instanceof Byakuren || mo instanceof Miko) {
+                    this.bg = this.atlas.findRegion("mod/FancyPlaceNight");
                 } else {
                     this.bg = this.atlas.findRegion("mod/TanukiForest");
                 }

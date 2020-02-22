@@ -55,6 +55,7 @@ public class WishfulSoul extends AbstractPower {
             if (amount > 0) {
                 int drain = Math.min(amount, this.amount);
                 this.owner.getPower(StrengthPower.POWER_ID).amount -= drain; //Don't want this to count as a debuff
+                this.owner.getPower(StrengthPower.POWER_ID).updateDescription();
                 if (this.owner.getPower(StrengthPower.POWER_ID).amount == 0) {
                     this.addToBot(new RemoveSpecificPowerAction(this.owner, this.owner, StrengthPower.POWER_ID));
                 }
@@ -62,6 +63,8 @@ public class WishfulSoul extends AbstractPower {
                 this.addToBot(new RemoveSpecificPowerAction(this.owner, this.owner, POWER_ID));
                 AbstractDungeon.onModifyPower();
             }
+        } else {
+            this.addToBot(new RemoveSpecificPowerAction(this.owner, this.owner, POWER_ID));
         }
     }
 
