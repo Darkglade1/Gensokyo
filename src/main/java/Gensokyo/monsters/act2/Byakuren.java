@@ -67,8 +67,8 @@ public class Byakuren extends CustomMonster
     private static final int A19_STRENGTH = 10;
     private int strength;
 
-    private static final int BLOCK = 20;
-    private static final int A8_BLOCK = 22;
+    private static final int BLOCK = 15;
+    private static final int A8_BLOCK = 16;
     private int block;
 
     private static final int BUFF_AMT = 3;
@@ -77,8 +77,8 @@ public class Byakuren extends CustomMonster
     private static final int AOE_COOLDOWN = 3;
     private int counter = -2; //Delay this by 2 turns the first time
 
-    private static final int HP = 500;
-    private static final int A9_HP = 530;
+    private static final int HP = 400;
+    private static final int A9_HP = 420;
 
     private float particleTimer;
     private float particleTimer2;

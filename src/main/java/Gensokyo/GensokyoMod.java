@@ -33,6 +33,7 @@ import Gensokyo.cards.TekeTeke;
 import Gensokyo.cards.TurboGranny;
 import Gensokyo.dungeon.EncounterIDs;
 import Gensokyo.dungeon.Gensokyo;
+import Gensokyo.dungeon.Gensokyoer;
 import Gensokyo.events.act1.ABanquetForGhosts;
 import Gensokyo.events.act1.ACelestialsPlight;
 import Gensokyo.events.act1.AHoleInReality;
@@ -130,6 +131,7 @@ import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.core.Settings;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.dungeons.Exordium;
+import com.megacrit.cardcrawl.dungeons.TheCity;
 import com.megacrit.cardcrawl.helpers.CardHelper;
 import com.megacrit.cardcrawl.helpers.CardLibrary;
 import com.megacrit.cardcrawl.localization.CardStrings;
@@ -314,6 +316,7 @@ public class GensokyoMod implements
 
         //Act 1
         (new Gensokyo()).addAct(Exordium.ID);
+        (new Gensokyoer()).addAct(TheCity.ID);
 
         BaseMod.addMonster(Yukari.ID, (BaseMod.GetMonster)Yukari::new);
         BaseMod.addMonster(Kokoro.ID, (BaseMod.GetMonster)Kokoro::new);
@@ -351,27 +354,27 @@ public class GensokyoMod implements
                 }));
         BaseMod.addMonster(EncounterIDs.PYTHON_AND_KODAMA, "Python_and_Kodama", () -> new MonsterGroup(generatePythonAndKodomaGroup()));
 
-        //BaseMod.addBoss(Gensokyo.ID, Yukari.ID, "GensokyoResources/images/monsters/Yukari/Yukari.png", "GensokyoResources/images/monsters/Yukari/YukariOutline.png");
-        //BaseMod.addBoss(Gensokyo.ID, Kokoro.ID, "GensokyoResources/images/monsters/Kokoro/Kokoro.png", "GensokyoResources/images/monsters/Kokoro/KokoroOutline.png");
-        //BaseMod.addBoss(Gensokyo.ID, Reimu.ID, "GensokyoResources/images/monsters/Reimu/Reimu.png", "GensokyoResources/images/monsters/Reimu/ReimuOutline.png");
+        BaseMod.addBoss(Gensokyo.ID, Yukari.ID, "GensokyoResources/images/monsters/Yukari/Yukari.png", "GensokyoResources/images/monsters/Yukari/YukariOutline.png");
+        BaseMod.addBoss(Gensokyo.ID, Kokoro.ID, "GensokyoResources/images/monsters/Kokoro/Kokoro.png", "GensokyoResources/images/monsters/Kokoro/KokoroOutline.png");
+        BaseMod.addBoss(Gensokyo.ID, Reimu.ID, "GensokyoResources/images/monsters/Reimu/Reimu.png", "GensokyoResources/images/monsters/Reimu/ReimuOutline.png");
 
 
         //Act 2
-        BaseMod.addMonster(Kaguya.ID, (BaseMod.GetMonster) Kaguya::new);
-        BaseMod.addMonster(Yuyuko.ID, (BaseMod.GetMonster) Yuyuko::new);
         CustomIntent.add(new AreaAttackIntent());
         CustomIntent.add(new DeathIntent());
+        BaseMod.addMonster(Kaguya.ID, (BaseMod.GetMonster) Kaguya::new);
+        BaseMod.addMonster(Yuyuko.ID, (BaseMod.GetMonster) Yuyuko::new);
         BaseMod.addMonster(Eiki.ID, (BaseMod.GetMonster) Eiki::new);
-        BaseMod.addMonster(EncounterIDs.ETERNAL_RIVALS, "The Eternal Rivals", () -> new MonsterGroup(
+        BaseMod.addMonster(EncounterIDs.ETERNAL_RIVALS, "Eternal Rivals", () -> new MonsterGroup(
                 new AbstractMonster[] {
                         new Byakuren(-960.0F, 0.0F),
                         new Miko(),
                 }));
 
 
-        //BaseMod.addBoss(Gensokyo.ID, Kaguya.ID, "GensokyoResources/images/monsters/Kaguya/Kaguya.png", "GensokyoResources/images/monsters/Kaguya/KaguyaOutline.png");
-        BaseMod.addBoss(Gensokyo.ID, Yuyuko.ID, "GensokyoResources/images/monsters/Yuyuko/Yuyuko.png", "GensokyoResources/images/monsters/Yuyuko/YuyukoOutline.png");
-        //BaseMod.addBoss(Gensokyo.ID, Eiki.ID, "GensokyoResources/images/monsters/Eiki/Eiki.png", "GensokyoResources/images/monsters/Eiki/EikiOutline.png");
+        BaseMod.addBoss(Gensokyoer.ID, Kaguya.ID, "GensokyoResources/images/monsters/Kaguya/Kaguya.png", "GensokyoResources/images/monsters/Kaguya/KaguyaOutline.png");
+        BaseMod.addBoss(Gensokyoer.ID, Eiki.ID, "GensokyoResources/images/monsters/Eiki/Eiki.png", "GensokyoResources/images/monsters/Eiki/EikiOutline.png");
+        BaseMod.addBoss(Gensokyoer.ID, EncounterIDs.ETERNAL_RIVALS, "GensokyoResources/images/monsters/Byakuren/Rival.png", "GensokyoResources/images/monsters/Byakuren/RivalOutline.png");
 
 
 
@@ -408,9 +411,9 @@ public class GensokyoMod implements
 
 
         //Act2
-        BaseMod.addEvent(AndThenThereWereNone.ID, AndThenThereWereNone.class, Gensokyo.ID);
-        BaseMod.addEvent(NightmareOfHeian.ID, NightmareOfHeian.class, Gensokyo.ID);
-        BaseMod.addEvent(Impoverished.ID, Impoverished.class, Gensokyo.ID);
+//        BaseMod.addEvent(AndThenThereWereNone.ID, AndThenThereWereNone.class, Gensokyoer.ID);
+//        BaseMod.addEvent(NightmareOfHeian.ID, NightmareOfHeian.class, Gensokyoer.ID);
+//        BaseMod.addEvent(Impoverished.ID, Impoverished.class, Gensokyoer.ID);
         
         // =============== /EVENTS/ =================
 

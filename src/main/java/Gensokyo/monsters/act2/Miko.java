@@ -77,8 +77,8 @@ public class Miko extends CustomMonster
     private static final int DEBUFF_AMOUNT = 1;
     private int debuffDamage;
 
-    private static final float HEALING = 0.07F;
-    private static final float A9_HEALING = 0.08F;
+    private static final float HEALING = 0.05F;
+    private static final float A9_HEALING = 0.06F;
     private float healing;
 
     private static final int STRENGTH_STEAL = 4;
@@ -88,8 +88,8 @@ public class Miko extends CustomMonster
     private static final int COOLDOWN = 3;
     private int counter;
 
-    private static final int HP = 250;
-    private static final int A9_HP = 265;
+    private static final int HP = 200;
+    private static final int A9_HP = 210;
 
     private float particleTimer;
     private float particleTimer2;
