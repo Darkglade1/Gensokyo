@@ -169,11 +169,11 @@
 },
 "Gensokyo:NextTurnInnocence": {
         "NAME": "Innocence",
-        "DESCRIPTIONS": ["Next turn, this creature's outgoing #yBlock gain is converted to healing instead."]
+        "DESCRIPTIONS": ["Next turn, this creature's outgoing #yBlock gain is #ydoubled and converted to #ghealing instead."]
 },
 "Gensokyo:Innocence": {
         "NAME": "Innocence",
-        "DESCRIPTIONS": ["This turn, this creature's outgoing #yBlock gain is converted to healing instead."]
+        "DESCRIPTIONS": ["This turn, this creature's outgoing #yBlock gain is #ydoubled and converted to #ghealing instead."]
 },
 "Gensokyo:MirrorPower": {
         "NAME": "Mirror",
@@ -204,7 +204,7 @@
 },
 "Gensokyo:RivalPosition": {
         "NAME": "Spell Card Rules",
-        "DESCRIPTIONS": ["This creature is in lane #b" , ". It is currently focused on its #rrival. Once the rival is defeated, it will focus on #ryou."]
+        "DESCRIPTIONS": ["This creature is in lane #b" , ". It is currently focused on its #rrival. Once the #rrival is #rdefeated, it will focus on #ryou."]
 },
 "Gensokyo:RivalPlayerPosition": {
         "NAME": "Spell Card Rules",

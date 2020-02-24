@@ -60,8 +60,8 @@ public class Mirror extends CustomMonster
     private static final int A19_STRENGTH = 4;
     private int strength;
 
-    private static final int HP = 150;
-    private static final int A9_HP = 160;
+    private static final int HP = 140;
+    private static final int A9_HP = 150;
 
     private Map<Byte, EnemyMoveInfo> moves;
     private Eiki eiki;
@@ -152,6 +152,7 @@ public class Mirror extends CustomMonster
         }
         switch (this.nextMove) {
             case GUILT: {
+                this.useFastAttackAnimation();
                 AbstractDungeon.actionManager.addToBottom(new DamageAction(AbstractDungeon.player, info, AbstractGameAction.AttackEffect.BLUNT_LIGHT));
                 eiki.incrementGuilt(1);
                 break;
@@ -163,7 +164,7 @@ public class Mirror extends CustomMonster
                 }
                 for (AbstractMonster mo : AbstractDungeon.getCurrRoom().monsters.monsters) {
                     if (this.hasPower(Innocence.POWER_ID)) {
-                        this.addToBot(new HealAction(mo, this, this.block ));
+                        this.addToBot(new HealAction(mo, this, this.block * 2));
                     } else {
                         this.addToBot(new GainBlockAction(mo, this.block));
                     }

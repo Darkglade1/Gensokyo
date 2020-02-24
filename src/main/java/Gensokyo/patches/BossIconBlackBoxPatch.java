@@ -1,5 +1,7 @@
 package Gensokyo.patches;
 
+import Gensokyo.dungeon.EncounterIDs;
+import Gensokyo.monsters.act2.Eiki;
 import Gensokyo.monsters.act2.Kaguya;
 import Gensokyo.monsters.act1.Kokoro;
 import Gensokyo.monsters.act1.Reimu;
@@ -36,6 +38,12 @@ public class BossIconBlackBoxPatch {
         } else if (key.equals(Kaguya.ID)) {
             DungeonMap.boss = ImageMaster.loadImage("GensokyoResources/images/monsters/Kaguya/Kaguya.png");
             DungeonMap.bossOutline = ImageMaster.loadImage("GensokyoResources/images/monsters/Kaguya/KaguyaOutline.png");
+        } else if (key.equals(Eiki.ID)) {
+            DungeonMap.boss = ImageMaster.loadImage("GensokyoResources/images/monsters/Eiki/Eiki.png");
+            DungeonMap.bossOutline = ImageMaster.loadImage("GensokyoResources/images/monsters/Eiki/EikiOutline.png");
+        } else if (key.equals(EncounterIDs.ETERNAL_RIVALS)) {
+            DungeonMap.boss = ImageMaster.loadImage("GensokyoResources/images/monsters/Byakuren/Rival.png");
+            DungeonMap.bossOutline = ImageMaster.loadImage("GensokyoResources/images/monsters/Byakuren/RivalOutline.png");
         }
     }
     private static class Locator extends SpireInsertLocator {

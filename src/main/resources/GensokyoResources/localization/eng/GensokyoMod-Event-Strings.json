@@ -398,6 +398,27 @@
       "[Leave]"
     ]
   },
+  "Gensokyo:TheWhiteLotus": {
+    "NAME": "The White Lotus",
+    "DESCRIPTIONS": [
+      "The sound of music draws you to a nearby temple, where a woman is regaling a crowd with her voice. She sings of things unfamiliar to you, using words unknown to you. NL NL Despite your lack of comprehension, you find yourself entranced by the display. You consider taking the time to listen more closely. Or perhaps you should leave a small #yoffering and be on your way.",
+      "You close your eyes and allow the woman's voice to ~carry~ ~you~ ~off~ . . . NL NL When you finally open them again, you feel a bit . . . lighter. And, perhaps, as if you understood yourself just a little bit better.",
+      "As your #ycoin clatters into the donation box, you feel a spark of #ywarmth inside your body, as if the gods themselves were watching over you.",
+      "Alas, you have neither time nor coin to spare."
+    ],
+    "OPTIONS": [
+      "[Listen] #rLose ",
+      ". #gChoose #g1 #gof #g3 #grare #gcards #gto #gadd #gto #gyour #gdeck.",
+      "[Donate] #rLose #r",
+      " #rGold. #gGain #g",
+      " #gMax #gHP",
+      "[Leave]",
+      "[Locked] Requires: 0-cost card.",
+      "[Locked] Requires: ",
+      " Gold.",
+      "Add a card to your deck."
+    ]
+  },
   "Gensokyo:MarisaAnOldGhost": {
     "NAME": "An Old Ghost",
     "DESCRIPTIONS": [

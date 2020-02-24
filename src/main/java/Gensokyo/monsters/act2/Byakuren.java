@@ -68,7 +68,7 @@ public class Byakuren extends CustomMonster
     private int strength;
 
     private static final int BLOCK = 15;
-    private static final int A8_BLOCK = 16;
+    private static final int A8_BLOCK = 18;
     private int block;
 
     private static final int BUFF_AMT = 3;

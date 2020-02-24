@@ -14,6 +14,7 @@ import Gensokyo.events.act1.marisaEvents.AnOldGhost;
 import Gensokyo.events.act1.marisaEvents.BookThief;
 import Gensokyo.events.act1.marisaEvents.JustAVisit;
 import Gensokyo.events.act1.marisaEvents.Walpurgisnacht;
+import Gensokyo.events.act2.TheWhiteLotus;
 import ThMod.characters.Marisa;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.relics.HappyFlower;
@@ -64,6 +65,10 @@ public class EventFilter {
                 }
             } else if (event.equals(BookThief.ID)) {
                 if (!(AbstractDungeon.floorNum >= 4)) {
+                    eventsToRemove.add(event);
+                }
+            } else if (event.equals(TheWhiteLotus.ID)) {
+                if (!(TheWhiteLotus.hasZeroCostCard()) && !(AbstractDungeon.player.gold < TheWhiteLotus.GOLD_COST)) {
                     eventsToRemove.add(event);
                 }
             }
