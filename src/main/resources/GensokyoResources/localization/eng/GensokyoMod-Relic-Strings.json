@@ -95,6 +95,20 @@
       "While there are #b", " or more cards in your discard pile, you have an additional #b", " #yStrength and #yDexterity."
     ]
   },
+  "Gensokyo:DayTheSeaSplit": {
+    "NAME": "The Day the Sea Split",
+    "FLAVOR": "The sea, once it casts its spell, holds one in its net of wonder forever.",
+    "DESCRIPTIONS": [
+      "Your #ySkills #yexhaust when played for #b", " combats. After, obtain a #yspecial #yrelic."
+    ]
+  },
+  "Gensokyo:MosesMiracle": {
+    "NAME": "Moses's Miracle",
+    "FLAVOR": "\"A miracle that parts the sea. Which makes it easy to catch fish, apparently.\" - The Grimoire of Marisa",
+    "DESCRIPTIONS": [
+      "Whenever you shuffle your draw pile, add a #yMiracle to your hand."
+    ]
+  },
   "Gensokyo:MarisaIngredientList": {
     "NAME": "Ingredient List",
     "FLAVOR": "A bunch of messy scribbles on a page. Apparently creates something known as the \"Improbability Potion\".",

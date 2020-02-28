@@ -419,6 +419,26 @@
       "Add a card to your deck."
     ]
   },
+  "Gensokyo:LivingGodOfMiracles": {
+    "NAME": "Living God of Miracles",
+    "DESCRIPTIONS": [
+      "You stumble across another shrine, only this time, there seems to be a small gathering present. A group of lithe figures are speaking with a #ggreen-haired girl, their words muffled by the distance. Moments later, the group departs, and the girl notices your presence. NL NL \"Oh, a visitor! I'm sorry to have kept you waiting; the tengu are an awfully nosey bunch.\" She approaches you with a #yradiant smile. \"What can I do for you? Come to #ydonate? Or perhaps I can interest you in a #gmiracle or two?\"",
+      "\"You're looking for a miracle? Ask away! I can do pretty much anything!\" NL NL You make your request, and the girl immediately deflates with a #psheepish look. \"Ah . . . well, maybe not ~quite~ anything. Not yet, at least.\" She perks up. \"I know! If you go out and gather some #yfaith for me, I'm sure I'll have the power to fulfill your request!\" NL NL The method she outlines to you for gathering \"faith\" seems awfully vague, nebulous, and unlikely to work, but you suppose there's no harm in trying. NL NL After all, a #gmiracle could happen.",
+      "The girl #ybeams as your #ycoin clatters into the wooden donation box. NL NL \"Thank you for your support! Here, have a blessing to help you on your journey!\" NL NL A warm feeling briefly suffuses you, bathing you in its radiance. You thank the girl for the gesture before finally departing.",
+      "You tell her that you are simply passing through before resuming your trek through this mysterious land of wonders."
+    ],
+    "OPTIONS": [
+      "[Miracle] #rSkills #rexhaust #rwhen #rplayed #rfor #r",
+      " #rcombats. #gAfter, #gobtain #ga #gSpecial #gRelic.",
+      "[Donate] #rLose #r",
+      " #rGold. #gUpgrade #ga #gcard.",
+      "[Locked] Requires: ",
+      " Gold.",
+      "[Locked] Requires: Upgradeable Cards",
+      "Choose a Card to Upgrade",
+      "[Leave]"
+    ]
+  },
   "Gensokyo:MarisaAnOldGhost": {
     "NAME": "An Old Ghost",
     "DESCRIPTIONS": [

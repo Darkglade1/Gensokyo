@@ -31,7 +31,7 @@ public class Impoverished extends AbstractImageEvent {
 
     private int screenNum = 0;
 
-    public static final int UPGRADE_COST = 150;
+    public static final int UPGRADE_COST = 100;
     private int upgradeAmount;
 
     public Impoverished() {

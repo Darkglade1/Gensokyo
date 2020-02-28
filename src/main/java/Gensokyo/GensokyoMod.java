@@ -59,6 +59,7 @@ import Gensokyo.events.act1.marisaEvents.JustAVisit;
 import Gensokyo.events.act1.marisaEvents.Walpurgisnacht;
 import Gensokyo.events.act2.AndThenThereWereNone;
 import Gensokyo.events.act2.Impoverished;
+import Gensokyo.events.act2.LivingGodOfMiracles;
 import Gensokyo.events.act2.NightmareOfHeian;
 import Gensokyo.events.act2.TheWhiteLotus;
 import Gensokyo.monsters.act1.Aya;
@@ -105,6 +106,8 @@ import Gensokyo.relics.act1.marisaRelics.ImprobabilityPotion;
 import Gensokyo.relics.act1.marisaRelics.IngredientList;
 import Gensokyo.relics.act1.marisaRelics.PhilosophersStone;
 import Gensokyo.relics.act2.ConquerorOfFear;
+import Gensokyo.relics.act2.DayTheSeaSplit;
+import Gensokyo.relics.act2.MosesMiracle;
 import Gensokyo.relics.act2.UndefinedDarkness;
 import Gensokyo.util.IDCheckDontTouchPls;
 import Gensokyo.util.TextureLoader;
@@ -416,6 +419,7 @@ public class GensokyoMod implements
         BaseMod.addEvent(NightmareOfHeian.ID, NightmareOfHeian.class, Gensokyoer.ID);
         BaseMod.addEvent(Impoverished.ID, Impoverished.class, Gensokyoer.ID);
         BaseMod.addEvent(TheWhiteLotus.ID, TheWhiteLotus.class, Gensokyoer.ID);
+        BaseMod.addEvent(LivingGodOfMiracles.ID, LivingGodOfMiracles.class, Gensokyoer.ID);
         
         // =============== /EVENTS/ =================
 
@@ -562,6 +566,8 @@ public class GensokyoMod implements
         //Act 2
         BaseMod.addRelic(new UndefinedDarkness(), RelicType.SHARED);
         BaseMod.addRelic(new ConquerorOfFear(), RelicType.SHARED);
+        BaseMod.addRelic(new DayTheSeaSplit(), RelicType.SHARED);
+        BaseMod.addRelic(new MosesMiracle(), RelicType.SHARED);
 
         logger.info("Done adding relics!");
     }

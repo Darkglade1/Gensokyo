@@ -37,7 +37,7 @@ public class TheWhiteLotus extends AbstractImageEvent {
 
     private static final int NUM_CARDS = 3;
     public static final int GOLD_COST = 50;
-    private static final int MAX_HEALTH_GAIN = 5;
+    private static final int MAX_HEALTH_GAIN = 7;
 
     public TheWhiteLotus() {
         super(NAME, DESCRIPTIONS[0], IMG);
