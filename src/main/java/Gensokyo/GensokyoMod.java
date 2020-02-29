@@ -62,6 +62,7 @@ import Gensokyo.events.act2.Impoverished;
 import Gensokyo.events.act2.LivingGodOfMiracles;
 import Gensokyo.events.act2.NightmareOfHeian;
 import Gensokyo.events.act2.TheWhiteLotus;
+import Gensokyo.events.act2.TreasureHunter;
 import Gensokyo.monsters.act1.Aya;
 import Gensokyo.monsters.act1.Cirno;
 import Gensokyo.monsters.act1.GreaterFairy;
@@ -420,6 +421,7 @@ public class GensokyoMod implements
         BaseMod.addEvent(Impoverished.ID, Impoverished.class, Gensokyoer.ID);
         BaseMod.addEvent(TheWhiteLotus.ID, TheWhiteLotus.class, Gensokyoer.ID);
         BaseMod.addEvent(LivingGodOfMiracles.ID, LivingGodOfMiracles.class, Gensokyoer.ID);
+        BaseMod.addEvent(TreasureHunter.ID, TreasureHunter.class, Gensokyoer.ID);
         
         // =============== /EVENTS/ =================
 

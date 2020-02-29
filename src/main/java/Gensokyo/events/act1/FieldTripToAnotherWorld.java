@@ -54,7 +54,7 @@ public class FieldTripToAnotherWorld extends AbstractImageEvent {
                 this.imageEventText.updateBodyText(DESCRIPTIONS[1]);
                 this.imageEventText.clearAllDialogs();
                 if (this.hasCard) {
-                    this.imageEventText.setDialogOption(OPTIONS[1] + FontHelper.colorString(this.card.name, "r") + "." + OPTIONS[2], this.card.makeStatEquivalentCopy());
+                    this.imageEventText.setDialogOption(OPTIONS[1] + FontHelper.colorString(this.card.name, "r") + "." + OPTIONS[2], this.card.makeStatEquivalentCopy(), new OccultBall());
                 } else {
                     this.imageEventText.setDialogOption(OPTIONS[3], true);
                 }

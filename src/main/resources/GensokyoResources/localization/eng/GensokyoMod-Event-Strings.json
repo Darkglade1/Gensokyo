@@ -439,6 +439,23 @@
       "[Leave]"
     ]
   },
+  "Gensokyo:TreasureHunter": {
+    "NAME": "Treasure Hunter",
+    "DESCRIPTIONS": [
+      "A mousy-looking girl approaches, her eyes intently focused on the metal rods she is waving around in front of her. NL NL She stops right in front of you and looks up. NL NL \"Hey. You're standing right on top of some #ytreasure, you know?\"",
+      "Her eyes widen as you bring out the #ypriceless #yartifact. NL NL \"Huh. I guess that's what I was sensing all along.\" She scans the idol intently. \"Say, how would you feel about a trade? I've got a #gbody-enhancement potion here that I don't have much use for, but I'm sure a traveler like you could find it useful. Gensokyo can be pretty dangerous this far out in the wilderness, you know?\" NL NL You accept the offer, quaffing the potion on the spot. Feeling newfound #rstrength ~flow~ into your body, you continue on your way.",
+      "You step aside as the girl brings out a few shovels and begins to dig. Interested in what #yriches she might uncover, you wordlessly pick up a shovel and begin digging as well. NL NL After several minutes of hard labor, the two of you discover a cache of various #yartifacts and #ytrinkets. NL NL \"Woah, there's a lot in here.\" The girl gives you a look. \"I didn't expect you to help out, but since you did, I guess you can take some of this with you.\" NL NL Picking out a few choice #yrelics, you say your farewells to the girl before continuing on your way.",
+      "You step to the side and walk past her, uncaring of the sounds of digging emanating behind you."
+    ],
+    "OPTIONS": [
+      "[Offer Idol] #rLose #rGolden #rIdol. #gGain #g",
+      " #gMax #gHP.",
+      "[Help dig] #rLose #r",
+      " #rMax #rHP. #gObtain #ga #gRelic.",
+      "[Leave]",
+      "[Locked] Requires: Golden Idol"
+    ]
+  },
   "Gensokyo:MarisaAnOldGhost": {
     "NAME": "An Old Ghost",
     "DESCRIPTIONS": [

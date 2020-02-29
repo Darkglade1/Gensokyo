@@ -68,7 +68,7 @@ public class ABanquetForGhosts extends AbstractImageEvent {
             hasFood = true;
             Collections.shuffle(foodOnHand, AbstractDungeon.relicRng.random);
             foodToGive = foodOnHand.get(0);
-            this.imageEventText.setDialogOption(OPTIONS[3] + FontHelper.colorString(foodToGive.name, "r") + OPTIONS[4]);
+            this.imageEventText.setDialogOption(OPTIONS[3] + FontHelper.colorString(foodToGive.name, "r") + OPTIONS[4], new PerfectCherryBlossom());
         } else {
             ArrayList<Integer> fruit = new ArrayList<>();
             fruit.add(STRAWBERRY);
@@ -91,7 +91,7 @@ public class ABanquetForGhosts extends AbstractImageEvent {
                 hpLoss = (int)(MANGO * hpLossPercent);
                 foodToGetRelic = new Mango();
             }
-            this.imageEventText.setDialogOption(OPTIONS[1] + hpLoss + OPTIONS[2] + FontHelper.colorString(foodToGetRelic.name, "g") + ".");
+            this.imageEventText.setDialogOption(OPTIONS[1] + hpLoss + OPTIONS[2] + FontHelper.colorString(foodToGetRelic.name, "g") + ".", foodToGetRelic);
         }
 
         //Leave

@@ -52,7 +52,7 @@ public class DemonBookSeller extends AbstractImageEvent {
         if (this.hasEnoughMoney) {
             int booksOnSale = Math.min(bookList.size(), BOOKS_FOR_SALE);
             for (int i = 0; i < booksOnSale; i++) {
-                this.imageEventText.setDialogOption(OPTIONS[0] + COST + OPTIONS[1] + FontHelper.colorString(bookList.get(i).name, "g") + ".");
+                this.imageEventText.setDialogOption(OPTIONS[0] + COST + OPTIONS[1] + FontHelper.colorString(bookList.get(i).name, "g") + ".", bookList.get(i));
             }
         } else {
             this.imageEventText.setDialogOption(OPTIONS[2] + COST + OPTIONS[3], true);

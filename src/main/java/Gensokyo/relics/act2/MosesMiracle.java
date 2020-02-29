@@ -28,7 +28,7 @@ public class MosesMiracle extends CustomRelic {
     public void onShuffle() {
         this.flash();
         this.addToBot(new RelicAboveCreatureAction(AbstractDungeon.player, this));
-        AbstractDungeon.actionManager.addToTop(new MakeTempCardInHandAction(new Miracle()));
+        AbstractDungeon.actionManager.addToBottom(new MakeTempCardInHandAction(new Miracle()));
     }
 
     @Override

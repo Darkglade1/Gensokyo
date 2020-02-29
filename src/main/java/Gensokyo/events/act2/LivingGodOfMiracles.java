@@ -34,7 +34,7 @@ public class LivingGodOfMiracles extends AbstractImageEvent {
 
     public LivingGodOfMiracles() {
         super(NAME, DESCRIPTIONS[0], IMG);
-        imageEventText.setDialogOption(OPTIONS[0] + DayTheSeaSplit.COMBATS + OPTIONS[1]); //Miracle
+        imageEventText.setDialogOption(OPTIONS[0] + DayTheSeaSplit.COMBATS + OPTIONS[1], new MosesMiracle()); //Miracle
         if (AbstractDungeon.player.gold < GOLD_COST) {
             this.imageEventText.setDialogOption(OPTIONS[4] + GOLD_COST + OPTIONS[5], true);
         } else if (!AbstractDungeon.player.masterDeck.hasUpgradableCards()) {

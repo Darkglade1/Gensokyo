@@ -20,7 +20,7 @@ public class DayTheSeaSplit extends CustomRelic {
     private static final Texture IMG = TextureLoader.getTexture(makeRelicPath("Sea.png"));
     private static final Texture OUTLINE = TextureLoader.getTexture(makeRelicOutlinePath("Sea.png"));
 
-    public static final int COMBATS = 2;
+    public static final int COMBATS = 3;
 
     public DayTheSeaSplit() {
         super(ID, IMG, OUTLINE, RelicTier.SPECIAL, LandingSound.MAGICAL);

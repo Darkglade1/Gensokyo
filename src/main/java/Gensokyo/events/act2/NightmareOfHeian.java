@@ -41,7 +41,7 @@ public class NightmareOfHeian extends AbstractImageEvent {
             has2Cards = true;
         }
 
-        imageEventText.setDialogOption(OPTIONS[0] + UndefinedDarkness.COMBATS + OPTIONS[1]);
+        imageEventText.setDialogOption(OPTIONS[0] + UndefinedDarkness.COMBATS + OPTIONS[1], new ConquerorOfFear());
         if (has2Cards) {
             imageEventText.setDialogOption(OPTIONS[2], CardLibrary.getCopy(Writhe.ID));
         } else {

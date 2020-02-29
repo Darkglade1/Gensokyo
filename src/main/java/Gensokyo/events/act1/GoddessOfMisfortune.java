@@ -36,7 +36,7 @@ public class GoddessOfMisfortune extends AbstractImageEvent {
             case 0:
                 this.imageEventText.updateBodyText(DESCRIPTIONS[1]);
                 this.imageEventText.clearAllDialogs();
-                this.imageEventText.setDialogOption(OPTIONS[1]);
+                this.imageEventText.setDialogOption(OPTIONS[1], new NagashiBinaDoll());
                 this.imageEventText.setDialogOption(OPTIONS[2]);
                 screenNum = 1;
                 break;

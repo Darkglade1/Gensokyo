@@ -63,11 +63,11 @@ public class GardenOfTheSun extends AbstractImageEvent {
                 this.imageEventText.updateBodyText(DESCRIPTIONS[1]);
                 this.imageEventText.clearAllDialogs();
                 if (this.hasStrongCard) {
-                    this.imageEventText.setDialogOption(OPTIONS[1] + FontHelper.colorString(this.strongCard.name, "r") + "." + OPTIONS[2], this.strongCard.makeStatEquivalentCopy());
+                    this.imageEventText.setDialogOption(OPTIONS[1] + FontHelper.colorString(this.strongCard.name, "r") + "." + OPTIONS[2], this.strongCard.makeStatEquivalentCopy(), new YoukaiFlower());
                 } else {
                     this.imageEventText.setDialogOption(OPTIONS[5] + damageThreshold + OPTIONS[6], true);
                     if (this.hasCard) {
-                        this.imageEventText.setDialogOption(OPTIONS[3] + FontHelper.colorString(this.card.name, "r") + "." + OPTIONS[4], this.card.makeStatEquivalentCopy());
+                        this.imageEventText.setDialogOption(OPTIONS[3] + FontHelper.colorString(this.card.name, "r") + "." + OPTIONS[4], this.card.makeStatEquivalentCopy(), new HappyFlower());
                     } else {
                         this.imageEventText.setDialogOption(OPTIONS[7], true);
                     }

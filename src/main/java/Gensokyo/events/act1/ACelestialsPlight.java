@@ -43,7 +43,7 @@ public class ACelestialsPlight extends AbstractImageEvent {
             healthdamage = (int) ((float) AbstractDungeon.player.maxHealth * HEALTH_LOSS_PERCENTAGE_HIGH_ASCENSION);
         }
 
-        this.imageEventText.setDialogOption(OPTIONS[1] + healthdamage + OPTIONS[2]); // Intervene
+        this.imageEventText.setDialogOption(OPTIONS[1] + healthdamage + OPTIONS[2], new CelestialsFlawlessClothing()); // Intervene
         this.imageEventText.setDialogOption(OPTIONS[3] + GOLD + OPTIONS[4]); // Let events transpire
     }
 

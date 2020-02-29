@@ -53,12 +53,12 @@ public class TheEnmasDilemma extends AbstractImageEvent {
                 this.imageEventText.updateBodyText(DESCRIPTIONS[1]);
                 this.imageEventText.clearAllDialogs();
                 if (this.attack) {
-                    this.imageEventText.setDialogOption(OPTIONS[1] + FontHelper.colorString(this.attackCard.name, "r") + "." + OPTIONS[5], this.attackCard.makeStatEquivalentCopy());
+                    this.imageEventText.setDialogOption(OPTIONS[1] + FontHelper.colorString(this.attackCard.name, "r") + "." + OPTIONS[5], this.attackCard.makeStatEquivalentCopy(), new Mercy());
                 } else {
                     this.imageEventText.setDialogOption(OPTIONS[2], true);
                 }
                 if (this.skill) {
-                    this.imageEventText.setDialogOption(OPTIONS[3] + FontHelper.colorString(this.skillCard.name, "r") + "." + OPTIONS[5], this.skillCard.makeStatEquivalentCopy());
+                    this.imageEventText.setDialogOption(OPTIONS[3] + FontHelper.colorString(this.skillCard.name, "r") + "." + OPTIONS[5], this.skillCard.makeStatEquivalentCopy(), new Justice());
                 } else {
                     this.imageEventText.setDialogOption(OPTIONS[4], true);
                 }

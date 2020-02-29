@@ -46,7 +46,7 @@ public class ThoseEarthRabbits extends AbstractImageEvent {
                 this.imageEventText.updateBodyText(DESCRIPTIONS[1]);
                 screenNum = 1;
                 this.imageEventText.clearAllDialogs();
-                this.imageEventText.setDialogOption(OPTIONS[1], CardLibrary.getCopy(Injury.ID)); // Help
+                this.imageEventText.setDialogOption(OPTIONS[1], CardLibrary.getCopy(Injury.ID), new LunaticRedEyes()); // Help
                 this.imageEventText.setDialogOption(OPTIONS[2] + GOLD + OPTIONS[3]); // Accept the bribe
                 break;
             case 1:
