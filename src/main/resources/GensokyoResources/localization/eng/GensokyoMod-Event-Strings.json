@@ -456,6 +456,27 @@
       "[Locked] Requires: Golden Idol"
     ]
   },
+  "Gensokyo:NohDance": {
+    "NAME": "Noh Dance",
+    "DESCRIPTIONS": [
+      "The sound of music draws you to a stage in the center of the village, where a masked figure is ~leaping~ and ~twirling~ about in an elaborate dance. There are many others in the audience, each of them #genthralled by the dancer's display. NL NL \"Hey! You there!\" NL NL You spot a #yvendor waving at you, his #ystall displaying several masks that look identical to the ones around the dancer.",
+      "\"That's an #gexotic mask you got there; don't think I've ever seen one of those before!\" He gestures to his #ywares. \"I'd be willing to trade one of these for it, if you'd like.\"",
+      "\"How would you like to bring a #ysouvenir home with you? I assure you these #ymasks are all of the highest #gquality!\"",
+      "You try on your freshly purchased #ymask, feeling it smoothly slide onto your face. NL NL The eyeholes are a bit difficult to see through, but it should be enough to obscure your identity, at least.",
+      "You don't feel keen about trading your #ymask away.",
+      "You don't have the #ymoney to spend on something as #ptrivial as a souvenir."
+    ],
+    "OPTIONS": [
+      "[Buy] #rLose #r",
+      " #rGold. #gObtain ",
+      "[Locked] Requires: ",
+      " Gold",
+      "[Leave]",
+      "[Continue]",
+      "[Buy] #rLose ",
+      ". #gObtain "
+    ]
+  },
   "Gensokyo:MarisaAnOldGhost": {
     "NAME": "An Old Ghost",
     "DESCRIPTIONS": [

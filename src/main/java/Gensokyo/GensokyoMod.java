@@ -61,6 +61,7 @@ import Gensokyo.events.act2.AndThenThereWereNone;
 import Gensokyo.events.act2.Impoverished;
 import Gensokyo.events.act2.LivingGodOfMiracles;
 import Gensokyo.events.act2.NightmareOfHeian;
+import Gensokyo.events.act2.NohDance;
 import Gensokyo.events.act2.TheWhiteLotus;
 import Gensokyo.events.act2.TreasureHunter;
 import Gensokyo.monsters.act1.Aya;
@@ -108,7 +109,12 @@ import Gensokyo.relics.act1.marisaRelics.IngredientList;
 import Gensokyo.relics.act1.marisaRelics.PhilosophersStone;
 import Gensokyo.relics.act2.ConquerorOfFear;
 import Gensokyo.relics.act2.DayTheSeaSplit;
+import Gensokyo.relics.act2.DemonMask;
+import Gensokyo.relics.act2.FoxMask;
+import Gensokyo.relics.act2.LionMask;
+import Gensokyo.relics.act2.MaskOfHope;
 import Gensokyo.relics.act2.MosesMiracle;
+import Gensokyo.relics.act2.SpiderMask;
 import Gensokyo.relics.act2.UndefinedDarkness;
 import Gensokyo.util.IDCheckDontTouchPls;
 import Gensokyo.util.TextureLoader;
@@ -422,6 +428,7 @@ public class GensokyoMod implements
         BaseMod.addEvent(TheWhiteLotus.ID, TheWhiteLotus.class, Gensokyoer.ID);
         BaseMod.addEvent(LivingGodOfMiracles.ID, LivingGodOfMiracles.class, Gensokyoer.ID);
         BaseMod.addEvent(TreasureHunter.ID, TreasureHunter.class, Gensokyoer.ID);
+        BaseMod.addEvent(NohDance.ID, NohDance.class, Gensokyoer.ID);
         
         // =============== /EVENTS/ =================
 
@@ -570,6 +577,11 @@ public class GensokyoMod implements
         BaseMod.addRelic(new ConquerorOfFear(), RelicType.SHARED);
         BaseMod.addRelic(new DayTheSeaSplit(), RelicType.SHARED);
         BaseMod.addRelic(new MosesMiracle(), RelicType.SHARED);
+        BaseMod.addRelic(new FoxMask(), RelicType.SHARED);
+        BaseMod.addRelic(new SpiderMask(), RelicType.SHARED);
+        BaseMod.addRelic(new MaskOfHope(), RelicType.SHARED);
+        BaseMod.addRelic(new DemonMask(), RelicType.SHARED);
+        BaseMod.addRelic(new LionMask(), RelicType.SHARED);
 
         logger.info("Done adding relics!");
     }

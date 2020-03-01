@@ -109,6 +109,41 @@
       "Whenever you shuffle your draw pile, add a #yMiracle to your hand."
     ]
   },
+  "Gensokyo:FoxMask": {
+    "NAME": "Fox Mask",
+    "FLAVOR": "A mask for the serious and determined.",
+    "DESCRIPTIONS": [
+      "Whenever you draw a #yStatus card, draw #b", " card."
+    ]
+  },
+  "Gensokyo:SpiderMask": {
+    "NAME": "Spider Mask",
+    "FLAVOR": "A mask for the angry and enraged.",
+    "DESCRIPTIONS": [
+      "The first time you play an #yAttack each turn, apply #b", " #yVulnerable to a random enemy."
+    ]
+  },
+  "Gensokyo:MaskOfHope": {
+    "NAME": "Mask of Hope",
+    "FLAVOR": "A mask for humor and cheer.",
+    "DESCRIPTIONS": [
+      "At the start of combat, gain #b", " #yTemporary #yHP."
+    ]
+  },
+  "Gensokyo:DemonMask": {
+    "NAME": "Demon Mask",
+    "FLAVOR": "A mask for thunderous surprise.",
+    "DESCRIPTIONS": [
+      "At the end of your turn, if you did not play any #ynon-Attack cards, gain #b", " #yStrength."
+    ]
+  },
+  "Gensokyo:LionMask": {
+    "NAME": "Lion Mask",
+    "FLAVOR": "A mask for the joyful and delighted.",
+    "DESCRIPTIONS": [
+      "Whenever you play a #ySkill, deal #b", " damage to a random enemy."
+    ]
+  },
   "Gensokyo:MarisaIngredientList": {
     "NAME": "Ingredient List",
     "FLAVOR": "A bunch of messy scribbles on a page. Apparently creates something known as the \"Improbability Potion\".",
