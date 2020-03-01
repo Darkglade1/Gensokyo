@@ -5,6 +5,7 @@ import Gensokyo.util.TextureLoader;
 import basemod.abstracts.CustomRelic;
 import com.badlogic.gdx.graphics.Texture;
 import com.evacipated.cardcrawl.mod.stslib.actions.tempHp.AddTemporaryHPAction;
+import com.megacrit.cardcrawl.actions.common.RelicAboveCreatureAction;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 
 import static Gensokyo.GensokyoMod.makeRelicOutlinePath;
@@ -26,6 +27,7 @@ public class MaskOfHope extends CustomRelic {
     @Override
     public void atBattleStartPreDraw() {
         this.flash();
+        this.addToBot(new RelicAboveCreatureAction(AbstractDungeon.player, this));
         AbstractDungeon.actionManager.addToBottom(new AddTemporaryHPAction(AbstractDungeon.player, AbstractDungeon.player, TEMP_HP));
     }
 

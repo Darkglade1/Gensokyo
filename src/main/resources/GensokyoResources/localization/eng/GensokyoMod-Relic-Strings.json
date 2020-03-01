@@ -134,7 +134,7 @@
     "NAME": "Demon Mask",
     "FLAVOR": "A mask for thunderous surprise.",
     "DESCRIPTIONS": [
-      "At the end of your turn, if you did not play any #ynon-Attack cards, gain #b", " #yStrength."
+      "At the end of your turn, if you did not play any #ynon-Attack cards this turn, gain #b", " #yStrength."
     ]
   },
   "Gensokyo:LionMask": {

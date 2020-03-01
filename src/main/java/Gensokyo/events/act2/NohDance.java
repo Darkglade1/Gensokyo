@@ -77,6 +77,7 @@ public class NohDance extends AbstractImageEvent {
                         this.imageEventText.setDialogOption(OPTIONS[0] + COST + OPTIONS[1] + FontHelper.colorString(maskList.get(i).name, "g") + ".", maskList.get(i));
                     }
                 } else {
+                    this.imageEventText.updateBodyText(DESCRIPTIONS[2]);
                     this.imageEventText.setDialogOption(OPTIONS[2] + COST + OPTIONS[3], true);
                 }
 
