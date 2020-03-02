@@ -477,6 +477,21 @@
       ". #gObtain "
     ]
   },
+  "Gensokyo:OneWingedWhiteHeron": {
+    "NAME": "One-Winged White Heron",
+    "DESCRIPTIONS": [
+      ""
+    ],
+    "OPTIONS": [
+      "[Speak of ",
+      " ] #gHeal #g",
+      " #gHP.",
+      " #rLose ",
+      ".",
+      " #rGold.",
+      "[Leave]"
+    ]
+  },
   "Gensokyo:MarisaAnOldGhost": {
     "NAME": "An Old Ghost",
     "DESCRIPTIONS": [
