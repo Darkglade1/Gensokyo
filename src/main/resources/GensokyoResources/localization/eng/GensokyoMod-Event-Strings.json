@@ -480,7 +480,10 @@
   "Gensokyo:OneWingedWhiteHeron": {
     "NAME": "One-Winged White Heron",
     "DESCRIPTIONS": [
-      ""
+      "A great ball of #ggreen and #bblue floats in the sky, a stark contrast to the grey, rocky environment surrounding you. NL NL You blink in surprise. Apparently, you are on the #ymoon. Somehow. NL NL \"An intruder? Haven't had one of those in a while.\"",
+      "A silver-haired woman peers closely at you. She does not seem surprised by her surroundings or by your sudden appearance. NL NL \"Well, it'll be a while before those #ysisters get here to send you back. Why don't you tell me a story in the meantime?\"",
+      "You tell her about one of the most #pharrowing encounters you've had with the denizens of the land. She nods along as you speak, seemingly repeating your words under her breath. NL NL \"Ah, they're here.\" NL NL You barely have time to comprehend her words before space @warps@ and @twists@ around you, and you suddenly find yourself back in a #gfamiliar landscape. As you press on, you feel somewhat #pstrange - the aches of several old #rwounds have disappeared, and a few of your #ypossessions seem to have gone missing. NL NL You shake your head, ultimately dismissing these concerns as trivial.",
+      "\"Not a talkative one? I suppose that's fine too.\" NL NL Before long, space @warps@ and @twists@ around you, and you suddenly find yourself back in a familiar landscape."
     ],
     "OPTIONS": [
       "[Speak of ",
@@ -489,7 +492,11 @@
       " #rLose ",
       ".",
       " #rGold.",
-      "[Leave]"
+      "[Leave]",
+      "[Locked] Requires: Elite Encounter",
+      "[Locked] Requires: Normal Encounter",
+      "[Continue]",
+      "[Remain silent]"
     ]
   },
   "Gensokyo:MarisaAnOldGhost": {

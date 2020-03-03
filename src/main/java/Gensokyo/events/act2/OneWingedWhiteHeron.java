@@ -27,51 +27,60 @@ public class OneWingedWhiteHeron extends AbstractImageEvent {
 
     private ReversalEventPatches.ReversalRewardItem eliteReward;
     private ReversalEventPatches.ReversalRewardItem normalReward;
-    AbstractCard card;
-    AbstractRelic relic;
+    private AbstractCard card;
+    private AbstractRelic relic;
 
 
     public OneWingedWhiteHeron() {
         super(NAME, DESCRIPTIONS[0], IMG);
         setRewards();
-        for (AbstractCard card : AbstractDungeon.player.masterDeck.group) {
-            if (card.cardID.equals(normalReward.cardID)) {
-                this.card = card;
-            }
-        }
-        if (AbstractDungeon.player.hasRelic(eliteReward.relicID)) {
-            relic = AbstractDungeon.player.getRelic(eliteReward.relicID);
-        }
-        if (relic != null) {
-            this.imageEventText.setDialogOption(OPTIONS[0] + eliteReward.monsterName + OPTIONS[1] + eliteReward.heal + OPTIONS[2] + OPTIONS[3] + FontHelper.colorString(relic.name, "r") + OPTIONS[4]);
-        } else {
-            this.imageEventText.setDialogOption(OPTIONS[0] + eliteReward.monsterName + OPTIONS[1] + eliteReward.heal + OPTIONS[2]);
-        }
-        if (card != null) {
-            this.imageEventText.setDialogOption(OPTIONS[0] + normalReward.monsterName + OPTIONS[1] + normalReward.heal + OPTIONS[2] + OPTIONS[3] + FontHelper.colorString("" + normalReward.gold, "r") + OPTIONS[5] + OPTIONS[3] + FontHelper.colorString(card.name, "r") + OPTIONS[4], card.makeStatEquivalentCopy());
-        } else {
-            this.imageEventText.setDialogOption(OPTIONS[0] + normalReward.monsterName + OPTIONS[1] + normalReward.heal + OPTIONS[2] + OPTIONS[3] + FontHelper.colorString("" + normalReward.gold, "r") + OPTIONS[5]);
-        }
-        //Leave
-        this.imageEventText.setDialogOption(OPTIONS[6]);
+        this.imageEventText.setDialogOption(OPTIONS[9]);
     }
 
     @Override
     protected void buttonEffect(int buttonPressed) {
         switch (screenNum) {
             case 0:
+                this.imageEventText.updateBodyText(DESCRIPTIONS[1]);
+                this.imageEventText.clearAllDialogs();
+                screenNum = 1;
+
+                if (eliteReward == null) {
+                    this.imageEventText.setDialogOption(OPTIONS[7], true);
+                } else {
+                    if (relic != null) {
+                        this.imageEventText.setDialogOption(OPTIONS[0] + eliteReward.monsterName + OPTIONS[1] + eliteReward.heal + OPTIONS[2] + OPTIONS[3] + FontHelper.colorString(relic.name, "r") + OPTIONS[4]);
+                    } else {
+                        this.imageEventText.setDialogOption(OPTIONS[0] + eliteReward.monsterName + OPTIONS[1] + eliteReward.heal + OPTIONS[2]);
+                    }
+                }
+                if (normalReward == null) {
+                    this.imageEventText.setDialogOption(OPTIONS[8], true);
+                } else {
+                    if (card != null) {
+                        this.imageEventText.setDialogOption(OPTIONS[0] + normalReward.monsterName + OPTIONS[1] + normalReward.heal + OPTIONS[2] + OPTIONS[3] + FontHelper.colorString("" + normalReward.gold, "r") + OPTIONS[5] + OPTIONS[3] + FontHelper.colorString(card.name, "r") + OPTIONS[4], card.makeStatEquivalentCopy());
+                    } else {
+                        this.imageEventText.setDialogOption(OPTIONS[0] + normalReward.monsterName + OPTIONS[1] + normalReward.heal + OPTIONS[2] + OPTIONS[3] + FontHelper.colorString("" + normalReward.gold, "r") + OPTIONS[5]);
+                    }
+                }
+                this.imageEventText.setDialogOption(OPTIONS[10]);
+                break;
+            case 1:
                 switch (buttonPressed) {
                     case 0:
-                        //this.imageEventText.updateBodyText(DESCRIPTIONS[1]);
-                        screenNum = 1;
+                        this.imageEventText.updateBodyText(DESCRIPTIONS[2]);
+                        screenNum = 2;
                         this.imageEventText.updateDialogOption(0, OPTIONS[6]);
                         this.imageEventText.clearRemainingOptions();
                         AbstractDungeon.player.heal(eliteReward.heal);
-                        AbstractDungeon.player.loseRelic(relic.relicId);
+                        if (relic != null) {
+                            AbstractDungeon.player.loseRelic(relic.relicId);
+                        }
+                        ReversalEventPatches.eliteEncounters.remove(eliteReward);
                         break;
                     case 1:
-                        //this.imageEventText.updateBodyText(DESCRIPTIONS[1]);
-                        screenNum = 1;
+                        this.imageEventText.updateBodyText(DESCRIPTIONS[2]);
+                        screenNum = 2;
                         this.imageEventText.updateDialogOption(0, OPTIONS[6]);
                         this.imageEventText.clearRemainingOptions();
                         AbstractDungeon.player.heal(normalReward.heal);
@@ -80,16 +89,17 @@ public class OneWingedWhiteHeron extends AbstractImageEvent {
                             AbstractDungeon.effectList.add(new PurgeCardEffect(card));
                             AbstractDungeon.player.masterDeck.removeCard(card);
                         }
+                        ReversalEventPatches.normalEncounters.remove(normalReward);
                         break;
-                    case 2: // Leave
-                        //this.imageEventText.updateBodyText(DESCRIPTIONS[3]);
-                        screenNum = 1;
+                    case 2:
+                        this.imageEventText.updateBodyText(DESCRIPTIONS[3]);
+                        screenNum = 2;
                         this.imageEventText.updateDialogOption(0, OPTIONS[6]);
                         this.imageEventText.clearRemainingOptions();
                         break;
                 }
                 break;
-            case 1:
+            case 2:
                 this.openMap();
                 break;
             default:
@@ -113,5 +123,24 @@ public class OneWingedWhiteHeron extends AbstractImageEvent {
                 biggestHeal = reward.heal;
             }
         }
+        if (normalReward != null) {
+            for (AbstractCard card : AbstractDungeon.player.masterDeck.group) {
+                if (card.cardID.equals(normalReward.cardID)) {
+                    this.card = card;
+                }
+            }
+        }
+        if (eliteReward != null) {
+            if (AbstractDungeon.player.hasRelic(eliteReward.relicID)) {
+                relic = AbstractDungeon.player.getRelic(eliteReward.relicID);
+            }
+        }
+    }
+
+    public static boolean canSpawn() {
+        if ((AbstractDungeon.player.currentHealth < ((int)(AbstractDungeon.player.maxHealth * 0.60F))) && ReversalEventPatches.eliteEncounters.size() >= 1 && ReversalEventPatches.normalEncounters.size() >= 2) {
+            return true;
+        }
+        return false;
     }
 }

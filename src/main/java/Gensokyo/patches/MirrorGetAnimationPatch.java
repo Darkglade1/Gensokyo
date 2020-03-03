@@ -54,6 +54,7 @@ public class MirrorGetAnimationPatch {
             isPlayerTimeScale = false;
             //spriterAnimation = null; breaks stuff since we get this before the super call
             canSpriterAnimation = true;
+            ReversalEventPatches.clearLists(); //piggy-back this here too
         }
     }
 

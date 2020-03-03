@@ -15,6 +15,7 @@ import Gensokyo.events.act1.marisaEvents.BookThief;
 import Gensokyo.events.act1.marisaEvents.JustAVisit;
 import Gensokyo.events.act1.marisaEvents.Walpurgisnacht;
 import Gensokyo.events.act2.NohDance;
+import Gensokyo.events.act2.OneWingedWhiteHeron;
 import Gensokyo.events.act2.TheWhiteLotus;
 import ThMod.characters.Marisa;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
@@ -74,6 +75,10 @@ public class EventFilter {
                 }
             } else if (event.equals(NohDance.ID)) {
                 if (!(NohDance.staticHasOtherMask()) && !(AbstractDungeon.player.gold >= NohDance.COST)) {
+                    eventsToRemove.add(event);
+                }
+            } else if (event.equals(OneWingedWhiteHeron.ID)) {
+                if (!OneWingedWhiteHeron.canSpawn()) {
                     eventsToRemove.add(event);
                 }
             }

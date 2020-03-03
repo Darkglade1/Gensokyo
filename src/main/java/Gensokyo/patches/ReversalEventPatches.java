@@ -7,7 +7,6 @@ import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
-import com.megacrit.cardcrawl.relics.AbstractRelic;
 import com.megacrit.cardcrawl.rewards.RewardItem;
 import com.megacrit.cardcrawl.rooms.AbstractRoom;
 import com.megacrit.cardcrawl.rooms.MonsterRoom;
@@ -23,7 +22,10 @@ public class ReversalEventPatches {
     private static int endOfBattleHP;
     private static int goldReward;
     private static String name;
-    private static ArrayList<AbstractMonster> monsters;
+    private static boolean isNormal;
+    private static boolean isElite;
+    private static String card;
+    private static String relic;
     public static ArrayList<ReversalRewardItem> eliteEncounters = new ArrayList<>();
     public static ArrayList<ReversalRewardItem> normalEncounters = new ArrayList<>();
 
@@ -36,26 +38,9 @@ public class ReversalEventPatches {
         public static void getStuff(AbstractPlayer _instance) {
             Reset();
             startOfBattleHP = _instance.currentHealth;
-            monsters = AbstractDungeon.getMonsters().monsters;
-        }
-    }
-
-    @SpirePatch(
-            clz= MonsterRoomElite.class,
-            method="dropReward"
-    )
-    public static class GetPostBattleStats {
-        @SpirePostfixPatch
-        public static void getStuff(MonsterRoomElite _instance) {
-            endOfBattleHP = AbstractDungeon.player.currentHealth;
-            AbstractRelic relic = null;
-            for (RewardItem reward : AbstractDungeon.getCurrRoom().rewards) {
-                if (reward.relic != null) {
-                    relic = reward.relic;
-                }
-            }
+            ArrayList<AbstractMonster> monsters = AbstractDungeon.getMonsters().monsters;
             if (AbstractDungeon.getCurrRoom() instanceof MonsterRoomElite) {
-                String name = null;
+                isElite = true;
                 for (AbstractMonster monster : monsters) {
                     if (monster.type == AbstractMonster.EnemyType.ELITE) {
                         name = monster.name;
@@ -64,25 +49,8 @@ public class ReversalEventPatches {
                 if (name == null) {
                     name = monsters.get(0).name;
                 }
-                System.out.println(startOfBattleHP);
-                System.out.println(endOfBattleHP);
-                System.out.println(name);
-                System.out.println(relic);
-                eliteEncounters.add(new ReversalRewardItem(startOfBattleHP - endOfBattleHP, relic.relicId, 0, null, name));
-            }
-        }
-    }
-
-    @SpirePatch(
-            clz= AbstractRoom.class,
-            method="addGoldToRewards"
-    )
-    public static class GetGold {
-        @SpirePostfixPatch
-        public static void getGold(AbstractRoom _instance, int goldAmt) {
-            goldReward = goldAmt;
-            endOfBattleHP = AbstractDungeon.player.currentHealth;
-            if (AbstractDungeon.getCurrRoom() instanceof MonsterRoom && !AbstractDungeon.getCurrRoom().eliteTrigger) {
+            } else if (AbstractDungeon.getCurrRoom() instanceof MonsterRoom && !AbstractDungeon.getCurrRoom().eliteTrigger) {
+                isNormal = true;
                 for (AbstractMonster monster : monsters) {
                     if (monster.type == AbstractMonster.EnemyType.NORMAL) {
                         name = monster.name;
@@ -96,21 +64,50 @@ public class ReversalEventPatches {
     }
 
     @SpirePatch(
+            clz= AbstractPlayer.class,
+            method="onVictory"
+    )
+    public static class getEndOfBattleHP {
+        @SpirePostfixPatch
+        public static void getStuff(AbstractPlayer _instance) {
+            endOfBattleHP = _instance.currentHealth;
+        }
+    }
+
+    @SpirePatch(
+            clz= MonsterRoomElite.class,
+            method="dropReward"
+    )
+    public static class GetPostBattleStats {
+        @SpirePostfixPatch
+        public static void getStuff(MonsterRoomElite _instance) {
+            for (RewardItem reward : AbstractDungeon.getCurrRoom().rewards) {
+                if (reward.relic != null) {
+                    relic = reward.relic.relicId;
+                }
+            }
+        }
+    }
+
+    @SpirePatch(
+            clz= AbstractRoom.class,
+            method="addGoldToRewards"
+    )
+    public static class GetGold {
+        @SpirePostfixPatch
+        public static void getGold(AbstractRoom _instance, int goldAmt) {
+            goldReward = goldAmt;
+        }
+    }
+
+    @SpirePatch(
             clz= CardRewardScreen.class,
             method="acquireCard"
     )
     public static class GetAcquiredCard {
         @SpirePrefixPatch
         public static void getStuff(CardRewardScreen _instance, AbstractCard hoveredCard) {
-            if (AbstractDungeon.getCurrRoom() instanceof MonsterRoom && !AbstractDungeon.getCurrRoom().eliteTrigger) {
-                System.out.println(startOfBattleHP);
-                System.out.println(endOfBattleHP);
-                System.out.println(goldReward);
-                System.out.println(name);
-                System.out.println(hoveredCard);
-                normalEncounters.add(new ReversalRewardItem(startOfBattleHP - endOfBattleHP, null, goldReward, hoveredCard.cardID, name));
-                Reset();
-            }
+            card = hoveredCard.cardID;
         }
     }
 
@@ -119,16 +116,24 @@ public class ReversalEventPatches {
             method="nextRoomTransition",
             paramtypez = SaveFile.class
     )
-    public static class GetNoCardReward {
+    public static class AddReverseReward {
         @SpirePrefixPatch
-        public static void getNoCard(AbstractDungeon _instance, SaveFile saveFile) {
-            System.out.println(startOfBattleHP);
-            System.out.println(endOfBattleHP);
-            System.out.println(goldReward);
-            System.out.println(name);
-            if (startOfBattleHP != 0 && endOfBattleHP != 0) {
-                normalEncounters.add(new ReversalRewardItem(startOfBattleHP - endOfBattleHP, null, goldReward, null, name));
+        public static void addReward(AbstractDungeon _instance, SaveFile saveFile) {
+//            System.out.println(startOfBattleHP);
+//            System.out.println(endOfBattleHP);
+//            System.out.println(goldReward);
+//            System.out.println(name);
+//            System.out.println(relic);
+//            System.out.println(card);
+            if (startOfBattleHP != 0 && endOfBattleHP != 0 && startOfBattleHP - endOfBattleHP >= 0) {
+                if (isElite) {
+                    eliteEncounters.add(new ReversalRewardItem(startOfBattleHP - endOfBattleHP, relic, 0, null, name));
+                }
+                if (isNormal) {
+                    normalEncounters.add(new ReversalRewardItem(startOfBattleHP - endOfBattleHP, null, goldReward, card, name));
+                }
             }
+            Reset();
         }
     }
 
@@ -137,7 +142,15 @@ public class ReversalEventPatches {
         endOfBattleHP = 0;
         goldReward = 0;
         name = null;
-        monsters = null;
+        isElite = false;
+        isNormal = false;
+        card = null;
+        relic = null;
+    }
+
+    public static void clearLists() {
+        eliteEncounters.clear();
+        normalEncounters.clear();
     }
 
     public static class ReversalRewardItem {
