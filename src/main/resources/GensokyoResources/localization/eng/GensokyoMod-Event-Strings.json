@@ -499,6 +499,20 @@
       "[Remain silent]"
     ]
   },
+  "Gensokyo:ChildOfMiare": {
+    "NAME": "Child of Miare",
+    "DESCRIPTIONS": [
+      ""
+    ],
+    "OPTIONS": [
+      "[Read] #gObtain ",
+      ".",
+      "[Decline]",
+      "[Record] Store a copy of a card.",
+      "[Leave]",
+      "Store a copy of a card."
+    ]
+  },
   "Gensokyo:MarisaAnOldGhost": {
     "NAME": "An Old Ghost",
     "DESCRIPTIONS": [

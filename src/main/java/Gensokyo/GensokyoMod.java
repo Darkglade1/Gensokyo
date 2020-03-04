@@ -58,6 +58,7 @@ import Gensokyo.events.act1.marisaEvents.BookThief;
 import Gensokyo.events.act1.marisaEvents.JustAVisit;
 import Gensokyo.events.act1.marisaEvents.Walpurgisnacht;
 import Gensokyo.events.act2.AndThenThereWereNone;
+import Gensokyo.events.act2.ChildOfMiare;
 import Gensokyo.events.act2.Impoverished;
 import Gensokyo.events.act2.LivingGodOfMiracles;
 import Gensokyo.events.act2.NightmareOfHeian;
@@ -136,6 +137,7 @@ import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.Texture;
 import com.evacipated.cardcrawl.mod.stslib.Keyword;
 import com.evacipated.cardcrawl.modthespire.Loader;
+import com.evacipated.cardcrawl.modthespire.lib.SpireConfig;
 import com.evacipated.cardcrawl.modthespire.lib.SpireEnum;
 import com.evacipated.cardcrawl.modthespire.lib.SpireInitializer;
 import com.google.gson.Gson;
@@ -263,6 +265,7 @@ public class GensokyoMod implements
                 ATTACK_BLACK, SKILL_BLACK, POWER_BLACK, ENERGY_ORB_BLACK,
                 ATTACK_BLACK_PORTRAIT, SKILL_BLACK_PORTRAIT, POWER_BLACK_PORTRAIT,
                 ENERGY_ORB_BLACK_PORTRAIT, CARD_ENERGY_ORB);
+        loadConfigData();
     }
     
     public static void setModID(String ID) { // DON'T EDIT
@@ -431,6 +434,7 @@ public class GensokyoMod implements
         BaseMod.addEvent(TreasureHunter.ID, TreasureHunter.class, Gensokyoer.ID);
         BaseMod.addEvent(NohDance.ID, NohDance.class, Gensokyoer.ID);
         BaseMod.addEvent(OneWingedWhiteHeron.ID, OneWingedWhiteHeron.class, Gensokyoer.ID);
+        BaseMod.addEvent(ChildOfMiare.ID, ChildOfMiare.class, Gensokyoer.ID);
         
         // =============== /EVENTS/ =================
 
@@ -538,6 +542,27 @@ public class GensokyoMod implements
         }
 
         return monsters;
+    }
+
+    public static void loadConfigData() {
+        try {
+            SpireConfig config = new SpireConfig("Gensokyo", "GensokyoConfig");
+            config.load();
+        }
+        catch(Exception e) {
+            e.printStackTrace();
+            saveData();
+        }
+    }
+
+
+    public static void saveData() {
+        try {
+            SpireConfig config = new SpireConfig("Gensokyo", "GensokyoConfig");
+            config.save();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
     
     // =============== / POST-INITIALIZE/ =================
