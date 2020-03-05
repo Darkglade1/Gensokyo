@@ -10,9 +10,10 @@ import com.google.gson.JsonSyntaxException;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.cards.CardGroup;
 import com.megacrit.cardcrawl.cards.CardSave;
-import com.megacrit.cardcrawl.cards.blue.SweepingBeam;
-import com.megacrit.cardcrawl.cards.green.FlyingKnee;
-import com.megacrit.cardcrawl.cards.red.IronWave;
+import com.megacrit.cardcrawl.cards.blue.ReinforcedBody;
+import com.megacrit.cardcrawl.cards.colorless.Madness;
+import com.megacrit.cardcrawl.cards.green.Dash;
+import com.megacrit.cardcrawl.cards.red.Carnage;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.core.Settings;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
@@ -55,16 +56,22 @@ public class ChildOfMiare extends AbstractImageEvent {
         super(NAME, DESCRIPTIONS[0], IMG);
         initialDeck = new CardGroup(AbstractDungeon.player.masterDeck, CardGroup.CardGroupType.UNSPECIFIED);
         this.cards = getSavedItem();
-        for (AbstractCard card : cards) {
-            imageEventText.setDialogOption(OPTIONS[0] + FontHelper.colorString(card.name, "g") + OPTIONS[1], card);
-        }
-        imageEventText.setDialogOption(OPTIONS[2]);
+        imageEventText.setDialogOption(OPTIONS[6]);
     }
 
     @Override
     protected void buttonEffect(int buttonPressed) { // This is the event:
         switch (screenNum) {
             case 0:
+                this.imageEventText.updateBodyText(DESCRIPTIONS[1]);
+                screenNum = 1;
+                this.imageEventText.clearAllDialogs();
+                for (AbstractCard card : cards) {
+                    imageEventText.setDialogOption(OPTIONS[0] + FontHelper.colorString(card.name, "g") + OPTIONS[1], card);
+                }
+                imageEventText.setDialogOption(OPTIONS[2]);
+                break;
+            case 1:
                 switch (buttonPressed) {
                     case 0:
                         takeCard(buttonPressed);
@@ -76,22 +83,22 @@ public class ChildOfMiare extends AbstractImageEvent {
                         takeCard(buttonPressed);
                         break;
                     case 3:
-                        this.imageEventText.updateBodyText(DESCRIPTIONS[0]);
-                        screenNum = 1;
+                        this.imageEventText.updateBodyText(DESCRIPTIONS[3]);
+                        screenNum = 2;
                         this.imageEventText.updateDialogOption(0, OPTIONS[3]);
                         this.imageEventText.clearRemainingOptions();
                         break;
                 }
                 break;
-            case 1:
-                this.imageEventText.updateBodyText(DESCRIPTIONS[0]);
-                screenNum = 2;
+            case 2:
+                this.imageEventText.updateBodyText(DESCRIPTIONS[4]);
+                screenNum = 3;
                 this.imageEventText.updateDialogOption(0, OPTIONS[4]);
                 this.imageEventText.clearRemainingOptions();
                 AbstractDungeon.gridSelectScreen.open(initialDeck, 1, OPTIONS[5], false);
                 pickCard = true;
                 break;
-            case 2:
+            case 3:
                 this.openMap();
                 break;
             default:
@@ -100,8 +107,8 @@ public class ChildOfMiare extends AbstractImageEvent {
     }
 
     private void takeCard(int card) {
-        this.imageEventText.updateBodyText(DESCRIPTIONS[0]);
-        screenNum = 1;
+        this.imageEventText.updateBodyText(DESCRIPTIONS[2]);
+        screenNum = 2;
         this.imageEventText.updateDialogOption(0, OPTIONS[3]);
         this.imageEventText.clearRemainingOptions();
         takenCardIndex = card;
@@ -114,9 +121,9 @@ public class ChildOfMiare extends AbstractImageEvent {
 
     public static ArrayList<AbstractCard> getSavedItem() {
         ArrayList<AbstractCard> result = new ArrayList<>();
-        result.add(CardLibrary.getCopy(IronWave.ID));
-        result.add(CardLibrary.getCopy(FlyingKnee.ID));
-        result.add(CardLibrary.getCopy(SweepingBeam.ID));
+        result.add(CardLibrary.getCopy(Carnage.ID));
+        result.add(CardLibrary.getCopy(Dash.ID));
+        result.add(CardLibrary.getCopy(ReinforcedBody.ID));
         try {
             if (Gdx.files.absolute(getSavePath()).exists()) {
                 Gson gson = new Gson();
@@ -124,19 +131,27 @@ public class ChildOfMiare extends AbstractImageEvent {
                 Save save = gson.fromJson(savestr, Save.class);
                 try {
                     if (save.childOfMiare.size() > 0) {
-                        System.out.println((save.childOfMiare.get(0).id));
-                        result.set(0, CardLibrary.getCopy(save.childOfMiare.get(0).id, save.childOfMiare.get(0).upgrades, save.childOfMiare.get(0).misc));
+                        try {
+                            result.set(0, CardLibrary.getCopy(save.childOfMiare.get(0).id, save.childOfMiare.get(0).upgrades, save.childOfMiare.get(0).misc));
+                        } catch (Exception e) {
+                            result.set(0, CardLibrary.getCopy(Madness.ID));
+                        }
                     }
                     if (save.childOfMiare.size() > 1) {
-                        System.out.println((save.childOfMiare.get(1).id));
-                        result.set(1, CardLibrary.getCopy(save.childOfMiare.get(1).id, save.childOfMiare.get(1).upgrades, save.childOfMiare.get(1).misc));
+                        try {
+                            result.set(1, CardLibrary.getCopy(save.childOfMiare.get(1).id, save.childOfMiare.get(1).upgrades, save.childOfMiare.get(1).misc));
+                        } catch (Exception e) {
+                            result.set(1, CardLibrary.getCopy(Madness.ID));
+                        }
                     }
                     if (save.childOfMiare.size() > 2) {
-                        System.out.println((save.childOfMiare.get(2).id));
-                        result.set(2, CardLibrary.getCopy(save.childOfMiare.get(2).id, save.childOfMiare.get(2).upgrades, save.childOfMiare.get(2).misc));
+                        try {
+                            result.set(2, CardLibrary.getCopy(save.childOfMiare.get(2).id, save.childOfMiare.get(2).upgrades, save.childOfMiare.get(2).misc));
+                        } catch (Exception e) {
+                            result.set(2, CardLibrary.getCopy(Madness.ID));
+                        }
                     }
                     return result;
-
                 } catch (Exception e) {
                     return result;
                 }

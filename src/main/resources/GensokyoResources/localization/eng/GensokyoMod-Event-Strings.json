@@ -502,7 +502,11 @@
   "Gensokyo:ChildOfMiare": {
     "NAME": "Child of Miare",
     "DESCRIPTIONS": [
-      ""
+      "\"I've seen someone like you before. That same someone came here asking the very same thing as you.\" NL NL You had your #rdoubts when this young girl claimed to be one of the most knowledgeable people in this land, but that single statement erased any #pmisgivings you had. NL NL The heavy tome next to her didn't look like it was for show, either.",
+      "\"In fact, they were kind enough to let me make some records of them. Would you like to see them?\"",
+      "The words on the page fascinate you. The #yhandwriting is yours, but the words themselves spoke of events utterly #pforeign to you. NL NL You find the whole situation to be #pstrange and #punsettling. NL NL \"Why don't you let me make some records for you too? I'm sure it will be helpful to whoever comes next.\" NL NL That wasn't a bad idea. After all, if what you just read is true, you would end up #pforgetting everything very soon.",
+      "\"You're not curious? Very well then. Still, I must ask you to #yhumor me for a little. I am trying to compile an extensive account of every major figure in Gensokyo, and you certainly look #rimposing enough to be counted among them.\"",
+      "You recount your most noteworthy experiences, trying to be as detailed as you can despite your #pscattered memories. NL NL You may or may not have #pembellished a little to fill in the hazy gaps here and there. After all, no one can prove that you #rdidn't take on three of those metallic crabs at once and come out without a scratch, right?"
     ],
     "OPTIONS": [
       "[Read] #gObtain ",
@@ -510,7 +514,8 @@
       "[Decline]",
       "[Record] Store a copy of a card.",
       "[Leave]",
-      "Store a copy of a card."
+      "Store a copy of a card.",
+      "[Continue]"
     ]
   },
   "Gensokyo:MarisaAnOldGhost": {
