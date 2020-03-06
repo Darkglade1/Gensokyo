@@ -225,5 +225,19 @@
 "Gensokyo:WishfulSoul": {
         "NAME": "Strength Drain",
         "DESCRIPTIONS": ["At end of round, loses up to #b", " #ypositive #yStrength and gives that amount to this debuff's source."]
+},
+"Gensokyo:LunaticRedEyes": {
+        "NAME": "Lunatic Red Eyes",
+        "DESCRIPTIONS": ["Whenever you play a #yMarked card, you gain #b", " #rInsanity, then you take damage equal to your #rInsanity."]
+},
+"Gensokyo:Insanity": {
+        "NAME": "Insanity",
+        "DESCRIPTIONS": ["#rYour #rvision #ris #rtinged #rwith #rred.",
+                        "#pSomeone #pis #pscreaming #pin #pyour #phead.",
+                        "#rThe #pnightmare #rpaints #pyour #rmind #pa #rbeautiful, #pjoyous #rshade #pof #rred."]
+},
+"Gensokyo:ThingOfNightmares": {
+        "NAME": "Thing of Nightmares",
+        "DESCRIPTIONS": ["When this creature dies, #yMark your entire hand."]
 }
 }

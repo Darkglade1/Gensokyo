@@ -94,6 +94,7 @@ import Gensokyo.monsters.act2.Byakuren;
 import Gensokyo.monsters.act2.Kaguya;
 import Gensokyo.monsters.act2.Eiki;
 import Gensokyo.monsters.act2.Miko;
+import Gensokyo.monsters.act2.Reisen;
 import Gensokyo.monsters.act2.Yuyuko;
 import Gensokyo.relics.act1.Bombinomicon;
 import Gensokyo.relics.act1.BookOfSpecters;
@@ -385,6 +386,7 @@ public class GensokyoMod implements
                         new Byakuren(-960.0F, 0.0F),
                         new Miko(),
                 }));
+        BaseMod.addMonster(Reisen.ID, (BaseMod.GetMonster) Reisen::new);
 
 
         BaseMod.addBoss(Gensokyoer.ID, Kaguya.ID, "GensokyoResources/images/monsters/Kaguya/Kaguya.png", "GensokyoResources/images/monsters/Kaguya/KaguyaOutline.png");

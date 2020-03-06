@@ -325,6 +325,27 @@
       "Your beliefs are a sham!",
       "Your lack of training was your downfall."
     ]
+  },
+  "Gensokyo:Reisen": {
+    "MOVES": [
+      "Disorder Eye",
+      "Lunatic Blast",
+      "Mind Wave",
+      "Tendrils of Insanity"
+    ],
+    "NAME": "Lunatic Moon Rabbit",
+    "DIALOG": [
+      "I'm afraid I can't let you pass."
+    ]
+  },
+  "Gensokyo:Kune": {
+    "MOVES": [
+
+    ],
+    "NAME": "Kune",
+    "DIALOG": [
+
+    ]
   }
 }
 
