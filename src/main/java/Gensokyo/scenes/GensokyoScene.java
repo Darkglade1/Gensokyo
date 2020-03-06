@@ -11,6 +11,7 @@ import Gensokyo.monsters.act2.Byakuren;
 import Gensokyo.monsters.act2.Eiki;
 import Gensokyo.monsters.act2.Kaguya;
 import Gensokyo.monsters.act2.Miko;
+import Gensokyo.monsters.act2.Reisen;
 import Gensokyo.monsters.act2.Yuyuko;
 import Gensokyo.monsters.act1.marisaMonsters.Patchouli;
 import com.badlogic.gdx.Gdx;
@@ -89,7 +90,7 @@ public class GensokyoScene extends AbstractScene {
                     this.bg = this.atlas.findRegion("mod/Palace");
                 } else if (mo instanceof Sumireko) {
                     this.bg = this.atlas.findRegion("mod/OutsideWorld");
-                } else if (mo instanceof Yuyuko) {
+                } else if (mo instanceof Reisen) {
                     this.bg = this.atlas.findRegion("mod/ElegantPlace");
                 } else if (mo instanceof Eiki) {
                     this.bg = this.atlas.findRegion("mod/ConcertStage");

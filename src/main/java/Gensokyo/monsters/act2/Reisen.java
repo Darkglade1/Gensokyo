@@ -40,10 +40,10 @@ public class Reisen extends CustomMonster
     private static final byte ATTACK = 1;
     private static final byte DEBUFF_ATTACK = 2;
     private static final byte SUMMON = 3;
-    private static final int NORMAL_ATTACK_DAMAGE = 19;
-    private static final int A3_NORMAL_ATTACK_DAMAGE = 21;
-    private static final int DEBUFF_ATTACK_DAMAGE = 13;
-    private static final int A3_DEBUFF_ATTACK_DAMAGE = 14;
+    private static final int NORMAL_ATTACK_DAMAGE = 17;
+    private static final int A3_NORMAL_ATTACK_DAMAGE = 19;
+    private static final int DEBUFF_ATTACK_DAMAGE = 12;
+    private static final int A3_DEBUFF_ATTACK_DAMAGE = 13;
     private static final int DEBUFF_AMOUNT = 2;
     private static final int BLOCK = 6;
     private static final int A8_BLOCK = 7;
@@ -160,7 +160,6 @@ public class Reisen extends CustomMonster
             case SUMMON: {
                 //runAnim("AttackFan");
                 Summon();
-                turnCounter++;
                 break;
             }
         }

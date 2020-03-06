@@ -518,6 +518,26 @@
       "[Continue]"
     ]
   },
+  "Gensokyo:DetectiveSatori": {
+    "NAME": "Detective Satori",
+    "DESCRIPTIONS": [
+      "\"Hey, you there.\" NL NL You turn around to see a #pgrim-looking woman approach you. NL NL \"There's been a #rmurder. You wouldn't happen to know anything about that, would you?\" NL NL You open your mouth - NL NL \"Yes, yes, I know you think you don't know anything, but that's what everyone says. Yes, I know I'm being rude but the need for #gresults trumps courtesy right now. And yes, I'm #preading #pyour #pmind in case you couldn't tell.\"",
+      "You have a feeling this is going to be a very one-sided conversation. NL NL \"Pretty much. Anyway, your surface thoughts don't tell me much, so I'd like to go a bit . . . deeper. Stir up some #ptrauma. It's not as bad as it sounds; you might even learn something about yourself in the process. Or I could simply #ypay you for your trouble.\"",
+      "A thin pinprick #rpunctures your mind, darting between the annals of your memory like an overzealous scholar. Scenes flash before your eyes, depicting #rviolent battles, #ppetty bickering, and #yevents wholly unfamiliar to you. NL NL \"You have many repressed memories. Like someone's #perased them.\" NL NL Your vision clears, and you see the woman regarding you with a contemplative expression. \"Well, it seems you're #ginnocent after all. At least you've given me some good leads.\" NL NL She walks away, leaving you with a faint headache that wouldn't quite go away.",
+      "\"The cautious sort, aren't you? I suppose I can't blame you.\" NL NL The woman peers at you closely, nodding to herself. NL NL \"I suppose what I've gotten from you is good enough. I still have several leads to #yinvestigate, after all.\" NL NL The woman walks away, leaving you unable to get a word in edgewise."
+    ],
+    "OPTIONS": [
+      "[Continue]",
+      "[Trauma] #gObtain ",
+      ".",
+      "[Payment] #rLose #r",
+      " #rMax #rHP.",
+      " #gGain #g",
+      " #gGold.",
+      "[Refuse]",
+      "[Leave]"
+    ]
+  },
   "Gensokyo:MarisaAnOldGhost": {
     "NAME": "An Old Ghost",
     "DESCRIPTIONS": [

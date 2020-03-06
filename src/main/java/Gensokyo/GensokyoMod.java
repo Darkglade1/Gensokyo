@@ -59,6 +59,7 @@ import Gensokyo.events.act1.marisaEvents.JustAVisit;
 import Gensokyo.events.act1.marisaEvents.Walpurgisnacht;
 import Gensokyo.events.act2.AndThenThereWereNone;
 import Gensokyo.events.act2.ChildOfMiare;
+import Gensokyo.events.act2.DetectiveSatori;
 import Gensokyo.events.act2.Impoverished;
 import Gensokyo.events.act2.LivingGodOfMiracles;
 import Gensokyo.events.act2.NightmareOfHeian;
@@ -437,6 +438,7 @@ public class GensokyoMod implements
         BaseMod.addEvent(NohDance.ID, NohDance.class, Gensokyoer.ID);
         BaseMod.addEvent(OneWingedWhiteHeron.ID, OneWingedWhiteHeron.class, Gensokyoer.ID);
         BaseMod.addEvent(ChildOfMiare.ID, ChildOfMiare.class, Gensokyoer.ID);
+        BaseMod.addEvent(DetectiveSatori.ID, DetectiveSatori.class, Gensokyoer.ID);
         
         // =============== /EVENTS/ =================
 
