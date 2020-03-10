@@ -10,6 +10,7 @@ import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.rewards.RewardItem;
 import com.megacrit.cardcrawl.rooms.AbstractRoom;
 import com.megacrit.cardcrawl.rooms.MonsterRoom;
+import com.megacrit.cardcrawl.rooms.MonsterRoomBoss;
 import com.megacrit.cardcrawl.rooms.MonsterRoomElite;
 import com.megacrit.cardcrawl.saveAndContinue.SaveFile;
 import com.megacrit.cardcrawl.screens.CardRewardScreen;
@@ -49,7 +50,7 @@ public class ReversalEventPatches {
                 if (name == null) {
                     name = monsters.get(0).name;
                 }
-            } else if (AbstractDungeon.getCurrRoom() instanceof MonsterRoom && !AbstractDungeon.getCurrRoom().eliteTrigger) {
+            } else if (AbstractDungeon.getCurrRoom() instanceof MonsterRoom && !AbstractDungeon.getCurrRoom().eliteTrigger && !(AbstractDungeon.getCurrRoom() instanceof MonsterRoomBoss)) {
                 isNormal = true;
                 for (AbstractMonster monster : monsters) {
                     if (monster.type == AbstractMonster.EnemyType.NORMAL) {

@@ -142,5 +142,9 @@
   "Gensokyo:AllTheWorldsEvil": {
     "NAME": "All the World's Evil",
     "DESCRIPTION": "Apply !M! Vulnerable to ALL characters."
+  },
+  "Gensokyo:EmbersOfLove": {
+    "NAME": "Embers of Love",
+    "DESCRIPTION": "Gain !B! Block."
   }
 }

@@ -17,7 +17,7 @@ public class InsanityMarkedCardsPatch {
     @SpirePatch(clz = AbstractCard.class, method = "renderCard")
     public static class RenderPatch {
         public static void Postfix(AbstractCard card, SpriteBatch sb, boolean b1, boolean b2) {
-            if (AbstractDungeon.getCurrRoom().phase == AbstractRoom.RoomPhase.COMBAT) {
+            if (AbstractDungeon.player != null && AbstractDungeon.getCurrRoom().phase == AbstractRoom.RoomPhase.COMBAT) {
                 for (AbstractMonster mo : AbstractDungeon.getMonsters().monsters) {
                     if (mo.hasPower(LunaticRedEyes.POWER_ID)) {
                         LunaticRedEyes eyes = (LunaticRedEyes)mo.getPower(LunaticRedEyes.POWER_ID);

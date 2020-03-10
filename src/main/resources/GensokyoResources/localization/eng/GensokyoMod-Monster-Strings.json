@@ -346,6 +346,17 @@
     "DIALOG": [
 
     ]
+  },
+  "Gensokyo:Koishi": {
+    "MOVES": [
+      "Release of the Id",
+      "Catch and Rose",
+      "Embers of Love"
+    ],
+    "NAME": "Closed Eyes of Love",
+    "DIALOG": [
+      "This'll be fun!"
+    ]
   }
 }
 

@@ -12,6 +12,7 @@ import Gensokyo.cards.Butterfly;
 import Gensokyo.cards.CrescentMoonSlash;
 import Gensokyo.cards.Doppelganger;
 import Gensokyo.cards.EightFeetTall;
+import Gensokyo.cards.EmbersOfLove;
 import Gensokyo.cards.Frozen;
 import Gensokyo.cards.GapWoman;
 import Gensokyo.cards.HAARP;
@@ -92,6 +93,7 @@ import Gensokyo.monsters.act1.SunflowerFairy;
 import Gensokyo.monsters.act1.Yukari;
 import Gensokyo.monsters.act1.ZombieFairy;
 import Gensokyo.monsters.act2.Byakuren;
+import Gensokyo.monsters.act2.Koishi;
 import Gensokyo.monsters.act2.Kaguya;
 import Gensokyo.monsters.act2.Eiki;
 import Gensokyo.monsters.act2.Miko;
@@ -388,6 +390,7 @@ public class GensokyoMod implements
                         new Miko(),
                 }));
         BaseMod.addMonster(Reisen.ID, (BaseMod.GetMonster) Reisen::new);
+        BaseMod.addMonster(Koishi.ID, (BaseMod.GetMonster) Koishi::new);
 
 
         BaseMod.addBoss(Gensokyoer.ID, Kaguya.ID, "GensokyoResources/images/monsters/Kaguya/Kaguya.png", "GensokyoResources/images/monsters/Kaguya/KaguyaOutline.png");
@@ -637,6 +640,7 @@ public class GensokyoMod implements
         BaseMod.addCard(new ImpossibleRequest());
         BaseMod.addCard(new TabooFourOfAKind());
         BaseMod.addCard(new AllTheWorldsEvil());
+        BaseMod.addCard(new EmbersOfLove());
 
         //Urban Legends
         BaseMod.addCard(new MissMary());
