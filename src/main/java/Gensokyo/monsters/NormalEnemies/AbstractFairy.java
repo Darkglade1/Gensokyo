@@ -17,6 +17,7 @@ import com.megacrit.cardcrawl.powers.AbstractPower;
 import com.megacrit.cardcrawl.powers.GainStrengthPower;
 import com.megacrit.cardcrawl.powers.StrengthPower;
 import com.megacrit.cardcrawl.relics.AbstractRelic;
+import com.megacrit.cardcrawl.relics.NeowsLament;
 
 import java.util.ArrayList;
 import java.util.Iterator;
@@ -54,7 +55,12 @@ public abstract class AbstractFairy extends CustomMonster
     @Override
     public void usePreBattleAction() {
         AbstractDungeon.getCurrRoom().cannotLose = true;
-        AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(this, this, new CowardlyImmortality(this, MAX_DEATHS)));
+        if (AbstractDungeon.player.hasRelic(NeowsLament.ID) && AbstractDungeon.player.getRelic(NeowsLament.ID).counter > 0) { //hardcode to make it work with spirit of Neow's Lament
+            AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(this, this, new CowardlyImmortality(this, 1)));
+            deathCounter = MAX_DEATHS - 1;
+        } else {
+            AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(this, this, new CowardlyImmortality(this, MAX_DEATHS)));
+        }
         if (AbstractDungeon.ascensionLevel < 17) {
             AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(this, this, new StrengthInNumbers(this, 1)));
         }

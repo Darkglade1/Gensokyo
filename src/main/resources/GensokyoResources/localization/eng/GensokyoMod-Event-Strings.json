@@ -131,7 +131,8 @@
     ],
     "OPTIONS": [
       "[Continue]",
-      "[Help] #gObtain #ga #gspecial #gRelic. #rBecome #rCursed #r- #rInjury.",
+      "[Help] #gObtain #ga #gspecial #gRelic. #rBecome #rCursed #r- ",
+      ".",
       "[Accept the bribe] #gGain #g",
       " #gGold.",
       "[Leave]"

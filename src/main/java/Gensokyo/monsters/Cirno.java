@@ -31,6 +31,7 @@ import com.megacrit.cardcrawl.powers.GainStrengthPower;
 import com.megacrit.cardcrawl.powers.StrengthPower;
 import com.megacrit.cardcrawl.powers.ThornsPower;
 import com.megacrit.cardcrawl.relics.AbstractRelic;
+import com.megacrit.cardcrawl.relics.NeowsLament;
 
 import java.util.ArrayList;
 import java.util.Iterator;
@@ -119,8 +120,9 @@ public class Cirno extends CustomMonster
         AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(this, this, new Immortality(this)));
         AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(this, this, new Strongest(this)));
         AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(this, this, new FairyFury(this, STRENGTH_INCREMENT)));
-        //AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(this, this, new FairyOfIce(this, this.status)));
-        AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(this, this, new StrengthPower(this, NEGATIVE_STRENGTH), NEGATIVE_STRENGTH));
+        if (!(AbstractDungeon.player.hasRelic(NeowsLament.ID) && AbstractDungeon.player.getRelic(NeowsLament.ID).counter > 0)) { //hardcode to make it work with spirit of Neow's Lament
+            AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(this, this, new StrengthPower(this, NEGATIVE_STRENGTH), NEGATIVE_STRENGTH));
+        }
     }
     
     @Override

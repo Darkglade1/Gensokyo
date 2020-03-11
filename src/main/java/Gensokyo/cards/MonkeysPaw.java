@@ -22,7 +22,7 @@ public class MonkeysPaw extends AbstractUrbanLegendCard {
     private static final CardType TYPE = CardType.SKILL;
 
     private static final int COST = 0;
-    private static final int GOLD = 12;
+    private static final int GOLD = 10;
     private static final int UPGRADED_GOLD = 3;
 
     public MonkeysPaw() {

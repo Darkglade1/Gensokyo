@@ -27,7 +27,7 @@ public class LunacyRetargetPatch {
         @SpireInsertPatch(locator = DamageActionRetarget.Locator.class, localvars = {"info"})
         public static void ChangeTarget(DamageAction instance, @ByRef DamageInfo[] info) {
             if (instance.source != null) {
-                if (instance.source.hasPower(LunacyPower.POWER_ID)) {
+                if (instance.source.hasPower(LunacyPower.POWER_ID) && info[0].type == DamageInfo.DamageType.NORMAL) {
                     instance.target = AbstractDungeon.getMonsters().getRandomMonster(null, true, AbstractDungeon.cardRandomRng);
                     if (instance.target != null) {
                         info[0].applyPowers(instance.source, instance.target);
@@ -53,7 +53,7 @@ public class LunacyRetargetPatch {
         @SpireInsertPatch(locator = VampireDamageActionRetarget.Locator.class, localvars = {"info"})
         public static void ChangeTarget(VampireDamageAction instance, @ByRef DamageInfo[] info) {
             if (instance.source != null) {
-                if (instance.source.hasPower(LunacyPower.POWER_ID)) {
+                if (instance.source.hasPower(LunacyPower.POWER_ID) && info[0].type == DamageInfo.DamageType.NORMAL) {
                     instance.target = AbstractDungeon.getMonsters().getRandomMonster(null, true, AbstractDungeon.cardRandomRng);
                     if (instance.target != null) {
                         info[0].applyPowers(instance.source, instance.target);
