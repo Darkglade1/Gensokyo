@@ -127,7 +127,7 @@
     "NAME": "Mask of Hope",
     "FLAVOR": "A mask for humor and cheer.",
     "DESCRIPTIONS": [
-      "At the start of combat, gain #b", " #yTemporary #yHP."
+      "The first time you lose HP each combat, gain #b", " #yTemporary #yHP."
     ]
   },
   "Gensokyo:DemonMask": {
