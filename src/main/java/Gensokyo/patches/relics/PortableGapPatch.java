@@ -5,8 +5,10 @@ import com.evacipated.cardcrawl.modthespire.lib.SpirePatch;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.core.Settings;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
+import com.megacrit.cardcrawl.helpers.ModHelper;
 import com.megacrit.cardcrawl.map.MapEdge;
 import com.megacrit.cardcrawl.map.MapRoomNode;
+import com.megacrit.cardcrawl.relics.WingBoots;
 
 import java.util.Iterator;
 
@@ -86,11 +88,23 @@ public class PortableGapPatch
             }
 
             int distance = IsConnectedTo.getNodeDistance(AbstractDungeon.getCurrMapNode(), __instance);
-            System.out.println(distance);
-            System.out.println(AbstractDungeon.getCurrMapNode().y);
-            System.out.println(__instance.y);
             boolean normalConnection = isNormalConnectedTo(AbstractDungeon.getCurrMapNode(), __instance);
             boolean specialConnection = AbstractDungeon.getCurrMapNode().isConnectedTo(__instance);
+            //Try to make Winged Boots and Flight have priority
+            if (distance == 1 && (!normalConnection && specialConnection)) {
+                if (AbstractDungeon.player.hasRelic(WingBoots.ID)) {
+                    if (AbstractDungeon.player.getRelic(WingBoots.ID).counter > 0) {
+                        --AbstractDungeon.player.getRelic(WingBoots.ID).counter;
+                        if (AbstractDungeon.player.getRelic(WingBoots.ID).counter <= 0) {
+                            AbstractDungeon.player.getRelic(WingBoots.ID).setCounter(-2);
+                        }
+                        return;
+                    }
+                }
+                if (ModHelper.isModEnabled("Flight")) {
+                    return;
+                }
+            }
             if (distance > 1 || (!normalConnection && specialConnection)) {
                 PortableGap portableGap = (PortableGap)AbstractDungeon.player.getRelic(PortableGap.ID);
                 if (portableGap != null) {
