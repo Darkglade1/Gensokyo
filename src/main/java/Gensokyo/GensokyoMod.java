@@ -382,7 +382,6 @@ public class GensokyoMod implements
         CustomIntent.add(new AreaAttackIntent());
         CustomIntent.add(new DeathIntent());
         BaseMod.addMonster(Kaguya.ID, (BaseMod.GetMonster) Kaguya::new);
-        BaseMod.addMonster(Yuyuko.ID, (BaseMod.GetMonster) Yuyuko::new);
         BaseMod.addMonster(Eiki.ID, (BaseMod.GetMonster) Eiki::new);
         BaseMod.addMonster(EncounterIDs.ETERNAL_RIVALS, "Eternal Rivals", () -> new MonsterGroup(
                 new AbstractMonster[] {
@@ -391,6 +390,7 @@ public class GensokyoMod implements
                 }));
         BaseMod.addMonster(Reisen.ID, (BaseMod.GetMonster) Reisen::new);
         BaseMod.addMonster(Koishi.ID, (BaseMod.GetMonster) Koishi::new);
+        BaseMod.addMonster(Yuyuko.ID, (BaseMod.GetMonster) Yuyuko::new);
 
 
         BaseMod.addBoss(Gensokyoer.ID, Kaguya.ID, "GensokyoResources/images/monsters/Kaguya/Kaguya.png", "GensokyoResources/images/monsters/Kaguya/KaguyaOutline.png");

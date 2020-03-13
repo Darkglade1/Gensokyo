@@ -21,12 +21,14 @@ public class Gensokyoer extends CustomDungeon {
 
     public Gensokyoer() {
         super(NAME, ID, "images/ui/event/panel.png", false, 2, 12, 10);
-        this.setMainMusic("audio/music/Gensokyo/ThemeOfEasternStory.ogg");
-        this.addTempMusic("BorderOfLife", "audio/music/Gensokyo/Border of Life.ogg");
+        this.setMainMusic("audio/music/Gensokyo/KidFestival.ogg");
         this.addTempMusic("FateOfSixtyYears", "audio/music/Gensokyo/FateOfSixtyYears.ogg");
         this.addTempMusic("LunaticPrincess", "audio/music/Gensokyo/LunaticPrincess.ogg");
         this.addTempMusic("TrueAdmin", "audio/music/Gensokyo/TrueAdmin.ogg");
         this.addTempMusic("CosmicMind", "audio/music/Gensokyo/CosmicMind.ogg");
+        this.addTempMusic("FullMoon", "audio/music/Gensokyo/FullMoon.ogg");
+        this.addTempMusic("Hartmann", "audio/music/Gensokyo/Hartmann.ogg");
+        this.addTempMusic("BorderOfLife", "audio/music/Gensokyo/Border of Life.ogg");
     }
 
     public Gensokyoer(CustomDungeon cd, AbstractPlayer p, ArrayList<String> emptyList) {

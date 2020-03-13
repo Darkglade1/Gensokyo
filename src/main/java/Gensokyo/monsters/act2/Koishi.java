@@ -32,20 +32,21 @@ public class Koishi extends CustomMonster
     public static final String[] MOVES;
     public static final String[] DIALOG;
     private boolean firstMove = true;
+    private boolean secondMove = true;
     private static final byte DEBUFF = 0;
     private static final byte ATTACK = 1;
     private static final byte STATUS = 2;
 
-    private static final int NORMAL_ATTACK_DAMAGE = 5;
-    private static final int A3_NORMAL_ATTACK_DAMAGE = 6;
-    private static final int HITS = 3;
+    private static final int NORMAL_ATTACK_DAMAGE = 4;
+    private static final int A3_NORMAL_ATTACK_DAMAGE = 5;
+    private static final int HITS = 4;
 
     private static final int STATUS_AMT = 3;
     private static final int A18_STATUS_AMT = 4;
     private static final int MAYHAM = 1;
 
-    private static final int BUFF = 3;
-    private static final int A18_BUFF = 3;
+    private static final int BUFF = 2;
+    private static final int A18_BUFF = 2;
 
     private static final int HP_MIN = 180;
     private static final int HP_MAX = 182;
@@ -62,7 +63,7 @@ public class Koishi extends CustomMonster
     }
 
     public Koishi(final float x, final float y) {
-        super(Koishi.NAME, ID, HP_MAX, -5.0F, 0, 230.0f, 265.0f, null, x, y);
+        super(Koishi.NAME, ID, HP_MAX, -5.0F, 0, 230.0f, 245.0f, null, x, y);
         this.animation = new BetterSpriterAnimation("GensokyoResources/images/monsters/Koishi/Spriter/KoishiAnimation.scml");
         this.animation.setFlip(true, false);
         this.type = EnemyType.ELITE;
@@ -98,7 +99,7 @@ public class Koishi extends CustomMonster
 
     @Override
     public void usePreBattleAction() {
-        //AbstractDungeon.getCurrRoom().playBgmInstantly("Wind God Girl");
+        AbstractDungeon.getCurrRoom().playBgmInstantly("Hartmann");
         AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(this, this, new GrowingPain(this, buff), buff));
     }
     
@@ -115,6 +116,7 @@ public class Koishi extends CustomMonster
             case DEBUFF: {
                 runAnim("magicAttackForward");
                 AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(AbstractDungeon.player, this, new MayhemPower(AbstractDungeon.player, MAYHAM), MAYHAM));
+                AbstractDungeon.actionManager.addToBottom(new MakeTempCardInDiscardAction(new EmbersOfLove(), status));
                 firstMove = false;
                 break;
             }
@@ -123,6 +125,7 @@ public class Koishi extends CustomMonster
                 for (int i = 0; i < HITS; i++) {
                     AbstractDungeon.actionManager.addToBottom(new DamageAction(AbstractDungeon.player, info, AbstractGameAction.AttackEffect.BLUNT_HEAVY));
                 }
+                secondMove = false;
                 break;
             }
             case STATUS: {
@@ -138,6 +141,8 @@ public class Koishi extends CustomMonster
     protected void getMove(final int num) {
         if (this.firstMove) {
             this.setMoveShortcut(DEBUFF);
+        } else if (secondMove) {
+            this.setMoveShortcut(ATTACK);
         } else {
             ArrayList<Byte> possibilities = new ArrayList<>();
             if (!this.lastMove(ATTACK)) {

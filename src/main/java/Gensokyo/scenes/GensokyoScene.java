@@ -10,6 +10,7 @@ import Gensokyo.monsters.act1.Yukari;
 import Gensokyo.monsters.act2.Byakuren;
 import Gensokyo.monsters.act2.Eiki;
 import Gensokyo.monsters.act2.Kaguya;
+import Gensokyo.monsters.act2.Koishi;
 import Gensokyo.monsters.act2.Miko;
 import Gensokyo.monsters.act2.Reisen;
 import Gensokyo.monsters.act2.Yuyuko;
@@ -98,6 +99,8 @@ public class GensokyoScene extends AbstractScene {
                     this.bg = this.atlas.findRegion("mod/Eientei");
                 } else if (mo instanceof Byakuren || mo instanceof Miko) {
                     this.bg = this.atlas.findRegion("mod/FancyPlaceNight");
+                } else if (mo instanceof Koishi) {
+                    this.bg = this.atlas.findRegion("mod/Palace");
                 } else {
                     this.bg = this.atlas.findRegion("mod/TanukiForest");
                 }

@@ -106,7 +106,7 @@ public class Reisen extends CustomMonster
 
     @Override
     public void usePreBattleAction() {
-        //AbstractDungeon.getCurrRoom().playBgmInstantly("Wind God Girl");
+        AbstractDungeon.getCurrRoom().playBgmInstantly("FullMoon");
         AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(this, this, new LunaticRedEyes(this, insanityAmt)));
         Summon();
     }
