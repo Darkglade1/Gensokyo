@@ -25,7 +25,9 @@ import Gensokyo.cards.MarisaTwilightSpark;
 import Gensokyo.cards.MenInBlack;
 import Gensokyo.cards.MissMary;
 import Gensokyo.cards.MonkeysPaw;
+import Gensokyo.cards.Philosophy;
 import Gensokyo.cards.RedCapeBlueCape;
+import Gensokyo.cards.ReflexRadar;
 import Gensokyo.cards.SevenSchoolMysteries;
 import Gensokyo.cards.SlitMouthedWoman;
 import Gensokyo.cards.SpontaneousHumanCombustion;
@@ -641,6 +643,8 @@ public class GensokyoMod implements
         BaseMod.addCard(new TabooFourOfAKind());
         BaseMod.addCard(new AllTheWorldsEvil());
         BaseMod.addCard(new EmbersOfLove());
+        BaseMod.addCard(new Philosophy());
+        BaseMod.addCard(new ReflexRadar());
 
         //Urban Legends
         BaseMod.addCard(new MissMary());

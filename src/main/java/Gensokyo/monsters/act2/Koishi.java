@@ -1,8 +1,11 @@
 package Gensokyo.monsters.act2;
 
 import Gensokyo.BetterSpriterAnimation;
+import Gensokyo.actions.ThirdEyeAction;
 import Gensokyo.cards.EmbersOfLove;
-import Gensokyo.powers.act2.GrowingPain;
+import Gensokyo.cards.Philosophy;
+import Gensokyo.cards.ReflexRadar;
+import Gensokyo.powers.act2.ReleaseOfTheId;
 import basemod.abstracts.CustomMonster;
 import com.brashmonkey.spriter.Animation;
 import com.brashmonkey.spriter.Player;
@@ -11,14 +14,16 @@ import com.megacrit.cardcrawl.actions.animations.TalkAction;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.actions.common.DamageAction;
 import com.megacrit.cardcrawl.actions.common.MakeTempCardInDiscardAction;
+import com.megacrit.cardcrawl.actions.common.MakeTempCardInDrawPileAction;
 import com.megacrit.cardcrawl.actions.common.RollMoveAction;
+import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.core.Settings;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.localization.MonsterStrings;
 import com.megacrit.cardcrawl.monsters.EnemyMoveInfo;
-import com.megacrit.cardcrawl.powers.MayhemPower;
+import com.megacrit.cardcrawl.powers.StrengthPower;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -37,24 +42,18 @@ public class Koishi extends CustomMonster
     private static final byte ATTACK = 1;
     private static final byte STATUS = 2;
 
-    private static final int NORMAL_ATTACK_DAMAGE = 4;
-    private static final int A3_NORMAL_ATTACK_DAMAGE = 5;
-    private static final int HITS = 4;
+    private static final int NORMAL_ATTACK_DAMAGE = 7;
+    private static final int A3_NORMAL_ATTACK_DAMAGE = 8;
+    private static final int HITS = 3;
 
-    private static final int STATUS_AMT = 3;
-    private static final int A18_STATUS_AMT = 4;
-    private static final int MAYHAM = 1;
+    private static final int STRENGTH = 2;
 
-    private static final int BUFF = 2;
-    private static final int A18_BUFF = 2;
-
-    private static final int HP_MIN = 180;
-    private static final int HP_MAX = 182;
-    private static final int A8_HP_MIN = 188;
-    private static final int A8_HP_MAX = 190;
+    private static final int HP_MIN = 165;
+    private static final int HP_MAX = 167;
+    private static final int A8_HP_MIN = 173;
+    private static final int A8_HP_MAX = 177;
     private int normalDamage;
-    private int buff;
-    private int status;
+    private boolean upgradeStatus;
 
     private Map<Byte, EnemyMoveInfo> moves;
 
@@ -70,11 +69,9 @@ public class Koishi extends CustomMonster
         this.dialogX = (this.hb_x - 70.0F) * Settings.scale;
         this.dialogY -= (this.hb_y - 55.0F) * Settings.scale;
         if (AbstractDungeon.ascensionLevel >= 18) {
-            this.buff = A18_BUFF;
-            this.status = A18_STATUS_AMT;
+            upgradeStatus = true;
         } else {
-            this.buff = BUFF;
-            this.status = STATUS_AMT;
+            upgradeStatus = false;
         }
         if (AbstractDungeon.ascensionLevel >= 8) {
             this.setHp(A8_HP_MIN, A8_HP_MAX);
@@ -93,14 +90,14 @@ public class Koishi extends CustomMonster
         this.moves.put(ATTACK, new EnemyMoveInfo(ATTACK, Intent.ATTACK, this.normalDamage, HITS, true));
         this.moves.put(STATUS, new EnemyMoveInfo(STATUS, Intent.DEBUFF, -1, 0, false));
 
-        Player.PlayerListener listener = new DoremyListener(this);
+        Player.PlayerListener listener = new KoishiListener(this);
         ((BetterSpriterAnimation)this.animation).myPlayer.addListener(listener);
     }
 
     @Override
     public void usePreBattleAction() {
         AbstractDungeon.getCurrRoom().playBgmInstantly("Hartmann");
-        AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(this, this, new GrowingPain(this, buff), buff));
+        AbstractDungeon.actionManager.addToBottom(new ThirdEyeAction());
     }
     
     @Override
@@ -115,8 +112,18 @@ public class Koishi extends CustomMonster
         switch (this.nextMove) {
             case DEBUFF: {
                 runAnim("magicAttackForward");
-                AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(AbstractDungeon.player, this, new MayhemPower(AbstractDungeon.player, MAYHAM), MAYHAM));
-                AbstractDungeon.actionManager.addToBottom(new MakeTempCardInDiscardAction(new EmbersOfLove(), status));
+                AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(AbstractDungeon.player, this, new ReleaseOfTheId(AbstractDungeon.player)));
+                AbstractCard embers = new EmbersOfLove();
+                AbstractCard philosophy = new Philosophy();
+                AbstractCard reflex = new ReflexRadar();
+                if (upgradeStatus) {
+                    embers.upgrade();
+                    philosophy.upgrade();
+                    reflex.upgrade();
+                }
+                AbstractDungeon.actionManager.addToBottom(new MakeTempCardInDrawPileAction(embers, 1, true, true));
+                AbstractDungeon.actionManager.addToBottom(new MakeTempCardInDrawPileAction(philosophy, 1, true, true));
+                AbstractDungeon.actionManager.addToBottom(new MakeTempCardInDrawPileAction(reflex, 1, true, true));
                 firstMove = false;
                 break;
             }
@@ -130,7 +137,18 @@ public class Koishi extends CustomMonster
             }
             case STATUS: {
                 runAnim("spellA");
-                AbstractDungeon.actionManager.addToBottom(new MakeTempCardInDiscardAction(new EmbersOfLove(), status));
+                AbstractCard embers = new EmbersOfLove();
+                AbstractCard philosophy = new Philosophy();
+                AbstractCard reflex = new ReflexRadar();
+                if (upgradeStatus) {
+                    embers.upgrade();
+                    philosophy.upgrade();
+                    reflex.upgrade();
+                }
+                AbstractDungeon.actionManager.addToBottom(new MakeTempCardInDiscardAction(embers, 1));
+                AbstractDungeon.actionManager.addToBottom(new MakeTempCardInDiscardAction(philosophy, 1));
+                AbstractDungeon.actionManager.addToBottom(new MakeTempCardInDiscardAction(reflex, 1));
+                AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(this, this, new StrengthPower(this, STRENGTH), STRENGTH));
                 break;
             }
         }
@@ -190,11 +208,11 @@ public class Koishi extends CustomMonster
         ((BetterSpriterAnimation)this.animation).myPlayer.speed = 0;
     }
 
-    public class DoremyListener implements Player.PlayerListener {
+    public class KoishiListener implements Player.PlayerListener {
 
         private Koishi character;
 
-        public DoremyListener(Koishi character) {
+        public KoishiListener(Koishi character) {
             this.character = character;
         }
 

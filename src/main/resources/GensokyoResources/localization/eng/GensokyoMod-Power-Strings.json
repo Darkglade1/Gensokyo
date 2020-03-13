@@ -240,8 +240,16 @@
         "NAME": "Thing of Nightmares",
         "DESCRIPTIONS": ["When this creature dies, #yMark your entire hand."]
 },
-"Gensokyo:GrowingPain": {
-        "NAME": "Growing Pain",
-        "DESCRIPTIONS": ["At end of round, if you have any leftover #yBlock, gains #b", " #yStrength."]
+"Gensokyo:ReleaseOfTheId": {
+        "NAME": "Release of the Id",
+        "DESCRIPTIONS": ["The first card you draw each turn is automatically played regardless of #yEnergy."]
+},
+"Gensokyo:ThirdEyePower": {
+        "NAME": "Third Eye",
+        "DESCRIPTIONS": ["At the end of combat, lose #yFrozen #yEye."]
+},
+"Gensokyo:PhilosophyPower": {
+        "NAME": "Philosophy of the Despised",
+        "DESCRIPTIONS": ["At the end of your turn, take #b", " damage."]
 }
 }

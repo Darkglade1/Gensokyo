@@ -145,6 +145,15 @@
   },
   "Gensokyo:EmbersOfLove": {
     "NAME": "Embers of Love",
-    "DESCRIPTION": "Gain !B! Block."
+    "DESCRIPTION": "A random enemy gains !M! Strength."
+  },
+  "Gensokyo:Philosophy": {
+    "NAME": "Philosophy of the Despised",
+    "DESCRIPTION": "At the end of your turn, take !M! damage."
+  },
+  "Gensokyo:ReflexRadar": {
+    "NAME": "Reflex Radar",
+    "DESCRIPTION": "Draw !M! card. NL Exhaust.",
+    "UPGRADE_DESCRIPTION": "Draw !M! card."
   }
 }
