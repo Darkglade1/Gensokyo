@@ -47,13 +47,15 @@ public class Koishi extends CustomMonster
     private static final int HITS = 3;
 
     private static final int STRENGTH = 2;
+    private static final int A18_STRENGTH = 3;
 
-    private static final int HP_MIN = 165;
-    private static final int HP_MAX = 167;
-    private static final int A8_HP_MIN = 173;
-    private static final int A8_HP_MAX = 177;
+    private static final int HP_MIN = 155;
+    private static final int HP_MAX = 157;
+    private static final int A8_HP_MIN = 163;
+    private static final int A8_HP_MAX = 167;
     private int normalDamage;
     private boolean upgradeStatus;
+    private int strength;
 
     private Map<Byte, EnemyMoveInfo> moves;
 
@@ -70,8 +72,10 @@ public class Koishi extends CustomMonster
         this.dialogY -= (this.hb_y - 55.0F) * Settings.scale;
         if (AbstractDungeon.ascensionLevel >= 18) {
             upgradeStatus = true;
+            strength = A18_STRENGTH;
         } else {
             upgradeStatus = false;
+            strength = STRENGTH;
         }
         if (AbstractDungeon.ascensionLevel >= 8) {
             this.setHp(A8_HP_MIN, A8_HP_MAX);
@@ -121,9 +125,9 @@ public class Koishi extends CustomMonster
                     philosophy.upgrade();
                     reflex.upgrade();
                 }
-                AbstractDungeon.actionManager.addToBottom(new MakeTempCardInDrawPileAction(embers, 1, true, true));
-                AbstractDungeon.actionManager.addToBottom(new MakeTempCardInDrawPileAction(philosophy, 1, true, true));
-                AbstractDungeon.actionManager.addToBottom(new MakeTempCardInDrawPileAction(reflex, 1, true, true));
+                AbstractDungeon.actionManager.addToBottom(new MakeTempCardInDrawPileAction(embers, 1, false, true, true));
+                AbstractDungeon.actionManager.addToBottom(new MakeTempCardInDrawPileAction(philosophy, 1, false, true, true));
+                AbstractDungeon.actionManager.addToBottom(new MakeTempCardInDrawPileAction(reflex, 1, false, true, true));
                 firstMove = false;
                 break;
             }
@@ -148,7 +152,7 @@ public class Koishi extends CustomMonster
                 AbstractDungeon.actionManager.addToBottom(new MakeTempCardInDiscardAction(embers, 1));
                 AbstractDungeon.actionManager.addToBottom(new MakeTempCardInDiscardAction(philosophy, 1));
                 AbstractDungeon.actionManager.addToBottom(new MakeTempCardInDiscardAction(reflex, 1));
-                AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(this, this, new StrengthPower(this, STRENGTH), STRENGTH));
+                AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(this, this, new StrengthPower(this, strength), strength));
                 break;
             }
         }

@@ -11,7 +11,6 @@ import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.localization.PowerStrings;
 import com.megacrit.cardcrawl.powers.AbstractPower;
-import com.megacrit.cardcrawl.ui.panels.EnergyPanel;
 
 import static Gensokyo.GensokyoMod.makePowerPath;
 
@@ -51,13 +50,6 @@ public class ReleaseOfTheId extends AbstractPower {
     public void onCardDraw(AbstractCard card) {
         if (!triggered) {
             this.flash();
-            if (!card.freeToPlayOnce) {
-                if (EnergyPanel.getCurrentEnergy() > 0 && card.canUse(AbstractDungeon.player, null)) {
-                    AbstractDungeon.player.energy.use(card.costForTurn);
-                }
-            } else {
-                card.freeToPlayOnce = false;
-            }
             AbstractDungeon.actionManager.addToBottom(new PlayIdCardAction(card, AbstractDungeon.getCurrRoom().monsters.getRandomMonster(null, true, AbstractDungeon.cardRandomRng), false));
             triggered = true;
         }

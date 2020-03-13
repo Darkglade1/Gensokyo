@@ -242,7 +242,7 @@
 },
 "Gensokyo:ReleaseOfTheId": {
         "NAME": "Release of the Id",
-        "DESCRIPTIONS": ["The first card you draw each turn is automatically played regardless of #yEnergy."]
+        "DESCRIPTIONS": ["The first card you draw each turn is automatically played."]
 },
 "Gensokyo:ThirdEyePower": {
         "NAME": "Third Eye",

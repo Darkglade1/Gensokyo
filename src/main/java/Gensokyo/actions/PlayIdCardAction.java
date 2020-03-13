@@ -24,7 +24,7 @@ public class PlayIdCardAction extends AbstractGameAction {
 
         card.exhaustOnUseOnce = this.exhaustCards;
         card.applyPowers();
-        this.addToTop(new NewQueueCardAction(card, this.target, false, true));
+        this.addToTop(new NewQueueCardAction(card, this.target, false, false));
 
         this.isDone = true;
 
