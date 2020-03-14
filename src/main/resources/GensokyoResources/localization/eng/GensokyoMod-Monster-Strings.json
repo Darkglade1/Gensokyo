@@ -335,7 +335,9 @@
     ],
     "NAME": "Lunatic Moon Rabbit",
     "DIALOG": [
-      "I'm afraid I can't let you pass."
+      "I'm afraid I can't let you pass.",
+      "Oh, I remember you!",
+      "Sorry, but I can't make an exception for you."
     ]
   },
   "Gensokyo:Kune": {

@@ -1,6 +1,7 @@
 package Gensokyo.monsters.act2;
 
 import Gensokyo.BetterSpriterAnimation;
+import Gensokyo.cards.Dizzy;
 import Gensokyo.powers.act2.LunaticRedEyes;
 import Gensokyo.powers.act2.ThingOfNightmares;
 import basemod.abstracts.CustomMonster;
@@ -10,11 +11,10 @@ import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.animations.TalkAction;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.actions.common.DamageAction;
-import com.megacrit.cardcrawl.actions.common.GainBlockAction;
+import com.megacrit.cardcrawl.actions.common.MakeTempCardInDrawPileAction;
 import com.megacrit.cardcrawl.actions.common.RollMoveAction;
 import com.megacrit.cardcrawl.actions.common.SpawnMonsterAction;
 import com.megacrit.cardcrawl.actions.common.SuicideAction;
-import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.core.Settings;
@@ -44,12 +44,13 @@ public class Reisen extends CustomMonster
     private static final int A3_NORMAL_ATTACK_DAMAGE = 19;
     private static final int DEBUFF_ATTACK_DAMAGE = 12;
     private static final int A3_DEBUFF_ATTACK_DAMAGE = 13;
-    private static final int DEBUFF_AMOUNT = 2;
-    private static final int BLOCK = 6;
-    private static final int A8_BLOCK = 7;
-    private static final int MARK_AMOUNT = 3;
-    private static final int INSANITY_AMT = 2;
-    private static final int A18_INSANITY_AMT = 3;
+    private static final int DEBUFF_AMOUNT = 1;
+    //private static final int BLOCK = 6;
+   // private static final int A8_BLOCK = 7;
+    private static final int INSANITY_AMT = 1;
+    private static final int A18_INSANITY_AMT = 1;
+    private static final int STATUS = 2;
+    private static final int A18_STATUS = 3;
     private static final int COOLDOWN = 2;
     private static final int HP_MIN = 135;
     private static final int HP_MAX = 141;
@@ -58,7 +59,8 @@ public class Reisen extends CustomMonster
     private int normalDamage;
     private int debuffDamage;
     private int insanityAmt;
-    private int block;
+    //private int block;
+    private int status;
     private int turnCounter = 2;
     private Map<Byte, EnemyMoveInfo> moves;
     public AbstractMonster[] minions = new AbstractMonster[2];
@@ -75,15 +77,17 @@ public class Reisen extends CustomMonster
         this.dialogY -= (this.hb_y - 55.0F) * Settings.scale;
         if (AbstractDungeon.ascensionLevel >= 18) {
             this.insanityAmt = A18_INSANITY_AMT;
+            this.status = A18_STATUS;
         } else {
             this.insanityAmt = INSANITY_AMT;
+            this.status = STATUS;
         }
         if (AbstractDungeon.ascensionLevel >= 8) {
             this.setHp(A_2_HP_MIN, A_2_HP_MAX);
-            this.block = A8_BLOCK;
+            //this.block = A8_BLOCK;
         } else {
             this.setHp(HP_MIN, HP_MAX);
-            this.block = BLOCK;
+            //this.block = BLOCK;
         }
 
         if (AbstractDungeon.ascensionLevel >= 3) {
@@ -95,7 +99,7 @@ public class Reisen extends CustomMonster
         }
 
         this.moves = new HashMap<>();
-        this.moves.put(DEBUFF, new EnemyMoveInfo(DEBUFF, Intent.DEFEND_DEBUFF, -1, 0, false));
+        this.moves.put(DEBUFF, new EnemyMoveInfo(DEBUFF, Intent.STRONG_DEBUFF, -1, 0, false));
         this.moves.put(ATTACK, new EnemyMoveInfo(ATTACK, Intent.ATTACK, this.normalDamage, 0, false));
         this.moves.put(DEBUFF_ATTACK, new EnemyMoveInfo(DEBUFF_ATTACK, Intent.ATTACK_DEBUFF, this.debuffDamage, 0, false));
         this.moves.put(SUMMON, new EnemyMoveInfo(SUMMON, Intent.UNKNOWN, -1, 0, false));
@@ -108,13 +112,21 @@ public class Reisen extends CustomMonster
     public void usePreBattleAction() {
         AbstractDungeon.getCurrRoom().playBgmInstantly("FullMoon");
         AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(this, this, new LunaticRedEyes(this, insanityAmt)));
-        Summon();
+        if (AbstractDungeon.player.hasRelic(Gensokyo.relics.act1.LunaticRedEyes.ID)) {
+            AbstractDungeon.actionManager.addToBottom(new TalkAction(this, DIALOG[1]));
+        } else {
+            Summon();
+        }
     }
     
     @Override
     public void takeTurn() {
         if (this.firstMove) {
-            AbstractDungeon.actionManager.addToBottom(new TalkAction(this, DIALOG[0]));
+            if (AbstractDungeon.player.hasRelic(Gensokyo.relics.act1.LunaticRedEyes.ID)) {
+                AbstractDungeon.actionManager.addToBottom(new TalkAction(this, DIALOG[2]));
+            } else {
+                AbstractDungeon.actionManager.addToBottom(new TalkAction(this, DIALOG[0]));
+            }
             this.firstMove = false;
         }
         DamageInfo info = new DamageInfo(this, moves.get(this.nextMove).baseDamage, DamageInfo.DamageType.NORMAL);
@@ -124,23 +136,7 @@ public class Reisen extends CustomMonster
         switch (this.nextMove) {
             case DEBUFF: {
                 //runAnim("Spellcard");
-                if (this.hasPower(LunaticRedEyes.POWER_ID)) {
-                    LunaticRedEyes eyes = (LunaticRedEyes)this.getPower(LunaticRedEyes.POWER_ID);
-                    int marks = MARK_AMOUNT;
-                    for (int i = AbstractDungeon.player.drawPile.group.size() - 1; i >= 0; i--) {
-                        AbstractCard card = AbstractDungeon.player.drawPile.group.get(i);
-                        if (!eyes.isCardMarked(card)) {
-                            eyes.markedCards.add(card);
-                            marks--;
-                        }
-                        if (marks <= 0) {
-                            i = 0;
-                        }
-                    }
-                }
-                for (AbstractMonster mo : AbstractDungeon.getCurrRoom().monsters.monsters) {
-                    this.addToBot(new GainBlockAction(mo, this, block));
-                }
+                AbstractDungeon.actionManager.addToBottom(new MakeTempCardInDrawPileAction(new Dizzy(), status, true, true));
                 turnCounter = 0;
                 break;
             }
@@ -180,7 +176,9 @@ public class Reisen extends CustomMonster
 
     @Override
     protected void getMove(final int num) {
-        if (!firstMove && minions[0] == null && minions[1] == null) {
+        if (AbstractDungeon.player.hasRelic(Gensokyo.relics.act1.LunaticRedEyes.ID) && firstMove) {
+            this.setMoveShortcut(SUMMON);
+        } else if (!firstMove && minions[0] == null && minions[1] == null) {
             this.setMoveShortcut(SUMMON);
         } else if (turnCounter >= COOLDOWN) {
             this.setMoveShortcut(DEBUFF);

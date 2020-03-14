@@ -155,5 +155,9 @@
     "NAME": "Reflex Radar",
     "DESCRIPTION": "Draw !M! card. NL Exhaust.",
     "UPGRADE_DESCRIPTION": "Draw !M! card."
+  },
+  "Gensokyo:Dizzy": {
+    "NAME": "Dizzy",
+    "DESCRIPTION": "Retain."
   }
 }

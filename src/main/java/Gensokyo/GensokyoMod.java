@@ -10,6 +10,7 @@ import Gensokyo.cards.BlessingOfFortitude;
 import Gensokyo.cards.BlessingOfVigor;
 import Gensokyo.cards.Butterfly;
 import Gensokyo.cards.CrescentMoonSlash;
+import Gensokyo.cards.Dizzy;
 import Gensokyo.cards.Doppelganger;
 import Gensokyo.cards.EightFeetTall;
 import Gensokyo.cards.EmbersOfLove;
@@ -645,6 +646,7 @@ public class GensokyoMod implements
         BaseMod.addCard(new EmbersOfLove());
         BaseMod.addCard(new Philosophy());
         BaseMod.addCard(new ReflexRadar());
+        BaseMod.addCard(new Dizzy());
 
         //Urban Legends
         BaseMod.addCard(new MissMary());

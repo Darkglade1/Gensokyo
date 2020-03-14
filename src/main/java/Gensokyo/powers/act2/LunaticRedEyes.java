@@ -6,7 +6,6 @@ import Gensokyo.util.TextureLoader;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.TextureAtlas;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
-import com.megacrit.cardcrawl.actions.utility.UseCardAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.core.AbstractCreature;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
@@ -47,7 +46,7 @@ public class LunaticRedEyes extends AbstractPower {
     }
 
     @Override
-    public void onAfterUseCard(AbstractCard card, UseCardAction action) {
+    public void onExhaust(AbstractCard card) {
         if (isCardMarked(card)) {
             this.flash();
             this.addToBot(new ApplyPowerAction(AbstractDungeon.player, this.owner, new Insanity(AbstractDungeon.player, this.amount), this.amount));

@@ -23,6 +23,9 @@ public class MarkHandAction extends AbstractGameAction {
             LunaticRedEyes eyes = (LunaticRedEyes)reisen.getPower(LunaticRedEyes.POWER_ID);
             for (AbstractCard card : AbstractDungeon.player.hand.group) {
                 eyes.markedCards.add(card);
+                card.isEthereal = true;
+                card.selfRetain = false;
+                card.retain = false;
                 card.flash();
             }
         }
