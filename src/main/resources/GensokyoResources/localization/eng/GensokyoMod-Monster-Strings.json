@@ -234,12 +234,9 @@
   },
   "Gensokyo:Yuyuko": {
     "MOVES": [
-      "Ghostly Butterfly",
       "Ghastly Dream",
       "Law of Mortality",
-      "Resurrection Butterfly",
-      "Saigyouji Parinirvana",
-      "Spirits that Died Well"
+      "Resurrection Butterfly"
     ],
     "NAME": "Princess of the Netherworld",
     "DIALOG": [
@@ -250,7 +247,7 @@
     "MOVES": [
 
     ],
-    "NAME": "Wandering Spirit",
+    "NAME": "Spirit",
     "DIALOG": [
 
     ]
@@ -259,7 +256,7 @@
     "MOVES": [
 
     ],
-    "NAME": "Wandering Spirit",
+    "NAME": "Spirit",
     "DIALOG": [
 
     ]

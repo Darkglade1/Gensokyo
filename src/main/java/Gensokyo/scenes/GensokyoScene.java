@@ -91,16 +91,18 @@ public class GensokyoScene extends AbstractScene {
                     this.bg = this.atlas.findRegion("mod/Palace");
                 } else if (mo instanceof Sumireko) {
                     this.bg = this.atlas.findRegion("mod/OutsideWorld");
-                } else if (mo instanceof Reisen) {
-                    this.bg = this.atlas.findRegion("mod/ElegantPlace");
                 } else if (mo instanceof Eiki) {
                     this.bg = this.atlas.findRegion("mod/ConcertStage");
                 } else if (mo instanceof Kaguya) {
                     this.bg = this.atlas.findRegion("mod/Eientei");
                 } else if (mo instanceof Byakuren || mo instanceof Miko) {
                     this.bg = this.atlas.findRegion("mod/FancyPlaceNight");
+                } else if (mo instanceof Reisen) {
+                    this.bg = this.atlas.findRegion("mod/ElegantPlace");
                 } else if (mo instanceof Koishi) {
                     this.bg = this.atlas.findRegion("mod/Palace");
+                } else if (mo instanceof Yuyuko) {
+                    this.bg = this.atlas.findRegion("mod/ElegantPlace");
                 } else {
                     this.bg = this.atlas.findRegion("mod/TanukiForest");
                 }
