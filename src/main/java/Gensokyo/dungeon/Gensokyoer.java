@@ -1,5 +1,8 @@
 package Gensokyo.dungeon;
 
+import Gensokyo.monsters.act2.Koishi;
+import Gensokyo.monsters.act2.Reisen;
+import Gensokyo.monsters.act2.Yuyuko;
 import Gensokyo.scenes.GensokyoScene;
 import actlikeit.dungeons.CustomDungeon;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
@@ -100,9 +103,9 @@ public class Gensokyoer extends CustomDungeon {
     @Override
     protected void generateElites(int count) {
         ArrayList<MonsterInfo> monsters = new ArrayList();
-        monsters.add(new MonsterInfo("Gremlin Leader", 1.0F));
-        monsters.add(new MonsterInfo("Slavers", 1.0F));
-        monsters.add(new MonsterInfo("Book of Stabbing", 1.0F));
+        monsters.add(new MonsterInfo(Reisen.ID, 1.0F));
+        monsters.add(new MonsterInfo(Koishi.ID, 1.0F));
+        monsters.add(new MonsterInfo(Yuyuko.ID, 1.0F));
         MonsterInfo.normalizeWeights(monsters);
         this.populateMonsterList(monsters, count, true);
     }
@@ -145,28 +148,12 @@ public class Gensokyoer extends CustomDungeon {
 
     @Override
     protected void initializeShrineList() {
-        shrineList.add("Match and Keep!");
-        shrineList.add("Wheel of Change");
-        shrineList.add("Golden Shrine");
-        shrineList.add("Transmorgrifier");
-        shrineList.add("Purifier");
-        shrineList.add("Upgrade Shrine");
     }
 
     @Override
     protected void initializeEventList() {
-        eventList.add("Addict");
-        eventList.add("Back to Basics");
-        eventList.add("Beggar");
-        eventList.add("Colosseum");
-        eventList.add("Cursed Tome");
-        eventList.add("Drug Dealer");
-        eventList.add("Forgotten Altar");
-        eventList.add("Ghosts");
-        eventList.add("Masked Bandits");
-        eventList.add("Nest");
-        eventList.add("The Library");
-        eventList.add("The Mausoleum");
-        eventList.add("Vampires");
+        // Events are added via BaseMod in GensokyoMod.receivePostInitialize()
+        specialOneTimeEventList.clear(); //gets rid of these global events just in case
+        shrineList.clear(); //gets rid of this shit too just in case
     }
 }

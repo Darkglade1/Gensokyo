@@ -9,6 +9,7 @@ import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.powers.DexterityPower;
 import com.megacrit.cardcrawl.powers.StrengthPower;
+import com.megacrit.cardcrawl.rooms.AbstractRoom;
 
 import static Gensokyo.GensokyoMod.makeRelicOutlinePath;
 import static Gensokyo.GensokyoMod.makeRelicPath;
@@ -21,7 +22,7 @@ public class ConquerorOfFear extends CustomRelic {
     private static final Texture OUTLINE = TextureLoader.getTexture(makeRelicOutlinePath("Conqueror.png"));
 
     private static final int THRESHOLD = 10;
-    private static final int BONUS_STATS = 3;
+    private static final int BONUS_STATS = 2;
     private boolean active = false;
 
     public ConquerorOfFear() {
@@ -29,16 +30,28 @@ public class ConquerorOfFear extends CustomRelic {
     }
 
     @Override
+    public void atBattleStartPreDraw() {
+        active = false;
+    }
+
+    @Override
     public void onRefreshHand() {
-        if (AbstractDungeon.player.discardPile.group.size() >= THRESHOLD && !active) {
-            active = true;
-            this.addToBot(new ApplyPowerAction(AbstractDungeon.player, AbstractDungeon.player, new StrengthPower(AbstractDungeon.player, BONUS_STATS), BONUS_STATS));
-            this.addToBot(new ApplyPowerAction(AbstractDungeon.player, AbstractDungeon.player, new DexterityPower(AbstractDungeon.player, BONUS_STATS), BONUS_STATS));
-        } else if (AbstractDungeon.player.discardPile.group.size() < THRESHOLD && active) {
-            active = false;
-            this.addToBot(new ApplyPowerAction(AbstractDungeon.player, AbstractDungeon.player, new StrengthPower(AbstractDungeon.player, -BONUS_STATS), -BONUS_STATS));
-            this.addToBot(new ApplyPowerAction(AbstractDungeon.player, AbstractDungeon.player, new DexterityPower(AbstractDungeon.player, -BONUS_STATS), -BONUS_STATS));
+        if (AbstractDungeon.getCurrRoom().phase == AbstractRoom.RoomPhase.COMBAT) {
+            if (AbstractDungeon.player.discardPile.group.size() >= THRESHOLD && !active) {
+                active = true;
+                this.addToBot(new ApplyPowerAction(AbstractDungeon.player, AbstractDungeon.player, new StrengthPower(AbstractDungeon.player, BONUS_STATS), BONUS_STATS));
+                this.addToBot(new ApplyPowerAction(AbstractDungeon.player, AbstractDungeon.player, new DexterityPower(AbstractDungeon.player, BONUS_STATS), BONUS_STATS));
+            } else if (AbstractDungeon.player.discardPile.group.size() < THRESHOLD && active) {
+                active = false;
+                this.addToBot(new ApplyPowerAction(AbstractDungeon.player, AbstractDungeon.player, new StrengthPower(AbstractDungeon.player, -BONUS_STATS), -BONUS_STATS));
+                this.addToBot(new ApplyPowerAction(AbstractDungeon.player, AbstractDungeon.player, new DexterityPower(AbstractDungeon.player, -BONUS_STATS), -BONUS_STATS));
+            }
         }
+    }
+
+    @Override
+    public void onVictory() {
+        active = false;
     }
 
     @Override

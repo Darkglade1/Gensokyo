@@ -1,5 +1,6 @@
 package Gensokyo.scenes;
 
+import Gensokyo.dungeon.Gensokyo;
 import Gensokyo.monsters.act1.Aya;
 import Gensokyo.monsters.act1.Cirno;
 import Gensokyo.monsters.act1.Kokoro;
@@ -104,13 +105,25 @@ public class GensokyoScene extends AbstractScene {
                 } else if (mo instanceof Yuyuko) {
                     this.bg = this.atlas.findRegion("mod/ElegantPlace");
                 } else {
-                    this.bg = this.atlas.findRegion("mod/TanukiForest");
+                    if (CardCrawlGame.dungeon instanceof Gensokyo) {
+                        this.bg = this.atlas.findRegion("mod/TanukiForest");
+                    } else {
+                        this.bg = this.atlas.findRegion("mod/TanukiForestNight");
+                    }
                 }
             }
         } else if (room instanceof ShopRoom) {
-            this.bg = this.atlas.findRegion("mod/Shop");
+            if (CardCrawlGame.dungeon instanceof Gensokyo) {
+                this.bg = this.atlas.findRegion("mod/Shop");
+            } else {
+                this.bg = this.atlas.findRegion("mod/HumanVillage");
+            }
         } else {
-            this.bg = this.atlas.findRegion("mod/TanukiForest");
+            if (CardCrawlGame.dungeon instanceof Gensokyo) {
+                this.bg = this.atlas.findRegion("mod/TanukiForest");
+            } else {
+                this.bg = this.atlas.findRegion("mod/TanukiForestNight");
+            }
         }
         this.fadeInAmbiance();
     }

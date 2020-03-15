@@ -8,7 +8,6 @@ import Gensokyo.cards.Apocalypse;
 import Gensokyo.cards.BlessingOfConstitution;
 import Gensokyo.cards.BlessingOfFortitude;
 import Gensokyo.cards.BlessingOfVigor;
-import Gensokyo.cards.Butterfly;
 import Gensokyo.cards.CrescentMoonSlash;
 import Gensokyo.cards.Dizzy;
 import Gensokyo.cards.Doppelganger;

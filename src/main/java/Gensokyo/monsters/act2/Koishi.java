@@ -49,10 +49,10 @@ public class Koishi extends CustomMonster
     private static final int STRENGTH = 2;
     private static final int A18_STRENGTH = 3;
 
-    private static final int HP_MIN = 155;
-    private static final int HP_MAX = 157;
-    private static final int A8_HP_MIN = 163;
-    private static final int A8_HP_MAX = 167;
+    private static final int HP_MIN = 165;
+    private static final int HP_MAX = 167;
+    private static final int A8_HP_MIN = 173;
+    private static final int A8_HP_MAX = 177;
     private int normalDamage;
     private boolean upgradeStatus;
     private int strength;

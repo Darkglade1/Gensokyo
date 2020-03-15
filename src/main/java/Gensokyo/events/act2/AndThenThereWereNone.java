@@ -25,8 +25,8 @@ public class AndThenThereWereNone extends AbstractImageEvent {
 
     private int screenNum = 0;
 
-    private static final float HEALTH_LOSS_PERCENTAGE = 0.30F;
-    private static final float HEALTH_LOSS_PERCENTAGE_HIGH_ASCENSION = 0.35F;
+    private static final float HEALTH_LOSS_PERCENTAGE = 0.35F;
+    private static final float HEALTH_LOSS_PERCENTAGE_HIGH_ASCENSION = 0.40F;
     private static final int NUM_CARDS = 4;
 
     private int maxHealthLoss;
