@@ -12,6 +12,7 @@ public class YuyukoSoul extends CustomMonster {
     protected static final int HP = 6;
     private static final float HB_W = 50.0F;
     private static final float HB_H = 100.0f;
+    public boolean active = false;
     protected int cooldown;
     protected Yuyuko master;
 
@@ -60,14 +61,14 @@ public class YuyukoSoul extends CustomMonster {
 
     @Override
     public void takeTurn() {
-        if (!halfDead && cooldown > 0) {
+        if (active && cooldown > 0) {
             cooldown--;
         }
     }
 
     @Override
     protected void getMove(int num) {
-        if (halfDead) {
+        if (!active) {
             this.setMove(NONE, Intent.NONE);
         } else if (cooldown > 0) {
             this.setMove(NONE, Intent.NONE);

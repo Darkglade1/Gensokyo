@@ -59,13 +59,13 @@ public class Yuyuko extends CustomMonster
     private static final int DEBUFF_ATTACK_HITS = 2;
     private static final int DEBUFF_AMOUNT = 1;
 
-    private static final int STRENGTH = 2;
-    private static final int A18_STRENGTH = 3;
+    private static final int STRENGTH = 3;
+    private static final int A18_STRENGTH = 4;
 
-    private static final int HP_MIN = 105;
-    private static final int HP_MAX = 109;
-    private static final int A_2_HP_MIN = 109;
-    private static final int A_2_HP_MAX = 115;
+    private static final int HP_MIN = 95;
+    private static final int HP_MAX = 99;
+    private static final int A_2_HP_MIN = 99;
+    private static final int A_2_HP_MAX = 105;
 
     private static final int MINION_HEALTH_INCREMENT = 3;
     private static final int A8_MINION_HEALTH_INCREMENT = 4;
@@ -73,7 +73,7 @@ public class Yuyuko extends CustomMonster
     private static final int STR_LOSS = 1;
     private static final int BLUE_SOULS = 5;
     private static final int PURPLE_SOULS = 5;
-    private static final int DEAD_MINIONS_THRESHOLD = 6;
+    private static final int DEAD_MINIONS_THRESHOLD = 7;
 
     private int normalDamage;
     private int debuffDamage;
@@ -86,7 +86,7 @@ public class Yuyuko extends CustomMonster
     private AbstractAnimation attackAnimations = new BetterSpriterAnimation("GensokyoResources/images/monsters/Yuyuko/AttackAnimations/Spriter/AttackAnimations.scml");
 
     public Yuyuko() {
-        this(0.0F, 0.0f);
+        this(50.0F, 0.0f);
     }
 
     public Yuyuko(final float x, final float y) {
@@ -133,12 +133,12 @@ public class Yuyuko extends CustomMonster
         SpawnMinions();
         nextBlueSoul();
         nextPurpleSoul();
+        AbstractDungeon.actionManager.addToBottom(new TalkAction(this, DIALOG[0]));
     }
 
     @Override
     public void takeTurn() {
         if (this.firstMove) {
-            AbstractDungeon.actionManager.addToBottom(new TalkAction(this, DIALOG[0]));
             this.firstMove = false;
         }
         DamageInfo info = new DamageInfo(this, moves.get(this.nextMove).baseDamage, DamageInfo.DamageType.NORMAL);
@@ -212,16 +212,20 @@ public class Yuyuko extends CustomMonster
     public void nextBlueSoul() {
         if (blueSouls.size() > 0) {
             YuyukoSoul blueSoul = blueSouls.get(0);
+            blueSoul.active = true;
             AbstractDungeon.actionManager.addToBottom(new RezAction(blueSoul));
-            AbstractDungeon.actionManager.addToBottom(new RollMoveAction(blueSoul));
+            blueSoul.rollMove();
+            blueSoul.createIntent();
         }
     }
 
     public void nextPurpleSoul() {
         if (purpleSouls.size() > 0) {
             YuyukoSoul purpleSoul = purpleSouls.get(0);
+            purpleSoul.active = true;
             AbstractDungeon.actionManager.addToBottom(new RezAction(purpleSoul));
-            AbstractDungeon.actionManager.addToBottom(new RollMoveAction(purpleSoul));
+            purpleSoul.rollMove();
+            purpleSoul.createIntent();
         }
     }
 
@@ -263,7 +267,7 @@ public class Yuyuko extends CustomMonster
         float scaleWidth = 1.0F * Settings.scale;
         float scaleHeight = Settings.scale;
         sb.setColor(Color.WHITE);
-        sb.draw(FAN_REGION, this.drawX - this.FAN_REGION.getRegionWidth() * scaleWidth, this.drawY + ((this.FAN_REGION.getRegionHeight() / 2.0F) - 100.0F) * scaleHeight, 0.0F, 0.0F, this.FAN_REGION.getRegionWidth(), this.FAN_REGION.getRegionHeight(), scaleWidth, scaleHeight, 0.0F);
+        sb.draw(FAN_REGION, this.drawX - (this.FAN_REGION.getRegionWidth() + 50.0F) * scaleWidth, this.drawY + ((this.FAN_REGION.getRegionHeight() / 2.0F) - 100.0F) * scaleHeight, 0.0F, 0.0F, this.FAN_REGION.getRegionWidth(), this.FAN_REGION.getRegionHeight(), scaleWidth, scaleHeight, 0.0F);
         for (YuyukoSoul soul : blueSouls) {
             soul.realRender(sb);
         }

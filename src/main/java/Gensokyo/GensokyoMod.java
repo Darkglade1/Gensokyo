@@ -639,7 +639,6 @@ public class GensokyoMod implements
 
         BaseMod.addCard(new CrescentMoonSlash());
         BaseMod.addCard(new Frozen());
-        BaseMod.addCard(new Butterfly());
         BaseMod.addCard(new ImpossibleRequest());
         BaseMod.addCard(new TabooFourOfAKind());
         BaseMod.addCard(new AllTheWorldsEvil());
