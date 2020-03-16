@@ -135,26 +135,26 @@ public class Reisen extends CustomMonster
         }
         switch (this.nextMove) {
             case DEBUFF: {
-                //runAnim("Spellcard");
+                runAnim("Spell");
                 AbstractDungeon.actionManager.addToBottom(new MakeTempCardInDrawPileAction(new Dizzy(), status, true, true));
                 turnCounter = 0;
                 break;
             }
             case DEBUFF_ATTACK: {
-                //runAnim("AttackDash");
+                runAnim("Attack");
                 AbstractDungeon.actionManager.addToBottom(new DamageAction(AbstractDungeon.player, info, AbstractGameAction.AttackEffect.BLUNT_LIGHT));
                 AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(AbstractDungeon.player, this, new WeakPower(AbstractDungeon.player, DEBUFF_AMOUNT, true), DEBUFF_AMOUNT));
                 turnCounter++;
                 break;
             }
             case ATTACK: {
-                //runAnim("AttackFan");
+                runAnim("Attack");
                 AbstractDungeon.actionManager.addToBottom(new DamageAction(AbstractDungeon.player, info, AbstractGameAction.AttackEffect.BLUNT_HEAVY));
                 turnCounter++;
                 break;
             }
             case SUMMON: {
-                //runAnim("AttackFan");
+                runAnim("Spell");
                 Summon();
                 break;
             }
@@ -208,7 +208,7 @@ public class Reisen extends CustomMonster
 
     @Override
     public void die(boolean triggerRelics) {
-        //runAnim("Defeat");
+        runAnim("Defeat");
         super.die(triggerRelics);
         for (AbstractMonster mo : AbstractDungeon.getCurrRoom().monsters.monsters) {
             if (mo instanceof Kune) {

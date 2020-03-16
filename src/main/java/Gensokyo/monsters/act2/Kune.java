@@ -3,6 +3,8 @@ package Gensokyo.monsters.act2;
 import Gensokyo.BetterSpriterAnimation;
 import Gensokyo.powers.act2.Insanity;
 import basemod.abstracts.CustomMonster;
+import com.brashmonkey.spriter.Animation;
+import com.brashmonkey.spriter.Player;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.actions.common.DamageAction;
@@ -61,18 +63,25 @@ public class Kune extends CustomMonster
         }
         this.attackDamage = ATTACK_DAMAGE;
         this.damage.add(new DamageInfo(this, this.attackDamage));
+
+        Player.PlayerListener listener = new KuneListener(this);
+        ((BetterSpriterAnimation)this.animation).myPlayer.addListener(listener);
+
+        runAnim("Spawn");
     }
 
     @Override
     public void takeTurn() {
         switch (this.nextMove) {
             case ATTACK: {
+                runAnim("Attack");
                 for (int i = 0; i < HITS; i++) {
                     AbstractDungeon.actionManager.addToBottom(new DamageAction(AbstractDungeon.player, this.damage.get(0), AbstractGameAction.AttackEffect.POISON));
                 }
                 break;
             }
             case DEBUFF: {
+                runAnim("Attack");
                 AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(AbstractDungeon.player, this, new Insanity(AbstractDungeon.player, DEBUFF_AMT), DEBUFF_AMT));
                 AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(this, this, new StrengthPower(this, buff), buff));
                 break;
@@ -100,6 +109,7 @@ public class Kune extends CustomMonster
 
     @Override
     public void die(boolean triggerRelics) {
+        runAnim("Defeat");
         super.die(triggerRelics);
         if (reisen != null) {
             if (num == 0 || num == 1) {
@@ -113,5 +123,59 @@ public class Kune extends CustomMonster
         NAME = Kune.monsterStrings.NAME;
         MOVES = Kune.monsterStrings.MOVES;
         DIALOG = Kune.monsterStrings.DIALOG;
+    }
+
+    //Runs a specific animation
+    public void runAnim(String animation) {
+        ((BetterSpriterAnimation)this.animation).myPlayer.setAnimation(animation);
+    }
+
+    //Resets character back to idle animation
+    public void resetAnimation() {
+        ((BetterSpriterAnimation)this.animation).myPlayer.setAnimation("Idle");
+    }
+
+    //Prevents any further animation once the death animation is finished
+    public void stopAnimation() {
+        int time = ((BetterSpriterAnimation)this.animation).myPlayer.getAnimation().length;
+        ((BetterSpriterAnimation)this.animation).myPlayer.setTime(time);
+        ((BetterSpriterAnimation)this.animation).myPlayer.speed = 0;
+    }
+
+    public class KuneListener implements Player.PlayerListener {
+
+        private Kune character;
+
+        public KuneListener(Kune character) {
+            this.character = character;
+        }
+
+        public void animationFinished(Animation animation){
+            if (animation.name.equals("Defeat")) {
+                character.stopAnimation();
+            } else if (!animation.name.equals("Idle")) {
+                character.resetAnimation();
+            }
+        }
+
+        //UNUSED
+        public void animationChanged(Animation var1, Animation var2){
+
+        }
+
+        //UNUSED
+        public void preProcess(Player var1){
+
+        }
+
+        //UNUSED
+        public void postProcess(Player var1){
+
+        }
+
+        //UNUSED
+        public void mainlineKeyChanged(com.brashmonkey.spriter.Mainline.Key var1, com.brashmonkey.spriter.Mainline.Key var2){
+
+        }
     }
 }

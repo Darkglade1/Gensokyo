@@ -29,6 +29,7 @@ import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.localization.MonsterStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.monsters.EnemyMoveInfo;
+import com.megacrit.cardcrawl.powers.MinionPower;
 import com.megacrit.cardcrawl.powers.StrengthPower;
 import com.megacrit.cardcrawl.powers.VulnerablePower;
 
@@ -198,7 +199,9 @@ public class Yuyuko extends CustomMonster
                 soul = new PurpleSoul(x, y, this, bonusHealth);
                 purpleSouls.add(soul);
             }
-            AbstractDungeon.actionManager.addToBottom(new SpawnMonsterAction(soul, true));
+            MinionPower power = new MinionPower(soul);
+            soul.powers.add(power);
+            AbstractDungeon.actionManager.addToBottom(new SpawnMonsterAction(soul, false));
             AbstractDungeon.actionManager.addToBottom(new UsePreBattleActionAction(soul));
             xOffset += xOffsetIncrement;
             if (i < 4) {
