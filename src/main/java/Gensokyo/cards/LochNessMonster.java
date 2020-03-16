@@ -21,8 +21,8 @@ public class LochNessMonster extends AbstractUrbanLegendCard {
     private static final CardType TYPE = CardType.ATTACK;
 
     private static final int COST = 3;
-    private static final int DAMAGE = 4;
-    private static final int HITS = 8;
+    private static final int DAMAGE = 5;
+    private static final int HITS = 6;
     private static final int UPGRADE_HITS = 2;
 
     public LochNessMonster() {

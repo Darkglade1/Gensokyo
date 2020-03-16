@@ -59,7 +59,8 @@ public class Reimu extends CustomMonster
     private static final int A9_BLOCK = 8;
     private static final int STRENGTH_GAIN = 3;
     private static final int A19_STRENGTH_GAIN = 4;
-    private static final int MAX_DEBUFF = 3;
+    private static final int MAX_DEBUFF = 2;
+    private static final int A19_MAX_DEBUFF = 3;
     private static final int DEBUFF_COUNTER_THESHOLD = 3;
     private int normalDamage;
     private int debuffDamage;
@@ -68,6 +69,7 @@ public class Reimu extends CustomMonster
     private int dazes;
     //private int megaDaze;
     private int strengthGain;
+    private int maxDebuff;
     private int debuffCounter = DEBUFF_COUNTER_THESHOLD; //start at threshold so she uses it immediately
 
     public static final float orbOffset = 225.0F;
@@ -88,9 +90,11 @@ public class Reimu extends CustomMonster
         if (AbstractDungeon.ascensionLevel >= 19) {
             this.dazes = A19_DAZE_AMOUNT;
             this.strengthGain = A19_STRENGTH_GAIN;
+            this.maxDebuff = A19_MAX_DEBUFF;
         } else {
             this.dazes = DAZE_AMOUNT;
             this.strengthGain = STRENGTH_GAIN;
+            this.maxDebuff = MAX_DEBUFF;
         }
         if (AbstractDungeon.ascensionLevel >= 9) {
             this.setHp(A9_HP);
@@ -237,7 +241,7 @@ public class Reimu extends CustomMonster
 
     private boolean canMegaDebuff() {
         if (AbstractDungeon.player.hasPower(SealedPower.POWER_ID)) {
-            if (AbstractDungeon.player.getPower(SealedPower.POWER_ID).amount >= MAX_DEBUFF) {
+            if (AbstractDungeon.player.getPower(SealedPower.POWER_ID).amount >= maxDebuff) {
                 return false;
             }
         }

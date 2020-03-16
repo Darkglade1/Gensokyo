@@ -8,6 +8,7 @@ import com.megacrit.cardcrawl.core.Settings;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.events.AbstractImageEvent;
 import com.megacrit.cardcrawl.helpers.CardLibrary;
+import com.megacrit.cardcrawl.helpers.FontHelper;
 import com.megacrit.cardcrawl.localization.EventStrings;
 import com.megacrit.cardcrawl.relics.AbstractRelic;
 import com.megacrit.cardcrawl.vfx.cardManip.ShowCardAndObtainEffect;
@@ -27,6 +28,7 @@ public class ForestOfMagic extends AbstractImageEvent {
 
     private static final float MAX_HP_BOOST = 0.10F;
     private static final int MIN_HP_BOOST = 5;
+    private static final int NUM_CURSES = 2;
 
     private int screenNum = 0;
     private int hpBoost;
@@ -36,9 +38,9 @@ public class ForestOfMagic extends AbstractImageEvent {
 
         int boost = (int)(AbstractDungeon.player.maxHealth * MAX_HP_BOOST);
         hpBoost = Math.max(boost, MIN_HP_BOOST);
-
-        this.imageEventText.setDialogOption(OPTIONS[1], CardLibrary.getCopy(Clumsy.ID)); // Marisa
-        this.imageEventText.setDialogOption(OPTIONS[2] + hpBoost + OPTIONS[3]); // Alice
+        AbstractCard curse = CardLibrary.getCopy(Clumsy.ID);
+        this.imageEventText.setDialogOption(OPTIONS[1] + NUM_CURSES + " " + FontHelper.colorString(curse.name, "r") + OPTIONS[2], curse); // Marisa
+        this.imageEventText.setDialogOption(OPTIONS[3] + hpBoost + OPTIONS[4]); // Alice
     }
 
     @Override
@@ -54,8 +56,10 @@ public class ForestOfMagic extends AbstractImageEvent {
                         this.imageEventText.clearRemainingOptions();
                         AbstractRelic relic = AbstractDungeon.returnRandomScreenlessRelic(AbstractDungeon.returnRandomRelicTier());
                         AbstractDungeon.getCurrRoom().spawnRelicAndObtain(this.drawX, this.drawY, relic);
-                        AbstractCard curse = new Clumsy();
-                        AbstractDungeon.effectList.add(new ShowCardAndObtainEffect(curse, (float)(Settings.WIDTH / 2), (float)(Settings.HEIGHT / 2)));
+                        for (int i = 0; i < NUM_CURSES; i++) {
+                            AbstractCard curse = new Clumsy();
+                            AbstractDungeon.effectList.add(new ShowCardAndObtainEffect(curse, (float)(Settings.WIDTH / 2), (float)(Settings.HEIGHT / 2)));
+                        }
                         break;
                     case 1: // Alice
                         this.imageEventText.loadImage(makeEventPath("Alice.png"));
@@ -78,7 +82,7 @@ public class ForestOfMagic extends AbstractImageEvent {
             case 3:
                 this.imageEventText.updateBodyText(DESCRIPTIONS[4]);
                 screenNum = 4;
-                this.imageEventText.updateDialogOption(0, OPTIONS[5]);
+                this.imageEventText.updateDialogOption(0, OPTIONS[6]);
                 this.imageEventText.clearRemainingOptions();
                 break;
             case 4:
@@ -91,7 +95,7 @@ public class ForestOfMagic extends AbstractImageEvent {
             case 6:
                 this.imageEventText.updateBodyText(DESCRIPTIONS[7]);
                 screenNum = 4;
-                this.imageEventText.updateDialogOption(0, OPTIONS[4]);
+                this.imageEventText.updateDialogOption(0, OPTIONS[5]);
                 this.imageEventText.clearRemainingOptions();
                 break;
             default:

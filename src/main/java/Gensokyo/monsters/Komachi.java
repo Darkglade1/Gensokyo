@@ -39,10 +39,10 @@ public class Komachi extends CustomMonster
     private static final byte DEBUFF = 2;
     private static final byte DEATH = 3;
     private static final int SCYTHE_DAMAGE = 16;
-    private static final int SCYTHE_ACT_DAMAGE_BONUS = 5;
+    private static final int SCYTHE_ACT_DAMAGE_BONUS = 8;
     private static final int DEATH_COUNTER = 7;
     private static final int A3_SCYTHE_DAMAGE = 18;
-    private static final int A3_DEATH_COUNTER = 6;
+    private static final int A18_DEATH_COUNTER = 6;
     private int scytheDmg;
     private int deathCounter;
     private static final int WEAK_AMT = 2;
@@ -52,10 +52,10 @@ public class Komachi extends CustomMonster
     private static final float ACT_2_MULTIPLIER = 1.5f;
     private static final float ACT_3_MULTIPLIER = 2.0f;
     private static final float ACT_4_MULTIPLIER = 2.5f;
-    private static final int HP_MIN = 80;
-    private static final int HP_MAX = 84;
-    private static final int A_2_HP_MIN = 84;
-    private static final int A_2_HP_MAX = 90;
+    private static final int HP_MIN = 90;
+    private static final int HP_MAX = 94;
+    private static final int A_2_HP_MIN = 94;
+    private static final int A_2_HP_MAX = 100;
     
     public Komachi() {
         this(0.0f, 0.0f);
@@ -78,7 +78,7 @@ public class Komachi extends CustomMonster
         }
 
         if (AbstractDungeon.ascensionLevel >= 18) {
-            this.deathCounter = A3_DEATH_COUNTER;
+            this.deathCounter = A18_DEATH_COUNTER;
         } else {
             this.deathCounter = DEATH_COUNTER;
         }
@@ -110,7 +110,7 @@ public class Komachi extends CustomMonster
             AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(this, this, new Vengeance(this, tier)));
         }
         if (tier >= 2) {
-            AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(this, this, new IntangiblePlayerPower(this, tier), tier));
+            AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(this, this, new IntangiblePlayerPower(this, tier + 1), tier + 1));
         }
         if (tier >= 3) {
             this.scytheDmg = this.scytheDmg * (tier - 1);
