@@ -147,22 +147,6 @@
         "NAME": "Doppelganger",
         "DESCRIPTIONS": ["Your next #b", " card is", " cards are", " played twice."]
 },
-"Gensokyo:DeathTouch": {
-        "NAME": "Death Touch",
-        "DESCRIPTIONS": ["Whenever you receive attack damage from this enemy, shuffle #b", " #yButterflys into the discard pile."]
-},
-"Gensokyo:DeathTouchWeak": {
-        "NAME": "Death Touch",
-        "DESCRIPTIONS": ["Whenever you receive attack damage from this enemy, you gain #b", " #yWeak."]
-},
-"Gensokyo:DeathTouchFrail": {
-        "NAME": "Death Touch",
-        "DESCRIPTIONS": ["Whenever you receive attack damage from this enemy, you gain #b", " #yFrail."]
-},
-"Gensokyo:Fading": {
-        "NAME": "Fading",
-        "DESCRIPTIONS": ["For #b", " turn", " turns", ", at the start of your turn, #yexhaust #b", " cards."]
-},
 "Gensokyo:Reflowering": {
         "NAME": "Reflowering",
         "DESCRIPTIONS": ["Whenever a #ySpirit dies, loses #b", " #yStrength."]
@@ -177,7 +161,7 @@
 },
 "Gensokyo:MirrorPower": {
         "NAME": "Mirror",
-        "DESCRIPTIONS": ["If you play a #yPower this turn, intends to #yBuff next turn. Otherwise, if you play more #ySkills than #yAttacks this turn, intends to #yDefend next turn. Otherwise, intends to #yAttack next turn.", " You have played #b", " #yAttack, #b", " #yAttacks, #b", " #ySkill, and #b", " #ySkills, and #b"," #yPower.", " #yPowers."]
+        "DESCRIPTIONS": ["If you play a #yPower this turn, intends to #yBuff next turn. Otherwise, if you play more #ySkills than #yAttacks this turn, intends to #yDefend next turn. Otherwise, intends to #yAttack next turn.", " NL You have played #b", " #yAttack, #b", " #yAttacks, #b", " #ySkill, and #b", " #ySkills, and #b"," #yPower.", " #yPowers."]
 },
 "Gensokyo:HouraiImmortal": {
         "NAME": "Hourai Immortal",

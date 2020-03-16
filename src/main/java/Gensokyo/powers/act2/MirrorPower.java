@@ -1,6 +1,7 @@
 package Gensokyo.powers.act2;
 
 import Gensokyo.GensokyoMod;
+import Gensokyo.actions.BalanceShiftAction;
 import Gensokyo.monsters.act2.Mirror;
 import Gensokyo.util.TextureLoader;
 import com.badlogic.gdx.graphics.Texture;
@@ -9,6 +10,7 @@ import com.megacrit.cardcrawl.actions.utility.UseCardAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.core.AbstractCreature;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
+import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.localization.PowerStrings;
 import com.megacrit.cardcrawl.powers.AbstractPower;
 
@@ -46,13 +48,16 @@ public class MirrorPower extends AbstractPower {
 
     @Override
     public void onUseCard(AbstractCard card, UseCardAction action) {
-        if (card.type == AbstractCard.CardType.ATTACK) {
+        if (card.type == AbstractCard.CardType.ATTACK && powerCount == 0) {
+            mirror.eiki.incrementGuilt(1);
             attackCount++;
         }
-        if (card.type == AbstractCard.CardType.SKILL) {
+        if (card.type == AbstractCard.CardType.SKILL && powerCount == 0) {
+            mirror.eiki.incrementInnocence(1);
             skillCount++;
         }
         if (card.type == AbstractCard.CardType.POWER) {
+            mirror.eiki.resetBalance();
             powerCount++;
         }
         updateDescription();
@@ -72,6 +77,7 @@ public class MirrorPower extends AbstractPower {
         powerCount = 0;
         mirror.createIntent();
         updateDescription();
+        mirror.eiki.resetBalance();
     }
 
     @Override

@@ -75,10 +75,6 @@ public class Eiki extends CustomMonster
     private static final int A19_STRENGTH = 4;
     private int strength;
 
-    private static final float INNOCENCE_HEAL = 0.10F;
-    private static final float A19_INNOCENCE_HEAL = 0.13F;
-    private float innocenceHeal;
-
     public int guiltCount;
     public int innocenceCount;
 
@@ -107,10 +103,8 @@ public class Eiki extends CustomMonster
         this.dialogY -= (this.hb_y - 55.0F) * Settings.scale;
         if (AbstractDungeon.ascensionLevel >= 19) {
             this.strength = A19_STRENGTH;
-            this.innocenceHeal = A19_INNOCENCE_HEAL;
         } else {
             this.strength = STRENGTH;
-            this.innocenceHeal = INNOCENCE_HEAL;
         }
         if (AbstractDungeon.ascensionLevel >= 9) {
             this.setHp(A9_HP);
@@ -170,20 +164,15 @@ public class Eiki extends CustomMonster
                 break;
             }
             case GUILTY_OR_NOT: {
-                int difference = guiltCount - innocenceCount;
-                if (difference < 0) {
-                    difference = 0;
-                }
-                int bonusStrength = difference / 2;
                 if (!mirrorDead) {
-                    AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(this, this, new StrengthPower(this, this.strength + bonusStrength), this.strength + bonusStrength));
+                    AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(this, this, new StrengthPower(this, this.strength), this.strength));
                     for (AbstractMonster mo : AbstractDungeon.getCurrRoom().monsters.monsters) {
                         if (mo instanceof Mirror) {
                             AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(mo, this, new NextTurnInnocence(mo)));
                         }
                     }
                 } else {
-                    AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(this, this, new StrengthPower(this, (this.strength + bonusStrength) * 2), (this.strength + bonusStrength) * 2));
+                    AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(this, this, new StrengthPower(this, this.strength * 2), this.strength * 2));
                 }
                 break;
             }
@@ -248,6 +237,14 @@ public class Eiki extends CustomMonster
             innocence.add(new BetterSpriterAnimation("GensokyoResources/images/monsters/Eiki/Innocence/Spriter/InnocenceAnimation.scml"));
         }
         innocenceCount += amount;
+        AbstractDungeon.actionManager.addToBottom(new BalanceShiftAction(this));
+    }
+
+    public void resetBalance() {
+        guilt.clear();
+        guiltCount = 0;
+        innocence.clear();
+        innocenceCount = 0;
         AbstractDungeon.actionManager.addToBottom(new BalanceShiftAction(this));
     }
 

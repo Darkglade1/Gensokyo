@@ -64,7 +64,8 @@ public class Mirror extends CustomMonster
     private static final int A9_HP = 150;
 
     private Map<Byte, EnemyMoveInfo> moves;
-    private Eiki eiki;
+    public Eiki eiki;
+    private int innocenceUsed = 0;
 
     private float particleTimer;
     private float particleTimer2;
@@ -154,23 +155,18 @@ public class Mirror extends CustomMonster
             case GUILT: {
                 this.useFastAttackAnimation();
                 AbstractDungeon.actionManager.addToBottom(new DamageAction(AbstractDungeon.player, info, AbstractGameAction.AttackEffect.BLUNT_LIGHT));
-                eiki.incrementGuilt(1);
                 break;
             }
             case INNOCENCE: {
-                int difference = eiki.innocenceCount - eiki.guiltCount;
-                if (difference < 0) {
-                    difference = 0;
-                }
                 for (AbstractMonster mo : AbstractDungeon.getCurrRoom().monsters.monsters) {
                     if (this.hasPower(Innocence.POWER_ID)) {
                         this.addToBot(new HealAction(mo, this, this.block * 2));
                     } else {
                         this.addToBot(new GainBlockAction(mo, this.block));
                     }
-                    this.addToBot(new HealAction(mo, this, this.heal + (difference * 2)));
+                    this.addToBot(new HealAction(mo, this, this.heal + (innocenceUsed * 2)));
                 }
-                eiki.incrementInnocence(1);
+                innocenceUsed++;
                 break;
             }
             case JUSTICE: {
