@@ -528,7 +528,8 @@
     ],
     "OPTIONS": [
       "[Continue]",
-      "[Trauma] #gObtain ",
+      "[Trauma] #rLose #r",
+      " #rHP. #gObtain ",
       ".",
       "[Payment] #rLose #r",
       " #rMax #rHP.",

@@ -67,8 +67,8 @@ public class Yuyuko extends CustomMonster
     private static final int A_2_HP_MIN = 98;
     private static final int A_2_HP_MAX = 101;
 
-    private static final int MINION_HEALTH_INCREMENT = 3;
-    private static final int A8_MINION_HEALTH_INCREMENT = 4;
+    private static final int MINION_HEALTH_INCREMENT = 2;
+    private static final int A8_MINION_HEALTH_INCREMENT = 3;
 
     private static final int STR_LOSS = 1;
     private static final int BLUE_SOULS = 5;
