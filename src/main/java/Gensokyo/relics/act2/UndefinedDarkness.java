@@ -4,6 +4,7 @@ import Gensokyo.GensokyoMod;
 import Gensokyo.util.TextureLoader;
 import basemod.abstracts.CustomRelic;
 import com.badlogic.gdx.graphics.Texture;
+import com.megacrit.cardcrawl.actions.common.RelicAboveCreatureAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.helpers.RelicLibrary;
@@ -33,6 +34,7 @@ public class UndefinedDarkness extends CustomRelic {
     public void atBattleStartPreDraw() {
         if (this.counter > 0) {
             this.flash();
+            this.addToTop(new RelicAboveCreatureAction(AbstractDungeon.player, this));
             obscuredCards.addAll(AbstractDungeon.player.drawPile.group);
             obscuredCards.addAll(AbstractDungeon.player.discardPile.group);
             obscuredCards.addAll(AbstractDungeon.player.hand.group);

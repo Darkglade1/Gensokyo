@@ -4,6 +4,7 @@ import Gensokyo.powers.act2.LunaticRedEyes;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.evacipated.cardcrawl.modthespire.lib.SpirePatch;
 import com.megacrit.cardcrawl.cards.AbstractCard;
+import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.core.Settings;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
@@ -17,7 +18,7 @@ public class InsanityMarkedCardsPatch {
     @SpirePatch(clz = AbstractCard.class, method = "renderCard")
     public static class RenderPatch {
         public static void Postfix(AbstractCard card, SpriteBatch sb, boolean b1, boolean b2) {
-            if (AbstractDungeon.player != null && AbstractDungeon.getCurrRoom().phase == AbstractRoom.RoomPhase.COMBAT) {
+            if (CardCrawlGame.isInARun() && AbstractDungeon.getCurrRoom().phase == AbstractRoom.RoomPhase.COMBAT) {
                 for (AbstractMonster mo : AbstractDungeon.getMonsters().monsters) {
                     if (mo.hasPower(LunaticRedEyes.POWER_ID)) {
                         LunaticRedEyes eyes = (LunaticRedEyes)mo.getPower(LunaticRedEyes.POWER_ID);

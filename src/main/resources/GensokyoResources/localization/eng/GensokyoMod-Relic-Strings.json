@@ -144,6 +144,13 @@
       "Whenever you play a #ySkill, deal #b", " damage to a random enemy."
     ]
   },
+  "Gensokyo:RedStar": {
+    "NAME": "Red Star",
+    "FLAVOR": "An ill omen feared by many.",
+    "DESCRIPTIONS": [
+      "Your Max HP is reduced by #b", "% for the next boss fight. After, obtain a #yspecial #ycard."
+    ]
+  },
   "Gensokyo:MarisaIngredientList": {
     "NAME": "Ingredient List",
     "FLAVOR": "A bunch of messy scribbles on a page. Apparently creates something known as the \"Improbability Potion\".",

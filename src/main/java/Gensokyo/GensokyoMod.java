@@ -29,6 +29,7 @@ import Gensokyo.cards.Philosophy;
 import Gensokyo.cards.RedCapeBlueCape;
 import Gensokyo.cards.ReflexRadar;
 import Gensokyo.cards.SevenSchoolMysteries;
+import Gensokyo.cards.ShootingStar;
 import Gensokyo.cards.SlitMouthedWoman;
 import Gensokyo.cards.SpontaneousHumanCombustion;
 import Gensokyo.cards.TabooFourOfAKind;
@@ -60,6 +61,7 @@ import Gensokyo.events.act1.marisaEvents.AnOldGhost;
 import Gensokyo.events.act1.marisaEvents.BookThief;
 import Gensokyo.events.act1.marisaEvents.JustAVisit;
 import Gensokyo.events.act1.marisaEvents.Walpurgisnacht;
+import Gensokyo.events.act2.AHistoryOfViolence;
 import Gensokyo.events.act2.AndThenThereWereNone;
 import Gensokyo.events.act2.ChildOfMiare;
 import Gensokyo.events.act2.DetectiveSatori;
@@ -122,6 +124,7 @@ import Gensokyo.relics.act2.FoxMask;
 import Gensokyo.relics.act2.LionMask;
 import Gensokyo.relics.act2.MaskOfHope;
 import Gensokyo.relics.act2.MosesMiracle;
+import Gensokyo.relics.act2.RedStar;
 import Gensokyo.relics.act2.SpiderMask;
 import Gensokyo.relics.act2.UndefinedDarkness;
 import Gensokyo.util.IDCheckDontTouchPls;
@@ -444,6 +447,7 @@ public class GensokyoMod implements
         BaseMod.addEvent(OneWingedWhiteHeron.ID, OneWingedWhiteHeron.class, Gensokyoer.ID);
         BaseMod.addEvent(ChildOfMiare.ID, ChildOfMiare.class, Gensokyoer.ID);
         BaseMod.addEvent(DetectiveSatori.ID, DetectiveSatori.class, Gensokyoer.ID);
+        BaseMod.addEvent(AHistoryOfViolence.ID, AHistoryOfViolence.class, Gensokyoer.ID);
         
         // =============== /EVENTS/ =================
 
@@ -618,6 +622,7 @@ public class GensokyoMod implements
         BaseMod.addRelic(new MaskOfHope(), RelicType.SHARED);
         BaseMod.addRelic(new DemonMask(), RelicType.SHARED);
         BaseMod.addRelic(new LionMask(), RelicType.SHARED);
+        BaseMod.addRelic(new RedStar(), RelicType.SHARED);
 
         logger.info("Done adding relics!");
     }
@@ -645,6 +650,7 @@ public class GensokyoMod implements
         BaseMod.addCard(new Philosophy());
         BaseMod.addCard(new ReflexRadar());
         BaseMod.addCard(new Dizzy());
+        BaseMod.addCard(new ShootingStar());
 
         //Urban Legends
         BaseMod.addCard(new MissMary());

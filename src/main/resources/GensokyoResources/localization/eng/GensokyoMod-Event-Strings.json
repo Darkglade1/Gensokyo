@@ -539,6 +539,21 @@
       "[Leave]"
     ]
   },
+  "Gensokyo:AHistoryOfViolence": {
+    "NAME": "A History of Simulated Violence",
+    "DESCRIPTIONS": [
+      "You find yourself in a strange room, surrounded by #pstrange, #rmenacing figures. NL NL \"Well, well, what do we have here? Another challenger?\" NL NL The myriad of faces all stare down at you, gauging your #yworth. NL NL \"You've been here before, haven't you? So why don't we make things more challenging this time around?\"",
+      "\"A brave one, aren't you? This should prove to be quite interesting.\" NL NL The figures vanish, leaving you with a #pforeboding sense of #pdread.",
+      "\"Not feeling up for it? A pity.\" NL NL The figures vanish, leaving you with a brief sense of #grelief at their passing."
+    ],
+    "OPTIONS": [
+      "[Accept] #rMax #rHP #ris #rreduced #rby #r",
+      "% #rfor #rthe #rnext #rboss.",
+      " #gAfter, #gobtain ",
+      ".",
+      "[Leave]"
+    ]
+  },
   "Gensokyo:MarisaAnOldGhost": {
     "NAME": "An Old Ghost",
     "DESCRIPTIONS": [
@@ -627,17 +642,6 @@
       "[Locked] Requires: Upgradeable Spark",
       "[???]",
       "Choose a Card to Transform"
-    ]
-  },
-  "Gensokyo:AHistoryOfViolence": {
-    "NAME": "A History of Simulated Violence",
-    "DESCRIPTIONS": [
-      "You find yourself in a strange room, surrounded by #pstrange, #rmenacing figures. NL NL \"Well, well, what do we have here? Another challenger?\" NL NL The myriad of faces all stare down at you, gauging your #yworth. NL NL \"You're not getting out of here without going through all of us. So pick your #gpoison, yeah?\""
-    ],
-    "OPTIONS": [
-      "[Fight] ",
-      "[Locked] ",
-      ". Victory!"
     ]
   }
 }
