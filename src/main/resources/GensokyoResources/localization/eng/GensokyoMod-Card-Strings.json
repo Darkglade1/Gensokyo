@@ -162,7 +162,7 @@
   },
   "Gensokyo:ShootingStar": {
     "NAME": "Shooting Star",
-    "DESCRIPTION": "Add a copy of a card in your deck to your hand. NL Exhaust.",
-    "UPGRADE_DESCRIPTION": "Retain. NL Add a copy of a card in your deck to your hand. NL Exhaust."
+    "DESCRIPTION": "Add a copy of another card in your deck to your hand. NL Exhaust.",
+    "UPGRADE_DESCRIPTION": "Retain. NL Add a copy of another card in your deck to your hand. NL Exhaust."
   }
 }
