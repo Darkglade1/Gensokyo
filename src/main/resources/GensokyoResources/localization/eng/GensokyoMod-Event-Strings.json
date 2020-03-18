@@ -554,6 +554,34 @@
       "[Leave]"
     ]
   },
+  "Gensokyo:FiresOfInvention": {
+    "NAME": "Fires of Invention",
+    "DESCRIPTIONS": [
+      "As you stumble your way through a thicket, you #rtrip, dropping one of your many #yrelics. Before you can even get up, a robotic arm bursts out of nowhere and snatches it up! NL NL \"Woah, this looks fascinating! It looks so simple at first glance, but there's actually an incredibly intricate interlocking mechanism inside!\" NL NL You pick yourself up and see a #bblue-haired girl fiddling with your #yrelic. You politely ask for it back.",
+      "\"Oh, this is yours? Hmmm . . .\" She frowns. \"Oh, I know! Why don't I pay you for it? Or if you don't want #ymoney, I can help #yfine-tune some of your other stuff! I'm a pretty good engineer, y'know?\"",
+      "\"Thank you very much!\" NL NL The girl dumps a bunch of #ycoinage into your hand and darts away, already muttering about how this device could \"increase #yfuel #yefficiency by @50%!\"@",
+      "You're not quite sure what the girl did to the other tools you handed her, but after getting them back, you could sense that they felt more #gefficient, more #grefined. NL NL Like a #rfinely-honed #redge.",
+      "\"Awwww.\" NL NL #pReluctantly, the girl gives you back your #yrelic. NL NL \"Well, if you change your mind, just come back here and ask around! Most of the other kappa here know where I live.\" NL NL The girl darts away, leaving you alone with your thoughts once more."
+    ],
+    "OPTIONS": [
+      "[Continue]",
+      "[Money]",
+      "[Fine-tune]",
+      " #rLose ",
+      ".",
+      " #gGain #g",
+      " #gGold.",
+      " #gRemove #g",
+      " #gcards.",
+      "[Refuse]",
+      "[Leave]",
+      "[Locked] Requires: Non-Special Relic.",
+      "Choose ",
+      " cards to remove.",
+      "[Locked] Requires: ",
+      " Removable Cards."
+    ]
+  },
   "Gensokyo:MarisaAnOldGhost": {
     "NAME": "An Old Ghost",
     "DESCRIPTIONS": [

@@ -65,6 +65,7 @@ import Gensokyo.events.act2.AHistoryOfViolence;
 import Gensokyo.events.act2.AndThenThereWereNone;
 import Gensokyo.events.act2.ChildOfMiare;
 import Gensokyo.events.act2.DetectiveSatori;
+import Gensokyo.events.act2.FiresOfInvention;
 import Gensokyo.events.act2.Impoverished;
 import Gensokyo.events.act2.LivingGodOfMiracles;
 import Gensokyo.events.act2.NightmareOfHeian;
@@ -448,6 +449,7 @@ public class GensokyoMod implements
         BaseMod.addEvent(ChildOfMiare.ID, ChildOfMiare.class, Gensokyoer.ID);
         BaseMod.addEvent(DetectiveSatori.ID, DetectiveSatori.class, Gensokyoer.ID);
         BaseMod.addEvent(AHistoryOfViolence.ID, AHistoryOfViolence.class, Gensokyoer.ID);
+        BaseMod.addEvent(FiresOfInvention.ID, FiresOfInvention.class, Gensokyoer.ID);
         
         // =============== /EVENTS/ =================
 
