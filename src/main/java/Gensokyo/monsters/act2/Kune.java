@@ -1,15 +1,16 @@
 package Gensokyo.monsters.act2;
 
 import Gensokyo.BetterSpriterAnimation;
-import Gensokyo.powers.act2.Insanity;
 import basemod.abstracts.CustomMonster;
 import com.brashmonkey.spriter.Animation;
 import com.brashmonkey.spriter.Player;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.actions.common.DamageAction;
+import com.megacrit.cardcrawl.actions.common.MakeTempCardInDrawPileAction;
 import com.megacrit.cardcrawl.actions.common.RollMoveAction;
 import com.megacrit.cardcrawl.cards.DamageInfo;
+import com.megacrit.cardcrawl.cards.status.Slimed;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.core.Settings;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
@@ -27,13 +28,13 @@ public class Kune extends CustomMonster
     private static final byte DEBUFF = 2;
     private static final int ATTACK_DAMAGE = 4;
     private static final int HITS = 2;
-    private static final int DEBUFF_AMT = 2;
+    private static final int STATUS_AMT = 1;
     private static final int BUFF_AMT = 2;
     private static final int A18_BUFF_AMT = 3;
-    private static final int HP_MIN = 16;
-    private static final int HP_MAX = 18;
-    private static final int A8_HP_MIN = 17;
-    private static final int A8_HP_MAX = 19;
+    private static final int HP_MIN = 14;
+    private static final int HP_MAX = 16;
+    private static final int A8_HP_MIN = 15;
+    private static final int A8_HP_MAX = 17;
     private int attackDamage;
     private int buff;
     public Reisen reisen;
@@ -82,7 +83,7 @@ public class Kune extends CustomMonster
             }
             case DEBUFF: {
                 runAnim("Attack");
-                AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(AbstractDungeon.player, this, new Insanity(AbstractDungeon.player, DEBUFF_AMT), DEBUFF_AMT));
+                AbstractDungeon.actionManager.addToBottom(new MakeTempCardInDrawPileAction(new Slimed(), STATUS_AMT, true, true));
                 AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(this, this, new StrengthPower(this, buff), buff));
                 break;
             }

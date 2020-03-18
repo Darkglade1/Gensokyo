@@ -9,7 +9,7 @@ import Gensokyo.cards.BlessingOfConstitution;
 import Gensokyo.cards.BlessingOfFortitude;
 import Gensokyo.cards.BlessingOfVigor;
 import Gensokyo.cards.CrescentMoonSlash;
-import Gensokyo.cards.Dizzy;
+import Gensokyo.cards.MindShatter;
 import Gensokyo.cards.Doppelganger;
 import Gensokyo.cards.EightFeetTall;
 import Gensokyo.cards.EmbersOfLove;
@@ -649,7 +649,7 @@ public class GensokyoMod implements
         BaseMod.addCard(new EmbersOfLove());
         BaseMod.addCard(new Philosophy());
         BaseMod.addCard(new ReflexRadar());
-        BaseMod.addCard(new Dizzy());
+        BaseMod.addCard(new MindShatter());
         BaseMod.addCard(new ShootingStar());
 
         //Urban Legends

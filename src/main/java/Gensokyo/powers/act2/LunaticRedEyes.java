@@ -1,19 +1,15 @@
 package Gensokyo.powers.act2;
 
 import Gensokyo.GensokyoMod;
-import Gensokyo.actions.InsanityDamageAction;
 import Gensokyo.util.TextureLoader;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.TextureAtlas;
-import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
+import com.megacrit.cardcrawl.actions.utility.UseCardAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.core.AbstractCreature;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
-import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.localization.PowerStrings;
 import com.megacrit.cardcrawl.powers.AbstractPower;
-
-import java.util.ArrayList;
 
 import static Gensokyo.GensokyoMod.makePowerPath;
 
@@ -25,17 +21,17 @@ public class LunaticRedEyes extends AbstractPower {
     public static final String NAME = powerStrings.NAME;
     public static final String[] DESCRIPTIONS = powerStrings.DESCRIPTIONS;
 
-    public ArrayList<AbstractCard> markedCards = new ArrayList<>();
+    public static final int THRESHOLD = 2;
 
-    private static final Texture tex84 = TextureLoader.getTexture(makePowerPath("Eyes84.png"));
-    private static final Texture tex32 = TextureLoader.getTexture(makePowerPath("Eyes32.png"));
+    private static final Texture tex84 = TextureLoader.getTexture(makePowerPath("Insanity84.png"));
+    private static final Texture tex32 = TextureLoader.getTexture(makePowerPath("Insanity32.png"));
 
-    public LunaticRedEyes(AbstractCreature owner, int amount) {
+    public LunaticRedEyes(AbstractCreature owner) {
         name = NAME;
         ID = POWER_ID;
 
         this.owner = owner;
-        this.amount = amount;
+        this.amount = 1;
 
         type = PowerType.BUFF;
 
@@ -46,25 +42,18 @@ public class LunaticRedEyes extends AbstractPower {
     }
 
     @Override
-    public void onExhaust(AbstractCard card) {
-        if (isCardMarked(card)) {
+    public void onUseCard(AbstractCard card, UseCardAction action) {
+        if (this.amount >= THRESHOLD) {
             this.flash();
-            this.addToBot(new ApplyPowerAction(AbstractDungeon.player, this.owner, new Insanity(AbstractDungeon.player, this.amount), this.amount));
-            this.addToBot(new InsanityDamageAction(AbstractDungeon.player));
+            action.exhaustCard = true;
+            this.amount = 1;
+        } else {
+            this.amount++;
         }
-    }
-
-    public boolean isCardMarked(AbstractCard card) {
-        for (AbstractCard markedCard: markedCards) {
-            if (markedCard == card) {
-                return true;
-            }
-        }
-        return false;
     }
 
     @Override
     public void updateDescription() {
-        description = DESCRIPTIONS[0] + amount + DESCRIPTIONS[1];
+        description = DESCRIPTIONS[0];
     }
 }

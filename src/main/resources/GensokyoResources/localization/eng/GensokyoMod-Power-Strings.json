@@ -212,17 +212,7 @@
 },
 "Gensokyo:LunaticRedEyes": {
         "NAME": "Lunatic Red Eyes",
-        "DESCRIPTIONS": ["#yMarked cards are #yEthereal. Whenever a #yMarked card is #yexhausted, you gain #b", " #rInsanity, then you take damage equal to your #rInsanity."]
-},
-"Gensokyo:Insanity": {
-        "NAME": "Insanity",
-        "DESCRIPTIONS": ["#rYour #rvision #ris #rtinged #rwith #rred.",
-                        "#pSomeone #pis #pscreaming #pin #pyour #phead.",
-                        "#rThe #pnightmare #rpaints #pyour #rmind #pa #rbeautiful, #pjoyous #rshade #pof #rred."]
-},
-"Gensokyo:ThingOfNightmares": {
-        "NAME": "Thing of Nightmares",
-        "DESCRIPTIONS": ["On death, #yMark the leftmost card in your hand."]
+        "DESCRIPTIONS": ["Every other card you play is #yexhausted."]
 },
 "Gensokyo:ReleaseOfTheId": {
         "NAME": "Release of the Id",
