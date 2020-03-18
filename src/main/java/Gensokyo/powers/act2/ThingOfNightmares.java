@@ -1,7 +1,7 @@
 package Gensokyo.powers.act2;
 
 import Gensokyo.GensokyoMod;
-import Gensokyo.actions.MarkHandAction;
+import Gensokyo.actions.MarkCardAction;
 import Gensokyo.monsters.act2.Reisen;
 import Gensokyo.util.TextureLoader;
 import com.badlogic.gdx.graphics.Texture;
@@ -47,7 +47,7 @@ public class ThingOfNightmares extends AbstractPower {
         if (!AbstractDungeon.getCurrRoom().isBattleEnding()) {
             this.flashWithoutSound();
             if (reisen != null) {
-                this.addToTop(new MarkHandAction(reisen));
+                this.addToTop(new MarkCardAction(reisen));
             }
         }
     }

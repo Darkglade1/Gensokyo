@@ -5,6 +5,7 @@ import Gensokyo.actions.PlayIdCardAction;
 import Gensokyo.util.TextureLoader;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.TextureAtlas;
+import com.megacrit.cardcrawl.actions.unique.LoseEnergyAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.core.AbstractCreature;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
@@ -44,6 +45,7 @@ public class ReleaseOfTheId extends AbstractPower {
     @Override
     public void atStartOfTurn() {
         triggered = false;
+        this.addToBot(new LoseEnergyAction(1));
     }
 
     @Override

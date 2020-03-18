@@ -222,18 +222,18 @@
 },
 "Gensokyo:ThingOfNightmares": {
         "NAME": "Thing of Nightmares",
-        "DESCRIPTIONS": ["On death, #yMark your entire hand."]
+        "DESCRIPTIONS": ["On death, #yMark the leftmost card in your hand."]
 },
 "Gensokyo:ReleaseOfTheId": {
         "NAME": "Release of the Id",
-        "DESCRIPTIONS": ["The first card you draw each turn is automatically played."]
+        "DESCRIPTIONS": ["At the start of your turn, lose [E] . Play the first card you draw each turn."]
 },
 "Gensokyo:ThirdEyePower": {
         "NAME": "Third Eye",
         "DESCRIPTIONS": ["At the end of combat, lose #yFrozen #yEye."]
 },
 "Gensokyo:PhilosophyPower": {
-        "NAME": "Philosophy of the Despised",
+        "NAME": "Despise",
         "DESCRIPTIONS": ["At the end of your turn, take #b", " damage."]
 }
 }

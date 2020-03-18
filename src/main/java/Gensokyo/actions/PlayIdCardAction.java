@@ -20,13 +20,11 @@ public class PlayIdCardAction extends AbstractGameAction {
         this.card = card;
     }
 
+    @Override
     public void update() {
-
         card.exhaustOnUseOnce = this.exhaustCards;
         card.applyPowers();
-        this.addToTop(new NewQueueCardAction(card, this.target, false, false));
-
+        this.addToTop(new NewQueueCardAction(card, this.target, false, true));
         this.isDone = true;
-
     }
 }

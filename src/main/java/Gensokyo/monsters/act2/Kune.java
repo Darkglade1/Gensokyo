@@ -27,7 +27,7 @@ public class Kune extends CustomMonster
     private static final byte DEBUFF = 2;
     private static final int ATTACK_DAMAGE = 4;
     private static final int HITS = 2;
-    private static final int DEBUFF_AMT = 1;
+    private static final int DEBUFF_AMT = 2;
     private static final int BUFF_AMT = 2;
     private static final int A18_BUFF_AMT = 3;
     private static final int HP_MIN = 16;

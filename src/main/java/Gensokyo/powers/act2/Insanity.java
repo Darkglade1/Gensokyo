@@ -19,8 +19,8 @@ public class Insanity extends AbstractPower {
     public static final String NAME = powerStrings.NAME;
     public static final String[] DESCRIPTIONS = powerStrings.DESCRIPTIONS;
 
-    private static final int THRESHOLD_1 = 5;
-    private static final int THRESHOLD_2 = 10;
+    private static final int THRESHOLD_1 = 10;
+    private static final int THRESHOLD_2 = 20;
 
     private static final Texture tex84 = TextureLoader.getTexture(makePowerPath("Insanity84.png"));
     private static final Texture tex32 = TextureLoader.getTexture(makePowerPath("Insanity32.png"));

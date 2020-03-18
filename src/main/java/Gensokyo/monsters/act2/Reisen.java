@@ -47,8 +47,8 @@ public class Reisen extends CustomMonster
     private static final int DEBUFF_AMOUNT = 1;
     //private static final int BLOCK = 6;
    // private static final int A8_BLOCK = 7;
-    private static final int INSANITY_AMT = 1;
-    private static final int A18_INSANITY_AMT = 1;
+    private static final int INSANITY_AMT = 2;
+    private static final int A18_INSANITY_AMT = 2;
     private static final int STATUS = 2;
     private static final int A18_STATUS = 3;
     private static final int COOLDOWN = 2;

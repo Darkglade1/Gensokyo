@@ -7,21 +7,22 @@ import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.core.Settings;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 
-public class MarkHandAction extends AbstractGameAction {
+public class MarkCardAction extends AbstractGameAction {
     Reisen reisen;
 
-    public MarkHandAction(Reisen reisen) {
+    public MarkCardAction(Reisen reisen) {
         this.actionType = ActionType.SPECIAL;
         this.duration = Settings.ACTION_DUR_FAST;
         this.reisen = reisen;
     }
 
+    @Override
     public void update() {
         this.isDone = false;
-
         if (reisen.hasPower(LunaticRedEyes.POWER_ID)) {
             LunaticRedEyes eyes = (LunaticRedEyes)reisen.getPower(LunaticRedEyes.POWER_ID);
-            for (AbstractCard card : AbstractDungeon.player.hand.group) {
+            if (!AbstractDungeon.player.hand.group.isEmpty()) {
+                AbstractCard card = AbstractDungeon.player.hand.group.get(0);
                 eyes.markedCards.add(card);
                 card.isEthereal = true;
                 card.selfRetain = false;
@@ -29,7 +30,6 @@ public class MarkHandAction extends AbstractGameAction {
                 card.flash();
             }
         }
-
         this.isDone = true;
     }
 }
