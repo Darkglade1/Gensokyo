@@ -408,7 +408,7 @@
     ],
     "OPTIONS": [
       "[Listen] #rLose ",
-      ". #gChoose #g1 #gof #g3 #grare #gcards #gto #gadd #gto #gyour #gdeck.",
+      ". #gChoose #g1 #gof #g3 #gRare #gcards #gto #gadd #gto #gyour #gdeck.",
       "[Donate] #rLose #r",
       " #rGold. #gGain #g",
       " #gMax #gHP",
@@ -580,6 +580,24 @@
       " cards to remove.",
       "[Locked] Requires: ",
       " Removable Cards."
+    ]
+  },
+  "Gensokyo:ExtraExtra": {
+    "NAME": "Extra, Extra",
+    "DESCRIPTIONS": [
+      "@\"Breaking@ @news!@ Noh dance at Hakurei Shrine! Moriya Shrine #pconspiracy revealed! Get the latest scoops in Gensokyo @right@ @here,@ @right@ @now!\"@ NL NL A girl is handing out newspapers in the village square, her hands a flurry of motion as she #gdeftly hands one out to every #ycurious soul nearby. As soon as you approach, you find a newspaper unceremoniously shoved into your hands as well. NL NL \"Dramatized Tale of the Downfall of the World! Lunar Invasion Repelled! We got it all here!\"",
+      "Scanning the headlines, you see the aforementioned articles as well as a number of equally #pdubious stories.",
+      "You skim one of the articles. It speaks of a recent #rrat #rinfestation that had nearly #rdevastated the village’s food stores before a travelling medicine seller came and sold the villagers several #gcat #gstatues that supposedly managed to drive the rats away. NL NL Fascinating.",
+      "The current events of this land don't interest you all that much."
+    ],
+    "OPTIONS": [
+      "[Continue]",
+      "[Read] #gChoose #g1 #gof #g",
+      " #gUncommon #gcards #gto #gadd #gto #gyour #gdeck.",
+      " #gCommon #gcards #gto #gadd #gto #gyour #gdeck.",
+      "[Throw it away]",
+      "[Leave]",
+      "Add a card to your deck."
     ]
   },
   "Gensokyo:MarisaAnOldGhost": {

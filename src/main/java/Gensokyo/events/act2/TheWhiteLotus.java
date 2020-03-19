@@ -7,6 +7,7 @@ import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.core.Settings;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.events.AbstractImageEvent;
+import com.megacrit.cardcrawl.helpers.FontHelper;
 import com.megacrit.cardcrawl.localization.EventStrings;
 import com.megacrit.cardcrawl.unlock.UnlockTracker;
 import com.megacrit.cardcrawl.vfx.cardManip.PurgeCardEffect;
@@ -48,7 +49,7 @@ public class TheWhiteLotus extends AbstractImageEvent {
             hasCard = true;
         }
        if (hasCard) {
-           imageEventText.setDialogOption(OPTIONS[0] + card.name + OPTIONS[1], card);
+           imageEventText.setDialogOption(OPTIONS[0] + FontHelper.colorString(card.name, "r") + OPTIONS[1], card);
        } else {
            imageEventText.setDialogOption(OPTIONS[6], true);
        }
@@ -76,7 +77,7 @@ public class TheWhiteLotus extends AbstractImageEvent {
                         CardGroup group = new CardGroup(CardGroup.CardGroupType.UNSPECIFIED);
 
                         for(int i = 0; i < NUM_CARDS; ++i) {
-                            AbstractCard card = AbstractDungeon.getCard(AbstractDungeon.rollRareOrUncommon(1.0F)).makeCopy();
+                            AbstractCard card = AbstractDungeon.getCard(AbstractCard.CardRarity.RARE).makeCopy();
                             boolean containsDupe = true;
 
                             while(true) {
@@ -88,7 +89,7 @@ public class TheWhiteLotus extends AbstractImageEvent {
                                         AbstractCard c = (AbstractCard)var6.next();
                                         if (c.cardID.equals(card.cardID)) {
                                             containsDupe = true;
-                                            card = AbstractDungeon.getCard(AbstractDungeon.rollRareOrUncommon(1.0F)).makeCopy();
+                                            card = AbstractDungeon.getCard(AbstractCard.CardRarity.RARE).makeCopy();
                                             break;
                                         }
                                     }

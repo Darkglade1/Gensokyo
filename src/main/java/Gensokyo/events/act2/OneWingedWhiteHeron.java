@@ -138,7 +138,7 @@ public class OneWingedWhiteHeron extends AbstractImageEvent {
     }
 
     public static boolean canSpawn() {
-        if ((AbstractDungeon.player.currentHealth < ((int)(AbstractDungeon.player.maxHealth * 0.60F))) && ReversalEventPatches.eliteEncounters.size() >= 1 && ReversalEventPatches.normalEncounters.size() >= 2) {
+        if ((AbstractDungeon.player.currentHealth < ((int)(AbstractDungeon.player.maxHealth * 0.70F))) && ReversalEventPatches.eliteEncounters.size() >= 1 && ReversalEventPatches.normalEncounters.size() >= 2) {
             return true;
         }
         return false;
