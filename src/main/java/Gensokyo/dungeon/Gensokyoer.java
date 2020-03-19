@@ -51,7 +51,7 @@ public class Gensokyoer extends CustomDungeon {
         shopRoomChance = 0.05F;
         restRoomChance = 0.12F;
         treasureRoomChance = 0.0F;
-        eventRoomChance = 0.22F;
+        eventRoomChance = 0.25F;
         eliteRoomChance = 0.08F;
         smallChestChance = 50;
         mediumChestChance = 33;

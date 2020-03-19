@@ -135,7 +135,15 @@ public class FiresOfInvention extends AbstractImageEvent {
                 AbstractDungeon.gridSelectScreen.selectedCards.remove(c);
             }
         }
+    }
 
+    public static boolean hasValidRelic() {
+        for (AbstractRelic relic : AbstractDungeon.player.relics) {
+            if (relic.tier == AbstractRelic.RelicTier.COMMON || relic.tier == AbstractRelic.RelicTier.UNCOMMON || relic.tier == AbstractRelic.RelicTier.RARE) {
+                return true;
+            }
+        }
+        return false;
     }
 
 }

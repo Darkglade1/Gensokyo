@@ -14,6 +14,7 @@ import Gensokyo.events.act1.marisaEvents.AnOldGhost;
 import Gensokyo.events.act1.marisaEvents.BookThief;
 import Gensokyo.events.act1.marisaEvents.JustAVisit;
 import Gensokyo.events.act1.marisaEvents.Walpurgisnacht;
+import Gensokyo.events.act2.FiresOfInvention;
 import Gensokyo.events.act2.NohDance;
 import Gensokyo.events.act2.OneWingedWhiteHeron;
 import Gensokyo.events.act2.TheWhiteLotus;
@@ -79,6 +80,10 @@ public class EventFilter {
                 }
             } else if (event.equals(OneWingedWhiteHeron.ID)) {
                 if (!OneWingedWhiteHeron.canSpawn()) {
+                    eventsToRemove.add(event);
+                }
+            } else if (event.equals(FiresOfInvention.ID)) {
+                if (!FiresOfInvention.hasValidRelic()) {
                     eventsToRemove.add(event);
                 }
             }
