@@ -18,7 +18,7 @@ public class ProceedButtonPatch {
             public void edit(Instanceof i) throws CannotCompileException {
                 try {
                     if (i.getType().getName().equals(Mushrooms.class.getName())) {
-                        i.replace("$_ = $proceed($$) || currentRoom.event instanceof Gensokyo.events.act1.marisaEvents.BookThief;");
+                        i.replace("$_ = $proceed($$) || currentRoom.event instanceof Gensokyo.events.act1.marisaEvents.BookThief || currentRoom.event instanceof Gensokyo.events.act2.VillageOfCats;");
                     }
                 } catch (NotFoundException e) {
                     GensokyoMod.logger.error("Error in ProceedButtonPatch", e);

@@ -600,6 +600,25 @@
       "Add a card to your deck."
     ]
   },
+  "Gensokyo:VillageOfCats": {
+    "NAME": "Village of Cats",
+    "DESCRIPTIONS": [
+      "You find yourself in a strange, abandoned village, filled to the brim with #ycats of all kinds. NL NL One of them scampers up to you, a small brown cat with a #ggreen ribbon attached to its tail. NL NL It ~meows~ at you.",
+      "You #gpet the cat. It leans into your touch, purring #ghappily. NL NL It scampers away, soon returning with several scraps of #gfood that it lays at your feet. NL NL You try not to think about where the food came from as you thank the cat for its generosity.",
+      "You #gpet the cat. As it leans into your touch, its form suddenly #ybursts out and #yexpands, turning into a young girl. \"Hey, you're just like Yukari-sama and Ran-sama! Did they teach you how to manipulate boundaries?\" NL NL You confess that you have #pno #pidea what she's talking about. NL NL \"That's okay! I don't understand most of what they say either!\" The girl scampers away, soon returning with a #ytrinket in hand. \"Here, take this! Even if you don't understand anything, I'm sure they'll make sure you understand everything soon enough!\" NL NL You gingerly accept the artifact, trying not to think too hard on those #pforeboding words.",
+      "You #rkick the cat. It leaps up and #rhisses at you before darting away. NL NL Moments later, you feel someone tap on your shoulder. You turn around, finding a strange woman #psmiling at you. NL NL It was not a nice #psmile. NL NL \"That was quite #prude, you know? Let me show you what happens to #prude people in Gensokyo.\""
+    ],
+    "OPTIONS": [
+      "[Pet the cat] #gGain #g",
+      " #gMax #gHP.",
+      "[Pet the cat] #gObtain #ga #gRelic.",
+      "[Kick the cat] #rFight ",
+      ". #gReward: #g",
+      " #gRare #gRelics.",
+      "[Fight]",
+      "[Leave]"
+    ]
+  },
   "Gensokyo:MarisaAnOldGhost": {
     "NAME": "An Old Ghost",
     "DESCRIPTIONS": [
