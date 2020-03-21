@@ -151,6 +151,27 @@
       "Your Max HP is reduced by #b", "% for the next boss fight. After, obtain a #yspecial #ycard."
     ]
   },
+  "Gensokyo:ChorusOfJoy": {
+    "NAME": "Chorus of Joy",
+    "FLAVOR": "A joyful melody for dispirited times.",
+    "DESCRIPTIONS": [
+      "Start each combat with an additional [E] . You cannot draw additional cards on the first turn."
+    ]
+  },
+  "Gensokyo:DirgeOfMelancholy": {
+    "NAME": "Dirge of Melancholy",
+    "FLAVOR": "A mournful melody for nostalgic times.",
+    "DESCRIPTIONS": [
+      "At the start of combat, lose [E] and ALL enemies lose #b", " #yStrength."
+    ]
+  },
+  "Gensokyo:SongOfSouls": {
+    "NAME": "Song of Souls",
+    "FLAVOR": "A youthful melody for all of time.",
+    "DESCRIPTIONS": [
+      "Whenever you play a Strike or Defend, #yexhaust it."
+    ]
+  },
   "Gensokyo:MarisaIngredientList": {
     "NAME": "Ingredient List",
     "FLAVOR": "A bunch of messy scribbles on a page. Apparently creates something known as the \"Improbability Potion\".",

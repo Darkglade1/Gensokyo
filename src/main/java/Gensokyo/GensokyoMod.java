@@ -121,14 +121,17 @@ import Gensokyo.relics.act1.YoukaiFlower;
 import Gensokyo.relics.act1.marisaRelics.ImprobabilityPotion;
 import Gensokyo.relics.act1.marisaRelics.IngredientList;
 import Gensokyo.relics.act1.marisaRelics.PhilosophersStone;
+import Gensokyo.relics.act2.ChorusOfJoy;
 import Gensokyo.relics.act2.ConquerorOfFear;
 import Gensokyo.relics.act2.DayTheSeaSplit;
 import Gensokyo.relics.act2.DemonMask;
+import Gensokyo.relics.act2.DirgeOfMelancholy;
 import Gensokyo.relics.act2.FoxMask;
 import Gensokyo.relics.act2.LionMask;
 import Gensokyo.relics.act2.MaskOfHope;
 import Gensokyo.relics.act2.MosesMiracle;
 import Gensokyo.relics.act2.RedStar;
+import Gensokyo.relics.act2.SongOfSouls;
 import Gensokyo.relics.act2.SpiderMask;
 import Gensokyo.relics.act2.UndefinedDarkness;
 import Gensokyo.util.IDCheckDontTouchPls;
@@ -631,6 +634,9 @@ public class GensokyoMod implements
         BaseMod.addRelic(new DemonMask(), RelicType.SHARED);
         BaseMod.addRelic(new LionMask(), RelicType.SHARED);
         BaseMod.addRelic(new RedStar(), RelicType.SHARED);
+        BaseMod.addRelic(new ChorusOfJoy(), RelicType.SHARED);
+        BaseMod.addRelic(new DirgeOfMelancholy(), RelicType.SHARED);
+        BaseMod.addRelic(new SongOfSouls(), RelicType.SHARED);
 
         logger.info("Done adding relics!");
     }
