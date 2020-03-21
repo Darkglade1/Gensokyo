@@ -63,6 +63,7 @@ import Gensokyo.events.act1.marisaEvents.JustAVisit;
 import Gensokyo.events.act1.marisaEvents.Walpurgisnacht;
 import Gensokyo.events.act2.AHistoryOfViolence;
 import Gensokyo.events.act2.AndThenThereWereNone;
+import Gensokyo.events.act2.Boo;
 import Gensokyo.events.act2.ChildOfMiare;
 import Gensokyo.events.act2.DetectiveSatori;
 import Gensokyo.events.act2.ExtraExtra;
@@ -454,6 +455,7 @@ public class GensokyoMod implements
         BaseMod.addEvent(FiresOfInvention.ID, FiresOfInvention.class, Gensokyoer.ID);
         BaseMod.addEvent(ExtraExtra.ID, ExtraExtra.class, Gensokyoer.ID);
         BaseMod.addEvent(VillageOfCats.ID, VillageOfCats.class, Gensokyoer.ID);
+        BaseMod.addEvent(Boo.ID, Boo.class, Gensokyoer.ID);
         
         // =============== /EVENTS/ =================
 

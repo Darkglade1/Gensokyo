@@ -619,6 +619,23 @@
       "[Leave]"
     ]
   },
+  "Gensokyo:Boo": {
+    "NAME": "Boo!",
+    "DESCRIPTIONS": [
+      "#p@\"Boo!\"@ NL NL You #pflinch as someone @leaps@ out of the bushes in front of you, startling you. NL NL \"Ha! I surprised you, didn't I? You were #pscared, right?\"",
+      "You profusely express just how #pharrowing and #pterrifying the experience had been. In fact, it was a stroke of #yfortune that you hadn't simply fainted on the spot right then and there. NL NL \"Yay, I @did@ @it!@ I finally @did@ @it!\"@ NL NL The girl waltzes away in a daze, smiles all around, muttering about how she couldn't wait to tell her mentor about this.",
+      "\"Uwah? I was so sure I did it right this time . . .\" NL NL The #pdejected girl slinks away, dragging her equally dejected umbrella on the ground behind her. NL NL As her pitiful figure disappears into the distance, you can't help but feel a twinge of #pguilt."
+    ],
+    "OPTIONS": [
+      "[Admit it] #gRemove #ga #gcard #gfrom #gyour #gdeck.",
+      "[Deny it] #gUpgrade #g",
+      " #grandom #gcards. #rBecome #rCursed #r- ",
+      ".",
+      "Select a Card to Remove.",
+      "[Locked] Requires: Removable Card",
+      "[Leave]"
+    ]
+  },
   "Gensokyo:MarisaAnOldGhost": {
     "NAME": "An Old Ghost",
     "DESCRIPTIONS": [
