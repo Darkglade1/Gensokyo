@@ -73,6 +73,7 @@ import Gensokyo.events.act2.LivingGodOfMiracles;
 import Gensokyo.events.act2.NightmareOfHeian;
 import Gensokyo.events.act2.NohDance;
 import Gensokyo.events.act2.OneWingedWhiteHeron;
+import Gensokyo.events.act2.PhantomEnsemble;
 import Gensokyo.events.act2.TheWhiteLotus;
 import Gensokyo.events.act2.TreasureHunter;
 import Gensokyo.events.act2.VillageOfCats;
@@ -459,6 +460,7 @@ public class GensokyoMod implements
         BaseMod.addEvent(ExtraExtra.ID, ExtraExtra.class, Gensokyoer.ID);
         BaseMod.addEvent(VillageOfCats.ID, VillageOfCats.class, Gensokyoer.ID);
         BaseMod.addEvent(Boo.ID, Boo.class, Gensokyoer.ID);
+        BaseMod.addEvent(PhantomEnsemble.ID, PhantomEnsemble.class, Gensokyoer.ID);
         
         // =============== /EVENTS/ =================
 

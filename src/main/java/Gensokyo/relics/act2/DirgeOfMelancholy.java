@@ -18,8 +18,8 @@ public class DirgeOfMelancholy extends CustomRelic {
 
     public static final String ID = GensokyoMod.makeID("DirgeOfMelancholy");
 
-    private static final Texture IMG = TextureLoader.getTexture(makeRelicPath("Bombinomicon.png"));
-    private static final Texture OUTLINE = TextureLoader.getTexture(makeRelicOutlinePath("Bombinomicon.png"));
+    private static final Texture IMG = TextureLoader.getTexture(makeRelicPath("Violin.png"));
+    private static final Texture OUTLINE = TextureLoader.getTexture(makeRelicOutlinePath("Violin.png"));
 
     private static final int STR_DOWN = 2;
 

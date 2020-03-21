@@ -17,8 +17,8 @@ public class ChorusOfJoy extends CustomRelic {
 
     public static final String ID = GensokyoMod.makeID("ChorusOfJoy");
 
-    private static final Texture IMG = TextureLoader.getTexture(makeRelicPath("Bombinomicon.png"));
-    private static final Texture OUTLINE = TextureLoader.getTexture(makeRelicOutlinePath("Bombinomicon.png"));
+    private static final Texture IMG = TextureLoader.getTexture(makeRelicPath("Trumpet.png"));
+    private static final Texture OUTLINE = TextureLoader.getTexture(makeRelicOutlinePath("Trumpet.png"));
 
     private boolean firstTurn;
 

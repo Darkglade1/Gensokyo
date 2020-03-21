@@ -16,8 +16,8 @@ public class SongOfSouls extends CustomRelic {
 
     public static final String ID = GensokyoMod.makeID("SongOfSouls");
 
-    private static final Texture IMG = TextureLoader.getTexture(makeRelicPath("Bombinomicon.png"));
-    private static final Texture OUTLINE = TextureLoader.getTexture(makeRelicOutlinePath("Bombinomicon.png"));
+    private static final Texture IMG = TextureLoader.getTexture(makeRelicPath("Piano.png"));
+    private static final Texture OUTLINE = TextureLoader.getTexture(makeRelicOutlinePath("Piano.png"));
 
     public SongOfSouls() {
         super(ID, IMG, OUTLINE, RelicTier.SPECIAL, LandingSound.MAGICAL);

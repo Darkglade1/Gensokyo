@@ -636,6 +636,21 @@
       "[Leave]"
     ]
   },
+  "Gensokyo:PhantomEnsemble": {
+    "NAME": "Phantom Ensemble",
+    "DESCRIPTIONS": [
+      "Strands of music drift through the air, #pphantom notes that slink into your ears, making you feel #gjoyous yet #phollow, #genergetic yet #pempty, #galive yet #pdead. NL NL The chaotic blend threatens to overwhelm you, but you can discern three distinct melodies underneath the chaos. You try to focus on one of them . . .",
+      "You focus on the #ydull notes underpinning the overall melody. Their quiet calm #gsoothes your mind and body, and you eventually find yourself well enough to move on.",
+      "You focus on the #ymanic notes underpinning the overall melody. Their chaotic energy #ginvigorates your mind and body, granting you boundless energy that you simply cannot contain - NL NL When you finally wake up, strange aches all over your body, the music is gone.",
+      "You focus on the #ymelancholic notes underpinning the overall melody. Their lethargic energy #plulls your mind into a deep slumber, one that you find yourself unable to resist. NL NL When you finally wake up, a strange heaviness in your body, the music is gone."
+    ],
+    "OPTIONS": [
+      "[Illusionary Melody] #gObtain #ga #gspecial #gRelic.",
+      "[Joyful Melody] #gObtain #ga #gspecial #gRelic.",
+      "[Melancholic Melody] #gObtain #ga #gspecial #gRelic.",
+      "[Leave]"
+    ]
+  },
   "Gensokyo:MarisaAnOldGhost": {
     "NAME": "An Old Ghost",
     "DESCRIPTIONS": [
