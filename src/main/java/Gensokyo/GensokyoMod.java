@@ -106,6 +106,7 @@ import Gensokyo.monsters.act2.Koishi;
 import Gensokyo.monsters.act2.Kaguya;
 import Gensokyo.monsters.act2.Eiki;
 import Gensokyo.monsters.act2.Miko;
+import Gensokyo.monsters.act2.NormalEnemies.Swordslinger;
 import Gensokyo.monsters.act2.Reisen;
 import Gensokyo.monsters.act2.Yuyuko;
 import Gensokyo.relics.act1.Bombinomicon;
@@ -405,11 +406,11 @@ public class GensokyoMod implements
         BaseMod.addMonster(Koishi.ID, (BaseMod.GetMonster) Koishi::new);
         BaseMod.addMonster(Yuyuko.ID, (BaseMod.GetMonster) Yuyuko::new);
 
-
         BaseMod.addBoss(Gensokyoer.ID, Kaguya.ID, "GensokyoResources/images/monsters/Kaguya/Kaguya.png", "GensokyoResources/images/monsters/Kaguya/KaguyaOutline.png");
         BaseMod.addBoss(Gensokyoer.ID, Eiki.ID, "GensokyoResources/images/monsters/Eiki/Eiki.png", "GensokyoResources/images/monsters/Eiki/EikiOutline.png");
         BaseMod.addBoss(Gensokyoer.ID, EncounterIDs.ETERNAL_RIVALS, "GensokyoResources/images/monsters/Byakuren/Rival.png", "GensokyoResources/images/monsters/Byakuren/RivalOutline.png");
 
+        BaseMod.addMonster(Swordslinger.ID, (BaseMod.GetMonster)Swordslinger::new);
 
 
         // =============== EVENTS =================

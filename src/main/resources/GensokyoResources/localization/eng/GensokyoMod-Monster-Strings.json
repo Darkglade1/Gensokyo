@@ -356,6 +356,12 @@
     "DIALOG": [
       "This'll be fun!"
     ]
+  },
+  "Gensokyo:Swordslinger": {
+    "MOVES": [
+
+    ],
+    "NAME": "Swordslinger"
   }
 }
 
