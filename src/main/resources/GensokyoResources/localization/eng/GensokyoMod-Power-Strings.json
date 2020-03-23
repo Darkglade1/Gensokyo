@@ -225,5 +225,9 @@
 "Gensokyo:PhilosophyPower": {
         "NAME": "Despise",
         "DESCRIPTIONS": ["At the end of your turn, take #b", " damage."]
+},
+"Gensokyo:Reckless": {
+        "NAME": "Reckless",
+        "DESCRIPTIONS": ["Whenever you gain #yBlock, loses that much #yStrength this turn."]
 }
 }

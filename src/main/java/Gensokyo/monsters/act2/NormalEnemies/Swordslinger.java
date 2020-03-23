@@ -3,6 +3,7 @@ package Gensokyo.monsters.act2.NormalEnemies;
 import Gensokyo.BetterSpriterAnimation;
 import Gensokyo.powers.act1.FortitudePower;
 import Gensokyo.powers.act1.VigorPower;
+import Gensokyo.powers.act2.Reckless;
 import basemod.abstracts.CustomMonster;
 import com.brashmonkey.spriter.Animation;
 import com.brashmonkey.spriter.Player;
@@ -78,6 +79,11 @@ public class Swordslinger extends CustomMonster
 
         Player.PlayerListener listener = new SwordslingerListener(this);
         ((BetterSpriterAnimation)this.animation).myPlayer.addListener(listener);
+    }
+
+    @Override
+    public void usePreBattleAction() {
+        AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(this, this, new Reckless(this)));
     }
 
     @Override
