@@ -22,6 +22,11 @@
         <file id="18" name="Idle/tile017.png" width="300" height="300" pivot_x="0" pivot_y="1"/>
         <file id="19" name="Idle/tile018.png" width="300" height="300" pivot_x="0" pivot_y="1"/>
     </folder>
+    <folder id="1" name="Attack">
+        <file id="0" name="Attack/17.png" width="600" height="375" pivot_x="0" pivot_y="1"/>
+        <file id="1" name="Attack/15.png" width="600" height="375" pivot_x="0" pivot_y="1"/>
+        <file id="2" name="Attack/16.png" width="600" height="375" pivot_x="0" pivot_y="1"/>
+    </folder>
     <entity id="0" name="Swordslinger">
         <animation id="0" name="Idle" length="2000" interval="100">
             <mainline>
@@ -146,6 +151,42 @@
                 </key>
                 <key id="19" time="1900" spin="0">
                     <object folder="0" file="0" x="-150" y="295" angle="0"/>
+                </key>
+            </timeline>
+        </animation>
+        <animation id="1" name="Attack" length="550" interval="100">
+            <mainline>
+                <key id="0">
+                    <object_ref id="0" timeline="0" key="0" z_index="0"/>
+                </key>
+                <key id="1" time="100">
+                    <object_ref id="0" timeline="0" key="1" z_index="0"/>
+                </key>
+                <key id="2" time="200">
+                    <object_ref id="0" timeline="0" key="2" z_index="0"/>
+                </key>
+                <key id="3" time="399">
+                    <object_ref id="0" timeline="0" key="3" z_index="0"/>
+                </key>
+                <key id="4" time="500">
+                    <object_ref id="0" timeline="0" key="4" z_index="0"/>
+                </key>
+            </mainline>
+            <timeline id="0" name="15">
+                <key id="0" spin="0">
+                    <object folder="1" file="1" x="-460" y="301"/>
+                </key>
+                <key id="1" time="100" spin="0">
+                    <object folder="1" file="2" x="-460" y="301"/>
+                </key>
+                <key id="2" time="200" spin="0">
+                    <object folder="1" file="0" x="-460" y="301"/>
+                </key>
+                <key id="3" time="399" spin="0">
+                    <object folder="1" file="2" x="-460" y="301"/>
+                </key>
+                <key id="4" time="500" spin="0">
+                    <object folder="1" file="1" x="-460" y="301"/>
                 </key>
             </timeline>
         </animation>

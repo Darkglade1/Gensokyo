@@ -8,6 +8,11 @@ import com.megacrit.cardcrawl.actions.common.RelicAboveCreatureAction;
 import com.megacrit.cardcrawl.actions.utility.UseCardAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
+import com.megacrit.cardcrawl.helpers.GameDictionary;
+import com.megacrit.cardcrawl.helpers.PowerTip;
+
+import java.util.ArrayList;
+import java.util.Iterator;
 
 import static Gensokyo.GensokyoMod.makeRelicOutlinePath;
 import static Gensokyo.GensokyoMod.makeRelicPath;
@@ -21,6 +26,7 @@ public class SongOfSouls extends CustomRelic {
 
     public SongOfSouls() {
         super(ID, IMG, OUTLINE, RelicTier.SPECIAL, LandingSound.MAGICAL);
+        this.removeStrikeTip();
     }
 
     @Override
@@ -30,6 +36,29 @@ public class SongOfSouls extends CustomRelic {
             action.exhaustCard = true;
             this.addToTop(new RelicAboveCreatureAction(AbstractDungeon.player, this));
         }
+    }
+
+    private void removeStrikeTip() {
+        ArrayList<String> strikes = new ArrayList();
+        String[] var2 = GameDictionary.STRIKE.NAMES;
+        int var3 = var2.length;
+
+        for(int var4 = 0; var4 < var3; ++var4) {
+            String s = var2[var4];
+            strikes.add(s.toLowerCase());
+        }
+
+        Iterator t = this.tips.iterator();
+
+        while(t.hasNext()) {
+            PowerTip derp = (PowerTip)t.next();
+            String s = derp.header.toLowerCase();
+            if (strikes.contains(s)) {
+                t.remove();
+                break;
+            }
+        }
+
     }
 
     @Override
