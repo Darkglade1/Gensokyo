@@ -9,8 +9,10 @@ import Gensokyo.powers.act2.HouraiImmortal;
 import Gensokyo.powers.act2.LunaticPrincess;
 import actlikeit.dungeons.CustomDungeon;
 import basemod.abstracts.CustomMonster;
+import com.badlogic.gdx.math.MathUtils;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.animations.TalkAction;
+import com.megacrit.cardcrawl.actions.animations.VFXAction;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.actions.common.DamageAction;
 import com.megacrit.cardcrawl.actions.common.EscapeAction;
@@ -33,6 +35,7 @@ import com.megacrit.cardcrawl.powers.VulnerablePower;
 import com.megacrit.cardcrawl.powers.WeakPower;
 import com.megacrit.cardcrawl.relics.AbstractRelic;
 import com.megacrit.cardcrawl.vfx.cardManip.ShowCardAndAddToHandEffect;
+import com.megacrit.cardcrawl.vfx.combat.GhostIgniteEffect;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -171,7 +174,8 @@ public class Kaguya extends CustomMonster
             case BRILLIANT_DRAGON_BULLET: {
                 this.useFastAttackAnimation();
                 for (int i = 0; i < BRILLIANT_DRAGON_BULLET_HITS; i++) {
-                    AbstractDungeon.actionManager.addToBottom(new DamageAction(AbstractDungeon.player, info, AbstractGameAction.AttackEffect.BLUNT_HEAVY));
+                    AbstractDungeon.actionManager.addToBottom(new VFXAction(this, new GhostIgniteEffect(AbstractDungeon.player.hb.cX + MathUtils.random(-120.0F, 120.0F) * Settings.scale, AbstractDungeon.player.hb.cY + MathUtils.random(-120.0F, 120.0F) * Settings.scale), 0.05F));
+                    AbstractDungeon.actionManager.addToBottom(new DamageAction(AbstractDungeon.player, info, AbstractGameAction.AttackEffect.BLUNT_HEAVY, true));
                 }
                 break;
             }

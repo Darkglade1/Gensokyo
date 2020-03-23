@@ -362,6 +362,13 @@
       "Sharpen"
     ],
     "NAME": "Swordslinger"
+  },
+  "Gensokyo:Wraith": {
+    "MOVES": [
+      null,
+      null
+    ],
+    "NAME": "Wraith"
   }
 }
 

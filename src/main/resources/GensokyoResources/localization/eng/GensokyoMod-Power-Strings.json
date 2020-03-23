@@ -229,5 +229,9 @@
 "Gensokyo:Reckless": {
         "NAME": "Reckless",
         "DESCRIPTIONS": ["Whenever you gain #yBlock, loses that much #yStrength this turn."]
+},
+"Gensokyo:Spooked": {
+        "NAME": "Spooked",
+        "DESCRIPTIONS": ["After receiving #b", " more damage, gains #b", " #yIntangible."]
 }
 }

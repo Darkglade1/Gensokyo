@@ -2,6 +2,7 @@ package Gensokyo.dungeon;
 
 import Gensokyo.monsters.act2.Koishi;
 import Gensokyo.monsters.act2.NormalEnemies.Swordslinger;
+import Gensokyo.monsters.act2.NormalEnemies.Wraith;
 import Gensokyo.monsters.act2.Reisen;
 import Gensokyo.monsters.act2.Yuyuko;
 import Gensokyo.scenes.GensokyoScene;
@@ -91,7 +92,7 @@ public class Gensokyoer extends CustomDungeon {
         ArrayList<MonsterInfo> monsters = new ArrayList();
         monsters.add(new MonsterInfo("Chosen and Byrds", 2.0F));
         monsters.add(new MonsterInfo("Sentry and Sphere", 2.0F));
-        monsters.add(new MonsterInfo("Snake Plant", 6.0F));
+        monsters.add(new MonsterInfo(Wraith.ID, 6.0F));
         monsters.add(new MonsterInfo(Swordslinger.ID, 4.0F));
         monsters.add(new MonsterInfo("Centurion and Healer", 6.0F));
         monsters.add(new MonsterInfo("Cultist and Chosen", 3.0F));

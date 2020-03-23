@@ -9,7 +9,6 @@ import Gensokyo.cards.BlessingOfConstitution;
 import Gensokyo.cards.BlessingOfFortitude;
 import Gensokyo.cards.BlessingOfVigor;
 import Gensokyo.cards.CrescentMoonSlash;
-import Gensokyo.cards.MindShatter;
 import Gensokyo.cards.Doppelganger;
 import Gensokyo.cards.EightFeetTall;
 import Gensokyo.cards.EmbersOfLove;
@@ -23,6 +22,7 @@ import Gensokyo.cards.LochNessMonster;
 import Gensokyo.cards.ManorOfTheDishes;
 import Gensokyo.cards.MarisaTwilightSpark;
 import Gensokyo.cards.MenInBlack;
+import Gensokyo.cards.MindShatter;
 import Gensokyo.cards.MissMary;
 import Gensokyo.cards.MonkeysPaw;
 import Gensokyo.cards.Philosophy;
@@ -102,11 +102,12 @@ import Gensokyo.monsters.act1.SunflowerFairy;
 import Gensokyo.monsters.act1.Yukari;
 import Gensokyo.monsters.act1.ZombieFairy;
 import Gensokyo.monsters.act2.Byakuren;
-import Gensokyo.monsters.act2.Koishi;
-import Gensokyo.monsters.act2.Kaguya;
 import Gensokyo.monsters.act2.Eiki;
+import Gensokyo.monsters.act2.Kaguya;
+import Gensokyo.monsters.act2.Koishi;
 import Gensokyo.monsters.act2.Miko;
 import Gensokyo.monsters.act2.NormalEnemies.Swordslinger;
+import Gensokyo.monsters.act2.NormalEnemies.Wraith;
 import Gensokyo.monsters.act2.Reisen;
 import Gensokyo.monsters.act2.Yuyuko;
 import Gensokyo.relics.act1.Bombinomicon;
@@ -411,6 +412,7 @@ public class GensokyoMod implements
         BaseMod.addBoss(Gensokyoer.ID, EncounterIDs.ETERNAL_RIVALS, "GensokyoResources/images/monsters/Byakuren/Rival.png", "GensokyoResources/images/monsters/Byakuren/RivalOutline.png");
 
         BaseMod.addMonster(Swordslinger.ID, (BaseMod.GetMonster)Swordslinger::new);
+        BaseMod.addMonster(Wraith.ID, (BaseMod.GetMonster)Wraith::new);
 
 
         // =============== EVENTS =================

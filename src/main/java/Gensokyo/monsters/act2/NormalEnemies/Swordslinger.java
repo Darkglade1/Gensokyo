@@ -1,7 +1,6 @@
 package Gensokyo.monsters.act2.NormalEnemies;
 
 import Gensokyo.BetterSpriterAnimation;
-import Gensokyo.powers.act1.FortitudePower;
 import Gensokyo.powers.act1.VigorPower;
 import Gensokyo.powers.act2.Reckless;
 import basemod.abstracts.CustomMonster;
@@ -17,6 +16,7 @@ import com.megacrit.cardcrawl.core.Settings;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.localization.MonsterStrings;
 import com.megacrit.cardcrawl.monsters.EnemyMoveInfo;
+import com.megacrit.cardcrawl.powers.StrengthPower;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -37,13 +37,15 @@ public class Swordslinger extends CustomMonster
     private static final int A2_DOUBLE_ATTACK_DAMAGE = 22;
     private static final int HITS = 2;
     private static final int BUFF_AMT = 2;
-    private static final int BONUS_BUFF_AMT = 1;
+    private static final int STR = 2;
+    private static final int A17_STR = 3;
     private static final int HP_MIN = 100;
     private static final int HP_MAX = 105;
     private static final int A7_HP_MIN = 105;
     private static final int A7_HP_MAX = 109;
     private int attackDamage;
     private int doubleAttackDamage;
+    private int strength;
 
     private Map<Byte, EnemyMoveInfo> moves;
 
@@ -57,6 +59,12 @@ public class Swordslinger extends CustomMonster
         this.type = EnemyType.NORMAL;
         this.dialogX = (this.hb_x - 70.0F) * Settings.scale;
         this.dialogY -= (this.hb_y - 55.0F) * Settings.scale;
+
+        if (AbstractDungeon.ascensionLevel >= 7) {
+            this.strength = A17_STR;
+        } else {
+            this.strength = STR;
+        }
 
         if (AbstractDungeon.ascensionLevel >= 7) {
             this.setHp(A7_HP_MIN, A7_HP_MAX);
@@ -107,9 +115,7 @@ public class Swordslinger extends CustomMonster
             }
             case BUFF: {
                 AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(this, this, new VigorPower(this, BUFF_AMT, true), BUFF_AMT));
-                if (AbstractDungeon.ascensionLevel >= 17) {
-                    AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(this, this, new FortitudePower(this, BONUS_BUFF_AMT, true), BONUS_BUFF_AMT));
-                }
+                AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(this, this, new StrengthPower(this, strength), strength));
                 break;
             }
         }
