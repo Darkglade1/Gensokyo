@@ -60,7 +60,7 @@ public class Swordslinger extends CustomMonster
         this.dialogX = (this.hb_x - 70.0F) * Settings.scale;
         this.dialogY -= (this.hb_y - 55.0F) * Settings.scale;
 
-        if (AbstractDungeon.ascensionLevel >= 7) {
+        if (AbstractDungeon.ascensionLevel >= 17) {
             this.strength = A17_STR;
         } else {
             this.strength = STR;
