@@ -40,5 +40,11 @@
       "Area Attack",
       "This enemy intends to deal #b", " damage to ALL other characters", ".", " times."
     ]
+  },
+  "Gensokyo:PurifyIntent": {
+    "TEXT": [
+      "Purify",
+      "This enemy intends to remove ALL #pdebuffs from ALL characters."
+    ]
   }
 }

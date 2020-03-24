@@ -92,6 +92,7 @@ public class Wraith extends CustomMonster
         }
         switch (this.nextMove) {
             case ATTACK: {
+                useFastAttackAnimation();
                 for (int i = 0; i < HITS; i++) {
                     AbstractDungeon.actionManager.addToBottom(new DamageAction(AbstractDungeon.player, info, AbstractGameAction.AttackEffect.POISON));
                 }
@@ -114,7 +115,7 @@ public class Wraith extends CustomMonster
 
     private void setMoveShortcut(byte next) {
         EnemyMoveInfo info = this.moves.get(next);
-        this.setMove(MOVES[next], next, info.intent, info.baseDamage, info.multiplier, info.isMultiDamage);
+        this.setMove(null, next, info.intent, info.baseDamage, info.multiplier, info.isMultiDamage);
     }
 
     @Override

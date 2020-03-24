@@ -8,4 +8,6 @@ public class IntentEnums {
     public static AbstractMonster.Intent DEATH;
     @SpireEnum
     public static AbstractMonster.Intent ATTACK_AREA;
+    @SpireEnum
+    public static AbstractMonster.Intent PURIFY;
 }

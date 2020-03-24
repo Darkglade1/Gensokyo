@@ -365,10 +365,23 @@
   },
   "Gensokyo:Wraith": {
     "MOVES": [
-      null,
-      null
+     ""
     ],
     "NAME": "Wraith"
+  },
+  "Gensokyo:BigMudSlime": {
+    "MOVES": [
+      ""
+    ],
+    "NAME": "Big Mud Slime"
+  },
+  "Gensokyo:SlimeBunny": {
+    "MOVES": [
+      null,
+      "Purify",
+      null
+    ],
+    "NAME": "Slime Bunny"
   }
 }
 

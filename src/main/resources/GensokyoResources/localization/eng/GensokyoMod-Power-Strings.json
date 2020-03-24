@@ -233,5 +233,9 @@
 "Gensokyo:Spooked": {
         "NAME": "Spooked",
         "DESCRIPTIONS": ["After receiving #b", " more damage, gains #b", " #yIntangible."]
+},
+"Gensokyo:Quicksand": {
+        "NAME": "Quicksand",
+        "DESCRIPTIONS": ["Whenever you receive attack damage from this enemy, you gain #b", " #yConstricted."]
 }
 }

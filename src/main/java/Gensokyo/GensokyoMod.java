@@ -3,6 +3,7 @@ package Gensokyo;
 import Gensokyo.RazIntent.AreaAttackIntent;
 import Gensokyo.RazIntent.CustomIntent;
 import Gensokyo.RazIntent.DeathIntent;
+import Gensokyo.RazIntent.PurifyIntent;
 import Gensokyo.cards.AllTheWorldsEvil;
 import Gensokyo.cards.Apocalypse;
 import Gensokyo.cards.BlessingOfConstitution;
@@ -106,6 +107,8 @@ import Gensokyo.monsters.act2.Eiki;
 import Gensokyo.monsters.act2.Kaguya;
 import Gensokyo.monsters.act2.Koishi;
 import Gensokyo.monsters.act2.Miko;
+import Gensokyo.monsters.act2.NormalEnemies.BigMudSlime;
+import Gensokyo.monsters.act2.NormalEnemies.SlimeBunny;
 import Gensokyo.monsters.act2.NormalEnemies.Swordslinger;
 import Gensokyo.monsters.act2.NormalEnemies.Wraith;
 import Gensokyo.monsters.act2.Reisen;
@@ -395,7 +398,8 @@ public class GensokyoMod implements
 
         //Act 2
         CustomIntent.add(new AreaAttackIntent());
-        CustomIntent.add(new DeathIntent());
+        //CustomIntent.add(new DeathIntent());
+        CustomIntent.add(new PurifyIntent());
         BaseMod.addMonster(Kaguya.ID, (BaseMod.GetMonster) Kaguya::new);
         BaseMod.addMonster(Eiki.ID, (BaseMod.GetMonster) Eiki::new);
         BaseMod.addMonster(EncounterIDs.ETERNAL_RIVALS, "Eternal Rivals", () -> new MonsterGroup(
@@ -413,6 +417,11 @@ public class GensokyoMod implements
 
         BaseMod.addMonster(Swordslinger.ID, (BaseMod.GetMonster)Swordslinger::new);
         BaseMod.addMonster(Wraith.ID, (BaseMod.GetMonster)Wraith::new);
+        BaseMod.addMonster(EncounterIDs.SLIME_GROUP, "Slime_Group", () -> new MonsterGroup(
+                new AbstractMonster[] {
+                        new BigMudSlime(-450.0F, 0.0F),
+                        new SlimeBunny(-150.0F, 0.0F),
+                }));
 
 
         // =============== EVENTS =================
