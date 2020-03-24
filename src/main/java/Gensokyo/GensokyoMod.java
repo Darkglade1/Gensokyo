@@ -108,6 +108,7 @@ import Gensokyo.monsters.act2.Kaguya;
 import Gensokyo.monsters.act2.Koishi;
 import Gensokyo.monsters.act2.Miko;
 import Gensokyo.monsters.act2.NormalEnemies.BigMudSlime;
+import Gensokyo.monsters.act2.NormalEnemies.CosmicMonolith;
 import Gensokyo.monsters.act2.NormalEnemies.SlimeBunny;
 import Gensokyo.monsters.act2.NormalEnemies.Swordslinger;
 import Gensokyo.monsters.act2.NormalEnemies.Wraith;
@@ -422,6 +423,7 @@ public class GensokyoMod implements
                         new BigMudSlime(-450.0F, 0.0F),
                         new SlimeBunny(-150.0F, 0.0F),
                 }));
+        BaseMod.addMonster(CosmicMonolith.ID, (BaseMod.GetMonster)CosmicMonolith::new);
 
 
         // =============== EVENTS =================

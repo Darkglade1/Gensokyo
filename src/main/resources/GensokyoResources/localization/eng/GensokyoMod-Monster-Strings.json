@@ -382,6 +382,14 @@
       null
     ],
     "NAME": "Slime Bunny"
+  },
+  "Gensokyo:CosmicMonolith": {
+    "MOVES": [
+      "Charge-Up Ray",
+      null,
+      "Doomsday"
+    ],
+    "NAME": "Cosmic Monolith"
   }
 }
 

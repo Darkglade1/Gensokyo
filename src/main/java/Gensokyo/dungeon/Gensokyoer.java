@@ -1,6 +1,7 @@
 package Gensokyo.dungeon;
 
 import Gensokyo.monsters.act2.Koishi;
+import Gensokyo.monsters.act2.NormalEnemies.CosmicMonolith;
 import Gensokyo.monsters.act2.NormalEnemies.Swordslinger;
 import Gensokyo.monsters.act2.NormalEnemies.Wraith;
 import Gensokyo.monsters.act2.Reisen;
@@ -81,7 +82,7 @@ public class Gensokyoer extends CustomDungeon {
         ArrayList<MonsterInfo> monsters = new ArrayList();
         monsters.add(new MonsterInfo("Spheric Guardian", 2.0F));
         monsters.add(new MonsterInfo("Chosen", 2.0F));
-        monsters.add(new MonsterInfo("Shell Parasite", 2.0F));
+        monsters.add(new MonsterInfo(CosmicMonolith.ID, 2.0F));
         monsters.add(new MonsterInfo("3 Byrds", 2.0F));
         monsters.add(new MonsterInfo("2 Thieves", 2.0F));
         MonsterInfo.normalizeWeights(monsters);
@@ -94,7 +95,7 @@ public class Gensokyoer extends CustomDungeon {
         monsters.add(new MonsterInfo("Sentry and Sphere", 2.0F));
         monsters.add(new MonsterInfo(Wraith.ID, 6.0F));
         monsters.add(new MonsterInfo(Swordslinger.ID, 4.0F));
-        monsters.add(new MonsterInfo("Centurion and Healer", 6.0F));
+        monsters.add(new MonsterInfo(EncounterIDs.SLIME_GROUP, 6.0F));
         monsters.add(new MonsterInfo("Cultist and Chosen", 3.0F));
         monsters.add(new MonsterInfo("3 Cultists", 3.0F));
         monsters.add(new MonsterInfo("Shelled Parasite and Fungi", 3.0F));
