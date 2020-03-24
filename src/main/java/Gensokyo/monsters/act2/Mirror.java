@@ -1,7 +1,6 @@
 package Gensokyo.monsters.act2;
 
 import Gensokyo.patches.MirrorGetAnimationPatch;
-import Gensokyo.powers.act1.Evasive;
 import Gensokyo.powers.act2.Innocence;
 import Gensokyo.powers.act2.NextTurnInnocence;
 import Gensokyo.vfx.FlexibleCalmParticleEffect;
@@ -42,7 +41,7 @@ public class Mirror extends CustomMonster
     public static final String[] DIALOG;
     public static final byte GUILT = 0;
     public static final byte INNOCENCE = 1;
-    public static final byte JUSTICE = 2;
+    public static final byte BALANCE = 2;
 
     private static final int GUILT_DAMAGE = 15;
     private static final int A4_GUILT_DAMAGE = 16;
@@ -142,7 +141,7 @@ public class Mirror extends CustomMonster
         this.moves = new HashMap<>();
         this.moves.put(GUILT, new EnemyMoveInfo(GUILT, Intent.ATTACK, this.guiltDamage, 0, false));
         this.moves.put(INNOCENCE, new EnemyMoveInfo(INNOCENCE, Intent.DEFEND_BUFF, -1, 0, false));
-        this.moves.put(JUSTICE, new EnemyMoveInfo(JUSTICE, Intent.BUFF, -1, 0, true));
+        this.moves.put(BALANCE, new EnemyMoveInfo(BALANCE, Intent.BUFF, -1, 0, true));
     }
 
     @Override
@@ -169,7 +168,7 @@ public class Mirror extends CustomMonster
                 innocenceUsed++;
                 break;
             }
-            case JUSTICE: {
+            case BALANCE: {
                 this.addToBot(new ApplyPowerAction(this, this, new StrengthPower(this, this.strength), this.strength));
                 break;
             }

@@ -1,7 +1,6 @@
 package Gensokyo.powers.act2;
 
 import Gensokyo.GensokyoMod;
-import Gensokyo.actions.BalanceShiftAction;
 import Gensokyo.monsters.act2.Mirror;
 import Gensokyo.util.TextureLoader;
 import com.badlogic.gdx.graphics.Texture;
@@ -10,7 +9,6 @@ import com.megacrit.cardcrawl.actions.utility.UseCardAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.core.AbstractCreature;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
-import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.localization.PowerStrings;
 import com.megacrit.cardcrawl.powers.AbstractPower;
 
@@ -29,7 +27,8 @@ public class MirrorPower extends AbstractPower {
     private Mirror mirror;
     private int attackCount = 0;
     private int skillCount = 0;
-    private int powerCount = 0;
+
+    private boolean firstTurn = true;
 
     public MirrorPower(AbstractCreature owner, Mirror mirror) {
         name = NAME;
@@ -48,33 +47,32 @@ public class MirrorPower extends AbstractPower {
 
     @Override
     public void onUseCard(AbstractCard card, UseCardAction action) {
-        if (card.type == AbstractCard.CardType.ATTACK && powerCount == 0) {
+        if (card.type == AbstractCard.CardType.ATTACK) {
             mirror.eiki.incrementGuilt(1);
             attackCount++;
         }
-        if (card.type == AbstractCard.CardType.SKILL && powerCount == 0) {
+        if (card.type == AbstractCard.CardType.SKILL) {
             mirror.eiki.incrementInnocence(1);
             skillCount++;
-        }
-        if (card.type == AbstractCard.CardType.POWER) {
-            mirror.eiki.resetBalance();
-            powerCount++;
         }
         updateDescription();
     }
 
     @Override
     public void atEndOfRound() {
-        if (powerCount > 0) {
-            mirror.setMoveShortcut(Mirror.JUSTICE);
+        if (attackCount > skillCount) {
+            mirror.setMoveShortcut(Mirror.GUILT);
         } else if (skillCount > attackCount) {
             mirror.setMoveShortcut(Mirror.INNOCENCE);
         } else {
-            mirror.setMoveShortcut(Mirror.GUILT);
+            mirror.setMoveShortcut(Mirror.BALANCE);
         }
         attackCount = 0;
         skillCount = 0;
-        powerCount = 0;
+        if (this.firstTurn) {
+            mirror.setMoveShortcut(Mirror.GUILT);
+            firstTurn = false;
+        }
         mirror.createIntent();
         updateDescription();
         mirror.eiki.resetBalance();
@@ -93,11 +91,6 @@ public class MirrorPower extends AbstractPower {
             description += skillCount + DESCRIPTIONS[4];
         } else {
             description += skillCount + DESCRIPTIONS[5];
-        }
-        if (powerCount == 1) {
-            description += powerCount + DESCRIPTIONS[6];
-        } else {
-            description += powerCount + DESCRIPTIONS[7];
         }
     }
 }

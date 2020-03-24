@@ -161,7 +161,7 @@
 },
 "Gensokyo:MirrorPower": {
         "NAME": "Mirror",
-        "DESCRIPTIONS": ["If you play a #yPower this turn, intends to #yBuff next turn. Otherwise, if you play more #ySkills than #yAttacks this turn, intends to #yDefend next turn. Otherwise, intends to #yAttack next turn.", " NL You have played #b", " #yAttack, #b", " #yAttacks, #b", " #ySkill, and #b", " #ySkills, and #b"," #yPower.", " #yPowers."]
+        "DESCRIPTIONS": ["If you play more #yAttacks than #ySkills this turn, intends to #yAttack next turn. NL If you play more #ySkills than #yAttacks this turn, intends to #yDefend next turn. NL If you play an equal number of #yAttacks and #ySkills this turn, intends to #yBuff next turn.", " NL You have played #b", " #yAttack and #b", " #yAttacks and #b", " #ySkill.", " #ySkills."]
 },
 "Gensokyo:HouraiImmortal": {
         "NAME": "Hourai Immortal",
