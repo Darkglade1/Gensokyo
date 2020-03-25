@@ -111,6 +111,7 @@ import Gensokyo.monsters.act2.NormalEnemies.BigMudSlime;
 import Gensokyo.monsters.act2.NormalEnemies.CosmicMonolith;
 import Gensokyo.monsters.act2.NormalEnemies.SlimeBunny;
 import Gensokyo.monsters.act2.NormalEnemies.Swordslinger;
+import Gensokyo.monsters.act2.NormalEnemies.TanukiDog;
 import Gensokyo.monsters.act2.NormalEnemies.Wraith;
 import Gensokyo.monsters.act2.Reisen;
 import Gensokyo.monsters.act2.Yuyuko;
@@ -424,6 +425,12 @@ public class GensokyoMod implements
                         new SlimeBunny(-150.0F, 0.0F),
                 }));
         BaseMod.addMonster(CosmicMonolith.ID, (BaseMod.GetMonster)CosmicMonolith::new);
+        BaseMod.addMonster(EncounterIDs.DOGS_3, "3_Dogs", () -> new MonsterGroup(
+                new AbstractMonster[] {
+                        new TanukiDog(-450.0F, 0.0F),
+                        new TanukiDog(-200.0F, 0.0F),
+                        new TanukiDog(50.0F, 0.0F),
+                }));
 
 
         // =============== EVENTS =================

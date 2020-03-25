@@ -390,6 +390,14 @@
       "Doomsday"
     ],
     "NAME": "Cosmic Monolith"
+  },
+  "Gensokyo:TanukiDog": {
+    "MOVES": [
+      null,
+      null,
+      "Berserk"
+    ],
+    "NAME": "Tanuki Dog"
   }
 }
 

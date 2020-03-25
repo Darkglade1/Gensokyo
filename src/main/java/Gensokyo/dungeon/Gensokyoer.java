@@ -83,7 +83,7 @@ public class Gensokyoer extends CustomDungeon {
         monsters.add(new MonsterInfo("Spheric Guardian", 2.0F));
         monsters.add(new MonsterInfo("Chosen", 2.0F));
         monsters.add(new MonsterInfo(CosmicMonolith.ID, 2.0F));
-        monsters.add(new MonsterInfo("3 Byrds", 2.0F));
+        monsters.add(new MonsterInfo(EncounterIDs.DOGS_3, 2.0F));
         monsters.add(new MonsterInfo("2 Thieves", 2.0F));
         MonsterInfo.normalizeWeights(monsters);
         this.populateMonsterList(monsters, count, false);
