@@ -357,6 +357,17 @@
       "This'll be fun!"
     ]
   },
+  "Gensokyo:Tenshi": {
+    "MOVES": [
+      "World Creation Press",
+      "Guarding Keystones",
+      "Spiritual Stone"
+    ],
+    "NAME": "Mistress of Bhavagra",
+    "DIALOG": [
+      "Give it all you've got!"
+    ]
+  },
   "Gensokyo:Swordslinger": {
     "MOVES": [
       "Sharpen"

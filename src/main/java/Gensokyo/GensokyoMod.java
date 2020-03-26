@@ -114,6 +114,7 @@ import Gensokyo.monsters.act2.NormalEnemies.Swordslinger;
 import Gensokyo.monsters.act2.NormalEnemies.TanukiDog;
 import Gensokyo.monsters.act2.NormalEnemies.Wraith;
 import Gensokyo.monsters.act2.Reisen;
+import Gensokyo.monsters.act2.Tenshi;
 import Gensokyo.monsters.act2.Yuyuko;
 import Gensokyo.relics.act1.Bombinomicon;
 import Gensokyo.relics.act1.BookOfSpecters;
@@ -411,6 +412,7 @@ public class GensokyoMod implements
                 }));
         BaseMod.addMonster(Reisen.ID, (BaseMod.GetMonster) Reisen::new);
         BaseMod.addMonster(Koishi.ID, (BaseMod.GetMonster) Koishi::new);
+        BaseMod.addMonster(Tenshi.ID, (BaseMod.GetMonster) Tenshi::new);
         BaseMod.addMonster(Yuyuko.ID, (BaseMod.GetMonster) Yuyuko::new);
 
         BaseMod.addBoss(Gensokyoer.ID, Kaguya.ID, "GensokyoResources/images/monsters/Kaguya/Kaguya.png", "GensokyoResources/images/monsters/Kaguya/KaguyaOutline.png");
