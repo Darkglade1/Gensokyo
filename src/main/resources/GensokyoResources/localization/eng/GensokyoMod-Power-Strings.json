@@ -226,6 +226,24 @@
         "NAME": "Despise",
         "DESCRIPTIONS": ["At the end of your turn, take #b", " damage."]
 },
+"Gensokyo:Weather": {
+        "NAME": "Weather",
+        "DESCRIPTIONS": ["Weather - Cherry Blossoms",
+                        "Weather - Storm",
+                        "Weather - Earthquake",
+                        " NL After receiving #b",
+                        " damage, changes weather at end of round.",
+                        " NL Changes weather at end of round.",
+                        "At the start of your turn, gain ",
+                        " and draw #b",
+                        " card.",
+                        " cards.",
+                        " This creature moves twice on its turn.",
+                        "At end of round, ALL characters without #yArtifact gain #b",
+                        " #yArtifact.",
+                        "At end of round, ALL characters gain #b",
+                        " #yVulnerable."]
+},
 "Gensokyo:Reckless": {
         "NAME": "Reckless",
         "DESCRIPTIONS": ["Whenever you gain #yBlock, loses that much #yStrength this turn."]

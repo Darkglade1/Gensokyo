@@ -1,6 +1,8 @@
 package Gensokyo.monsters.act2;
 
 import Gensokyo.BetterSpriterAnimation;
+import Gensokyo.actions.TakeSecondTurnAction;
+import Gensokyo.powers.act2.Weather;
 import Gensokyo.util.PreviewIntent;
 import Gensokyo.vfx.EmptyEffect;
 import basemod.abstracts.CustomMonster;
@@ -49,12 +51,12 @@ public class Tenshi extends CustomMonster
     private static final byte BLOCK_ATTACK = 1;
     private static final byte BUFF = 2;
 
-    private static final int NORMAL_ATTACK_DAMAGE = 14;
-    private static final int A3_NORMAL_ATTACK_DAMAGE = 15;
+    private static final int NORMAL_ATTACK_DAMAGE = 13;
+    private static final int A3_NORMAL_ATTACK_DAMAGE = 14;
     private static final int HITS = 2;
 
-    private static final int BLOCK_ATTACK_DAMAGE = 15;
-    private static final int A3_BLOCK_ATTACK_DAMAGE = 16;
+    private static final int BLOCK_ATTACK_DAMAGE = 14;
+    private static final int A3_BLOCK_ATTACK_DAMAGE = 15;
 
     private static final int STRENGTH = 2;
     private static final int A18_STRENGTH = 3;
@@ -63,11 +65,12 @@ public class Tenshi extends CustomMonster
     private static final int A8_BLOCK = 11;
 
     private static final int SELF_DEBUFF = 2;
+    private static final float WEATHER_THRESHOLD = 0.34F;
 
-    private static final int HP_MIN = 180;
-    private static final int HP_MAX = 182;
-    private static final int A8_HP_MIN = 188;
-    private static final int A8_HP_MAX = 192;
+    private static final int HP_MIN = 150;
+    private static final int HP_MAX = 152;
+    private static final int A8_HP_MIN = 156;
+    private static final int A8_HP_MAX = 160;
     private int normalDamage;
     private int blockDamage;
     private int block;
@@ -120,6 +123,7 @@ public class Tenshi extends CustomMonster
     @Override
     public void usePreBattleAction() {
         //AbstractDungeon.getCurrRoom().playBgmInstantly("Hartmann");
+        AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(this, this, new Weather(this, (int)(maxHealth * WEATHER_THRESHOLD), this)));
     }
     
     @Override
@@ -156,7 +160,7 @@ public class Tenshi extends CustomMonster
         }
         if (weather == WEATHER_1) {
             AbstractDungeon.actionManager.addToBottom(new VFXAction(new EmptyEffect(), 0.8F));
-            takeSecondTurn();
+            AbstractDungeon.actionManager.addToBottom(new TakeSecondTurnAction(this));
         }
         AbstractDungeon.actionManager.addToBottom(new RollMoveAction(this));
     }
@@ -276,9 +280,10 @@ public class Tenshi extends CustomMonster
         }
     }
 
-    public void render(SpriteBatch sb) {
-        super.render(sb);
-        if (secondIntent != null) {
+    @Override
+    public void renderIntent(SpriteBatch sb) {
+        super.renderIntent(sb);
+        if (secondIntent != null && weather == WEATHER_1) {
             secondIntent.update();
             secondIntent.render(sb);
         }
