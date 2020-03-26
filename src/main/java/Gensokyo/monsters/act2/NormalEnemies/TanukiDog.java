@@ -105,12 +105,14 @@ public class TanukiDog extends CustomMonster
         }
         switch (this.nextMove) {
             case MULTI_ATTACK: {
+                useFastAttackAnimation();
                 for (int i = 0; i < HITS; i++) {
                     AbstractDungeon.actionManager.addToBottom(new DamageAction(AbstractDungeon.player, info, AbstractGameAction.AttackEffect.BLUNT_LIGHT));
                 }
                 break;
             }
             case BLOCK_ATTACK: {
+                useFastAttackAnimation();
                 AbstractDungeon.actionManager.addToBottom(new DamageAction(AbstractDungeon.player, info, AbstractGameAction.AttackEffect.BLUNT_LIGHT));
                 AbstractDungeon.actionManager.addToBottom(new GainBlockAction(this, block));
                 break;
@@ -148,6 +150,12 @@ public class TanukiDog extends CustomMonster
             }
             this.setMoveShortcut(possibilities.get(AbstractDungeon.monsterRng.random(possibilities.size() - 1)));
         }
+    }
+
+    @Override
+    public void die(boolean triggerRelics) {
+        this.useShakeAnimation(5.0F);
+        super.die(triggerRelics);
     }
 
     static {

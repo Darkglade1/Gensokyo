@@ -3,11 +3,16 @@ package Gensokyo.monsters.act2.NormalEnemies;
 import Gensokyo.BetterSpriterAnimation;
 import Gensokyo.powers.act2.Quicksand;
 import basemod.abstracts.CustomMonster;
+import com.badlogic.gdx.graphics.Color;
+import com.badlogic.gdx.math.MathUtils;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
+import com.megacrit.cardcrawl.actions.animations.AnimateJumpAction;
+import com.megacrit.cardcrawl.actions.animations.VFXAction;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.actions.common.DamageAction;
 import com.megacrit.cardcrawl.actions.common.MakeTempCardInDiscardAction;
 import com.megacrit.cardcrawl.actions.common.RollMoveAction;
+import com.megacrit.cardcrawl.actions.utility.WaitAction;
 import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.cards.status.Slimed;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
@@ -17,6 +22,8 @@ import com.megacrit.cardcrawl.localization.MonsterStrings;
 import com.megacrit.cardcrawl.monsters.EnemyMoveInfo;
 import com.megacrit.cardcrawl.powers.VulnerablePower;
 import com.megacrit.cardcrawl.powers.WeakPower;
+import com.megacrit.cardcrawl.vfx.SpeechBubble;
+import com.megacrit.cardcrawl.vfx.combat.WeightyImpactEffect;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -98,8 +105,10 @@ public class BigMudSlime extends CustomMonster
         }
         switch (this.nextMove) {
             case ATTACK: {
-                useFastAttackAnimation();
-                AbstractDungeon.actionManager.addToBottom(new DamageAction(AbstractDungeon.player, info, AbstractGameAction.AttackEffect.BLUNT_HEAVY));
+                AbstractDungeon.actionManager.addToBottom(new AnimateJumpAction(this));
+                AbstractDungeon.actionManager.addToBottom(new VFXAction(new WeightyImpactEffect(AbstractDungeon.player.hb.cX, AbstractDungeon.player.hb.cY, new Color(0.1F, 1.0F, 0.1F, 0.0F))));
+                AbstractDungeon.actionManager.addToBottom(new WaitAction(0.8F));
+                AbstractDungeon.actionManager.addToBottom(new DamageAction(AbstractDungeon.player, info, AbstractGameAction.AttackEffect.POISON));
                 AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(this, this, new WeakPower(this, DEBUFF_AMT, true), DEBUFF_AMT));
                 break;
             }
@@ -129,6 +138,12 @@ public class BigMudSlime extends CustomMonster
             possibilities.add(DEBUFF_ATTACK);
         }
         this.setMoveShortcut(possibilities.get(AbstractDungeon.monsterRng.random(possibilities.size() - 1)));
+    }
+
+    @Override
+    public void die(boolean triggerRelics) {
+        this.useShakeAnimation(5.0F);
+        super.die(triggerRelics);
     }
 
     static {

@@ -124,6 +124,12 @@ public class SlimeBunny extends CustomMonster
         return true;
     }
 
+    @Override
+    public void die(boolean triggerRelics) {
+        this.useShakeAnimation(5.0F);
+        super.die(triggerRelics);
+    }
+
     static {
         monsterStrings = CardCrawlGame.languagePack.getMonsterStrings("Gensokyo:SlimeBunny");
         NAME = SlimeBunny.monsterStrings.NAME;

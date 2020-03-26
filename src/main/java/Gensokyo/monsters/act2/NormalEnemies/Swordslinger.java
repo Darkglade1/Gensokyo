@@ -142,6 +142,12 @@ public class Swordslinger extends CustomMonster
         }
     }
 
+    @Override
+    public void die(boolean triggerRelics) {
+        this.useShakeAnimation(5.0F);
+        super.die(triggerRelics);
+    }
+
     static {
         monsterStrings = CardCrawlGame.languagePack.getMonsterStrings("Gensokyo:Swordslinger");
         NAME = Swordslinger.monsterStrings.NAME;

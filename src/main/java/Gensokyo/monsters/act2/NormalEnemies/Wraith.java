@@ -130,6 +130,12 @@ public class Wraith extends CustomMonster
         this.setMoveShortcut(possibilities.get(AbstractDungeon.monsterRng.random(possibilities.size() - 1)));
     }
 
+    @Override
+    public void die(boolean triggerRelics) {
+        this.useShakeAnimation(5.0F);
+        super.die(triggerRelics);
+    }
+
     static {
         monsterStrings = CardCrawlGame.languagePack.getMonsterStrings("Gensokyo:Wraith");
         NAME = Wraith.monsterStrings.NAME;
