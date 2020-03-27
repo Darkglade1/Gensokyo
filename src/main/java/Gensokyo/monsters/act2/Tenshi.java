@@ -17,7 +17,6 @@ import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.actions.common.DamageAction;
 import com.megacrit.cardcrawl.actions.common.GainBlockAction;
 import com.megacrit.cardcrawl.actions.common.RollMoveAction;
-import com.megacrit.cardcrawl.actions.unique.RemoveDebuffsAction;
 import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
@@ -27,7 +26,6 @@ import com.megacrit.cardcrawl.localization.MonsterStrings;
 import com.megacrit.cardcrawl.monsters.EnemyMoveInfo;
 import com.megacrit.cardcrawl.powers.AbstractPower;
 import com.megacrit.cardcrawl.powers.StrengthPower;
-import com.megacrit.cardcrawl.powers.WeakPower;
 
 import java.util.HashMap;
 import java.util.Iterator;
@@ -47,24 +45,23 @@ public class Tenshi extends CustomMonster
     public static final int WEATHER_3 = 2;
     public int weather = WEATHER_1;
 
-    private static final byte ATTACK = 0;
-    private static final byte BLOCK_ATTACK = 1;
-    private static final byte BUFF = 2;
+    public static final byte ATTACK = 0;
+    public static final byte BLOCK_ATTACK = 1;
+    public static final byte BUFF = 2;
 
-    private static final int NORMAL_ATTACK_DAMAGE = 13;
-    private static final int A3_NORMAL_ATTACK_DAMAGE = 14;
+    private static final int NORMAL_ATTACK_DAMAGE = 11;
+    private static final int A3_NORMAL_ATTACK_DAMAGE = 12;
     private static final int HITS = 2;
 
     private static final int BLOCK_ATTACK_DAMAGE = 14;
     private static final int A3_BLOCK_ATTACK_DAMAGE = 15;
 
-    private static final int STRENGTH = 2;
-    private static final int A18_STRENGTH = 3;
+    private static final int STRENGTH = 3;
+    private static final int A18_STRENGTH = 4;
 
-    private static final int BLOCK = 10;
-    private static final int A8_BLOCK = 11;
+    private static final int BLOCK = 12;
+    private static final int A8_BLOCK = 13;
 
-    private static final int SELF_DEBUFF = 2;
     private static final float WEATHER_THRESHOLD = 0.34F;
 
     private static final int HP_MIN = 150;
@@ -142,7 +139,6 @@ public class Tenshi extends CustomMonster
                 for (int i = 0; i < HITS; i++) {
                     AbstractDungeon.actionManager.addToBottom(new DamageAction(AbstractDungeon.player, info, AbstractGameAction.AttackEffect.BLUNT_HEAVY));
                 }
-                AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(this, this, new WeakPower(this, SELF_DEBUFF, true), SELF_DEBUFF));
                 break;
             }
             case BLOCK_ATTACK: {
@@ -154,7 +150,6 @@ public class Tenshi extends CustomMonster
             case BUFF: {
                 //runAnim("spellA");
                 AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(this, this, new StrengthPower(this, strength), strength));
-                AbstractDungeon.actionManager.addToBottom(new RemoveDebuffsAction(this));
                 break;
             }
         }
@@ -176,7 +171,6 @@ public class Tenshi extends CustomMonster
                 for (int i = 0; i < HITS; i++) {
                     AbstractDungeon.actionManager.addToBottom(new DamageAction(AbstractDungeon.player, info, AbstractGameAction.AttackEffect.BLUNT_HEAVY));
                 }
-                AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(this, this, new WeakPower(this, SELF_DEBUFF, true), SELF_DEBUFF));
                 break;
             }
             case BLOCK_ATTACK: {
@@ -188,7 +182,6 @@ public class Tenshi extends CustomMonster
             case BUFF: {
                 //runAnim("spellA");
                 AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(this, this, new StrengthPower(this, strength), strength));
-                AbstractDungeon.actionManager.addToBottom(new RemoveDebuffsAction(this));
                 break;
             }
         }
@@ -196,11 +189,22 @@ public class Tenshi extends CustomMonster
 
     @Override
     protected void getMove(final int num) {
-        if (weather == WEATHER_1 || weather == WEATHER_2) {
-            if (this.lastMove(BLOCK_ATTACK)) {
+        if (weather == WEATHER_1) {
+            if (this.hasPower(Weather.POWER_ID) && this.getPower(Weather.POWER_ID).amount <= 0) {
+                this.setMoveShortcut(BUFF);
+            } else if (this.lastMove(BLOCK_ATTACK)) {
                 this.setMoveShortcut(ATTACK);
             } else {
                 this.setMoveShortcut(BLOCK_ATTACK);
+            }
+        }
+        if (weather == WEATHER_2) {
+            if (this.hasPower(Weather.POWER_ID) && this.getPower(Weather.POWER_ID).amount <= 0) {
+                this.setMoveShortcut(ATTACK);
+            } else if (this.lastMove(BUFF)) {
+                this.setMoveShortcut(BLOCK_ATTACK);
+            } else {
+                this.setMoveShortcut(BUFF);
             }
         }
         if (weather == WEATHER_3) {
@@ -224,12 +228,12 @@ public class Tenshi extends CustomMonster
         }
     }
 
-    private void setMoveShortcut(byte next) {
+    public void setMoveShortcut(byte next) {
         EnemyMoveInfo info = this.moves.get(next);
         this.setMove(MOVES[next], next, info.intent, info.baseDamage, info.multiplier, info.isMultiDamage);
     }
 
-    private void setSecondMoveShortcut(byte next) {
+    public void setSecondMoveShortcut(byte next) {
         EnemyMoveInfo info = this.moves.get(next);
         secondMove = new EnemyMoveInfo(next, info.intent, info.baseDamage, info.multiplier, info.isMultiDamage);
         secondIntent = new PreviewIntent(this, secondMove);

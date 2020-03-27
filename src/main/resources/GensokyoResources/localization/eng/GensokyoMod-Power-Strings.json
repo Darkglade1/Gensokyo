@@ -239,8 +239,8 @@
                         " card.",
                         " cards.",
                         " This creature moves twice on its turn.",
-                        "At end of round, ALL characters without #yArtifact gain #b",
-                        " #yArtifact.",
+                        "At end of round, ALL characters gain #b",
+                        " #yWeak.",
                         "At end of round, ALL characters gain #b",
                         " #yVulnerable."]
 },

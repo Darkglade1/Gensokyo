@@ -6,19 +6,24 @@ import Gensokyo.util.TextureLoader;
 import Gensokyo.vfx.CherryBlossomEffect;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.TextureAtlas;
+import com.badlogic.gdx.math.MathUtils;
 import com.megacrit.cardcrawl.actions.animations.VFXAction;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.actions.common.RemoveSpecificPowerAction;
+import com.megacrit.cardcrawl.actions.common.SetMoveAction;
+import com.megacrit.cardcrawl.actions.utility.SFXAction;
 import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.core.AbstractCreature;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
+import com.megacrit.cardcrawl.core.Settings;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.helpers.ScreenShake;
 import com.megacrit.cardcrawl.localization.PowerStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.powers.AbstractPower;
-import com.megacrit.cardcrawl.powers.ArtifactPower;
 import com.megacrit.cardcrawl.powers.VulnerablePower;
+import com.megacrit.cardcrawl.powers.WeakPower;
+import com.megacrit.cardcrawl.vfx.combat.LightningEffect;
 
 import static Gensokyo.GensokyoMod.makePowerPath;
 
@@ -36,7 +41,7 @@ public class Weather extends AbstractPower {
     private static final int ENERGY = 1;
     private static final int DRAW = 2;
     private static final int A18_DRAW = 1;
-    private static final int ARTIFACT = 1;
+    private static final int WEAK = 1;
     private static final int VULNERABLE = 1;
 
     private int HP_THRESHOLD_1;
@@ -112,6 +117,7 @@ public class Weather extends AbstractPower {
             HP_THRESHOLD_1 = -1;
             updateDescription();
             power.enabled = false;
+            AbstractDungeon.actionManager.addToBottom(new RemoveSpecificPowerAction(AbstractDungeon.player, AbstractDungeon.player, power.ID));
         } else if (HP_THRESHOLD_1 == 0) {
             tenshi.weather = Tenshi.WEATHER_2;
             this.weather = Tenshi.WEATHER_2;
@@ -119,26 +125,29 @@ public class Weather extends AbstractPower {
             this.amount = HP_THRESHOLD_2;
             updateDescription();
             power.enabled = false;
+            AbstractDungeon.actionManager.addToBottom(new RemoveSpecificPowerAction(AbstractDungeon.player, AbstractDungeon.player, power.ID));
         }
         this.flash();
         if (this.weather == Tenshi.WEATHER_1) {
             this.addToBot(new VFXAction(new CherryBlossomEffect(), 0.7F));
         }
         if (this.weather == Tenshi.WEATHER_2) {
-            if (!AbstractDungeon.player.hasPower(ArtifactPower.POWER_ID)) {
-                AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(AbstractDungeon.player, AbstractDungeon.player, new ArtifactPower(AbstractDungeon.player, ARTIFACT)));
+            for (int i = 0; i < 3; i++) {
+                float x = MathUtils.random(100.0F * Settings.scale, 1820.0F * Settings.scale);
+                float y = ((float)Settings.HEIGHT / 3) + MathUtils.random(20.0F, 300.0F) * Settings.scale;
+                AbstractDungeon.actionManager.addToBottom(new SFXAction("ORB_LIGHTNING_EVOKE", 0.5F));
+                AbstractDungeon.actionManager.addToBottom(new VFXAction(new LightningEffect(x, y), 0.3F));
             }
+            AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(AbstractDungeon.player, AbstractDungeon.player, new WeakPower(AbstractDungeon.player, WEAK, false), WEAK));
             for (AbstractMonster mo : AbstractDungeon.getMonsters().monsters) {
-                if (!mo.hasPower(ArtifactPower.POWER_ID)) {
-                    AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(mo, mo, new ArtifactPower(mo, ARTIFACT)));
-                }
+                AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(mo, mo, new WeakPower(mo, WEAK, false), WEAK));
             }
         }
         if (this.weather == Tenshi.WEATHER_3) {
             CardCrawlGame.screenShake.shake(ScreenShake.ShakeIntensity.MED, ScreenShake.ShakeDur.XLONG, false);
-            AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(AbstractDungeon.player, AbstractDungeon.player, new VulnerablePower(AbstractDungeon.player, VULNERABLE, true), VULNERABLE));
+            AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(AbstractDungeon.player, AbstractDungeon.player, new VulnerablePower(AbstractDungeon.player, VULNERABLE, false), VULNERABLE));
             for (AbstractMonster mo : AbstractDungeon.getMonsters().monsters) {
-                AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(mo, mo, new VulnerablePower(mo, VULNERABLE, true), VULNERABLE));
+                AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(mo, mo, new VulnerablePower(mo, VULNERABLE, false), VULNERABLE));
             }
         }
     }
@@ -166,7 +175,7 @@ public class Weather extends AbstractPower {
         }
         if (weather == Tenshi.WEATHER_2) {
             this.name = DESCRIPTIONS[1];
-            description = DESCRIPTIONS[11] + ARTIFACT + DESCRIPTIONS[12];
+            description = DESCRIPTIONS[11] + WEAK + DESCRIPTIONS[12];
             if (amount <= 0) {
                 description += DESCRIPTIONS[5];
             } else {

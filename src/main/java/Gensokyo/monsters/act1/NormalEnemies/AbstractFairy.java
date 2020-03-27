@@ -4,7 +4,6 @@ import Gensokyo.actions.FairyCheckAction;
 import Gensokyo.actions.SetDeadAction;
 import Gensokyo.actions.SetFlipAction;
 import Gensokyo.powers.act1.CowardlyImmortality;
-import Gensokyo.powers.act1.OnKillPower;
 import Gensokyo.powers.act1.StrengthInNumbers;
 import basemod.abstracts.CustomMonster;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
@@ -82,8 +81,8 @@ public abstract class AbstractFairy extends CustomMonster
 
             for(AbstractMonster mo : AbstractDungeon.getCurrRoom().monsters.monsters) {
                 for (AbstractPower power : mo.powers) {
-                    if (power instanceof OnKillPower) {
-                        ((OnKillPower) power).onKill(false); //forces a trigger to this method
+                    if (power instanceof StrengthInNumbers) {
+                        ((StrengthInNumbers) power).onKill(false); //forces a trigger to this method
                     }
                 }
             }
