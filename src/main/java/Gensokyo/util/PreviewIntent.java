@@ -39,6 +39,9 @@ public class PreviewIntent {
 
     private Color intentColor;
 
+    float scaleWidth = 1.0F * Settings.scale;
+    float scaleHeight = Settings.scale;
+
     public PreviewIntent(AbstractMonster source, EnemyMoveInfo move) {
         this.source = source;
         intentColor = Color.WHITE.cpy();
@@ -99,7 +102,7 @@ public class PreviewIntent {
         sb.setColor(intentColor);
         if (this.intentBg != null) {
             sb.setColor(new Color(1.0F, 1.0F, 1.0F, intentColor.a / 2.0F));
-            sb.draw(this.intentBg, source.intentHb.cX + 22.0F, source.intentHb.cY - 64.0F + this.bobEffect.y, 64.0F, 64.0F, 128.0F, 128.0F, Settings.scale, Settings.scale, 0.0F, 0, 0, 128, 128, false, false);
+            sb.draw(this.intentBg, source.intentHb.cX - 64.0F + (86.0F * scaleWidth), source.intentHb.cY - 64.0F + this.bobEffect.y, 64.0F, 64.0F, 128.0F, 128.0F, Settings.scale, Settings.scale, 0.0F, 0, 0, 128, 128, false, false);
         }
 
         if (this.intentImg != null && this.intent != AbstractMonster.Intent.UNKNOWN && this.intent != AbstractMonster.Intent.STUN) {
@@ -110,7 +113,7 @@ public class PreviewIntent {
             }
 
             sb.setColor(this.intentColor);// 1079
-            sb.draw(this.intentImg, source.intentHb.cX + 22.0F, source.intentHb.cY - 64.0F + this.bobEffect.y, 64.0F, 64.0F, 128.0F, 128.0F, Settings.scale, Settings.scale, this.intentAngle, 0, 0, 128, 128, false, false);
+            sb.draw(this.intentImg, source.intentHb.cX - 64.0F + (86.0F * scaleWidth), source.intentHb.cY - 64.0F + this.bobEffect.y, 64.0F, 64.0F, 128.0F, 128.0F, Settings.scale, Settings.scale, this.intentAngle, 0, 0, 128, 128, false, false);
         }
     }
 
@@ -148,33 +151,33 @@ public class PreviewIntent {
                         this.intentParticleTimer -= Gdx.graphics.getDeltaTime();
                         if (this.intentParticleTimer < 0.0F) {
                             this.intentParticleTimer = 0.5F;
-                            this.intentVfx.add(new ShieldParticleEffect(source.intentHb.cX + 72.0F, source.intentHb.cY));
+                            this.intentVfx.add(new ShieldParticleEffect(source.intentHb.cX + 72.0F * scaleWidth, source.intentHb.cY));
                         }
                     } else if (this.intent == AbstractMonster.Intent.UNKNOWN) {
                         this.intentParticleTimer -= Gdx.graphics.getDeltaTime();
                         if (this.intentParticleTimer < 0.0F) {
                             this.intentParticleTimer = 0.5F;
-                            this.intentVfx.add(new UnknownParticleEffect(source.intentHb.cX + 72.0F, source.intentHb.cY));
+                            this.intentVfx.add(new UnknownParticleEffect(source.intentHb.cX + 72.0F * scaleWidth, source.intentHb.cY));
                         }
                     } else if (this.intent == AbstractMonster.Intent.STUN) {
                         this.intentParticleTimer -= Gdx.graphics.getDeltaTime();
                         if (this.intentParticleTimer < 0.0F) {
                             this.intentParticleTimer = 0.67F;
-                            this.intentVfx.add(new StunStarEffect(source.intentHb.cX + 72.0F, source.intentHb.cY));
+                            this.intentVfx.add(new StunStarEffect(source.intentHb.cX + 72.0F * scaleWidth, source.intentHb.cY));
                         }
                     }
                 } else {
                     this.intentParticleTimer -= Gdx.graphics.getDeltaTime();
                     if (this.intentParticleTimer < 0.0F) {
                         this.intentParticleTimer = 0.1F;
-                        this.intentVfx.add(new BuffParticleEffect(source.intentHb.cX + 72.0F, source.intentHb.cY));
+                        this.intentVfx.add(new BuffParticleEffect(source.intentHb.cX + 72.0F * scaleWidth, source.intentHb.cY));
                     }
                 }
             } else {
                 this.intentParticleTimer -= Gdx.graphics.getDeltaTime();
                 if (this.intentParticleTimer < 0.0F) {
                     this.intentParticleTimer = 1.0F;
-                    this.intentVfx.add(new DebuffParticleEffect(source.intentHb.cX + 72.0F, source.intentHb.cY));
+                    this.intentVfx.add(new DebuffParticleEffect(source.intentHb.cX + 72.0F * scaleWidth, source.intentHb.cY));
                 }
             }
         }
