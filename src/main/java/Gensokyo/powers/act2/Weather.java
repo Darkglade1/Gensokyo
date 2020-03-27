@@ -35,8 +35,11 @@ public class Weather extends AbstractPower {
     public static final String NAME = powerStrings.NAME;
     public static final String[] DESCRIPTIONS = powerStrings.DESCRIPTIONS;
 
-    private static final Texture tex84 = TextureLoader.getTexture(makePowerPath("Philosophy84.png"));
-    private static final Texture tex32 = TextureLoader.getTexture(makePowerPath("Philosophy32.png"));
+    private static final Texture tex84 = TextureLoader.getTexture(makePowerPath("CherryBlossoms84.png"));
+    private static final Texture tex32 = TextureLoader.getTexture(makePowerPath("CherryBlossoms32.png"));
+
+    private static final Texture tex84_2 = TextureLoader.getTexture(makePowerPath("Earthquake84.png"));
+    private static final Texture tex32_2 = TextureLoader.getTexture(makePowerPath("Earthquake32.png"));
 
     private static final int ENERGY = 1;
     private static final int DRAW = 2;
@@ -44,8 +47,8 @@ public class Weather extends AbstractPower {
     private static final int WEAK = 1;
     private static final int VULNERABLE = 1;
 
-    private int HP_THRESHOLD_1;
-    private int HP_THRESHOLD_2;
+    public int HP_THRESHOLD_1;
+    public int HP_THRESHOLD_2;
     private int weather = Tenshi.WEATHER_1;
     private Tenshi tenshi;
     private int draw;
@@ -111,6 +114,8 @@ public class Weather extends AbstractPower {
     @Override
     public void atEndOfRound() {
         if (HP_THRESHOLD_2 == 0) {
+            this.region128 = new TextureAtlas.AtlasRegion(tex84_2, 0, 0, 84, 84);
+            this.region48 = new TextureAtlas.AtlasRegion(tex32_2, 0, 0, 32, 32);
             tenshi.weather = Tenshi.WEATHER_3;
             this.weather = Tenshi.WEATHER_3;
             HP_THRESHOLD_2 = -1;
@@ -119,6 +124,7 @@ public class Weather extends AbstractPower {
             power.enabled = false;
             AbstractDungeon.actionManager.addToBottom(new RemoveSpecificPowerAction(AbstractDungeon.player, AbstractDungeon.player, power.ID));
         } else if (HP_THRESHOLD_1 == 0) {
+            this.loadRegion("storm");
             tenshi.weather = Tenshi.WEATHER_2;
             this.weather = Tenshi.WEATHER_2;
             HP_THRESHOLD_1 = -1;
@@ -144,6 +150,7 @@ public class Weather extends AbstractPower {
             }
         }
         if (this.weather == Tenshi.WEATHER_3) {
+            CardCrawlGame.sound.playV("Gensokyo:earthquake", 1.0F);
             CardCrawlGame.screenShake.shake(ScreenShake.ShakeIntensity.MED, ScreenShake.ShakeDur.XLONG, false);
             AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(AbstractDungeon.player, AbstractDungeon.player, new VulnerablePower(AbstractDungeon.player, VULNERABLE, false), VULNERABLE));
             for (AbstractMonster mo : AbstractDungeon.getMonsters().monsters) {

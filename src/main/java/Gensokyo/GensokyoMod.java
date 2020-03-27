@@ -621,6 +621,7 @@ public class GensokyoMod implements
         BaseMod.addAudio("Gensokyo:ghost", makeEffectPath("ghostbreath.ogg"));
         BaseMod.addAudio("Gensokyo:pest", makeEffectPath("pestilence.ogg"));
         BaseMod.addAudio("Gensokyo:magic", makeEffectPath("magic.ogg"));
+        BaseMod.addAudio("Gensokyo:earthquake", makeEffectPath("earthquake.ogg"));
     }
     
     // ================ ADD RELICS ===================

@@ -119,7 +119,7 @@ public class Tenshi extends CustomMonster
 
     @Override
     public void usePreBattleAction() {
-        //AbstractDungeon.getCurrRoom().playBgmInstantly("Hartmann");
+        AbstractDungeon.getCurrRoom().playBgmInstantly("Bhavagra");
         AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(this, this, new Weather(this, (int)(maxHealth * WEATHER_THRESHOLD), this)));
     }
     
@@ -191,7 +191,12 @@ public class Tenshi extends CustomMonster
     protected void getMove(final int num) {
         if (weather == WEATHER_1) {
             if (this.hasPower(Weather.POWER_ID) && this.getPower(Weather.POWER_ID).amount <= 0) {
-                this.setMoveShortcut(BUFF);
+                Weather weather = (Weather)(this.getPower(Weather.POWER_ID));
+                if (weather.HP_THRESHOLD_2 <= 0) { //in case player skips directly to earthquake phase
+                    this.setMoveShortcut(ATTACK);
+                } else {
+                    this.setMoveShortcut(BUFF);
+                }
             } else if (this.lastMove(BLOCK_ATTACK)) {
                 this.setMoveShortcut(ATTACK);
             } else {

@@ -14,6 +14,7 @@ import Gensokyo.monsters.act2.Kaguya;
 import Gensokyo.monsters.act2.Koishi;
 import Gensokyo.monsters.act2.Miko;
 import Gensokyo.monsters.act2.Reisen;
+import Gensokyo.monsters.act2.Tenshi;
 import Gensokyo.monsters.act2.Yuyuko;
 import Gensokyo.monsters.act1.marisaMonsters.Patchouli;
 import com.badlogic.gdx.Gdx;
@@ -104,6 +105,8 @@ public class GensokyoScene extends AbstractScene {
                     this.bg = this.atlas.findRegion("mod/Palace");
                 } else if (mo instanceof Yuyuko) {
                     this.bg = this.atlas.findRegion("mod/ElegantPlace");
+                } else if (mo instanceof Tenshi) {
+                    this.bg = this.atlas.findRegion("mod/GenbuRavineCloudy");
                 } else {
                     if (CardCrawlGame.dungeon instanceof Gensokyo) {
                         this.bg = this.atlas.findRegion("mod/TanukiForest");

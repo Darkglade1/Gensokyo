@@ -5,7 +5,7 @@ import Gensokyo.monsters.act2.NormalEnemies.CosmicMonolith;
 import Gensokyo.monsters.act2.NormalEnemies.Swordslinger;
 import Gensokyo.monsters.act2.NormalEnemies.Wraith;
 import Gensokyo.monsters.act2.Reisen;
-import Gensokyo.monsters.act2.Yuyuko;
+import Gensokyo.monsters.act2.Tenshi;
 import Gensokyo.scenes.GensokyoScene;
 import actlikeit.dungeons.CustomDungeon;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
@@ -35,6 +35,7 @@ public class Gensokyoer extends CustomDungeon {
         this.addTempMusic("FullMoon", "audio/music/Gensokyo/FullMoon.ogg");
         this.addTempMusic("Hartmann", "audio/music/Gensokyo/Hartmann.ogg");
         this.addTempMusic("BorderOfLife", "audio/music/Gensokyo/Border of Life.ogg");
+        this.addTempMusic("Bhavagra", "audio/music/Gensokyo/Bhavagra.ogg");
     }
 
     public Gensokyoer(CustomDungeon cd, AbstractPlayer p, ArrayList<String> emptyList) {
@@ -108,7 +109,7 @@ public class Gensokyoer extends CustomDungeon {
         ArrayList<MonsterInfo> monsters = new ArrayList();
         monsters.add(new MonsterInfo(Reisen.ID, 1.0F));
         monsters.add(new MonsterInfo(Koishi.ID, 1.0F));
-        monsters.add(new MonsterInfo(Yuyuko.ID, 1.0F));
+        monsters.add(new MonsterInfo(Tenshi.ID, 1.0F));
         MonsterInfo.normalizeWeights(monsters);
         this.populateMonsterList(monsters, count, true);
     }

@@ -228,9 +228,9 @@
 },
 "Gensokyo:Weather": {
         "NAME": "Weather",
-        "DESCRIPTIONS": ["Weather - Cherry Blossoms",
-                        "Weather - Storm",
-                        "Weather - Earthquake",
+        "DESCRIPTIONS": ["Cherry Blossoms",
+                        "Storm",
+                        "Earthquake",
                         " NL After receiving #b",
                         " damage, changes weather at end of round.",
                         " NL Changes weather at end of round.",
