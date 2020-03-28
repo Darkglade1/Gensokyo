@@ -102,6 +102,17 @@ public class Koishi extends CustomMonster
     public void usePreBattleAction() {
         AbstractDungeon.getCurrRoom().playBgmInstantly("Hartmann");
         AbstractDungeon.actionManager.addToBottom(new ThirdEyeAction());
+        AbstractCard embers = new EmbersOfLove();
+        AbstractCard philosophy = new Philosophy();
+        AbstractCard reflex = new ReflexRadar();
+        if (upgradeStatus) {
+            embers.upgrade();
+            philosophy.upgrade();
+            reflex.upgrade();
+        }
+        AbstractDungeon.actionManager.addToBottom(new MakeTempCardInDrawPileAction(embers, 1, false, true, true));
+        AbstractDungeon.actionManager.addToBottom(new MakeTempCardInDrawPileAction(philosophy, 1, false, true, true));
+        AbstractDungeon.actionManager.addToBottom(new MakeTempCardInDrawPileAction(reflex, 1, false, true, true));
     }
     
     @Override
@@ -117,17 +128,6 @@ public class Koishi extends CustomMonster
             case DEBUFF: {
                 runAnim("magicAttackForward");
                 AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(AbstractDungeon.player, this, new ReleaseOfTheId(AbstractDungeon.player)));
-                AbstractCard embers = new EmbersOfLove();
-                AbstractCard philosophy = new Philosophy();
-                AbstractCard reflex = new ReflexRadar();
-                if (upgradeStatus) {
-                    embers.upgrade();
-                    philosophy.upgrade();
-                    reflex.upgrade();
-                }
-                AbstractDungeon.actionManager.addToBottom(new MakeTempCardInDrawPileAction(embers, 1, false, true, true));
-                AbstractDungeon.actionManager.addToBottom(new MakeTempCardInDrawPileAction(philosophy, 1, false, true, true));
-                AbstractDungeon.actionManager.addToBottom(new MakeTempCardInDrawPileAction(reflex, 1, false, true, true));
                 firstMove = false;
                 break;
             }
