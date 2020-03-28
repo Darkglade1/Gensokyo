@@ -135,20 +135,20 @@ public class Tenshi extends CustomMonster
         }
         switch (this.nextMove) {
             case ATTACK: {
-                //runAnim("magicAttackForward");
+                runAnim("Attack");
                 for (int i = 0; i < HITS; i++) {
                     AbstractDungeon.actionManager.addToBottom(new DamageAction(AbstractDungeon.player, info, AbstractGameAction.AttackEffect.BLUNT_HEAVY));
                 }
                 break;
             }
             case BLOCK_ATTACK: {
-                //runAnim("occultAttack");
+                runAnim("Attack");
                 AbstractDungeon.actionManager.addToBottom(new DamageAction(AbstractDungeon.player, info, AbstractGameAction.AttackEffect.BLUNT_HEAVY));
                 AbstractDungeon.actionManager.addToBottom(new GainBlockAction(this, block));
                 break;
             }
             case BUFF: {
-                //runAnim("spellA");
+                runAnim("Spell");
                 AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(this, this, new StrengthPower(this, strength), strength));
                 break;
             }
@@ -167,20 +167,20 @@ public class Tenshi extends CustomMonster
         }
         switch (this.secondMove.nextMove) {
             case ATTACK: {
-                //runAnim("magicAttackForward");
+                runAnim("Attack");
                 for (int i = 0; i < HITS; i++) {
                     AbstractDungeon.actionManager.addToBottom(new DamageAction(AbstractDungeon.player, info, AbstractGameAction.AttackEffect.BLUNT_HEAVY));
                 }
                 break;
             }
             case BLOCK_ATTACK: {
-                //runAnim("occultAttack");
+                runAnim("Attack");
                 AbstractDungeon.actionManager.addToBottom(new DamageAction(AbstractDungeon.player, info, AbstractGameAction.AttackEffect.BLUNT_HEAVY));
                 AbstractDungeon.actionManager.addToBottom(new GainBlockAction(this, block));
                 break;
             }
             case BUFF: {
-                //runAnim("spellA");
+                runAnim("Spell");
                 AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(this, this, new StrengthPower(this, strength), strength));
                 break;
             }
@@ -307,7 +307,7 @@ public class Tenshi extends CustomMonster
 
     @Override
     public void die(boolean triggerRelics) {
-        //runAnim("Defeat");
+        runAnim("Defeat");
         super.die(triggerRelics);
     }
 
