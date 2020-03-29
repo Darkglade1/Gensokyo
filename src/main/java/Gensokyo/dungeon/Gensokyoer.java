@@ -85,7 +85,7 @@ public class Gensokyoer extends CustomDungeon {
         monsters.add(new MonsterInfo("Chosen", 2.0F));
         monsters.add(new MonsterInfo(CosmicMonolith.ID, 2.0F));
         monsters.add(new MonsterInfo(EncounterIDs.DOGS_3, 2.0F));
-        monsters.add(new MonsterInfo("2 Thieves", 2.0F));
+        monsters.add(new MonsterInfo(EncounterIDs.GLOOPS_2, 2.0F));
         MonsterInfo.normalizeWeights(monsters);
         this.populateMonsterList(monsters, count, false);
     }
@@ -98,7 +98,7 @@ public class Gensokyoer extends CustomDungeon {
         monsters.add(new MonsterInfo(Swordslinger.ID, 4.0F));
         monsters.add(new MonsterInfo(EncounterIDs.SLIME_GROUP, 6.0F));
         monsters.add(new MonsterInfo("Cultist and Chosen", 3.0F));
-        monsters.add(new MonsterInfo("3 Cultists", 3.0F));
+        monsters.add(new MonsterInfo(EncounterIDs.GLOOPS_3, 3.0F));
         monsters.add(new MonsterInfo("Shelled Parasite and Fungi", 3.0F));
         MonsterInfo.normalizeWeights(monsters);
         this.populateFirstStrongEnemy(monsters, this.generateExclusions());

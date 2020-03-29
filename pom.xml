@@ -7,7 +7,7 @@
     <artifactId>Gensokyo</artifactId>
     <name>Gensokyo</name>
     <version>2.1.1</version>
-    <description>An alternate Act 1 mod inspired by Touhou Project.</description>
+    <description>An alternate Act 1  and 2 mod inspired by Touhou Project.</description>
 
     <properties>
         <maven.compiler.source>1.8</maven.compiler.source>

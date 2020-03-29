@@ -409,6 +409,14 @@
       "Berserk"
     ],
     "NAME": "Tanuki Dog"
+  },
+  "Gensokyo:Gloop": {
+    "MOVES": [
+      "Glitter",
+      null,
+      null
+    ],
+    "NAME": "Gloop"
   }
 }
 

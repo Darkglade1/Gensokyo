@@ -11,4 +11,6 @@ public class EncounterIDs {
     public static final String ETERNAL_RIVALS = "Gensokyo:Eternal_Rivals";
     public static final String SLIME_GROUP = "Gensokyo:Slime_Group";
     public static final String DOGS_3 = "Gensokyo:3_Dogs";
+    public static final String GLOOPS_2 = "Gensokyo:2_Gloops";
+    public static final String GLOOPS_3 = "Gensokyo:3_Gloops";
 }

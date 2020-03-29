@@ -109,6 +109,7 @@ import Gensokyo.monsters.act2.Koishi;
 import Gensokyo.monsters.act2.Miko;
 import Gensokyo.monsters.act2.NormalEnemies.BigMudSlime;
 import Gensokyo.monsters.act2.NormalEnemies.CosmicMonolith;
+import Gensokyo.monsters.act2.NormalEnemies.Gloop;
 import Gensokyo.monsters.act2.NormalEnemies.SlimeBunny;
 import Gensokyo.monsters.act2.NormalEnemies.Swordslinger;
 import Gensokyo.monsters.act2.NormalEnemies.TanukiDog;
@@ -432,6 +433,17 @@ public class GensokyoMod implements
                         new TanukiDog(-450.0F, 0.0F),
                         new TanukiDog(-200.0F, 0.0F),
                         new TanukiDog(50.0F, 0.0F),
+                }));
+        BaseMod.addMonster(EncounterIDs.GLOOPS_2, "2_Gloops", () -> new MonsterGroup(
+                new AbstractMonster[] {
+                        new Gloop(-450.0F, 0.0F, false),
+                        new Gloop(-150.0F, 0.0F, true),
+                }));
+        BaseMod.addMonster(EncounterIDs.GLOOPS_3, "3_Gloops", () -> new MonsterGroup(
+                new AbstractMonster[] {
+                        new Gloop(-450.0F, 0.0F, false),
+                        new Gloop(-200.0F, 0.0F, false),
+                        new Gloop(50.0F, 0.0F, true)
                 }));
 
 

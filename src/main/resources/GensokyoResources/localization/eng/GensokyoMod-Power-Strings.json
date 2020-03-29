@@ -255,5 +255,9 @@
 "Gensokyo:Quicksand": {
         "NAME": "Quicksand",
         "DESCRIPTIONS": ["Whenever you receive attack damage from this enemy, you gain #b", " #yConstricted."]
+},
+"Gensokyo:GlitterPower": {
+        "NAME": "Glitter",
+        "DESCRIPTIONS": ["At the end of your turn, take #b", " damage for each #pdebuff on you. NL You will take #b", " damage."]
 }
 }

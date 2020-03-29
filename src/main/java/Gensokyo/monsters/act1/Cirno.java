@@ -3,7 +3,6 @@ package Gensokyo.monsters.act1;
 import Gensokyo.BetterSpriterAnimation;
 import Gensokyo.cards.Frozen;
 import Gensokyo.powers.act1.FairyFury;
-import Gensokyo.powers.act1.FairyOfIce;
 import Gensokyo.powers.act1.Immortality;
 import Gensokyo.powers.act1.Strongest;
 import basemod.abstracts.CustomMonster;
@@ -119,7 +118,6 @@ public class Cirno extends CustomMonster
         AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(this, this, new Immortality(this)));
         AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(this, this, new Strongest(this)));
         AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(this, this, new FairyFury(this, STRENGTH_INCREMENT)));
-        //AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(this, this, new FairyOfIce(this, this.status)));
         AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(this, this, new StrengthPower(this, NEGATIVE_STRENGTH), NEGATIVE_STRENGTH));
     }
     
@@ -240,7 +238,7 @@ public class Cirno extends CustomMonster
             }
             ArrayList<AbstractPower> powersToRemove = new ArrayList<>();
             for (AbstractPower power : this.powers) {
-                if (!(power instanceof Immortality) && !(power instanceof StrengthPower) && !(power instanceof GainStrengthPower) && !(power instanceof FairyFury) && !(power instanceof Strongest) && !(power instanceof FairyOfIce)) {
+                if (!(power instanceof Immortality) && !(power instanceof StrengthPower) && !(power instanceof GainStrengthPower) && !(power instanceof FairyFury) && !(power instanceof Strongest)) {
                     powersToRemove.add(power);
                 }
             }
