@@ -21,6 +21,7 @@ public class Spooked extends TwoAmountPower {
     public static final String NAME = powerStrings.NAME;
     public static final String[] DESCRIPTIONS = powerStrings.DESCRIPTIONS;
     private int threshold;
+    boolean triggered = false;
 
     private static final Texture tex84 = TextureLoader.getTexture(makePowerPath("Spooked84.png"));
     private static final Texture tex32 = TextureLoader.getTexture(makePowerPath("Spooked32.png"));
@@ -41,14 +42,16 @@ public class Spooked extends TwoAmountPower {
 
     @Override
     public int onAttacked(DamageInfo info, int damageAmount) {
-        if (damageAmount > 0) {
-            this.flash();
-            if (damageAmount > this.owner.currentHealth) {
-                damageAmount = this.owner.currentHealth; //prevents overkill damage from contributing
+        if (!triggered) {
+            if (damageAmount > 0) {
+                this.flash();
+                if (damageAmount > this.owner.currentHealth) {
+                    damageAmount = this.owner.currentHealth; //prevents overkill damage from contributing
+                }
+                this.reducePower(damageAmount);
+                this.updateDescription();
+                AbstractDungeon.onModifyPower();
             }
-            this.reducePower(damageAmount);
-            this.updateDescription();
-            AbstractDungeon.onModifyPower();
         }
         return damageAmount;
     }
@@ -58,6 +61,7 @@ public class Spooked extends TwoAmountPower {
         if (this.amount2 - reduceAmount <= 0) {
             this.fontScale = 8.0F;
             this.amount2 = threshold;
+            triggered = true;
             AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(owner, owner, new IntangiblePlayerPower(owner, amount)));
         } else {
             this.fontScale = 8.0F;
@@ -68,6 +72,7 @@ public class Spooked extends TwoAmountPower {
     @Override
     public void atEndOfRound() {
         this.amount2 = threshold;
+        triggered = false;
         this.updateDescription();
         AbstractDungeon.onModifyPower();
     }

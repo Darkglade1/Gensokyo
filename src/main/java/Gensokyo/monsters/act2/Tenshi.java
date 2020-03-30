@@ -26,6 +26,7 @@ import com.megacrit.cardcrawl.localization.MonsterStrings;
 import com.megacrit.cardcrawl.monsters.EnemyMoveInfo;
 import com.megacrit.cardcrawl.powers.AbstractPower;
 import com.megacrit.cardcrawl.powers.StrengthPower;
+import com.megacrit.cardcrawl.relics.PreservedInsect;
 
 import java.util.HashMap;
 import java.util.Iterator;
@@ -120,7 +121,11 @@ public class Tenshi extends CustomMonster
     @Override
     public void usePreBattleAction() {
         AbstractDungeon.getCurrRoom().playBgmInstantly("Bhavagra");
-        AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(this, this, new Weather(this, (int)(maxHealth * WEATHER_THRESHOLD), this)));
+        int health = maxHealth;
+        if (AbstractDungeon.player.hasRelic(PreservedInsect.ID)) {
+            health = (int)(health * 0.75F);
+        }
+        AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(this, this, new Weather(this, (int)(health * WEATHER_THRESHOLD), this)));
     }
     
     @Override

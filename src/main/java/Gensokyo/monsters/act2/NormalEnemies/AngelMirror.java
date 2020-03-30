@@ -14,6 +14,7 @@ import com.megacrit.cardcrawl.core.Settings;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.localization.MonsterStrings;
 import com.megacrit.cardcrawl.monsters.EnemyMoveInfo;
+import com.megacrit.cardcrawl.powers.ArtifactPower;
 import com.megacrit.cardcrawl.powers.BarricadePower;
 import com.megacrit.cardcrawl.powers.FrailPower;
 
@@ -31,14 +32,15 @@ public class AngelMirror extends CustomMonster
     private static final byte ATTACK = 0;
     private static final byte DEBUFF_ATTACK = 1;
     private static final byte BLOCK = 2;
-    private static final int ATTACK_DAMAGE = 14;
-    private static final int A2_ATTACK_DAMAGE = 15;
-    private static final int DEBUFF_ATTACK_DAMAGE = 10;
-    private static final int A2_DEBUFF_ATTACK_DAMAGE = 11;
+    private static final int ATTACK_DAMAGE = 15;
+    private static final int A2_ATTACK_DAMAGE = 16;
+    private static final int DEBUFF_ATTACK_DAMAGE = 11;
+    private static final int A2_DEBUFF_ATTACK_DAMAGE = 12;
     private static final int BLOCK_AMT = 15;
     private static final int POWER_AMT = 6;
     private static final int A17_POWER_AMT = 8;
     private static final int DEBUFF_AMT = 1;
+    private static final int ARTIFACT_AMT = 2;
     private static final int HP_MIN = 40;
     private static final int HP_MAX = 42;
     private static final int A7_HP_MIN = 41;
@@ -92,6 +94,7 @@ public class AngelMirror extends CustomMonster
         AbstractDungeon.actionManager.addToBottom(new GainBlockAction(this, BLOCK_AMT));
         AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(this, this, new Reflective(this, powerAmt), powerAmt));
         AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(this, this, new BarricadePower(this)));
+        AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(this, this, new ArtifactPower(this, ARTIFACT_AMT), ARTIFACT_AMT));
     }
 
     @Override
