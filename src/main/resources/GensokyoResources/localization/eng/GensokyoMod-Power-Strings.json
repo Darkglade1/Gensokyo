@@ -250,7 +250,7 @@
 },
 "Gensokyo:Spooked": {
         "NAME": "Spooked",
-        "DESCRIPTIONS": ["After receiving #b", " more damage, gains #b", " #yIntangible."]
+        "DESCRIPTIONS": ["After receiving #b", " more damage this turn, gains #b", " #yIntangible."]
 },
 "Gensokyo:Quicksand": {
         "NAME": "Quicksand",
