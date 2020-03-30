@@ -2,6 +2,7 @@ package Gensokyo.dungeon;
 
 import Gensokyo.monsters.act2.Koishi;
 import Gensokyo.monsters.act2.NormalEnemies.AngelMirror;
+import Gensokyo.monsters.act2.NormalEnemies.Chomper;
 import Gensokyo.monsters.act2.NormalEnemies.CosmicMonolith;
 import Gensokyo.monsters.act2.NormalEnemies.Swordslinger;
 import Gensokyo.monsters.act2.NormalEnemies.Wraith;
@@ -83,7 +84,7 @@ public class Gensokyoer extends CustomDungeon {
     protected void generateWeakEnemies(int count) {
         ArrayList<MonsterInfo> monsters = new ArrayList();
         monsters.add(new MonsterInfo(AngelMirror.ID, 2.0F));
-        monsters.add(new MonsterInfo("Chosen", 2.0F));
+        monsters.add(new MonsterInfo(Chomper.ID, 2.0F));
         monsters.add(new MonsterInfo(CosmicMonolith.ID, 2.0F));
         monsters.add(new MonsterInfo(EncounterIDs.DOGS_3, 2.0F));
         monsters.add(new MonsterInfo(EncounterIDs.GLOOPS_2, 2.0F));
@@ -93,14 +94,14 @@ public class Gensokyoer extends CustomDungeon {
     @Override
     protected void generateStrongEnemies(int count) {
         ArrayList<MonsterInfo> monsters = new ArrayList();
-        monsters.add(new MonsterInfo("Chosen and Byrds", 2.0F));
-        monsters.add(new MonsterInfo("Sentry and Sphere", 2.0F));
+        //monsters.add(new MonsterInfo("Chosen and Byrds", 2.0F));
+        monsters.add(new MonsterInfo(EncounterIDs.MIRROR_AND_DOG, 2.0F));
         monsters.add(new MonsterInfo(Wraith.ID, 6.0F));
         monsters.add(new MonsterInfo(Swordslinger.ID, 4.0F));
         monsters.add(new MonsterInfo(EncounterIDs.SLIME_GROUP, 6.0F));
-        monsters.add(new MonsterInfo("Cultist and Chosen", 3.0F));
+        monsters.add(new MonsterInfo(EncounterIDs.CHOMPER_AND_GLOOP, 3.0F));
         monsters.add(new MonsterInfo(EncounterIDs.GLOOPS_3, 3.0F));
-        monsters.add(new MonsterInfo("Shelled Parasite and Fungi", 3.0F));
+        monsters.add(new MonsterInfo(EncounterIDs.MONOLITH_AND_DOG, 3.0F));
         MonsterInfo.normalizeWeights(monsters);
         this.populateFirstStrongEnemy(monsters, this.generateExclusions());
         this.populateMonsterList(monsters, count, false);
@@ -117,35 +118,25 @@ public class Gensokyoer extends CustomDungeon {
     @Override
     protected ArrayList<String> generateExclusions() {
         ArrayList<String> retVal = new ArrayList();
-        String var2 = (String)monsterList.get(monsterList.size() - 1);
-        byte var3 = -1;
-        switch(var2.hashCode()) {
-            case -1001149827:
-                if (var2.equals("3 Byrds")) {
-                    var3 = 1;
-                }
+        switch (monsterList.get(monsterList.size() - 1))
+        {
+            case EncounterIDs.GLOOPS_2:
+                retVal.add(EncounterIDs.GLOOPS_3);
+                retVal.add(EncounterIDs.CHOMPER_AND_GLOOP);
                 break;
-            case 1989842815:
-                if (var2.equals("Spheric Guardian")) {
-                    var3 = 0;
-                }
+            case EncounterIDs.DOGS_3:
+                retVal.add(EncounterIDs.MONOLITH_AND_DOG);
+                retVal.add(EncounterIDs.MIRROR_AND_DOG);
                 break;
-            case 2017619858:
-                if (var2.equals("Chosen")) {
-                    var3 = 2;
-                }
-        }
-
-        switch(var3) {
-            case 0:
-                retVal.add("Sentry and Sphere");
+            case CosmicMonolith.ID:
+                retVal.add(EncounterIDs.MONOLITH_AND_DOG);
                 break;
-            case 1:
-                retVal.add("Chosen and Byrds");
+            case Chomper.ID:
+                retVal.add(EncounterIDs.CHOMPER_AND_GLOOP);
                 break;
-            case 2:
-                retVal.add("Chosen and Byrds");
-                retVal.add("Cultist and Chosen");
+            case AngelMirror.ID:
+                retVal.add(EncounterIDs.MIRROR_AND_DOG);
+                break;
         }
 
         return retVal;

@@ -2,7 +2,6 @@ package Gensokyo;
 
 import Gensokyo.RazIntent.AreaAttackIntent;
 import Gensokyo.RazIntent.CustomIntent;
-import Gensokyo.RazIntent.DeathIntent;
 import Gensokyo.RazIntent.PurifyIntent;
 import Gensokyo.cards.AllTheWorldsEvil;
 import Gensokyo.cards.Apocalypse;
@@ -109,6 +108,7 @@ import Gensokyo.monsters.act2.Koishi;
 import Gensokyo.monsters.act2.Miko;
 import Gensokyo.monsters.act2.NormalEnemies.AngelMirror;
 import Gensokyo.monsters.act2.NormalEnemies.BigMudSlime;
+import Gensokyo.monsters.act2.NormalEnemies.Chomper;
 import Gensokyo.monsters.act2.NormalEnemies.CosmicMonolith;
 import Gensokyo.monsters.act2.NormalEnemies.Gloop;
 import Gensokyo.monsters.act2.NormalEnemies.SlimeBunny;
@@ -425,6 +425,8 @@ public class GensokyoMod implements
         BaseMod.addMonster(Wraith.ID, (BaseMod.GetMonster)Wraith::new);
         BaseMod.addMonster(AngelMirror.ID, (BaseMod.GetMonster)AngelMirror::new);
         BaseMod.addMonster(CosmicMonolith.ID, (BaseMod.GetMonster)CosmicMonolith::new);
+        BaseMod.addMonster(Chomper.ID, (BaseMod.GetMonster)Chomper::new);
+
         BaseMod.addMonster(EncounterIDs.SLIME_GROUP, "Slime_Group", () -> new MonsterGroup(
                 new AbstractMonster[] {
                         new BigMudSlime(-450.0F, 0.0F),
@@ -446,6 +448,21 @@ public class GensokyoMod implements
                         new Gloop(-450.0F, 0.0F, false),
                         new Gloop(-200.0F, 0.0F, false),
                         new Gloop(50.0F, 0.0F, true)
+                }));
+        BaseMod.addMonster(EncounterIDs.CHOMPER_AND_GLOOP, "Chomper_and_Gloop", () -> new MonsterGroup(
+                new AbstractMonster[] {
+                        new Chomper(-450.0F, 0.0F),
+                        new Gloop(-150.0F, 0.0F, true),
+                }));
+        BaseMod.addMonster(EncounterIDs.MONOLITH_AND_DOG, "Monolith_and_Dog", () -> new MonsterGroup(
+                new AbstractMonster[] {
+                        new CosmicMonolith(-450.0F, 0.0F),
+                        new TanukiDog(-150.0F, 0.0F),
+                }));
+        BaseMod.addMonster(EncounterIDs.MIRROR_AND_DOG, "Mirror_and_Dog", () -> new MonsterGroup(
+                new AbstractMonster[] {
+                        new AngelMirror(-450.0F, 0.0F),
+                        new TanukiDog(-150.0F, 0.0F),
                 }));
 
 

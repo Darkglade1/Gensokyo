@@ -13,4 +13,7 @@ public class EncounterIDs {
     public static final String DOGS_3 = "Gensokyo:3_Dogs";
     public static final String GLOOPS_2 = "Gensokyo:2_Gloops";
     public static final String GLOOPS_3 = "Gensokyo:3_Gloops";
+    public static final String CHOMPER_AND_GLOOP = "Gensokyo:Chomper_and_Gloop";
+    public static final String MONOLITH_AND_DOG = "Gensokyo:Monolith_and_Dog";
+    public static final String MIRROR_AND_DOG = "Gensokyo:Mirror_and_Dog";
 }
