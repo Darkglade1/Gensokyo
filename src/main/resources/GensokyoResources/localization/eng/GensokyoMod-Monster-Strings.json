@@ -417,6 +417,12 @@
       null
     ],
     "NAME": "Gloop"
+  },
+  "Gensokyo:AngelMirror": {
+    "MOVES": [
+
+    ],
+    "NAME": "Angel Mirror"
   }
 }
 

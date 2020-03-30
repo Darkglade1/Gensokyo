@@ -115,6 +115,7 @@ public class Gloop extends CustomMonster
                 break;
             }
             case ATTACK: {
+                useFastAttackAnimation();
                 AbstractDungeon.actionManager.addToBottom(new DamageAction(AbstractDungeon.player, info, AbstractGameAction.AttackEffect.BLUNT_LIGHT));
                 break;
             }

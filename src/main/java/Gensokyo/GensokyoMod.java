@@ -107,6 +107,7 @@ import Gensokyo.monsters.act2.Eiki;
 import Gensokyo.monsters.act2.Kaguya;
 import Gensokyo.monsters.act2.Koishi;
 import Gensokyo.monsters.act2.Miko;
+import Gensokyo.monsters.act2.NormalEnemies.AngelMirror;
 import Gensokyo.monsters.act2.NormalEnemies.BigMudSlime;
 import Gensokyo.monsters.act2.NormalEnemies.CosmicMonolith;
 import Gensokyo.monsters.act2.NormalEnemies.Gloop;
@@ -422,12 +423,13 @@ public class GensokyoMod implements
 
         BaseMod.addMonster(Swordslinger.ID, (BaseMod.GetMonster)Swordslinger::new);
         BaseMod.addMonster(Wraith.ID, (BaseMod.GetMonster)Wraith::new);
+        BaseMod.addMonster(AngelMirror.ID, (BaseMod.GetMonster)AngelMirror::new);
+        BaseMod.addMonster(CosmicMonolith.ID, (BaseMod.GetMonster)CosmicMonolith::new);
         BaseMod.addMonster(EncounterIDs.SLIME_GROUP, "Slime_Group", () -> new MonsterGroup(
                 new AbstractMonster[] {
                         new BigMudSlime(-450.0F, 0.0F),
                         new SlimeBunny(-150.0F, 0.0F),
                 }));
-        BaseMod.addMonster(CosmicMonolith.ID, (BaseMod.GetMonster)CosmicMonolith::new);
         BaseMod.addMonster(EncounterIDs.DOGS_3, "3_Dogs", () -> new MonsterGroup(
                 new AbstractMonster[] {
                         new TanukiDog(-450.0F, 0.0F),

@@ -1,6 +1,7 @@
 package Gensokyo.dungeon;
 
 import Gensokyo.monsters.act2.Koishi;
+import Gensokyo.monsters.act2.NormalEnemies.AngelMirror;
 import Gensokyo.monsters.act2.NormalEnemies.CosmicMonolith;
 import Gensokyo.monsters.act2.NormalEnemies.Swordslinger;
 import Gensokyo.monsters.act2.NormalEnemies.Wraith;
@@ -81,7 +82,7 @@ public class Gensokyoer extends CustomDungeon {
     @Override
     protected void generateWeakEnemies(int count) {
         ArrayList<MonsterInfo> monsters = new ArrayList();
-        monsters.add(new MonsterInfo("Spheric Guardian", 2.0F));
+        monsters.add(new MonsterInfo(AngelMirror.ID, 2.0F));
         monsters.add(new MonsterInfo("Chosen", 2.0F));
         monsters.add(new MonsterInfo(CosmicMonolith.ID, 2.0F));
         monsters.add(new MonsterInfo(EncounterIDs.DOGS_3, 2.0F));
