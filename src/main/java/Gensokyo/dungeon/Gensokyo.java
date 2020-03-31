@@ -72,6 +72,16 @@ public class Gensokyo extends actlikeit.dungeons.CustomDungeon {
     }
 
     @Override
+    public String getBodyText() {
+        return TEXT[2];
+    }
+
+    @Override
+    public String getOptionText() {
+        return TEXT[3];
+    }
+
+    @Override
     protected void generateMonsters() {
         generateWeakEnemies(weakpreset);
         generateStrongEnemies(strongpreset);

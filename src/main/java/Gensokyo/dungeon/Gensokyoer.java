@@ -74,6 +74,27 @@ public class Gensokyoer extends CustomDungeon {
     }
 
     @Override
+    public String getBodyText() {
+        if (CardCrawlGame.dungeon instanceof Gensokyo) {
+            return TEXT[2];
+        } else {
+            String[] oldStrings = CardCrawlGame.languagePack.getUIString(Gensokyo.ID).TEXT;
+            return oldStrings[2];
+        }
+
+    }
+
+    @Override
+    public String getOptionText() {
+        if (CardCrawlGame.dungeon instanceof Gensokyo) {
+            return TEXT[3];
+        } else {
+            String[] oldStrings = CardCrawlGame.languagePack.getUIString(Gensokyo.ID).TEXT;
+            return oldStrings[3];
+        }
+    }
+
+    @Override
     protected void generateMonsters() {
         generateWeakEnemies(weakpreset);
         generateStrongEnemies(strongpreset);
