@@ -233,7 +233,7 @@
                         "Earthquake",
                         " NL After receiving #b",
                         " damage, changes weather at end of round.",
-                        " NL Changes weather at end of round.",
+                        "Changes weather at end of round.",
                         "At the start of your turn, gain ",
                         " and draw #b",
                         " card.",

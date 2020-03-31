@@ -175,7 +175,7 @@ public class Weather extends AbstractPower {
             }
             description += DESCRIPTIONS[10];
             if (amount <= 0) {
-                description += DESCRIPTIONS[5];
+                description = DESCRIPTIONS[5];
             } else {
                 description += DESCRIPTIONS[3] + amount + DESCRIPTIONS[4];
             }
@@ -184,7 +184,7 @@ public class Weather extends AbstractPower {
             this.name = DESCRIPTIONS[1];
             description = DESCRIPTIONS[11] + WEAK + DESCRIPTIONS[12];
             if (amount <= 0) {
-                description += DESCRIPTIONS[5];
+                description = DESCRIPTIONS[5];
             } else {
                 description += DESCRIPTIONS[3] + amount + DESCRIPTIONS[4];
             }

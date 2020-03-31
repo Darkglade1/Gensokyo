@@ -33,8 +33,8 @@ public class Wraith extends CustomMonster
     private static final int A2_ATTACK_DAMAGE = 6;
     private static final int HITS = 4;
     private static final int DRAIN = 1;
-    private static final int POWER_THRESHOLD = 10;
-    private static final int A17_POWER_THRESHOLD = 8;
+    private static final int POWER_THRESHOLD = 14;
+    private static final int A17_POWER_THRESHOLD = 11;
     private static final int HP_MIN = 80;
     private static final int HP_MAX = 84;
     private static final int A7_HP_MIN = 83;

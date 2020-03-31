@@ -110,9 +110,9 @@ public class Koishi extends CustomMonster
             philosophy.upgrade();
             reflex.upgrade();
         }
-        AbstractDungeon.actionManager.addToBottom(new MakeTempCardInDrawPileAction(embers, 1, false, true, true));
-        AbstractDungeon.actionManager.addToBottom(new MakeTempCardInDrawPileAction(philosophy, 1, false, true, true));
-        AbstractDungeon.actionManager.addToBottom(new MakeTempCardInDrawPileAction(reflex, 1, false, true, true));
+        AbstractDungeon.actionManager.addToBottom(new MakeTempCardInDrawPileAction(embers, 1, true, true));
+        AbstractDungeon.actionManager.addToBottom(new MakeTempCardInDrawPileAction(philosophy, 1, true, true));
+        AbstractDungeon.actionManager.addToBottom(new MakeTempCardInDrawPileAction(reflex, 1, true, true));
     }
     
     @Override

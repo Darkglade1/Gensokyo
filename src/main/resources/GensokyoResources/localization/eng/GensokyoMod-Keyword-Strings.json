@@ -48,6 +48,6 @@
       "impossible_request",
       "Impossible_Request"
     ],
-    "DESCRIPTION": "Whenever the #pImpossible #pRequest is transformed, if you fulfilled the condition, you gain #b1 #yStrength. If you didn't fulfill the request, the enemy gains #b3 #yStrength."
+    "DESCRIPTION": "#yRetain. Cannot be #yexhausted. NL Whenever the #pImpossible #pRequest is transformed, if you fulfilled the condition, you gain #b1 #yStrength. If you didn't fulfill the request, the enemy gains #b3 #yStrength."
   }
 ]

@@ -13,6 +13,15 @@ import Gensokyo.monsters.act2.Eiki;
 import Gensokyo.monsters.act2.Kaguya;
 import Gensokyo.monsters.act2.Koishi;
 import Gensokyo.monsters.act2.Miko;
+import Gensokyo.monsters.act2.NormalEnemies.AngelMirror;
+import Gensokyo.monsters.act2.NormalEnemies.BigMudSlime;
+import Gensokyo.monsters.act2.NormalEnemies.Chomper;
+import Gensokyo.monsters.act2.NormalEnemies.CosmicMonolith;
+import Gensokyo.monsters.act2.NormalEnemies.Gloop;
+import Gensokyo.monsters.act2.NormalEnemies.SlimeBunny;
+import Gensokyo.monsters.act2.NormalEnemies.Swordslinger;
+import Gensokyo.monsters.act2.NormalEnemies.TanukiDog;
+import Gensokyo.monsters.act2.NormalEnemies.Wraith;
 import Gensokyo.monsters.act2.Reisen;
 import Gensokyo.monsters.act2.Tenshi;
 import Gensokyo.monsters.act2.Yuyuko;
@@ -107,6 +116,23 @@ public class GensokyoScene extends AbstractScene {
                     this.bg = this.atlas.findRegion("mod/ElegantPlace");
                 } else if (mo instanceof Tenshi) {
                     this.bg = this.atlas.findRegion("mod/GenbuRavineCloudy");
+                } else if (mo instanceof AngelMirror) {
+                    this.bg = this.atlas.findRegion("mod/Ruins");
+                    break; //override the Tanuki's Dog bg when they are grouped together
+                } else if (mo instanceof Chomper) {
+                    this.bg = this.atlas.findRegion("mod/Forest");
+                } else if (mo instanceof CosmicMonolith) {
+                    this.bg = this.atlas.findRegion("mod/Cave");
+                } else if (mo instanceof TanukiDog) {
+                    this.bg = this.atlas.findRegion("mod/Forest");
+                } else if (mo instanceof Gloop) {
+                    this.bg = this.atlas.findRegion("mod/Island");
+                } else if (mo instanceof Wraith) {
+                    this.bg = this.atlas.findRegion("mod/Cave");
+                } else if (mo instanceof Swordslinger) {
+                    this.bg = this.atlas.findRegion("mod/Desert");
+                } else if (mo instanceof BigMudSlime || mo instanceof SlimeBunny) {
+                    this.bg = this.atlas.findRegion("mod/Desert");
                 } else {
                     if (CardCrawlGame.dungeon instanceof Gensokyo) {
                         this.bg = this.atlas.findRegion("mod/TanukiForest");

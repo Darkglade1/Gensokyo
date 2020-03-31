@@ -54,7 +54,7 @@ public class BalanceShiftAction extends AbstractGameAction {
 
         if (eiki.angle == endAngle) {
             if (startAngle != endAngle) {
-                CardCrawlGame.sound.playAV("BELL", MathUtils.random(-0.2F, -0.3F), 0.7F);
+                CardCrawlGame.sound.playAV("BELL", MathUtils.random(-0.2F, -0.3F), 0.4F);
             }
             this.isDone = true;
         }

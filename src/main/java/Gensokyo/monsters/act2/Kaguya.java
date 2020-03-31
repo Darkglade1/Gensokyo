@@ -57,29 +57,29 @@ public class Kaguya extends CustomMonster
     private static final byte BUDDHIST_DIAMOND_4 = 4;
     private static final byte BUDDHIST_DIAMOND_5 = 5;
 
-    private static final int BRILLIANT_DRAGON_BULLET_DAMAGE = 8;
-    private static final int A4_BRILLIANT_DRAGON_BULLET_DAMAGE = 9;
+    private static final int BRILLIANT_DRAGON_BULLET_DAMAGE = 9;
+    private static final int A4_BRILLIANT_DRAGON_BULLET_DAMAGE = 10;
     private static final int BRILLIANT_DRAGON_BULLET_HITS = 2;
     private int brilliantDragonBulletDamage;
 
-    private static final int BUDDHIST_DIAMOND_DAMAGE_1 = 11;
-    private static final int A4_BUDDHIST_DIAMOND_DAMAGE_1 = 12;
+    private static final int BUDDHIST_DIAMOND_DAMAGE_1 = 12;
+    private static final int A4_BUDDHIST_DIAMOND_DAMAGE_1 = 13;
     private int buddhistDiamondDamage1;
 
-    private static final int BUDDHIST_DIAMOND_DAMAGE_2 = 9;
-    private static final int A4_BUDDHIST_DIAMOND_DAMAGE_2 = 10;
+    private static final int BUDDHIST_DIAMOND_DAMAGE_2 = 10;
+    private static final int A4_BUDDHIST_DIAMOND_DAMAGE_2 = 11;
     private int buddhistDiamondDamage2;
 
-    private static final int BUDDHIST_DIAMOND_DAMAGE_3 = 15;
-    private static final int A4_BUDDHIST_DIAMOND_DAMAGE_3 = 16;
+    private static final int BUDDHIST_DIAMOND_DAMAGE_3 = 16;
+    private static final int A4_BUDDHIST_DIAMOND_DAMAGE_3 = 17;
     private int buddhistDiamondDamage3;
 
-    private static final int BUDDHIST_DIAMOND_DAMAGE_4 = 14;
-    private static final int A4_BUDDHIST_DIAMOND_DAMAGE_4 = 15;
+    private static final int BUDDHIST_DIAMOND_DAMAGE_4 = 15;
+    private static final int A4_BUDDHIST_DIAMOND_DAMAGE_4 = 16;
     private int buddhistDiamondDamage4;
 
-    private static final int BUDDHIST_DIAMOND_DAMAGE_5 = 13;
-    private static final int A4_BUDDHIST_DIAMOND_DAMAGE_5 = 14;
+    private static final int BUDDHIST_DIAMOND_DAMAGE_5 = 14;
+    private static final int A4_BUDDHIST_DIAMOND_DAMAGE_5 = 15;
     private int buddhistDiamondDamage5;
 
     public static final int PLAYER_STRENGTH_GAIN = 1;

@@ -23,7 +23,6 @@ public class TabooFourOfAKind extends AbstractDefaultCard {
     private static final CardColor COLOR = CardColor.COLORLESS;
 
     private static final int COST = 1;
-    private static final int UPGRADED_COST = 0;
     private static final int REPEATS = 1;
     private static final int UPGRADE = 1;
 
@@ -33,6 +32,7 @@ public class TabooFourOfAKind extends AbstractDefaultCard {
         super(ID, IMG, COST, TYPE, COLOR, RARITY, TARGET);
         this.magicNumber = baseMagicNumber = REPEATS;
         this.defaultSecondMagicNumber = defaultBaseSecondMagicNumber = UPGRADE;
+        this.isEthereal = true;
         this.exhaust = true;
     }
 
@@ -71,7 +71,8 @@ public class TabooFourOfAKind extends AbstractDefaultCard {
     public void upgrade() {
         if (!upgraded) {
             upgradeName();
-            upgradeBaseCost(UPGRADED_COST);
+            isEthereal = false;
+            rawDescription = languagePack.getCardStrings(cardID).UPGRADE_DESCRIPTION;
             initializeDescription();
         }
     }
