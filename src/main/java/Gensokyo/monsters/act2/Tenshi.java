@@ -26,7 +26,6 @@ import com.megacrit.cardcrawl.localization.MonsterStrings;
 import com.megacrit.cardcrawl.monsters.EnemyMoveInfo;
 import com.megacrit.cardcrawl.powers.AbstractPower;
 import com.megacrit.cardcrawl.powers.StrengthPower;
-import com.megacrit.cardcrawl.relics.PreservedInsect;
 
 import java.util.HashMap;
 import java.util.Iterator;
@@ -63,7 +62,7 @@ public class Tenshi extends CustomMonster
     private static final int BLOCK = 12;
     private static final int A8_BLOCK = 13;
 
-    private static final float WEATHER_THRESHOLD = 0.34F;
+    public static final float WEATHER_THRESHOLD = 0.34F;
 
     private static final int HP_MIN = 150;
     private static final int HP_MAX = 152;
@@ -75,6 +74,7 @@ public class Tenshi extends CustomMonster
     private int strength;
     private EnemyMoveInfo secondMove;
     private PreviewIntent secondIntent;
+    private Weather weatherPower;
 
     private Map<Byte, EnemyMoveInfo> moves;
 
@@ -121,11 +121,8 @@ public class Tenshi extends CustomMonster
     @Override
     public void usePreBattleAction() {
         AbstractDungeon.getCurrRoom().playBgmInstantly("Bhavagra");
-        int health = maxHealth;
-        if (AbstractDungeon.player.hasRelic(PreservedInsect.ID)) {
-            health = (int)(health * 0.75F);
-        }
-        AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(this, this, new Weather(this, (int)(health * WEATHER_THRESHOLD), this)));
+        weatherPower = new Weather(this, this);
+        AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(this, this, weatherPower));
     }
     
     @Override
@@ -300,6 +297,21 @@ public class Tenshi extends CustomMonster
         if (secondIntent != null && weather == WEATHER_1) {
             secondIntent.update();
             secondIntent.render(sb);
+        }
+    }
+
+    @Override
+    public void increaseMaxHp(int amount, boolean showEffect) {
+        super.increaseMaxHp(amount, showEffect);
+        if (!Settings.isEndless || !AbstractDungeon.player.hasBlight("FullBelly")) {
+            if (amount < 0) {
+                return;
+            }
+            int newAmount = weatherPower.amount + (int)(amount * WEATHER_THRESHOLD);
+            weatherPower.amount = newAmount;
+            weatherPower.HP_THRESHOLD_1 = newAmount;
+            weatherPower.HP_THRESHOLD_2 = newAmount;
+            weatherPower.updateDescription();
         }
     }
     

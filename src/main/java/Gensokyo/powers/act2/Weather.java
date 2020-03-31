@@ -23,6 +23,7 @@ import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.powers.AbstractPower;
 import com.megacrit.cardcrawl.powers.VulnerablePower;
 import com.megacrit.cardcrawl.powers.WeakPower;
+import com.megacrit.cardcrawl.relics.PreservedInsect;
 import com.megacrit.cardcrawl.vfx.combat.LightningEffect;
 
 import static Gensokyo.GensokyoMod.makePowerPath;
@@ -54,15 +55,19 @@ public class Weather extends AbstractPower {
     private int draw;
     private InvisibleAdrenalinePower power;
 
-    public Weather(AbstractCreature owner, int amount, Tenshi tenshi) {
+    public Weather(AbstractCreature owner, Tenshi tenshi) {
         name = NAME;
         ID = POWER_ID;
 
         this.owner = owner;
+        this.tenshi = tenshi;
+        int amount = (int)(tenshi.maxHealth * Tenshi.WEATHER_THRESHOLD);
+        if (AbstractDungeon.player.hasRelic(PreservedInsect.ID)) {
+            amount = (int)(amount * 0.75F);
+        }
         this.amount = amount;
         HP_THRESHOLD_1 = amount;
         HP_THRESHOLD_2 = amount;
-        this.tenshi = tenshi;
 
         if (AbstractDungeon.ascensionLevel >= 18) {
             draw = A18_DRAW;
