@@ -326,6 +326,7 @@ public class Eiki extends AbstractSpriterMonster
     @Override
     public void die(boolean triggerRelics) {
         super.die(triggerRelics);
+        this.onBossVictoryLogic();
         for (AbstractMonster mo : AbstractDungeon.getCurrRoom().monsters.monsters) {
             if (mo instanceof Mirror) {
                 if (!mo.isDead && !mo.isDying) {

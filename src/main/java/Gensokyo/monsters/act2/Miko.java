@@ -325,6 +325,9 @@ public class Miko extends CustomMonster
         ((BetterSpriterAnimation)this.animation).startDying();
         if (rival != null) {
             rival.rivalDefeated();
+            if (rival.isDeadOrEscaped() || rival.isDying) {
+                this.onBossVictoryLogic();
+            }
         }
         super.die(triggerRelics);
     }

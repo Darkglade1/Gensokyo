@@ -276,6 +276,7 @@ public class Kaguya extends CustomMonster
                 AbstractDungeon.actionManager.addToBottom(new TalkAction(this, DIALOG[1]));
                 AbstractDungeon.actionManager.addToBottom(new SetFlipAction(this));
                 AbstractDungeon.actionManager.addToBottom(new EscapeAction(this));
+                this.onBossVictoryLogic();
             }
         }
     }
