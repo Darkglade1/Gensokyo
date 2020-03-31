@@ -2,12 +2,12 @@ package Gensokyo.monsters.act2;
 
 import Gensokyo.BetterSpriterAnimation;
 import Gensokyo.actions.BalanceShiftAction;
+import Gensokyo.monsters.AbstractSpriterMonster;
 import Gensokyo.powers.act2.MirrorPower;
 import Gensokyo.powers.act2.NextTurnInnocence;
 import Gensokyo.vfx.FlexibleStanceAuraEffect;
 import Gensokyo.vfx.FlexibleWrathParticleEffect;
 import actlikeit.dungeons.CustomDungeon;
-import basemod.abstracts.CustomMonster;
 import basemod.animations.AbstractAnimation;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.Color;
@@ -38,7 +38,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 
-public class Eiki extends CustomMonster
+public class Eiki extends AbstractSpriterMonster
 {
     private static final Texture SCALE_BODY = new Texture("GensokyoResources/images/monsters/Eiki/Body.png");
     private static final Texture SCALE_RIGHT_ARM = new Texture("GensokyoResources/images/monsters/Eiki/RightArm.png");

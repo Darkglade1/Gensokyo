@@ -111,6 +111,7 @@ public class Kune extends CustomMonster
     @Override
     public void die(boolean triggerRelics) {
         runAnim("Defeat");
+        ((BetterSpriterAnimation)this.animation).startDying();
         super.die(triggerRelics);
         if (reisen != null) {
             if (num == 0 || num == 1) {

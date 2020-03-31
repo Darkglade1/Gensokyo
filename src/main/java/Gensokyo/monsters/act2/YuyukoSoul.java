@@ -1,11 +1,11 @@
 package Gensokyo.monsters.act2;
 
+import Gensokyo.monsters.AbstractSpriterMonster;
 import Gensokyo.powers.act2.Reflowering;
-import basemod.abstracts.CustomMonster;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 
-public class YuyukoSoul extends CustomMonster {
+public class YuyukoSoul extends AbstractSpriterMonster {
     protected static final byte NONE = 0;
     protected static final byte DEBUFF = 1;
     protected static final int DEBUFF_AMT = 1;

@@ -296,6 +296,7 @@ public class Byakuren extends CustomMonster
     @Override
     public void die(boolean triggerRelics) {
         runAnim("Defeat");
+        ((BetterSpriterAnimation)this.animation).startDying();
         if (rival != null) {
             rival.rivalDefeated();
         }

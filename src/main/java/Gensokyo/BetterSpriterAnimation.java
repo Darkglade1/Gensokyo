@@ -3,14 +3,18 @@ package Gensokyo;
 import basemod.animations.AbstractAnimation;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.files.FileHandle;
+import com.badlogic.gdx.graphics.Color;
+import com.badlogic.gdx.graphics.g2d.Sprite;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.graphics.glutils.ShapeRenderer;
 import com.brashmonkey.spriter.Data;
-import com.brashmonkey.spriter.LibGdx.LibGdxDrawer;
+import com.brashmonkey.spriter.Drawer;
 import com.brashmonkey.spriter.LibGdx.LibGdxLoader;
+import com.brashmonkey.spriter.Loader;
 import com.brashmonkey.spriter.Player;
 import com.brashmonkey.spriter.Point;
 import com.brashmonkey.spriter.SCMLReader;
+import com.brashmonkey.spriter.Timeline;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.Settings;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
@@ -20,18 +24,26 @@ public class BetterSpriterAnimation extends AbstractAnimation {
     private static final float animFps = 0.016666668F;
     private float frameRegulator = 0.0F;
     LibGdxLoader loader;
-    LibGdxDrawer drawer;
+    BetterLibGdxDrawer drawer;
     ShapeRenderer renderer = new ShapeRenderer();
     public Player myPlayer;
+
+    private Color color;
+    private Color targetColor;
+    private static final float lerpSpeed = 3.0F;
+    private boolean isDying = false;
 
     public BetterSpriterAnimation(String filepath) {
         FileHandle handle = Gdx.files.internal(filepath);
         Data data = (new SCMLReader(handle.read())).getData();
         this.loader = new LibGdxLoader(data);
         this.loader.load(handle.file());
-        this.drawer = new LibGdxDrawer(this.loader, this.renderer);
+        this.drawer = new BetterLibGdxDrawer(this.loader, this.renderer);
         this.myPlayer = new Player(data.getEntity(0));
         this.myPlayer.setScale(Settings.scale);
+
+        color = renderer.getColor();
+        targetColor = new Color(color.r, color.g, color.b, 0.0F);
     }
 
     public Type type() {
@@ -55,7 +67,10 @@ public class BetterSpriterAnimation extends AbstractAnimation {
         for(this.frameRegulator += Gdx.graphics.getDeltaTime(); this.frameRegulator - 0.016666668F >= 0.0F; this.frameRegulator -= 0.016666668F) {
             this.myPlayer.update();
         }
-
+        if (isDying) {
+            color.lerp(targetColor, Gdx.graphics.getDeltaTime() * lerpSpeed); //fade out on death effect
+            drawer.setColor(color.r, color.g, color.b, color.a);
+        }
         AbstractPlayer player = AbstractDungeon.player;
         if (player != null) {
             this.myPlayer.setPosition(new Point(x, y));
@@ -70,6 +85,51 @@ public class BetterSpriterAnimation extends AbstractAnimation {
                 batch.begin();
             }
         }
-
     }
+
+    public void startDying() {
+        isDying = true;
+    }
+
+    private static class BetterLibGdxDrawer extends Drawer<Sprite> {
+        public SpriteBatch batch;
+        ShapeRenderer renderer;
+
+        public BetterLibGdxDrawer(Loader<Sprite> loader, ShapeRenderer renderer) {
+            super(loader);
+            this.renderer = renderer;
+        }
+
+        public void setColor(float r, float g, float b, float a) {
+            this.renderer.setColor(r, g, b, a);
+        }
+
+        public void rectangle(float x, float y, float width, float height) {
+            this.renderer.rect(x, y, width, height);
+        }
+
+        public void line(float x1, float y1, float x2, float y2) {
+            this.renderer.line(x1, y1, x2, y2);
+        }
+
+        public void circle(float x, float y, float radius) {
+            this.renderer.circle(x, y, radius);
+        }
+
+        public void draw(Timeline.Key.Object object) {
+            Sprite sprite = this.loader.get(object.ref);
+            float newPivotX = sprite.getWidth() * object.pivot.x;
+            float newX = object.position.x - newPivotX;
+            float newPivotY = sprite.getHeight() * object.pivot.y;
+            float newY = object.position.y - newPivotY;
+            sprite.setX(newX);
+            sprite.setY(newY);
+            sprite.setOrigin(newPivotX, newPivotY);
+            sprite.setRotation(object.angle);
+            sprite.setColor(renderer.getColor());
+            sprite.setScale(object.scale.x, object.scale.y);
+            sprite.draw(this.batch);
+        }
+    }
+
 }

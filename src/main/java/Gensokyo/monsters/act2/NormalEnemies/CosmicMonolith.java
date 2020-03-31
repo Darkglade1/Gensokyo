@@ -1,10 +1,10 @@
 package Gensokyo.monsters.act2.NormalEnemies;
 
 import Gensokyo.BetterSpriterAnimation;
+import Gensokyo.monsters.AbstractSpriterMonster;
 import Gensokyo.powers.act1.VigorPower;
 import Gensokyo.vfx.RedLaserBeamEffect;
 import Gensokyo.vfx.RedSmallLaserEffect;
-import basemod.abstracts.CustomMonster;
 import com.badlogic.gdx.graphics.Color;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.animations.VFXAction;
@@ -29,7 +29,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 
-public class CosmicMonolith extends CustomMonster
+public class CosmicMonolith extends AbstractSpriterMonster
 {
     public static final String ID = "Gensokyo:CosmicMonolith";
     private static final MonsterStrings monsterStrings;
@@ -166,12 +166,6 @@ public class CosmicMonolith extends CustomMonster
             }
             this.setMoveShortcut(possibilities.get(AbstractDungeon.monsterRng.random(possibilities.size() - 1)));
         }
-    }
-
-    @Override
-    public void die(boolean triggerRelics) {
-        this.useShakeAnimation(5.0F);
-        super.die(triggerRelics);
     }
 
     static {

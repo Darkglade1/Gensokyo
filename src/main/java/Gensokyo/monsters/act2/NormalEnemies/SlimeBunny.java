@@ -2,8 +2,8 @@ package Gensokyo.monsters.act2.NormalEnemies;
 
 import Gensokyo.BetterSpriterAnimation;
 import Gensokyo.RazIntent.IntentEnums;
+import Gensokyo.monsters.AbstractSpriterMonster;
 import Gensokyo.vfx.FlexibleRainbowCardEffect;
-import basemod.abstracts.CustomMonster;
 import com.megacrit.cardcrawl.actions.animations.VFXAction;
 import com.megacrit.cardcrawl.actions.common.EscapeAction;
 import com.megacrit.cardcrawl.actions.common.HealAction;
@@ -21,7 +21,7 @@ import com.megacrit.cardcrawl.monsters.EnemyMoveInfo;
 import java.util.HashMap;
 import java.util.Map;
 
-public class SlimeBunny extends CustomMonster
+public class SlimeBunny extends AbstractSpriterMonster
 {
     public static final String ID = "Gensokyo:SlimeBunny";
     private static final MonsterStrings monsterStrings;
@@ -122,12 +122,6 @@ public class SlimeBunny extends CustomMonster
             }
         }
         return true;
-    }
-
-    @Override
-    public void die(boolean triggerRelics) {
-        this.useShakeAnimation(5.0F);
-        super.die(triggerRelics);
     }
 
     static {

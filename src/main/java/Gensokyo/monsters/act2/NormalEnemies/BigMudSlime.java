@@ -1,10 +1,9 @@
 package Gensokyo.monsters.act2.NormalEnemies;
 
 import Gensokyo.BetterSpriterAnimation;
+import Gensokyo.monsters.AbstractSpriterMonster;
 import Gensokyo.powers.act2.Quicksand;
-import basemod.abstracts.CustomMonster;
 import com.badlogic.gdx.graphics.Color;
-import com.badlogic.gdx.math.MathUtils;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.animations.AnimateJumpAction;
 import com.megacrit.cardcrawl.actions.animations.VFXAction;
@@ -22,14 +21,13 @@ import com.megacrit.cardcrawl.localization.MonsterStrings;
 import com.megacrit.cardcrawl.monsters.EnemyMoveInfo;
 import com.megacrit.cardcrawl.powers.VulnerablePower;
 import com.megacrit.cardcrawl.powers.WeakPower;
-import com.megacrit.cardcrawl.vfx.SpeechBubble;
 import com.megacrit.cardcrawl.vfx.combat.WeightyImpactEffect;
 
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 
-public class BigMudSlime extends CustomMonster
+public class BigMudSlime extends AbstractSpriterMonster
 {
     public static final String ID = "Gensokyo:BigMudSlime";
     private static final MonsterStrings monsterStrings;
@@ -138,12 +136,6 @@ public class BigMudSlime extends CustomMonster
             possibilities.add(DEBUFF_ATTACK);
         }
         this.setMoveShortcut(possibilities.get(AbstractDungeon.monsterRng.random(possibilities.size() - 1)));
-    }
-
-    @Override
-    public void die(boolean triggerRelics) {
-        this.useShakeAnimation(5.0F);
-        super.die(triggerRelics);
     }
 
     static {

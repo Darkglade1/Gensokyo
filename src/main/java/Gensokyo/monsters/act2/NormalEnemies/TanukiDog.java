@@ -1,7 +1,7 @@
 package Gensokyo.monsters.act2.NormalEnemies;
 
 import Gensokyo.BetterSpriterAnimation;
-import basemod.abstracts.CustomMonster;
+import Gensokyo.monsters.AbstractSpriterMonster;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.actions.common.DamageAction;
@@ -20,7 +20,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 
-public class TanukiDog extends CustomMonster
+public class TanukiDog extends AbstractSpriterMonster
 {
     public static final String ID = "Gensokyo:TanukiDog";
     private static final MonsterStrings monsterStrings;
@@ -150,12 +150,6 @@ public class TanukiDog extends CustomMonster
             }
             this.setMoveShortcut(possibilities.get(AbstractDungeon.monsterRng.random(possibilities.size() - 1)));
         }
-    }
-
-    @Override
-    public void die(boolean triggerRelics) {
-        this.useShakeAnimation(5.0F);
-        super.die(triggerRelics);
     }
 
     static {

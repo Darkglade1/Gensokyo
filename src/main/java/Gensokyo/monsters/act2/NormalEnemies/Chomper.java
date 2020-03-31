@@ -1,7 +1,7 @@
 package Gensokyo.monsters.act2.NormalEnemies;
 
 import Gensokyo.BetterSpriterAnimation;
-import basemod.abstracts.CustomMonster;
+import Gensokyo.monsters.AbstractSpriterMonster;
 import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.math.MathUtils;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
@@ -25,7 +25,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 
-public class Chomper extends CustomMonster
+public class Chomper extends AbstractSpriterMonster
 {
     public static final String ID = "Gensokyo:Chomper";
     private static final MonsterStrings monsterStrings;
@@ -151,12 +151,6 @@ public class Chomper extends CustomMonster
             }
             this.setMoveShortcut(possibilities.get(AbstractDungeon.monsterRng.random(possibilities.size() - 1)));
         }
-    }
-
-    @Override
-    public void die(boolean triggerRelics) {
-        this.useShakeAnimation(5.0F);
-        super.die(triggerRelics);
     }
 
     static {

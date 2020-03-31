@@ -3,10 +3,10 @@ package Gensokyo.monsters.act2;
 import Gensokyo.BetterSpriterAnimation;
 import Gensokyo.actions.RezAction;
 import Gensokyo.actions.UsePreBattleActionAction;
+import Gensokyo.monsters.AbstractSpriterMonster;
 import Gensokyo.powers.act2.Reflowering;
 import Gensokyo.vfx.EmptyEffect;
 import actlikeit.dungeons.CustomDungeon;
-import basemod.abstracts.CustomMonster;
 import basemod.animations.AbstractAnimation;
 import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.Texture;
@@ -37,7 +37,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 
-public class Yuyuko extends CustomMonster
+public class Yuyuko extends AbstractSpriterMonster
 {
     private static final Texture FAN = new Texture("GensokyoResources/images/monsters/Yuyuko/Fan.png");
     private TextureRegion FAN_REGION;

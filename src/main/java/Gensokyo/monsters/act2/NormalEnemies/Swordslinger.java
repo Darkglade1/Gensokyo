@@ -1,9 +1,9 @@
 package Gensokyo.monsters.act2.NormalEnemies;
 
 import Gensokyo.BetterSpriterAnimation;
+import Gensokyo.monsters.AbstractSpriterMonster;
 import Gensokyo.powers.act1.VigorPower;
 import Gensokyo.powers.act2.Reckless;
-import basemod.abstracts.CustomMonster;
 import com.brashmonkey.spriter.Animation;
 import com.brashmonkey.spriter.Player;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
@@ -21,7 +21,7 @@ import com.megacrit.cardcrawl.powers.StrengthPower;
 import java.util.HashMap;
 import java.util.Map;
 
-public class Swordslinger extends CustomMonster
+public class Swordslinger extends AbstractSpriterMonster
 {
     public static final String ID = "Gensokyo:Swordslinger";
     private static final MonsterStrings monsterStrings;
@@ -140,12 +140,6 @@ public class Swordslinger extends CustomMonster
         } else {
             this.setMoveShortcut(ATTACK);
         }
-    }
-
-    @Override
-    public void die(boolean triggerRelics) {
-        this.useShakeAnimation(5.0F);
-        super.die(triggerRelics);
     }
 
     static {

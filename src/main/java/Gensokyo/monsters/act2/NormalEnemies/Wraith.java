@@ -1,8 +1,8 @@
 package Gensokyo.monsters.act2.NormalEnemies;
 
 import Gensokyo.BetterSpriterAnimation;
+import Gensokyo.monsters.AbstractSpriterMonster;
 import Gensokyo.powers.act2.Spooked;
-import basemod.abstracts.CustomMonster;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.actions.common.DamageAction;
@@ -20,7 +20,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 
-public class Wraith extends CustomMonster
+public class Wraith extends AbstractSpriterMonster
 {
     public static final String ID = "Gensokyo:Wraith";
     private static final MonsterStrings monsterStrings;
@@ -128,12 +128,6 @@ public class Wraith extends CustomMonster
             possibilities.add(DEBUFF);
         }
         this.setMoveShortcut(possibilities.get(AbstractDungeon.monsterRng.random(possibilities.size() - 1)));
-    }
-
-    @Override
-    public void die(boolean triggerRelics) {
-        this.useShakeAnimation(5.0F);
-        super.die(triggerRelics);
     }
 
     static {

@@ -1,8 +1,8 @@
 package Gensokyo.monsters.act2.NormalEnemies;
 
 import Gensokyo.BetterSpriterAnimation;
+import Gensokyo.monsters.AbstractSpriterMonster;
 import Gensokyo.powers.act2.Reflective;
-import basemod.abstracts.CustomMonster;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.actions.common.DamageAction;
@@ -22,7 +22,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 
-public class AngelMirror extends CustomMonster
+public class AngelMirror extends AbstractSpriterMonster
 {
     public static final String ID = "Gensokyo:AngelMirror";
     private static final MonsterStrings monsterStrings;
@@ -145,12 +145,6 @@ public class AngelMirror extends CustomMonster
             }
             this.setMoveShortcut(possibilities.get(AbstractDungeon.monsterRng.random(possibilities.size() - 1)));
         }
-    }
-
-    @Override
-    public void die(boolean triggerRelics) {
-        this.useShakeAnimation(5.0F);
-        super.die(triggerRelics);
     }
 
     static {

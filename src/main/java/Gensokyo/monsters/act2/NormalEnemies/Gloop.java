@@ -1,8 +1,8 @@
 package Gensokyo.monsters.act2.NormalEnemies;
 
 import Gensokyo.BetterSpriterAnimation;
+import Gensokyo.monsters.AbstractSpriterMonster;
 import Gensokyo.powers.act2.GlitterPower;
-import basemod.abstracts.CustomMonster;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.actions.common.DamageAction;
@@ -21,7 +21,7 @@ import com.megacrit.cardcrawl.powers.WeakPower;
 import java.util.HashMap;
 import java.util.Map;
 
-public class Gloop extends CustomMonster
+public class Gloop extends AbstractSpriterMonster
 {
     public static final String ID = "Gensokyo:Gloop";
     private static final MonsterStrings monsterStrings;
@@ -141,12 +141,6 @@ public class Gloop extends CustomMonster
         } else {
             this.setMoveShortcut(ATTACK);
         }
-    }
-
-    @Override
-    public void die(boolean triggerRelics) {
-        this.useShakeAnimation(5.0F);
-        super.die(triggerRelics);
     }
 
     static {
