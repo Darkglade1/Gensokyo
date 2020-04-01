@@ -1,6 +1,6 @@
 package Gensokyo.actions;
 
-import Gensokyo.relics.PerfectCherryBlossom;
+import Gensokyo.relics.act1.PerfectCherryBlossom;
 import com.evacipated.cardcrawl.mod.stslib.powers.interfaces.OnPlayerDeathPower;
 import com.evacipated.cardcrawl.mod.stslib.relics.OnPlayerDeathRelic;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;

@@ -1,6 +1,6 @@
 package Gensokyo.actions;
 
-import Gensokyo.relics.OccultBall;
+import Gensokyo.relics.act1.OccultBall;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.common.MakeTempCardInHandAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;

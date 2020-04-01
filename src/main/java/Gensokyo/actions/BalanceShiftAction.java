@@ -1,19 +1,12 @@
 package Gensokyo.actions;
 
-import Gensokyo.monsters.bossRush.Eiki;
-import Gensokyo.powers.Guilt;
-import Gensokyo.powers.Innocence;
+import Gensokyo.monsters.act2.Eiki;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.math.Interpolation;
 import com.badlogic.gdx.math.MathUtils;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
-import com.megacrit.cardcrawl.actions.animations.TalkAction;
-import com.megacrit.cardcrawl.actions.common.EscapeAction;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.core.Settings;
-import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
-import com.megacrit.cardcrawl.monsters.AbstractMonster;
-import com.megacrit.cardcrawl.screens.DeathScreen;
 
 public class BalanceShiftAction extends AbstractGameAction {
     Eiki eiki;
@@ -34,16 +27,10 @@ public class BalanceShiftAction extends AbstractGameAction {
     public void update() {
         if (!hasSetValues) {
             this.startAngle = eiki.angle;
-            int guilt = 0;
-            int innocence = 0;
-            if (AbstractDungeon.player.hasPower(Guilt.POWER_ID)) {
-                guilt = AbstractDungeon.player.getPower(Guilt.POWER_ID).amount;
-            }
-            if (AbstractDungeon.player.hasPower(Innocence.POWER_ID)) {
-                innocence = AbstractDungeon.player.getPower(Innocence.POWER_ID).amount;
-            }
+            int guilt = eiki.guiltCount;
+            int innocence = eiki.innocenceCount;
             difference = guilt - innocence;
-            this.endAngle = difference * ((MAX_ANGLE) / eiki.guiltThreshold);
+            this.endAngle = difference * ((MAX_ANGLE) / 20);
             if (this.endAngle > MAX_ANGLE) {
                 this.endAngle = MAX_ANGLE;
             }
@@ -67,23 +54,7 @@ public class BalanceShiftAction extends AbstractGameAction {
 
         if (eiki.angle == endAngle) {
             if (startAngle != endAngle) {
-                CardCrawlGame.sound.playA("BELL", MathUtils.random(-0.2F, -0.3F));
-            }
-            if (difference >= eiki.guiltThreshold) {
-                AbstractDungeon.actionManager.addToBottom(new TalkAction(eiki, Eiki.DIALOG[2]));
-                AbstractDungeon.player.isDead = true;
-                AbstractDungeon.deathScreen = new DeathScreen(AbstractDungeon.getMonsters());
-                AbstractDungeon.actionManager.clearPostCombatActions();
-            } else if (difference < 0) {
-                for (AbstractMonster mo : AbstractDungeon.getCurrRoom().monsters.monsters) {
-                    if (mo instanceof Eiki) {
-                        AbstractDungeon.actionManager.addToBottom(new TalkAction(eiki, Eiki.DIALOG[1]));
-                        AbstractDungeon.actionManager.addToBottom(new SetFlipAction(eiki));
-                        AbstractDungeon.actionManager.addToBottom(new EscapeAction(eiki));
-                    } else {
-                        mo.die();;
-                    }
-                }
+                CardCrawlGame.sound.playAV("BELL", MathUtils.random(-0.2F, -0.3F), 0.4F);
             }
             this.isDone = true;
         }

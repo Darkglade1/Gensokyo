@@ -6,4 +6,8 @@ import com.megacrit.cardcrawl.monsters.AbstractMonster;
 public class IntentEnums {
     @SpireEnum
     public static AbstractMonster.Intent DEATH;
+    @SpireEnum
+    public static AbstractMonster.Intent ATTACK_AREA;
+    @SpireEnum
+    public static AbstractMonster.Intent PURIFY;
 }

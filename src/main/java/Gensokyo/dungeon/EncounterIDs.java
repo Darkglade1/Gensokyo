@@ -8,4 +8,12 @@ public class EncounterIDs {
     public static final String RABBITS_2 = "Gensokyo:2_Rabbits";
     public static final String GRYPHON_AND_RABBIT = "Gensokyo:Gryphon_and_Rabbit";
     public static final String PYTHON_AND_KODAMA = "Gensokyo:Python_and_Kodama";
+    public static final String ETERNAL_RIVALS = "Gensokyo:Eternal_Rivals";
+    public static final String SLIME_GROUP = "Gensokyo:Slime_Group";
+    public static final String DOGS_3 = "Gensokyo:3_Dogs";
+    public static final String GLOOPS_2 = "Gensokyo:2_Gloops";
+    public static final String GLOOPS_3 = "Gensokyo:3_Gloops";
+    public static final String CHOMPER_AND_GLOOP = "Gensokyo:Chomper_and_Gloop";
+    public static final String MONOLITH_AND_DOG = "Gensokyo:Monolith_and_Dog";
+    public static final String MIRROR_AND_DOG = "Gensokyo:Mirror_and_Dog";
 }

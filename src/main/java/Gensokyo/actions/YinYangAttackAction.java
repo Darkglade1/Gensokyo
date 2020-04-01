@@ -1,6 +1,6 @@
 package Gensokyo.actions;
 
-import Gensokyo.powers.Position;
+import Gensokyo.powers.act1.Position;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.common.DamageAction;
 import com.megacrit.cardcrawl.cards.DamageInfo;

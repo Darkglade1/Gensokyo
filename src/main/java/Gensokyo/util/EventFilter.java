@@ -1,19 +1,23 @@
 package Gensokyo.util;
 
 import Gensokyo.GensokyoMod;
-import Gensokyo.events.ClashOfLegends;
-import Gensokyo.events.DemonBookSeller;
-import Gensokyo.events.FieldTripToAnotherWorld;
-import Gensokyo.events.ForestOfMagic;
-import Gensokyo.events.GardenOfTheSun;
-import Gensokyo.events.GoodsFromTheOutsideWorld;
-import Gensokyo.events.HakureiShrine;
-import Gensokyo.events.ScarletDevilMansion;
-import Gensokyo.events.marisaEvents.AHazardousHobby;
-import Gensokyo.events.marisaEvents.AnOldGhost;
-import Gensokyo.events.marisaEvents.BookThief;
-import Gensokyo.events.marisaEvents.JustAVisit;
-import Gensokyo.events.marisaEvents.Walpurgisnacht;
+import Gensokyo.events.act1.ClashOfLegends;
+import Gensokyo.events.act1.DemonBookSeller;
+import Gensokyo.events.act1.FieldTripToAnotherWorld;
+import Gensokyo.events.act1.ForestOfMagic;
+import Gensokyo.events.act1.GardenOfTheSun;
+import Gensokyo.events.act1.GoodsFromTheOutsideWorld;
+import Gensokyo.events.act1.HakureiShrine;
+import Gensokyo.events.act1.ScarletDevilMansion;
+import Gensokyo.events.act1.marisaEvents.AHazardousHobby;
+import Gensokyo.events.act1.marisaEvents.AnOldGhost;
+import Gensokyo.events.act1.marisaEvents.BookThief;
+import Gensokyo.events.act1.marisaEvents.JustAVisit;
+import Gensokyo.events.act1.marisaEvents.Walpurgisnacht;
+import Gensokyo.events.act2.FiresOfInvention;
+import Gensokyo.events.act2.NohDance;
+import Gensokyo.events.act2.OneWingedWhiteHeron;
+import Gensokyo.events.act2.TheWhiteLotus;
 import ThMod.characters.Marisa;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.relics.HappyFlower;
@@ -64,6 +68,22 @@ public class EventFilter {
                 }
             } else if (event.equals(BookThief.ID)) {
                 if (!(AbstractDungeon.floorNum >= 4)) {
+                    eventsToRemove.add(event);
+                }
+            } else if (event.equals(TheWhiteLotus.ID)) {
+                if (!(TheWhiteLotus.hasZeroCostCard()) && !(AbstractDungeon.player.gold >= TheWhiteLotus.GOLD_COST)) {
+                    eventsToRemove.add(event);
+                }
+            } else if (event.equals(NohDance.ID)) {
+                if (!(NohDance.staticHasOtherMask()) && !(AbstractDungeon.player.gold >= NohDance.COST)) {
+                    eventsToRemove.add(event);
+                }
+            } else if (event.equals(OneWingedWhiteHeron.ID)) {
+                if (!OneWingedWhiteHeron.canSpawn()) {
+                    eventsToRemove.add(event);
+                }
+            } else if (event.equals(FiresOfInvention.ID)) {
+                if (!FiresOfInvention.hasValidRelic()) {
                     eventsToRemove.add(event);
                 }
             }

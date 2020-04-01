@@ -1,7 +1,7 @@
 package Gensokyo.patches;
 
-import Gensokyo.monsters.Animal;
-import Gensokyo.powers.PolymorphPower;
+import Gensokyo.monsters.act1.Animal;
+import Gensokyo.powers.act1.PolymorphPower;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.evacipated.cardcrawl.modthespire.lib.SpirePatch;
 import com.evacipated.cardcrawl.modthespire.lib.SpireReturn;

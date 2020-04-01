@@ -1,15 +1,31 @@
 package Gensokyo.scenes;
 
-import Gensokyo.monsters.Aya;
-import Gensokyo.monsters.Cirno;
-import Gensokyo.monsters.Kokoro;
-import Gensokyo.monsters.Mamizou;
-import Gensokyo.monsters.Reimu;
-import Gensokyo.monsters.Sumireko;
-import Gensokyo.monsters.Yukari;
-import Gensokyo.monsters.bossRush.Eiki;
-import Gensokyo.monsters.bossRush.Yuyuko;
-import Gensokyo.monsters.marisaMonsters.Patchouli;
+import Gensokyo.dungeon.Gensokyo;
+import Gensokyo.monsters.act1.Aya;
+import Gensokyo.monsters.act1.Cirno;
+import Gensokyo.monsters.act1.Kokoro;
+import Gensokyo.monsters.act1.Mamizou;
+import Gensokyo.monsters.act1.Reimu;
+import Gensokyo.monsters.act1.Sumireko;
+import Gensokyo.monsters.act1.Yukari;
+import Gensokyo.monsters.act2.Byakuren;
+import Gensokyo.monsters.act2.Eiki;
+import Gensokyo.monsters.act2.Kaguya;
+import Gensokyo.monsters.act2.Koishi;
+import Gensokyo.monsters.act2.Miko;
+import Gensokyo.monsters.act2.NormalEnemies.AngelMirror;
+import Gensokyo.monsters.act2.NormalEnemies.BigMudSlime;
+import Gensokyo.monsters.act2.NormalEnemies.Chomper;
+import Gensokyo.monsters.act2.NormalEnemies.CosmicMonolith;
+import Gensokyo.monsters.act2.NormalEnemies.Gloop;
+import Gensokyo.monsters.act2.NormalEnemies.SlimeBunny;
+import Gensokyo.monsters.act2.NormalEnemies.Swordslinger;
+import Gensokyo.monsters.act2.NormalEnemies.TanukiDog;
+import Gensokyo.monsters.act2.NormalEnemies.Wraith;
+import Gensokyo.monsters.act2.Reisen;
+import Gensokyo.monsters.act2.Tenshi;
+import Gensokyo.monsters.act2.Yuyuko;
+import Gensokyo.monsters.act1.marisaMonsters.Patchouli;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.Texture;
@@ -86,18 +102,57 @@ public class GensokyoScene extends AbstractScene {
                     this.bg = this.atlas.findRegion("mod/Palace");
                 } else if (mo instanceof Sumireko) {
                     this.bg = this.atlas.findRegion("mod/OutsideWorld");
-                } else if (mo instanceof Yuyuko) {
-                    this.bg = this.atlas.findRegion("mod/ElegantPlace");
                 } else if (mo instanceof Eiki) {
                     this.bg = this.atlas.findRegion("mod/ConcertStage");
+                } else if (mo instanceof Kaguya) {
+                    this.bg = this.atlas.findRegion("mod/Eientei");
+                } else if (mo instanceof Byakuren || mo instanceof Miko) {
+                    this.bg = this.atlas.findRegion("mod/FancyPlaceNight");
+                } else if (mo instanceof Reisen) {
+                    this.bg = this.atlas.findRegion("mod/ElegantPlace");
+                } else if (mo instanceof Koishi) {
+                    this.bg = this.atlas.findRegion("mod/Palace");
+                } else if (mo instanceof Yuyuko) {
+                    this.bg = this.atlas.findRegion("mod/ElegantPlace");
+                } else if (mo instanceof Tenshi) {
+                    this.bg = this.atlas.findRegion("mod/GenbuRavineCloudy");
+                } else if (mo instanceof AngelMirror) {
+                    this.bg = this.atlas.findRegion("mod/Ruins");
+                    break; //override the Tanuki's Dog bg when they are grouped together
+                } else if (mo instanceof Chomper) {
+                    this.bg = this.atlas.findRegion("mod/Forest");
+                } else if (mo instanceof CosmicMonolith) {
+                    this.bg = this.atlas.findRegion("mod/Cave");
+                } else if (mo instanceof TanukiDog) {
+                    this.bg = this.atlas.findRegion("mod/Forest");
+                } else if (mo instanceof Gloop) {
+                    this.bg = this.atlas.findRegion("mod/Island");
+                } else if (mo instanceof Wraith) {
+                    this.bg = this.atlas.findRegion("mod/Cave");
+                } else if (mo instanceof Swordslinger) {
+                    this.bg = this.atlas.findRegion("mod/Desert");
+                } else if (mo instanceof BigMudSlime || mo instanceof SlimeBunny) {
+                    this.bg = this.atlas.findRegion("mod/Desert");
                 } else {
-                    this.bg = this.atlas.findRegion("mod/TanukiForest");
+                    if (CardCrawlGame.dungeon instanceof Gensokyo) {
+                        this.bg = this.atlas.findRegion("mod/TanukiForest");
+                    } else {
+                        this.bg = this.atlas.findRegion("mod/TanukiForestNight");
+                    }
                 }
             }
         } else if (room instanceof ShopRoom) {
-            this.bg = this.atlas.findRegion("mod/Shop");
+            if (CardCrawlGame.dungeon instanceof Gensokyo) {
+                this.bg = this.atlas.findRegion("mod/Shop");
+            } else {
+                this.bg = this.atlas.findRegion("mod/HumanVillage");
+            }
         } else {
-            this.bg = this.atlas.findRegion("mod/TanukiForest");
+            if (CardCrawlGame.dungeon instanceof Gensokyo) {
+                this.bg = this.atlas.findRegion("mod/TanukiForest");
+            } else {
+                this.bg = this.atlas.findRegion("mod/TanukiForestNight");
+            }
         }
         this.fadeInAmbiance();
     }

@@ -147,32 +147,121 @@
         "NAME": "Doppelganger",
         "DESCRIPTIONS": ["Your next #b", " card is", " cards are", " played twice."]
 },
-"Gensokyo:DeathTouch": {
-        "NAME": "Death Touch",
-        "DESCRIPTIONS": ["If you receive unblocked attack damage from this creature, you #rdie."]
-},
 "Gensokyo:Reflowering": {
         "NAME": "Reflowering",
-        "DESCRIPTIONS": ["Whenever you play a #yButterfly, add a #psoul to the fan. When the fan has #b", " #psouls . . ."]
+        "DESCRIPTIONS": ["Whenever a #ySpirit dies, loses #b", " #yStrength."]
 },
-"Gensokyo:Guilt": {
-        "NAME": "Guilt",
-        "DESCRIPTIONS": ["You have #b", " #rGuilt. Whenever you deal unblocked attack damage, gain that much #rGuilt. If your #rGuilt exceeds your #gInnocence by at least #b", ", you #rlose."]
+"Gensokyo:NextTurnInnocence": {
+        "NAME": "Innocence",
+        "DESCRIPTIONS": ["Next turn, this creature's outgoing #yBlock gain is #ydoubled and converted to #ghealing instead."]
 },
 "Gensokyo:Innocence": {
         "NAME": "Innocence",
-        "DESCRIPTIONS": ["You have #b", " #gInnocence. Whenever you receive unblocked attack damage, gain #b1 #gInnocence. If your #gInnocence exceeds your #rGuilt, you #gwin."]
+        "DESCRIPTIONS": ["This turn, this creature's outgoing #yBlock gain is #ydoubled and converted to #ghealing instead."]
 },
-"Gensokyo:Virtue": {
-        "NAME": "Virtue",
-        "DESCRIPTIONS": ["#yImmune to non-attack damage."]
+"Gensokyo:MirrorPower": {
+        "NAME": "Mirror",
+        "DESCRIPTIONS": ["If you play more #yAttacks than #ySkills this turn, intends to #yAttack next turn. NL If you play more #ySkills than #yAttacks this turn, intends to #yDefend next turn. NL If you play an equal number of #yAttacks and #ySkills this turn, intends to #yBuff next turn.", " NL You have played #b", " #yAttack and #b", " #yAttacks and #b", " #ySkill.", " #ySkills."]
 },
-"Gensokyo:Resolve": {
-        "NAME": "Resolve",
-        "DESCRIPTIONS": ["At the end of her turn, gains #b", " #yBlock. At the start of her turn, takes damage equal to the amount of #yblocked damage this turn. #b(", ")"]
+"Gensokyo:HouraiImmortal": {
+        "NAME": "Hourai Immortal",
+        "DESCRIPTIONS": ["Whenever this creature dies, it revives at full HP and transforms the #pImpossible #pRequest. Flees after dying #b", " more time.", " more times."]
 },
-"Gensokyo:Judgement": {
-        "NAME": "Judgement",
-        "DESCRIPTIONS": ["On victory, gain #b", " #gMax #gHP."]
+"Gensokyo:LunaticPrincess": {
+        "NAME": "Lunatic Princess",
+        "DESCRIPTIONS": ["Whenever the #pImpossible #pRequest is transformed, if you fulfilled the condition, you gain #b",
+                        " NL (You have played ", " an Attack", " a Skill", " a Power", ",", ".)",
+                        " card.)", " cards.)",
+                        " NL (You have drawn ",
+                        " NL (You have dealt ", " damage.)",
+                        " NL (You have gained ", " Block.)", " turns.)",
+                        " NL (Completed).",
+                        " #yStrength. If you didn't fulfill the request, the enemy gains #b", " #yStrength."]
+},
+"Gensokyo:BetterDrawReduction": {
+        "NAME": "Draw Reduction",
+        "DESCRIPTIONS": ["Next turn, draw #b", " less card.", " less cards."]
+},
+"Gensokyo:TabooFourOfAKindPower": {
+        "NAME": "Taboo \"Four of a Kind\"",
+        "DESCRIPTIONS": ["This turn, your next card is played #b", " additional ", "time.", "times."]
+},
+"Gensokyo:RivalPosition": {
+        "NAME": "Spell Card Rules",
+        "DESCRIPTIONS": ["This creature is in lane #b" , ". It is currently focused on its #rrival. Once the #rrival is #rdefeated, it will focus on #ryou."]
+},
+"Gensokyo:RivalPlayerPosition": {
+        "NAME": "Spell Card Rules",
+        "DESCRIPTIONS": ["You are in lane #b" , ". Whenever you play a #ySkill, move #yUp #b1 lane. Whenever you play an #yAttack, move #yDown #b1 lane. NL If you are caught in the #rcrossfire, you will receive the effects of the rivals' single target moves instead.", " NL #yLane #b", " is in the #rcrossfire."]
+},
+"Gensokyo:TenDesires": {
+        "NAME": "Tenfold Listening",
+        "DESCRIPTIONS": ["Every other instance of #yattack #ydamage dealt to this creature is prevented."]
+},
+"Gensokyo:Purity": {
+        "NAME": "Purity",
+        "DESCRIPTIONS": ["Every other #ydebuff applied to this creature is #ynegated."]
+},
+"Gensokyo:Counter": {
+        "NAME": "Counter",
+        "DESCRIPTIONS": ["The next", " time ", " times ", "this creature deals #yattack #ydamage, it deals that much damage to itself as well."]
+},
+"Gensokyo:WishfulSoul": {
+        "NAME": "Strength Drain",
+        "DESCRIPTIONS": ["At end of round, loses up to #b", " #ypositive #yStrength and gives that amount to this debuff's source."]
+},
+"Gensokyo:LunaticRedEyes": {
+        "NAME": "Lunatic Red Eyes",
+        "DESCRIPTIONS": ["Every other card you play is #yexhausted."]
+},
+"Gensokyo:ReleaseOfTheId": {
+        "NAME": "Release of the Id",
+        "DESCRIPTIONS": ["At the start of your turn, lose [E] . Play the first card you draw each turn."]
+},
+"Gensokyo:ThirdEyePower": {
+        "NAME": "Third Eye",
+        "DESCRIPTIONS": ["At the end of combat, lose #yFrozen #yEye."]
+},
+"Gensokyo:PhilosophyPower": {
+        "NAME": "Despise",
+        "DESCRIPTIONS": ["At the end of your turn, take #b", " damage."]
+},
+"Gensokyo:Weather": {
+        "NAME": "Weather",
+        "DESCRIPTIONS": ["Cherry Blossoms",
+                        "Storm",
+                        "Earthquake",
+                        " NL After receiving #b",
+                        " damage, changes weather at end of round.",
+                        "Changes weather at end of round.",
+                        "At the start of your turn, gain ",
+                        " and draw #b",
+                        " card.",
+                        " cards.",
+                        " This creature moves twice on its turn.",
+                        "At end of round, ALL characters gain #b",
+                        " #yWeak.",
+                        "At end of round, ALL characters gain #b",
+                        " #yVulnerable."]
+},
+"Gensokyo:Reckless": {
+        "NAME": "Reckless",
+        "DESCRIPTIONS": ["Whenever you gain #yBlock, loses that much #yStrength this turn."]
+},
+"Gensokyo:Spooked": {
+        "NAME": "Spooked",
+        "DESCRIPTIONS": ["After receiving #b", " more damage this turn, gains #b", " #yIntangible."]
+},
+"Gensokyo:Quicksand": {
+        "NAME": "Quicksand",
+        "DESCRIPTIONS": ["Whenever you receive attack damage from this enemy, you gain #b", " #yConstricted."]
+},
+"Gensokyo:GlitterPower": {
+        "NAME": "Glitter",
+        "DESCRIPTIONS": ["At the end of your turn, take #b", " damage for each #pdebuff on you. NL You will take #b", " damage."]
+},
+"Gensokyo:Reflective": {
+        "NAME": "Reflective",
+        "DESCRIPTIONS": ["Whenever this creature fully #yblocks attack damage, deals #b", " damage back."]
 }
 }

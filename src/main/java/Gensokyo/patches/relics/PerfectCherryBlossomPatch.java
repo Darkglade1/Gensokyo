@@ -1,6 +1,6 @@
 package Gensokyo.patches.relics;
 
-import Gensokyo.relics.PerfectCherryBlossom;
+import Gensokyo.relics.act1.PerfectCherryBlossom;
 import com.evacipated.cardcrawl.modthespire.lib.LineFinder;
 import com.evacipated.cardcrawl.modthespire.lib.Matcher;
 import com.evacipated.cardcrawl.modthespire.lib.SpireInsertLocator;

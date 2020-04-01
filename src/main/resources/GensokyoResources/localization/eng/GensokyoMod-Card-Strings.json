@@ -108,6 +108,62 @@
   },
   "Gensokyo:Butterfly": {
     "NAME": "Butterfly",
-    "DESCRIPTION": "Retain. NL Gain !B! Block. NL Lose !M! HP. NL Exhaust."
+    "DESCRIPTION": "Retain. NL Lose !M! HP. NL Gain !B! Block. NL Exhaust."
+  },
+  "Gensokyo:ImpossibleRequest": {
+    "NAME": "Impossible Request",
+    "DESCRIPTION": "gensokyo:Impossible_Request."
+  },
+  "Gensokyo:BuddhaStoneBowl": {
+    "NAME": "Buddha's Stone Bowl",
+    "DESCRIPTION": "gensokyo:Impossible_Request. NL Play an Attack, Skill, and Power in a single turn."
+  },
+  "Gensokyo:BulletBranchOfHourai": {
+    "NAME": "Bullet Branch of Hourai",
+    "DESCRIPTION": "gensokyo:Impossible_Request. NL Play !M! cards in a single turn."
+  },
+  "Gensokyo:FireRatsRobe": {
+    "NAME": "Fire Rat's Robe",
+    "DESCRIPTION": "gensokyo:Impossible_Request. NL Draw !M! cards in a single turn."
+  },
+  "Gensokyo:JewelFromTheDragonsNeck": {
+    "NAME": "Jewel from the Dragon's Neck",
+    "DESCRIPTION": "gensokyo:Impossible_Request. NL Deal !M! damage in a single turn."
+  },
+  "Gensokyo:SwallowsCowrieShell": {
+    "NAME": "Swallow's Cowrie Shell",
+    "DESCRIPTION": "gensokyo:Impossible_Request. NL Gain !M! Block in a single turn."
+  },
+  "Gensokyo:TabooFourOfAKind": {
+    "NAME": "Taboo \"Four of a Kind\"",
+    "DESCRIPTION": "Ethereal. NL This turn, your next card is played !M! additional time(s). NL Increase the effect of ALL copies of this card by !Gensokyo:SecondMagic! this combat. NL Can only be played once per turn. NL Exhaust.",
+    "UPGRADE_DESCRIPTION": "This turn, your next card is played !M! additional time(s). NL Increase the effect of ALL copies of this card by !Gensokyo:SecondMagic! this combat. NL Can only be played once per turn. NL Exhaust.",
+    "EXTENDED_DESCRIPTION": ["I can only play 1 Taboo \"Four of a Kind\" each turn."]
+  },
+  "Gensokyo:AllTheWorldsEvil": {
+    "NAME": "All the World's Evil",
+    "DESCRIPTION": "Apply !M! Vulnerable to ALL characters."
+  },
+  "Gensokyo:EmbersOfLove": {
+    "NAME": "Embers of Love",
+    "DESCRIPTION": "A random enemy gains !M! Strength."
+  },
+  "Gensokyo:Philosophy": {
+    "NAME": "Philosophy of the Despised",
+    "DESCRIPTION": "At the end of your turn, take !M! damage."
+  },
+  "Gensokyo:ReflexRadar": {
+    "NAME": "Reflex Radar",
+    "DESCRIPTION": "Draw !M! card. NL Exhaust.",
+    "UPGRADE_DESCRIPTION": "Draw !M! card."
+  },
+  "Gensokyo:MindShatter": {
+    "NAME": "Mind Shatter",
+    "DESCRIPTION": "Shuffle ALL non-exhausting cards in your exhaust pile into your draw pile. NL Lose !M! HP for each card moved this way."
+  },
+  "Gensokyo:ShootingStar": {
+    "NAME": "Shooting Star",
+    "DESCRIPTION": "Add a copy of another card in your deck to your hand. NL Exhaust.",
+    "UPGRADE_DESCRIPTION": "Retain. NL Add a copy of another card in your deck to your hand. NL Exhaust."
   }
 }

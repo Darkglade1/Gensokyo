@@ -234,31 +234,201 @@
   },
   "Gensokyo:Yuyuko": {
     "MOVES": [
-      "Ghostly Butterfly",
       "Ghastly Dream",
       "Law of Mortality",
-      "Resurrection Butterfly",
-      "Saigyouji Parinirvana",
-      "Butterfly Delusion"
+      "Resurrection Butterfly"
     ],
     "NAME": "Princess of the Netherworld",
     "DIALOG": [
       "A lovely day for death, isn't it?"
     ]
   },
+  "Gensokyo:BlueSoul": {
+    "MOVES": [
+
+    ],
+    "NAME": "Spirit",
+    "DIALOG": [
+
+    ]
+  },
+  "Gensokyo:PurpleSoul": {
+    "MOVES": [
+
+    ],
+    "NAME": "Spirit",
+    "DIALOG": [
+
+    ]
+  },
   "Gensokyo:Eiki": {
     "MOVES": [
-      "Last Judgement",
-      "Trial of Kings",
+      "Cleansed Crystal Judgement - ",
+      "Wandering Sin",
       "Guilty or Not Guilty",
-      "Wandering Sin"
+      "Rod of Remorse"
     ],
     "NAME": "Supreme Judge of Paradise",
     "DIALOG": [
-      "I will see you answer for your misdeeds.",
-      "I guess you were innocent after all.",
-      "The wages of sin is death."
+      "You cannot escape the sins of your past.",
+      "Your resilience is impressive."
     ]
+  },
+  "Gensokyo:Mirror": {
+    "MOVES": [
+      "Guilt",
+      "Innocence",
+      "Balance"
+    ],
+    "NAME": "Cleansed Crystal Mirror",
+    "DIALOG": [
+
+    ]
+  },
+  "Gensokyo:Kaguya": {
+    "MOVES": [
+      "Brilliant Dragon Bullet",
+      "Buddhist Diamond"
+    ],
+    "NAME": "Sinner of Eternity",
+    "DIALOG": [
+      "I do hope you'll make this entertaining for me.",
+      "Well, that was fun."
+    ]
+  },
+  "Gensokyo:Byakuren": {
+    "MOVES": [
+      "Star Maelstrom",
+      "Devil's Recitation",
+      "Superhuman Self",
+      "Indra's Thunder"
+    ],
+    "NAME": "Sealed Great Magician",
+    "DIALOG": [
+      "Your wicked magic has no place here, Miko.",
+      "It seems your immortality was just a fraud."
+    ]
+  },
+  "Gensokyo:Miko": {
+    "MOVES": [
+      "Golden Sword",
+      "Shukuchi Cape",
+      "Wishful Soul of Desire",
+      "Laser of Seventeen Articles",
+      "Red Cape Blue Cape"
+    ],
+    "NAME": "Supremely Gifted Hermit",
+    "DIALOG": [
+      "Your beliefs are a sham!",
+      "Your lack of training was your downfall."
+    ]
+  },
+  "Gensokyo:Reisen": {
+    "MOVES": [
+      "Disorder Eye",
+      "Lunatic Blast",
+      "Mind Wave",
+      "Tendrils of Insanity"
+    ],
+    "NAME": "Lunatic Moon Rabbit",
+    "DIALOG": [
+      "I'm afraid I can't let you pass.",
+      "Oh, I remember you!",
+      "Sorry, but I can't make an exception for you."
+    ]
+  },
+  "Gensokyo:Kune": {
+    "MOVES": [
+
+    ],
+    "NAME": "Kune",
+    "DIALOG": [
+
+    ]
+  },
+  "Gensokyo:Koishi": {
+    "MOVES": [
+      "Release of the Id",
+      "Catch and Rose",
+      "Stinging Mind"
+    ],
+    "NAME": "Imaginary Personality Holder",
+    "DIALOG": [
+      "This'll be fun!"
+    ]
+  },
+  "Gensokyo:Tenshi": {
+    "MOVES": [
+      "World Creation Press",
+      "Guarding Keystone",
+      "Spiritual Stone"
+    ],
+    "NAME": "Daughter of Heaven",
+    "DIALOG": [
+      "Give it all you've got!"
+    ]
+  },
+  "Gensokyo:Swordslinger": {
+    "MOVES": [
+      "Sharpen"
+    ],
+    "NAME": "Swordslinger"
+  },
+  "Gensokyo:Wraith": {
+    "MOVES": [
+     ""
+    ],
+    "NAME": "Wraith"
+  },
+  "Gensokyo:BigMudSlime": {
+    "MOVES": [
+      ""
+    ],
+    "NAME": "Big Mud Slime"
+  },
+  "Gensokyo:SlimeBunny": {
+    "MOVES": [
+      null,
+      "Purify",
+      null
+    ],
+    "NAME": "Slime Bunny"
+  },
+  "Gensokyo:CosmicMonolith": {
+    "MOVES": [
+      "Charge-Up Ray",
+      null,
+      "Doomsday"
+    ],
+    "NAME": "Cosmic Monolith"
+  },
+  "Gensokyo:TanukiDog": {
+    "MOVES": [
+      null,
+      null,
+      "Berserk"
+    ],
+    "NAME": "Tanuki Dog"
+  },
+  "Gensokyo:Gloop": {
+    "MOVES": [
+      "Glitter",
+      null,
+      null
+    ],
+    "NAME": "Gloop"
+  },
+  "Gensokyo:AngelMirror": {
+    "MOVES": [
+
+    ],
+    "NAME": "Angel Mirror"
+  },
+  "Gensokyo:Chomper": {
+    "MOVES": [
+
+    ],
+    "NAME": "Chomper"
   }
 }
 

@@ -1,8 +1,11 @@
 package Gensokyo.patches;
 
-import Gensokyo.monsters.Kokoro;
-import Gensokyo.monsters.Reimu;
-import Gensokyo.monsters.Yukari;
+import Gensokyo.dungeon.EncounterIDs;
+import Gensokyo.monsters.act2.Eiki;
+import Gensokyo.monsters.act2.Kaguya;
+import Gensokyo.monsters.act1.Kokoro;
+import Gensokyo.monsters.act1.Reimu;
+import Gensokyo.monsters.act1.Yukari;
 import basemod.patches.com.megacrit.cardcrawl.dungeons.AbstractDungeon.CustomBosses;
 import com.evacipated.cardcrawl.modthespire.lib.LineFinder;
 import com.evacipated.cardcrawl.modthespire.lib.Matcher;
@@ -32,6 +35,15 @@ public class BossIconBlackBoxPatch {
         } else if (key.equals(Kokoro.ID)) {
             DungeonMap.boss = ImageMaster.loadImage("GensokyoResources/images/monsters/Kokoro/Kokoro.png");
             DungeonMap.bossOutline = ImageMaster.loadImage("GensokyoResources/images/monsters/Kokoro/KokoroOutline.png");
+        } else if (key.equals(Kaguya.ID)) {
+            DungeonMap.boss = ImageMaster.loadImage("GensokyoResources/images/monsters/Kaguya/Kaguya.png");
+            DungeonMap.bossOutline = ImageMaster.loadImage("GensokyoResources/images/monsters/Kaguya/KaguyaOutline.png");
+        } else if (key.equals(Eiki.ID)) {
+            DungeonMap.boss = ImageMaster.loadImage("GensokyoResources/images/monsters/Eiki/Eiki.png");
+            DungeonMap.bossOutline = ImageMaster.loadImage("GensokyoResources/images/monsters/Eiki/EikiOutline.png");
+        } else if (key.equals(EncounterIDs.ETERNAL_RIVALS)) {
+            DungeonMap.boss = ImageMaster.loadImage("GensokyoResources/images/monsters/Byakuren/Rival.png");
+            DungeonMap.bossOutline = ImageMaster.loadImage("GensokyoResources/images/monsters/Byakuren/RivalOutline.png");
         }
     }
     private static class Locator extends SpireInsertLocator {

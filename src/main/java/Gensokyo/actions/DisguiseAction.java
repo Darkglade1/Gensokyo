@@ -1,6 +1,6 @@
 package Gensokyo.actions;
 
-import Gensokyo.monsters.Mamizou;
+import Gensokyo.monsters.act1.Mamizou;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.core.Settings;
 

@@ -1,14 +1,14 @@
 package Gensokyo.dungeon;
 
-import Gensokyo.monsters.Aya;
-import Gensokyo.monsters.Cirno;
-import Gensokyo.monsters.Mamizou;
-import Gensokyo.monsters.NormalEnemies.CorruptedTreant;
-import Gensokyo.monsters.NormalEnemies.Gryphon;
-import Gensokyo.monsters.NormalEnemies.Kitsune;
-import Gensokyo.monsters.NormalEnemies.LivingMonolith;
-import Gensokyo.monsters.NormalEnemies.Python;
-import Gensokyo.monsters.NormalEnemies.VengefulSpirit;
+import Gensokyo.monsters.act1.Aya;
+import Gensokyo.monsters.act1.Cirno;
+import Gensokyo.monsters.act1.Mamizou;
+import Gensokyo.monsters.act1.NormalEnemies.CorruptedTreant;
+import Gensokyo.monsters.act1.NormalEnemies.Gryphon;
+import Gensokyo.monsters.act1.NormalEnemies.Kitsune;
+import Gensokyo.monsters.act1.NormalEnemies.LivingMonolith;
+import Gensokyo.monsters.act1.NormalEnemies.Python;
+import Gensokyo.monsters.act1.NormalEnemies.VengefulSpirit;
 import Gensokyo.scenes.GensokyoScene;
 import actlikeit.dungeons.CustomDungeon;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
@@ -40,8 +40,6 @@ public class Gensokyo extends actlikeit.dungeons.CustomDungeon {
         this.addTempMusic("Futatsuiwa from Gensokyo", "audio/music/Gensokyo/Futatsuiwa from Gensokyo.ogg");
         this.addTempMusic("LockedGirl", "audio/music/Gensokyo/LockedGirl.ogg");
         this.addTempMusic("LastOccult", "audio/music/Gensokyo/LastOccult.ogg");
-        this.addTempMusic("BorderOfLife", "audio/music/Gensokyo/Border of Life.ogg");
-        this.addTempMusic("FateOfSixtyYears", "audio/music/Gensokyo/FateOfSixtyYears.ogg");
     }
 
     public Gensokyo(CustomDungeon cd, AbstractPlayer p, ArrayList<String> emptyList) {
@@ -71,6 +69,16 @@ public class Gensokyo extends actlikeit.dungeons.CustomDungeon {
         rareRelicChance = 17;
         colorlessRareChance = 0.3F;
         cardUpgradedChance = 0.0F;
+    }
+
+    @Override
+    public String getBodyText() {
+        return TEXT[2];
+    }
+
+    @Override
+    public String getOptionText() {
+        return TEXT[3];
     }
 
     @Override

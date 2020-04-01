@@ -2,7 +2,9 @@
   "Gensokyo:Gensokyo": {
     "TEXT": [
       "Gensokyo",
-      "Act 1"
+      "Act 1",
+      "Out of the corner of your eye, you see a strange purple #pgap. A compulsion urges you to @look@ @away,@ to continue your ascent, but the tantalizing rift beckons you, promising #gfreedom.",
+      "Venture into the wondrous land of illusions."
     ]
   },
   "Gensokyo:Brew Option": {
@@ -23,10 +25,30 @@
       "Choose any ", " Urban Legends to add to your hand."
     ]
   },
+  "Gensokyo:Gensokyoer": {
+    "TEXT": [
+      "Gensokyo",
+      "Act 2",
+      "The denizens of this land are #pstrange, often #pdisconcerting at times. But their chaotic antics are a #gbreath of fresh air, a welcome reprieve from the stagnant spire that you could no longer remember.",
+      "Continue your adventure in the land of illusions."
+    ]
+  },
   "Gensokyo:DeathIntent": {
     "TEXT": [
       "Death",
       "This enemy intends to #rkill you."
+    ]
+  },
+  "Gensokyo:AreaAttackIntent": {
+    "TEXT": [
+      "Area Attack",
+      "This enemy intends to deal #b", " damage to ALL other characters", ".", " times."
+    ]
+  },
+  "Gensokyo:PurifyIntent": {
+    "TEXT": [
+      "Purify",
+      "This enemy intends to remove ALL #pdebuffs from ALL characters."
     ]
   }
 }
