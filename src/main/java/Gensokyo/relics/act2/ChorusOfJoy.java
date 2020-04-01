@@ -21,6 +21,7 @@ public class ChorusOfJoy extends CustomRelic {
     private static final Texture OUTLINE = TextureLoader.getTexture(makeRelicOutlinePath("Trumpet.png"));
 
     private boolean firstTurn;
+    private static final int ENERGY = 1;
 
     public ChorusOfJoy() {
         super(ID, IMG, OUTLINE, RelicTier.SPECIAL, LandingSound.MAGICAL);
@@ -35,7 +36,7 @@ public class ChorusOfJoy extends CustomRelic {
     public void atTurnStart() {
         if (this.firstTurn) {
             this.flash();
-            this.addToTop(new GainEnergyAction(1));
+            this.addToTop(new GainEnergyAction(ENERGY));
             this.addToBot(new ApplyPowerAction(AbstractDungeon.player, AbstractDungeon.player, new NoDrawPower(AbstractDungeon.player)));
             this.addToTop(new RelicAboveCreatureAction(AbstractDungeon.player, this));
             this.firstTurn = false;
