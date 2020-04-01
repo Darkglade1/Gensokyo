@@ -1,8 +1,8 @@
 package Gensokyo.monsters.act1.NormalEnemies;
 
 import Gensokyo.BetterSpriterAnimation;
+import Gensokyo.monsters.AbstractSpriterMonster;
 import Gensokyo.powers.act1.Trickster;
-import basemod.abstracts.CustomMonster;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.actions.common.DamageAction;
@@ -15,7 +15,7 @@ import com.megacrit.cardcrawl.core.Settings;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.localization.MonsterStrings;
 
-public class Kitsune extends CustomMonster
+public class Kitsune extends AbstractSpriterMonster
 {
     public static final String ID = "Gensokyo:Kitsune";
     private static final MonsterStrings monsterStrings;

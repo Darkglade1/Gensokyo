@@ -369,6 +369,7 @@ public class Patchouli extends CustomMonster
     @Override
     public void die(boolean triggerRelics) {
         runAnim("Defeat");
+        ((BetterSpriterAnimation)this.animation).startDying();
         super.die(triggerRelics);
         for (AbstractMonster mo : AbstractDungeon.getCurrRoom().monsters.monsters) {
             if (mo instanceof PatchyOrb) {

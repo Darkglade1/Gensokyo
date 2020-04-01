@@ -1,7 +1,7 @@
 package Gensokyo.monsters.act1.NormalEnemies;
 
 import Gensokyo.BetterSpriterAnimation;
-import basemod.abstracts.CustomMonster;
+import Gensokyo.monsters.AbstractSpriterMonster;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.animations.VFXAction;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
@@ -17,7 +17,7 @@ import com.megacrit.cardcrawl.powers.FrailPower;
 import com.megacrit.cardcrawl.powers.StrengthPower;
 import com.megacrit.cardcrawl.vfx.combat.LightningEffect;
 
-public class YellowKodama extends CustomMonster
+public class YellowKodama extends AbstractSpriterMonster
 {
     public static final String ID = "Gensokyo:YellowKodama";
     private static final MonsterStrings monsterStrings;

@@ -380,6 +380,7 @@ public class Mamizou extends CustomMonster
     @Override
     public void die(boolean triggerRelics) {
         runAnim("Defeat");
+        ((BetterSpriterAnimation)this.animation).startDying();
         currentDisguise = null;
         super.die(triggerRelics);
     }

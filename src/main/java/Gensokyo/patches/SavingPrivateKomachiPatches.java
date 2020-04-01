@@ -1,6 +1,6 @@
 package Gensokyo.patches;
 
-import Gensokyo.monsters.Komachi;
+import Gensokyo.monsters.act1.Komachi;
 import com.evacipated.cardcrawl.modthespire.lib.SpirePatch;
 import com.megacrit.cardcrawl.monsters.beyond.Darkling;
 import com.megacrit.cardcrawl.monsters.city.BronzeAutomaton;

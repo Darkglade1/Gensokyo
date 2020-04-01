@@ -1,5 +1,6 @@
 package Gensokyo.monsters.act1.NormalEnemies;
 
+import Gensokyo.BetterSpriterAnimation;
 import Gensokyo.actions.FairyCheckAction;
 import Gensokyo.actions.SetDeadAction;
 import Gensokyo.actions.SetFlipAction;

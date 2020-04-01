@@ -1,7 +1,7 @@
 package Gensokyo.monsters.act1.NormalEnemies;
 
 import Gensokyo.BetterSpriterAnimation;
-import basemod.abstracts.CustomMonster;
+import Gensokyo.monsters.AbstractSpriterMonster;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.actions.common.DamageAction;
@@ -16,7 +16,7 @@ import com.megacrit.cardcrawl.powers.FrailPower;
 import com.megacrit.cardcrawl.powers.StrengthPower;
 import com.megacrit.cardcrawl.powers.WeakPower;
 
-public class Gryphon extends CustomMonster
+public class Gryphon extends AbstractSpriterMonster
 {
     public static final String ID = "Gensokyo:Gryphon";
     private static final MonsterStrings monsterStrings;

@@ -257,6 +257,7 @@ public class Sumireko extends CustomMonster
     @Override
     public void die(boolean triggerRelics) {
         runAnim("Defeat");
+        ((BetterSpriterAnimation)this.animation).startDying();
         super.die(triggerRelics);
         if (!isDoppel) {
             //kills off the doppel

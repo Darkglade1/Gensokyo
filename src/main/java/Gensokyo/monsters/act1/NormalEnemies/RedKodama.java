@@ -1,7 +1,7 @@
 package Gensokyo.monsters.act1.NormalEnemies;
 
 import Gensokyo.BetterSpriterAnimation;
-import basemod.abstracts.CustomMonster;
+import Gensokyo.monsters.AbstractSpriterMonster;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.common.DamageAction;
 import com.megacrit.cardcrawl.actions.common.MakeTempCardInDrawPileAction;
@@ -13,7 +13,7 @@ import com.megacrit.cardcrawl.core.Settings;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.localization.MonsterStrings;
 
-public class RedKodama extends CustomMonster
+public class RedKodama extends AbstractSpriterMonster
 {
     public static final String ID = "Gensokyo:RedKodama";
     private static final MonsterStrings monsterStrings;

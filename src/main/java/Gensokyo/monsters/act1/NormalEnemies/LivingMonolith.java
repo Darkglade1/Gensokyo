@@ -1,9 +1,9 @@
 package Gensokyo.monsters.act1.NormalEnemies;
 
 import Gensokyo.BetterSpriterAnimation;
+import Gensokyo.monsters.AbstractSpriterMonster;
 import Gensokyo.powers.act1.FortitudePower;
 import Gensokyo.powers.act1.VigorPower;
-import basemod.abstracts.CustomMonster;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.animations.VFXAction;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
@@ -16,7 +16,7 @@ import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.localization.MonsterStrings;
 import com.megacrit.cardcrawl.vfx.combat.LaserBeamEffect;
 
-public class LivingMonolith extends CustomMonster
+public class LivingMonolith extends AbstractSpriterMonster
 {
     public static final String ID = "Gensokyo:LivingMonolith";
     private static final MonsterStrings monsterStrings;

@@ -2,7 +2,7 @@ package Gensokyo.events.act1;
 
 import Gensokyo.GensokyoMod;
 import com.megacrit.cardcrawl.cards.AbstractCard;
-import com.megacrit.cardcrawl.cards.curses.Clumsy;
+import com.megacrit.cardcrawl.cards.curses.Injury;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.core.Settings;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
@@ -28,7 +28,7 @@ public class ForestOfMagic extends AbstractImageEvent {
 
     private static final float MAX_HP_BOOST = 0.10F;
     private static final int MIN_HP_BOOST = 5;
-    private static final int NUM_CURSES = 2;
+    private static final int NUM_CURSES = 1;
 
     private int screenNum = 0;
     private int hpBoost;
@@ -38,8 +38,8 @@ public class ForestOfMagic extends AbstractImageEvent {
 
         int boost = (int)(AbstractDungeon.player.maxHealth * MAX_HP_BOOST);
         hpBoost = Math.max(boost, MIN_HP_BOOST);
-        AbstractCard curse = CardLibrary.getCopy(Clumsy.ID);
-        this.imageEventText.setDialogOption(OPTIONS[1] + NUM_CURSES + " " + FontHelper.colorString(curse.name, "r") + OPTIONS[2], curse); // Marisa
+        AbstractCard curse = CardLibrary.getCopy(Injury.ID);
+        this.imageEventText.setDialogOption(OPTIONS[1] + FontHelper.colorString(curse.name, "r") + OPTIONS[2], curse); // Marisa
         this.imageEventText.setDialogOption(OPTIONS[3] + hpBoost + OPTIONS[4]); // Alice
     }
 
@@ -57,7 +57,7 @@ public class ForestOfMagic extends AbstractImageEvent {
                         AbstractRelic relic = AbstractDungeon.returnRandomScreenlessRelic(AbstractDungeon.returnRandomRelicTier());
                         AbstractDungeon.getCurrRoom().spawnRelicAndObtain(this.drawX, this.drawY, relic);
                         for (int i = 0; i < NUM_CURSES; i++) {
-                            AbstractCard curse = new Clumsy();
+                            AbstractCard curse = new Injury();
                             AbstractDungeon.effectList.add(new ShowCardAndObtainEffect(curse, (float)(Settings.WIDTH / 2), (float)(Settings.HEIGHT / 2)));
                         }
                         break;
