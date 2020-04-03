@@ -275,21 +275,20 @@ public class Byakuren extends CustomMonster
 
     @Override
     public void applyPowers() {
-        if (this.nextMove == -1 || this.intent == IntentEnums.ATTACK_AREA) {
+        if (this.nextMove == -1 || this.intent == IntentEnums.ATTACK_AREA || rival.isDeadOrEscaped()) {
+            Color color = new Color(1.0F, 1.0F, 1.0F, 0.5F);
+            ReflectionHacks.setPrivate(this, AbstractMonster.class, "intentColor", color);
             super.applyPowers();
             return;
         }
-        AbstractCreature target;
-        if (!rival.isDeadOrEscaped()) {
-            target = rival;
-            if (AbstractDungeon.player.hasPower(RivalPlayerPosition.POWER_ID)) {
-                if (((RivalPlayerPosition)AbstractDungeon.player.getPower(RivalPlayerPosition.POWER_ID)).isInUnsafeLane()) {
-                    target = AbstractDungeon.player;
-                }
+
+        AbstractCreature target = rival;
+        if (AbstractDungeon.player.hasPower(RivalPlayerPosition.POWER_ID)) {
+            if (((RivalPlayerPosition) AbstractDungeon.player.getPower(RivalPlayerPosition.POWER_ID)).isInUnsafeLane()) {
+                target = AbstractDungeon.player;
             }
-        } else {
-            target = AbstractDungeon.player;
         }
+
         DamageInfo info = new DamageInfo(this, moves.get(this.nextMove).baseDamage, DamageInfo.DamageType.NORMAL);
         if (target == rival) {
             Color color = new Color(1.0F, 1.0F, 1.0F, 0.5F);

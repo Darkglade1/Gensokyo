@@ -298,21 +298,20 @@ public class Miko extends CustomMonster
 
     @Override
     public void applyPowers() {
-        if (this.nextMove == -1 || this.intent == IntentEnums.ATTACK_AREA) {
+        if (this.nextMove == -1 || this.intent == IntentEnums.ATTACK_AREA || rival.isDeadOrEscaped()) {
+            Color color = new Color(1.0F, 1.0F, 1.0F, 0.5F);
+            ReflectionHacks.setPrivate(this, AbstractMonster.class, "intentColor", color);
             super.applyPowers();
             return;
         }
-        AbstractCreature target;
-        if (!rival.isDeadOrEscaped()) {
-            target = rival;
-            if (AbstractDungeon.player.hasPower(RivalPlayerPosition.POWER_ID)) {
-                if (((RivalPlayerPosition)AbstractDungeon.player.getPower(RivalPlayerPosition.POWER_ID)).isInUnsafeLane()) {
-                    target = AbstractDungeon.player;
-                }
+
+        AbstractCreature target = rival;
+        if (AbstractDungeon.player.hasPower(RivalPlayerPosition.POWER_ID)) {
+            if (((RivalPlayerPosition) AbstractDungeon.player.getPower(RivalPlayerPosition.POWER_ID)).isInUnsafeLane()) {
+                target = AbstractDungeon.player;
             }
-        } else {
-            target = AbstractDungeon.player;
         }
+
         DamageInfo info = new DamageInfo(this, moves.get(this.nextMove).baseDamage, DamageInfo.DamageType.NORMAL);
         if (target == rival) {
             Color color = new Color(1.0F, 1.0F, 1.0F, 0.5F);
@@ -328,13 +327,13 @@ public class Miko extends CustomMonster
             }
         } else {
             super.applyPowers();
-            if(info.base > -1 && !rival.isDeadOrEscaped()) {
+            if(info.base > -1) {
                 info.applyPowers(this, target);
                 Color color = new Color(0.5F, 0.0F, 1.0F, 0.5F);
                 ReflectionHacks.setPrivate(this, AbstractMonster.class, "intentColor", color);
                 PowerTip intentTip = (PowerTip)ReflectionHacks.getPrivate(this, AbstractMonster.class, "intentTip");
                 intentTip.body = TEXT[4] + info.output + TEXT[5]+ moves.get(this.nextMove).multiplier + TEXT[6];
-            } else if ((this.intent == Intent.DEBUFF || this.intent == Intent.STRONG_DEBUFF) && !rival.isDeadOrEscaped()) {
+            } else if ((this.intent == Intent.DEBUFF || this.intent == Intent.STRONG_DEBUFF)) {
                 Color color = new Color(0.5F, 0.0F, 1.0F, 0.5F);
                 ReflectionHacks.setPrivate(this, AbstractMonster.class, "intentColor", color);
                 PowerTip intentTip = (PowerTip)ReflectionHacks.getPrivate(this, AbstractMonster.class, "intentTip");

@@ -155,7 +155,7 @@
     "NAME": "Chorus of Joy",
     "FLAVOR": "A joyful melody for dispirited times.",
     "DESCRIPTIONS": [
-      "Start each combat with an additional [E] . You cannot draw additional cards on the first turn (except from effects that draw at the start of combat)."
+      "At the start of combat, gain [E] and discard #b", " card.", " cards."
     ]
   },
   "Gensokyo:DirgeOfMelancholy": {

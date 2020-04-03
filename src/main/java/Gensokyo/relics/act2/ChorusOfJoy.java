@@ -4,11 +4,10 @@ import Gensokyo.GensokyoMod;
 import Gensokyo.util.TextureLoader;
 import basemod.abstracts.CustomRelic;
 import com.badlogic.gdx.graphics.Texture;
-import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
+import com.megacrit.cardcrawl.actions.common.DiscardAction;
 import com.megacrit.cardcrawl.actions.common.GainEnergyAction;
 import com.megacrit.cardcrawl.actions.common.RelicAboveCreatureAction;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
-import com.megacrit.cardcrawl.powers.NoDrawPower;
 
 import static Gensokyo.GensokyoMod.makeRelicOutlinePath;
 import static Gensokyo.GensokyoMod.makeRelicPath;
@@ -22,6 +21,7 @@ public class ChorusOfJoy extends CustomRelic {
 
     private boolean firstTurn;
     private static final int ENERGY = 1;
+    private static final int DISCARD = 2;
 
     public ChorusOfJoy() {
         super(ID, IMG, OUTLINE, RelicTier.SPECIAL, LandingSound.MAGICAL);
@@ -37,7 +37,7 @@ public class ChorusOfJoy extends CustomRelic {
         if (this.firstTurn) {
             this.flash();
             this.addToTop(new GainEnergyAction(ENERGY));
-            this.addToBot(new ApplyPowerAction(AbstractDungeon.player, AbstractDungeon.player, new NoDrawPower(AbstractDungeon.player)));
+            this.addToBot(new DiscardAction(AbstractDungeon.player, AbstractDungeon.player, DISCARD, false));
             this.addToTop(new RelicAboveCreatureAction(AbstractDungeon.player, this));
             this.firstTurn = false;
         }
@@ -46,7 +46,11 @@ public class ChorusOfJoy extends CustomRelic {
 
     @Override
     public String getUpdatedDescription() {
-        return DESCRIPTIONS[0];
+        if (DISCARD == 1) {
+            return DESCRIPTIONS[0] + DISCARD + DESCRIPTIONS[1];
+        } else {
+            return DESCRIPTIONS[0] + DISCARD + DESCRIPTIONS[2];
+        }
     }
 
 }
