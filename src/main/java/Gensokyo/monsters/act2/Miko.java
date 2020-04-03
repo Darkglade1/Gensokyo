@@ -11,6 +11,7 @@ import Gensokyo.powers.act2.WishfulSoul;
 import Gensokyo.vfx.EmptyEffect;
 import Gensokyo.vfx.FlexibleDivinityParticleEffect;
 import Gensokyo.vfx.FlexibleStanceAuraEffect;
+import basemod.ReflectionHacks;
 import basemod.abstracts.CustomMonster;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.Color;
@@ -32,7 +33,9 @@ import com.megacrit.cardcrawl.core.AbstractCreature;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.core.Settings;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
+import com.megacrit.cardcrawl.helpers.PowerTip;
 import com.megacrit.cardcrawl.localization.MonsterStrings;
+import com.megacrit.cardcrawl.localization.UIStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.monsters.EnemyMoveInfo;
 import com.megacrit.cardcrawl.powers.FrailPower;
@@ -52,6 +55,8 @@ public class Miko extends CustomMonster
 {
     public static final String ID = "Gensokyo:Miko";
     private static final MonsterStrings monsterStrings;
+    private static final UIStrings uiStrings;
+    private static final String[] TEXT;
     public static final String NAME;
     public static final String[] MOVES;
     public static final String[] DIALOG;
@@ -137,7 +142,7 @@ public class Miko extends CustomMonster
         this.moves = new HashMap<>();
         this.moves.put(ATTACK, new EnemyMoveInfo(ATTACK, Intent.ATTACK_DEBUFF, this.normalDamage, NORMAL_ATTACK_HITS, true));
         this.moves.put(STRONG_DEBUFF, new EnemyMoveInfo(STRONG_DEBUFF, Intent.STRONG_DEBUFF, -1, 0, false));
-        this.moves.put(DEFEND_DEBUFF, new EnemyMoveInfo(DEFEND_DEBUFF, Intent.DEFEND_DEBUFF, -1, 0, false));
+        this.moves.put(DEFEND_DEBUFF, new EnemyMoveInfo(DEFEND_DEBUFF, Intent.DEBUFF, -1, 0, false));
         this.moves.put(AOE_ATTACK, new EnemyMoveInfo(AOE_ATTACK, IntentEnums.ATTACK_AREA, this.aoeDamage, AOE_HITS, true));
         this.moves.put(DEBUFF_ATTACK, new EnemyMoveInfo(DEBUFF_ATTACK, Intent.ATTACK_DEBUFF, this.debuffDamage, 0, false));
 
@@ -253,6 +258,7 @@ public class Miko extends CustomMonster
         if (this.drawY > originalY) {
             runAnim("MoveDown");
         }
+        AbstractDungeon.onModifyPower();
     }
 
     @Override
@@ -291,6 +297,62 @@ public class Miko extends CustomMonster
     }
 
     @Override
+    public void applyPowers() {
+        if (this.nextMove == -1 || this.intent == IntentEnums.ATTACK_AREA) {
+            super.applyPowers();
+            return;
+        }
+        AbstractCreature target;
+        if (!rival.isDeadOrEscaped()) {
+            target = rival;
+            if (AbstractDungeon.player.hasPower(RivalPlayerPosition.POWER_ID)) {
+                if (((RivalPlayerPosition)AbstractDungeon.player.getPower(RivalPlayerPosition.POWER_ID)).isInUnsafeLane()) {
+                    target = AbstractDungeon.player;
+                }
+            }
+        } else {
+            target = AbstractDungeon.player;
+        }
+        DamageInfo info = new DamageInfo(this, moves.get(this.nextMove).baseDamage, DamageInfo.DamageType.NORMAL);
+        if (target == rival) {
+            Color color = new Color(1.0F, 1.0F, 1.0F, 0.5F);
+            ReflectionHacks.setPrivate(this, AbstractMonster.class, "intentColor", color);
+            if(info.base > -1) {
+                info.applyPowers(this, target);
+                ReflectionHacks.setPrivate(this, AbstractMonster.class, "intentDmg", info.output);
+                PowerTip intentTip = (PowerTip)ReflectionHacks.getPrivate(this, AbstractMonster.class, "intentTip");
+                intentTip.body = TEXT[7] + info.output + TEXT[8] + moves.get(this.nextMove).multiplier + TEXT[9];
+            } else if (this.intent == Intent.DEBUFF || this.intent == Intent.STRONG_DEBUFF) {
+                PowerTip intentTip = (PowerTip)ReflectionHacks.getPrivate(this, AbstractMonster.class, "intentTip");
+                intentTip.body = TEXT[11];
+            }
+        } else {
+            super.applyPowers();
+            if(info.base > -1 && !rival.isDeadOrEscaped()) {
+                info.applyPowers(this, target);
+                Color color = new Color(0.5F, 0.0F, 1.0F, 0.5F);
+                ReflectionHacks.setPrivate(this, AbstractMonster.class, "intentColor", color);
+                PowerTip intentTip = (PowerTip)ReflectionHacks.getPrivate(this, AbstractMonster.class, "intentTip");
+                intentTip.body = TEXT[4] + info.output + TEXT[5]+ moves.get(this.nextMove).multiplier + TEXT[6];
+            } else if ((this.intent == Intent.DEBUFF || this.intent == Intent.STRONG_DEBUFF) && !rival.isDeadOrEscaped()) {
+                Color color = new Color(0.5F, 0.0F, 1.0F, 0.5F);
+                ReflectionHacks.setPrivate(this, AbstractMonster.class, "intentColor", color);
+                PowerTip intentTip = (PowerTip)ReflectionHacks.getPrivate(this, AbstractMonster.class, "intentTip");
+                intentTip.body = TEXT[10];
+            } else {
+                Color color = new Color(1.0F, 1.0F, 1.0F, 0.5F);
+                ReflectionHacks.setPrivate(this, AbstractMonster.class, "intentColor", color);
+            }
+        }
+    }
+
+    @Override
+    public void createIntent() {
+        super.createIntent();
+        applyPowers();
+    }
+
+    @Override
     public void render(SpriteBatch sb) {
         super.render(sb);
         if (this.hasPower(TenDesires.POWER_ID)) {
@@ -314,6 +376,8 @@ public class Miko extends CustomMonster
     
     static {
         monsterStrings = CardCrawlGame.languagePack.getMonsterStrings("Gensokyo:Miko");
+        uiStrings = CardCrawlGame.languagePack.getUIString("Gensokyo:RivalIntents");
+        TEXT = uiStrings.TEXT;
         NAME = Miko.monsterStrings.NAME;
         MOVES = Miko.monsterStrings.MOVES;
         DIALOG = Miko.monsterStrings.DIALOG;

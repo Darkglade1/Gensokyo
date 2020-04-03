@@ -50,5 +50,21 @@
       "Purify",
       "This enemy intends to remove ALL #pdebuffs from ALL characters."
     ]
+  },
+  "Gensokyo:RivalIntents": {
+    "TEXT": [
+      "This enemy will #yAttack #ryou for #b",
+      " damage because you are in the #rcrossfire.",
+      "This enemy intends to NL #yAttack its #prival for #b",
+      " damage.",
+      "This enemy will #yAttack #ryou for #b",
+      " damage #b",
+      " times because you are in the #rcrossfire.",
+      "This enemy intends to NL #yAttack its #prival for #b",
+      " damage #b",
+      " times.",
+      "This enemy will inflict a #yNegative #yEffect on #ryou because you are in the #rcrossfire.",
+      "This enemy intends to inflict a #yNegative #yEffect on its #prival."
+    ]
   }
 }

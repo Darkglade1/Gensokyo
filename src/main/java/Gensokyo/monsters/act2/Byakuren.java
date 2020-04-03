@@ -11,8 +11,10 @@ import Gensokyo.powers.act2.RivalPosition;
 import Gensokyo.powers.act2.TenDesires;
 import Gensokyo.vfx.FlexibleCalmParticleEffect;
 import Gensokyo.vfx.FlexibleStanceAuraEffect;
+import basemod.ReflectionHacks;
 import basemod.abstracts.CustomMonster;
 import com.badlogic.gdx.Gdx;
+import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.math.MathUtils;
 import com.brashmonkey.spriter.Animation;
@@ -31,21 +33,27 @@ import com.megacrit.cardcrawl.core.AbstractCreature;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.core.Settings;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
+import com.megacrit.cardcrawl.helpers.PowerTip;
 import com.megacrit.cardcrawl.localization.MonsterStrings;
+import com.megacrit.cardcrawl.localization.UIStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.monsters.EnemyMoveInfo;
 import com.megacrit.cardcrawl.powers.StrengthPower;
 import com.megacrit.cardcrawl.stances.CalmStance;
+import com.megacrit.cardcrawl.vfx.AbstractGameEffect;
 import com.megacrit.cardcrawl.vfx.combat.LightningEffect;
 
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.Iterator;
 import java.util.Map;
 
 public class Byakuren extends CustomMonster
 {
     public static final String ID = "Gensokyo:Byakuren";
     private static final MonsterStrings monsterStrings;
+    private static final UIStrings uiStrings;
+    private static final String[] TEXT;
     public static final String NAME;
     public static final String[] MOVES;
     public static final String[] DIALOG;
@@ -226,6 +234,7 @@ public class Byakuren extends CustomMonster
         AbstractDungeon.actionManager.addToBottom(new TalkAction(this, DIALOG[1]));
         AbstractDungeon.actionManager.addToBottom(new AnimatedMoveActualAction(this, this.drawX, this.drawY, originalX, originalY));
         AbstractDungeon.actionManager.addToBottom(new SetFlipAction(this));
+        AbstractDungeon.onModifyPower();
     }
 
     public void setFlip(boolean horizontal, boolean vertical) {
@@ -265,6 +274,54 @@ public class Byakuren extends CustomMonster
     }
 
     @Override
+    public void applyPowers() {
+        if (this.nextMove == -1 || this.intent == IntentEnums.ATTACK_AREA) {
+            super.applyPowers();
+            return;
+        }
+        AbstractCreature target;
+        if (!rival.isDeadOrEscaped()) {
+            target = rival;
+            if (AbstractDungeon.player.hasPower(RivalPlayerPosition.POWER_ID)) {
+                if (((RivalPlayerPosition)AbstractDungeon.player.getPower(RivalPlayerPosition.POWER_ID)).isInUnsafeLane()) {
+                    target = AbstractDungeon.player;
+                }
+            }
+        } else {
+            target = AbstractDungeon.player;
+        }
+        DamageInfo info = new DamageInfo(this, moves.get(this.nextMove).baseDamage, DamageInfo.DamageType.NORMAL);
+        if (target == rival) {
+            Color color = new Color(1.0F, 1.0F, 1.0F, 0.5F);
+            ReflectionHacks.setPrivate(this, AbstractMonster.class, "intentColor", color);
+            if(info.base > -1) {
+                info.applyPowers(this, target);
+                ReflectionHacks.setPrivate(this, AbstractMonster.class, "intentDmg", info.output);
+                PowerTip intentTip = (PowerTip)ReflectionHacks.getPrivate(this, AbstractMonster.class, "intentTip");
+                intentTip.body = TEXT[2] + info.output + TEXT[3];
+            }
+        } else {
+            super.applyPowers();
+            if (info.base == -1) {
+                Color color = new Color(1.0F, 1.0F, 1.0F, 0.5F);
+                ReflectionHacks.setPrivate(this, AbstractMonster.class, "intentColor", color);
+            } else if(info.base > -1 && !rival.isDeadOrEscaped()) {
+                info.applyPowers(this, target);
+                Color color = new Color(0.5F, 0.0F, 1.0F, 0.5F);
+                ReflectionHacks.setPrivate(this, AbstractMonster.class, "intentColor", color);
+                PowerTip intentTip = (PowerTip)ReflectionHacks.getPrivate(this, AbstractMonster.class, "intentTip");
+                intentTip.body = TEXT[0] + info.output + TEXT[1];
+            }
+        }
+    }
+
+    @Override
+    public void createIntent() {
+        super.createIntent();
+        applyPowers();
+    }
+
+    @Override
     public void render(SpriteBatch sb) {
         super.render(sb);
         if (this.hasPower(Purity.POWER_ID)) {
@@ -288,6 +345,8 @@ public class Byakuren extends CustomMonster
     
     static {
         monsterStrings = CardCrawlGame.languagePack.getMonsterStrings("Gensokyo:Byakuren");
+        uiStrings = CardCrawlGame.languagePack.getUIString("Gensokyo:RivalIntents");
+        TEXT = uiStrings.TEXT;
         NAME = Byakuren.monsterStrings.NAME;
         MOVES = Byakuren.monsterStrings.MOVES;
         DIALOG = Byakuren.monsterStrings.DIALOG;

@@ -105,6 +105,7 @@ public class RivalPlayerPosition extends AbstractPower {
         }
         owner.dialogY = owner.drawY - (owner.hb_y - 55.0F) * Settings.scale;
         fixOrbPositioning();
+        AbstractDungeon.onModifyPower(); //update rivals' intents
     }
 
     @Override
