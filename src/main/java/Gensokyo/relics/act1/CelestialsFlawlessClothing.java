@@ -3,10 +3,12 @@ package Gensokyo.relics.act1;
 import Gensokyo.GensokyoMod;
 import Gensokyo.actions.UsePreBattleActionAction;
 import Gensokyo.monsters.act1.Komachi;
+import Gensokyo.monsters.act2.Eiki;
 import Gensokyo.util.TextureLoader;
 import basemod.abstracts.CustomRelic;
 import com.badlogic.gdx.graphics.Texture;
 import com.evacipated.cardcrawl.mod.stslib.relics.OnPlayerDeathRelic;
+import com.megacrit.cardcrawl.actions.animations.TalkAction;
 import com.megacrit.cardcrawl.actions.common.RelicAboveCreatureAction;
 import com.megacrit.cardcrawl.actions.common.SpawnMonsterAction;
 import com.megacrit.cardcrawl.cards.DamageInfo;
@@ -46,6 +48,11 @@ public class CelestialsFlawlessClothing extends CustomRelic implements OnPlayerD
         elite = new Komachi(-600.0f, 0);
         AbstractDungeon.actionManager.addToTop(new UsePreBattleActionAction(elite));
         AbstractDungeon.actionManager.addToTop(new SpawnMonsterAction(elite, false));
+        for (AbstractMonster mo : AbstractDungeon.getMonsters().monsters) {
+            if (mo instanceof Eiki) {
+                AbstractDungeon.actionManager.addToBottom(new TalkAction(mo, Eiki.DIALOG[2]));
+            }
+        }
     }
 
     @Override

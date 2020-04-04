@@ -1,7 +1,7 @@
 package Gensokyo.events.act2;
 
 import Gensokyo.GensokyoMod;
-import Gensokyo.cards.TabooFourOfAKind;
+import Gensokyo.cards.FourOfAKind;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.core.Settings;
@@ -48,7 +48,7 @@ public class AndThenThereWereNone extends AbstractImageEvent {
             case 0:
                 this.imageEventText.updateBodyText(DESCRIPTIONS[1]);
                 screenNum = 1;
-                AbstractCard card = new TabooFourOfAKind();
+                AbstractCard card = new FourOfAKind();
                 this.imageEventText.clearAllDialogs();
                 this.imageEventText.setDialogOption(OPTIONS[1] + NUM_CARDS + " " + card.name + "." + OPTIONS[2] + maxHealthLoss + OPTIONS[3], card); // Accept
                 this.imageEventText.setDialogOption(OPTIONS[4]); // Refuse
@@ -65,7 +65,7 @@ public class AndThenThereWereNone extends AbstractImageEvent {
                         CardCrawlGame.sound.play("ATTACK_POISON");  // Play a hit sound
                         AbstractDungeon.player.decreaseMaxHealth(this.maxHealthLoss);
                         for(int i = 0; i < NUM_CARDS; ++i) {
-                            AbstractCard c = new TabooFourOfAKind();
+                            AbstractCard c = new FourOfAKind();
                             AbstractDungeon.effectList.add(new ShowCardAndObtainEffect(c, (float) Settings.WIDTH / 2.0F, (float)Settings.HEIGHT / 2.0F));
                         }
                         break;

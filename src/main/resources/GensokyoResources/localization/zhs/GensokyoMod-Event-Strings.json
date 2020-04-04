@@ -350,6 +350,309 @@
       "[进入随机事件]"
     ]
   },
+  "Gensokyo:AndThenThereWereNone": {
+    "NAME": "And Then There Were None",
+    "DESCRIPTIONS": [
+      "#rBloodstains splatter the ground, the gruesome remains of several #punfortunate souls. NL NL \"They really were weak, weren't they? I'd be ashamed to be related to such inferior vampires.\" NL NL A strange girl sits amidst the carnage, crimson red adorning her sharp claws. Her eyes dart to you, pinning you in place with their intensity. NL NL “. . . You scent is like that of these #rblood-bats I slaughtered. Did you come from the same place, perhaps?\"",
+      "You do not answer, instead tensing your body to be ready to move at a moment's notice. NL NL \"Hmm, you seem like an interesting one. More interesting than these husks, anyway. How would you like to make a #ppact with me? All the power you could @ever@ want for just a ~little~ bit of #rblood.\" NL NL She holds out a grime-encrusted hand.",
+      "Blinding pain assaults your senses as your vision fades. You wake up amidst a pool of #rblood, dismembered limbs lying around, head spinning and eyes #pclouded over. NL NL You stumble away from the bloodshed. NL NL You stumble away from the bloodshed. NL NL You stumble away from the bloodshed. NL NL You stumble away from the bloodshed.",
+      "\"A pity. I suppose I'll have to find another toy to play with later.\" NL NL Her attention turns back to the corpses around her, giving you the opportunity to slip away."
+
+    ],
+    "OPTIONS": [
+      "[Continue]",
+      "[Accept her offer] #gReceive #g",
+      " #rLose #r",
+      " #rMax #rHP.",
+      "[Refuse]",
+      "[Leave]"
+    ]
+  },
+  "Gensokyo:NightmareOfHeian": {
+    "NAME": "Nightmare of Heian",
+    "DESCRIPTIONS": [
+      "#pDarkness envelopes you. It shrouds your senses, preying on your #pfear and #pdoubt. NL NL You see terrifying figures manifest before you, broken, distorted forms that your mind refuses to even acknowledge, warped, twisted horrors that defy all comprehension. One of them grins at you sinisterly, the conductor of this grim symphony. NL NL @\"EMBRACE@ @THE@ #p@DARKNESS,@ @PUNY@ @MORTAL.@ @OR@ @LET@ @THE@ #p@DARKNESS@ @EMBRACE@ @YOU.\"@",
+      "You stride forward boldly, embracing the #pinky surfaces around you. NL NL The nightmare ends, and your surroundings return. You glance in a nearby puddle. NL NL A black #phorror ~stares~ back at you.",
+      "You wake up, shivering. There is a #pvoid inside you, an empty hollow carved deep within. NL NL You walk away, leaving a part of you behind forever."
+    ],
+    "OPTIONS": [
+      "[Embrace] #rYour #rcards #rare #robscured #rfor #r",
+      " #rcombat. #gAfter, #gobtain #ga #gSpecial #gRelic.",
+      "[Be Consumed] #gRemove #g2 #gcards #gfrom #gyour #gdeck. #rBecome #rCursed #r- #rWrithe.",
+      "[Locked] Requires: 2 Cards",
+      "Select 2 Cards to Remove.",
+      "[Leave]"
+    ]
+  },
+  "Gensokyo:Impoverished": {
+    "NAME": "Impoverished",
+    "DESCRIPTIONS": [
+      "A young girl approaches you, holding out a cracked stone bowl. NL NL \"Could you spare some coin, mister?\"",
+      "#yGold flows from your pockets in an unceasing torrent, clattering into the bowl. They swiftly pile up, then just as swiftly, they disappear into the nether. NL NL The girl looks down with #psad eyes. NL NL \"It didn't work. But thank you for trying, mister.\" NL NL She trudges away, becoming a pitiful figure in the distance.",
+      "You step past the girl, continuing on your way. NL NL A shiver runs through your body, like a #psnake had coiled itself around you. NL NL You can't help but feel a little more #p~misfortunate.~"
+    ],
+    "OPTIONS": [
+      "[Offer: ",
+      " Gold] #rLose #rall #rGold. #gUpgrade #g",
+      " #grandom #gcard.",
+      " #grandom #gcards.",
+      "[Ignore her] #rBecome #rCursed.",
+      "[Leave]"
+    ]
+  },
+  "Gensokyo:TheWhiteLotus": {
+    "NAME": "The White Lotus",
+    "DESCRIPTIONS": [
+      "The sound of music draws you to a nearby temple, where a woman is regaling a crowd with her voice. She sings of things unfamiliar to you, using words unknown to you. NL NL Despite your lack of comprehension, you find yourself entranced by the display. You consider taking the time to listen more closely. Or perhaps you should leave a small #yoffering and be on your way.",
+      "You close your eyes and allow the woman's voice to ~carry~ ~you~ ~off~ . . . NL NL When you finally open them again, you feel a bit . . . lighter. And, perhaps, as if you understood yourself just a little bit better.",
+      "As your #ycoin clatters into the donation box, you feel a spark of #ywarmth inside your body, as if the gods themselves were watching over you.",
+      "Alas, you have neither time nor coin to spare."
+    ],
+    "OPTIONS": [
+      "[Listen] #rLose ",
+      ". #gChoose #g1 #gof #g3 #gRare #gcards #gto #gadd #gto #gyour #gdeck.",
+      "[Donate] #rLose #r",
+      " #rGold. #gGain #g",
+      " #gMax #gHP",
+      "[Leave]",
+      "[Locked] Requires: 0-cost card.",
+      "[Locked] Requires: ",
+      " Gold.",
+      "Add a card to your deck."
+    ]
+  },
+  "Gensokyo:LivingGodOfMiracles": {
+    "NAME": "Living God of Miracles",
+    "DESCRIPTIONS": [
+      "You stumble across another shrine, only this time, there seems to be a small gathering present. A group of lithe figures are speaking with a #ggreen-haired girl, their words muffled by the distance. Moments later, the group departs, and the girl notices your presence. NL NL \"Oh, a visitor! I'm sorry to have kept you waiting; the tengu are an awfully nosey bunch.\" She approaches you with a #yradiant smile. \"What can I do for you? Come to #ydonate? Or perhaps I can interest you in a #gmiracle or two?\"",
+      "\"You're looking for a miracle? Ask away! I can do pretty much anything!\" NL NL You make your request, and the girl immediately deflates with a #psheepish look. \"Ah . . . well, maybe not ~quite~ anything. Not yet, at least.\" She perks up. \"I know! If you go out and gather some #yfaith for me, I'm sure I'll have the power to fulfill your request!\" NL NL The method she outlines to you for gathering \"faith\" seems awfully vague, nebulous, and unlikely to work, but you suppose there's no harm in trying. NL NL After all, a #gmiracle could happen.",
+      "The girl #ybeams as your #ycoin clatters into the wooden donation box. NL NL \"Thank you for your support! Here, have a blessing to help you on your journey!\" NL NL A warm feeling briefly suffuses you, bathing you in its radiance. You thank the girl for the gesture before finally departing.",
+      "You tell her that you are simply passing through before resuming your trek through this mysterious land of wonders."
+    ],
+    "OPTIONS": [
+      "[Miracle] #rSkills #rexhaust #rwhen #rplayed #rfor #r",
+      " #rcombats. #gAfter, #gobtain #ga #gSpecial #gRelic.",
+      "[Donate] #rLose #r",
+      " #rGold. #gUpgrade #ga #gcard.",
+      "[Locked] Requires: ",
+      " Gold.",
+      "[Locked] Requires: Upgradeable Cards",
+      "Choose a Card to Upgrade",
+      "[Leave]"
+    ]
+  },
+  "Gensokyo:TreasureHunter": {
+    "NAME": "Treasure Hunter",
+    "DESCRIPTIONS": [
+      "A mousy-looking girl approaches, her eyes intently focused on the metal rods she is waving around in front of her. NL NL She stops right in front of you and looks up. NL NL \"Hey. You're standing right on top of some #ytreasure, you know?\"",
+      "Her eyes widen as you bring out the #ypriceless #yartifact. NL NL \"Huh. I guess that's what I was sensing all along.\" She scans the idol intently. \"Say, how would you feel about a trade? I've got a #gbody-enhancement potion here that I don't have much use for, but I'm sure a traveler like you could find it useful. Gensokyo can be pretty dangerous this far out in the wilderness, you know?\" NL NL You accept the offer, quaffing the potion on the spot. Feeling newfound #rstrength ~flow~ into your body, you continue on your way.",
+      "You step aside as the girl brings out a few shovels and begins to dig. Interested in what #yriches she might uncover, you wordlessly pick up a shovel and begin digging as well. NL NL After several minutes of hard labor, the two of you discover a cache of various #yartifacts and #ytrinkets. NL NL \"Woah, there's a lot in here.\" The girl gives you a look. \"I didn't expect you to help out, but since you did, I guess you can take some of this with you.\" NL NL Picking out a few choice #yrelics, you say your farewells to the girl before continuing on your way.",
+      "You step to the side and walk past her, uncaring of the sounds of digging emanating behind you."
+    ],
+    "OPTIONS": [
+      "[Offer Idol] #rLose #rGolden #rIdol. #gGain #g",
+      " #gMax #gHP.",
+      "[Help dig] #rLose #r",
+      " #rMax #rHP. #gObtain #ga #gRelic.",
+      "[Leave]",
+      "[Locked] Requires: Golden Idol"
+    ]
+  },
+  "Gensokyo:NohDance": {
+    "NAME": "Noh Dance",
+    "DESCRIPTIONS": [
+      "The sound of music draws you to a stage in the center of the village, where a masked figure is ~leaping~ and ~twirling~ about in an elaborate dance. There are many others in the audience, each of them #genthralled by the dancer's display. NL NL \"Hey! You there!\" NL NL You spot a #yvendor waving at you, his #ystall displaying several masks that look identical to the ones around the dancer.",
+      "\"That's an #gexotic mask you got there; don't think I've ever seen one of those before!\" He gestures to his #ywares. \"I'd be willing to trade one of these for it, if you'd like.\"",
+      "\"How would you like to bring a #ysouvenir home with you? I assure you these #ymasks are all of the highest #gquality!\"",
+      "You try on your freshly purchased #ymask, feeling it smoothly slide onto your face. NL NL The eyeholes are a bit difficult to see through, but it should be enough to obscure your identity, at least.",
+      "You don't feel keen about trading your #ymask away.",
+      "You don't have the #ymoney to spend on something as #ptrivial as a souvenir."
+    ],
+    "OPTIONS": [
+      "[Buy] #rLose #r",
+      " #rGold. #gObtain ",
+      "[Locked] Requires: ",
+      " Gold",
+      "[Leave]",
+      "[Continue]",
+      "[Buy] #rLose ",
+      ". #gObtain "
+    ]
+  },
+  "Gensokyo:OneWingedWhiteHeron": {
+    "NAME": "One-Winged White Heron",
+    "DESCRIPTIONS": [
+      "A great ball of #ggreen and #bblue floats in the sky, a stark contrast to the grey, rocky environment surrounding you. NL NL You blink in surprise. Apparently, you are on the #ymoon. Somehow. NL NL \"An intruder? Haven't had one of those in a while.\"",
+      "A silver-haired woman peers closely at you. She does not seem surprised by her surroundings or by your sudden appearance. NL NL \"Well, it'll be a while before those #ysisters get here to send you back. Why don't you tell me a story in the meantime?\"",
+      "You tell her about one of the most #pharrowing encounters you've had with the denizens of the land. She nods along as you speak, seemingly repeating your words under her breath. NL NL \"Ah, they're here.\" NL NL You barely have time to comprehend her words before space @warps@ and @twists@ around you, and you suddenly find yourself back in a #gfamiliar landscape. As you press on, you feel somewhat #pstrange - the aches of several old #rwounds have disappeared, and a few of your #ypossessions seem to have gone missing. NL NL You shake your head, ultimately dismissing these concerns as trivial.",
+      "\"Not a talkative one? I suppose that's fine too.\" NL NL Before long, space @warps@ and @twists@ around you, and you suddenly find yourself back in a familiar landscape."
+    ],
+    "OPTIONS": [
+      "[Speak of ",
+      "] #gHeal #g",
+      " #gHP.",
+      " #rLose ",
+      ".",
+      " #rGold.",
+      "[Leave]",
+      "[Locked] Requires: Elite Encounter",
+      "[Locked] Requires: Normal Encounter",
+      "[Continue]",
+      "[Remain silent]"
+    ]
+  },
+  "Gensokyo:ChildOfMiare": {
+    "NAME": "Child of Miare",
+    "DESCRIPTIONS": [
+      "\"I've seen someone like you before. That same someone came here asking the very same thing as you.\" NL NL You had your #rdoubts when this young girl claimed to be one of the most knowledgeable people in this land, but that single statement erased any #pmisgivings you had. NL NL The heavy tome next to her didn't look like it was for show, either.",
+      "\"In fact, they were kind enough to let me make some records of them. Would you like to see them?\"",
+      "The words on the page fascinate you. The #yhandwriting is yours, but the words themselves spoke of events utterly #pforeign to you. NL NL You find the whole situation to be #pstrange and #punsettling. NL NL \"Why don't you let me make some records for you too? I'm sure it will be helpful to whoever comes next.\" NL NL That wasn't a bad idea. After all, if what you just read is true, you would end up #pforgetting everything very soon.",
+      "\"You're not curious? Very well then. Still, I must ask you to #yhumor me for a little. I am trying to compile an extensive account of every major figure in Gensokyo, and you certainly look #rimposing enough to be counted among them.\"",
+      "You recount your most noteworthy experiences, trying to be as detailed as you can despite your #pscattered memories. NL NL You may or may not have #pembellished a little to fill in the hazy gaps here and there. After all, no one can prove that you #rdidn't take on three of those metallic crabs at once and come out without a scratch, right?"
+    ],
+    "OPTIONS": [
+      "[Read] #gObtain ",
+      ".",
+      "[Decline]",
+      "[Record] Store a copy of a card.",
+      "[Leave]",
+      "Store a copy of a card.",
+      "[Continue]"
+    ]
+  },
+  "Gensokyo:DetectiveSatori": {
+    "NAME": "Detective Satori",
+    "DESCRIPTIONS": [
+      "\"Hey, you there.\" NL NL You turn around to see a #pgrim-looking woman approach you. NL NL \"There's been a #rmurder. You wouldn't happen to know anything about that, would you?\" NL NL You open your mouth - NL NL \"Yes, yes, I know you think you don't know anything, but that's what everyone says. Yes, I know I'm being rude but the need for #gresults trumps courtesy right now. And yes, I'm #preading #pyour #pmind in case you couldn't tell.\"",
+      "You have a feeling this is going to be a very one-sided conversation. NL NL \"Pretty much. Anyway, your surface thoughts don't tell me much, so I'd like to go a bit . . . deeper. Stir up some #ptrauma. It's not as bad as it sounds; you might even learn something about yourself in the process. Or I could simply #ypay you for your trouble.\"",
+      "A thin pinprick #rpunctures your mind, darting between the annals of your memory like an overzealous scholar. Scenes flash before your eyes, depicting #rviolent battles, #ppetty bickering, and #yevents wholly unfamiliar to you. NL NL \"You have many repressed memories. Like someone's #perased them.\" NL NL Your vision clears, and you see the woman regarding you with a contemplative expression. \"Well, it seems you're #ginnocent after all. At least you've given me some good leads.\" NL NL She walks away, leaving you with a faint headache that wouldn't quite go away.",
+      "\"The cautious sort, aren't you? I suppose I can't blame you.\" NL NL The woman peers at you closely, nodding to herself. NL NL \"I suppose what I've gotten from you is good enough. I still have several leads to #yinvestigate, after all.\" NL NL The woman walks away, leaving you unable to get a word in edgewise."
+    ],
+    "OPTIONS": [
+      "[Continue]",
+      "[Trauma] #rLose #r",
+      " #rHP. #gObtain ",
+      ".",
+      "[Payment] #rLose #r",
+      " #rMax #rHP.",
+      " #gGain #g",
+      " #gGold.",
+      "[Refuse]",
+      "[Leave]"
+    ]
+  },
+  "Gensokyo:AHistoryOfViolence": {
+    "NAME": "A History of Simulated Violence",
+    "DESCRIPTIONS": [
+      "You find yourself in a strange room, surrounded by #pstrange, #rmenacing figures. NL NL \"Well, well, what do we have here? Another challenger?\" NL NL The myriad of faces all stare down at you, gauging your #yworth. NL NL \"You've been here before, haven't you? So why don't we make things more challenging this time around?\"",
+      "\"A brave one, aren't you? This should prove to be quite interesting.\" NL NL The figures vanish, leaving you with a #pforeboding sense of #pdread.",
+      "\"Not feeling up for it? A pity.\" NL NL The figures vanish, leaving you with a brief sense of #grelief at their passing."
+    ],
+    "OPTIONS": [
+      "[Accept] #rMax #rHP #ris #rreduced #rby #r",
+      "% #rfor #rthe #rnext #rboss.",
+      " #gAfter, #gobtain ",
+      ".",
+      "[Leave]"
+    ]
+  },
+  "Gensokyo:FiresOfInvention": {
+    "NAME": "Fires of Invention",
+    "DESCRIPTIONS": [
+      "As you stumble your way through a thicket, you #rtrip, dropping one of your many #yrelics. Before you can even get up, a robotic arm bursts out of nowhere and snatches it up! NL NL \"Woah, this looks fascinating! It looks so simple at first glance, but there's actually an incredibly intricate interlocking mechanism inside!\" NL NL You pick yourself up and see a #bblue-haired girl fiddling with your #yrelic. You politely ask for it back.",
+      "\"Oh, this is yours? Hmmm . . .\" She frowns. \"Oh, I know! Why don't I pay you for it? Or if you don't want #ymoney, I can help #yfine-tune some of your other stuff! I'm a pretty good engineer, y'know?\"",
+      "\"Thank you very much!\" NL NL The girl dumps a bunch of #ycoinage into your hand and darts away, already muttering about how this device could \"increase #yfuel #yefficiency by @50%!\"@",
+      "You're not quite sure what the girl did to the other tools you handed her, but after getting them back, you could sense that they felt more #gefficient, more #grefined. NL NL Like a #rfinely-honed #redge.",
+      "\"Awwww.\" NL NL #pReluctantly, the girl gives you back your #yrelic. NL NL \"Well, if you change your mind, just come back here and ask around! Most of the other kappa here know where I live.\" NL NL The girl darts away, leaving you alone with your thoughts once more."
+    ],
+    "OPTIONS": [
+      "[Continue]",
+      "[Money]",
+      "[Fine-tune]",
+      " #rLose ",
+      ".",
+      " #gGain #g",
+      " #gGold.",
+      " #gRemove #g",
+      " #gcards.",
+      "[Refuse]",
+      "[Leave]",
+      "[Locked] Requires: Non-Special Relic.",
+      "Choose ",
+      " cards to remove.",
+      "[Locked] Requires: ",
+      " Removable Cards."
+    ]
+  },
+  "Gensokyo:ExtraExtra": {
+    "NAME": "Extra, Extra",
+    "DESCRIPTIONS": [
+      "@\"Breaking@ @news!@ Noh dance at Hakurei Shrine! Moriya Shrine #pconspiracy revealed! Get the latest scoops in Gensokyo @right@ @here,@ @right@ @now!\"@ NL NL A girl is handing out newspapers in the village square, her hands a flurry of motion as she #gdeftly hands one out to every #ycurious soul nearby. As soon as you approach, you find a newspaper unceremoniously shoved into your hands as well. NL NL \"Dramatized Tale of the Downfall of the World! Lunar Invasion Repelled! We got it all here!\"",
+      "Scanning the headlines, you see the aforementioned articles as well as a number of equally #pdubious stories.",
+      "You skim one of the articles. It speaks of a recent #rrat #rinfestation that had nearly #rdevastated the village’s food stores before a travelling medicine seller came and sold the villagers several #gcat #gstatues that supposedly managed to drive the rats away. NL NL Fascinating.",
+      "The current events of this land don't interest you all that much."
+    ],
+    "OPTIONS": [
+      "[Continue]",
+      "[Read] #gChoose #g1 #gof #g",
+      " #gUncommon #gcards #gto #gadd #gto #gyour #gdeck.",
+      " #gCommon #gcards #gto #gadd #gto #gyour #gdeck.",
+      "[Throw it away]",
+      "[Leave]",
+      "Add a card to your deck."
+    ]
+  },
+  "Gensokyo:VillageOfCats": {
+    "NAME": "Village of Cats",
+    "DESCRIPTIONS": [
+      "You find yourself in a strange, abandoned village, filled to the brim with #ycats of all kinds. NL NL One of them scampers up to you, a small brown cat with a #ggreen ribbon attached to its tail. NL NL It ~meows~ at you.",
+      "You #gpet the cat. It leans into your touch, purring #ghappily. NL NL It scampers away, soon returning with several scraps of #gfood that it lays at your feet. NL NL You try not to think about where the food came from as you thank the cat for its generosity.",
+      "You #gpet the cat. As it leans into your touch, its form suddenly #ybursts out and #yexpands, turning into a young girl. \"Hey, you're just like Yukari-sama and Ran-sama! Did they teach you how to manipulate boundaries?\" NL NL You confess that you have #pno #pidea what she's talking about. NL NL \"That's okay! I don't understand most of what they say either!\" The girl scampers away, soon returning with a #ytrinket in hand. \"Here, take this! Even if you don't understand anything, I'm sure they'll make sure you understand everything soon enough!\" NL NL You gingerly accept the artifact, trying not to think too hard on those #pforeboding words.",
+      "You #rkick the cat. It leaps up and #rhisses at you before darting away. NL NL Moments later, you feel someone tap on your shoulder. You turn around, finding a strange woman #psmiling at you. NL NL It was not a nice #psmile. NL NL \"That was quite #prude, you know? Let me show you what happens to #prude people in Gensokyo.\""
+    ],
+    "OPTIONS": [
+      "[Pet the cat] #gGain #g",
+      " #gMax #gHP.",
+      "[Pet the cat] #gObtain #ga #gRelic.",
+      "[Kick the cat] #rFight ",
+      ". #gReward: #g",
+      " #gRare #gRelics.",
+      "[Fight]",
+      "[Leave]"
+    ]
+  },
+  "Gensokyo:Boo": {
+    "NAME": "Boo!",
+    "DESCRIPTIONS": [
+      "#p@\"Boo!\"@ NL NL You #pflinch as someone @leaps@ out of the bushes in front of you, startling you. NL NL \"Ha! I surprised you, didn't I? You were #pscared, right?\"",
+      "You profusely express just how #pharrowing and #pterrifying the experience had been. In fact, it was a stroke of #yfortune that you hadn't simply fainted on the spot right then and there. NL NL \"Yay, I @did@ @it!@ I finally @did@ @it!\"@ NL NL The girl waltzes away in a daze, smiles all around, muttering about how she couldn't wait to tell her mentor about this.",
+      "\"Uwah? I was so sure I did it right this time . . .\" NL NL The #pdejected girl slinks away, dragging her equally dejected umbrella on the ground behind her. NL NL As her pitiful figure disappears into the distance, you can't help but feel a twinge of #pguilt."
+    ],
+    "OPTIONS": [
+      "[Admit it] #gRemove #ga #gcard #gfrom #gyour #gdeck.",
+      "[Deny it] #gUpgrade #g",
+      " #grandom #gcards. #rBecome #rCursed #r- ",
+      ".",
+      "Select a Card to Remove.",
+      "[Locked] Requires: Removable Card",
+      "[Leave]"
+    ]
+  },
+  "Gensokyo:PhantomEnsemble": {
+    "NAME": "Phantom Ensemble",
+    "DESCRIPTIONS": [
+      "Strands of music drift through the air, #pphantom notes that slink into your ears, making you feel #gjoyous yet #phollow, #genergetic yet #pempty, #galive yet #pdead. NL NL The chaotic blend threatens to overwhelm you, but you can discern three distinct melodies underneath the chaos. You try to focus on one of them . . .",
+      "You focus on the #ydull notes underpinning the overall melody. Their quiet calm #gsoothes your mind and body, and you eventually find yourself well enough to move on.",
+      "You focus on the #ymanic notes underpinning the overall melody. Their chaotic energy #ginvigorates your mind and body, granting you boundless energy that you simply cannot contain - NL NL When you finally wake up, strange aches all over your body, the music is gone.",
+      "You focus on the #ymelancholic notes underpinning the overall melody. Their lethargic energy #plulls your mind into a deep slumber, one that you find yourself unable to resist. NL NL When you finally wake up, a strange heaviness in your body, the music is gone."
+    ],
+    "OPTIONS": [
+      "[Illusionary Melody] #gObtain #ga #gspecial #gRelic.",
+      "[Joyful Melody] #gObtain #ga #gspecial #gRelic.",
+      "[Melancholic Melody] #gObtain #ga #gspecial #gRelic.",
+      "[Leave]"
+    ]
+  },
   "Gensokyo:MarisaAnOldGhost": {
     "NAME": "An Old Ghost",
     "DESCRIPTIONS": [

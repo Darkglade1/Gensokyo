@@ -35,10 +35,10 @@ public class Wraith extends AbstractSpriterMonster
     private static final int DRAIN = 1;
     private static final int POWER_THRESHOLD = 14;
     private static final int A17_POWER_THRESHOLD = 11;
-    private static final int HP_MIN = 80;
-    private static final int HP_MAX = 84;
-    private static final int A7_HP_MIN = 83;
-    private static final int A7_HP_MAX = 87;
+    private static final int HP_MIN = 75;
+    private static final int HP_MAX = 79;
+    private static final int A7_HP_MIN = 78;
+    private static final int A7_HP_MAX = 82;
     private int attackDamage;
     private int powerThreshold;
     private boolean sapStr = true;

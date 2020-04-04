@@ -81,6 +81,97 @@
       "At the start of combat, choose any #b3 upgraded #yUrban #yLegends to add to your hand."
     ]
   },
+  "Gensokyo:UndefinedDarkness": {
+    "NAME": "Undefined Darkness",
+    "FLAVOR": "Fear comes in all shapes and sizes.",
+    "DESCRIPTIONS": [
+      "Your cards are #pobscured for #b", " combat. After, obtain a #yspecial #yrelic.", "???"
+    ]
+  },
+  "Gensokyo:ConquerorOfFear": {
+    "NAME": "Conqueror of Fear",
+    "FLAVOR": "The only thing we have to fear is fear itself.",
+    "DESCRIPTIONS": [
+      "While there are #b", " or more cards in your discard pile, you have an additional #b", " #yStrength and #yDexterity."
+    ]
+  },
+  "Gensokyo:DayTheSeaSplit": {
+    "NAME": "The Day the Sea Split",
+    "FLAVOR": "The sea, once it casts its spell, holds one in its net of wonder forever.",
+    "DESCRIPTIONS": [
+      "Your #ySkills #yexhaust when played for #b", " combats. After, obtain a #yspecial #yrelic."
+    ]
+  },
+  "Gensokyo:MosesMiracle": {
+    "NAME": "Moses's Miracle",
+    "FLAVOR": "\"A miracle that parts the sea. Which makes it easy to catch fish, apparently.\" - The Grimoire of Marisa",
+    "DESCRIPTIONS": [
+      "Whenever you shuffle your draw pile, add a #yMiracle to your hand."
+    ]
+  },
+  "Gensokyo:FoxMask": {
+    "NAME": "Fox Mask",
+    "FLAVOR": "A mask for the serious and determined.",
+    "DESCRIPTIONS": [
+      "Whenever you draw a #yStatus card, draw #b", " card."
+    ]
+  },
+  "Gensokyo:SpiderMask": {
+    "NAME": "Spider Mask",
+    "FLAVOR": "A mask for the angry and enraged.",
+    "DESCRIPTIONS": [
+      "The first time you play an #yAttack each turn, apply #b", " #yVulnerable to a random enemy."
+    ]
+  },
+  "Gensokyo:MaskOfHope": {
+    "NAME": "Mask of Hope",
+    "FLAVOR": "A mask for humor and cheer.",
+    "DESCRIPTIONS": [
+      "The first time you lose HP each combat, gain #b", " #yTemporary #yHP."
+    ]
+  },
+  "Gensokyo:DemonMask": {
+    "NAME": "Demon Mask",
+    "FLAVOR": "A mask for thunderous surprise.",
+    "DESCRIPTIONS": [
+      "At the end of your turn, if you did not play any #ynon-Attack cards this turn, gain #b", " #yStrength."
+    ]
+  },
+  "Gensokyo:LionMask": {
+    "NAME": "Lion Mask",
+    "FLAVOR": "A mask for the joyful and delighted.",
+    "DESCRIPTIONS": [
+      "Whenever you play a #ySkill, deal #b", " damage to a random enemy."
+    ]
+  },
+  "Gensokyo:RedStar": {
+    "NAME": "Red Star",
+    "FLAVOR": "An ill omen feared by many.",
+    "DESCRIPTIONS": [
+      "Your Max HP is reduced by #b", "% for the next boss fight. After, obtain a #yspecial #ycard."
+    ]
+  },
+  "Gensokyo:ChorusOfJoy": {
+    "NAME": "Chorus of Joy",
+    "FLAVOR": "A joyful melody for dispirited times.",
+    "DESCRIPTIONS": [
+      "At the start of combat, gain [E] and discard #b", " card.", " cards."
+    ]
+  },
+  "Gensokyo:DirgeOfMelancholy": {
+    "NAME": "Dirge of Melancholy",
+    "FLAVOR": "A mournful melody for nostalgic times.",
+    "DESCRIPTIONS": [
+      "At the start of combat, lose [E] and ALL enemies lose #b", " #yStrength."
+    ]
+  },
+  "Gensokyo:SongOfSouls": {
+    "NAME": "Song of Souls",
+    "FLAVOR": "A youthful melody for all of time.",
+    "DESCRIPTIONS": [
+      "Whenever you play a Strike or Defend card, #yexhaust it."
+    ]
+  },
   "Gensokyo:MarisaIngredientList": {
     "NAME": "Ingredient List",
     "FLAVOR": "A bunch of messy scribbles on a page. Apparently creates something known as the \"Improbability Potion\".",

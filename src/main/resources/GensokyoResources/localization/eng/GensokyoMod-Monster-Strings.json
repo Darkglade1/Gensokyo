@@ -271,7 +271,8 @@
     "NAME": "Supreme Judge of Paradise",
     "DIALOG": [
       "You cannot escape the sins of your past.",
-      "Your resilience is impressive."
+      "Your resilience is impressive.",
+      "Good to see you're not slacking off."
     ]
   },
   "Gensokyo:Mirror": {
@@ -365,7 +366,9 @@
     ],
     "NAME": "Daughter of Heaven",
     "DIALOG": [
-      "Give it all you've got!"
+      "Give it all you've got!",
+      "Oh, aren't you the one who ruined my fun?",
+      "Guess I'll have to settle for you instead!"
     ]
   },
   "Gensokyo:Swordslinger": {

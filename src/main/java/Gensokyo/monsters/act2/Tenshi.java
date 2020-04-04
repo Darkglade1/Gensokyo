@@ -3,6 +3,7 @@ package Gensokyo.monsters.act2;
 import Gensokyo.BetterSpriterAnimation;
 import Gensokyo.actions.TakeSecondTurnAction;
 import Gensokyo.powers.act2.Weather;
+import Gensokyo.relics.act1.CelestialsFlawlessClothing;
 import Gensokyo.util.PreviewIntent;
 import Gensokyo.vfx.EmptyEffect;
 import basemod.abstracts.CustomMonster;
@@ -123,12 +124,19 @@ public class Tenshi extends CustomMonster
         AbstractDungeon.getCurrRoom().playBgmInstantly("Bhavagra");
         weatherPower = new Weather(this, this);
         AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(this, this, weatherPower));
+        if (AbstractDungeon.player.hasRelic(CelestialsFlawlessClothing.ID)) {
+            AbstractDungeon.actionManager.addToBottom(new TalkAction(this, DIALOG[1]));
+        }
     }
     
     @Override
     public void takeTurn() {
         if (this.firstMove) {
-            AbstractDungeon.actionManager.addToBottom(new TalkAction(this, DIALOG[0]));
+            if (AbstractDungeon.player.hasRelic(CelestialsFlawlessClothing.ID)) {
+                AbstractDungeon.actionManager.addToBottom(new TalkAction(this, DIALOG[2]));
+            } else {
+                AbstractDungeon.actionManager.addToBottom(new TalkAction(this, DIALOG[0]));
+            }
             firstMove = false;
         }
         DamageInfo info = new DamageInfo(this, moves.get(this.nextMove).baseDamage, DamageInfo.DamageType.NORMAL);
@@ -156,7 +164,7 @@ public class Tenshi extends CustomMonster
             }
         }
         if (weather == WEATHER_1) {
-            AbstractDungeon.actionManager.addToBottom(new VFXAction(new EmptyEffect(), 0.8F));
+            AbstractDungeon.actionManager.addToBottom(new VFXAction(new EmptyEffect(), 1.0F));
             AbstractDungeon.actionManager.addToBottom(new TakeSecondTurnAction(this));
         }
         AbstractDungeon.actionManager.addToBottom(new RollMoveAction(this));

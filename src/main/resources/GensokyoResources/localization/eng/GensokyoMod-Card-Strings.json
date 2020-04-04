@@ -106,10 +106,6 @@
     "DESCRIPTION": "Retain. NL Scry X. NL Your next X cards are played twice. NL Exhaust.",
     "UPGRADE_DESCRIPTION": "Retain. NL Scry X + 1. NL Your next X + 1 cards are played twice. NL Exhaust."
   },
-  "Gensokyo:Butterfly": {
-    "NAME": "Butterfly",
-    "DESCRIPTION": "Retain. NL Lose !M! HP. NL Gain !B! Block. NL Exhaust."
-  },
   "Gensokyo:ImpossibleRequest": {
     "NAME": "Impossible Request",
     "DESCRIPTION": "gensokyo:Impossible_Request."
@@ -134,7 +130,7 @@
     "NAME": "Swallow's Cowrie Shell",
     "DESCRIPTION": "gensokyo:Impossible_Request. NL Gain !M! Block in a single turn."
   },
-  "Gensokyo:TabooFourOfAKind": {
+  "Gensokyo:FourOfAKind": {
     "NAME": "Taboo \"Four of a Kind\"",
     "DESCRIPTION": "Ethereal. NL This turn, your next card is played !M! additional time(s). NL Increase the effect of ALL copies of this card by !Gensokyo:SecondMagic! this combat. NL Can only be played once per turn. NL Exhaust.",
     "UPGRADE_DESCRIPTION": "This turn, your next card is played !M! additional time(s). NL Increase the effect of ALL copies of this card by !Gensokyo:SecondMagic! this combat. NL Can only be played once per turn. NL Exhaust.",

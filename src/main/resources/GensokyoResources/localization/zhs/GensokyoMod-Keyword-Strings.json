@@ -38,5 +38,14 @@
       "sturdy"
     ],
     "DESCRIPTION": "Sturdy creatures gain #b34% more block."
+  },
+  {
+    "PROPER_NAME": "Impossible Request",
+    "NAMES": [
+      "Impossible Request",
+      "impossible_request",
+      "Impossible_Request"
+    ],
+    "DESCRIPTION": "#yRetain. Cannot be #yexhausted. NL Whenever the #pImpossible #pRequest is transformed, if you fulfilled the condition, you gain #b1 #yStrength. If you didn't fulfill the request, the enemy gains #b3 #yStrength."
   }
 ]

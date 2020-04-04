@@ -32,7 +32,7 @@ import Gensokyo.cards.SevenSchoolMysteries;
 import Gensokyo.cards.ShootingStar;
 import Gensokyo.cards.SlitMouthedWoman;
 import Gensokyo.cards.SpontaneousHumanCombustion;
-import Gensokyo.cards.TabooFourOfAKind;
+import Gensokyo.cards.FourOfAKind;
 import Gensokyo.cards.TekeTeke;
 import Gensokyo.cards.TurboGranny;
 import Gensokyo.dungeon.EncounterIDs;
@@ -208,7 +208,7 @@ public class GensokyoMod implements
     //This is for the in-game mod settings panel.
     private static final String MODNAME = "Gensokyo";
     private static final String AUTHOR = "Darkglade";
-    private static final String DESCRIPTION = "An alternate Act 1 mod inspired by Touhou Project.";
+    private static final String DESCRIPTION = "An alternate Act 1 and 2 mod inspired by Touhou Project.";
     
     // =============== INPUT TEXTURE LOCATION =================
     
@@ -499,7 +499,7 @@ public class GensokyoMod implements
 
 
         //Act2
-        BaseMod.addEvent(AndThenThereWereNone.ID, AndThenThereWereNone.class, Gensokyoer.ID);
+        //BaseMod.addEvent(AndThenThereWereNone.ID, AndThenThereWereNone.class, Gensokyoer.ID);
         BaseMod.addEvent(NightmareOfHeian.ID, NightmareOfHeian.class, Gensokyoer.ID);
         BaseMod.addEvent(Impoverished.ID, Impoverished.class, Gensokyoer.ID);
         BaseMod.addEvent(TheWhiteLotus.ID, TheWhiteLotus.class, Gensokyoer.ID);
@@ -715,7 +715,7 @@ public class GensokyoMod implements
         BaseMod.addCard(new CrescentMoonSlash());
         BaseMod.addCard(new Frozen());
         BaseMod.addCard(new ImpossibleRequest());
-        BaseMod.addCard(new TabooFourOfAKind());
+        //BaseMod.addCard(new FourOfAKind());
         BaseMod.addCard(new AllTheWorldsEvil());
         BaseMod.addCard(new EmbersOfLove());
         BaseMod.addCard(new Philosophy());

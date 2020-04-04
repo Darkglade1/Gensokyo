@@ -12,9 +12,9 @@ import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import static Gensokyo.GensokyoMod.makeCardPath;
 import static com.megacrit.cardcrawl.core.CardCrawlGame.languagePack;
 
-public class TabooFourOfAKind extends AbstractDefaultCard {
+public class FourOfAKind extends AbstractDefaultCard {
 
-    public static final String ID = GensokyoMod.makeID(TabooFourOfAKind.class.getSimpleName());
+    public static final String ID = GensokyoMod.makeID(FourOfAKind.class.getSimpleName());
     public static final String IMG = makeCardPath("FourOfAKind.png");
 
     private static final CardRarity RARITY = CardRarity.SPECIAL;
@@ -28,7 +28,7 @@ public class TabooFourOfAKind extends AbstractDefaultCard {
 
     public static boolean playedThisTurn = false;
 
-    public TabooFourOfAKind() {
+    public FourOfAKind() {
         super(ID, IMG, COST, TYPE, COLOR, RARITY, TARGET);
         this.magicNumber = baseMagicNumber = REPEATS;
         this.defaultSecondMagicNumber = defaultBaseSecondMagicNumber = UPGRADE;
@@ -40,7 +40,7 @@ public class TabooFourOfAKind extends AbstractDefaultCard {
     public void use(AbstractPlayer p, AbstractMonster m) {
         AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(p, p, new TabooFourOfAKindPower(p, magicNumber), magicNumber));
         AbstractDungeon.actionManager.addToBottom(new TabooUpgradeAction(this, this.defaultSecondMagicNumber));
-        TabooFourOfAKind.playedThisTurn = true;
+        FourOfAKind.playedThisTurn = true;
     }
 
     @Override
@@ -49,7 +49,7 @@ public class TabooFourOfAKind extends AbstractDefaultCard {
         if (!canUse) {
             return false;
         }
-        if (TabooFourOfAKind.playedThisTurn) {
+        if (FourOfAKind.playedThisTurn) {
             this.cantUseMessage = languagePack.getCardStrings(cardID).EXTENDED_DESCRIPTION[0];
             return false;
         }
@@ -58,7 +58,7 @@ public class TabooFourOfAKind extends AbstractDefaultCard {
 
     @Override
     public void atTurnStart() {
-        TabooFourOfAKind.playedThisTurn = false;
+        FourOfAKind.playedThisTurn = false;
     }
 
     @Override
