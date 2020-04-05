@@ -499,7 +499,7 @@ public class GensokyoMod implements
 
 
         //Act2
-        //BaseMod.addEvent(AndThenThereWereNone.ID, AndThenThereWereNone.class, Gensokyoer.ID);
+        BaseMod.addEvent(AndThenThereWereNone.ID, AndThenThereWereNone.class, Gensokyoer.ID);
         BaseMod.addEvent(NightmareOfHeian.ID, NightmareOfHeian.class, Gensokyoer.ID);
         BaseMod.addEvent(Impoverished.ID, Impoverished.class, Gensokyoer.ID);
         BaseMod.addEvent(TheWhiteLotus.ID, TheWhiteLotus.class, Gensokyoer.ID);
@@ -715,7 +715,7 @@ public class GensokyoMod implements
         BaseMod.addCard(new CrescentMoonSlash());
         BaseMod.addCard(new Frozen());
         BaseMod.addCard(new ImpossibleRequest());
-        //BaseMod.addCard(new FourOfAKind());
+        BaseMod.addCard(new FourOfAKind());
         BaseMod.addCard(new AllTheWorldsEvil());
         BaseMod.addCard(new EmbersOfLove());
         BaseMod.addCard(new Philosophy());
