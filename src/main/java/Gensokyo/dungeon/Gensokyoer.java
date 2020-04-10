@@ -170,7 +170,5 @@ public class Gensokyoer extends CustomDungeon {
     @Override
     protected void initializeEventList() {
         // Events are added via BaseMod in GensokyoMod.receivePostInitialize()
-        specialOneTimeEventList.clear(); //gets rid of these global events just in case
-        shrineList.clear(); //gets rid of this shit too just in case
     }
 }
