@@ -325,12 +325,10 @@ public class Byakuren extends CustomMonster
         super.render(sb);
         if (this.hasPower(Purity.POWER_ID)) {
             if (this.getPower(Purity.POWER_ID).amount == Purity.THRESHOLD) {
-                if (!Settings.DISABLE_EFFECTS) {
-                    this.particleTimer -= Gdx.graphics.getDeltaTime();
-                    if (this.particleTimer < 0.0F) {
-                        this.particleTimer = 0.04F;
-                        AbstractDungeon.effectsQueue.add(new FlexibleCalmParticleEffect(this));
-                    }
+                this.particleTimer -= Gdx.graphics.getDeltaTime();
+                if (this.particleTimer < 0.0F) {
+                    this.particleTimer = 0.04F;
+                    AbstractDungeon.effectsQueue.add(new FlexibleCalmParticleEffect(this));
                 }
 
                 this.particleTimer2 -= Gdx.graphics.getDeltaTime();

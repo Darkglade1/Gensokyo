@@ -5,6 +5,7 @@ import Gensokyo.actions.RezAction;
 import Gensokyo.actions.SetFlipAction;
 import Gensokyo.cards.ImpossibleRequests.ImpossibleRequest;
 import Gensokyo.powers.act2.BetterDrawReductionPower;
+import Gensokyo.powers.act2.DummyLunaticPrincess;
 import Gensokyo.powers.act2.HouraiImmortal;
 import Gensokyo.powers.act2.LunaticPrincess;
 import actlikeit.dungeons.CustomDungeon;
@@ -83,8 +84,7 @@ public class Kaguya extends CustomMonster
     private int buddhistDiamondDamage5;
 
     public static final int PLAYER_STRENGTH_GAIN = 1;
-    private static final int STRENGTH_GAIN = 3;
-    //private static final int A19_STRENGTH_GAIN = 3;
+    public static final int STRENGTH_GAIN = 3;
     private int strengthGain;
 
     private static final int HP = 60;
@@ -155,6 +155,7 @@ public class Kaguya extends CustomMonster
         }
         request.transform();
         this.addToBot(new ApplyPowerAction(this, this, new HouraiImmortal(this, DEATH_THRESHOLD)));
+        this.addToBot(new ApplyPowerAction(this, this, new DummyLunaticPrincess(this, strengthGain)));
         this.addToBot(new ApplyPowerAction(AbstractDungeon.player, this, new LunaticPrincess(AbstractDungeon.player, strengthGain, this, request)));
         AbstractDungeon.effectList.add(new ShowCardAndAddToHandEffect(request));
     }
@@ -245,7 +246,7 @@ public class Kaguya extends CustomMonster
 
             ArrayList<AbstractPower> powersToRemove = new ArrayList<>();
             for (AbstractPower power : this.powers) {
-                if (!(power instanceof HouraiImmortal) && !(power instanceof LunaticPrincess) && !(power instanceof StrengthPower) && !(power instanceof GainStrengthPower)) {
+                if (!(power instanceof HouraiImmortal) && !(power instanceof DummyLunaticPrincess) && !(power instanceof StrengthPower) && !(power instanceof GainStrengthPower)) {
                     powersToRemove.add(power);
                 }
             }

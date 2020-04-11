@@ -52,7 +52,7 @@ public class Reisen extends CustomMonster
     private static final int DEBUFF_ATTACK_DAMAGE = 12;
     private static final int A3_DEBUFF_ATTACK_DAMAGE = 13;
     private static final int DEBUFF_AMOUNT = 1;
-    private static final int MEGA_DEBUFF_AMT = 1;
+    private static final int MEGA_DEBUFF_AMT = 2;
     private static final int STATUS = 1;
     private static final int A18_STATUS = 2;
     private static final int COOLDOWN = 2;
@@ -138,7 +138,6 @@ public class Reisen extends CustomMonster
             case DEBUFF: {
                 runAnim("Spell");
                 AbstractDungeon.actionManager.addToBottom(new MakeTempCardInDiscardAction(new MindShatter(), status));
-                AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(AbstractDungeon.player, this, new VulnerablePower(AbstractDungeon.player, MEGA_DEBUFF_AMT, true), MEGA_DEBUFF_AMT));
                 AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(AbstractDungeon.player, this, new FrailPower(AbstractDungeon.player, MEGA_DEBUFF_AMT, true), MEGA_DEBUFF_AMT));
                 turnCounter = 0;
                 break;
@@ -207,12 +206,10 @@ public class Reisen extends CustomMonster
         super.render(sb);
         if (this.hasPower(LunaticRedEyes.POWER_ID)) {
             if (this.getPower(LunaticRedEyes.POWER_ID).amount == LunaticRedEyes.THRESHOLD) {
-                if (!Settings.DISABLE_EFFECTS) {
-                    this.particleTimer -= Gdx.graphics.getDeltaTime();
-                    if (this.particleTimer < 0.0F) {
-                        this.particleTimer = 0.04F;
-                        AbstractDungeon.effectsQueue.add(new FlexibleDivinityParticleEffect(this));
-                    }
+                this.particleTimer -= Gdx.graphics.getDeltaTime();
+                if (this.particleTimer < 0.0F) {
+                    this.particleTimer = 0.04F;
+                    AbstractDungeon.effectsQueue.add(new FlexibleDivinityParticleEffect(this));
                 }
 
                 this.particleTimer2 -= Gdx.graphics.getDeltaTime();

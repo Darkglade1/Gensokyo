@@ -138,12 +138,10 @@ public class Aya extends CustomMonster
         super.render(sb);
         if (this.hasPower(Evasive.POWER_ID)) {
             if (this.getPower(Evasive.POWER_ID).amount == Evasive.THRESHOLD) {
-                if (!Settings.DISABLE_EFFECTS) {
-                    this.particleTimer -= Gdx.graphics.getDeltaTime();
-                    if (this.particleTimer < 0.0F) {
-                        this.particleTimer = 0.04F;
-                        AbstractDungeon.effectsQueue.add(new FlexibleCalmParticleEffect(this));
-                    }
+                this.particleTimer -= Gdx.graphics.getDeltaTime();
+                if (this.particleTimer < 0.0F) {
+                    this.particleTimer = 0.04F;
+                    AbstractDungeon.effectsQueue.add(new FlexibleCalmParticleEffect(this));
                 }
 
                 this.particleTimer2 -= Gdx.graphics.getDeltaTime();

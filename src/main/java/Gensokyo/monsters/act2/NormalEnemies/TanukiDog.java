@@ -35,12 +35,12 @@ public class TanukiDog extends AbstractSpriterMonster
     private static final int HITS = 3;
     private static final int BLOCK_ATTACK_DAMAGE = 6;
     private static final int A2_BLOCK_ATTACK_DAMAGE = 7;
-    private static final int STR = 4;
-    private static final int A17_STR = 5;
+    private static final int STR = 3;
+    private static final int A17_STR = 4;
     private static final int BLOCK = 8;
     private static final int A7_BLOCK = 9;
     private static final int SELF_DEBUFF = 2;
-    private static final float BERSERK_THRESHOLD = 0.75F;
+    private static final float BERSERK_THRESHOLD = 0.65F;
     private static final int HP_MIN = 40;
     private static final int HP_MAX = 44;
     private static final int A7_HP_MIN = 42;

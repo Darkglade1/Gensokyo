@@ -165,7 +165,11 @@
 },
 "Gensokyo:HouraiImmortal": {
         "NAME": "Hourai Immortal",
-        "DESCRIPTIONS": ["Whenever this creature dies, it #yimmediately revives at full HP and transforms the #pImpossible #pRequest. Flees after dying #b", " more time.", " more times."]
+        "DESCRIPTIONS": ["Whenever this creature dies, it #yimmediately revives at full HP. Flees after dying #b", " more time.", " more times."]
+},
+"Gensokyo:DummyLunaticPrincess": {
+        "NAME": "Lunatic Princess",
+        "DESCRIPTIONS": ["Whenever this creature dies, #ytransform the #pImpossible #pRequest into the next #prequest. If the request was completed, you gain #b", " #yStrength. If the request was #rnot completed, gains #b", " #yStrength."]
 },
 "Gensokyo:LunaticPrincess": {
         "NAME": "Lunatic Princess",

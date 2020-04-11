@@ -34,9 +34,9 @@ public class Gloop extends AbstractSpriterMonster
     private static final int ATTACK_DAMAGE = 8;
     private static final int A2_ATTACK_DAMAGE = 9;
     private static final int DEBUFF_AMT = 3;
-    private static final int A17_DEBUFF_AMT = 3;
+    private static final int A17_DEBUFF_AMT = 4;
     private static final int STRONG_DEBUFF_AMT = 1;
-    private static final int A17_STRONG_DEBUFF_AMT = 2;
+    private static final int A17_STRONG_DEBUFF_AMT = 1;
     private static final int HP_MIN = 46;
     private static final int HP_MAX = 50;
     private static final int A7_HP_MIN = 48;

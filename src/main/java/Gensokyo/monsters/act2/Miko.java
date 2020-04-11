@@ -356,12 +356,10 @@ public class Miko extends CustomMonster
         super.render(sb);
         if (this.hasPower(TenDesires.POWER_ID)) {
             if (this.getPower(TenDesires.POWER_ID).amount == TenDesires.THRESHOLD) {
-                if (!Settings.DISABLE_EFFECTS) {
-                    this.particleTimer -= Gdx.graphics.getDeltaTime();
-                    if (this.particleTimer < 0.0F) {
-                        this.particleTimer = 0.04F;
-                        AbstractDungeon.effectsQueue.add(new FlexibleDivinityParticleEffect(this));
-                    }
+                this.particleTimer -= Gdx.graphics.getDeltaTime();
+                if (this.particleTimer < 0.0F) {
+                    this.particleTimer = 0.04F;
+                    AbstractDungeon.effectsQueue.add(new FlexibleDivinityParticleEffect(this));
                 }
 
                 this.particleTimer2 -= Gdx.graphics.getDeltaTime();

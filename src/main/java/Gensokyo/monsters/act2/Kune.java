@@ -31,10 +31,10 @@ public class Kune extends CustomMonster
     private static final int STATUS_AMT = 1;
     private static final int BUFF_AMT = 2;
     private static final int A18_BUFF_AMT = 3;
-    private static final int HP_MIN = 14;
-    private static final int HP_MAX = 16;
-    private static final int A8_HP_MIN = 15;
-    private static final int A8_HP_MAX = 17;
+    private static final int HP_MIN = 13;
+    private static final int HP_MAX = 15;
+    private static final int A8_HP_MIN = 14;
+    private static final int A8_HP_MAX = 16;
     private int attackDamage;
     private int buff;
     public Reisen reisen;

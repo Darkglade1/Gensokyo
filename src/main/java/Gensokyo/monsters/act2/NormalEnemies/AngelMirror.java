@@ -41,10 +41,10 @@ public class AngelMirror extends AbstractSpriterMonster
     private static final int A17_POWER_AMT = 8;
     private static final int DEBUFF_AMT = 1;
     private static final int ARTIFACT_AMT = 2;
-    private static final int HP_MIN = 40;
-    private static final int HP_MAX = 42;
-    private static final int A7_HP_MIN = 41;
-    private static final int A7_HP_MAX = 43;
+    private static final int HP_MIN = 43;
+    private static final int HP_MAX = 45;
+    private static final int A7_HP_MIN = 44;
+    private static final int A7_HP_MAX = 46;
     private int attackDamage;
     private int debuffAttackDamage;
     private int powerAmt;
