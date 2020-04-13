@@ -3,68 +3,68 @@
     "TEXT": [
       "幻想乡",
       "第一阶段",
-      "Out of the corner of your eye, you see a strange purple #pgap. A compulsion urges you to @look@ @away,@ to continue your ascent, but the tantalizing rift beckons you, promising #gfreedom.",
-      "Venture into the wondrous land of illusions."
+      "从你的眼角之外，瞥见一条奇怪的紫色 #p裂缝 。突然心中有一股冲动强迫你 @看向别处@ ，继续你的攀登。但是那诱人的裂缝也在召唤着你，向你承诺这 #g自由 。",
+      "进入梦幻之地。"
     ]
   },
   "Gensokyo:Brew Option": {
     "TEXT": [
-      "Brew",
-      "Brew the Improbability Potion"
+      "炼制",
+      "炼制无常药。"
     ]
   },
   "Gensokyo:Occult Ball Option": {
     "TEXT": [
-      "You feel a strange tugging . . .",
-      "Fight a special elite enemy to obtain the last Occult Ball."
+      "你感觉身后有股奇怪的力量拽着你……",
+      "与一名特殊精英交战获得最后一颗神秘珠。"
     ]
   },
   "Gensokyo:OccultBallAction": {
     "TEXT": [
-      "Choose an Urban Legend to add to your hand.",
-      "Choose any ", " Urban Legends to add to your hand."
+      "选择一张都市传说加入手牌。",
+      "选择任意", " 张都市传说加入手牌。"
     ]
   },
   "Gensokyo:Gensokyoer": {
     "TEXT": [
-      "Gensokyo",
-      "Act 2",
-      "The denizens of this land are #pstrange, often #pdisconcerting at times. But their chaotic antics are a #gbreath of fresh air, a welcome reprieve from the stagnant spire that you could no longer remember.",
-      "Continue your adventure in the land of illusions."
+      "幻想乡",
+      "第二阶段",
+      "这片土地上的居民都很 #p奇怪 ，常常会不时地 #p自言自语 。但是她们的混乱的滑稽动作却宛如一股 #g新鲜的空气 ，一种让你能忘掉尖塔的死气沉沉的放松气息。",
+      "继续你在梦幻之地的冒险。"
     ]
   },
   "Gensokyo:DeathIntent": {
     "TEXT": [
-      "Death",
-      "This enemy intends to #rkill you."
+      "死亡",
+      "这名敌人将 #r斩杀 你。"
     ]
   },
   "Gensokyo:AreaAttackIntent": {
     "TEXT": [
-      "Area Attack",
-      "This enemy intends to deal #b", " damage to ALL other characters", ".", " times."
+      "范围攻击",
+      "这名敌人将要对所有其他角色造成 #b", " 点伤害 ", " 。", " 次。"
     ]
   },
   "Gensokyo:PurifyIntent": {
     "TEXT": [
-      "Purify",
-      "This enemy intends to remove ALL #pdebuffs from ALL characters."
+      "净化",
+      "这名敌人将移除所有角色的 #p负面效果 。"
     ]
   },
   "Gensokyo:RivalIntents": {
     "TEXT": [
-      "This enemy will #yAttack #ryou for #b",
-      " damage because you are in the #rcrossfire.",
-      "This enemy intends to NL #yAttack its #prival for #b",
-      " damage.",
-      "This enemy will #yAttack #ryou for #b",
-      " damage #b",
-      " times because you are in the #rcrossfire.",
-      "This enemy intends to NL #yAttack its #prival for #b",
-      " damage #b",
-      " times.",
-      "This enemy will inflict a #yNegative #yEffect on #ryou because you are in the #rcrossfire.",
-      "This enemy intends to inflict a #yNegative #yEffect on its #prival."
+      "这名敌人因为你处于 #r交叉火力 而 #r攻击你 造成 #b",
+      " 点伤害。",
+      "这名敌人将要 #y攻击 她的 #p宿敌 造成 #b",
+      " 点伤害。",
+      "这名敌人因为你处于 #r交叉火力 而 #r攻击你 造成 #b",
+      " 点伤害 #b",
+      " 次。",
+      "这名敌人将要 #y攻击 她的 #p宿敌 造成 #b",
+      " 点伤害 #b",
+      " 次。",
+      "这名敌人因为你处于 #r交叉火力 而给予 #r你 一种 #y负面效果 。",
+      "这名敌人将给予她的 #p宿敌 一种 #y负面效果 。"
     ]
   }
 }

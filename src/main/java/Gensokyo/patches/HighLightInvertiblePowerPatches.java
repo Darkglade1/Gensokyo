@@ -53,7 +53,7 @@ public class HighLightInvertiblePowerPatches {
         }
 
         private static boolean fightingYukari() {
-            if (AbstractDungeon.getCurrRoom() != null) {
+            if (AbstractDungeon.getCurrRoom() != null && AbstractDungeon.getCurrRoom().monsters != null) {
                 for (AbstractMonster monster : AbstractDungeon.getCurrRoom().monsters.monsters) {
                     if (monster instanceof Yukari) {
                         return true;

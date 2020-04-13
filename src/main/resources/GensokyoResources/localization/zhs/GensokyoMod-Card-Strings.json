@@ -86,80 +86,80 @@
     "DESCRIPTION": "当这张牌被抽到时，本场战斗降低这张牌的耗能 !M! 点。 NL 消耗 。"
   },
   "Gensokyo:MarisaTwilightSpark": {
-    "NAME": "Twilight Spark",
-    "DESCRIPTION": "Exhaust any number of cards. Increase this card's damage by !M! for each card exhausted. Counts as a Skill. NL Amplify  [E]  [E]  [E] : Deal !D! damage to ALL enemies instead. Counts as an Attack."
+    "NAME": "暮色火花",
+    "DESCRIPTION": "消耗 任意张牌。 每 消耗 一张牌提升此牌的伤害 !M! 点。视作技能牌。 NL 增幅 [E] [E] [E] ：改为对全体敌人造成 !D! 点伤害。视作攻击牌。"
   },
   "Gensokyo:BlessingOfVigor": {
-    "NAME": "Blessing of Vigor",
-    "DESCRIPTION": "Unplayable. NL Whenever you draw this card, draw a card and gain !M! gensokyo:Vigor."
+    "NAME": "威猛祝福",
+    "DESCRIPTION": "不能被打出 。 NL 当你抽到这张牌，抽一张牌并获得 !M! 层 gensokyo:威猛 。"
   },
   "Gensokyo:BlessingOfFortitude": {
-    "NAME": "Blessing of Fortitude",
-    "DESCRIPTION": "Unplayable. NL Whenever you draw this card, draw a card and gain !M! gensokyo:Fortitude."
+    "NAME": "坚韧祝福",
+    "DESCRIPTION": "不能被打出 。 NL 当你抽到这张牌，抽一张牌并获得 !M! 层 gensokyo:坚韧 。"
   },
   "Gensokyo:BlessingOfConstitution": {
-    "NAME": "Blessing of Constitution",
-    "DESCRIPTION": "Unplayable. NL Whenever you draw this card, draw a card and gain !M! gensokyo:Sturdy."
+    "NAME": "强健祝福",
+    "DESCRIPTION": "不能被打出 。 NL 当你抽到这张牌，抽一张牌并获得 !M! 层 gensokyo:强健 。"
   },
   "Gensokyo:Doppelganger": {
-    "NAME": "Doppelganger",
-    "DESCRIPTION": "Retain. NL Scry X. NL Your next X cards are played twice. NL Exhaust.",
-    "UPGRADE_DESCRIPTION": "Retain. NL Scry X + 1. NL Your next X + 1 cards are played twice. NL Exhaust."
+    "NAME": "二重身",
+    "DESCRIPTION": "保留 。 NL 预见 X。 NL 你打出的下X张牌将被打出两次。 NL 消耗 。",
+    "UPGRADE_DESCRIPTION": "保留 。 NL 预见 X。 NL 你打出的下X+1张牌将被打出两次。 NL 消耗 。"
   },
   "Gensokyo:ImpossibleRequest": {
-    "NAME": "Impossible Request",
-    "DESCRIPTION": "gensokyo:Impossible_Request."
+    "NAME": "难题",
+    "DESCRIPTION": "gensokyo:难题 。"
   },
   "Gensokyo:BuddhaStoneBowl": {
-    "NAME": "Buddha's Stone Bowl",
-    "DESCRIPTION": "gensokyo:Impossible_Request. NL Play an Attack, Skill, and Power in a single turn."
+    "NAME": "佛御石之钵",
+    "DESCRIPTION": "gensokyo:难题 。 NL 在一回合内打出攻击、技能、能力牌。"
   },
   "Gensokyo:BulletBranchOfHourai": {
-    "NAME": "Bullet Branch of Hourai",
-    "DESCRIPTION": "gensokyo:Impossible_Request. NL Play !M! cards in a single turn."
+    "NAME": "蓬莱的弹枝",
+    "DESCRIPTION": "gensokyo:难题 。 NL 在一回合内打出 !M! 张牌。"
   },
   "Gensokyo:FireRatsRobe": {
-    "NAME": "Fire Rat's Robe",
-    "DESCRIPTION": "gensokyo:Impossible_Request. NL Draw !M! cards in a single turn."
+    "NAME": "火鼠的皮衣",
+    "DESCRIPTION": "gensokyo:难题 。NL 在一回合内抽 !M! 张牌。"
   },
   "Gensokyo:JewelFromTheDragonsNeck": {
-    "NAME": "Jewel from the Dragon's Neck",
-    "DESCRIPTION": "gensokyo:Impossible_Request. NL Deal !M! damage in a single turn."
+    "NAME": "龙颈之玉",
+    "DESCRIPTION": "gensokyo:难题 。 NL 在一回合内造成 !M! 点伤害。"
   },
   "Gensokyo:SwallowsCowrieShell": {
-    "NAME": "Swallow's Cowrie Shell",
-    "DESCRIPTION": "gensokyo:Impossible_Request. NL Gain !M! Block in a single turn."
+    "NAME": "燕的子安贝",
+    "DESCRIPTION": "gensokyo:难题 。NL 在一回合内获得 !M! 点 格挡 。"
   },
   "Gensokyo:FourOfAKind": {
-    "NAME": "Taboo \"Four of a Kind\"",
-    "DESCRIPTION": "Ethereal. NL This turn, your next card is played !M! additional time(s). NL Increase the effect of ALL copies of this card by !Gensokyo:SecondMagic! this combat. NL Can only be played once per turn. NL Exhaust.",
-    "UPGRADE_DESCRIPTION": "This turn, your next card is played !M! additional time(s). NL Increase the effect of ALL copies of this card by !Gensokyo:SecondMagic! this combat. NL Can only be played once per turn. NL Exhaust.",
-    "EXTENDED_DESCRIPTION": ["I can only play 1 Taboo \"Four of a Kind\" each turn."]
+    "NAME": "禁忌「四重存在」",
+    "DESCRIPTION": "虚无 。NL 本回合内，你打出的下一张牌将被额外打出 !M! 次。 NL 本场战斗中此牌及同名牌的效果提升 !Gensokyo:SecondMagic! 。 NL 每回合只能打出一次。 NL 消耗 。",
+    "UPGRADE_DESCRIPTION": "本回合内，你打出的下一张牌将被额外打出 !M! 次。 NL 本场战斗中此牌及同名牌的效果提升 !Gensokyo:SecondMagic! 。 NL 每回合只能打出一次。 NL 消耗 。",
+    "EXTENDED_DESCRIPTION": ["我一回合只能打出一张 禁忌「四重存在」 。"]
   },
   "Gensokyo:AllTheWorldsEvil": {
-    "NAME": "All the World's Evil",
-    "DESCRIPTION": "Apply !M! Vulnerable to ALL characters."
+    "NAME": "浑世之恶",
+    "DESCRIPTION": "给予所有单位 !M! 层 易伤 。"
   },
   "Gensokyo:EmbersOfLove": {
-    "NAME": "Embers of Love",
-    "DESCRIPTION": "A random enemy gains !M! Strength."
+    "NAME": "恋之埋火",
+    "DESCRIPTION": "随机一名敌人获得 !M! 点 力量 。"
   },
   "Gensokyo:Philosophy": {
-    "NAME": "Philosophy of the Despised",
-    "DESCRIPTION": "At the end of your turn, take !M! damage."
+    "NAME": "被厌恶者的哲学",
+    "DESCRIPTION": "在你的回合结束时，受到 !M! 点伤害。"
   },
   "Gensokyo:ReflexRadar": {
-    "NAME": "Reflex Radar",
-    "DESCRIPTION": "Draw !M! card. NL Exhaust.",
-    "UPGRADE_DESCRIPTION": "Draw !M! card."
+    "NAME": "反射雷达",
+    "DESCRIPTION": "抽 !M! 张牌。 消耗 。",
+    "UPGRADE_DESCRIPTION": "抽 !M! 张牌。"
   },
   "Gensokyo:MindShatter": {
-    "NAME": "Mind Shatter",
-    "DESCRIPTION": "Shuffle ALL non-exhausting cards in your exhaust pile into your draw pile. NL Lose !M! HP for each card moved this way."
+    "NAME": "心灵粉碎",
+    "DESCRIPTION": "将消耗堆中所有的非 消耗 牌加入你的抽牌堆。 NL 每加入一张牌，失去 !M! 点生命。"
   },
   "Gensokyo:ShootingStar": {
-    "NAME": "Shooting Star",
-    "DESCRIPTION": "Add a copy of another card in your deck to your hand. NL Exhaust.",
-    "UPGRADE_DESCRIPTION": "Retain. NL Add a copy of another card in your deck to your hand. NL Exhaust."
+    "NAME": "流星",
+    "DESCRIPTION": "将牌组中的一张牌的复制品加入手牌。 NL 消耗 。",
+    "UPGRADE_DESCRIPTION": "保留 。 NL 将牌组中的一张牌的复制品加入手牌。 NL 消耗 。"
   }
 }

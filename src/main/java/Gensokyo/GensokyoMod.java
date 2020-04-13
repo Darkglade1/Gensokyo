@@ -786,9 +786,6 @@ public class GensokyoMod implements
         loadLocFiles(Settings.GameLanguage.ENG);
         if (Settings.language != Settings.GameLanguage.ENG) {
             loadLocFiles(Settings.language);
-            if (Settings.language == Settings.GameLanguage.ZHS) {
-                hasMarisa = false;
-            }
         }
     }
     

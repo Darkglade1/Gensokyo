@@ -351,7 +351,7 @@
     ]
   },
   "Gensokyo:AndThenThereWereNone": {
-    "NAME": "And Then There Were None",
+    "NAME": "之后就一个人都没有了吗？",
     "DESCRIPTIONS": [
       "#rBloodstains splatter the ground, the gruesome remains of several #punfortunate souls. NL NL \"They really were weak, weren't they? I'd be ashamed to be related to such inferior vampires.\" NL NL A strange girl sits amidst the carnage, crimson red adorning her sharp claws. Her eyes dart to you, pinning you in place with their intensity. NL NL “. . . You scent is like that of these #rblood-bats I slaughtered. Did you come from the same place, perhaps?\"",
       "You do not answer, instead tensing your body to be ready to move at a moment's notice. NL NL \"Hmm, you seem like an interesting one. More interesting than these husks, anyway. How would you like to make a #ppact with me? All the power you could @ever@ want for just a ~little~ bit of #rblood.\" NL NL She holds out a grime-encrusted hand.",
@@ -360,12 +360,12 @@
 
     ],
     "OPTIONS": [
-      "[Continue]",
-      "[Accept her offer] #gReceive #g",
-      " #rLose #r",
-      " #rMax #rHP.",
-      "[Refuse]",
-      "[Leave]"
+      "[继续]",
+      "[接受] #g获得 #g",
+      " #r失去 #r",
+      " #r点最大生命。",
+      "[拒绝]",
+      "[离开]"
     ]
   },
   "Gensokyo:NightmareOfHeian": {
@@ -376,12 +376,12 @@
       "You wake up, shivering. There is a #pvoid inside you, an empty hollow carved deep within. NL NL You walk away, leaving a part of you behind forever."
     ],
     "OPTIONS": [
-      "[Embrace] #rYour #rcards #rare #robscured #rfor #r",
-      " #rcombat. #gAfter, #gobtain #ga #gSpecial #gRelic.",
-      "[Be Consumed] #gRemove #g2 #gcards #gfrom #gyour #gdeck. #rBecome #rCursed #r- #rWrithe.",
-      "[Locked] Requires: 2 Cards",
-      "Select 2 Cards to Remove.",
-      "[Leave]"
+      "[拥抱] #r下 #r",
+      " #r场战斗你的牌变得模糊。 #g之后，获得一件特别的遗物。",
+      "[被利用] #g移除牌组中的2张牌 #r被诅咒- #rWrithe.",
+      "[锁定] 需要： 2张可移除的牌",
+      "选择移除2张牌。",
+      "[离开]"
     ]
   },
   "Gensokyo:Impoverished": {
@@ -392,12 +392,12 @@
       "You step past the girl, continuing on your way. NL NL A shiver runs through your body, like a #psnake had coiled itself around you. NL NL You can't help but feel a little more #p~misfortunate.~"
     ],
     "OPTIONS": [
-      "[Offer: ",
-      " Gold] #rLose #rall #rGold. #gUpgrade #g",
-      " #grandom #gcard.",
-      " #grandom #gcards.",
-      "[Ignore her] #rBecome #rCursed.",
-      "[Leave]"
+      "[献上： ",
+      " 金币] #r失去全部金币。 #g随机升级 #g",
+      " #g张牌。",
+      " #g张牌。",
+      "[无视] #r被诅咒。",
+      "[离开]"
     ]
   },
   "Gensokyo:TheWhiteLotus": {
@@ -409,16 +409,16 @@
       "Alas, you have neither time nor coin to spare."
     ],
     "OPTIONS": [
-      "[Listen] #rLose ",
-      ". #gChoose #g1 #gof #g3 #gRare #gcards #gto #gadd #gto #gyour #gdeck.",
-      "[Donate] #rLose #r",
-      " #rGold. #gGain #g",
-      " #gMax #gHP",
-      "[Leave]",
-      "[Locked] Requires: 0-cost card.",
-      "[Locked] Requires: ",
-      " Gold.",
-      "Add a card to your deck."
+      "[倾听] #r失去 ",
+      "。 #g从3张稀有牌中选择一张牌加入牌组。",
+      "[捐赠] #r失去 #r",
+      " #r金币。 #g获得 #g",
+      " #g最大生命。",
+      "[离开]",
+      "[锁定] 需要： 0耗能的牌。",
+      "[锁定] 需要： ",
+      " 金币。",
+      "将一张牌加入你的牌组。"
     ]
   },
   "Gensokyo:LivingGodOfMiracles": {
@@ -430,19 +430,19 @@
       "You tell her that you are simply passing through before resuming your trek through this mysterious land of wonders."
     ],
     "OPTIONS": [
-      "[Miracle] #rSkills #rexhaust #rwhen #rplayed #rfor #r",
-      " #rcombats. #gAfter, #gobtain #ga #gSpecial #gRelic.",
-      "[Donate] #rLose #r",
-      " #rGold. #gUpgrade #ga #gcard.",
-      "[Locked] Requires: ",
-      " Gold.",
-      "[Locked] Requires: Upgradeable Cards",
-      "Choose a Card to Upgrade",
-      "[Leave]"
+      "[奇迹] #r下 #r",
+      " #r场战斗的技能牌获得消耗。 #g获得一件特别的遗物。",
+      "[捐赠] #r失去 #r",
+      " #r金币。 #g升级一张牌。",
+      "[锁定] 需要： ",
+      " 金币。",
+      "[锁定] 需要： 可升级的牌",
+      "选择一张牌升级",
+      "[离开]"
     ]
   },
   "Gensokyo:TreasureHunter": {
-    "NAME": "Treasure Hunter",
+    "NAME": "宝物猎人",
     "DESCRIPTIONS": [
       "A mousy-looking girl approaches, her eyes intently focused on the metal rods she is waving around in front of her. NL NL She stops right in front of you and looks up. NL NL \"Hey. You're standing right on top of some #ytreasure, you know?\"",
       "Her eyes widen as you bring out the #ypriceless #yartifact. NL NL \"Huh. I guess that's what I was sensing all along.\" She scans the idol intently. \"Say, how would you feel about a trade? I've got a #gbody-enhancement potion here that I don't have much use for, but I'm sure a traveler like you could find it useful. Gensokyo can be pretty dangerous this far out in the wilderness, you know?\" NL NL You accept the offer, quaffing the potion on the spot. Feeling newfound #rstrength ~flow~ into your body, you continue on your way.",
@@ -450,12 +450,12 @@
       "You step to the side and walk past her, uncaring of the sounds of digging emanating behind you."
     ],
     "OPTIONS": [
-      "[Offer Idol] #rLose #rGolden #rIdol. #gGain #g",
-      " #gMax #gHP.",
-      "[Help dig] #rLose #r",
-      " #rMax #rHP. #gObtain #ga #gRelic.",
-      "[Leave]",
-      "[Locked] Requires: Golden Idol"
+      "[献上神像] #r失去 #r金神像。 #g获得 #g",
+      " #g点最大生命。",
+      "[帮助] #r失去 #r",
+      " #r点最大生命。 #g获得一件遗物。",
+      "[离开]",
+      "[锁定] 需要： 金神像"
     ]
   },
   "Gensokyo:NohDance": {
@@ -469,14 +469,14 @@
       "You don't have the #ymoney to spend on something as #ptrivial as a souvenir."
     ],
     "OPTIONS": [
-      "[Buy] #rLose #r",
-      " #rGold. #gObtain ",
-      "[Locked] Requires: ",
+      "[购买] #r失去 #r",
+      " #r金币. #gObtain ",
+      "[锁定] 需要： ",
       " Gold",
-      "[Leave]",
-      "[Continue]",
-      "[Buy] #rLose ",
-      ". #gObtain "
+      "[离开]",
+      "[继续]",
+      "[购买] #r失去 ",
+      "。 #g获得 "
     ]
   },
   "Gensokyo:OneWingedWhiteHeron": {
@@ -489,16 +489,16 @@
     ],
     "OPTIONS": [
       "[Speak of ",
-      "] #gHeal #g",
-      " #gHP.",
-      " #rLose ",
-      ".",
-      " #rGold.",
-      "[Leave]",
-      "[Locked] Requires: Elite Encounter",
-      "[Locked] Requires: Normal Encounter",
-      "[Continue]",
-      "[Remain silent]"
+      "] #g回复 #g",
+      " #g点生命。",
+      " #r失去 ",
+      "。",
+      " #r金币。",
+      "[离开]",
+      "[锁定] 需要： 精英战斗",
+      "[锁定] 需要： 普通战斗",
+      "[继续]",
+      "[保持沉默]"
     ]
   },
   "Gensokyo:ChildOfMiare": {
@@ -511,13 +511,13 @@
       "You recount your most noteworthy experiences, trying to be as detailed as you can despite your #pscattered memories. NL NL You may or may not have #pembellished a little to fill in the hazy gaps here and there. After all, no one can prove that you #rdidn't take on three of those metallic crabs at once and come out without a scratch, right?"
     ],
     "OPTIONS": [
-      "[Read] #gObtain ",
-      ".",
+      "[读] #g获得 ",
+      "。",
       "[Decline]",
-      "[Record] Store a copy of a card.",
-      "[Leave]",
-      "Store a copy of a card.",
-      "[Continue]"
+      "[记录] 将一张牌的复制存入。",
+      "[离开]",
+      "存入一张牌的复制。",
+      "[继续]"
     ]
   },
   "Gensokyo:DetectiveSatori": {
@@ -529,16 +529,16 @@
       "\"The cautious sort, aren't you? I suppose I can't blame you.\" NL NL The woman peers at you closely, nodding to herself. NL NL \"I suppose what I've gotten from you is good enough. I still have several leads to #yinvestigate, after all.\" NL NL The woman walks away, leaving you unable to get a word in edgewise."
     ],
     "OPTIONS": [
-      "[Continue]",
-      "[Trauma] #rLose #r",
-      " #rHP. #gObtain ",
-      ".",
-      "[Payment] #rLose #r",
-      " #rMax #rHP.",
-      " #gGain #g",
-      " #gGold.",
-      "[Refuse]",
-      "[Leave]"
+      "[继续]",
+      "[Trauma] #r失去 #r",
+      " #r生命。 #g获得 ",
+      "。",
+      "[Payment] #r失去 #r",
+      " #r点最大生命",
+      " #g获得 #g",
+      " #g金币。",
+      "[拒绝]",
+      "[离开]"
     ]
   },
   "Gensokyo:AHistoryOfViolence": {
@@ -549,11 +549,11 @@
       "\"Not feeling up for it? A pity.\" NL NL The figures vanish, leaving you with a brief sense of #grelief at their passing."
     ],
     "OPTIONS": [
-      "[Accept] #rMax #rHP #ris #rreduced #rby #r",
-      "% #rfor #rthe #rnext #rboss.",
-      " #gAfter, #gobtain ",
-      ".",
-      "[Leave]"
+      "[接受] #r下一场boss站中你的最大生命减少 #r",
+      "% 。",
+      " #g之后，获得 ",
+      "。",
+      "[离开]"
     ]
   },
   "Gensokyo:FiresOfInvention": {
@@ -566,22 +566,22 @@
       "\"Awwww.\" NL NL #pReluctantly, the girl gives you back your #yrelic. NL NL \"Well, if you change your mind, just come back here and ask around! Most of the other kappa here know where I live.\" NL NL The girl darts away, leaving you alone with your thoughts once more."
     ],
     "OPTIONS": [
-      "[Continue]",
-      "[Money]",
+      "[继续]",
+      "[钱]",
       "[Fine-tune]",
-      " #rLose ",
-      ".",
-      " #gGain #g",
-      " #gGold.",
-      " #gRemove #g",
-      " #gcards.",
-      "[Refuse]",
-      "[Leave]",
-      "[Locked] Requires: Non-Special Relic.",
-      "Choose ",
-      " cards to remove.",
-      "[Locked] Requires: ",
-      " Removable Cards."
+      " #r失去 ",
+      "。",
+      " #g获得 #g",
+      " #g金币。",
+      " #g移除 #g",
+      " #g张牌。",
+      "[拒绝]",
+      "[离开]",
+      "[锁定] 需要：非特别的遗物。",
+      "选择 ",
+      " 张牌移除。",
+      "[锁定] 需要： ",
+      " 张可移除的牌。"
     ]
   },
   "Gensokyo:ExtraExtra": {
@@ -593,13 +593,13 @@
       "The current events of this land don't interest you all that much."
     ],
     "OPTIONS": [
-      "[Continue]",
-      "[Read] #gChoose #g1 #gof #g",
-      " #gUncommon #gcards #gto #gadd #gto #gyour #gdeck.",
-      " #gCommon #gcards #gto #gadd #gto #gyour #gdeck.",
-      "[Throw it away]",
-      "[Leave]",
-      "Add a card to your deck."
+      "[继续]",
+      "[读] #g",
+      " #g张罕见牌中选择1张加入你的牌组。",
+      " #g张普通牌中选择1张加入你的牌组。",
+      "[丢弃]",
+      "[离开]",
+      "将一张牌加入你的牌组。"
     ]
   },
   "Gensokyo:VillageOfCats": {
@@ -611,14 +611,14 @@
       "You #rkick the cat. It leaps up and #rhisses at you before darting away. NL NL Moments later, you feel someone tap on your shoulder. You turn around, finding a strange woman #psmiling at you. NL NL It was not a nice #psmile. NL NL \"That was quite #prude, you know? Let me show you what happens to #prude people in Gensokyo.\""
     ],
     "OPTIONS": [
-      "[Pet the cat] #gGain #g",
-      " #gMax #gHP.",
-      "[Pet the cat] #gObtain #ga #gRelic.",
-      "[Kick the cat] #rFight ",
-      ". #gReward: #g",
-      " #gRare #gRelics.",
-      "[Fight]",
-      "[Leave]"
+      "[抚摸猫] #g获得 #g",
+      " #g点最大生命。",
+      "[抚摸猫] #g获得一件遗物。",
+      "[踢猫] #r与 ",
+      " 战斗。 #g奖励： #g",
+      " #g件稀有遗物。",
+      "[战斗]",
+      "[离开]"
     ]
   },
   "Gensokyo:Boo": {
@@ -629,13 +629,13 @@
       "\"Uwah? I was so sure I did it right this time . . .\" NL NL The #pdejected girl slinks away, dragging her equally dejected umbrella on the ground behind her. NL NL As her pitiful figure disappears into the distance, you can't help but feel a twinge of #pguilt."
     ],
     "OPTIONS": [
-      "[Admit it] #gRemove #ga #gcard #gfrom #gyour #gdeck.",
-      "[Deny it] #gUpgrade #g",
-      " #grandom #gcards. #rBecome #rCursed #r- ",
-      ".",
-      "Select a Card to Remove.",
-      "[Locked] Requires: Removable Card",
-      "[Leave]"
+      "[肯定] #g移除牌组中的一张牌。",
+      "[否定] #g升级 #g",
+      " #g张随机牌。 #r被诅咒- ",
+      "。",
+      "选择一张牌移除。",
+      "[锁定] 需要：可移除的牌。",
+      "[离开]"
     ]
   },
   "Gensokyo:PhantomEnsemble": {
@@ -647,10 +647,10 @@
       "You focus on the #ymelancholic notes underpinning the overall melody. Their lethargic energy #plulls your mind into a deep slumber, one that you find yourself unable to resist. NL NL When you finally wake up, a strange heaviness in your body, the music is gone."
     ],
     "OPTIONS": [
-      "[Illusionary Melody] #gObtain #ga #gspecial #gRelic.",
-      "[Joyful Melody] #gObtain #ga #gspecial #gRelic.",
-      "[Melancholic Melody] #gObtain #ga #gspecial #gRelic.",
-      "[Leave]"
+      "[Illusionary Melody] #g获得一件特别的遗物。",
+      "[Joyful Melody] #g获得一件特别的遗物。",
+      "[Melancholic Melody] #g获得一件特别的遗物。",
+      "[离开]"
     ]
   },
   "Gensokyo:MarisaAnOldGhost": {
@@ -663,10 +663,10 @@
       "\"Oh? I thought you would've jumped at the chance to learn more from me.\" NL NL You shake your head, telling her that from now on, you would improve on your own terms and no one else's. NL NL \"Stubborn, aren't you? Well, it's your #ploss.\" NL NL The faint wisps disappear, leaving you alone next to the gravestone once more."
     ],
     "OPTIONS": [
-      "[Continue]",
-      "[Accept her teaching] #gObtain ",
+      "[继续]",
+      "[接受教学] #g获得 ",
       "[Decline]",
-      "[Leave]"
+      "[离开]"
     ]
   },
   "Gensokyo:MarisaJustAVisit": {
@@ -678,15 +678,15 @@
     ],
     "OPTIONS": [
       "[Hang out for a while]",
-      "[Donate] #rLose #r",
-      " #rGold. #gObtain ",
-      "[Locked] Requires: ",
-      " Gold",
-      "[Leave]"
+      "[Donate] #r失去 #r",
+      " #r金币。 #g获得 ",
+      "[锁定] 需要： ",
+      " 金币",
+      "[离开]"
     ]
   },
   "Gensokyo:MarisaBookThief": {
-    "NAME": "Book Thief",
+    "NAME": "偷书贼",
     "DESCRIPTIONS": [
       "You see that Meiling is #pasleep at her post. Once inside the manor, you can hear the sounds of Sakuya busying herself in the kitchen. NL NL How could you pass up such a perfect opportunity? NL NL You slip inside the mansion's library without a sound. Now, which book should you take today? Which grimoire of #pdark, #p@forbidden@ #psorcery, which tome of #y@crackling,@ #yelectrifying magic would nab your attention this time?",
       "The book is locked with a complex magic seal. Getting it open will be a #ppain, but with such tight security, surely something #yworthwhile must be inside, right? NL NL \"Oh, it’s you again.\" You spin around. Patchouli is standing there, observing you with an exasperated look. NL NL \"If you think I'm letting you have that book without a fight . . .\" She raises a hand, and #belemental orbs of #ypower answer her call. \"Well, I’m sure you know the drill by now.\"",
@@ -694,11 +694,11 @@
       "On second thought, taking another book when you haven't even finished reading your most recently \"borrowed\" book seemed a bit pointless."
     ],
     "OPTIONS": [
-      "[Take book] #gChoose #g1 #gof #g10 #gcards #gto #gadd #gto #gyour #gdeck.",
-      "[Stand your ground] #rFight. #gReward: #gSpecial #gRelic.",
-      "[Surrender the book] #rLose ",
-      "[Leave]",
-      "Add a card to your deck."
+      "[拿走书] #g从10张牌中选择一张加入你的牌组。",
+      "[坚持] #r战斗。 #g奖励：特别的遗物。",
+      "[交出书] #r失去 ",
+      "[离开]",
+      "将一张牌加入你的牌组。"
     ]
   },
   "Gensokyo:MarisaAHazardousHobby": {
@@ -712,15 +712,15 @@
       "\"I see this is a tough decision for you. Well, feel free to come back once you've made up your mind.\""
     ],
     "OPTIONS": [
-      "[Continue]",
-      "[Money] #rLose ",
-      "[Recipe] #rLose ",
-      ". #gGain #g",
-      " #gGold.",
-      ". #gObtain #ga #gSpecial #gRelic.",
-      "[Can't decide]",
-      "[Locked] Requires: non-Basic, non-Curse card",
-      "[Leave]"
+      "[继续]",
+      "[钱] #r失去 ",
+      "[Recipe] #r失去 ",
+      "。 #g获得 #g",
+      " #g金币。",
+      ". #g获得一件特别的遗物。",
+      "[不能决定]",
+      "[锁定] 需要： 非基础非诅咒牌。",
+      "[离开]"
     ]
   },
   "Gensokyo:MarisaWalpurgisnacht": {
@@ -733,14 +733,14 @@
       "\"As the one who came up with this plan, I think it is only proper if I lead the way.\" NL NL Patchy steps into the circle, and you take your place among the outskirts. The ceremony is short, brief, and disappointingly lacking a spectacular light show. NL NL You notice it when Patchy opens her eyes. There is #psomething within those depths, something that hadn't been there before. NL NL What did she see, you wonder? What will #yyou see, you wonder?"
     ],
     "OPTIONS": [
-      "[Continue]",
-      "[Offer to go first] #rLose #r",
-      " #rHP. #gUpgrade #gall #gSparks.",
-      "[Let Alice go first] #gObtain Alice's Gift+.",
-      "[Let Patchouli go first] #gTransform #ga #gcard #ginto #ga #grandom #gRare #gcard.",
-      "[Locked] Requires: Upgradeable Spark",
-      "[???]",
-      "Choose a Card to Transform"
+      "[继续]",
+      "[主动先走] #r失去 #r",
+      " #r生命 。 #g升级所有的火花牌。",
+      "[让爱丽丝先走] #g获得爱丽丝的礼物+ 。",
+      "[让帕秋莉先走] #g变化一张牌为随机稀有牌。",
+      "[锁定] 需要：可升级的火花牌",
+      "[？？？]",
+      "选择一张牌变化"
     ]
   }
 }

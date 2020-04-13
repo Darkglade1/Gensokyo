@@ -23,29 +23,28 @@
   },
   {
     "NAMES": [
-      "vigor"
+      "威猛"
     ],
-    "DESCRIPTION": "Vigorous creatures deal #b34% more attack damage."
+    "DESCRIPTION": "具有威猛的生物造成额外 #b34% 的攻击伤害。"
   },
   {
     "NAMES": [
-      "fortitude"
+      "坚韧"
     ],
-    "DESCRIPTION": "Fortified creatures receive #b33% less attack damage."
+    "DESCRIPTION": "具有坚韧的生物受到的攻击伤害减少 #b33% 。"
   },
   {
     "NAMES": [
-      "sturdy"
+      "强健"
     ],
-    "DESCRIPTION": "Sturdy creatures gain #b34% more block."
+    "DESCRIPTION": "具有强健的生物获得的格挡提高 #b34% 。"
   },
   {
-    "PROPER_NAME": "Impossible Request",
+    "PROPER_NAME": "难题",
     "NAMES": [
-      "Impossible Request",
-      "impossible_request",
-      "Impossible_Request"
+	  "难题"
     ],
-    "DESCRIPTION": "#yRetain. Cannot be #yexhausted. NL Your progress on the requests is tracked no matter where this card is."
+    "DESCRIPTION": "#y保留 。不会被 #y消耗 。 NL 无论此牌在何处，任务进度都会累积。"
   }
 ]
+

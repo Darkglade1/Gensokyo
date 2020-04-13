@@ -171,83 +171,83 @@
     "NAME": "乐园的巫女",
     "DIALOG": [
       "又是新的一天，又是新的异变。",
-      "I won't hold back for you, Marisa."
+      "我不会放水的，魔理沙。"
     ]
   },
   "Gensokyo:Patchouli": {
     "MOVES": [
-      "Agni Shine",
-      "Royal Flare",
-      "Bury in Lake",
-      "Princess Undine",
-      "Sylphy Horn",
-      "Green Storm",
-      "Silver Dragon",
-      "Metal Fatigue",
-      "Lazy Trilithon",
-      "Trilithon Shake"
+      "火神之光",
+      "皇家圣焰",
+      "湖葬",
+      "水精公主",
+      "风灵角笛",
+      "翠绿风暴",
+      "银龙",
+      "金属疲劳",
+      "缓行石塔",
+      "巨石震怒"
     ],
-    "NAME": "Unmoving Great Library"
+    "NAME": "不动的大图书馆"
   },
   "Gensokyo:FireOrb": {
     "MOVES": [
 
     ],
-    "NAME": "Fire"
+    "NAME": "火"
   },
   "Gensokyo:WaterOrb": {
     "MOVES": [
 
     ],
-    "NAME": "Water"
+    "NAME": "水"
   },
   "Gensokyo:WoodOrb": {
     "MOVES": [
 
     ],
-    "NAME": "Wood"
+    "NAME": "木"
   },
   "Gensokyo:MetalOrb": {
     "MOVES": [
 
     ],
-    "NAME": "Metal"
+    "NAME": "金"
   },
   "Gensokyo:EarthOrb": {
     "MOVES": [
 
     ],
-    "NAME": "Earth"
+    "NAME": "土"
   },
   "Gensokyo:Sumireko": {
     "MOVES": [
-      "3D Printer Gun",
-      "Pyrokinesis",
-      "Bullet Cancel",
-      "Psychokinesis",
-      "Summon Doppelganger"
+      "3D打印枪",
+      "念力燃火",
+      "弹幕取消",
+      "念力操控",
+      "召唤二重身"
     ],
-    "NAME": "First President of The Secret Sealing Club",
+    "NAME": "初代秘封俱乐部会长",
     "DIALOG": [
-      "Woah, I caught one!"
+      "喔哦，逮到一个！"
     ]
   },
   "Gensokyo:Yuyuko": {
     "MOVES": [
-      "Ghastly Dream",
-      "Law of Mortality",
-      "Resurrection Butterfly"
+      "惊梦",
+      "生者必灭之理",
+      "反魂蝶"
     ],
-    "NAME": "Princess of the Netherworld",
+    "NAME": "亡灵公主",
     "DIALOG": [
-      "A lovely day for death, isn't it?"
+      "死气宜人的一天, 对吧?"
     ]
   },
   "Gensokyo:BlueSoul": {
     "MOVES": [
 
     ],
-    "NAME": "Spirit",
+    "NAME": "幽灵",
     "DIALOG": [
 
     ]
@@ -256,23 +256,23 @@
     "MOVES": [
 
     ],
-    "NAME": "Spirit",
+    "NAME": "幽灵",
     "DIALOG": [
 
     ]
   },
   "Gensokyo:Eiki": {
     "MOVES": [
-      "Cleansed Crystal Judgement - ",
-      "Wandering Sin",
-      "Guilty or Not Guilty",
-      "Rod of Remorse"
+      "净颇梨审判 - ",
+      "彷徨大罪",
+      "有罪或无罪",
+      "悔悟棒"
     ],
-    "NAME": "Supreme Judge of Paradise",
+    "NAME": "乐园的最高审判长",
     "DIALOG": [
-      "You cannot escape the sins of your past.",
-      "Your resilience is impressive.",
-      "Good to see you're not slacking off."
+      "汝不可逃脱往日罪愆。",
+      "惊人的适应力。",
+      "没在偷懒，很好。"
     ]
   },
   "Gensokyo:Mirror": {
@@ -288,151 +288,149 @@
   },
   "Gensokyo:Kaguya": {
     "MOVES": [
-      "Brilliant Dragon Bullet",
-      "Buddhist Diamond"
+      "耀眼的龙玉",
+      "佛钵的金刚石"
     ],
-    "NAME": "Sinner of Eternity",
+    "NAME": "永远与须臾的罪人",
     "DIALOG": [
-      "I do hope you'll make this entertaining for me.",
-      "Well, that was fun."
+      "你能给我表演一下这个吗？",
+      "呜呼呼，还挺有趣的。"
     ]
   },
   "Gensokyo:Byakuren": {
     "MOVES": [
-      "Star Maelstrom",
-      "Devil's Recitation",
-      "Superhuman Self",
-      "Indra's Thunder"
+      "星之漩涡",
+      "魔神复诵",
+      "超人",
+      "因陀罗之雷"
     ],
-    "NAME": "Sealed Great Magician",
+    "NAME": "被封印的大魔法使",
     "DIALOG": [
-      "Your wicked magic has no place here, Miko.",
-      "It seems your immortality was just a fraud."
+      "你的邪术在此地无处容身，神子。",
+      "看起来你所谓的永生只是个谎言。"
     ]
   },
   "Gensokyo:Miko": {
     "MOVES": [
-      "Golden Sword",
-      "Shukuchi Cape",
-      "Wishful Soul of Desire",
-      "Laser of Seventeen Articles",
-      "Red Cape Blue Cape"
+      "黄金之剑",
+      "缩地披风",
+      "探求欲望之魂",
+      "十七规条之光",
+      "红披风蓝披风"
     ],
-    "NAME": "Supremely Gifted Hermit",
+    "NAME": "天资英迈的仙人",
     "DIALOG": [
-      "Your beliefs are a sham!",
-      "Your lack of training was your downfall."
+      "汝等信仰皆为虚妄!",
+      "未经千锤百炼乃衰败之由。"
     ]
   },
   "Gensokyo:Reisen": {
     "MOVES": [
-      "Disorder Eye",
-      "Lunatic Blast",
-      "Mind Wave",
-      "Tendrils of Insanity"
+      "紊波幻视",
+      "望见圆月",
+      "生神谐振",
+      "虹浸月食"
     ],
-    "NAME": "Lunatic Moon Rabbit",
+    "NAME": "疯狂月兔",
     "DIALOG": [
-      "I'm afraid I can't let you pass.",
-      "Oh, I remember you!",
-      "Sorry, but I can't make an exception for you."
+      "恐怕你不能通过。",
+      "好，我记住你了!",
+      "抱歉，不能为你破例。"
     ]
   },
   "Gensokyo:Kune": {
     "MOVES": [
 
     ],
-    "NAME": "Kune",
+    "NAME": "扭",
     "DIALOG": [
 
     ]
   },
   "Gensokyo:Koishi": {
     "MOVES": [
-      "Release of the Id",
-      "Catch and Rose",
-      "Stinging Mind"
+      "本我的解放",
+      "擒纵蔷薇",
+      "荨麻心绪"
     ],
-    "NAME": "Imaginary Personality Holder",
+    "NAME": "空想上的人格保持者",
     "DIALOG": [
-      "This'll be fun!"
+      "这个肯定好玩!"
     ]
   },
   "Gensokyo:Tenshi": {
     "MOVES": [
-      "World Creation Press",
-      "Guarding Keystone",
-      "Spiritual Stone"
+      "开天辟地之压",
+      "守护的要石",
+      "天空之灵石"
     ],
-    "NAME": "Daughter of Heaven",
+    "NAME": "有顶天的大小姐",
     "DIALOG": [
-      "Give it all you've got!",
-      "Oh, aren't you the one who ruined my fun?",
-      "Guess I'll have to settle for you instead!"
+      "有什么本事全交出来!",
+      "噢，就是你败了我的兴致?",
+      "或许这次轮到你了!"
     ]
   },
   "Gensokyo:Swordslinger": {
     "MOVES": [
-      "Sharpen"
+      "磨刃"
     ],
-    "NAME": "Swordslinger"
+    "NAME": "悬刃者"
   },
   "Gensokyo:Wraith": {
     "MOVES": [
       ""
     ],
-    "NAME": "Wraith"
+    "NAME": "魅影"
   },
   "Gensokyo:BigMudSlime": {
     "MOVES": [
       ""
     ],
-    "NAME": "Big Mud Slime"
+    "NAME": "泥浆史莱姆（大）"
   },
   "Gensokyo:SlimeBunny": {
     "MOVES": [
       null,
-      "Purify",
+      "净化",
       null
     ],
-    "NAME": "Slime Bunny"
+    "NAME": "兔子史莱姆"
   },
   "Gensokyo:CosmicMonolith": {
     "MOVES": [
-      "Charge-Up Ray",
+      "充能射线",
       null,
-      "Doomsday"
+      "世界末日"
     ],
-    "NAME": "Cosmic Monolith"
+    "NAME": "宇宙巨石"
   },
   "Gensokyo:TanukiDog": {
     "MOVES": [
       null,
       null,
-      "Berserk"
+      "狂暴"
     ],
-    "NAME": "Tanuki Dog"
+    "NAME": "天狗"
   },
   "Gensokyo:Gloop": {
     "MOVES": [
-      "Glitter",
+      "闪光",
       null,
       null
     ],
-    "NAME": "Gloop"
+    "NAME": "格鲁普"
   },
   "Gensokyo:AngelMirror": {
     "MOVES": [
 
     ],
-    "NAME": "Angel Mirror"
+    "NAME": "天使镜"
   },
   "Gensokyo:Chomper": {
     "MOVES": [
 
     ],
-    "NAME": "Chomper"
+    "NAME": "食人花"
   }
 }
-
-

@@ -78,121 +78,121 @@
       "每场战斗开始时，将从 #b2 张 #y都市传说 中选择 #b1 张加入你的手牌。偶尔会发现更多的 #y神秘珠 。",
       "每场战斗开始时，将从 #b3 张 #y都市传说 中选择 #b1 张加入你的手牌。偶尔会发现更多的 #y神秘珠 。",
       "每场战斗开始时，将三张已升级的 #y都市传说 加入你的手牌。",
-      "At the start of combat, choose any #b3 upgraded #yUrban #yLegends to add to your hand."
+      "每场战斗开始时，选择三张已升级的 #y都市传说 加入你的手牌。"
     ]
   },
   "Gensokyo:UndefinedDarkness": {
-    "NAME": "Undefined Darkness",
-    "FLAVOR": "Fear comes in all shapes and sizes.",
+    "NAME": "真相不明的黑暗",
+    "FLAVOR": "恐惧来源于一切形状与大小。",
     "DESCRIPTIONS": [
-      "Your cards are #pobscured for #b", " combat. After, obtain a #yspecial #yrelic.", "???"
+      "你的牌在 #b"," 场战斗内被 #p模糊 。之后获得一个 #y特别的 #y遗物 。", "???"
     ]
   },
   "Gensokyo:ConquerorOfFear": {
     "NAME": "Conqueror of Fear",
-    "FLAVOR": "The only thing we have to fear is fear itself.",
+    "FLAVOR": "唯一令人恐惧的是恐惧本身。",
     "DESCRIPTIONS": [
-      "While there are #b", " or more cards in your discard pile, you have an additional #b", " #yStrength and #yDexterity."
+      "当你的弃牌堆有 #b", " 或更多张牌时，你拥有额外的 #b", " 点 #y力量 与 #y敏捷 。"
     ]
   },
   "Gensokyo:DayTheSeaSplit": {
-    "NAME": "The Day the Sea Split",
-    "FLAVOR": "The sea, once it casts its spell, holds one in its net of wonder forever.",
+    "NAME": "开海成路之日",
+    "FLAVOR": "祂彰显了神性，那海便分开来，恒久地环绕人们。",
     "DESCRIPTIONS": [
-      "Your #ySkills #yexhaust when played for #b", " combats. After, obtain a #yspecial #yrelic."
+      "你的 #y技能牌 在打出后 #y消耗 ，持续 #b", " 场战斗。之后，获得一个 #y特别的 #y遗物 。"
     ]
   },
   "Gensokyo:MosesMiracle": {
-    "NAME": "Moses's Miracle",
-    "FLAVOR": "\"A miracle that parts the sea. Which makes it easy to catch fish, apparently.\" - The Grimoire of Marisa",
+    "NAME": "摩西的奇迹",
+    "FLAVOR": "“看起来就是一种能将海水分开然后去抓鱼贝类的奇迹” - 《魔理沙的魔法书》",
     "DESCRIPTIONS": [
-      "Whenever you shuffle your draw pile, add a #yMiracle to your hand."
+      "每当你将抽牌堆洗牌时, 将一张 #y奇迹 加入手牌。"
     ]
   },
   "Gensokyo:FoxMask": {
-    "NAME": "Fox Mask",
-    "FLAVOR": "A mask for the serious and determined.",
+    "NAME": "妖狐面",
+    "FLAVOR": "严肃认真表情的面具",
     "DESCRIPTIONS": [
-      "Whenever you draw a #yStatus card, draw #b", " card."
+      "每当你抽到一张 #y状态 牌, 抽 #b", " 张牌。"
     ]
   },
   "Gensokyo:SpiderMask": {
-    "NAME": "Spider Mask",
-    "FLAVOR": "A mask for the angry and enraged.",
+    "NAME": "大蜘蛛面",
+    "FLAVOR": "忿恚嗔怒表情的面具",
     "DESCRIPTIONS": [
-      "The first time you play an #yAttack each turn, apply #b", " #yVulnerable to a random enemy."
+      "每回合第一次打出 #y攻击牌 时，给予一个随机敌人 #b", " 层 #y易伤 。"
     ]
   },
   "Gensokyo:MaskOfHope": {
-    "NAME": "Mask of Hope",
-    "FLAVOR": "A mask for humor and cheer.",
+    "NAME": "希望之面",
+    "FLAVOR": "滑稽诙谐表情的面具",
     "DESCRIPTIONS": [
-      "The first time you lose HP each combat, gain #b", " #yTemporary #yHP."
+      "每场战斗第一次失去生命时，获得 #b", " 点 #y临时生命 。"
     ]
   },
   "Gensokyo:DemonMask": {
-    "NAME": "Demon Mask",
-    "FLAVOR": "A mask for thunderous surprise.",
+    "NAME": "大飞出面",
+    "FLAVOR": "骇然震惊表情的面具",
     "DESCRIPTIONS": [
-      "At the end of your turn, if you did not play any #ynon-Attack cards this turn, gain #b", " #yStrength."
+      "在你的回合结束时，如果你此回合没有打出任何 #y非攻击牌 ，获得 #b", " 点 #y力量 。"
     ]
   },
   "Gensokyo:LionMask": {
-    "NAME": "Lion Mask",
-    "FLAVOR": "A mask for the joyful and delighted.",
+    "NAME": "狮子面",
+    "FLAVOR": "昂扬喜乐表情的面具",
     "DESCRIPTIONS": [
-      "Whenever you play a #ySkill, deal #b", " damage to a random enemy."
+      "每当你打出一张 #y技能牌 ，对一个随机敌人造成 #b", " 伤害。"
     ]
   },
   "Gensokyo:RedStar": {
-    "NAME": "Red Star",
-    "FLAVOR": "An ill omen feared by many.",
+    "NAME": "赤星",
+    "FLAVOR": "为许多人所避讳的不祥之兆",
     "DESCRIPTIONS": [
-      "Your Max HP is reduced by #b", "% for the next boss fight. After, obtain a #yspecial #ycard."
+      "下一场Boss战中，你的最大生命值减少 #b", "% 。之后获得一张 #y特别的 #y牌 。"
     ]
   },
   "Gensokyo:ChorusOfJoy": {
-    "NAME": "Chorus of Joy",
-    "FLAVOR": "A joyful melody for dispirited times.",
+    "NAME": "喜乐大合唱",
+    "FLAVOR": "适合低落时聆听的欢乐旋律",
     "DESCRIPTIONS": [
-      "At the start of combat, gain [E] and discard #b", " card.", " cards."
+      "战斗开始时，获得 [E] 并弃 #b", " 张牌 。", " 张牌 。"
     ]
   },
   "Gensokyo:DirgeOfMelancholy": {
-    "NAME": "Dirge of Melancholy",
-    "FLAVOR": "A mournful melody for nostalgic times.",
+    "NAME": "忧郁悲曲",
+    "FLAVOR": "适合怀旧时聆听的忧伤旋律",
     "DESCRIPTIONS": [
-      "At the start of combat, lose [E] and ALL enemies lose #b", " #yStrength."
-    ]
+      "战斗开始时, 失去 [E] 并且所有敌人失去 #b", " 点 #y力量 。"
+	  ]
   },
   "Gensokyo:SongOfSouls": {
-    "NAME": "Song of Souls",
-    "FLAVOR": "A youthful melody for all of time.",
+    "NAME": "魂歌",
+    "FLAVOR": "随时可听的青春旋律",
     "DESCRIPTIONS": [
-      "Whenever you play a Strike or Defend card, #yexhaust it."
+      "每当你打出打击或防御时，将其 #y消耗 。"
     ]
   },
   "Gensokyo:MarisaIngredientList": {
-    "NAME": "Ingredient List",
-    "FLAVOR": "A bunch of messy scribbles on a page. Apparently creates something known as the \"Improbability Potion\".",
+    "NAME": "配料表",
+    "FLAVOR": "纸页上的胡乱涂画。似乎能用来制作一种叫 “无常药” 的药剂。",
     "DESCRIPTIONS": [
-      "#yIngredients: NL 1. Encounter #b", " normal", " #relite", " enemy. ", " enemies. ", " #pevent. ", " #pevents. ", "/",
-      " NL 2. Obtain #b", " Common", " #bUncommon", " #yRare", " card. ", " cards. ",
-      " NL 3. Once the first two steps are complete, #gbrew the potion at a #ycampfire."
+      "#y成分 : NL 1.遇到 #b", " 个普通", " 个 #r精英 ", "敌人", "敌人", " 个 #p事件 。", " 个 #p事件 。", "/",
+      " NL 2.获得 #b", " 张普通", " 张 #b罕见 ", " 张 #y稀有 ", "牌。", "牌。",
+      " NL 3.完成以上两步后, 在 #y篝火 处 #g炼制 药剂。"
     ]
   },
   "Gensokyo:MarisaImprobabilityPotion": {
-    "NAME": "Improbability Potion",
-    "FLAVOR": "It bestows the user with the ability to defy all odds.",
+    "NAME": "无常药",
+    "FLAVOR": "给予使用者抵御一切怪异之物的能力",
     "DESCRIPTIONS": [
-      " [#2aecd7]Usable [#2aecd7]once [#2aecd7]per [#2aecd7]combat.[] NL Lose #b", " HP. Gain #b", " #yStrength and #yDexterity."
+      " [#2aecd7]每场战斗可用一次。 [] NL 失去 #b", " 生命，获得 #b", " #y力量 与 #y敏捷 。"
     ]
   },
   "Gensokyo:MarisaPhilosophersStone": {
-    "NAME": "Philosopher's Stone",
-    "FLAVOR": "Said to transform lead into gold.",
+    "NAME": "贤者之石",
+    "FLAVOR": "语云此物可点石成金",
     "DESCRIPTIONS": [
-      "At the start of your turn, #yexhaust a card and add a random card of the #ynext #yrarity to your hand."
+      "你的回合开始时, #y消耗 一张牌并将随机一张 #y高一级 #y稀有度 的牌加入手牌。"
     ]
   }
 }

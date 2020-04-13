@@ -107,9 +107,7 @@ public class OccultBall extends CustomRelic {
         list.add(new SevenSchoolMysteries());
         list.add(new Apocalypse());
         list.add(new SlitMouthedWoman());
-        if (Settings.language == Settings.GameLanguage.ENG) {
-            list.add(new Doppelganger());
-        }
+        list.add(new Doppelganger());
         return list;
     }
 
@@ -142,7 +140,7 @@ public class OccultBall extends CustomRelic {
 
     @Override
     public void addCampfireOption(ArrayList<AbstractCampfireOption> options) {
-        if (this.counter == MAX_STACKS && Settings.language != Settings.GameLanguage.ZHS) {
+        if (this.counter == MAX_STACKS) {
             options.add(new OccultBallFightOption());
         }
     }
