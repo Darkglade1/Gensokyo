@@ -1,0 +1,165 @@
+﻿{
+  "Gensokyo:CrescentMoonSlash": {
+    "NAME": "弦月斬",
+    "DESCRIPTION": "敵全体に !D! ダメージを与える。 NL この攻撃で敵を倒したとき、このカードの効果を繰り返す。"
+  },
+  "Gensokyo:MissMary": {
+    "NAME": "メリーさん",
+    "DESCRIPTION": "敵全体に 弱体 !M! を与える。 NL 廃棄"
+  },
+  "Gensokyo:SpontaneousHumanCombustion": {
+    "NAME": "人体自然発火現象",
+    "DESCRIPTION": " 筋力 !M! を得る。 NL ターン終了時に !Gensokyo:SecondMagic! のダメージを受ける。 NL このダメージは毎ターン  !Gensokyo:SecondMagic! 増加する。"
+  },
+  "Gensokyo:RedCapeBlueCape": {
+    "NAME": "赤い紙、青い紙",
+    "DESCRIPTION": " !B! ブロック を得る。 NL !D! ダメージを与える。 NL gensokyo:赤い紙 と gensokyo:青い紙 を手札に加える。",
+    "UPGRADE_DESCRIPTION": " !B! ブロック を得る。 NL !D! ダメージを与える。 NL gensokyo:赤い紙+ と gensokyo:青い紙+ を手札に加える。"
+  },
+  "Gensokyo:RedCape": {
+    "NAME": "赤い紙",
+    "DESCRIPTION": "保留 NL !D! ダメージを与える。 NL 廃棄"
+  },
+  "Gensokyo:BlueCape": {
+    "NAME": "青い紙",
+    "DESCRIPTION": "保留 NL !B! ブロック を得る。 NL 廃棄"
+  },
+  "Gensokyo:TekeTeke": {
+    "NAME": "テケテケ",
+    "DESCRIPTION": "敵全体に !D! ダメージを !Gensokyo:SecondMagic! 回与える。 NL この攻撃で敵のHPを半分以下にしたとき、戦闘終了までダメージが !M! 増加。"
+  },
+  "Gensokyo:Kunekune": {
+    "NAME": "くねくね",
+    "DESCRIPTION": "gensokyo:狂気 !M! を与える。 NL 廃棄"
+  },
+  "Gensokyo:HAARP": {
+    "NAME": "ハープ",
+    "DESCRIPTION": "ターン開始時、 ライトニング !M! を 生成 する。"
+  },
+  "Gensokyo:MenInBlack": {
+    "NAME": "メンインブラック",
+    "DESCRIPTION": "保留 NL 無形 !M! を得る。 NL 廃棄"
+  },
+  "Gensokyo:LittleGreenMen": {
+    "NAME": "リトルグリーンマン",
+    "DESCRIPTION": "[E] を得る。 NL このカードのコピーを山札の一番上に置く。",
+    "UPGRADE_DESCRIPTION": "保留 NL [E] を得る。 NL このカードのコピーを山札の一番上に置く。"
+  },
+  "Gensokyo:TurboGranny": {
+    "NAME": "ターボババア",
+    "DESCRIPTION": "敏捷性 !M! を得る。 NL プレートアーマー  !Gensokyo:SecondMagic! を　　　　　　 NL 得る。"
+  },
+  "Gensokyo:MonkeysPaw": {
+    "NAME": "猿の手",
+    "DESCRIPTION": "現在HPの半分を失う。 NL この効果で失ったHPの !M! 倍のゴールドを得る。 NL 廃棄"
+  },
+  "Gensokyo:ManorOfTheDishes": {
+    "NAME": "皿屋敷",
+    "DESCRIPTION": "カードを !Gensokyo:SecondMagic! 枚プレイするたび、 無形 !M! を得る。"
+  },
+  "Gensokyo:LochNessMonster": {
+    "NAME": "ネッシー",
+    "DESCRIPTION": "!D! ダメージを !M! 回与える。"
+  },
+  "Gensokyo:GapWoman": {
+    "NAME": "隙間女",
+    "DESCRIPTION": "敵全体に 脱力 !M! を与える。 NL 廃棄"
+  },
+  "Gensokyo:EightFeetTall": {
+    "NAME": "八尺様",
+    "DESCRIPTION": "ボス以外の敵を !M! ターン後に死亡させる。 NL 廃棄"
+  },
+  "Gensokyo:SevenSchoolMysteries": {
+    "NAME": "学校の七不思議",
+    "DESCRIPTION": "1ターンの間に !Gensokyo:SecondMagic! 枚のカードをプレイするたび、 筋力 !M! と 敏捷性 !M! を得る。"
+  },
+  "Gensokyo:Apocalypse": {
+    "NAME": "アポカリプス",
+    "DESCRIPTION": "敵全体に !D! ダメージを与える。 NL !M! ダメージを受ける。"
+  },
+  "Gensokyo:SlitMouthedWoman": {
+    "NAME": "口裂け女",
+    "DESCRIPTION": "次に攻撃を受けたとき、攻撃を行った敵に 弱体 !M! を与える。 NL もう1度攻撃を受けたとき、攻撃を行った敵は 筋力 !M! を失う。 NL 廃棄"
+  },
+  "Gensokyo:Frozen": {
+    "NAME": "冷凍！",
+    "DESCRIPTION": "このカードを引いたとき、そのコストを !M! 減少する。 NL 廃棄"
+  },
+  "Gensokyo:MarisaTwilightSpark": {
+    "NAME": "Twilight Spark",
+    "DESCRIPTION": "Exhaust any number of cards. Increase this card's damage by !M! for each card exhausted. Counts as a Skill. NL Amplify  [E]  [E]  [E] : Deal !D! damage to ALL enemies instead. Counts as an Attack."
+  },
+  "Gensokyo:BlessingOfVigor": {
+    "NAME": "Blessing of Vigor",
+    "DESCRIPTION": "Unplayable. NL Whenever you draw this card, draw a card and gain !M! gensokyo:Vigor."
+  },
+  "Gensokyo:BlessingOfFortitude": {
+    "NAME": "Blessing of Fortitude",
+    "DESCRIPTION": "Unplayable. NL Whenever you draw this card, draw a card and gain !M! gensokyo:Fortitude."
+  },
+  "Gensokyo:BlessingOfConstitution": {
+    "NAME": "Blessing of Constitution",
+    "DESCRIPTION": "Unplayable. NL Whenever you draw this card, draw a card and gain !M! gensokyo:Sturdy."
+  },
+  "Gensokyo:Doppelganger": {
+    "NAME": "ドッペルゲンガー",
+    "DESCRIPTION": "保留 NL 占術 X NL 次の X 枚のカードを2回プレイする。 NL 廃棄",
+    "UPGRADE_DESCRIPTION": "保留 NL 占術 X + 1 NL 次の X + 1 枚のカードを2回プレイする。 NL 廃棄"
+  },
+  "Gensokyo:ImpossibleRequest": {
+    "NAME": "難題",
+    "DESCRIPTION": "gensokyo:難題"
+  },
+  "Gensokyo:BuddhaStoneBowl": {
+    "NAME": "仏の御石の鉢",
+    "DESCRIPTION": "gensokyo:難題 NL 同じターン内で、パワー、アタック、スキル、を1枚ずつプレイする。"
+  },
+  "Gensokyo:BulletBranchOfHourai": {
+    "NAME": "蓬莱の弾の枝",
+    "DESCRIPTION": "gensokyo:難題 NL 同じターン内で、 !M! 枚のカードをプレイする。"
+  },
+  "Gensokyo:FireRatsRobe": {
+    "NAME": "火鼠の皮衣",
+    "DESCRIPTION": "gensokyo:難題 NL 同じターン内で、 !M! 枚のカードを引く。"
+  },
+  "Gensokyo:JewelFromTheDragonsNeck": {
+    "NAME": "龍の頸の玉",
+    "DESCRIPTION": "gensokyo:難題 NL 同じターン内で、 !M! ダメージを与える。"
+  },
+  "Gensokyo:SwallowsCowrieShell": {
+    "NAME": "燕の子安貝",
+    "DESCRIPTION": "gensokyo:難題 NL 同じターン内で、 !M! ブロック を得る。"
+  },
+  "Gensokyo:FourOfAKind": {
+    "NAME": "禁忌「フォーオブアカインド」",
+    "DESCRIPTION": "エセリアル NL このターン、次のカードを !M! 回多くプレイする。 NL この戦闘中、同名のカードの複製効果を !Gensokyo:SecondMagic! 増加する。 NL 1ターンに1回プレイ可能。 NL 廃棄",
+    "UPGRADE_DESCRIPTION": "このターン、次のカードを !M! 回多くプレイする。 NL この戦闘中、同名のカードの複製効果を !Gensokyo:SecondMagic! 増加する。 NL 1ターンに1回プレイ可能。 NL 廃棄",
+    "EXTENDED_DESCRIPTION": ["禁忌「フォーオブアカインド」は1ターンに1枚しかプレイできない。"]
+  },
+  "Gensokyo:AllTheWorldsEvil": {
+    "NAME": "諸悪の根源",
+    "DESCRIPTION": "全てのキャラクターに 弱体 !M! を与える。"
+  },
+  "Gensokyo:EmbersOfLove": {
+    "NAME": "恋の埋火",
+    "DESCRIPTION": "ランダムな敵が 筋力 !M! を得る。"
+  },
+  "Gensokyo:Philosophy": {
+    "NAME": "嫌われ者のフィロソフィ",
+    "DESCRIPTION": "ターン終了時、 !M! ダメージを受ける。"
+  },
+  "Gensokyo:ReflexRadar": {
+    "NAME": "リフレクスレーダー",
+    "DESCRIPTION": "カードを !M! 枚引く。 NL 廃棄",
+    "UPGRADE_DESCRIPTION": "カードを !M! 枚引く。"
+  },
+  "Gensokyo:MindShatter": {
+    "NAME": "マインドシェイカー",
+    "DESCRIPTION": "廃棄 したカードの内 廃棄 カード以外のすべてを山札に戻す。 NL この方法で山札に戻したカードの枚数ｘ !M! HPを失う。"
+  },
+  "Gensokyo:ShootingStar": {
+    "NAME": "流れ星",
+    "DESCRIPTION": "デッキにある流れ星以外のカードを複製し、1枚手札に加える。 NL 廃棄",
+    "UPGRADE_DESCRIPTION": "保留 NL デッキにある流れ星以外のカードを複製し、1枚手札に加える。 NL 廃棄"
+  }
+}

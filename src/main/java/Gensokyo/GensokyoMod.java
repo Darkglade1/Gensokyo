@@ -763,6 +763,9 @@ public class GensokyoMod implements
             case ZHS:
                 ret += "zhs/";
                 break;
+            case JPN:
+                ret += "jpn/";
+                break;
             default:
                 ret += "eng/";
                 break;

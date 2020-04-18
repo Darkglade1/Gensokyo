@@ -1,0 +1,49 @@
+﻿[
+  {
+    "NAMES": [
+      "狂気"
+    ],
+    "DESCRIPTION": "狂気状態の敵は、ランダムな敵を攻撃する。毎ターン狂気は #b1 減少する。"
+  },
+  {
+    "PROPER_NAME": "赤い紙",
+    "NAMES": [
+      "赤い紙",
+      "赤い紙+"
+    ],
+    "DESCRIPTION": "ダメージを与えるコスト1の #yアタック 。 #y保留 、 #y廃棄"
+  },
+  {
+    "PROPER_NAME": "青い紙",
+    "NAMES": [
+      "青い紙",
+      "青い紙+"
+    ],
+    "DESCRIPTION": "#yブロック を得るコスト1の #yスキル 。 #y保留 、 #y廃棄"
+  },
+  {
+    "NAMES": [
+      "vigor"
+    ],
+    "DESCRIPTION": "Vigorous creatures deal #b34% more attack damage."
+  },
+  {
+    "NAMES": [
+      "fortitude"
+    ],
+    "DESCRIPTION": "Fortified creatures receive #b33% less attack damage."
+  },
+  {
+    "NAMES": [
+      "sturdy"
+    ],
+    "DESCRIPTION": "Sturdy creatures gain #b34% more block."
+  },
+  {
+    "PROPER_NAME": "難題",
+    "NAMES": [
+      "難題"
+    ],
+    "DESCRIPTION": "#y保留 、 #y廃棄 不可。 NL このカードの場所に関わらず、 #y難題 は進行する。"
+  }
+]
