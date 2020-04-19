@@ -133,7 +133,7 @@ public class ChildOfMiare extends AbstractImageEvent {
                     if (save.childOfMiare.size() > 0) {
                         System.out.println(save.childOfMiare.get(0).id);
                         AbstractCard card = CardLibrary.getCopy(save.childOfMiare.get(0).id, save.childOfMiare.get(0).upgrades, save.childOfMiare.get(0).misc);
-                        if (card.cardID.equals(Madness.ID)) {
+                        if (!card.cardID.equals(save.childOfMiare.get(0).id)) {
                             card = CardLibrary.getCopy(Carnage.ID);
                         }
                         result.set(0, card);
@@ -141,7 +141,7 @@ public class ChildOfMiare extends AbstractImageEvent {
                     if (save.childOfMiare.size() > 1) {
                         System.out.println(save.childOfMiare.get(1).id);
                         AbstractCard card = CardLibrary.getCopy(save.childOfMiare.get(1).id, save.childOfMiare.get(1).upgrades, save.childOfMiare.get(1).misc);
-                        if (card.cardID.equals(Madness.ID)) {
+                        if (!card.cardID.equals(save.childOfMiare.get(1).id)) {
                             card = CardLibrary.getCopy(Dash.ID);
                         }
                         result.set(1, card);
@@ -149,7 +149,7 @@ public class ChildOfMiare extends AbstractImageEvent {
                     if (save.childOfMiare.size() > 2) {
                         System.out.println(save.childOfMiare.get(2).id);
                         AbstractCard card = CardLibrary.getCopy(save.childOfMiare.get(2).id, save.childOfMiare.get(2).upgrades, save.childOfMiare.get(2).misc);
-                        if (card.cardID.equals(Madness.ID)) {
+                        if (!card.cardID.equals(save.childOfMiare.get(2).id)) {
                             card = CardLibrary.getCopy(ReinforcedBody.ID);
                         }
                         result.set(2, card);
