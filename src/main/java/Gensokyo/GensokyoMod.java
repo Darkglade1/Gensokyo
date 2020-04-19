@@ -481,7 +481,6 @@ public class GensokyoMod implements
         BaseMod.addEvent(GoodsFromTheOutsideWorld.ID, GoodsFromTheOutsideWorld.class, Gensokyo.ID);
         BaseMod.addEvent(ForestOfMagic.ID, ForestOfMagic.class, Gensokyo.ID);
         BaseMod.addEvent(GoddessOfMisfortune.ID, GoddessOfMisfortune.class, Gensokyo.ID);
-        BaseMod.addEvent(ClashOfLegends.ID, ClashOfLegends.class, Gensokyo.ID);
         BaseMod.addEvent(ALandWhereOnlyIAmMissing.ID, ALandWhereOnlyIAmMissing.class, Gensokyo.ID);
         BaseMod.addEvent(BambooForestOfTheLost.ID, BambooForestOfTheLost.class, Gensokyo.ID);
         BaseMod.addEvent(GardenOfTheSun.ID, GardenOfTheSun.class, Gensokyo.ID);
@@ -515,6 +514,7 @@ public class GensokyoMod implements
         BaseMod.addEvent(VillageOfCats.ID, VillageOfCats.class, Gensokyoer.ID);
         BaseMod.addEvent(Boo.ID, Boo.class, Gensokyoer.ID);
         BaseMod.addEvent(PhantomEnsemble.ID, PhantomEnsemble.class, Gensokyoer.ID);
+        BaseMod.addEvent(ClashOfLegends.ID, ClashOfLegends.class, Gensokyoer.ID);
         
         // =============== /EVENTS/ =================
 

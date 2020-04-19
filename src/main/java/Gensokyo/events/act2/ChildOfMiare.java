@@ -131,25 +131,28 @@ public class ChildOfMiare extends AbstractImageEvent {
                 Save save = gson.fromJson(savestr, Save.class);
                 try {
                     if (save.childOfMiare.size() > 0) {
-                        try {
-                            result.set(0, CardLibrary.getCopy(save.childOfMiare.get(0).id, save.childOfMiare.get(0).upgrades, save.childOfMiare.get(0).misc));
-                        } catch (Exception e) {
-                            result.set(0, CardLibrary.getCopy(Madness.ID));
+                        System.out.println(save.childOfMiare.get(0).id);
+                        AbstractCard card = CardLibrary.getCopy(save.childOfMiare.get(0).id, save.childOfMiare.get(0).upgrades, save.childOfMiare.get(0).misc);
+                        if (card.cardID.equals(Madness.ID)) {
+                            card = CardLibrary.getCopy(Carnage.ID);
                         }
+                        result.set(0, card);
                     }
                     if (save.childOfMiare.size() > 1) {
-                        try {
-                            result.set(1, CardLibrary.getCopy(save.childOfMiare.get(1).id, save.childOfMiare.get(1).upgrades, save.childOfMiare.get(1).misc));
-                        } catch (Exception e) {
-                            result.set(1, CardLibrary.getCopy(Madness.ID));
+                        System.out.println(save.childOfMiare.get(1).id);
+                        AbstractCard card = CardLibrary.getCopy(save.childOfMiare.get(1).id, save.childOfMiare.get(1).upgrades, save.childOfMiare.get(1).misc);
+                        if (card.cardID.equals(Madness.ID)) {
+                            card = CardLibrary.getCopy(Dash.ID);
                         }
+                        result.set(1, card);
                     }
                     if (save.childOfMiare.size() > 2) {
-                        try {
-                            result.set(2, CardLibrary.getCopy(save.childOfMiare.get(2).id, save.childOfMiare.get(2).upgrades, save.childOfMiare.get(2).misc));
-                        } catch (Exception e) {
-                            result.set(2, CardLibrary.getCopy(Madness.ID));
+                        System.out.println(save.childOfMiare.get(2).id);
+                        AbstractCard card = CardLibrary.getCopy(save.childOfMiare.get(2).id, save.childOfMiare.get(2).upgrades, save.childOfMiare.get(2).misc);
+                        if (card.cardID.equals(Madness.ID)) {
+                            card = CardLibrary.getCopy(ReinforcedBody.ID);
                         }
+                        result.set(2, card);
                     }
                     return result;
                 } catch (Exception e) {
