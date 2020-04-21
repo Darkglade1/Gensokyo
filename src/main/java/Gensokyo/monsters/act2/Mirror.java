@@ -140,7 +140,7 @@ public class Mirror extends CustomMonster
 
         this.moves = new HashMap<>();
         this.moves.put(GUILT, new EnemyMoveInfo(GUILT, Intent.ATTACK, this.guiltDamage, 0, false));
-        this.moves.put(INNOCENCE, new EnemyMoveInfo(INNOCENCE, Intent.DEFEND_BUFF, -1, 0, false));
+        this.moves.put(INNOCENCE, new EnemyMoveInfo(INNOCENCE, Intent.DEFEND, -1, 0, false));
         this.moves.put(BALANCE, new EnemyMoveInfo(BALANCE, Intent.BUFF, -1, 0, true));
     }
 
