@@ -277,11 +277,11 @@
   },
   "Gensokyo:Mirror": {
     "MOVES": [
-      "Guilt",
-      "Innocence",
-      "Balance"
+      "罪过",
+      "无辜",
+      "平衡"
     ],
-    "NAME": "Cleansed Crystal Mirror",
+    "NAME": "洁净水晶镜",
     "DIALOG": [
 
     ]

@@ -353,13 +353,13 @@
   "Gensokyo:AndThenThereWereNone": {
     "NAME": "之后就一个人都没有了吗？",
     "DESCRIPTIONS": [
-      "#rBloodstains splatter the ground, the gruesome remains of several #punfortunate souls. NL NL \"They really were weak, weren't they? I'd be ashamed to be related to such inferior vampires.\" NL NL A strange girl sits amidst the carnage, crimson red adorning her sharp claws. Her eyes dart to you, pinning you in place with their intensity. NL NL “. . . You scent is like that of these #rblood-bats I slaughtered. Did you come from the same place, perhaps?\"",
-      "You do not answer, instead tensing your body to be ready to move at a moment's notice. NL NL \"Hmm, you seem like an interesting one. More interesting than these husks, anyway. How would you like to make a #ppact with me? All the power you could @ever@ want for just a ~little~ bit of #rblood.\" NL NL She holds out a grime-encrusted hand.",
-      "Blinding pain assaults your senses as your vision fades. You wake up amidst a pool of #rblood, dismembered limbs lying around, head spinning and eyes #pclouded over. NL NL You stumble away from the bloodshed. NL NL You stumble away from the bloodshed. NL NL You stumble away from the bloodshed. NL NL You stumble away from the bloodshed.",
-      "\"A pity. I suppose I'll have to find another toy to play with later.\" NL NL Her attention turns back to the corpses around her, giving you the opportunity to slip away."
+      "地面撒满了 #r血污 ，和一些 #p不幸 灵魂的恶心残余物。 NL NL “他们实在是太弱了。被与这些下级吸血鬼相提并论是我的耻辱。” NL NL 一个古怪的少女坐在屠杀残迹正中，绯红的色彩装点着她锋利的指爪。她投来的目光令你紧张地定在原地。 NL NL “. . . 你的味道和我宰掉的那些 #r吸血蝙蝠 很像。你是和它们一道的?”",
+      "你没有回答, 而是绷紧身体准备趁隙逃脱。 NL NL “唔, 你像是个有趣的家伙。至少比那些空壳有意思点。要不要来和我签订 #p契约 呢？只用付出 ~一点点~ #r血 ，就能得到所有你 @曾@ 想拥有的。” NL NL 她向你伸出一只结满尘垢的手。",
+      "剧痛使你眼前一黑。 你 #p头晕目眩 地在一滩 #r血液 中醒来, 四周散落着破碎的肢体。 NL NL 你蹒跚着离开了现场。 NL NL 你蹒跚着离开了现场。 NL NL 你蹒跚着离开了现场。 NL NL 你蹒跚着离开了现场。",
+      "“遗憾。看来我过一会还得去找个新的玩具。” NL NL 她的注意力落回到身边的尸体上，给了你溜之大吉的机会。"
 
     ],
-    "OPTIONS": [
+    "OPTIONS": [ 
       "[继续]",
       "[接受] #g获得 #g",
       " #r失去 #r",
@@ -369,30 +369,30 @@
     ]
   },
   "Gensokyo:NightmareOfHeian": {
-    "NAME": "Nightmare of Heian",
+    "NAME": "平安时代的梦魇",
     "DESCRIPTIONS": [
-      "#pDarkness envelopes you. It shrouds your senses, preying on your #pfear and #pdoubt. NL NL You see terrifying figures manifest before you, broken, distorted forms that your mind refuses to even acknowledge, warped, twisted horrors that defy all comprehension. One of them grins at you sinisterly, the conductor of this grim symphony. NL NL @\"EMBRACE@ @THE@ #p@DARKNESS,@ @PUNY@ @MORTAL.@ @OR@ @LET@ @THE@ #p@DARKNESS@ @EMBRACE@ @YOU.\"@",
-      "You stride forward boldly, embracing the #pinky surfaces around you. NL NL The nightmare ends, and your surroundings return. You glance in a nearby puddle. NL NL A black #phorror ~stares~ back at you.",
-      "You wake up, shivering. There is a #pvoid inside you, an empty hollow carved deep within. NL NL You walk away, leaving a part of you behind forever."
+      "#p黑暗 包覆了你。它遮蔽感知,以 #p恐惧 与 #p疑忌 折磨精神。 NL NL 你见到可怖的影像，见到心智无法接受的破碎形状，见到超越理性的纠拧惊惧之物。它们中的一体，那阴森交响的指挥家，狞笑着的邪恶，发了声。 NL NL @“拥抱@ #p@黑暗@ @吧,@ @弱小的凡人。@ @否则@ #p@黑暗@ @会吞没你。”@",
+      "你鼓起勇气踏步向前, 去碰触环绕周围的 #p墨黑 表面。 NL NL 梦魇消散了, 四周的景物恢复了正常。你瞟了眼附近的水洼。 NL NL 有个黑色的 #p怪物  在背后 ~瞪~ 着你。",
+      "你颤抖着惊醒了。你感到体内有股 #p虚空 , 一个被挖出的深深空洞。 NL NL 你永远地留下了自己的一部分，离开了。"
     ],
     "OPTIONS": [
       "[拥抱] #r下 #r",
       " #r场战斗你的牌变得模糊。 #g之后，获得一件特别的遗物。",
-      "[被利用] #g移除牌组中的2张牌 #r被诅咒- #rWrithe.",
+      "[被吞噬] #g移除牌组中的2张牌 #r被诅咒- #r苦恼 。",
       "[锁定] 需要： 2张可移除的牌",
       "选择移除2张牌。",
       "[离开]"
     ]
   },
   "Gensokyo:Impoverished": {
-    "NAME": "Impoverished",
+    "NAME": "一贫如洗",
     "DESCRIPTIONS": [
-      "A young girl approaches you, holding out a cracked stone bowl. NL NL \"Could you spare some coin, mister?\"",
-      "#yGold flows from your pockets in an unceasing torrent, clattering into the bowl. They swiftly pile up, then just as swiftly, they disappear into the nether. NL NL The girl looks down with #psad eyes. NL NL \"It didn't work. But thank you for trying, mister.\" NL NL She trudges away, becoming a pitiful figure in the distance.",
-      "You step past the girl, continuing on your way. NL NL A shiver runs through your body, like a #psnake had coiled itself around you. NL NL You can't help but feel a little more #p~misfortunate.~"
+      "一个少女托着布满裂纹的石碗向你走来。 NL NL “行行好吧，先生?”",
+      "#y金币 如流水般哗啦啦地从你的口袋倾泻而出进入碗里。 眨眼间便堆成一堆，又一眨眼间消失不见。少女 #p沮丧 地低下眼睛。 NL NL “依旧不行。但还是谢谢您了，先生。” NL NL 她缓缓走开，留下一个可怜的背影渐行渐远。",
+      "你径直走过少女身旁。 NL NL 一阵寒意如 #p蛇 般缠绕上你的身体。 NL NL 你不由地觉得有些 #p~不走运。~"
     ],
     "OPTIONS": [
-      "[献上： ",
+      "[给予： ",
       " 金币] #r失去全部金币。 #g随机升级 #g",
       " #g张牌。",
       " #g张牌。",
@@ -401,15 +401,15 @@
     ]
   },
   "Gensokyo:TheWhiteLotus": {
-    "NAME": "The White Lotus",
+    "NAME": "净白莲华",
     "DESCRIPTIONS": [
-      "The sound of music draws you to a nearby temple, where a woman is regaling a crowd with her voice. She sings of things unfamiliar to you, using words unknown to you. NL NL Despite your lack of comprehension, you find yourself entranced by the display. You consider taking the time to listen more closely. Or perhaps you should leave a small #yoffering and be on your way.",
-      "You close your eyes and allow the woman's voice to ~carry~ ~you~ ~off~ . . . NL NL When you finally open them again, you feel a bit . . . lighter. And, perhaps, as if you understood yourself just a little bit better.",
-      "As your #ycoin clatters into the donation box, you feel a spark of #ywarmth inside your body, as if the gods themselves were watching over you.",
-      "Alas, you have neither time nor coin to spare."
+      "乐声吸引你来到了附近的一间寺庙,一名女子正以歌声招徕群众。她用着陌生的语言，颂唱着未知的事物。 NL NL 尽管难以理解，你还是被表演所迷住了。你考虑要不要靠近仔细听一听。或者留下些 #y捐赠 再离开。",
+      "你闭上双眼，让女子的声音 ~引你入胜~ . . . NL NL 再次睁开眼睛时, 你感觉内心更加 . . . 明亮。并且你对自身的了解似乎更上了一层楼。",
+      "#y钱币 在功德箱中川流而过， #y温暖 的火花驻留你的心头，有如神明以慈悲目光注视着一般。",
+      "哎呀,你可不是什么有闲有钱之人。"
     ],
     "OPTIONS": [
-      "[倾听] #r失去 ",
+      "[聆听] #r失去 ",
       "。 #g从3张稀有牌中选择一张牌加入牌组。",
       "[捐赠] #r失去 #r",
       " #r金币。 #g获得 #g",
@@ -422,12 +422,12 @@
     ]
   },
   "Gensokyo:LivingGodOfMiracles": {
-    "NAME": "Living God of Miracles",
+    "NAME": "司掌奇迹的现人神",
     "DESCRIPTIONS": [
-      "You stumble across another shrine, only this time, there seems to be a small gathering present. A group of lithe figures are speaking with a #ggreen-haired girl, their words muffled by the distance. Moments later, the group departs, and the girl notices your presence. NL NL \"Oh, a visitor! I'm sorry to have kept you waiting; the tengu are an awfully nosey bunch.\" She approaches you with a #yradiant smile. \"What can I do for you? Come to #ydonate? Or perhaps I can interest you in a #gmiracle or two?\"",
-      "\"You're looking for a miracle? Ask away! I can do pretty much anything!\" NL NL You make your request, and the girl immediately deflates with a #psheepish look. \"Ah . . . well, maybe not ~quite~ anything. Not yet, at least.\" She perks up. \"I know! If you go out and gather some #yfaith for me, I'm sure I'll have the power to fulfill your request!\" NL NL The method she outlines to you for gathering \"faith\" seems awfully vague, nebulous, and unlikely to work, but you suppose there's no harm in trying. NL NL After all, a #gmiracle could happen.",
-      "The girl #ybeams as your #ycoin clatters into the wooden donation box. NL NL \"Thank you for your support! Here, have a blessing to help you on your journey!\" NL NL A warm feeling briefly suffuses you, bathing you in its radiance. You thank the girl for the gesture before finally departing.",
-      "You tell her that you are simply passing through before resuming your trek through this mysterious land of wonders."
+      "你踱过另一所神社，但这一次，看上去有一个小型集会。一群衣着奢华的人在与一名 #g绿发 少女交谈，远处听不清他们压低了的声音。过了一段时间，人群散去，少女注意到了你的存在。 NL NL “哦，是参拜客！抱歉让你久等了; 天狗们的杂事真是太多了” 她带着 #y灿烂 的笑容走近你。 “我能为你做些什么?你是来 #y捐赠 的吗?或者我可以给你施展一两个 #g奇迹 ？”",
+      "“你想要一个奇迹?我这有啊! 基本上无所不能的!” NL NL 你表明了你的要求，少女立即 #p窘迫 地泄气了。 “啊 . . . 好吧，或许并不是什么 ~都~ 能做到。 ” 她重新打起精神。 有了!如果你去为我收集些 #y信仰 ，我肯定就有能力来满足你的要求了!” NL NL 她教给你的收集 “信仰” 的方法看起来相当地模糊，含混，难以奏效，但你觉得试试也无妨。 NL NL 毕竟，会有 #g奇迹 发生的。",
+      "少女 #y笑容满面 地看着你的 #y金币 落入奉纳箱。 NL NL “感谢支持! 给，这是旅途平安的祈愿!” NL NL 一股暖流迅速布满了你的全身，使你沐浴在辉光之中。你谢过她的好意后道别离去。",
+      "你告诉她你只是路过而已，重新踏上了在这片神秘瑰丽土地上的旅途。"
     ],
     "OPTIONS": [
       "[奇迹] #r下 #r",
@@ -442,15 +442,15 @@
     ]
   },
   "Gensokyo:TreasureHunter": {
-    "NAME": "宝物猎人",
+    "NAME": "寻宝猎手",
     "DESCRIPTIONS": [
-      "A mousy-looking girl approaches, her eyes intently focused on the metal rods she is waving around in front of her. NL NL She stops right in front of you and looks up. NL NL \"Hey. You're standing right on top of some #ytreasure, you know?\"",
-      "Her eyes widen as you bring out the #ypriceless #yartifact. NL NL \"Huh. I guess that's what I was sensing all along.\" She scans the idol intently. \"Say, how would you feel about a trade? I've got a #gbody-enhancement potion here that I don't have much use for, but I'm sure a traveler like you could find it useful. Gensokyo can be pretty dangerous this far out in the wilderness, you know?\" NL NL You accept the offer, quaffing the potion on the spot. Feeling newfound #rstrength ~flow~ into your body, you continue on your way.",
-      "You step aside as the girl brings out a few shovels and begins to dig. Interested in what #yriches she might uncover, you wordlessly pick up a shovel and begin digging as well. NL NL After several minutes of hard labor, the two of you discover a cache of various #yartifacts and #ytrinkets. NL NL \"Woah, there's a lot in here.\" The girl gives you a look. \"I didn't expect you to help out, but since you did, I guess you can take some of this with you.\" NL NL Picking out a few choice #yrelics, you say your farewells to the girl before continuing on your way.",
-      "You step to the side and walk past her, uncaring of the sounds of digging emanating behind you."
+      "一个有着老鼠样貌的少女朝你的方向走来,目不转睛地盯着手中挥动的金属棒。 NL NL 她在你面前停了下来，抬头看着你。 NL NL “嘿，你知道吗？你站在一些  #y宝物 正上面。”",
+      "你拿出的这件 #y无价之宝 使她瞪大了眼睛。 NL NL “啊，这应该就是我一直在找的东西了。” 她仔细地扫描了神像。 ”我说，来做个交易吧？ 我有些多余的 #g强身 药，你这样的旅行者肯定用得上。幻想乡的遥野非常危险，你懂的吧？” NL NL 你接受了提议，当场饮下了药。感受着全新的 #r力量 在你体内 ~流淌~ ，你继续前行。",
+      "你挪开脚步，少女便掏出铲子开始挖掘。你对她能发现什么样的 #y财富 感到好奇，默默地也拿起一把铲子挖了起来。 NL NL 辛勤劳作了许久，你们两人发现了埋藏着的各色 #y古物 和 #y饰品 。 NL NL “哇，好大一堆。” 少女向你展示了发现。 “我没打算叫你搭把手的，但既然你帮忙了，这里面有你一份。” NL NL 挑出几个 #y遗物 后，你与少女作别，回到旅途之中。",
+      "你抽身走开，无视了背后发出的挖掘声。"
     ],
     "OPTIONS": [
-      "[献上神像] #r失去 #r金神像。 #g获得 #g",
+      "[给出神像] #r失去 #r金神像。 #g获得 #g",
       " #g点最大生命。",
       "[帮助] #r失去 #r",
       " #r点最大生命。 #g获得一件遗物。",
@@ -459,20 +459,20 @@
     ]
   },
   "Gensokyo:NohDance": {
-    "NAME": "Noh Dance",
+    "NAME": "能舞",
     "DESCRIPTIONS": [
-      "The sound of music draws you to a stage in the center of the village, where a masked figure is ~leaping~ and ~twirling~ about in an elaborate dance. There are many others in the audience, each of them #genthralled by the dancer's display. NL NL \"Hey! You there!\" NL NL You spot a #yvendor waving at you, his #ystall displaying several masks that look identical to the ones around the dancer.",
-      "\"That's an #gexotic mask you got there; don't think I've ever seen one of those before!\" He gestures to his #ywares. \"I'd be willing to trade one of these for it, if you'd like.\"",
-      "\"How would you like to bring a #ysouvenir home with you? I assure you these #ymasks are all of the highest #gquality!\"",
-      "You try on your freshly purchased #ymask, feeling it smoothly slide onto your face. NL NL The eyeholes are a bit difficult to see through, but it should be enough to obscure your identity, at least.",
-      "You don't feel keen about trading your #ymask away.",
-      "You don't have the #ymoney to spend on something as #ptrivial as a souvenir."
+      "音乐声将你引到了镇中央的舞台处，一个戴着面具的人 ~跳跃~ ~旋转~ 着表演一段复杂的舞蹈。台下有许多的观众，深深地被舞姿所 #g迷住 。 NL NL “喂！那边的！” NL NL 你瞥见一个 #y小贩 向你招手，他的 #y摊位 上陈列着与舞者身边所用并无二致的面具。",
+      "“你带着的那个面具是 #g外界 货吧; 我从来没见过这种样式的!” 他指了指摊上的 #y商品 。 “如果你肯的话，我可以用一个这些面具和你交换。”",
+      "“来买点 #y纪念品 吧? 这些 #y面具 保证是 #g顶级 货!”",
+      "你试着戴上刚买到的 #y面具，感受它顺滑地贴合到脸上的触感。 NL NL 透过眼孔看外界略有困难，但至少掩藏身份是足够了。",
+      "你并不愿意让出你的 #y面具 。",
+      "你连买下一件 #p普通 的纪念品的 #y钱 都没有。"
     ],
     "OPTIONS": [
       "[购买] #r失去 #r",
-      " #r金币. #gObtain ",
+      " #r金币. #g获得 ",
       "[锁定] 需要： ",
-      " Gold",
+      " 金币",
       "[离开]",
       "[继续]",
       "[购买] #r失去 ",
@@ -480,16 +480,16 @@
     ]
   },
   "Gensokyo:OneWingedWhiteHeron": {
-    "NAME": "One-Winged White Heron",
+    "NAME": "片翼的白鹭",
     "DESCRIPTIONS": [
-      "A great ball of #ggreen and #bblue floats in the sky, a stark contrast to the grey, rocky environment surrounding you. NL NL You blink in surprise. Apparently, you are on the #ymoon. Somehow. NL NL \"An intruder? Haven't had one of those in a while.\"",
-      "A silver-haired woman peers closely at you. She does not seem surprised by her surroundings or by your sudden appearance. NL NL \"Well, it'll be a while before those #ysisters get here to send you back. Why don't you tell me a story in the meantime?\"",
-      "You tell her about one of the most #pharrowing encounters you've had with the denizens of the land. She nods along as you speak, seemingly repeating your words under her breath. NL NL \"Ah, they're here.\" NL NL You barely have time to comprehend her words before space @warps@ and @twists@ around you, and you suddenly find yourself back in a #gfamiliar landscape. As you press on, you feel somewhat #pstrange - the aches of several old #rwounds have disappeared, and a few of your #ypossessions seem to have gone missing. NL NL You shake your head, ultimately dismissing these concerns as trivial.",
-      "\"Not a talkative one? I suppose that's fine too.\" NL NL Before long, space @warps@ and @twists@ around you, and you suddenly find yourself back in a familiar landscape."
+      "一个巨大的 #b蓝 #g绿 相间的球体悬浮在天空中，与你脚下遍布的灰色岩石形成了鲜明对比。 NL NL 你惊讶地眨了眨眼。显然，出于某种原因，你现在是在 #y月球 上。 NL NL “入侵者？有些时日没见过了。”",
+      "一个银发女子细细地端详着你。她似乎对身边的环境和你的突然出现习以为常了。 NL NL “好吧,还得等一会那对 #y姐妹 才能来遣返你。为什么不趁这时间讲个你的故事呢?”",
+      "你向她讲述了与此地住民间最 #p惊险 的一场遭遇。她随着你的讲述默默点头，似乎在心里复述你的话语。 NL NL “啊，她们到了。” NL NL 你还没来得及理解她所说的，空间便在你身旁 @折叠@ ， @扭曲@ ，突然间你发现自己回到了一片 #g熟悉 的场景。继续前行时，你感到一丝 #p异样 - 一些旧 #r伤口 的疼痛消失了，一些 #y财产 也不翼而飞。 NL NL 你摇了摇头，把这些想法抛诸脑后。",
+      "“不爱说话吗? 也行吧。” NL NL 不久，空间便在你身旁 @折叠@ ， @扭曲@ ，突然间你发现自己回到了一片 #g熟悉 的场景。"
     ],
     "OPTIONS": [
-      "[Speak of ",
-      "] #g回复 #g",
+      "[讲述 ",
+      " 的故事] #g回复 #g",
       " #g点生命。",
       " #r失去 ",
       "。",
@@ -502,18 +502,18 @@
     ]
   },
   "Gensokyo:ChildOfMiare": {
-    "NAME": "Child of Miare",
+    "NAME": "御阿礼之子",
     "DESCRIPTIONS": [
-      "\"I've seen someone like you before. That same someone came here asking the very same thing as you.\" NL NL You had your #rdoubts when this young girl claimed to be one of the most knowledgeable people in this land, but that single statement erased any #pmisgivings you had. NL NL The heavy tome next to her didn't look like it was for show, either.",
-      "\"In fact, they were kind enough to let me make some records of them. Would you like to see them?\"",
-      "The words on the page fascinate you. The #yhandwriting is yours, but the words themselves spoke of events utterly #pforeign to you. NL NL You find the whole situation to be #pstrange and #punsettling. NL NL \"Why don't you let me make some records for you too? I'm sure it will be helpful to whoever comes next.\" NL NL That wasn't a bad idea. After all, if what you just read is true, you would end up #pforgetting everything very soon.",
-      "\"You're not curious? Very well then. Still, I must ask you to #yhumor me for a little. I am trying to compile an extensive account of every major figure in Gensokyo, and you certainly look #rimposing enough to be counted among them.\"",
-      "You recount your most noteworthy experiences, trying to be as detailed as you can despite your #pscattered memories. NL NL You may or may not have #pembellished a little to fill in the hazy gaps here and there. After all, no one can prove that you #rdidn't take on three of those metallic crabs at once and come out without a scratch, right?"
+      "“我曾见过与你相同的人，来这里询问相同的事情。” NL NL 你本来对这个年幼少女是此地最博闻强识之人充满 #r怀疑 ，这一句话让你的 #p疑虑 烟消云散。 NL NL 她身边的厚重巨著看来并不是个摆设。",
+      "“实际上，他们都很好心地让我做了记录，你要看看吗”",
+      "书页上的文字深深吸引了你。那是你的 #y笔迹 ，但文字的内容却令你无比 #p陌生 。 NL NL 这番情景令你感到 #p怪异 与 #p不安 。 NL NL “要不让我给你也做些记录吧? 这会对下一个来的人有所帮助的。” NL NL  那应该是个不错的主意。毕竟，如果你读到的内容是真实的，你不久之后就会 #p忘掉 发生过的一切。",
+      "“你不感兴趣，那好吧。不过我还得 #y请 你帮我个小忙。我在编纂一部幻想乡名人志，你 #r够格 被列入其中。”",
+      "你回顾了你最值得称道的经历，尽力从 #p破碎 的记忆中详细地还原事件。 NL NL 不知道你有没有在那些模糊之处 #p添油加醋 。也没人能证明你 #r不曾 毫发无伤地打败三只铁螃蟹，对吧？"
     ],
     "OPTIONS": [
       "[读] #g获得 ",
       "。",
-      "[Decline]",
+      "[拒绝]",
       "[记录] 将一张牌的复制存入。",
       "[离开]",
       "存入一张牌的复制。",
@@ -521,32 +521,32 @@
     ]
   },
   "Gensokyo:DetectiveSatori": {
-    "NAME": "Detective Satori",
+    "NAME": "侦探觉",
     "DESCRIPTIONS": [
-      "\"Hey, you there.\" NL NL You turn around to see a #pgrim-looking woman approach you. NL NL \"There's been a #rmurder. You wouldn't happen to know anything about that, would you?\" NL NL You open your mouth - NL NL \"Yes, yes, I know you think you don't know anything, but that's what everyone says. Yes, I know I'm being rude but the need for #gresults trumps courtesy right now. And yes, I'm #preading #pyour #pmind in case you couldn't tell.\"",
-      "You have a feeling this is going to be a very one-sided conversation. NL NL \"Pretty much. Anyway, your surface thoughts don't tell me much, so I'd like to go a bit . . . deeper. Stir up some #ptrauma. It's not as bad as it sounds; you might even learn something about yourself in the process. Or I could simply #ypay you for your trouble.\"",
-      "A thin pinprick #rpunctures your mind, darting between the annals of your memory like an overzealous scholar. Scenes flash before your eyes, depicting #rviolent battles, #ppetty bickering, and #yevents wholly unfamiliar to you. NL NL \"You have many repressed memories. Like someone's #perased them.\" NL NL Your vision clears, and you see the woman regarding you with a contemplative expression. \"Well, it seems you're #ginnocent after all. At least you've given me some good leads.\" NL NL She walks away, leaving you with a faint headache that wouldn't quite go away.",
-      "\"The cautious sort, aren't you? I suppose I can't blame you.\" NL NL The woman peers at you closely, nodding to herself. NL NL \"I suppose what I've gotten from you is good enough. I still have several leads to #yinvestigate, after all.\" NL NL The woman walks away, leaving you unable to get a word in edgewise."
+      "“你，过来一下。” NL NL 你回身看到一个 #p神情严肃 的女子走近你。 NL NL “这里发生了一起 #r凶杀案 。你恰巧对此一无所知，是吗？” NL NL 你张开嘴 - NL NL ”好，好，我知道你想说你什么也不明白，每个人都是这么说的。没错，我是有点无礼了，但现在获取 #g真相 比繁文缛节更重要。哦对，即使你不说我也会 #p读取你的思想 的。”",
+      "你预感到这会是场单方面的谈话。 NL NL “确实是这样。话说回来，你的表面想法里没有多少信息，因此我要读取一些更 . . . 深层的思想。这会造成一点 #p精神创伤 。不过这不像听起来那么严重;你可以以此为契机了解到自我的一部分。或者简单地给你些 #y补偿 也行。”",
+      "仿佛有一根细针 #r刺穿 了你的思想，如狂热的学者般在你记忆的孔洞间穿梭。你的眼前闪过各种各样的场景，有的是 #r暴力 的战斗，有的是 #p鸡毛蒜皮 的争吵，还有的是完全陌生的 #y事件 。 NL NL “你有许多被压抑了的记忆。就像是某人 #p抹除 了它们一样。” NL NL 你的视线恢复了，那女子带着沉思的表情面对着你。 “好吧，看起来你是完全 #g无辜 的。你提供的线索还不错。” NL NL 她走开了，你脑袋的隐隐作痛却挥之不去。",
+      "“你是谨慎的那类人吧，这也不怪你。” NL NL 女子仔细地盯了你一会，对自己点了点头。 NL NL “你提供的线索还不错。我还有其他的线索要 #y调查 ，走了。” NL NL 女子走开了，你一句话也没插得上。"
     ],
     "OPTIONS": [
       "[继续]",
-      "[Trauma] #r失去 #r",
+      "[创伤] #r失去 #r",
       " #r生命。 #g获得 ",
       "。",
-      "[Payment] #r失去 #r",
+      "[补偿] #r失去 #r",
       " #r点最大生命",
       " #g获得 #g",
       " #g金币。",
       "[拒绝]",
       "[离开]"
-    ]
+    ] 
   },
   "Gensokyo:AHistoryOfViolence": {
-    "NAME": "A History of Simulated Violence",
+    "NAME": "伪造的暴力史",
     "DESCRIPTIONS": [
-      "You find yourself in a strange room, surrounded by #pstrange, #rmenacing figures. NL NL \"Well, well, what do we have here? Another challenger?\" NL NL The myriad of faces all stare down at you, gauging your #yworth. NL NL \"You've been here before, haven't you? So why don't we make things more challenging this time around?\"",
-      "\"A brave one, aren't you? This should prove to be quite interesting.\" NL NL The figures vanish, leaving you with a #pforeboding sense of #pdread.",
-      "\"Not feeling up for it? A pity.\" NL NL The figures vanish, leaving you with a brief sense of #grelief at their passing."
+      "你身处一个陌生的房间，被一群 #p陌生 且 #r杀气腾腾 的人包围着。 NL NL “好了，好了，看看是谁来了？又一个挑战者？” NL NL 无数的面孔全都俯视着你，估量着你的 #y价值 。 NL NL “你不是来过这里吗? 那这一次何不让事情更有挑战性一些呢?”",
+      "“你很勇敢,是吗? 那这次会有点意思了。” NL NL 人影消失了，留给你一股 #p恐怖 的  #p预感 。",
+      "“不敢接受?真可惜。” NL NL 人影消失了，他们的离去令你感到一阵 #g轻松 。"
     ],
     "OPTIONS": [
       "[接受] #r下一场boss站中你的最大生命减少 #r",
@@ -557,18 +557,18 @@
     ]
   },
   "Gensokyo:FiresOfInvention": {
-    "NAME": "Fires of Invention",
+    "NAME": "创新激情",
     "DESCRIPTIONS": [
-      "As you stumble your way through a thicket, you #rtrip, dropping one of your many #yrelics. Before you can even get up, a robotic arm bursts out of nowhere and snatches it up! NL NL \"Woah, this looks fascinating! It looks so simple at first glance, but there's actually an incredibly intricate interlocking mechanism inside!\" NL NL You pick yourself up and see a #bblue-haired girl fiddling with your #yrelic. You politely ask for it back.",
-      "\"Oh, this is yours? Hmmm . . .\" She frowns. \"Oh, I know! Why don't I pay you for it? Or if you don't want #ymoney, I can help #yfine-tune some of your other stuff! I'm a pretty good engineer, y'know?\"",
-      "\"Thank you very much!\" NL NL The girl dumps a bunch of #ycoinage into your hand and darts away, already muttering about how this device could \"increase #yfuel #yefficiency by @50%!\"@",
-      "You're not quite sure what the girl did to the other tools you handed her, but after getting them back, you could sense that they felt more #gefficient, more #grefined. NL NL Like a #rfinely-honed #redge.",
-      "\"Awwww.\" NL NL #pReluctantly, the girl gives you back your #yrelic. NL NL \"Well, if you change your mind, just come back here and ask around! Most of the other kappa here know where I live.\" NL NL The girl darts away, leaving you alone with your thoughts once more."
+      "你在穿过一片灌木丛时被 #r绊倒 了，你所有的 #y遗物 之一掉到了地上。你还没起身，一个机械臂从不知何处窜了出来抓住了它! NL NL “哇哦，这个看起来太棒了! 表面上很简单，但实际上里面是超乎理解又条理清晰的机理!” NL NL 你抬头看到一个 #b蓝发 少女正摆弄着那个 #y遗物 。你礼貌地请她将其归还。",
+      "“诶，这是你的? 嗯 . . .” 她皱起眉头。 “哦，对了! 我可以买下它吗? 如果你不想要 #y钱 ，我可以帮你 #y修缮 些别的东西!我可是个优秀的工程师!”",
+      "“非常感谢!” NL NL 少女拿出一堆 #y钱币 塞到你手里后一溜烟跑掉了，嘴里嘟囔着什么这个设备能 “把 #y燃料效率 提升 @50%!@ ”",
+      "你不太确定少女在递给她的工具做了什么，不过取回之后，你明显感觉到它们更 #g高效 ，更 #g精练 。 NL NL 就像刚 #r打磨 过的 #r刀刃 。",
+      "“啊噢” NL NL 少女 #p沮丧 地归还了 #y遗物 。 NL NL “好吧，如果你改主意了，随时可以回来找我! 大多数的河童都知道我住哪。” NL NL 少女一溜烟跑掉了，你又一次变为孤身一人。"
     ],
     "OPTIONS": [
       "[继续]",
       "[钱]",
-      "[Fine-tune]",
+      "[修缮]",
       " #r失去 ",
       "。",
       " #g获得 #g",
@@ -585,16 +585,16 @@
     ]
   },
   "Gensokyo:ExtraExtra": {
-    "NAME": "Extra, Extra",
+    "NAME": "号外号外",
     "DESCRIPTIONS": [
-      "@\"Breaking@ @news!@ Noh dance at Hakurei Shrine! Moriya Shrine #pconspiracy revealed! Get the latest scoops in Gensokyo @right@ @here,@ @right@ @now!\"@ NL NL A girl is handing out newspapers in the village square, her hands a flurry of motion as she #gdeftly hands one out to every #ycurious soul nearby. As soon as you approach, you find a newspaper unceremoniously shoved into your hands as well. NL NL \"Dramatized Tale of the Downfall of the World! Lunar Invasion Repelled! We got it all here!\"",
-      "Scanning the headlines, you see the aforementioned articles as well as a number of equally #pdubious stories.",
-      "You skim one of the articles. It speaks of a recent #rrat #rinfestation that had nearly #rdevastated the village’s food stores before a travelling medicine seller came and sold the villagers several #gcat #gstatues that supposedly managed to drive the rats away. NL NL Fascinating.",
-      "The current events of this land don't interest you all that much."
+      "“ @特大新闻!@ 博丽神社能舞演出! 守矢神社 #p阴谋 曝光! @此时此刻@ ，获取幻想乡的最新视点!” NL NL 一个少女正在镇中广场上散发报纸，#g麻利 地向周围每个 #y好奇 的人送出一份。当你走近时，同样有一份报纸被硬塞到你手中。 NL NL “末日预言改编的戏剧! 月球入侵者被击退!你想看到的这里都有!”",
+      "浏览头条，你发现之前提到的那篇文章和一些同样 #p可疑 的故事。",
+      "你扫了扫这篇文章。它讲述了近期一场近乎 #r摧毁 了整个镇子的粮食储备的 #r鼠害 因一个旅行药商卖给镇民们的 #g猫雕像 将老鼠驱走而结束的故事。 NL NL 真有意思。",
+      "你对这里近期发生的事情不感兴趣。"
     ],
     "OPTIONS": [
       "[继续]",
-      "[读] #g",
+      "[读] 从 #g",
       " #g张罕见牌中选择1张加入你的牌组。",
       " #g张普通牌中选择1张加入你的牌组。",
       "[丢弃]",
@@ -603,12 +603,12 @@
     ]
   },
   "Gensokyo:VillageOfCats": {
-    "NAME": "Village of Cats",
+    "NAME": "猫之国",
     "DESCRIPTIONS": [
-      "You find yourself in a strange, abandoned village, filled to the brim with #ycats of all kinds. NL NL One of them scampers up to you, a small brown cat with a #ggreen ribbon attached to its tail. NL NL It ~meows~ at you.",
-      "You #gpet the cat. It leans into your touch, purring #ghappily. NL NL It scampers away, soon returning with several scraps of #gfood that it lays at your feet. NL NL You try not to think about where the food came from as you thank the cat for its generosity.",
-      "You #gpet the cat. As it leans into your touch, its form suddenly #ybursts out and #yexpands, turning into a young girl. \"Hey, you're just like Yukari-sama and Ran-sama! Did they teach you how to manipulate boundaries?\" NL NL You confess that you have #pno #pidea what she's talking about. NL NL \"That's okay! I don't understand most of what they say either!\" The girl scampers away, soon returning with a #ytrinket in hand. \"Here, take this! Even if you don't understand anything, I'm sure they'll make sure you understand everything soon enough!\" NL NL You gingerly accept the artifact, trying not to think too hard on those #pforeboding words.",
-      "You #rkick the cat. It leaps up and #rhisses at you before darting away. NL NL Moments later, you feel someone tap on your shoulder. You turn around, finding a strange woman #psmiling at you. NL NL It was not a nice #psmile. NL NL \"That was quite #prude, you know? Let me show you what happens to #prude people in Gensokyo.\""
+      "你来到一个奇怪的废村，村中满是各种各样的 #y猫 。 NL NL 其中的一只尾巴上系着 #g绿色 缎带的棕色小猫跳到你身上。 NL NL 对着你 ~喵喵~ 叫。",
+      "你 #g抚摸 了这只猫。它在你的轻抚下伸展身体，发出 #g满足 的呼噜声。 NL NL 它跑开了，不一会就带回了一点 #g食物 放在你的脚下。 NL NL 你很感谢它的馈赠，同时尽量不去想像食物的来源。",
+      "你 #g抚摸 了这只猫。它在你的轻抚下伸展身体，突然形体发生 #y暴胀 #y延展 ，变成了一个年幼少女。 “嘿，你和紫大人蓝大人一样! 她们教给你怎么弄境界了吗?” NL NL 你坦白道自己 #p完全不明白 她在说什么。 NL NL “好吧!我也不是很懂她们说的!” 少女跑开了，不一会拿着一件 #y饰品 回来了。 “给，拿着这个!就算你什么也不知道，我保证她们会很快让你知道的!” NL NL 你小心翼翼地接过那个物件，尽量不去思考那些 #p神叨 的话语。",
+      "你 #r踢 了猫一脚。它弹跳了起来，对着你 #r嘶嘶 地吼了两声就跑掉了。 NL NL 没过多久，你感觉有人拍了拍你的肩膀。你转过身去，一个古怪的女子对你 #p微笑 着。 NL NL 那绝不是善意的 #p微笑 。 NL NL “你太 #p无礼 了，知道吗?让我告诉幻想乡是怎么对待 #p无礼 之人的。”"
     ],
     "OPTIONS": [
       "[抚摸猫] #g获得 #g",
@@ -622,11 +622,11 @@
     ]
   },
   "Gensokyo:Boo": {
-    "NAME": "Boo!",
+    "NAME": "嘭!",
     "DESCRIPTIONS": [
-      "#p@\"Boo!\"@ NL NL You #pflinch as someone @leaps@ out of the bushes in front of you, startling you. NL NL \"Ha! I surprised you, didn't I? You were #pscared, right?\"",
-      "You profusely express just how #pharrowing and #pterrifying the experience had been. In fact, it was a stroke of #yfortune that you hadn't simply fainted on the spot right then and there. NL NL \"Yay, I @did@ @it!@ I finally @did@ @it!\"@ NL NL The girl waltzes away in a daze, smiles all around, muttering about how she couldn't wait to tell her mentor about this.",
-      "\"Uwah? I was so sure I did it right this time . . .\" NL NL The #pdejected girl slinks away, dragging her equally dejected umbrella on the ground behind her. NL NL As her pitiful figure disappears into the distance, you can't help but feel a twinge of #pguilt."
+      "#p@“嘭!”@ NL NL 你被面前树丛中骤然 @窜@ 出唬人的人影吓了个 #p激灵 。 NL NL “哈!我吓到你了，对吧?你被 #p吓到 了，是不是?”",
+      "你夸张地形容了刚刚的经历有多 #p恐怖 #p可怕 。事实上，你没被当成吓晕已经是十分 #y幸运 了。 NL NL “耶, 我 @做到了!@ 我终于 @做到了!@” NL NL 眨眼间少女就带着笑容转着圈跳走了，嚷着她迫不及待要告诉导师这个好消息。",
+      "“呜哇?这次我肯定没搞错啊 . . .” NL NL 这个 #p垂头丧气 的少女溜走了，身后拖着她那同样沮丧的伞。 NL NL 当她的身影消失在地平线上，你不由地觉得有股 #p罪恶感 。"
     ],
     "OPTIONS": [
       "[肯定] #g移除牌组中的一张牌。",
@@ -639,17 +639,17 @@
     ]
   },
   "Gensokyo:PhantomEnsemble": {
-    "NAME": "Phantom Ensemble",
+    "NAME": "幽灵乐团",
     "DESCRIPTIONS": [
-      "Strands of music drift through the air, #pphantom notes that slink into your ears, making you feel #gjoyous yet #phollow, #genergetic yet #pempty, #galive yet #pdead. NL NL The chaotic blend threatens to overwhelm you, but you can discern three distinct melodies underneath the chaos. You try to focus on one of them . . .",
-      "You focus on the #ydull notes underpinning the overall melody. Their quiet calm #gsoothes your mind and body, and you eventually find yourself well enough to move on.",
-      "You focus on the #ymanic notes underpinning the overall melody. Their chaotic energy #ginvigorates your mind and body, granting you boundless energy that you simply cannot contain - NL NL When you finally wake up, strange aches all over your body, the music is gone.",
-      "You focus on the #ymelancholic notes underpinning the overall melody. Their lethargic energy #plulls your mind into a deep slumber, one that you find yourself unable to resist. NL NL When you finally wake up, a strange heaviness in your body, the music is gone."
+      "乐歌旋律飘荡于天空，仿若 #p幽灵 之音符滑落耳中，闻之 #g欣喜 而 #p虚妄 ，#g充盈 而 #p空荡 ， #g生机 而 #p死寂 。 NL NL 音律混沌杂糅，声势浩大如群山瀚海。定神辨之，则有相异乐调者三。可择一而品 . . .",
+      "聚精会神于 #y淡然 之音。其平静 #g抚慰 身心。曲毕，行旅之烦忧尽散。",
+      "聚精会神于 #y癫狂 之音。其繁盛 #g激扬 身心，其豪壮无可消受 - NL NL 曲终人醒，四体痛乏。",
+      "聚精会神于 #y沉郁 之音。其怠惰 #p招引 沉眠，纵铁石亦不能拒。 NL NL 曲终人醒，四体如堕。"
     ],
     "OPTIONS": [
-      "[Illusionary Melody] #g获得一件特别的遗物。",
-      "[Joyful Melody] #g获得一件特别的遗物。",
-      "[Melancholic Melody] #g获得一件特别的遗物。",
+      "[梦幻乐调] #g获得一件特别的遗物。",
+      "[喜悦乐调] #g获得一件特别的遗物。",
+      "[沉郁乐调] #g获得一件特别的遗物。",
       "[离开]"
     ]
   },
