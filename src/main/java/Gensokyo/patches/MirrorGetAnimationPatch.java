@@ -1,5 +1,7 @@
 package Gensokyo.patches;
 
+import basemod.abstracts.CustomPlayer;
+import basemod.animations.AbstractAnimation;
 import basemod.animations.SpriterAnimation;
 import com.esotericsoftware.spine.AnimationState;
 import com.esotericsoftware.spine.AnimationStateData;
@@ -8,6 +10,7 @@ import com.evacipated.cardcrawl.modthespire.lib.SpirePostfixPatch;
 import com.evacipated.cardcrawl.modthespire.lib.SpirePrefixPatch;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.AbstractCreature;
+import com.megacrit.cardcrawl.ui.panels.energyorb.EnergyOrbInterface;
 
 public class MirrorGetAnimationPatch {
 
@@ -29,8 +32,9 @@ public class MirrorGetAnimationPatch {
     public static boolean isPlayerStateData = false;
     public static boolean isPlayerTimeScale = false;
 
-    public static boolean canSpriterAnimation = false;
+    //public static boolean canSpriterAnimation = false;
     public static String spriterAnimation;
+    public static String TempSpriterAnimation;
 
     @SpirePatch(
             clz= AbstractPlayer.class,
@@ -52,9 +56,22 @@ public class MirrorGetAnimationPatch {
             isPlayerTrackEntry = false;
             isPlayerStateData = false;
             isPlayerTimeScale = false;
-            //spriterAnimation = null; breaks stuff since we get this before the super call
-            canSpriterAnimation = true;
             ReversalEventPatches.clearLists(); //piggy-back this here too
+        }
+    }
+
+    @SpirePatch(
+            clz= CustomPlayer.class,
+            method=SpirePatch.CONSTRUCTOR,
+            paramtypez = { String.class, AbstractPlayer.PlayerClass.class, EnergyOrbInterface.class, AbstractAnimation.class }
+    )
+    public static class SpriterCheck {
+        @SpirePrefixPatch
+        public static void spriterPls(CustomPlayer _instance, String name, AbstractPlayer.PlayerClass playerClass, EnergyOrbInterface energyOrbInterface, AbstractAnimation animation) {
+            //This only works if a new spriterAnimation is instantiated right before the supercall so spriter-using mods that don't do this get mirrored properly
+            if (animation instanceof SpriterAnimation) {
+                spriterAnimation = TempSpriterAnimation;
+            }
         }
     }
 
@@ -135,10 +152,7 @@ public class MirrorGetAnimationPatch {
     public static class GetSprite {
         @SpirePostfixPatch
         public static void getSprite(SpriterAnimation _instance, String filepath) {
-            if (canSpriterAnimation) {
-                spriterAnimation = filepath;
-                canSpriterAnimation = false;
-            }
+            TempSpriterAnimation = filepath;
         }
     }
 }
