@@ -307,12 +307,10 @@ public class Eiki extends AbstractSpriterMonster
 
         //Render particles when she uses debuff attack
         if (this.nextMove == WANDERING_SIN) {
-            if (!Settings.DISABLE_EFFECTS) {
-                this.particleTimer -= Gdx.graphics.getDeltaTime();
-                if (this.particleTimer < 0.0F) {
-                    this.particleTimer = 0.05F;
-                    AbstractDungeon.effectsQueue.add(new FlexibleWrathParticleEffect(this));
-                }
+            this.particleTimer -= Gdx.graphics.getDeltaTime();
+            if (this.particleTimer < 0.0F) {
+                this.particleTimer = 0.05F;
+                AbstractDungeon.effectsQueue.add(new FlexibleWrathParticleEffect(this));
             }
 
             this.particleTimer2 -= Gdx.graphics.getDeltaTime();

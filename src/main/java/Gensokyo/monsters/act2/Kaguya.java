@@ -97,7 +97,7 @@ public class Kaguya extends CustomMonster
     private static final int DEBUFF_AMT = 1;
 
     private Map<Byte, EnemyMoveInfo> moves;
-    private ImpossibleRequest request;
+    public ImpossibleRequest request;
     private int damage;
 
     public Kaguya() {

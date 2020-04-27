@@ -2,17 +2,17 @@ package Gensokyo.cards.ImpossibleRequests;
 
 import Gensokyo.GensokyoMod;
 import Gensokyo.cards.AbstractDefaultCard;
+import Gensokyo.powers.act2.LunaticPrincess;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
-import com.evacipated.cardcrawl.mod.stslib.actions.common.MoveCardsAction;
+import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.common.ExhaustSpecificCardAction;
+import com.megacrit.cardcrawl.actions.common.MakeTempCardInHandAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.cards.CardGroup;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.Settings;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
-
-import java.util.function.Predicate;
 
 import static Gensokyo.GensokyoMod.makeCardPath;
 import static com.megacrit.cardcrawl.core.CardCrawlGame.languagePack;
@@ -285,9 +285,32 @@ public class ImpossibleRequest extends AbstractDefaultCard {
 
     @Override
     public void triggerOnExhaust() {
+        //Create a new Impossible Request and make it identical to the old one then give it to the player and remove the old one
+        //Have to do it like this cause otherwise shit like Nagashi-bina Doll that exhausts at end of turn causes a visual glitch
+        ImpossibleRequest oldRequest = this;
         if (this.requestCounter <= SWALLOW_SHELL) {
-            Predicate<AbstractCard> predicate = abstractCard -> abstractCard.cardID.equals(ImpossibleRequest.ID);
-            this.addToBot(new MoveCardsAction(AbstractDungeon.player.hand, AbstractDungeon.player.exhaustPile, predicate));
+            this.addToBot(new MakeTempCardInHandAction(this));
+            this.addToBot(new AbstractGameAction() {
+                public void update() {
+                    ImpossibleRequest newRequest = null;
+                    for (AbstractCard card : AbstractDungeon.player.hand.group) {
+                        if (card instanceof ImpossibleRequest) {
+                            newRequest = (ImpossibleRequest)card;
+                        }
+                    }
+                    if (newRequest != null) {
+                        newRequest.requestCounter = oldRequest.requestCounter;
+                        newRequest.completed = oldRequest.completed;
+                        newRequest.transform();
+                        if (AbstractDungeon.player.hasPower(LunaticPrincess.POWER_ID)) {
+                            LunaticPrincess power = (LunaticPrincess)AbstractDungeon.player.getPower(LunaticPrincess.POWER_ID);
+                            power.pointToNewRequest(newRequest);
+                        }
+                    }
+                    AbstractDungeon.player.exhaustPile.removeCard(oldRequest);
+                    this.isDone = true;
+                }
+            });
         }
     }
 }

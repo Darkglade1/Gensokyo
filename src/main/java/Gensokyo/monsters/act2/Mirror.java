@@ -182,12 +182,10 @@ public class Mirror extends CustomMonster
     public void render(SpriteBatch sb) {
         super.render(sb);
         if (this.hasPower(NextTurnInnocence.POWER_ID)) {
-            if (!Settings.DISABLE_EFFECTS) {
-                this.particleTimer -= Gdx.graphics.getDeltaTime();
-                if (this.particleTimer < 0.0F) {
-                    this.particleTimer = 0.04F;
-                    AbstractDungeon.effectsQueue.add(new FlexibleCalmParticleEffect(this));
-                }
+            this.particleTimer -= Gdx.graphics.getDeltaTime();
+            if (this.particleTimer < 0.0F) {
+                this.particleTimer = 0.04F;
+                AbstractDungeon.effectsQueue.add(new FlexibleCalmParticleEffect(this));
             }
 
             this.particleTimer2 -= Gdx.graphics.getDeltaTime();

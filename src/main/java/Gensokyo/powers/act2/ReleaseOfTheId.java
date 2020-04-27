@@ -52,7 +52,7 @@ public class ReleaseOfTheId extends AbstractPower {
     public void onCardDraw(AbstractCard card) {
         if (!triggered) {
             this.flash();
-            AbstractDungeon.actionManager.addToBottom(new PlayIdCardAction(card, AbstractDungeon.getCurrRoom().monsters.getRandomMonster(null, true, AbstractDungeon.cardRandomRng), false));
+            AbstractDungeon.actionManager.addToTop(new PlayIdCardAction(card, AbstractDungeon.getCurrRoom().monsters.getRandomMonster(null, true, AbstractDungeon.cardRandomRng), false));
             triggered = true;
         }
     }

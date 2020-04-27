@@ -41,7 +41,6 @@ public class ChorusOfJoy extends CustomRelic {
             this.addToTop(new RelicAboveCreatureAction(AbstractDungeon.player, this));
             this.firstTurn = false;
         }
-
     }
 
     @Override

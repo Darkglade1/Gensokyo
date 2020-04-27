@@ -31,7 +31,6 @@ public class LunaticPrincess extends AbstractPower implements InvisiblePower {
     private boolean SKILL = false;
     private boolean POWER = false;
     private boolean ATTACK = false;
-    //private boolean tookDamage = false;
     public int counter = 0;
 
     private static final Texture tex84 = TextureLoader.getTexture(makePowerPath("Infinity84.png"));
@@ -218,6 +217,12 @@ public class LunaticPrincess extends AbstractPower implements InvisiblePower {
             }
         }
         request.initializeDescription();
+    }
+
+    public void pointToNewRequest(ImpossibleRequest request) {
+        this.request = request;
+        kaguya.request = request;
+        updateRequest();
     }
 
     @Override
