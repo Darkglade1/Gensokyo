@@ -49,7 +49,7 @@ public class TheWhiteLotus extends AbstractImageEvent {
             hasCard = true;
         }
        if (hasCard) {
-           imageEventText.setDialogOption(OPTIONS[0] + FontHelper.colorString(card.name, "r") + OPTIONS[1], card);
+           imageEventText.setDialogOption(OPTIONS[0] + FontHelper.colorString(card.name, "r") + OPTIONS[1], card.makeStatEquivalentCopy());
        } else {
            imageEventText.setDialogOption(OPTIONS[6], true);
        }
