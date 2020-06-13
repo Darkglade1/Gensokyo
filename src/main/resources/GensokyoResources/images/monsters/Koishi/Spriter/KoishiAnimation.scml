@@ -37,27 +37,7 @@
         <file id="6" name="Occult Attack Animation/tile006.png" width="388" height="313" pivot_x="0" pivot_y="1"/>
         <file id="7" name="Occult Attack Animation/tile007.png" width="388" height="313" pivot_x="0" pivot_y="1"/>
     </folder>
-    <folder id="3" name="Attack Air Animation">
-        <file id="0" name="Attack Air Animation/tile000.png" width="295" height="333" pivot_x="0" pivot_y="1"/>
-        <file id="1" name="Attack Air Animation/tile008.png" width="294" height="333" pivot_x="0" pivot_y="1"/>
-        <file id="2" name="Attack Air Animation/tile001.png" width="295" height="333" pivot_x="0" pivot_y="1"/>
-        <file id="3" name="Attack Air Animation/tile002.png" width="295" height="333" pivot_x="0" pivot_y="1"/>
-        <file id="4" name="Attack Air Animation/tile003.png" width="295" height="333" pivot_x="0" pivot_y="1"/>
-        <file id="5" name="Attack Air Animation/tile004.png" width="295" height="333" pivot_x="0" pivot_y="1"/>
-        <file id="6" name="Attack Air Animation/tile005.png" width="295" height="333" pivot_x="0" pivot_y="1"/>
-        <file id="7" name="Attack Air Animation/tile006.png" width="295" height="333" pivot_x="0" pivot_y="1"/>
-        <file id="8" name="Attack Air Animation/tile007.png" width="295" height="333" pivot_x="0" pivot_y="1"/>
-    </folder>
-    <folder id="4" name="Magic Attack B Animation">
-        <file id="0" name="Magic Attack B Animation/tile000.png" width="296" height="335" pivot_x="0" pivot_y="1"/>
-        <file id="1" name="Magic Attack B Animation/tile001.png" width="296" height="335" pivot_x="0" pivot_y="1"/>
-        <file id="2" name="Magic Attack B Animation/tile002.png" width="296" height="335" pivot_x="0" pivot_y="1"/>
-        <file id="3" name="Magic Attack B Animation/tile003.png" width="296" height="335" pivot_x="0" pivot_y="1"/>
-        <file id="4" name="Magic Attack B Animation/tile004.png" width="296" height="335" pivot_x="0" pivot_y="1"/>
-        <file id="5" name="Magic Attack B Animation/tile005.png" width="296" height="335" pivot_x="0" pivot_y="1"/>
-        <file id="6" name="Magic Attack B Animation/tile006.png" width="296" height="335" pivot_x="0" pivot_y="1"/>
-    </folder>
-    <folder id="5" name="Magic Attack Forward Animation">
+    <folder id="3" name="Magic Attack Forward Animation">
         <file id="0" name="Magic Attack Forward Animation/tile000.png" width="295" height="331" pivot_x="0" pivot_y="1"/>
         <file id="1" name="Magic Attack Forward Animation/tile001.png" width="295" height="331" pivot_x="0" pivot_y="1"/>
         <file id="2" name="Magic Attack Forward Animation/tile002.png" width="295" height="331" pivot_x="0" pivot_y="1"/>
@@ -67,25 +47,7 @@
         <file id="6" name="Magic Attack Forward Animation/tile006.png" width="295" height="331" pivot_x="0" pivot_y="1"/>
         <file id="7" name="Magic Attack Forward Animation/tile007.png" width="293" height="331" pivot_x="0" pivot_y="1"/>
     </folder>
-    <folder id="6" name="Special Attack C Animation">
-        <file id="0" name="Special Attack C Animation/tile000.png" width="185" height="312" pivot_x="0" pivot_y="1"/>
-        <file id="1" name="Special Attack C Animation/tile001.png" width="185" height="312" pivot_x="0" pivot_y="1"/>
-        <file id="2" name="Special Attack C Animation/tile002.png" width="185" height="312" pivot_x="0" pivot_y="1"/>
-        <file id="3" name="Special Attack C Animation/tile003.png" width="185" height="312" pivot_x="0" pivot_y="1"/>
-        <file id="4" name="Special Attack C Animation/tile004.png" width="185" height="312" pivot_x="0" pivot_y="1"/>
-        <file id="5" name="Special Attack C Animation/tile005.png" width="185" height="312" pivot_x="0" pivot_y="1"/>
-        <file id="6" name="Special Attack C Animation/tile006.png" width="185" height="312" pivot_x="0" pivot_y="1"/>
-        <file id="7" name="Special Attack C Animation/tile007.png" width="185" height="312" pivot_x="0" pivot_y="1"/>
-        <file id="8" name="Special Attack C Animation/tile008.png" width="185" height="312" pivot_x="0" pivot_y="1"/>
-        <file id="9" name="Special Attack C Animation/tile009.png" width="185" height="312" pivot_x="0" pivot_y="1"/>
-        <file id="10" name="Special Attack C Animation/Move Down/tile000.png" width="296" height="330" pivot_x="0" pivot_y="1"/>
-        <file id="11" name="Special Attack C Animation/Move Down/tile008.png" width="293" height="330" pivot_x="0" pivot_y="1"/>
-        <file id="12" name="Special Attack C Animation/Move Down/tile001.png" width="296" height="330" pivot_x="0" pivot_y="1"/>
-        <file id="13" name="Special Attack C Animation/Move Down/tile005.png" width="296" height="330" pivot_x="0" pivot_y="1"/>
-        <file id="14" name="Special Attack C Animation/Move Down/tile006.png" width="296" height="330" pivot_x="0" pivot_y="1"/>
-        <file id="15" name="Special Attack C Animation/Move Down/tile007.png" width="296" height="330" pivot_x="0" pivot_y="1"/>
-    </folder>
-    <folder id="7" name="Downed Animation">
+    <folder id="4" name="Downed Animation">
         <file id="0" name="Downed Animation/tile000.png" width="332" height="371" pivot_x="0" pivot_y="1"/>
         <file id="1" name="Downed Animation/tile001.png" width="332" height="371" pivot_x="0" pivot_y="1"/>
         <file id="2" name="Downed Animation/tile002.png" width="332" height="371" pivot_x="0" pivot_y="1"/>
@@ -241,42 +203,42 @@
             </mainline>
             <timeline id="0" name="tile000_015">
                 <key id="0" spin="0">
-                    <object folder="5" file="0" x="-144" y="303" angle="0"/>
+                    <object folder="3" file="0" x="-144" y="303" angle="0"/>
                 </key>
             </timeline>
             <timeline id="1" name="tile001_016">
                 <key id="0" time="100" spin="0">
-                    <object folder="5" file="1" x="-144" y="303" angle="0"/>
+                    <object folder="3" file="1" x="-144" y="303" angle="0"/>
                 </key>
             </timeline>
             <timeline id="2" name="tile002_016">
                 <key id="0" time="199" spin="0">
-                    <object folder="5" file="2" x="-144" y="303" angle="0"/>
+                    <object folder="3" file="2" x="-144" y="303" angle="0"/>
                 </key>
             </timeline>
             <timeline id="3" name="tile003_016">
                 <key id="0" time="298" spin="0">
-                    <object folder="5" file="3" x="-144" y="303" angle="0"/>
+                    <object folder="3" file="3" x="-144" y="303" angle="0"/>
                 </key>
             </timeline>
             <timeline id="4" name="tile004_012">
                 <key id="0" time="399" spin="0">
-                    <object folder="5" file="4" x="-144" y="303" angle="0"/>
+                    <object folder="3" file="4" x="-144" y="303" angle="0"/>
                 </key>
             </timeline>
             <timeline id="5" name="tile005_012">
                 <key id="0" time="501" spin="0">
-                    <object folder="5" file="5" x="-144" y="303" angle="0"/>
+                    <object folder="3" file="5" x="-144" y="303" angle="0"/>
                 </key>
             </timeline>
             <timeline id="6" name="tile006_012">
                 <key id="0" time="600" spin="0">
-                    <object folder="5" file="6" x="-144" y="303" angle="0"/>
+                    <object folder="3" file="6" x="-144" y="303" angle="0"/>
                 </key>
             </timeline>
             <timeline id="7" name="tile007_011">
                 <key id="0" time="700" spin="0">
-                    <object folder="5" file="7" x="-144" y="303" angle="0"/>
+                    <object folder="3" file="7" x="-144" y="303" angle="0"/>
                 </key>
             </timeline>
         </animation>
@@ -499,92 +461,92 @@
             </mainline>
             <timeline id="0" name="tile000_020">
                 <key id="0" spin="0">
-                    <object folder="7" file="0" x="-188" y="312" angle="0"/>
+                    <object folder="4" file="0" x="-188" y="312" angle="0"/>
                 </key>
             </timeline>
             <timeline id="1" name="tile001_021">
                 <key id="0" time="100" spin="0">
-                    <object folder="7" file="1" x="-188" y="312" angle="0"/>
+                    <object folder="4" file="1" x="-188" y="312" angle="0"/>
                 </key>
             </timeline>
             <timeline id="2" name="tile002_020">
                 <key id="0" time="199" spin="0">
-                    <object folder="7" file="2" x="-188" y="312" angle="0"/>
+                    <object folder="4" file="2" x="-188" y="312" angle="0"/>
                 </key>
             </timeline>
             <timeline id="3" name="tile003_020">
                 <key id="0" time="298" spin="0">
-                    <object folder="7" file="3" x="-188" y="312" angle="0"/>
+                    <object folder="4" file="3" x="-188" y="312" angle="0"/>
                 </key>
             </timeline>
             <timeline id="4" name="tile004_015">
                 <key id="0" time="399" spin="0">
-                    <object folder="7" file="4" x="-188" y="312" angle="0"/>
+                    <object folder="4" file="4" x="-188" y="312" angle="0"/>
                 </key>
             </timeline>
             <timeline id="5" name="tile005_015">
                 <key id="0" time="500" spin="0">
-                    <object folder="7" file="5" x="-188" y="312" angle="0"/>
+                    <object folder="4" file="5" x="-188" y="312" angle="0"/>
                 </key>
             </timeline>
             <timeline id="6" name="tile006_015">
                 <key id="0" time="599" spin="0">
-                    <object folder="7" file="6" x="-188" y="312" angle="0"/>
+                    <object folder="4" file="6" x="-188" y="312" angle="0"/>
                 </key>
             </timeline>
             <timeline id="7" name="tile007_014">
                 <key id="0" time="700" spin="0">
-                    <object folder="7" file="7" x="-188" y="312" angle="0"/>
+                    <object folder="4" file="7" x="-188" y="312" angle="0"/>
                 </key>
             </timeline>
             <timeline id="8" name="tile008_009">
                 <key id="0" time="800" spin="0">
-                    <object folder="7" file="8" x="-188" y="312" angle="0"/>
+                    <object folder="4" file="8" x="-188" y="312" angle="0"/>
                 </key>
             </timeline>
             <timeline id="9" name="tile009_006">
                 <key id="0" time="900" spin="0">
-                    <object folder="7" file="9" x="-188" y="312" angle="0"/>
+                    <object folder="4" file="9" x="-188" y="312" angle="0"/>
                 </key>
             </timeline>
             <timeline id="10" name="tile010_005">
                 <key id="0" time="999" spin="0">
-                    <object folder="7" file="10" x="-188" y="312" angle="0"/>
+                    <object folder="4" file="10" x="-188" y="312" angle="0"/>
                 </key>
             </timeline>
             <timeline id="11" name="tile011_002">
                 <key id="0" time="1100" spin="0">
-                    <object folder="7" file="11" x="-188" y="312" angle="0"/>
+                    <object folder="4" file="11" x="-188" y="312" angle="0"/>
                 </key>
             </timeline>
             <timeline id="12" name="tile012_001">
                 <key id="0" time="1199" spin="0">
-                    <object folder="7" file="12" x="-188" y="312" angle="0"/>
+                    <object folder="4" file="12" x="-188" y="312" angle="0"/>
                 </key>
             </timeline>
             <timeline id="13" name="tile013">
                 <key id="0" time="1300" spin="0">
-                    <object folder="7" file="13" x="-188" y="312" angle="0"/>
+                    <object folder="4" file="13" x="-188" y="312" angle="0"/>
                 </key>
             </timeline>
             <timeline id="14" name="tile014">
                 <key id="0" time="1400" spin="0">
-                    <object folder="7" file="14" x="-188" y="312" angle="0"/>
+                    <object folder="4" file="14" x="-188" y="312" angle="0"/>
                 </key>
             </timeline>
             <timeline id="15" name="tile015">
                 <key id="0" time="1499" spin="0">
-                    <object folder="7" file="15" x="-188" y="312" angle="0"/>
+                    <object folder="4" file="15" x="-188" y="312" angle="0"/>
                 </key>
             </timeline>
             <timeline id="16" name="tile016">
                 <key id="0" time="1599" spin="0">
-                    <object folder="7" file="16" x="-188" y="312" angle="0"/>
+                    <object folder="4" file="16" x="-188" y="312" angle="0"/>
                 </key>
             </timeline>
             <timeline id="17" name="tile017">
                 <key id="0" time="1700" spin="0">
-                    <object folder="7" file="17" x="-188" y="312" angle="0"/>
+                    <object folder="4" file="17" x="-188" y="312" angle="0"/>
                 </key>
             </timeline>
         </animation>
