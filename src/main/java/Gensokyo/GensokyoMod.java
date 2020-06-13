@@ -38,6 +38,7 @@ import Gensokyo.cards.TurboGranny;
 import Gensokyo.dungeon.EncounterIDs;
 import Gensokyo.dungeon.Gensokyo;
 import Gensokyo.dungeon.Gensokyoer;
+import Gensokyo.dungeon.Gensokyoest;
 import Gensokyo.events.act1.ABanquetForGhosts;
 import Gensokyo.events.act1.ACelestialsPlight;
 import Gensokyo.events.act1.AHoleInReality;
@@ -173,6 +174,7 @@ import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.core.Settings;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.dungeons.Exordium;
+import com.megacrit.cardcrawl.dungeons.TheBeyond;
 import com.megacrit.cardcrawl.dungeons.TheCity;
 import com.megacrit.cardcrawl.helpers.CardHelper;
 import com.megacrit.cardcrawl.helpers.CardLibrary;
@@ -357,10 +359,12 @@ public class GensokyoMod implements
         
         BaseMod.registerModBadge(badgeTexture, MODNAME, AUTHOR, DESCRIPTION, settingsPanel);
 
-        //Act 1
         (new Gensokyo()).addAct(Exordium.ID);
         (new Gensokyoer()).addAct(TheCity.ID);
+        (new Gensokyoest()).addAct(TheBeyond.ID);
 
+
+        //Act 1
         BaseMod.addMonster(Yukari.ID, (BaseMod.GetMonster)Yukari::new);
         BaseMod.addMonster(Kokoro.ID, (BaseMod.GetMonster)Kokoro::new);
         BaseMod.addMonster(Reimu.ID, (BaseMod.GetMonster)Reimu::new);
@@ -467,6 +471,10 @@ public class GensokyoMod implements
                 }));
 
 
+        //Act 3
+        BaseMod.addBoss(Gensokyoest.ID, Yukari.ID, "GensokyoResources/images/monsters/Yukari/Yukari.png", "GensokyoResources/images/monsters/Yukari/YukariOutline.png");
+
+
         // =============== EVENTS =================
 
         //Act 1
@@ -519,7 +527,7 @@ public class GensokyoMod implements
 
 
         //Act 3
-        BaseMod.addEvent(TheDreamer.ID, TheDreamer.class, Gensokyoer.ID);
+        BaseMod.addEvent(TheDreamer.ID, TheDreamer.class, Gensokyoest.ID);
         // =============== /EVENTS/ =================
 
         logger.info("Done loading badge Image and mod options");
