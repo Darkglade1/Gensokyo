@@ -653,6 +653,35 @@
       "[Leave]"
     ]
   },
+  "Gensokyo:TheDreamer": {
+    "NAME": "The Dreamer",
+    "DESCRIPTIONS": [
+      "\"Inside a #pdream, I laugh, and the world laughs with me.\" NL NL \"Inside a #pdream, I forget, and the world forgets with me.\" NL NL \"Inside a #pdream, I am the #yworld.\"",
+      "The dream smiles at you. \"Hello, ",
+      "!\" NL NL Inside a #pdream, the world dances around you, and you find yourself dancing around the world.",
+      "The #pdream fades away, and you feel a part of yourself fade away with it."
+    ],
+    "OPTIONS": [
+      "[Continue]",
+      "[Hello, world!] ",
+      "[Remain silent] ",
+      "#gGive #g",
+      " #gcard ",
+      " #gcards ",
+      "#gin #gyour #gdeck #gRetain.",
+      "#gin #gyour #gdeck #gEthereal.",
+      "#gin #gyour #gdeck #gExhaust.",
+      "Select ",
+      " Card ",
+      " Cards ",
+      "to give Retain.",
+      "to give Ethereal.",
+      "to give Exhaust.",
+      "[Locked] Requires: Non-Ethereal Card",
+      "[Locked] Requires: Card",
+      "[Leave]"
+    ]
+  },
   "Gensokyo:MarisaAnOldGhost": {
     "NAME": "An Old Ghost",
     "DESCRIPTIONS": [

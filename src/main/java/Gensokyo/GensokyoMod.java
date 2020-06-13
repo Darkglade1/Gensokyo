@@ -77,6 +77,7 @@ import Gensokyo.events.act2.PhantomEnsemble;
 import Gensokyo.events.act2.TheWhiteLotus;
 import Gensokyo.events.act2.TreasureHunter;
 import Gensokyo.events.act2.VillageOfCats;
+import Gensokyo.events.act3.TheDreamer;
 import Gensokyo.monsters.act1.Aya;
 import Gensokyo.monsters.act1.Cirno;
 import Gensokyo.monsters.act1.GreaterFairy;
@@ -497,7 +498,7 @@ public class GensokyoMod implements
         }
 
 
-        //Act2
+        //Act 2
         BaseMod.addEvent(AndThenThereWereNone.ID, AndThenThereWereNone.class, Gensokyoer.ID);
         BaseMod.addEvent(NightmareOfHeian.ID, NightmareOfHeian.class, Gensokyoer.ID);
         BaseMod.addEvent(Impoverished.ID, Impoverished.class, Gensokyoer.ID);
@@ -515,7 +516,10 @@ public class GensokyoMod implements
         BaseMod.addEvent(Boo.ID, Boo.class, Gensokyoer.ID);
         BaseMod.addEvent(PhantomEnsemble.ID, PhantomEnsemble.class, Gensokyoer.ID);
         BaseMod.addEvent(ClashOfLegends.ID, ClashOfLegends.class, Gensokyoer.ID);
-        
+
+
+        //Act 3
+        BaseMod.addEvent(TheDreamer.ID, TheDreamer.class, Gensokyoer.ID);
         // =============== /EVENTS/ =================
 
         logger.info("Done loading badge Image and mod options");

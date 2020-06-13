@@ -66,5 +66,20 @@
       "This enemy will inflict a #yNegative #yEffect on #ryou because you are in the #rcrossfire.",
       "This enemy intends to inflict a #yNegative #yEffect on its #prival."
     ]
+  },
+  "Gensokyo:RetainMod": {
+    "TEXT": [
+      "Retain. NL "
+    ]
+  },
+  "Gensokyo:EtherealMod": {
+    "TEXT": [
+      "Ethereal. NL "
+    ]
+  },
+  "Gensokyo:ExhaustMod": {
+    "TEXT": [
+      " NL Exhaust."
+    ]
   }
 }
