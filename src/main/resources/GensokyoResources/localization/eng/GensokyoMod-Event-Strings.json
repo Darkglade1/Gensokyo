@@ -682,6 +682,21 @@
       "[Leave]"
     ]
   },
+  "Gensokyo:IAmNotThere": {
+    "NAME": "I Am Not There",
+    "DESCRIPTIONS": [
+      "The village is quiet, enveloped in a #psomber atmosphere. Villagers dressed in #pblack trek across the streets, forming a long, mournful procession. NL NL In the distance, you see a crowd gathered around an upraised #pcoffin. NL NL Who was it, you wonder? NL NL Who were they to these people?",
+      "You blend into the crowd of onlookers around the #pcoffin. You watch along with the others as a man strode forth to stand atop a raised dais. NL NL \"Do not stand at my #pgrave and weep!\" NL NL The man paused, his voice @choking@ with #yemotion. \"That was her dying wish to us, to those she left behind. Even if we know she will return, years and years from now, that means little to us, for we will not see her again in our lifetimes. And so today we will be selfish and mourn, for today we have all lost someone precious to us.\"",
+      "As the ceremony progressed, you felt an #rache in your heart as well. NL NL Because even if you did not know the deceased, did not know who they were to these people, you could tell that these people were hurting from a #rwound that may never truly heal.",
+      "You did not feel the need to satisfy your curiosity on the matter."
+    ],
+    "OPTIONS": [
+      "[Continue]",
+      "[Attend] #rLose #r",
+      " #rMax #rHP. #gObtain #ga #gSpecial #gRelic.",
+      "[Leave]"
+    ]
+  },
   "Gensokyo:MarisaAnOldGhost": {
     "NAME": "An Old Ghost",
     "DESCRIPTIONS": [

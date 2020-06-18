@@ -78,6 +78,7 @@ import Gensokyo.events.act2.PhantomEnsemble;
 import Gensokyo.events.act2.TheWhiteLotus;
 import Gensokyo.events.act2.TreasureHunter;
 import Gensokyo.events.act2.VillageOfCats;
+import Gensokyo.events.act3.IAmNotThere;
 import Gensokyo.events.act3.TheDreamer;
 import Gensokyo.monsters.act1.Aya;
 import Gensokyo.monsters.act1.Cirno;
@@ -147,6 +148,7 @@ import Gensokyo.relics.act2.RedStar;
 import Gensokyo.relics.act2.SongOfSouls;
 import Gensokyo.relics.act2.SpiderMask;
 import Gensokyo.relics.act2.UndefinedDarkness;
+import Gensokyo.relics.act3.EmptyGrave;
 import Gensokyo.util.IDCheckDontTouchPls;
 import Gensokyo.util.TextureLoader;
 import Gensokyo.variables.DefaultCustomVariable;
@@ -528,6 +530,7 @@ public class GensokyoMod implements
 
         //Act 3
         BaseMod.addEvent(TheDreamer.ID, TheDreamer.class, Gensokyoest.ID);
+        BaseMod.addEvent(IAmNotThere.ID, IAmNotThere.class, Gensokyoest.ID);
         // =============== /EVENTS/ =================
 
         logger.info("Done loading badge Image and mod options");
@@ -706,6 +709,9 @@ public class GensokyoMod implements
         BaseMod.addRelic(new ChorusOfJoy(), RelicType.SHARED);
         BaseMod.addRelic(new DirgeOfMelancholy(), RelicType.SHARED);
         BaseMod.addRelic(new SongOfSouls(), RelicType.SHARED);
+
+        //Act 3
+        BaseMod.addRelic(new EmptyGrave(), RelicType.SHARED);
 
         logger.info("Done adding relics!");
     }

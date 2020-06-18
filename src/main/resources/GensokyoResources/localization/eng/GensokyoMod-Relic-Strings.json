@@ -172,6 +172,13 @@
       "Whenever you play a Strike or Defend card, #yexhaust it."
     ]
   },
+  "Gensokyo:EmptyGrave": {
+    "NAME": "Empty Grave",
+    "FLAVOR": "I am not there. I did not die.",
+    "DESCRIPTIONS": [
+      "After climbing #b", " floors, heal #b", "% of your Max HP."
+    ]
+  },
   "Gensokyo:MarisaIngredientList": {
     "NAME": "Ingredient List",
     "FLAVOR": "A bunch of messy scribbles on a page. Apparently creates something known as the \"Improbability Potion\".",
