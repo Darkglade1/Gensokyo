@@ -267,5 +267,9 @@
 "Gensokyo:Reflective": {
         "NAME": "Reflective",
         "DESCRIPTIONS": ["Whenever this creature fully #yblocks attack damage, deals #b", " damage back."]
+},
+"Gensokyo:TimeDilation": {
+        "NAME": "Time Dilation",
+        "DESCRIPTIONS": ["Whenever you play a card, instead play it #b", " turn", " turns", " later. If the number is at least #b", ", it is reset to #b", "; otherwise, increase it by #b", "."]
 }
 }

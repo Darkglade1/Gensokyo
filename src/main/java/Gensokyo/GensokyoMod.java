@@ -121,6 +121,7 @@ import Gensokyo.monsters.act2.NormalEnemies.Wraith;
 import Gensokyo.monsters.act2.Reisen;
 import Gensokyo.monsters.act2.Tenshi;
 import Gensokyo.monsters.act2.Yuyuko;
+import Gensokyo.monsters.act3.Sakuya;
 import Gensokyo.relics.act1.Bombinomicon;
 import Gensokyo.relics.act1.BookOfSpecters;
 import Gensokyo.relics.act1.CelestialsFlawlessClothing;
@@ -475,7 +476,7 @@ public class GensokyoMod implements
 
         //Act 3
         BaseMod.addBoss(Gensokyoest.ID, Yukari.ID, "GensokyoResources/images/monsters/Yukari/Yukari.png", "GensokyoResources/images/monsters/Yukari/YukariOutline.png");
-
+        BaseMod.addMonster(Sakuya.ID, (BaseMod.GetMonster) Sakuya::new);
 
         // =============== EVENTS =================
 
