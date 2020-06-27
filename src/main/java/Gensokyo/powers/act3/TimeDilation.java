@@ -3,10 +3,13 @@ package Gensokyo.powers.act3;
 import Gensokyo.GensokyoMod;
 import Gensokyo.actions.TimeDilationPlayCardAction;
 import Gensokyo.util.TextureLoader;
+import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.Texture;
+import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.core.AbstractCreature;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
+import com.megacrit.cardcrawl.core.Settings;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.localization.PowerStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
@@ -101,6 +104,37 @@ public class TimeDilation extends AbstractPower {
             description = DESCRIPTIONS[0] + amount + DESCRIPTIONS[1] + DESCRIPTIONS[3] + MAX + DESCRIPTIONS[4] + MIN + DESCRIPTIONS[5] + INCREASE + DESCRIPTIONS[6];
         } else {
             description = DESCRIPTIONS[0] + amount + DESCRIPTIONS[2] + DESCRIPTIONS[3] + MAX + DESCRIPTIONS[4] + MIN + DESCRIPTIONS[5] + INCREASE + DESCRIPTIONS[6];
+        }
+    }
+
+    @Override
+    public void renderIcons(SpriteBatch sb, float x, float y, Color c) {
+        super.renderIcons(sb, x, y, c);
+        float drawScale = 0.20F;
+        float offsetX1 = 100.0F * Settings.scale;
+        float offsetX2 = -100.0F * Settings.scale;
+        float offsetX3 = -300.0F * Settings.scale;
+        float offsetY = 100.0F * Settings.scale;
+        for (int i = 0; i < delayedBy1.size(); i++) {
+            AbstractCard card = delayedBy1.get(i).card;
+            card.drawScale = drawScale;
+            card.current_x = AbstractDungeon.player.drawX + offsetX1;
+            card.current_y = AbstractDungeon.player.drawY + offsetY * (i + 2);
+            card.render(sb);
+        }
+        for (int i = 0; i < delayedBy2.size(); i++) {
+            AbstractCard card = delayedBy2.get(i).card;
+            card.drawScale = drawScale;
+            card.current_x = AbstractDungeon.player.drawX + offsetX2;
+            card.current_y = AbstractDungeon.player.drawY + offsetY * (i + 2);
+            card.render(sb);
+        }
+        for (int i = 0; i < delayedBy3.size(); i++) {
+            AbstractCard card = delayedBy3.get(i).card;
+            card.drawScale = drawScale;
+            card.current_x = AbstractDungeon.player.drawX + offsetX3;
+            card.current_y = AbstractDungeon.player.drawY + offsetY * (i + 2);
+            card.render(sb);
         }
     }
 
