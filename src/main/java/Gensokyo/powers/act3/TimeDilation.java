@@ -7,9 +7,11 @@ import com.badlogic.gdx.graphics.Texture;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.core.AbstractCreature;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
+import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.localization.PowerStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.powers.AbstractPower;
+import com.megacrit.cardcrawl.ui.panels.EnergyPanel;
 
 import java.util.ArrayList;
 
@@ -30,7 +32,7 @@ public class TimeDilation extends AbstractPower {
     private ArrayList<CardInfo> delayedBy2 = new ArrayList<>();
     private ArrayList<CardInfo> delayedBy3 = new ArrayList<>();
 
-    public ArrayList<AbstractCard> playingCards = new ArrayList<>(); //The cards to not delay
+    public ArrayList<CardInfo> playingCards = new ArrayList<>(); //The cards to not delay
 
     private static final Texture tex84 = TextureLoader.getTexture(makePowerPath("Philosophy84.png"));
     private static final Texture tex32 = TextureLoader.getTexture(makePowerPath("Philosophy32.png"));
@@ -55,7 +57,12 @@ public class TimeDilation extends AbstractPower {
 
     public void increment(AbstractCard c, AbstractMonster monster) {
         this.flash();
-        CardInfo cardInfo = new CardInfo(c.makeSameInstanceOf(), monster, c.energyOnUse);
+        int energy = c.energyOnUse;
+        if (c.cost == -1) {
+            energy = EnergyPanel.totalCount;
+            AbstractDungeon.player.energy.use(EnergyPanel.totalCount);
+        }
+        CardInfo cardInfo = new CardInfo(c.makeSameInstanceOf(), monster, energy);
         if (amount == 1) {
             delayedBy1.add(cardInfo);
         } else if (amount == 2) {
@@ -77,9 +84,8 @@ public class TimeDilation extends AbstractPower {
     public void playCards() {
         for (CardInfo cardInfo : delayedBy1) {
             AbstractCard card = cardInfo.card;
-            card.energyOnUse = cardInfo.energyOnUse;
             card.purgeOnUse = true;
-            playingCards.add(card);
+            playingCards.add(cardInfo);
             this.addToBot(new TimeDilationPlayCardAction(card, cardInfo.target, false));
         }
         delayedBy1.clear();
@@ -98,7 +104,7 @@ public class TimeDilation extends AbstractPower {
         }
     }
 
-    private static class CardInfo {
+    public static class CardInfo {
         public AbstractCard card;
         public AbstractMonster target;
         public int energyOnUse;
@@ -111,7 +117,7 @@ public class TimeDilation extends AbstractPower {
 
         @Override
         public String toString() {
-            return card.toString();
+            return card.toString() + energyOnUse;
         }
     }
 }

@@ -16,6 +16,8 @@ import javassist.CtBehavior;
 import javassist.expr.ExprEditor;
 import javassist.expr.MethodCall;
 
+import java.util.ArrayList;
+
 public class TimeDilationPatch {
     @SpirePatch(clz = AbstractPlayer.class, method = "useCard")
     public static class DelayUseCard {
@@ -40,17 +42,39 @@ public class TimeDilationPatch {
             for (AbstractMonster monster : AbstractDungeon.getCurrRoom().monsters.monsters) {
                 if (monster.hasPower(TimeDilation.POWER_ID)) {
                     TimeDilation power = (TimeDilation)monster.getPower(TimeDilation.POWER_ID);
-                    if (!power.playingCards.contains(c)) {
+                    if (!ContainsCard(power.playingCards, c)) {
                         c.dontTriggerOnUseCard = true;
                         power.increment(c, m);
                         return true;
                     } else {
+                        TimeDilation.CardInfo info = GetCard(power.playingCards, c);
+                        if (info != null && c.cost == -1) {
+                            c.energyOnUse = info.energyOnUse; //Make X costs work properly
+                        }
                         return false;
                     }
                 }
             }
         }
         return false;
+    }
+
+    public static boolean ContainsCard(ArrayList<TimeDilation.CardInfo> arr, AbstractCard card) {
+        for (TimeDilation.CardInfo info : arr) {
+            if (info.card == card) {
+                return true;
+            }
+        }
+        return false;
+    }
+
+    public static TimeDilation.CardInfo GetCard(ArrayList<TimeDilation.CardInfo> arr, AbstractCard card) {
+        for (TimeDilation.CardInfo info : arr) {
+            if (info.card == card) {
+                return info;
+            }
+        }
+        return null;
     }
 
 
