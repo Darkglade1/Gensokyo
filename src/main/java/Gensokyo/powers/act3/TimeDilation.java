@@ -1,6 +1,7 @@
 package Gensokyo.powers.act3;
 
 import Gensokyo.GensokyoMod;
+import Gensokyo.actions.TimeDilationPlayCardAction;
 import Gensokyo.util.TextureLoader;
 import com.badlogic.gdx.graphics.Texture;
 import com.megacrit.cardcrawl.cards.AbstractCard;
@@ -25,11 +26,11 @@ public class TimeDilation extends AbstractPower {
     public static final int MIN = 1;
     public static final int INCREASE = 1;
 
-    public boolean isActive = true;
-
     private ArrayList<CardInfo> delayedBy1 = new ArrayList<>();
     private ArrayList<CardInfo> delayedBy2 = new ArrayList<>();
     private ArrayList<CardInfo> delayedBy3 = new ArrayList<>();
+
+    public ArrayList<AbstractCard> playingCards = new ArrayList<>(); //The cards to not delay
 
     private static final Texture tex84 = TextureLoader.getTexture(makePowerPath("Philosophy84.png"));
     private static final Texture tex32 = TextureLoader.getTexture(makePowerPath("Philosophy32.png"));
@@ -52,8 +53,6 @@ public class TimeDilation extends AbstractPower {
         updateDescription();
     }
 
-
-
     public void increment(AbstractCard c, AbstractMonster monster) {
         this.flash();
         CardInfo cardInfo = new CardInfo(c.makeSameInstanceOf(), monster, c.energyOnUse);
@@ -71,7 +70,23 @@ public class TimeDilation extends AbstractPower {
         System.out.println(delayedBy1);
         System.out.println(delayedBy2);
         System.out.println(delayedBy3);
+        playingCards.clear();
         updateDescription();
+    }
+
+    public void playCards() {
+        for (CardInfo cardInfo : delayedBy1) {
+            AbstractCard card = cardInfo.card;
+            card.energyOnUse = cardInfo.energyOnUse;
+            card.purgeOnUse = true;
+            playingCards.add(card);
+            this.addToBot(new TimeDilationPlayCardAction(card, cardInfo.target, false));
+        }
+        delayedBy1.clear();
+        delayedBy1.addAll(delayedBy2);
+        delayedBy2.clear();
+        delayedBy2.addAll(delayedBy3);
+        delayedBy3.clear();
     }
 
     @Override
