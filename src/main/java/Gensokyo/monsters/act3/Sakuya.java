@@ -73,7 +73,7 @@ public class Sakuya extends CustomMonster
 
     public Sakuya(final float x, final float y) {
         super(Sakuya.NAME, ID, HP_MAX, -5.0F, 0, 230.0f, 245.0f, null, x, y);
-        this.animation = new BetterSpriterAnimation("GensokyoResources/images/monsters/Tenshi/Spriter/TenshiAnimation.scml");
+        this.animation = new BetterSpriterAnimation("GensokyoResources/images/monsters/Sakuya/Spriter/SakuyaAnimation.scml");
         this.type = EnemyType.ELITE;
         this.dialogX = (this.hb_x - 70.0F) * Settings.scale;
         this.dialogY -= (this.hb_y - 55.0F) * Settings.scale;
