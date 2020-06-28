@@ -31,6 +31,10 @@ public class TimeDilation extends AbstractPower {
     public static final int MIN = 1;
     public static final int INCREASE = 1;
 
+    public static final int DELAY_1 = 1;
+    public static final int DELAY_2 = 2;
+    public static final int DELAY_3 = 3;
+
     private ArrayList<CardInfo> delayedBy1 = new ArrayList<>();
     private ArrayList<CardInfo> delayedBy2 = new ArrayList<>();
     private ArrayList<CardInfo> delayedBy3 = new ArrayList<>();
@@ -98,11 +102,7 @@ public class TimeDilation extends AbstractPower {
 
     @Override
     public void updateDescription() {
-        if (amount == 1) {
-            description = DESCRIPTIONS[0] + amount + DESCRIPTIONS[1] + DESCRIPTIONS[3] + MAX + DESCRIPTIONS[4] + MIN + DESCRIPTIONS[5] + INCREASE + DESCRIPTIONS[6];
-        } else {
-            description = DESCRIPTIONS[0] + amount + DESCRIPTIONS[2] + DESCRIPTIONS[3] + MAX + DESCRIPTIONS[4] + MIN + DESCRIPTIONS[5] + INCREASE + DESCRIPTIONS[6];
-        }
+        description = DESCRIPTIONS[0] + DELAY_1 + DESCRIPTIONS[1] + DELAY_2 + DESCRIPTIONS[2] + DELAY_3 + DESCRIPTIONS[3];
     }
 
     @Override

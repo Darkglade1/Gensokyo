@@ -270,6 +270,6 @@
 },
 "Gensokyo:TimeDilation": {
         "NAME": "Time Dilation",
-        "DESCRIPTIONS": ["Whenever you play a card, instead play it #b", " turn", " turns", " later. If the number is at least #b", ", it is reset to #b", "; otherwise, increase it by #b", "."]
+        "DESCRIPTIONS": ["The #b1st, #b4th, #b7th, etc. cards played this combat are instead played #b", " turn later. NL The #b2nd, #b5th, #b8th, etc. cards played this combat are instead played #b", " turns later. NL The #b3rd, #b6th, #b9th, etc. cards played this combat are instead played #b", " turns later."]
 }
 }
