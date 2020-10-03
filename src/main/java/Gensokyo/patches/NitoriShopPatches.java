@@ -103,6 +103,7 @@ public class NitoriShopPatches {
             int rand2;
             ArrayList<MapRoomNode> shopNodes = new ArrayList<>();
             ArrayList<MapRoomNode> editableNodes = new ArrayList<>();
+            if(CardCrawlGame.dungeon == null){ return; }
             for(ArrayList<MapRoomNode> rows : AbstractDungeon.map) {
                 for(MapRoomNode node : rows) {
                     if(CardCrawlGame.dungeon instanceof Gensokyo || CardCrawlGame.dungeon instanceof Gensokyoer) {
@@ -120,11 +121,16 @@ public class NitoriShopPatches {
                 shopNodes.get(rand).setRoom(new NitoriRoom());
                 shopNodes.get(rand).hasEmeraldKey = true;
             }
+
+            // crash on starting new game
+            /*
             else{
                 rand2 = AbstractDungeon.mapRng.random(editableNodes.size() - 1);
                 editableNodes.get(rand2).setRoom(new NitoriRoom());
                 editableNodes.get(rand2).hasEmeraldKey = true;
             }
+
+             */
         }
     }
 }
