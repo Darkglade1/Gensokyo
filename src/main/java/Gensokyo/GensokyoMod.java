@@ -145,6 +145,7 @@ import Gensokyo.relics.act2.RedStar;
 import Gensokyo.relics.act2.SongOfSouls;
 import Gensokyo.relics.act2.SpiderMask;
 import Gensokyo.relics.act2.UndefinedDarkness;
+import Gensokyo.rooms.nitori.Nitori;
 import Gensokyo.util.IDCheckDontTouchPls;
 import Gensokyo.util.TextureLoader;
 import Gensokyo.variables.DefaultCustomVariable;
@@ -355,6 +356,8 @@ public class GensokyoMod implements
         ModPanel settingsPanel = new ModPanel();
         
         BaseMod.registerModBadge(badgeTexture, MODNAME, AUTHOR, DESCRIPTION, settingsPanel);
+        // Universal
+        BaseMod.addMonster(Nitori.ID, (BaseMod.GetMonster) Nitori::new);
 
         //Act 1
         (new Gensokyo()).addAct(Exordium.ID);

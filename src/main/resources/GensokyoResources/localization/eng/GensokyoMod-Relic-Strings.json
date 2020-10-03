@@ -194,5 +194,12 @@
     "DESCRIPTIONS": [
       "At the start of your turn, #yexhaust a card and add a random card of the #ynext #yrarity to your hand."
     ]
+  },
+  "Gensokyo:NitoriBomb": {
+    "NAME": "Fervent Star",
+    "FLAVOR": "Said to transform into the user's danmaku, this star possesses immense power.",
+    "DESCRIPTIONS": [
+      "When purchased, remove #b%s card from your deck."
+    ]
   }
 }
