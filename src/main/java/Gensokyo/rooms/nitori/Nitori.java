@@ -2,9 +2,13 @@ package Gensokyo.rooms.nitori;
 
 import Gensokyo.BetterSpriterAnimation;
 import Gensokyo.RazIntent.IntentEnums;
+import Gensokyo.cards.*;
 import Gensokyo.events.extra.CandidFailure;
 import Gensokyo.events.extra.CandidFriend;
 import Gensokyo.monsters.act1.Yukari;
+import Gensokyo.powers.extra.DeEnergized;
+import Gensokyo.powers.extra.HydraulicCamouflage;
+import Gensokyo.powers.extra.NitoriTimer;
 import basemod.abstracts.CustomMonster;
 import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.Texture;
@@ -27,6 +31,7 @@ import com.megacrit.cardcrawl.helpers.Hitbox;
 import com.megacrit.cardcrawl.helpers.ImageMaster;
 import com.megacrit.cardcrawl.localization.MonsterStrings;
 import com.megacrit.cardcrawl.powers.*;
+import com.megacrit.cardcrawl.relics.AbstractRelic;
 import com.megacrit.cardcrawl.rooms.EventRoom;
 import com.megacrit.cardcrawl.vfx.combat.HeartMegaDebuffEffect;
 
@@ -52,7 +57,6 @@ import static com.megacrit.cardcrawl.shop.Merchant.*;
             // 2.b.a) Nitori and the turn-timer.
             // 2.b.b) Nitori's unique statuses
             // 2.b.c) Nitori's unique buffs.
-            // 2.b.d) Nitori's unique debuffs.
 
 public class Nitori extends CustomMonster {
     // (SECTION 1) - Class-Information - Information about the properties of Nitori
@@ -82,7 +86,7 @@ public class Nitori extends CustomMonster {
     private static final byte BUFF = 2;
     private static final byte ATTACK_STANDARD_MULTIHIT = 3;
     private static final byte ATTACK_STANDARD = 4;
-    private static final byte RNG_FRAIL = 5;
+    private static final byte RNG_FRAIL_ATTACK = 5;
     private static final byte RNG_ATTACK_BLOCK = 6;
     private static final byte RNG_TEMPHP = 7;
     private static final byte RNG_ATTACK = 8;
@@ -91,12 +95,13 @@ public class Nitori extends CustomMonster {
     private static final byte TURN_LIMIT_REACHED = 99;
     // Move Characteristics for Nitori, ordered by move-byte appearance (See Above)
     // OPENING
-    private static final AbstractCard[] OPENING_STATUS_POOL = {new Burn(), new Burn(), new Burn(), new Burn(), new Burn()};
+    private static final AbstractCard[] OPENING_STATUS_POOL = {new FlashFlood(), new TorpedoBarrage(), new EMP(), new Whirlpool(), new SelfRepair()};
     private static final int PHASE1_OPENING_STATUS_AMOUNT = 1;
     private static final int PHASE2_OPENING_STATUS_AMOUNT = 2;
     private static final int PHASE3_OPENING_STATUS_AMOUNT = 4;
     private static final int PHASE4_OPENING_STATUS_AMOUNT = 5;
     private static final int OPENING_DEBUFF_AMOUNT = 2;
+    private static final int PHASE4_OPENING_DEBUFF_AMOUNT = 3;
     // BUFF
     private static final int PHASE1_BUFF_STRENGTH_AMOUNT = 1;
     private static final int PHASE2_BUFF_STRENGTH_AMOUNT = 2;
@@ -105,60 +110,37 @@ public class Nitori extends CustomMonster {
     private static final int PHASE1_BUFF_ARTIFACT_AMOUNT = 1;
     private static final int PHASE2_BUFF_ARTIFACT_AMOUNT = 2;
     // ATTACK_STANDARD_MULTIHIT
-    private static final int PHASE1_ATTACK_STANDARD_MULTIHIT_DAMAGE = 5;
-    private static final int PHASE2_ATTACK_STANDARD_MULTIHIT_DAMAGE = 7;
-    private static final int PHASE3_ATTACK_STANDARD_MULTIHIT_DAMAGE = 9;
-    private static final int PHASE4_ATTACK_STANDARD_MULTIHIT_DAMAGE = 11;
+    private static final int PHASE1_ATTACK_STANDARD_MULTIHIT_DAMAGE = 4;
+    private static final int PHASE2_ATTACK_STANDARD_MULTIHIT_DAMAGE = 6;
+    private static final int PHASE3_ATTACK_STANDARD_MULTIHIT_DAMAGE = 8;
+    private static final int PHASE4_ATTACK_STANDARD_MULTIHIT_DAMAGE = 10;
     private static final int ATTACK_STANDARD_MULTIHIT_HITS = 2;
     // ATTACK_STANDARD
-    private static final int PHASE1_ATTACK_STANDARD_DAMAGE = 9;
-    private static final int PHASE2_ATTACK_STANDARD_DAMAGE = 13;
-    private static final int PHASE3_ATTACK_STANDARD_DAMAGE = 17;
-    private static final int PHASE4_ATTACK_STANDARD_DAMAGE = 21;
-    // RNG_FRAIL
-    private static final int PHASE1_RNG_FRAIL_FRAIL_AMOUNT = 1;
-    private static final int PHASE2_RNG_FRAIL_FRAIL_AMOUNT = 1;
-    private static final int PHASE3_RNG_FRAIL_FRAIL_AMOUNT = 2;
-    private static final int PHASE4_RNG_FRAIL_FRAIL_AMOUNT = 2;
-    private static final int PHASE1_RNG_FRAIL_DRAW_REDUCTION = 1;
-    private static final int PHASE2_RNG_FRAIL_DRAW_REDUCTION = 2;
-    private static final int PHASE3_RNG_FRAIL_DRAW_REDUCTION = 2;
-    private static final int PHASE4_RNG_FRAIL_DRAW_REDUCTION = 2;
-    private static final int PHASE3_RNG_FRAIL_ENERGY_REDUCTION = 1;
-    private static final AbstractCard PHASE4_RNG_FRAIL_STATUS = new VoidCard();
-    // RNG_ATTACK_BLOCK
-    private static final int PHASE1_RNG_ATTACK_BLOCK_DAMAGE = 7;
-    private static final int PHASE2_RNG_ATTACK_BLOCK_DAMAGE = 11;
-    private static final int PHASE3_RNG_ATTACK_BLOCK_DAMAGE = 15;
-    private static final int PHASE4_RNG_ATTACK_BLOCK_DAMAGE = 19;
+    private static final int PHASE1_ATTACK_STANDARD_DAMAGE = 8;
+    private static final int PHASE2_ATTACK_STANDARD_DAMAGE = 12;
+    private static final int PHASE3_ATTACK_STANDARD_DAMAGE = 16;
+    private static final int PHASE4_ATTACK_STANDARD_DAMAGE = 20;
+    // RNG_FRAIL_ATTACK
+    private static final int PHASE1_RNG_FRAIL_ATTACK_FRAIL_AMOUNT = 1;
+    private static final int PHASE2_RNG_FRAIL_ATTACK_FRAIL_AMOUNT = 2;
+    private static final int PHASE3_RNG_FRAIL_ATTACK_FRAIL_AMOUNT = 3;
+    private static final int PHASE4_RNG_FRAIL_ATTACK_FRAIL_AMOUNT = 3;
+    private static final AbstractCard PHASE4_RNG_FRAIL_ATTACK_STATUS = new FlashFlood();
     // RNG_TEMPHP
-    private static final int PHASE1_RNG_TEMPHP_TEMPHP = 25;
-    private static final int PHASE2_RNG_TEMPHP_TEMPHP = 35;
-    private static final int PHASE3_RNG_TEMPHP_TEMPHP = 50;
+    private static final int PHASE1_RNG_TEMPHP_TEMPHP = 20;
+    private static final int PHASE2_RNG_TEMPHP_TEMPHP = 30;
+    private static final int PHASE3_RNG_TEMPHP_TEMPHP = 45;
     private static final int PHASE4_RNG_TEMPHP_TEMPHP = 75;
-    // RNG_ATTACK
-    private static final int PHASE1_RNG_ATTACK_STANDARD_DAMAGE = 5;
-    private static final int PHASE2_RNG_ATTACK_STANDARD_DAMAGE = 9;
-    private static final int PHASE3_RNG_ATTACK_STANDARD_DAMAGE = 13;
-    private static final int PHASE4_RNG_ATTACK_STANDARD_DAMAGE = 17;
-    private static final AbstractCard RNG_ATTACK_STANDARD_STATUS = new VoidCard();
-    private static final int PHASE1_RNG_ATTACK_MULTIHIT_DAMAGE = 3;
-    private static final int PHASE2_RNG_ATTACK_MULTIHIT_DAMAGE = 5;
-    private static final int PHASE3_RNG_ATTACK_MULTIHIT_DAMAGE = 7;
-    private static final int PHASE4_RNG_ATTACK_MULTIHIT_DAMAGE = 9;
-    private static final int RNG_ATTACK_MULTIHIT_HITS = 2;
-    private static final int RNG_ATTACK_MULTIHIT_WEAK_AMOUNT = 2;
-    private static final int RNG_ATTACK_MULTIHIT_VULNERABLE_AMOUNT = 1;
     // RNG_STR_DEX_DOWN
     private static final int PHASE1_RNG_STR_DEX_DOWN = 1;
     private static final int PHASE2_RNG_STR_DEX_DOWN = 2;
     private static final int PHASE3_RNG_STR_DEX_DOWN = 3;
     private static final int PHASE4_RNG_STR_DEX_DRAIN = 3;
     // TURN_CYCLE_END_ATTACK
-    private static final int PHASE1_TURN_CYCLE_END_ATTACK_DAMAGE = 25;
-    private static final int PHASE2_TURN_CYCLE_END_ATTACK_DAMAGE = 35;
-    private static final int PHASE3_TURN_CYCLE_END_ATTACK_DAMAGE = 45;
-    private static final int PHASE4_TURN_CYCLE_END_ATTACK_DAMAGE = 55;
+    private static final int PHASE1_TURN_CYCLE_END_ATTACK_DAMAGE = 20;
+    private static final int PHASE2_TURN_CYCLE_END_ATTACK_DAMAGE = 30;
+    private static final int PHASE3_TURN_CYCLE_END_ATTACK_DAMAGE = 40;
+    private static final int PHASE4_TURN_CYCLE_END_ATTACK_DAMAGE = 50;
     // Nitori Fight Information
     private static final int[] damageInfo = {
             // Indexes 0-3
@@ -172,21 +154,6 @@ public class Nitori extends CustomMonster {
             PHASE3_ATTACK_STANDARD_DAMAGE,
             PHASE4_ATTACK_STANDARD_DAMAGE,
             // 8 - 11
-            PHASE1_RNG_ATTACK_BLOCK_DAMAGE,
-            PHASE2_RNG_ATTACK_BLOCK_DAMAGE,
-            PHASE3_RNG_ATTACK_BLOCK_DAMAGE,
-            PHASE4_RNG_ATTACK_BLOCK_DAMAGE,
-            // 12 - 15
-            PHASE1_RNG_ATTACK_STANDARD_DAMAGE,
-            PHASE2_RNG_ATTACK_STANDARD_DAMAGE,
-            PHASE3_RNG_ATTACK_STANDARD_DAMAGE,
-            PHASE4_RNG_ATTACK_STANDARD_DAMAGE,
-            // 16 - 19
-            PHASE1_RNG_ATTACK_MULTIHIT_DAMAGE,
-            PHASE2_RNG_ATTACK_MULTIHIT_DAMAGE,
-            PHASE3_RNG_ATTACK_MULTIHIT_DAMAGE,
-            PHASE4_RNG_ATTACK_MULTIHIT_DAMAGE,
-            // 20 - 23
             PHASE1_TURN_CYCLE_END_ATTACK_DAMAGE,
             PHASE2_TURN_CYCLE_END_ATTACK_DAMAGE,
             PHASE3_TURN_CYCLE_END_ATTACK_DAMAGE,
@@ -196,16 +163,18 @@ public class Nitori extends CustomMonster {
     private static nitoriStates beginningState = nitoriStates.PHASE_1;
     private static nitoriStates currentState = nitoriStates.PHASE_1;
     private int globalCounter = 0;
-    private static final int PHASE1_START_ENDTIMER = 50;
-    private static final int PHASE2_START_ENDTIMER = 40;
-    private static final int PHASE3_START_ENDTIMER = 30;
-    private static final int PHASE4_START_ENDTIMER = 20;
+    private static final int PHASE1_START_ENDTIMER = 25;
+    private static final int PHASE2_START_ENDTIMER = 35;
+    private static final int PHASE3_START_ENDTIMER = 45;
+    private static final int PHASE4_START_ENDTIMER = 55;
     // Tracks how Nitori should move.
+    private boolean BATTLE_OVER = false;
+    private boolean STATUSES_DONE = false;
     private boolean OPENING_DONE = false;
     private boolean BUFF_DONE = false;
     private boolean ATTACK_STANDARD_MULTIHIT_DONE = false;
     private boolean ATTACK_STANDARD_DONE = false;
-    private boolean RNG_FRAIL_DONE = false;
+    private boolean RNG_FRAIL_ATTACK_DONE = false;
     private boolean RNG_ATTACK_BLOCK_DONE = false;
     private boolean RNG_TEMPHP_DONE = false;
     private boolean RNG_ATTACK_DONE = false;
@@ -342,23 +311,21 @@ public class Nitori extends CustomMonster {
             // Action #1) OPENING -
                 // Nitori's first move will always be this move.
 
-                // Nitori will shuffle an amount of statuses from the status pool into the player's draw pile. (The status pool is displayed below, and cards are obtained in order from top to bottom.)
+                // Nitori will shuffle an amount of statuses from the status pool into the player's discard pile (draw pile on Phase 3+) . (The status pool is displayed below, and cards are obtained in order from top to bottom.)
                     // Nitori will add 1 Status in Phase 1, 2 in Phase 2, 4 in Phase 3, and 5 in Phase 4.
                     // The list of statuses is the following:
-                        // 1x Rushing Waters
-                        // 1x Empty Salvo
+                        // 1x Flash Flood
+                        // 1x Torpedo Barrage
                         // 1x EMP
                         // 1x Whirlpool
                         // 1x Self-Repair
-
                         // (Please see Section 2.b.b - Nitori's unique statuses to find out what they do.)
+                        // (Statuses will only be applied on the first OPENING move.)
 
                 // Nitori will also apply the player with several debuffs, including:
-                    // 2 Weak -> 2 Overclocked Weak (Phase 4 Only)
-                    // 2 Vulnerable -> 2 Overclocked Vulnerable (Phase 4 Only)
-                    // 2 Frail (Phase 2 onwards)
-
-                    // (Please see Section 2.b.d - Nitori's unique debuffs to find out what Overclocked debuffs do.)
+                    // 2 Weak (Phase 1+) -> 3 Weak (Phase 4 Only)
+                    // 2 Vulnerable (Phase 2+) -> 3 Vulnerable (Phase 4 Only)
+                    // 2 Frail (Phase 3+) -> 3 Frail (Phase 4 Only)
 
             // Action #2) BUFF -
                 // Nitori's second move will be always be this move.
@@ -374,19 +341,19 @@ public class Nitori extends CustomMonster {
             // Action #3) ATTACK_STANDARD
                 // This has a 50% chance to be Nitori's move on turn 3. If it is not Nitori's move on turn 3, it will be Nitori's move on turn 4. Nitori cannot use two ATTACK_STANDARDS in a row.
                 // Nitori will attack the player, for the following damage:
-                    // 9 Damage (Phase 1 Only)
-                    // 13 Damage (Phase 2 Only)
-                    // 17 Damage (Phase 3 Only)
-                    // 21 Damage (Phase 4 Only)
+                    // 8 Damage (Phase 1 Only)
+                    // 12 Damage (Phase 2 Only)
+                    // 16 Damage (Phase 3 Only)
+                    // 20 Damage (Phase 4 Only)
 
             // Action #4) ATTACK_STANDARD_MULTIHIT
                 // This has a 50% chance to be Nitori's move on turn 3. If it is not Nitori's move on turn 3, it will be Nitori's move on turn 4. Nitori cannot use two ATTACK_STANDARD_MULTIHITS in a row.
                 // This attack will always hit twice.
                 // Nitori will attack the player, for the following damage:
-                    // 5 x 2 Damage (Phase 1 Only)
-                    // 7 x 2 Damage (Phase 2 Only)
-                    // 9 x 2 Damage (Phase 3 Only)
-                    // 11 x 2 Damage (Phase 4 Only)
+                    // 4 x 2 Damage (Phase 1 Only)
+                    // 6 x 2 Damage (Phase 2 Only)
+                    // 8 x 2 Damage (Phase 3 Only)
+                    // 10 x 2 Damage (Phase 4 Only)
 
             // Nitori's actions will now follow a pseudo-random pattern, from Actions #5 to Actions #9.
             // However, there are some rules that prevent Nitori from having completely random outputs.
@@ -396,20 +363,16 @@ public class Nitori extends CustomMonster {
                 // This means Nitori can only call upon Actions #5, #6 and #9 at the start of this sequence.
                 // Checking for previous moves takes priority over rolling for an action to take.
 
-            // Action #5) RNG_FRAIL
-                // Nitori debuffs the player, including:
-                    // 1 Frail, 1 Draw Reduction (Phase 1 Only)
-                    // 1 Frail, 2 Draw Reduction (Phase 2 Only)
-                    // 2 Frail, 2 Draw Reduction, 1 Less Energy next turn (Phase 3 Only)
-                    // 2 Frail, 2 Draw Reduction, 1 Less Energy next turn, 1 Rushing Waves (Phase 4 Only)
+            // Action #5) RNG_FRAIL_ATTACK
+                // Same damage as ATTACK_STANDARD, but also applies:
+                    // 1 Frail (Phase 1)
+                    // 2 Frail (Phase 2)
+                    // 3 Frail (Phase 3)
+                    // 3 Frail, 1 Flash Flood (Phase 4 Only)
 
             // Action #6) RNG_ATTACK_BLOCK
-                // Nitori attacks the player, dealing:
-                    // 7 Damage (Phase 1 Only)
-                    // 11 Damage (Phase 2 Only)
-                    // 15 Damage (Phase 3 Only)
-                    // 19 Damage (Phase 4 Only)
-                    // Nitori also gains block equal to the damage.
+                // Nitori attacks the player, dealing the same damage as ATTACK_STANDARD.
+                // Nitori also gains block equal to the damage.
 
             // Action #7) RNG_TEMPHP
                 // Nitori will gain Temp HP for herself:
@@ -419,23 +382,7 @@ public class Nitori extends CustomMonster {
                     // 75 Temp HP (Phase 4 Only)
 
             // Action #8) RNG_ATTACK_STANDARD / RNG_ATTACK_MULTIHIT
-                // This action's actions vary depending on what move was used before.
-
-                // If Action #5 was performed last turn, the following occurs:
-                    // Nitori attacks the player.
-                        // 5 Damage (Phase 1 Only)
-                        // 9 Damage (Phase 2 Only)
-                        // 13 Damage (Phase 3 Only)
-                        // 17 Damage (Phase 4 Only)
-
-                // If Action #7 was performed last turn, the following occurs:
-                    // Nitori attacks the player. (This attack will always hit twice.)
-                        // 3 x 2 Damage (Phase 1 Only)
-                        // 5 x 2 Damage (Phase 2 Only)
-                        // 7 x 2 Damage (Phase 3 Only)
-                        // 9 x 2 Damage (Phase 4 Only)
-
-                // Nitori shuffles an EMP into the draw pile.
+                // A multihit with the same damage as ATTACK_STANDARD_MULTIHIT
 
             // Action #9) RNG_STR_DEX_DOWN
                 // Nitori debuffs the player with the following:
@@ -458,33 +405,51 @@ public class Nitori extends CustomMonster {
         // Nitori operates on a turn-timer, which measures the time it takes for Nitori to get to and complete two cycles in Phase 4.
         // The turn the turn after the second Action #10 in Phase 4, Nitori's next intent will end the combat.
         // This means the amount of turns the player can take is the following:
-            // Starting the battle at Phase 1: 50 Turns.
-            // Starting the battle at Phase 2: 40 Turns.
-            // Starting the battle at Phase 3: 30 Turns.
-            // Starting the battle at Phase 4: 20 Turns.
+            // Starting the battle at Phase 1: 25 Turns.
+            // Starting the battle at Phase 2: 35 Turns.
+            // Starting the battle at Phase 3: 45 Turns.
+            // Starting the battle at Phase 4: 55 Turns.
 
         // (Because Nitori scales throughout the fight, it's likely the player will either die or beat Nitori in the timeframe, making this way of defeat unlikely.)
 
         // 2.b.b) Nitori's unique statuses
             // Nitori has 5 unique statuses which are used in the fight. These are:
-                // 1x Rushing Waters - 5 Cost, When this card is drawn, reduce its cost by 1 this combat. NL Exhaust.
-                // 1x Empty Salvo - At the end of your turn, add 3 Supersonic Missile to your discard pile. Ethereal (Supersonic Missile - At the end of your turn, take 3 damage. Increase this card's damage by 3 this combat)
+                // 1x Flash Flood - 5 Cost, When this card is drawn, reduce its cost by 1 this combat. NL Exhaust.
+                // 1x Torpedo Barrage - At the end of your turn, add 3 Oxygen Torpedo to your discard pile. Ethereal (Oxygen Torpedo - At the end of your turn, take 3 damage. Increase this card's damage by 3 this combat)
                 // 1x EMP - Whenever this card is drawn, lose 1 Energy and Draw 1 card less next turn. Ethereal.
-                // 1x Whirlpool - Whenever this card is drawn, select 3 cards. They become Unplayable for 2 turns. Ethereal
+                // 1x Whirlpool - 1 Cost, Whenever this card is in your hand, you cannot play Skills.
                 // 1x Self-Repair - Retain. Nitori gains 20 Block. When Retained, Nitori gains 5 Temporary HP. Increase the Tempory HP gained by 5 this combat.
 
         // 2.b.c) Nitori's unique buffs.
-            // Hydraulic Camouflage - Every third debuff is negated.
+            // Hydraulic Camouflage - Every other debuff is negated.
             // Hydraulic Camouflage EX - Receives 10% reduced damage from ALL sources. Every other debuff is negated.
 
-        // 2.b.d) Nitori's unique debuffs.
-            // Overclocked Weak - Weak, but with 33%.
-            // Overclocked Vulnerable - Vulnerable, but with 33%.
-
+    public void usePreBattleAction() {
+        AbstractDungeon.getCurrRoom().playBGM("こころ.ogg");
+        int powerAmount;
+        switch (getBeginningState()){
+            case PHASE_1:
+                powerAmount = PHASE1_START_ENDTIMER;
+                break;
+            case PHASE_2:
+                powerAmount = PHASE2_START_ENDTIMER;
+                break;
+            case PHASE_3:
+                powerAmount = PHASE3_START_ENDTIMER;
+                break;
+            case PHASE_4:
+                powerAmount = PHASE4_START_ENDTIMER;
+                break;
+            default:
+                powerAmount = 50;
+        }
+        addToBot(new ApplyPowerAction(this, this, new NitoriTimer(this, powerAmount)));
+    }
     @Override
     public void takeTurn() {
         switch (this.nextMove) {
             case TURN_LIMIT_REACHED:
+                BATTLE_OVER = true;
                 AbstractDungeon.overlayMenu.proceedButton.hide();
                 NitoriStoreScreen.init();
                 AbstractDungeon.topLevelEffects.clear();
@@ -501,26 +466,43 @@ public class Nitori extends CustomMonster {
                 int statusAmount = 0;
                 float offset = 0.2f;
                 AbstractDungeon.actionManager.addToBottom(new VFXAction(new HeartMegaDebuffEffect()));
-                for (AbstractCard c : OPENING_STATUS_POOL) {
-                    if (getState() == nitoriStates.PHASE_1 && !(statusAmount == PHASE1_OPENING_STATUS_AMOUNT)) {
-                        AbstractDungeon.actionManager.addToBottom(new MakeTempCardInDrawPileAction(c, 1, true, false, false, Settings.WIDTH * offset, Settings.HEIGHT / 2.0F));
-                    } else if (getState() == nitoriStates.PHASE_2 && !(statusAmount == PHASE2_OPENING_STATUS_AMOUNT)) {
-                        AbstractDungeon.actionManager.addToBottom(new MakeTempCardInDrawPileAction(c, 1, true, false, false, Settings.WIDTH * offset, Settings.HEIGHT / 2.0F));
-                    } else if (getState() == nitoriStates.PHASE_3 && !(statusAmount == PHASE3_OPENING_STATUS_AMOUNT)) {
-                        AbstractDungeon.actionManager.addToBottom(new MakeTempCardInDrawPileAction(c, 1, true, false, false, Settings.WIDTH * offset, Settings.HEIGHT / 2.0F));
-                    } else if (getState() == nitoriStates.PHASE_4 && !(statusAmount == PHASE4_OPENING_STATUS_AMOUNT)) {
-                        AbstractDungeon.actionManager.addToBottom(new MakeTempCardInDrawPileAction(c, 1, true, false, false, Settings.WIDTH * offset, Settings.HEIGHT / 2.0F));
+                if(!(STATUSES_DONE)) {
+                    for (AbstractCard c : OPENING_STATUS_POOL) {
+                        if (getState() == nitoriStates.PHASE_1 && statusAmount != PHASE1_OPENING_STATUS_AMOUNT) {
+                            AbstractDungeon.actionManager.addToBottom(new MakeTempCardInDiscardAction(c, 1));
+                            statusAmount++;
+                        } else if (getState() == nitoriStates.PHASE_2 && statusAmount != PHASE2_OPENING_STATUS_AMOUNT) {
+                            AbstractDungeon.actionManager.addToBottom(new MakeTempCardInDiscardAction(c, 1));
+                            statusAmount++;
+                        } else if (getState() == nitoriStates.PHASE_3 && statusAmount != PHASE3_OPENING_STATUS_AMOUNT) {
+                            AbstractDungeon.actionManager.addToBottom(new MakeTempCardInDrawPileAction(c, 1, true, false, false, Settings.WIDTH * offset, Settings.HEIGHT / 2.0F));
+                            statusAmount++;
+                        } else if (getState() == nitoriStates.PHASE_4 && statusAmount != PHASE4_OPENING_STATUS_AMOUNT) {
+                            AbstractDungeon.actionManager.addToBottom(new MakeTempCardInDrawPileAction(c, 1, true, false, false, Settings.WIDTH * offset, Settings.HEIGHT / 2.0F));
+                            statusAmount++;
+                        }
                     }
-                    statusAmount++;
-                    offset += 0.15f;
                 }
-                if (!(getState() == nitoriStates.PHASE_4)) {
-                    AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(AbstractDungeon.player, this, new WeakPower(AbstractDungeon.player, OPENING_DEBUFF_AMOUNT, true), OPENING_DEBUFF_AMOUNT));
-                    AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(AbstractDungeon.player, this, new VulnerablePower(AbstractDungeon.player, OPENING_DEBUFF_AMOUNT, true), OPENING_DEBUFF_AMOUNT));
-                } else {
-                    // Todo: super weak / super vulnerable
+                switch (getState()){
+                    case PHASE_1:
+                        AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(AbstractDungeon.player, this, new WeakPower(AbstractDungeon.player, OPENING_DEBUFF_AMOUNT, true), OPENING_DEBUFF_AMOUNT));
+                        break;
+                    case PHASE_2:
+                        AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(AbstractDungeon.player, this, new WeakPower(AbstractDungeon.player, OPENING_DEBUFF_AMOUNT, true), OPENING_DEBUFF_AMOUNT));
+                        AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(AbstractDungeon.player, this, new VulnerablePower(AbstractDungeon.player, OPENING_DEBUFF_AMOUNT, true), OPENING_DEBUFF_AMOUNT));
+                        break;
+                    case PHASE_3:
+                        AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(AbstractDungeon.player, this, new WeakPower(AbstractDungeon.player, OPENING_DEBUFF_AMOUNT, true), OPENING_DEBUFF_AMOUNT));
+                        AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(AbstractDungeon.player, this, new VulnerablePower(AbstractDungeon.player, OPENING_DEBUFF_AMOUNT, true), OPENING_DEBUFF_AMOUNT));
+                        AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(AbstractDungeon.player, this, new FrailPower(AbstractDungeon.player, OPENING_DEBUFF_AMOUNT, true), OPENING_DEBUFF_AMOUNT));
+                    case PHASE_4:
+                        AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(AbstractDungeon.player, this, new WeakPower(AbstractDungeon.player, PHASE4_OPENING_DEBUFF_AMOUNT, true), PHASE4_OPENING_DEBUFF_AMOUNT));
+                        AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(AbstractDungeon.player, this, new VulnerablePower(AbstractDungeon.player, PHASE4_OPENING_DEBUFF_AMOUNT, true), PHASE4_OPENING_DEBUFF_AMOUNT));
+                        AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(AbstractDungeon.player, this, new FrailPower(AbstractDungeon.player, PHASE4_OPENING_DEBUFF_AMOUNT, true), PHASE4_OPENING_DEBUFF_AMOUNT));
+                        break;
+                    default: break;
                 }
-                if (!(getState() == nitoriStates.PHASE_1)) { AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(AbstractDungeon.player, this, new FrailPower(AbstractDungeon.player, OPENING_DEBUFF_AMOUNT, true), OPENING_DEBUFF_AMOUNT)); }
+                STATUSES_DONE = true;
                 OPENING_DONE = true;
                 break;
             case BUFF:
@@ -535,11 +517,26 @@ public class Nitori extends CustomMonster {
                         break;
                     case PHASE_3:
                         AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(this, this, new StrengthPower(this, PHASE3_BUFF_STRENGTH_AMOUNT), PHASE3_BUFF_STRENGTH_AMOUNT));
-                        // todo Hydraulic Camo
+                        boolean hasHydro = false;
+                        for(AbstractPower p: this.powers){
+                            if(p instanceof HydraulicCamouflage){
+                                hasHydro = true;
+                                break;
+                            }
+                        }
+                        if(!(hasHydro)){ AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(this, this, new HydraulicCamouflage(this, false))); }
                         break;
                     case PHASE_4:
                         AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(this, this, new StrengthPower(this, PHASE4_BUFF_STRENGTH_AMOUNT), PHASE4_BUFF_STRENGTH_AMOUNT));
-                        // todo Hydraulic Camo EX
+                        boolean hydroCheck = false;
+                        for(AbstractPower p: this.powers){
+                            if(p instanceof HydraulicCamouflage){
+                                if(!((HydraulicCamouflage) p).returnIsExtra()){ ((HydraulicCamouflage) p).extraTransition(); }
+                                hydroCheck = true;
+                                break;
+                            }
+                        }
+                        if(!(hydroCheck)){ AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(this, this, new HydraulicCamouflage(this, true))); }
                         break;
                     default: break;
                 }
@@ -556,11 +553,9 @@ public class Nitori extends CustomMonster {
                             break;
                         case PHASE_3:
                             AbstractDungeon.actionManager.addToBottom(new DamageAction(AbstractDungeon.player, this.damage.get(2), AbstractGameAction.AttackEffect.BLUNT_LIGHT));
-                            // todo Hydraulic Camo
                             break;
                         case PHASE_4:
                             AbstractDungeon.actionManager.addToBottom(new DamageAction(AbstractDungeon.player, this.damage.get(3), AbstractGameAction.AttackEffect.BLUNT_LIGHT));
-                            // todo Hydraulic Camo EX
                             break;
                         default: break;
                     }
@@ -585,48 +580,57 @@ public class Nitori extends CustomMonster {
                 }
                 ATTACK_STANDARD_DONE = true;
                 break;
-            case RNG_FRAIL:
+            case RNG_FRAIL_ATTACK:
                 switch (getState()) {
-                    // TODO energy reduction (All switches)
                     case PHASE_1:
-                        AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(AbstractDungeon.player, this, new FrailPower(AbstractDungeon.player, PHASE1_RNG_FRAIL_FRAIL_AMOUNT, true), PHASE1_RNG_FRAIL_FRAIL_AMOUNT));
-                        AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(AbstractDungeon.player, this, new DrawReductionPower(AbstractDungeon.player, PHASE1_RNG_FRAIL_DRAW_REDUCTION), PHASE1_RNG_FRAIL_DRAW_REDUCTION));
+                        AbstractDungeon.actionManager.addToBottom(new DamageAction(AbstractDungeon.player, this.damage.get(4), AbstractGameAction.AttackEffect.BLUNT_LIGHT));
                         break;
                     case PHASE_2:
-                        AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(AbstractDungeon.player, this, new FrailPower(AbstractDungeon.player, PHASE2_RNG_FRAIL_FRAIL_AMOUNT, true), PHASE2_RNG_FRAIL_FRAIL_AMOUNT));
-                        AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(AbstractDungeon.player, this, new DrawReductionPower(AbstractDungeon.player, PHASE2_RNG_FRAIL_DRAW_REDUCTION), PHASE2_RNG_FRAIL_DRAW_REDUCTION));
+                        AbstractDungeon.actionManager.addToBottom(new DamageAction(AbstractDungeon.player, this.damage.get(5), AbstractGameAction.AttackEffect.BLUNT_LIGHT));
                         break;
                     case PHASE_3:
-                        AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(AbstractDungeon.player, this, new FrailPower(AbstractDungeon.player, PHASE3_RNG_FRAIL_FRAIL_AMOUNT, true), PHASE3_RNG_FRAIL_FRAIL_AMOUNT));
-                        AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(AbstractDungeon.player, this, new DrawReductionPower(AbstractDungeon.player, PHASE3_RNG_FRAIL_DRAW_REDUCTION), PHASE3_RNG_FRAIL_DRAW_REDUCTION));
+                        AbstractDungeon.actionManager.addToBottom(new DamageAction(AbstractDungeon.player, this.damage.get(6), AbstractGameAction.AttackEffect.BLUNT_LIGHT));
                         break;
                     case PHASE_4:
-                        AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(AbstractDungeon.player, this, new FrailPower(AbstractDungeon.player, PHASE4_RNG_FRAIL_FRAIL_AMOUNT, true), PHASE4_RNG_FRAIL_FRAIL_AMOUNT));
-                        AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(AbstractDungeon.player, this, new DrawReductionPower(AbstractDungeon.player, PHASE4_RNG_FRAIL_DRAW_REDUCTION), PHASE4_RNG_FRAIL_DRAW_REDUCTION));
-
-                        AbstractDungeon.actionManager.addToBottom(new MakeTempCardInDrawPileAction(PHASE4_RNG_FRAIL_STATUS, 1, true, false, false, Settings.WIDTH * 0.5F, Settings.HEIGHT / 2.0F));
+                        AbstractDungeon.actionManager.addToBottom(new DamageAction(AbstractDungeon.player, this.damage.get(7), AbstractGameAction.AttackEffect.BLUNT_LIGHT));
                         break;
                     default: break;
                 }
-                RNG_FRAIL_DONE = true;
+                switch (getState()) {
+                    case PHASE_1:
+                        AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(AbstractDungeon.player, this, new FrailPower(AbstractDungeon.player, PHASE1_RNG_FRAIL_ATTACK_FRAIL_AMOUNT, true), PHASE1_RNG_FRAIL_ATTACK_FRAIL_AMOUNT));
+                        break;
+                    case PHASE_2:
+                        AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(AbstractDungeon.player, this, new FrailPower(AbstractDungeon.player, PHASE2_RNG_FRAIL_ATTACK_FRAIL_AMOUNT, true), PHASE2_RNG_FRAIL_ATTACK_FRAIL_AMOUNT));
+                        break;
+                    case PHASE_3:
+                        AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(AbstractDungeon.player, this, new FrailPower(AbstractDungeon.player, PHASE3_RNG_FRAIL_ATTACK_FRAIL_AMOUNT, true), PHASE3_RNG_FRAIL_ATTACK_FRAIL_AMOUNT));
+                        break;
+                    case PHASE_4:
+                        AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(AbstractDungeon.player, this, new FrailPower(AbstractDungeon.player, PHASE4_RNG_FRAIL_ATTACK_FRAIL_AMOUNT, true), PHASE4_RNG_FRAIL_ATTACK_FRAIL_AMOUNT));
+                        AbstractDungeon.actionManager.addToBottom(new MakeTempCardInDrawPileAction(PHASE4_RNG_FRAIL_ATTACK_STATUS, 1, true, false, false, Settings.WIDTH * 0.5F, Settings.HEIGHT / 2.0F));
+                        break;
+                    default: break;
+                }
+                RNG_FRAIL_ATTACK_DONE = true;
                 break;
             case RNG_ATTACK_BLOCK:
                 switch (getState()) {
                     case PHASE_1:
-                        AbstractDungeon.actionManager.addToBottom(new GainBlockAction(this, this, this.damage.get(8).output));
-                        AbstractDungeon.actionManager.addToBottom(new DamageAction(AbstractDungeon.player, this.damage.get(8), AbstractGameAction.AttackEffect.BLUNT_LIGHT));
+                        AbstractDungeon.actionManager.addToBottom(new GainBlockAction(this, this, this.damage.get(4).output));
+                        AbstractDungeon.actionManager.addToBottom(new DamageAction(AbstractDungeon.player, this.damage.get(4), AbstractGameAction.AttackEffect.BLUNT_LIGHT));
                         break;
                     case PHASE_2:
-                        AbstractDungeon.actionManager.addToBottom(new GainBlockAction(this, this, this.damage.get(9).output));
-                        AbstractDungeon.actionManager.addToBottom(new DamageAction(AbstractDungeon.player, this.damage.get(9), AbstractGameAction.AttackEffect.BLUNT_LIGHT));
+                        AbstractDungeon.actionManager.addToBottom(new GainBlockAction(this, this, this.damage.get(5).output));
+                        AbstractDungeon.actionManager.addToBottom(new DamageAction(AbstractDungeon.player, this.damage.get(5), AbstractGameAction.AttackEffect.BLUNT_LIGHT));
                         break;
                     case PHASE_3:
-                        AbstractDungeon.actionManager.addToBottom(new GainBlockAction(this, this, this.damage.get(10).output));
-                        AbstractDungeon.actionManager.addToBottom(new DamageAction(AbstractDungeon.player, this.damage.get(10), AbstractGameAction.AttackEffect.BLUNT_LIGHT));
+                        AbstractDungeon.actionManager.addToBottom(new GainBlockAction(this, this, this.damage.get(6).output));
+                        AbstractDungeon.actionManager.addToBottom(new DamageAction(AbstractDungeon.player, this.damage.get(6), AbstractGameAction.AttackEffect.BLUNT_LIGHT));
                         break;
                     case PHASE_4:
-                        AbstractDungeon.actionManager.addToBottom(new GainBlockAction(this, this, this.damage.get(11).output));
-                        AbstractDungeon.actionManager.addToBottom(new DamageAction(AbstractDungeon.player, this.damage.get(11), AbstractGameAction.AttackEffect.BLUNT_LIGHT));
+                        AbstractDungeon.actionManager.addToBottom(new GainBlockAction(this, this, this.damage.get(7).output));
+                        AbstractDungeon.actionManager.addToBottom(new DamageAction(AbstractDungeon.player, this.damage.get(7), AbstractGameAction.AttackEffect.BLUNT_LIGHT));
                         break;
                     default: break;
                 }
@@ -650,64 +654,44 @@ public class Nitori extends CustomMonster {
                 }
                 break;
             case RNG_ATTACK:
-                if(this.lastMove(RNG_FRAIL)){
+                for (int i = 0; i < ATTACK_STANDARD_MULTIHIT_HITS; i++) {
                     switch (getState()) {
                         case PHASE_1:
-                            AbstractDungeon.actionManager.addToBottom(new DamageAction(AbstractDungeon.player, this.damage.get(12), AbstractGameAction.AttackEffect.BLUNT_LIGHT));
+                            AbstractDungeon.actionManager.addToBottom(new DamageAction(AbstractDungeon.player, this.damage.get(0), AbstractGameAction.AttackEffect.BLUNT_LIGHT));
                             break;
                         case PHASE_2:
-                            AbstractDungeon.actionManager.addToBottom(new DamageAction(AbstractDungeon.player, this.damage.get(13), AbstractGameAction.AttackEffect.BLUNT_LIGHT));
+                            AbstractDungeon.actionManager.addToBottom(new DamageAction(AbstractDungeon.player, this.damage.get(1), AbstractGameAction.AttackEffect.BLUNT_LIGHT));
                             break;
                         case PHASE_3:
-                            AbstractDungeon.actionManager.addToBottom(new DamageAction(AbstractDungeon.player, this.damage.get(14), AbstractGameAction.AttackEffect.BLUNT_LIGHT));
+                            AbstractDungeon.actionManager.addToBottom(new DamageAction(AbstractDungeon.player, this.damage.get(2), AbstractGameAction.AttackEffect.BLUNT_LIGHT));
                             break;
                         case PHASE_4:
-                            AbstractDungeon.actionManager.addToBottom(new DamageAction(AbstractDungeon.player, this.damage.get(15), AbstractGameAction.AttackEffect.BLUNT_LIGHT));
+                            AbstractDungeon.actionManager.addToBottom(new DamageAction(AbstractDungeon.player, this.damage.get(3), AbstractGameAction.AttackEffect.BLUNT_LIGHT));
                             break;
                         default: break;
                     }
                 }
-                else {
-                    for (int i = 0; i < RNG_ATTACK_MULTIHIT_HITS; i++) {
-                        switch (getState()) {
-                            case PHASE_1:
-                                AbstractDungeon.actionManager.addToBottom(new DamageAction(AbstractDungeon.player, this.damage.get(16), AbstractGameAction.AttackEffect.BLUNT_LIGHT));
-                                break;
-                            case PHASE_2:
-                                AbstractDungeon.actionManager.addToBottom(new DamageAction(AbstractDungeon.player, this.damage.get(17), AbstractGameAction.AttackEffect.BLUNT_LIGHT));
-                                break;
-                            case PHASE_3:
-                                AbstractDungeon.actionManager.addToBottom(new DamageAction(AbstractDungeon.player, this.damage.get(18), AbstractGameAction.AttackEffect.BLUNT_LIGHT));
-                                break;
-                            case PHASE_4:
-                                AbstractDungeon.actionManager.addToBottom(new DamageAction(AbstractDungeon.player, this.damage.get(19), AbstractGameAction.AttackEffect.BLUNT_LIGHT));
-                                break;
-                            default: break;
-                        }
-                    }
-                }
-                AbstractDungeon.actionManager.addToBottom(new MakeTempCardInDrawPileAction(RNG_ATTACK_STANDARD_STATUS, 1, true, false, false, Settings.WIDTH * 0.5F, Settings.HEIGHT / 2.0F));
                 RNG_ATTACK_DONE = true;
                 break;
             case RNG_STR_DEX_DOWN:
                 switch (getState()) {
                     case PHASE_1:
                         AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(AbstractDungeon.player, this, new StrengthPower(AbstractDungeon.player, -PHASE1_RNG_STR_DEX_DOWN), -PHASE1_RNG_STR_DEX_DOWN));
-                        AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(AbstractDungeon.player, this, new StrengthPower(AbstractDungeon.player, -PHASE1_RNG_STR_DEX_DOWN), -PHASE1_RNG_STR_DEX_DOWN));
+                        AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(AbstractDungeon.player, this, new DexterityPower(AbstractDungeon.player, -PHASE1_RNG_STR_DEX_DOWN), -PHASE1_RNG_STR_DEX_DOWN));
                         break;
                     case PHASE_2:
                         AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(AbstractDungeon.player, this, new StrengthPower(AbstractDungeon.player, -PHASE2_RNG_STR_DEX_DOWN), -PHASE2_RNG_STR_DEX_DOWN));
-                        AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(AbstractDungeon.player, this, new StrengthPower(AbstractDungeon.player, -PHASE2_RNG_STR_DEX_DOWN), -PHASE2_RNG_STR_DEX_DOWN));
+                        AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(AbstractDungeon.player, this, new DexterityPower(AbstractDungeon.player, -PHASE2_RNG_STR_DEX_DOWN), -PHASE2_RNG_STR_DEX_DOWN));
                         break;
                     case PHASE_3:
                         AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(AbstractDungeon.player, this, new StrengthPower(AbstractDungeon.player, -PHASE3_RNG_STR_DEX_DOWN), -PHASE3_RNG_STR_DEX_DOWN));
-                        AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(AbstractDungeon.player, this, new StrengthPower(AbstractDungeon.player, -PHASE3_RNG_STR_DEX_DOWN), -PHASE3_RNG_STR_DEX_DOWN));
+                        AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(AbstractDungeon.player, this, new DexterityPower(AbstractDungeon.player, -PHASE3_RNG_STR_DEX_DOWN), -PHASE3_RNG_STR_DEX_DOWN));
                         break;
                     case PHASE_4:
                         AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(AbstractDungeon.player, this, new StrengthPower(AbstractDungeon.player, -PHASE4_RNG_STR_DEX_DRAIN), -PHASE4_RNG_STR_DEX_DRAIN));
-                        AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(AbstractDungeon.player, this, new StrengthPower(AbstractDungeon.player, -PHASE4_RNG_STR_DEX_DRAIN), -PHASE4_RNG_STR_DEX_DRAIN));
+                        AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(AbstractDungeon.player, this, new DexterityPower(AbstractDungeon.player, -PHASE4_RNG_STR_DEX_DRAIN), -PHASE4_RNG_STR_DEX_DRAIN));
                         AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(this, this, new StrengthPower(this, PHASE4_RNG_STR_DEX_DRAIN), PHASE4_RNG_STR_DEX_DRAIN));
-                        AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(this, this, new StrengthPower(this, PHASE4_RNG_STR_DEX_DRAIN), PHASE4_RNG_STR_DEX_DRAIN));
+                        AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(this, this, new DexterityPower(this, PHASE4_RNG_STR_DEX_DRAIN), PHASE4_RNG_STR_DEX_DRAIN));
                         break;
                     default: break;
                 }
@@ -716,16 +700,16 @@ public class Nitori extends CustomMonster {
             case TURN_CYCLE_END_ATTACK:
                 switch (getState()) {
                     case PHASE_1:
-                        AbstractDungeon.actionManager.addToBottom(new DamageAction(AbstractDungeon.player, this.damage.get(20), AbstractGameAction.AttackEffect.BLUNT_LIGHT));
+                        AbstractDungeon.actionManager.addToBottom(new DamageAction(AbstractDungeon.player, this.damage.get(8), AbstractGameAction.AttackEffect.BLUNT_LIGHT));
                         break;
                     case PHASE_2:
-                        AbstractDungeon.actionManager.addToBottom(new DamageAction(AbstractDungeon.player, this.damage.get(21), AbstractGameAction.AttackEffect.BLUNT_LIGHT));
+                        AbstractDungeon.actionManager.addToBottom(new DamageAction(AbstractDungeon.player, this.damage.get(9), AbstractGameAction.AttackEffect.BLUNT_LIGHT));
                         break;
                     case PHASE_3:
-                        AbstractDungeon.actionManager.addToBottom(new DamageAction(AbstractDungeon.player, this.damage.get(22), AbstractGameAction.AttackEffect.BLUNT_LIGHT));
+                        AbstractDungeon.actionManager.addToBottom(new DamageAction(AbstractDungeon.player, this.damage.get(10), AbstractGameAction.AttackEffect.BLUNT_LIGHT));
                         break;
                     case PHASE_4:
-                        AbstractDungeon.actionManager.addToBottom(new DamageAction(AbstractDungeon.player, this.damage.get(23), AbstractGameAction.AttackEffect.BLUNT_LIGHT));
+                        AbstractDungeon.actionManager.addToBottom(new DamageAction(AbstractDungeon.player, this.damage.get(11), AbstractGameAction.AttackEffect.BLUNT_LIGHT));
                         break;
                     default: break;
                 }
@@ -733,27 +717,15 @@ public class Nitori extends CustomMonster {
                 BUFF_DONE = false;
                 ATTACK_STANDARD_MULTIHIT_DONE = false;
                 ATTACK_STANDARD_DONE = false;
-                RNG_FRAIL_DONE = false;
+                RNG_FRAIL_ATTACK_DONE = false;
                 RNG_ATTACK_BLOCK_DONE = false;
                 RNG_TEMPHP_DONE = false;
                 RNG_ATTACK_DONE = false;
                 RNG_STR_DEX_DOWN_DONE = false;
-                switch (getState()){
-                    case PHASE_1:
-                        setState(nitoriStates.PHASE_2);
-                        break;
-                    case PHASE_2:
-                        setState(nitoriStates.PHASE_3);
-                        break;
-                    case PHASE_3:
-                        setState(nitoriStates.PHASE_4);
-                        break;
-                    default: break;
-                }
             default: break;
         }
+        if(!BATTLE_OVER){ AbstractDungeon.actionManager.addToBottom(new RollMoveAction(this)); }
         incrementGlobalCounter();
-        AbstractDungeon.actionManager.addToBottom(new RollMoveAction(this));
     }
     @Override
     protected void getMove(int i) {
@@ -794,56 +766,37 @@ public class Nitori extends CustomMonster {
                 default: break;
             }
         }
-        else if(!(RNG_ATTACK_DONE) && lastMove(RNG_FRAIL) || lastMove(RNG_TEMPHP)){
-            if(lastMove(RNG_FRAIL)){
-                switch (getState()) {
-                    case PHASE_1:
-                        this.setMove(RNG_ATTACK, Intent.ATTACK_DEBUFF, (this.damage.get(12)).base);
-                        break;
-                    case PHASE_2:
-                        this.setMove(RNG_ATTACK, Intent.ATTACK_DEBUFF, (this.damage.get(13)).base);
-                        break;
-                    case PHASE_3:
-                        this.setMove(RNG_ATTACK, Intent.ATTACK_DEBUFF, (this.damage.get(14)).base);
-                        break;
-                    case PHASE_4:
-                        this.setMove(RNG_ATTACK, Intent.ATTACK_DEBUFF, (this.damage.get(15)).base);
-                        break;
-                    default: break;
-                }
-            }
-            else {
-                switch (getState()) {
-                    case PHASE_1:
-                        this.setMove(RNG_ATTACK, Intent.ATTACK_DEBUFF, (this.damage.get(16)).base, RNG_ATTACK_MULTIHIT_HITS, true);
-                        break;
-                    case PHASE_2:
-                        this.setMove(RNG_ATTACK, Intent.ATTACK_DEBUFF, (this.damage.get(17)).base, RNG_ATTACK_MULTIHIT_HITS, true);
-                        break;
-                    case PHASE_3:
-                        this.setMove(RNG_ATTACK, Intent.ATTACK_DEBUFF, (this.damage.get(18)).base, RNG_ATTACK_MULTIHIT_HITS, true);
-                        break;
-                    case PHASE_4:
-                        this.setMove(RNG_ATTACK, Intent.ATTACK_DEBUFF, (this.damage.get(19)).base, RNG_ATTACK_MULTIHIT_HITS, true);
-                        break;
-                    default: break;
-                }
+        else if(!(RNG_ATTACK_DONE) && (lastMove(RNG_FRAIL_ATTACK) || lastMove(RNG_TEMPHP))){
+            switch (getState()) {
+                case PHASE_1:
+                    this.setMove(RNG_ATTACK, Intent.ATTACK, (this.damage.get(0)).base, ATTACK_STANDARD_MULTIHIT_HITS, true);
+                    break;
+                case PHASE_2:
+                    this.setMove(RNG_ATTACK, Intent.ATTACK, (this.damage.get(1)).base, ATTACK_STANDARD_MULTIHIT_HITS, true);
+                    break;
+                case PHASE_3:
+                    this.setMove(RNG_ATTACK, Intent.ATTACK, (this.damage.get(2)).base, ATTACK_STANDARD_MULTIHIT_HITS, true);
+                    break;
+                case PHASE_4:
+                    this.setMove(RNG_ATTACK, Intent.ATTACK, (this.damage.get(3)).base, ATTACK_STANDARD_MULTIHIT_HITS, true);
+                    break;
+                default: break;
             }
         }
         else if(!(RNG_TEMPHP_DONE) && lastMove(RNG_ATTACK_BLOCK)){ this.setMove(RNG_TEMPHP, IntentEnums.TEMPHP); }
         else if (!(RNG_ATTACK_BLOCK_DONE) && i < 33) {
             switch (getState()) {
                 case PHASE_1:
-                    this.setMove(RNG_ATTACK_BLOCK, Intent.ATTACK_DEFEND, (this.damage.get(8)).base);
+                    this.setMove(RNG_ATTACK_BLOCK, Intent.ATTACK_DEFEND, (this.damage.get(4)).base);
                     break;
                 case PHASE_2:
-                    this.setMove(RNG_ATTACK_BLOCK, Intent.ATTACK_DEFEND, (this.damage.get(9)).base);
+                    this.setMove(RNG_ATTACK_BLOCK, Intent.ATTACK_DEFEND, (this.damage.get(5)).base);
                     break;
                 case PHASE_3:
-                    this.setMove(RNG_ATTACK_BLOCK, Intent.ATTACK_DEFEND, (this.damage.get(10)).base);
+                    this.setMove(RNG_ATTACK_BLOCK, Intent.ATTACK_DEFEND, (this.damage.get(6)).base);
                     break;
                 case PHASE_4:
-                    this.setMove(RNG_ATTACK_BLOCK, Intent.ATTACK_DEFEND, (this.damage.get(11)).base);
+                    this.setMove(RNG_ATTACK_BLOCK, Intent.ATTACK_DEFEND, (this.damage.get(7)).base);
                     break;
                 default: break;
             }
@@ -859,13 +812,19 @@ public class Nitori extends CustomMonster {
                 default: break;
             }
         }
-        else if(!(RNG_FRAIL_DONE) && i >= 66 & i <= 99){
+        else if(!(RNG_FRAIL_ATTACK_DONE) && i >= 66 & i <= 99){
             switch (getState()) {
                 case PHASE_1:
+                    this.setMove(RNG_FRAIL_ATTACK, Intent.ATTACK_DEBUFF, (this.damage.get(4)).base);
+                    break;
                 case PHASE_2:
+                    this.setMove(RNG_FRAIL_ATTACK, Intent.ATTACK_DEBUFF, (this.damage.get(5)).base);
+                    break;
                 case PHASE_3:
+                    this.setMove(RNG_FRAIL_ATTACK, Intent.ATTACK_DEBUFF, (this.damage.get(6)).base);
+                    break;
                 case PHASE_4:
-                    this.setMove(RNG_FRAIL, Intent.STRONG_DEBUFF);
+                    this.setMove(RNG_FRAIL_ATTACK, Intent.ATTACK_DEBUFF, (this.damage.get(7)).base);
                     break;
                 default: break;
             }
@@ -873,16 +832,16 @@ public class Nitori extends CustomMonster {
         else if (!(RNG_ATTACK_BLOCK_DONE)) {
             switch (getState()) {
                 case PHASE_1:
-                    this.setMove(RNG_ATTACK_BLOCK, Intent.ATTACK_DEFEND, (this.damage.get(8)).base);
+                    this.setMove(RNG_ATTACK_BLOCK, Intent.ATTACK_DEFEND, (this.damage.get(4)).base);
                     break;
                 case PHASE_2:
-                    this.setMove(RNG_ATTACK_BLOCK, Intent.ATTACK_DEFEND, (this.damage.get(9)).base);
+                    this.setMove(RNG_ATTACK_BLOCK, Intent.ATTACK_DEFEND, (this.damage.get(5)).base);
                     break;
                 case PHASE_3:
-                    this.setMove(RNG_ATTACK_BLOCK, Intent.ATTACK_DEFEND, (this.damage.get(10)).base);
+                    this.setMove(RNG_ATTACK_BLOCK, Intent.ATTACK_DEFEND, (this.damage.get(6)).base);
                     break;
                 case PHASE_4:
-                    this.setMove(RNG_ATTACK_BLOCK, Intent.ATTACK_DEFEND, (this.damage.get(11)).base);
+                    this.setMove(RNG_ATTACK_BLOCK, Intent.ATTACK_DEFEND, (this.damage.get(7)).base);
                     break;
                 default: break;
             }
@@ -898,13 +857,19 @@ public class Nitori extends CustomMonster {
                 default: break;
             }
         }
-        else if(!(RNG_FRAIL_DONE)){
+        else if(!(RNG_FRAIL_ATTACK_DONE)){
             switch (getState()) {
                 case PHASE_1:
+                    this.setMove(RNG_FRAIL_ATTACK, Intent.ATTACK_DEBUFF, (this.damage.get(4)).base);
+                    break;
                 case PHASE_2:
+                    this.setMove(RNG_FRAIL_ATTACK, Intent.ATTACK_DEBUFF, (this.damage.get(5)).base);
+                    break;
                 case PHASE_3:
+                    this.setMove(RNG_FRAIL_ATTACK, Intent.ATTACK_DEBUFF, (this.damage.get(6)).base);
+                    break;
                 case PHASE_4:
-                    this.setMove(RNG_FRAIL, Intent.STRONG_DEBUFF);
+                    this.setMove(RNG_FRAIL_ATTACK, Intent.ATTACK_DEBUFF, (this.damage.get(7)).base);
                     break;
                 default: break;
             }
@@ -912,16 +877,16 @@ public class Nitori extends CustomMonster {
         else {
             switch (getState()) {
                 case PHASE_1:
-                    this.setMove(TURN_CYCLE_END_ATTACK, Intent.ATTACK, (this.damage.get(20)).base);
+                    this.setMove(TURN_CYCLE_END_ATTACK, Intent.ATTACK, (this.damage.get(8)).base);
                     break;
                 case PHASE_2:
-                    this.setMove(TURN_CYCLE_END_ATTACK, Intent.ATTACK, (this.damage.get(21)).base);
+                    this.setMove(TURN_CYCLE_END_ATTACK, Intent.ATTACK, (this.damage.get(9)).base);
                     break;
                 case PHASE_3:
-                    this.setMove(TURN_CYCLE_END_ATTACK, Intent.ATTACK, (this.damage.get(22)).base);
+                    this.setMove(TURN_CYCLE_END_ATTACK, Intent.ATTACK, (this.damage.get(10)).base);
                     break;
                 case PHASE_4:
-                    this.setMove(TURN_CYCLE_END_ATTACK, Intent.ATTACK, (this.damage.get(23)).base);
+                    this.setMove(TURN_CYCLE_END_ATTACK, Intent.ATTACK, (this.damage.get(11)).base);
                     break;
                 default: break;
             }

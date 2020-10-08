@@ -197,9 +197,23 @@
   },
   "Gensokyo:NitoriBomb": {
     "NAME": "Fervent Star",
-    "FLAVOR": "Said to transform into the user's danmaku, this star possesses immense power.",
+    "FLAVOR": "Hey...! NL You're just going through the files and looking for stuff you missed, aren't you?",
     "DESCRIPTIONS": [
       "When purchased, remove #b%s card from your deck."
+    ]
+  },
+  "Gensokyo:NitoriRandom": {
+    "NAME": "Unknown Invention",
+    "FLAVOR": "Hey...! NL You're just going through the files and looking for stuff you missed, aren't you?",
+    "DESCRIPTIONS": [
+      "When purchased, gain a random common, uncommon or rare relic."
+    ]
+  },
+  "Gensokyo:NitoriTicket": {
+    "NAME": "Aqua Ticket",
+    "FLAVOR": "A memento from Nitori.",
+    "DESCRIPTIONS": [
+      "Items in Nitori's shop cost #b%1$s%% less. NL Gain #b%2$s #yGold. NL Whenever you climb a floor, gain #b%3$s #yGold. NL Whenever you add a card to your deck, gain #b%4$s #yGold."
     ]
   }
 }

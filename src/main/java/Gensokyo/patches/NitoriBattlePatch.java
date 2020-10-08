@@ -20,7 +20,7 @@ import static Gensokyo.GensokyoMod.makeUIPath;
 public class NitoriBattlePatch {
 
     @SpirePatch(clz = AbstractPlayer.class, method = "damage", paramtypez = {DamageInfo.class})
-    public static class ImmortalDeathPrevention {
+    public static class DeathPrevention {
         @SpireInsertPatch(
                 locator = Locator.class
         )

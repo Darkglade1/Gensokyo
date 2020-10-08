@@ -22,8 +22,8 @@ public class NitoriStoreScreen {
     protected static NitoriStoreTools.SpinningRelicItems relics;
     protected static NitoriStoreTools.CosmoBanners banners;
     protected static NitoriStoreTools.purgeRelicsPage purgeRelics;
+    protected static NitoriStoreTools.randomRelicsPage randomRelics;
 
-    private static UIStrings questLogStrings;
     protected static float yScale;
     protected static int currentRenderSwitch;
     protected static float rugY = Settings.HEIGHT / 2.0F + 540.0F * Settings.scale;
@@ -43,6 +43,7 @@ public class NitoriStoreScreen {
         cards = new NitoriStoreTools.SpinningCardItems();
         relics = new NitoriStoreTools.SpinningRelicItems();
         purgeRelics = new NitoriStoreTools.purgeRelicsPage();
+        randomRelics = new NitoriStoreTools.randomRelicsPage();
         banners = new NitoriStoreTools.CosmoBanners();
     }
 
@@ -92,8 +93,12 @@ public class NitoriStoreScreen {
             case 2:
                 relics.render(sb);
                 break;
+            case 3:
+                randomRelics.render(sb);
+                break;
             case 4:
                 purgeRelics.render(sb);
+                break;
             default:
                 break;
         }
@@ -101,12 +106,16 @@ public class NitoriStoreScreen {
     }
 
     public static void update() {
+        purgeRelics.update();
         switch (currentRenderSwitch){
             case 1:
                 cards.update();
                 break;
             case 2:
                 relics.update();
+                break;
+            case 3:
+                randomRelics.update();
                 break;
             case 4:
                 purgeRelics.update();

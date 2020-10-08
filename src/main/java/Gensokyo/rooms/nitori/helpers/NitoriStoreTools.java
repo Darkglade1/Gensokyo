@@ -4,7 +4,9 @@ import Gensokyo.dungeon.Gensokyo;
 import Gensokyo.dungeon.Gensokyoer;
 import Gensokyo.patches.NitoriShopPatches;
 import Gensokyo.rooms.nitori.NitoriBomb;
+import Gensokyo.rooms.nitori.NitoriRandom;
 import Gensokyo.rooms.nitori.NitoriStoreScreen;
+import Gensokyo.rooms.nitori.NitoriTicket;
 import actlikeit.dungeons.CustomDungeon;
 import basemod.ReflectionHacks;
 import com.badlogic.gdx.Gdx;
@@ -29,11 +31,12 @@ import com.megacrit.cardcrawl.localization.UIStrings;
 import com.megacrit.cardcrawl.relics.AbstractRelic;
 import com.megacrit.cardcrawl.vfx.BobEffect;
 import com.megacrit.cardcrawl.vfx.FastCardObtainEffect;
+import com.megacrit.cardcrawl.vfx.cardManip.PurgeCardEffect;
+import org.apache.logging.log4j.core.appender.rolling.action.IfAll;
 
 import java.util.ArrayList;
 
-import static Gensokyo.GensokyoMod.makeID;
-import static Gensokyo.GensokyoMod.makeUIPath;
+import static Gensokyo.GensokyoMod.*;
 import static Gensokyo.patches.NitoriShopPatches.NITORI_STORE;
 import static Gensokyo.rooms.nitori.helpers.gensokyoCardHelper.getNitoriShopCards;
 import static com.badlogic.gdx.graphics.Color.WHITE;
@@ -133,6 +136,7 @@ public class NitoriStoreTools {
             this.row = row;
             price = 99;
             price = MathUtils.round(price * AbstractDungeon.merchantRng.random(0.95F, 1.05F));
+            if(AbstractDungeon.player.hasRelic(NitoriTicket.ID)){ price /= 2; }
             card.targetDrawScale = 0.75F;
             card.current_x = DRAW_START_X + card.IMG_WIDTH_S / 2F + padX * padding;
             card.target_x = card.current_x;
@@ -216,19 +220,17 @@ public class NitoriStoreTools {
             ArrayList<AbstractRelic> cosmoRelics;
             ArrayList<AbstractRelic> commonRelics;
             ArrayList<AbstractRelic> uncommonRelics;
-            ArrayList<AbstractRelic> shopRelics = new ArrayList<>();
-            ArrayList<AbstractRelic> bossRelics = new ArrayList<>();
-
+            ArrayList<AbstractRelic> shopRelics;
 
             commonRelics = getRandomRelics(AbstractRelic.RelicTier.COMMON, 5);
             uncommonRelics = getRandomRelics(AbstractRelic.RelicTier.UNCOMMON, 5);
             cosmoRelics = getRandomRelics(AbstractRelic.RelicTier.RARE, 5);
             shopRelics = getRandomRelics(AbstractRelic.RelicTier.SHOP, 5);
 
-            for(AbstractRelic c: commonRelics) { relics.add(c); }
-            for(AbstractRelic c: uncommonRelics) { relics.add(c); }
-            for(AbstractRelic c: cosmoRelics) { relics.add(c); }
-            for(AbstractRelic c: shopRelics) { relics.add(c); }
+            relics.addAll(commonRelics);
+            relics.addAll(uncommonRelics);
+            relics.addAll(cosmoRelics);
+            relics.addAll(shopRelics);
 
             int padding = 0;
             int row = 0;
@@ -240,16 +242,11 @@ public class NitoriStoreTools {
         }
 
         public void render(SpriteBatch sb) {
-            for (RelicItem relicItem : relicItems) {
-                relicItem.render(sb);
-            }
+            for (RelicItem relicItem : relicItems) { relicItem.render(sb); }
         }
 
         public void update() {
-            for(RelicItem relicItem : relicItems) {
-                relicItem.update();
-            }
-
+            for(RelicItem relicItem : relicItems) { relicItem.update(); }
             relicItems.removeIf((relicItem) -> {
                 if (relicItem.isHovered() && InputHelper.justClickedLeft) {
                     if (relicItem.canBuy()) {
@@ -257,7 +254,7 @@ public class NitoriStoreTools {
                         AbstractDungeon.getCurrRoom().relics.add(relicItem.relic);
                         relicItem.relic.instantObtain(AbstractDungeon.player, AbstractDungeon.player.relics.size(), true);
                         relicItem.relic.flash();
-                        AbstractDungeon.player.gold -= relicItem.price;
+                        AbstractDungeon.player.loseGold(relicItem.price);
                         return true;
                     }
                     CardCrawlGame.sound.play("UI_CLICK_2");
@@ -275,6 +272,7 @@ public class NitoriStoreTools {
         protected AbstractRelic relic;
         protected Hitbox hb;
         protected int row;
+        protected boolean shopBypass = false;
 
         public RelicItem(AbstractRelic relic, int padding, int row) {
             this.relic = relic;
@@ -295,6 +293,7 @@ public class NitoriStoreTools {
                     break;
             }
             price = MathUtils.round(price * AbstractDungeon.merchantRng.random(0.95F, 1.05F));
+            if(AbstractDungeon.player.hasRelic(NitoriTicket.ID)){ price /= 2; }
             relic.currentX = DRAW_START_X + relic.img.getWidth() / 2F + padX * padding;
             relic.targetX = relic.currentX;
             relic.currentY = row == 0 ? NitoriStoreScreen.getPullY() + TOP_TOP_ROW_Y : (row == 1 ? NitoriStoreScreen.getPullY() + TOP_MIDDLE_ROW_Y : NitoriStoreScreen.getPullY() + BOTTOM_ROW_Y);
@@ -355,10 +354,7 @@ public class NitoriStoreTools {
                     1.0f);
 
             Color fontColor = WHITE.cpy();
-            if(!this.canBuy()) {
-                fontColor = Color.RED.cpy();
-            }
-
+            if(!this.canBuy()) { fontColor = Color.RED.cpy(); }
             FontHelper.cardTitleFont.getData().setScale(1.0f);
             FontHelper.renderFontCentered(sb, FontHelper.cardTitleFont, "" + this.price,
                     relic.currentX,
@@ -385,7 +381,6 @@ public class NitoriStoreTools {
         protected static float yScale = 0f;
 
         public CosmoBanners() {
-
             for(int i = 0; i <= 4; i++){ banners.add(new CosmoBanner(i)); }
         }
 
@@ -398,8 +393,6 @@ public class NitoriStoreTools {
         }
 
         public void update() {
-            boolean shouldRotate = true;
-            boolean hasPurchased = false;
             for(CosmoBanner c : banners) {
                 if(c.type != 0) { c.update(); }
             }
@@ -479,17 +472,6 @@ public class NitoriStoreTools {
             sb.setColor(WHITE.cpy());
             if(isHovered()){ sb.draw(currentBanner, xPos, yPos + this.bobEffect.y, 0, 0, 500f, 116f, Settings.scale, Settings.scale, 0.0f, 0, 0, 500, 116, false, false); }
             else { sb.draw(currentBanner, xPos, yPos, 0, 0, 500f, 116f, Settings.scale, Settings.scale, 0.0f, 0, 0, 500, 116, false, false); }
-
-
-                if(isHovered()) {
-                //Render a light alpha version of the quest texture above the normal one to make it look highlighted
-                //sb.setBlendFunction(770, 1);
-                //sb.setColor(Settings.HALF_TRANSPARENT_WHITE_COLOR);
-                sb.draw(ImageMaster.PROCEED_BUTTON, xPos - 50F, yPos, 0, 0, 500f, 116f, Settings.scale, Settings.scale, 0.0f, 0, 0, 500, 116, false, false);
-                //sb.setBlendFunction(770, 771);
-                //sb.setColor(Color.WHITE);
-            }
-
             if(hb.justHovered) { CardCrawlGame.sound.play("UI_HOVER"); }
             hb.render(sb);
         }
@@ -528,31 +510,44 @@ public class NitoriStoreTools {
             int price = 75;
             for(RelicItem relic : relicItems){
                 relic.price = price;
+                if(AbstractDungeon.player.hasRelic(NitoriTicket.ID)){ relic.price /= 2; }
                 price+= 25;
             }
         }
 
         public void render(SpriteBatch sb) {
-            for (RelicItem relicItem : relicItems) {
-                relicItem.render(sb);
-            }
+            for (RelicItem relicItem : relicItems) { relicItem.render(sb); }
+            relicItems.removeIf((relicItem) -> {
+                if (relicItem.isHovered() && InputHelper.justClickedLeft) {
+                    if (relicItem.canBuy()) {
+                        relicItem.shopBypass = true;
+                        AbstractDungeon.previousScreen = NITORI_STORE;
+                        AbstractDungeon.gridSelectScreen.open(CardGroup.getGroupWithoutBottledCards(AbstractDungeon.player.masterDeck.getPurgeableCards()), 1, TEXT[0], false, false, false, true);
+                        //AbstractDungeon.player.gold -= relicItem.price;
+                        AbstractDungeon.overlayMenu.cancelButton.show("Return");
+                    }
+                    CardCrawlGame.sound.play("UI_CLICK_2");
+                }
+                else if (relicItem.shopBypass){
+                    if(!AbstractDungeon.gridSelectScreen.selectedCards.isEmpty()) {
+                        AbstractDungeon.player.loseGold(relicItem.price);
+                        CardCrawlGame.sound.play("SHOP_PURCHASE");
+                        for(AbstractCard card : AbstractDungeon.gridSelectScreen.selectedCards) {
+                            CardCrawlGame.metricData.addPurgedItem(card.getMetricID());
+                            AbstractDungeon.topLevelEffects.add(new PurgeCardEffect(card, Settings.WIDTH / 2f, Settings.HEIGHT / 2f));
+                            AbstractDungeon.player.masterDeck.removeCard(card);
+                        }
+                        AbstractDungeon.gridSelectScreen.selectedCards.clear();
+                        AbstractDungeon.overlayMenu.cancelButton.show("Return");
+                        return true;
+                    }
+                }
+                return false;
+            });
         }
 
         public void update() {
             for(RelicItem relicItem : relicItems) { relicItem.update(); }
-            relicItems.removeIf((relicItem) -> {
-                if (relicItem.isHovered() && InputHelper.justClickedLeft) {
-                    if (relicItem.canBuy()) {
-                        //AbstractDungeon.previousScreen = NITORI_STORE;
-                        AbstractDungeon.gridSelectScreen.open(CardGroup.getGroupWithoutBottledCards(AbstractDungeon.player.masterDeck.getPurgeableCards()), 1, TEXT[0], false, false, false, true);
-                        AbstractDungeon.player.gold -= relicItem.price;
-                        AbstractDungeon.overlayMenu.cancelButton.show("Return");
-                        return true;
-                    }
-                    CardCrawlGame.sound.play("UI_CLICK_2");
-                }
-                return false;
-            });
         }
 
         public ArrayList<RelicItem> getRelicItems() {
@@ -568,10 +563,15 @@ public class NitoriStoreTools {
 
         public randomRelicsPage() {
             ArrayList<AbstractRelic> relics = new ArrayList<>();
+            ArrayList<AbstractRelic> correspondingRelics = gensokyoRelicHelper.getRandomRelics(20);
             ArrayList<AbstractRelic> purgeRelics;
             purgeRelics = getRandomRelics(AbstractRelic.RelicTier.COMMON, 20);
+            int i = 0;
+            for(AbstractRelic r: correspondingRelics){
+                logger.info(r.name);
+            }
             for(AbstractRelic c: purgeRelics) {
-                c = new NitoriBomb();
+                c = new NitoriRandom();
                 relics.add(c);
             }
             int padding = 0;
@@ -581,9 +581,10 @@ public class NitoriStoreTools {
                 if(padding % 5 == 0){ padding = 0; row++; }
             }
             int price = 75;
+            logger.info("dum");
             for(RelicItem relic : relicItems){
                 relic.price = price;
-                price+= 25;
+                if(AbstractDungeon.player.hasRelic(NitoriTicket.ID)){ relic.price /= 2; }
             }
         }
 
@@ -598,9 +599,12 @@ public class NitoriStoreTools {
             relicItems.removeIf((relicItem) -> {
                 if (relicItem.isHovered() && InputHelper.justClickedLeft) {
                     if (relicItem.canBuy()) {
-                        AbstractDungeon.previousScreen = NITORI_STORE;
-                        AbstractDungeon.gridSelectScreen.open(CardGroup.getGroupWithoutBottledCards(AbstractDungeon.player.masterDeck.getPurgeableCards()), 1, TEXT[0], false, false, true, true);
-                        AbstractDungeon.player.gold -= relicItem.price;
+                        CardCrawlGame.sound.play("SHOP_PURCHASE");
+                        AbstractRelic r = gensokyoRelicHelper.getRandomRelic();
+                        AbstractDungeon.getCurrRoom().relics.add(r);
+                        r.instantObtain(AbstractDungeon.player, AbstractDungeon.player.relics.size(), true);
+                        r.flash();
+                        AbstractDungeon.player.loseGold(relicItem.price);
                         return true;
                     }
                     CardCrawlGame.sound.play("UI_CLICK_2");

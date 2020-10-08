@@ -20,6 +20,7 @@ public class NitoriRoom extends AbstractRoom {
 
     @Override
     public void onPlayerEntry() {
+        playBgmInstantly("神々が恋した幻想郷.ogg");
         AbstractDungeon.overlayMenu.proceedButton.hide();
         NitoriStoreScreen.init();
         AbstractDungeon.topLevelEffects.clear();

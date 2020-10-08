@@ -2,6 +2,7 @@ package Gensokyo.events.extra;
 
 import Gensokyo.rooms.nitori.Nitori;
 import Gensokyo.rooms.nitori.NitoriStoreScreen;
+import Gensokyo.rooms.nitori.NitoriTicket;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.core.Settings;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
@@ -42,8 +43,7 @@ public class CandidFriend extends AbstractEvent {
     }
 
     @Override
-    public void onEnterRoom(){
-    }
+    public void onEnterRoom(){ }
 
     protected void buttonEffect(int buttonPressed) {
         switch (this.screen) {
@@ -52,7 +52,7 @@ public class CandidFriend extends AbstractEvent {
                     case 0:
                         this.screen = CurScreen.PRE_COMBAT;
                         this.roomEventText.updateBodyText(DESCRIPTIONS[1]);
-                        this.roomEventText.updateDialogOption(0, OPTIONS[2]);
+                        this.roomEventText.updateDialogOption(0, OPTIONS[3]);
                         this.roomEventText.clearRemainingOptions();
                         //logMetric("Mysterious Sphere", "Fight");
                         return;
@@ -68,12 +68,12 @@ public class CandidFriend extends AbstractEvent {
                 }
                 break;
             case PRE_COMBAT:
-                if (Settings.isDailyRun) {
-                    AbstractDungeon.getCurrRoom().addGoldToRewards(AbstractDungeon.miscRng.random(50));
-                } else {
-                    AbstractDungeon.getCurrRoom().addGoldToRewards(AbstractDungeon.miscRng.random(45, 55));
-                }
-                AbstractDungeon.getCurrRoom().addRelicToRewards(AbstractDungeon.returnRandomScreenlessRelic(AbstractRelic.RelicTier.RARE));
+                CardCrawlGame.music.fadeOutTempBGM();
+                AbstractDungeon.scene.fadeOutAmbiance();
+                CardCrawlGame.music.unsilenceBGM();
+                if (Settings.isDailyRun) { AbstractDungeon.getCurrRoom().addGoldToRewards(AbstractDungeon.miscRng.random(50));
+                } else { AbstractDungeon.getCurrRoom().addGoldToRewards(AbstractDungeon.miscRng.random(45, 55)); }
+                AbstractDungeon.getCurrRoom().addRelicToRewards(new NitoriTicket());
                 if (this.img != null) {
                     this.img.dispose();
                     this.img = null;

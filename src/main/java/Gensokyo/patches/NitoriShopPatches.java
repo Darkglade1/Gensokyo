@@ -121,16 +121,14 @@ public class NitoriShopPatches {
                 shopNodes.get(rand).setRoom(new NitoriRoom());
                 shopNodes.get(rand).hasEmeraldKey = true;
             }
-
-            // crash on starting new game
-            /*
             else{
-                rand2 = AbstractDungeon.mapRng.random(editableNodes.size() - 1);
-                editableNodes.get(rand2).setRoom(new NitoriRoom());
-                editableNodes.get(rand2).hasEmeraldKey = true;
+                try{
+                    rand2 = AbstractDungeon.mapRng.random(editableNodes.size() - 1);
+                    editableNodes.get(rand2).setRoom(new NitoriRoom());
+                    editableNodes.get(rand2).hasEmeraldKey = true;
+                }
+                catch (Exception e){}
             }
-
-             */
         }
     }
 }

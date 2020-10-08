@@ -13,7 +13,6 @@ import static Gensokyo.GensokyoMod.makeRelicPath;
 public class NitoriBomb extends CustomRelic {
 
     public static final String ID = GensokyoMod.makeID(NitoriBomb.class.getSimpleName());
-
     private static final Texture IMG = TextureLoader.getTexture(makeRelicPath("NitoriBomb.png"));
     private static final Texture OUTLINE = TextureLoader.getTexture(makeRelicOutlinePath("NitoriBomb.png"));
     private static final int REMOVE_AMOUNT = 1;
