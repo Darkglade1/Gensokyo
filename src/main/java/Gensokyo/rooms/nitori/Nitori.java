@@ -72,14 +72,14 @@ public class Nitori extends CustomMonster {
     // PHASE_4 refers to post Act 3 Boss Nitori.
     public enum nitoriStates{PHASE_1, PHASE_2, PHASE_3, PHASE_4}
     // HP information for Nitori (PHASE_1)
-    private static final int HP_0BOSS = 250 + 140 + 240 / 3;
-    private static final int HP_0BOSS_A9 = 264 + 150 + 250 / 3;
+    private static final int HP_0BOSS = (250 + 140 + 240) / 3;
+    private static final int HP_0BOSS_A9 = (264 + 150 + 250) / 3;
     // HP information for Nitori (PHASE_2)
-    private static final int HP_1BOSS = 420 + 282 + 300 / 3;
-    private static final int HP_1BOSS_A9 = 440 + 300 + 320 / 3;
+    private static final int HP_1BOSS = (420 + 282 + 300) / 3;
+    private static final int HP_1BOSS_A9 = (440 + 300 + 320) / 3;
     // HP information for Nitori (PHASE_3) && PHASE_4 (HP_2BOSS_A9)
-    private static final int HP_2BOSS = (250 * 2) + (300 * 2) + 456 / 3;
-    private static final int HP_2BOSS_A9 = (265 * 2) + (320 * 2) + 480 / 3;
+    private static final int HP_2BOSS = ((250 * 2) + (300 * 2) + 456) / 3;
+    private static final int HP_2BOSS_A9 = ((265 * 2) + (320 * 2) + 480) / 3;
     // Move Bytes for Nitori.
     // These moves often perform similar actions, but vary in interaction between phases.
     private static final byte OPENING = 1;
@@ -234,10 +234,7 @@ public class Nitori extends CustomMonster {
     public nitoriStates getState(){ return currentState; }
     public void setState(nitoriStates state){ currentState = state; }
     public int getGlobalCounter(){ return globalCounter; }
-    public void incrementGlobalCounter(){
-        globalCounter++;
-        // todo: decrement power
-    }
+    public void incrementGlobalCounter(){ globalCounter++; }
     public void setGlobalCounter(int value){ globalCounter = value; }
     public boolean getBattleEnd(){
         switch (getState()){
