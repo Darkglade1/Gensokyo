@@ -26,6 +26,7 @@ import Gensokyo.monsters.act2.Reisen;
 import Gensokyo.monsters.act2.Tenshi;
 import Gensokyo.monsters.act2.Yuyuko;
 import Gensokyo.monsters.act1.marisaMonsters.Patchouli;
+import Gensokyo.rooms.nitori.Nitori;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.Texture;
@@ -86,7 +87,8 @@ public class GensokyoScene extends AbstractScene {
         }
         if (room.monsters != null) {
             for (AbstractMonster mo : room.monsters.monsters) {
-                if (mo instanceof Mamizou) {
+                if (mo instanceof Nitori) { this.bg = this.atlas.findRegion("mod/GenbuRavineCloudy"); }
+                else if (mo instanceof Mamizou) {
                     this.bg = this.atlas.findRegion("mod/TanukiForestNight");
                 } else if (mo instanceof Aya) {
                     this.bg = this.atlas.findRegion("mod/FancyPlace");
