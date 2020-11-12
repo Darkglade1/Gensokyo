@@ -24,10 +24,11 @@ public class YingYangFox extends AbstractPet {
     private static final int block = 6;
     private static final int heal = 4;
 
-    public YingYangFox(int HP, float x, float y) {
-        super(NAME, ID, HP, -8.0F, 10.0F, 130.0F, 140.0F, "GensokyoResources/images/monsters/Animals/Intents/blank.png", x, y);
+    public YingYangFox(int MAX_HP, int current_hp, float x, float y) {
+        super(NAME, ID, MAX_HP, -8.0F, 10.0F, 130.0F, 140.0F, "GensokyoResources/images/monsters/Animals/Intents/blank.png", x, y);
         this.animation = new BetterSpriterAnimation("GensokyoResources/images/monsters/Animals/Spriter/AnimalAnimation.scml");
-        setAnimal("Crow");
+        this.currentHealth = current_hp;
+        setAnimal("Fox");
         addMoves();
     }
 
@@ -41,7 +42,7 @@ public class YingYangFox extends AbstractPet {
         moves.addMove(new MinionMove(DIALOG[1], this, new Texture("GensokyoResources/images/monsters/Animals/Intents/defend move.png"),MOVES[2] + block + MOVES[3], () -> {
             AbstractDungeon.actionManager.addToBottom(new GainBlockAction(AbstractDungeon.player, this, block));
         }));
-        moves.addMove(new MinionMove(DIALOG[2], this, new Texture("GensokyoResources/images/monsters/Animals/Intents/attack move.png"),MOVES[4] + heal + MOVES[5], () -> {
+        moves.addMove(new MinionMove(DIALOG[2], this, new Texture("GensokyoResources/images/monsters/Animals/Intents/heal.png"),MOVES[4] + heal + MOVES[5], () -> {
             AbstractDungeon.actionManager.addToBottom(new HealAction(this, this, heal));
         }));
     }

@@ -14,7 +14,7 @@ public abstract class AbstractSummonPetCard extends AbstractDefaultCard {
 
     public AbstractSummonPetCard(String ID, String IMG, int COST, CardType TYPE, CardColor COLOR, CardRarity RARITY, CardTarget TARGET) {
         super(ID, IMG, COST, TYPE, COLOR, RARITY, TARGET);
-        exhaust = true;
+        purgeOnUse = true;
         isInnate = true;
         selfRetain = true;
     }
