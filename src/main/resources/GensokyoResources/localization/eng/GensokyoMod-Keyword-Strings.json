@@ -49,5 +49,13 @@
       "Impossible_Request"
     ],
     "DESCRIPTION": "#yRetain. Cannot be #yexhausted. NL Your progress on the requests is tracked no matter where this card is."
+  },
+  {
+    "PROPER_NAME": "Pet",
+    "NAMES": [
+      "Pet",
+      "pet"
+    ],
+    "DESCRIPTION": "A summon that you can issue an order to every turn. If the pet dies, its respective pet card is removed from the deck. The pet’s HP persists between combats and is fully restored when you rest at a campsite. You can only have one pet summoned at a time."
   }
 ]

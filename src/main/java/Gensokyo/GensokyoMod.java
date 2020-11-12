@@ -25,6 +25,7 @@ import Gensokyo.cards.MenInBlack;
 import Gensokyo.cards.MindShatter;
 import Gensokyo.cards.MissMary;
 import Gensokyo.cards.MonkeysPaw;
+import Gensokyo.cards.Pets.SummonYinYangFox;
 import Gensokyo.cards.Philosophy;
 import Gensokyo.cards.RedCapeBlueCape;
 import Gensokyo.cards.ReflexRadar;
@@ -761,6 +762,8 @@ public class GensokyoMod implements
         BaseMod.addCard(new Apocalypse());
         BaseMod.addCard(new SlitMouthedWoman());
         BaseMod.addCard(new Doppelganger());
+
+        BaseMod.addCard(new SummonYinYangFox());
 
         if (hasMarisa) {
             BaseMod.addCard(new MarisaTwilightSpark());

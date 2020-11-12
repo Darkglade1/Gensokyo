@@ -433,6 +433,22 @@
     ],
     "NAME": "Chomper"
   },
+  "Gensokyo:YinYangFox": {
+    "NAME": "Yin Yang Fox",
+    "DIALOG": [
+      "Attack",
+      "Defend",
+      "Heal"
+    ],
+    "MOVES": [
+      "Pet deals ",
+      " damage to a random enemy.",
+      "You gain ",
+      " #yBlock.",
+      "Pet heals ",
+      " HP."
+    ]
+  },
   "Gensokyo:Sakuya": {
     "MOVES": [
       "World Creation Press",

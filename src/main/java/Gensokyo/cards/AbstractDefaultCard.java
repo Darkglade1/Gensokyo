@@ -1,6 +1,7 @@
 package Gensokyo.cards;
 
 import basemod.abstracts.CustomCard;
+import com.evacipated.cardcrawl.mod.stslib.fields.cards.AbstractCard.CommonKeywordIconsField;
 
 import static com.megacrit.cardcrawl.core.CardCrawlGame.languagePack;
 
@@ -20,7 +21,7 @@ public abstract class AbstractDefaultCard extends CustomCard {
                                final CardTarget target) {
 
         super(id, languagePack.getCardStrings(id).NAME, img, cost, languagePack.getCardStrings(id).DESCRIPTION, type, color, rarity, target);
-
+        CommonKeywordIconsField.useIcons.set(this, true);
         // Set all the things to their default values.
         isCostModified = false;
         isCostModifiedForTurn = false;
