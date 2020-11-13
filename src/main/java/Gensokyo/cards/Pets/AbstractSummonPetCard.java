@@ -42,11 +42,7 @@ public abstract class AbstractSummonPetCard extends AbstractDefaultCard {
     }
 
     public void updateHP (int new_hp) {
-        System.out.println("updating hp to be " + new_hp);
         magicNumber = baseMagicNumber = misc = new_hp;
-        System.out.println("magic " + magicNumber);
-        System.out.println("base " + baseMagicNumber);
-        System.out.println("misc " + misc);
     }
 
     @Override

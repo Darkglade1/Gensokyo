@@ -4,6 +4,8 @@ import Gensokyo.BetterSpriterAnimation;
 import Gensokyo.cards.Pets.AbstractSummonPetCard;
 import com.evacipated.cardcrawl.mod.stslib.StSLib;
 import com.megacrit.cardcrawl.cards.AbstractCard;
+import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
+import com.megacrit.cardcrawl.vfx.cardManip.ExhaustCardEffect;
 
 public abstract class AbstractPet extends AbstractAnimatedFriendlyMonster {
 
@@ -13,8 +15,6 @@ public abstract class AbstractPet extends AbstractAnimatedFriendlyMonster {
         super(name, id, max_health, hb_x,  hb_y, hb_w, hb_h, "GensokyoResources/images/monsters/Animals/Intents/blank.png", x, y);
         this.animation = new BetterSpriterAnimation("GensokyoResources/images/monsters/Animals/Spriter/AnimalAnimation.scml");
         this.currentHealth = current_hp;
-        System.out.println("current health " + currentHealth);
-        System.out.println("passed in current_hp " + current_hp);
     }
 
     public void setAssociatedCard(AbstractSummonPetCard summonCard) {
@@ -33,4 +33,13 @@ public abstract class AbstractPet extends AbstractAnimatedFriendlyMonster {
     protected void setAnimal(String animal) {
         ((BetterSpriterAnimation)this.animation).myPlayer.setAnimation(animal);
     }
+
+    @Override
+    public void die() {
+        super.die();
+        if (StSLib.getMasterDeckEquivalent(associatedCard) != null) {
+            AbstractDungeon.player.masterDeck.removeCard(StSLib.getMasterDeckEquivalent(associatedCard));
+        }
+    }
+
 }
