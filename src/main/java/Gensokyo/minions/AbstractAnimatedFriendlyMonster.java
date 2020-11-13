@@ -10,12 +10,15 @@ import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import kobting.friendlyminions.monsters.AbstractFriendlyMonster;
 
-public class AbstractAnimatedFriendlyMonster extends AbstractFriendlyMonster {
+public abstract class AbstractAnimatedFriendlyMonster extends AbstractFriendlyMonster {
     protected AbstractAnimation animation;
 
     public AbstractAnimatedFriendlyMonster(String name, String id, int health, float hb_x, float hb_y, float hb_w, float hb_h, String image, float x, float y) {
         super(name, id, health, hb_x,  hb_y, hb_w, hb_h, image, x, y);
+        addMoves();
     }
+
+    protected abstract void addMoves();
 
     public void render(SpriteBatch sb) {
         super.render(sb);

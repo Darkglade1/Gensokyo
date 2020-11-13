@@ -4,7 +4,6 @@ import Gensokyo.GensokyoMod;
 import Gensokyo.minions.YingYangFox;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
-import com.megacrit.cardcrawl.monsters.MonsterGroup;
 import kobting.friendlyminions.helpers.BasePlayerMinionHelper;
 
 import static Gensokyo.GensokyoMod.makeCardPath;
@@ -21,17 +20,18 @@ public class SummonYinYangFox extends AbstractSummonPetCard {
 
     public SummonYinYangFox() {
         super(ID, IMG, COST, TYPE, COLOR, RARITY, TARGET);
-        magicNumber = baseMagicNumber = misc = LARGE_HP;
+        misc = max_hp = LARGE_HP;
     }
 
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
-        MonsterGroup playerMinions = BasePlayerMinionHelper.getMinions(p);
-        int minionCount = playerMinions.monsters.size();
-        if (BasePlayerMinionHelper.getMaxMinions(p) <= minionCount) {
-            BasePlayerMinionHelper.changeMaxMinionAmount(p, minionCount + 1);
-        }
-        BasePlayerMinionHelper.addMinion(p, new YingYangFox(LARGE_HP, magicNumber, PET_X_POSITION, PET_Y_POSITION));
+        super.use(p, m);
+        YingYangFox fox =  new YingYangFox(max_hp, magicNumber, PET_X_POSITION, PET_Y_POSITION);
+        fox.setAssociatedCard(this);
+        BasePlayerMinionHelper.addMinion(p, fox);
+        System.out.println("fox magic " + magicNumber);
+        System.out.println("fox base " + baseMagicNumber);
+        System.out.println("fox misc " + misc);
     }
 
 }
