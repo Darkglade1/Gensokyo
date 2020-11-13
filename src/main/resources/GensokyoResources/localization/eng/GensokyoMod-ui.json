@@ -89,5 +89,10 @@
     "TEXT": [
       " NL Exhaust."
     ]
+  },
+  "Gensokyo:PetMisc": {
+    "TEXT": [
+      "I can only have one pet out at a time!"
+    ]
   }
 }

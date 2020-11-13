@@ -25,10 +25,11 @@ public class SummonYinYangFox extends AbstractSummonPetCard {
 
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
-        super.use(p, m);
-        YingYangFox fox =  new YingYangFox(max_hp, magicNumber, PET_X_POSITION, PET_Y_POSITION);
-        fox.setAssociatedCard(this);
-        BasePlayerMinionHelper.addMinion(p, fox);
+        if (!playerHasPet()) {
+            super.use(p, m);
+            YingYangFox fox =  new YingYangFox(max_hp, magicNumber, PET_X_POSITION, PET_Y_POSITION);
+            fox.setAssociatedCard(this);
+            BasePlayerMinionHelper.addMinion(p, fox);
+        }
     }
-
 }

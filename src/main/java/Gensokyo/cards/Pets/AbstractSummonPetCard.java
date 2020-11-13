@@ -1,13 +1,19 @@
 package Gensokyo.cards.Pets;
 
+import Gensokyo.GensokyoMod;
 import Gensokyo.cards.AbstractDefaultCard;
+import Gensokyo.minions.AbstractPet;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
+import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.core.Settings;
+import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.monsters.MonsterGroup;
 import kobting.friendlyminions.helpers.BasePlayerMinionHelper;
 
 public abstract class AbstractSummonPetCard extends AbstractDefaultCard {
+    public static final String TEXT_ID = GensokyoMod.makeID("PetMisc");
+    public static final String[] UI_TEXT = CardCrawlGame.languagePack.getUIString(TEXT_ID).TEXT;
     float scaleWidth = 1.0F * Settings.scale;
     float scaleHeight = Settings.scale;
     public final float PET_X_POSITION = -1300.0f * scaleWidth;
@@ -35,6 +41,19 @@ public abstract class AbstractSummonPetCard extends AbstractDefaultCard {
     }
 
     @Override
+    public boolean canUse(AbstractPlayer p, AbstractMonster m) {
+        boolean canUse = super.canUse(p, m);
+        if (!canUse) {
+            return false;
+        } else if (playerHasPet()) {
+            this.cantUseMessage = UI_TEXT[0];
+            return false;
+        } else {
+            return canUse;
+        }
+    }
+
+    @Override
     public void update() {
         super.update();
         //because misc gets set after the card is constructed somewhere and I'm too lazy to track down where and patch there
@@ -47,5 +66,15 @@ public abstract class AbstractSummonPetCard extends AbstractDefaultCard {
 
     @Override
     public void upgrade() {
+    }
+
+    public static boolean playerHasPet() {
+        MonsterGroup playerMinions = BasePlayerMinionHelper.getMinions(AbstractDungeon.player);
+        for (AbstractMonster mo : playerMinions.monsters) {
+            if (mo instanceof AbstractPet) {
+                return true;
+            }
+        }
+        return false;
     }
 }
