@@ -16,7 +16,7 @@ public abstract class AbstractSummonPetCard extends AbstractDefaultCard {
     public static final int MEDIUM_HP = 25;
     public static final int SMALL_HP = 20;
 
-    protected int max_hp;
+    public int max_hp;
 
     public AbstractSummonPetCard(String ID, String IMG, int COST, CardType TYPE, CardColor COLOR, CardRarity RARITY, CardTarget TARGET) {
         super(ID, IMG, COST, TYPE, COLOR, RARITY, TARGET);
