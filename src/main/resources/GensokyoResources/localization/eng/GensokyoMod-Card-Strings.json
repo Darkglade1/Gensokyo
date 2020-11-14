@@ -166,8 +166,12 @@
     "NAME": "Yin Yang Fox",
     "DESCRIPTION": "Summon a Yin Yang Fox gensokyo:Pet with !M! HP."
   },
-  "Gensokyo:SummonYinYangFoxPreview": {
-    "NAME": "Yin Yang Fox Moves",
+  "Gensokyo:SummonFieryMouse": {
+    "NAME": "Fiery Mouse",
+    "DESCRIPTION": "Summon a Fiery Mouse gensokyo:Pet with !M! HP."
+  },
+  "Gensokyo:PetPreview": {
+    "NAME": "Moves",
     "DESCRIPTION": ""
   },
   "Gensokyo:MysteriousEgg": {

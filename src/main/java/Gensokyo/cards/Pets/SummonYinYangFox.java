@@ -13,12 +13,6 @@ public class SummonYinYangFox extends AbstractSummonPetCard {
     public static final String ID = GensokyoMod.makeID(SummonYinYangFox.class.getSimpleName());
     public static final String IMG = makeCardPath("YinYangFox.png");
 
-    private static final CardRarity RARITY = CardRarity.SPECIAL;
-    private static final CardTarget TARGET = CardTarget.NONE;
-    private static final CardType TYPE = CardType.SKILL;
-    public static final CardColor COLOR = CardColor.COLORLESS;
-    private static final int COST = 0;
-
     public SummonYinYangFox() {
         super(ID, IMG, COST, TYPE, COLOR, RARITY, TARGET);
         misc = max_hp = LARGE_HP;

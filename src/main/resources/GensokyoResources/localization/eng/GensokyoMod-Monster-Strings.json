@@ -449,6 +449,24 @@
       " HP."
     ]
   },
+  "Gensokyo:FieryMouse": {
+    "NAME": "Fiery Mouse",
+    "DIALOG": [
+      "Attack",
+      "Buff",
+      "Heal"
+    ],
+    "MOVES": [
+      "Pet deals ",
+      " damage to ALL enemies.",
+      "Pet loses ",
+      " HP and ",
+      "you gain ",
+      " Strength.",
+      "you heal ",
+      " HP."
+    ]
+  },
   "Gensokyo:Sakuya": {
     "MOVES": [
       "World Creation Press",
