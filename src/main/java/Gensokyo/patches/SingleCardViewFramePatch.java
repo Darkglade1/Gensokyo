@@ -1,6 +1,6 @@
 package Gensokyo.patches;
 
-import Gensokyo.cards.AbstractUrbanLegendCard;
+import Gensokyo.cards.UrbanLegend.AbstractUrbanLegendCard;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.graphics.g2d.TextureAtlas;
 import com.evacipated.cardcrawl.modthespire.lib.ByRef;

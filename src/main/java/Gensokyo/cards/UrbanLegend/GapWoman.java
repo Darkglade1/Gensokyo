@@ -1,4 +1,4 @@
-package Gensokyo.cards;
+package Gensokyo.cards.UrbanLegend;
 
 import Gensokyo.GensokyoMod;
 import Gensokyo.tags.Tags;
@@ -7,16 +7,16 @@ import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
-import com.megacrit.cardcrawl.powers.VulnerablePower;
+import com.megacrit.cardcrawl.powers.WeakPower;
 
 import java.util.Iterator;
 
 import static Gensokyo.GensokyoMod.makeCardPath;
 
-public class MissMary extends AbstractUrbanLegendCard {
+public class GapWoman extends AbstractUrbanLegendCard {
 
-    public static final String ID = GensokyoMod.makeID(MissMary.class.getSimpleName());
-    public static final String IMG = makeCardPath("MissMary.png");
+    public static final String ID = GensokyoMod.makeID(GapWoman.class.getSimpleName());
+    public static final String IMG = makeCardPath("GapWoman.png");
 
     private static final CardRarity RARITY = CardRarity.SPECIAL;
     private static final CardTarget TARGET = CardTarget.ALL_ENEMY;
@@ -24,11 +24,11 @@ public class MissMary extends AbstractUrbanLegendCard {
 
     private static final int COST = 1;
     private static final int UPGRADED_COST = 0;
-    private static final int VULNERABLE = 99;
+    private static final int WEAK = 99;
 
-    public MissMary() {
+    public GapWoman() {
         super(ID, IMG, COST, TYPE, RARITY, TARGET);
-        magicNumber = baseMagicNumber = VULNERABLE;
+        magicNumber = baseMagicNumber = WEAK;
         exhaust = true;
         tags.add(Tags.URBAN_LEGEND);
     }
@@ -39,7 +39,7 @@ public class MissMary extends AbstractUrbanLegendCard {
 
         while(var3.hasNext()) {
             AbstractMonster mo = (AbstractMonster)var3.next();
-            AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(mo, p, new VulnerablePower(mo, this.magicNumber, false), this.magicNumber, true, AbstractGameAction.AttackEffect.NONE));
+            AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(mo, p, new WeakPower(mo, this.magicNumber, false), this.magicNumber, true, AbstractGameAction.AttackEffect.NONE));
         }
     }
 

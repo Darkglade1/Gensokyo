@@ -1,6 +1,7 @@
-package Gensokyo.cards;
+package Gensokyo.cards.UrbanLegend;
 
 import Gensokyo.GensokyoMod;
+import Gensokyo.cards.AbstractDefaultCard;
 import Gensokyo.util.AssetLoader;
 import basemod.ReflectionHacks;
 import com.badlogic.gdx.graphics.Color;

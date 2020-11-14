@@ -1,7 +1,7 @@
-package Gensokyo.cards;
+package Gensokyo.cards.UrbanLegend;
 
 import Gensokyo.GensokyoMod;
-import Gensokyo.powers.act1.SevenSchoolMysteriesPower;
+import Gensokyo.powers.act1.SlitMouthedWomanPower;
 import Gensokyo.tags.Tags;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
@@ -10,30 +10,29 @@ import com.megacrit.cardcrawl.monsters.AbstractMonster;
 
 import static Gensokyo.GensokyoMod.makeCardPath;
 
-public class SevenSchoolMysteries extends AbstractUrbanLegendCard {
+public class SlitMouthedWoman extends AbstractUrbanLegendCard {
 
-    public static final String ID = GensokyoMod.makeID(SevenSchoolMysteries.class.getSimpleName());
-    public static final String IMG = makeCardPath("SevenSchoolMysteries.png");
+    public static final String ID = GensokyoMod.makeID(SlitMouthedWoman.class.getSimpleName());
+    public static final String IMG = makeCardPath("SlitMouthedWoman.png");
 
     private static final CardRarity RARITY = CardRarity.SPECIAL;
     private static final CardTarget TARGET = CardTarget.SELF;
-    private static final CardType TYPE = CardType.POWER;
+    private static final CardType TYPE = CardType.SKILL;
 
     private static final int COST = 1;
-    private static final int UPGRADED_COST = 0;
-    private static final int BUFF = 2;
-    public static final int cardThreshold = 7;
+    private static final int DEBUFF = 3;
+    private static final int UPGRADED_DEBUFF = 1;
 
-    public SevenSchoolMysteries() {
+    public SlitMouthedWoman() {
         super(ID, IMG, COST, TYPE, RARITY, TARGET);
-        magicNumber = baseMagicNumber = BUFF;
-        defaultSecondMagicNumber = defaultBaseSecondMagicNumber = cardThreshold;
+        magicNumber = baseMagicNumber = DEBUFF;
+        this.exhaust = true;
         tags.add(Tags.URBAN_LEGEND);
     }
 
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
-        AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(p, p, new SevenSchoolMysteriesPower(p, magicNumber)));
+        AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(p, p, new SlitMouthedWomanPower(p, magicNumber)));
     }
 
     @Override
@@ -46,7 +45,7 @@ public class SevenSchoolMysteries extends AbstractUrbanLegendCard {
     public void upgrade() {
         if (!upgraded) {
             upgradeName();
-            upgradeBaseCost(UPGRADED_COST);
+            upgradeMagicNumber(UPGRADED_DEBUFF);
             initializeDescription();
         }
     }

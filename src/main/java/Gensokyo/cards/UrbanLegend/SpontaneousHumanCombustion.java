@@ -1,4 +1,4 @@
-package Gensokyo.cards;
+package Gensokyo.cards.UrbanLegend;
 
 import Gensokyo.GensokyoMod;
 import Gensokyo.powers.act1.SpontaneousHumanCombustionPower;
