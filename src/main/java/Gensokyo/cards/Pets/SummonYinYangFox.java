@@ -1,6 +1,7 @@
 package Gensokyo.cards.Pets;
 
 import Gensokyo.GensokyoMod;
+import Gensokyo.minions.PetUtils;
 import Gensokyo.minions.YingYangFox;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
@@ -25,7 +26,7 @@ public class SummonYinYangFox extends AbstractSummonPetCard {
 
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
-        if (!playerHasPet()) {
+        if (!PetUtils.playerHasPet()) {
             super.use(p, m);
             YingYangFox fox =  new YingYangFox(max_hp, magicNumber, PET_X_POSITION, PET_Y_POSITION);
             fox.setAssociatedCard(this);

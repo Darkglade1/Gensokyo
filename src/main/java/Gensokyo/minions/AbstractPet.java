@@ -5,7 +5,6 @@ import Gensokyo.cards.Pets.AbstractSummonPetCard;
 import com.evacipated.cardcrawl.mod.stslib.StSLib;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
-import com.megacrit.cardcrawl.vfx.cardManip.ExhaustCardEffect;
 
 public abstract class AbstractPet extends AbstractAnimatedFriendlyMonster {
 
@@ -37,7 +36,8 @@ public abstract class AbstractPet extends AbstractAnimatedFriendlyMonster {
     @Override
     public void die() {
         super.die();
-        if (StSLib.getMasterDeckEquivalent(associatedCard) != null) {
+        //We want copies with the same uuid to yeet the same card from master deck
+        if (associatedCard != null && StSLib.getMasterDeckEquivalent(associatedCard) != null) {
             AbstractDungeon.player.masterDeck.removeCard(StSLib.getMasterDeckEquivalent(associatedCard));
         }
     }

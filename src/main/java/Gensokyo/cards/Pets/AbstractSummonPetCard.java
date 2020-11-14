@@ -2,7 +2,8 @@ package Gensokyo.cards.Pets;
 
 import Gensokyo.GensokyoMod;
 import Gensokyo.cards.AbstractDefaultCard;
-import Gensokyo.minions.AbstractPet;
+import Gensokyo.relics.Companionship;
+import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.core.Settings;
@@ -10,6 +11,8 @@ import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.monsters.MonsterGroup;
 import kobting.friendlyminions.helpers.BasePlayerMinionHelper;
+
+import static Gensokyo.minions.PetUtils.playerHasPet;
 
 public abstract class AbstractSummonPetCard extends AbstractDefaultCard {
     public static final String TEXT_ID = GensokyoMod.makeID("PetMisc");
@@ -37,6 +40,9 @@ public abstract class AbstractSummonPetCard extends AbstractDefaultCard {
         int minionCount = playerMinions.monsters.size();
         if (BasePlayerMinionHelper.getMaxMinions(p) <= minionCount) {
             BasePlayerMinionHelper.changeMaxMinionAmount(p, minionCount + 1);
+        }
+        if (!AbstractDungeon.player.hasRelic(Companionship.ID)) {
+            AbstractDungeon.getCurrRoom().spawnRelicAndObtain(Settings.WIDTH / 2.0F, Settings.HEIGHT / 2.0F, new Companionship());
         }
     }
 
@@ -68,13 +74,11 @@ public abstract class AbstractSummonPetCard extends AbstractDefaultCard {
     public void upgrade() {
     }
 
-    public static boolean playerHasPet() {
-        MonsterGroup playerMinions = BasePlayerMinionHelper.getMinions(AbstractDungeon.player);
-        for (AbstractMonster mo : playerMinions.monsters) {
-            if (mo instanceof AbstractPet) {
-                return true;
-            }
-        }
-        return false;
+    @Override
+    public AbstractCard makeCopy() {
+        AbstractCard card = super.makeCopy();
+        card.uuid = this.uuid; //copy uuid so copies still yeet the same card from master deck
+        return card;
     }
+
 }

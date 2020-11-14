@@ -123,6 +123,7 @@ import Gensokyo.monsters.act2.Reisen;
 import Gensokyo.monsters.act2.Tenshi;
 import Gensokyo.monsters.act2.Yuyuko;
 import Gensokyo.monsters.act3.Sakuya;
+import Gensokyo.relics.Companionship;
 import Gensokyo.relics.act1.Bombinomicon;
 import Gensokyo.relics.act1.BookOfSpecters;
 import Gensokyo.relics.act1.CelestialsFlawlessClothing;
@@ -714,6 +715,9 @@ public class GensokyoMod implements
 
         //Act 3
         BaseMod.addRelic(new EmptyGrave(), RelicType.SHARED);
+
+        //Other relics
+        BaseMod.addRelic(new Companionship(), RelicType.SHARED);
 
         logger.info("Done adding relics!");
     }

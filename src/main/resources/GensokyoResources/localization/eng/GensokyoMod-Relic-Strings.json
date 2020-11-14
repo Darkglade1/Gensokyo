@@ -172,6 +172,13 @@
       "Whenever you play a Strike or Defend card, #yexhaust it."
     ]
   },
+  "Gensokyo:Companionship": {
+    "NAME": "Companionship",
+    "FLAVOR": "It's those small moments you end up remembering for the rest of your life.",
+    "DESCRIPTIONS": [
+      " Transfer up to #b", " #yBlock from you to your #ygensokyo:Pet."
+    ]
+  },
   "Gensokyo:EmptyGrave": {
     "NAME": "Empty Grave",
     "FLAVOR": "I am not there. I did not die.",
