@@ -1,14 +1,11 @@
 package Gensokyo.relics;
 
 import Gensokyo.GensokyoMod;
-import Gensokyo.minions.AbstractPet;
-import Gensokyo.minions.PetUtils;
+import Gensokyo.actions.TransferBlockToPetAction;
 import Gensokyo.util.TextureLoader;
 import basemod.abstracts.CustomRelic;
 import com.badlogic.gdx.graphics.Texture;
 import com.evacipated.cardcrawl.mod.stslib.relics.ClickableRelic;
-import com.megacrit.cardcrawl.actions.AbstractGameAction;
-import com.megacrit.cardcrawl.actions.common.GainBlockAction;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.rooms.AbstractRoom;
 
@@ -36,24 +33,7 @@ public class Companionship extends CustomRelic implements ClickableRelic {
         }
 
         if (AbstractDungeon.getCurrRoom() != null && AbstractDungeon.getCurrRoom().phase == AbstractRoom.RoomPhase.COMBAT) {
-            AbstractPet pet = PetUtils.getPet();
-            if (pet != null) {
-                int blockToTransfer = BLOCK;
-                if (AbstractDungeon.player.currentBlock < blockToTransfer) {
-                    blockToTransfer = AbstractDungeon.player.currentBlock;
-                }
-                if (blockToTransfer > 0) {
-                    int finalBlockToTransfer = blockToTransfer;
-                    addToBot(new AbstractGameAction() {
-                        @Override
-                        public void update() {
-                            AbstractDungeon.player.loseBlock(finalBlockToTransfer);
-                            this.isDone = true;
-                        }
-                    });
-                    addToBot(new GainBlockAction(pet, blockToTransfer));
-                }
-            }
+            addToBot(new TransferBlockToPetAction(BLOCK));
         }
     }
 
