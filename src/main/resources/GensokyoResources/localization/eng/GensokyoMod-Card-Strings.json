@@ -170,6 +170,10 @@
     "NAME": "Fiery Mouse",
     "DESCRIPTION": "Summon a Fiery Mouse gensokyo:Pet with !M! HP."
   },
+  "Gensokyo:SummonJeweledCobra": {
+    "NAME": "JeweledCobra",
+    "DESCRIPTION": "Summon a Jeweled Cobra gensokyo:Pet with !M! HP."
+  },
   "Gensokyo:PetPreview": {
     "NAME": "Moves",
     "DESCRIPTION": ""

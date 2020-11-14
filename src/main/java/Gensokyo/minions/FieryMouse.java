@@ -28,9 +28,9 @@ public class FieryMouse extends AbstractPet {
     private static final int strength = 1;
     private static final int heal_hp_loss = 3;
     private static final int heal = 3;
-    public static final String damage_string = MOVES[0] + damage + MOVES[1];
-    public static final String buff_string = MOVES[2] + strength_hp_loss + MOVES[3] + MOVES[4] + strength + MOVES[5];
-    public static final String heal_string = MOVES[2] + heal_hp_loss + MOVES[3] + MOVES[6] + heal + MOVES[7];
+    public static final String move1 = MOVES[0] + damage + MOVES[1];
+    public static final String move2 = MOVES[2] + strength_hp_loss + MOVES[3] + MOVES[4] + strength + MOVES[5];
+    public static final String move3 = MOVES[2] + heal_hp_loss + MOVES[3] + MOVES[6] + heal + MOVES[7];
 
     public FieryMouse(int MAX_HP, int current_hp, float x, float y) {
         super(NAME, ID, MAX_HP, current_hp, -8.0F, 10.0F, 130.0F, 140.0F, x, y);
@@ -39,7 +39,7 @@ public class FieryMouse extends AbstractPet {
 
     @Override
     protected void addMoves(){
-        moves.addMove(new MinionMove(DIALOG[0], this, new Texture("GensokyoResources/images/monsters/Animals/Intents/attack move.png"), damage_string, () -> {
+        moves.addMove(new MinionMove(DIALOG[0], this, new Texture("GensokyoResources/images/monsters/Animals/Intents/attack.png"), move1, () -> {
             DamageInfo info = new DamageInfo(this, damage, DamageInfo.DamageType.NORMAL);
             int[] newMultiDamage = new int[AbstractDungeon.getCurrRoom().monsters.monsters.size()];
             for (int i = 0; i < newMultiDamage.length; i++) {
@@ -49,12 +49,12 @@ public class FieryMouse extends AbstractPet {
             }
             addToBot(new DamageAllEnemiesAction(this, newMultiDamage, DamageInfo.DamageType.NORMAL, AbstractGameAction.AttackEffect.FIRE));
         }));
-        moves.addMove(new MinionMove(DIALOG[1], this, new Texture("GensokyoResources/images/monsters/Animals/Intents/buff.png"), buff_string, () -> {
+        moves.addMove(new MinionMove(DIALOG[1], this, new Texture("GensokyoResources/images/monsters/Animals/Intents/buff.png"), move2, () -> {
             addToBot(new LoseHPAction(this, this, strength_hp_loss));
             addToBot(new VFXAction(AbstractDungeon.player, new InflameEffect(AbstractDungeon.player), 1.0F));
             addToBot(new ApplyPowerAction(AbstractDungeon.player, this, new StrengthPower(AbstractDungeon.player, strength), strength));
         }));
-        moves.addMove(new MinionMove(DIALOG[2], this, new Texture("GensokyoResources/images/monsters/Animals/Intents/heal.png"), heal_string, () -> {
+        moves.addMove(new MinionMove(DIALOG[2], this, new Texture("GensokyoResources/images/monsters/Animals/Intents/heal.png"), move3, () -> {
             addToBot(new LoseHPAction(this, this, heal_hp_loss));
             addToBot(new VFXAction(AbstractDungeon.player, new InflameEffect(AbstractDungeon.player), 1.0F));
             addToBot(new HealAction(AbstractDungeon.player, this, heal));

@@ -467,6 +467,22 @@
       " HP."
     ]
   },
+  "Gensokyo:JeweledCobra": {
+    "NAME": "Jeweled Cobra",
+    "DIALOG": [
+      "Debuff",
+      "All Debuff",
+      "Defend"
+    ],
+    "MOVES": [
+      "Pet applies ",
+      " Poison to a random enemy.",
+      "Pet applies ",
+      " Poison to ALL enemies.",
+      "Pet gains ",
+      " Block."
+    ]
+  },
   "Gensokyo:Sakuya": {
     "MOVES": [
       "World Creation Press",

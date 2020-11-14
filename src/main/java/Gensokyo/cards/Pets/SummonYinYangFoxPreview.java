@@ -11,7 +11,7 @@ public class SummonYinYangFoxPreview extends AbstractPetPreviewCard {
 
         public SummonYinYangFoxPreview() {
             super(ID, IMG, COST, TYPE, COLOR, RARITY, TARGET);
-            this.rawDescription = YingYangFox.damage_string + " NL " + YingYangFox.block_string + " NL " + YingYangFox.heal_string;
+            this.rawDescription = YingYangFox.move1 + " NL " + YingYangFox.move2 + " NL " + YingYangFox.move3;
             initializeDescription();
         }
     }

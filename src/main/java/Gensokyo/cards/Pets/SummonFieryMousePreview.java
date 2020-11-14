@@ -11,7 +11,7 @@ public class SummonFieryMousePreview extends AbstractPetPreviewCard {
 
         public SummonFieryMousePreview() {
             super(ID, IMG, COST, TYPE, COLOR, RARITY, TARGET);
-            this.rawDescription = FieryMouse.damage_string + " NL " + FieryMouse.buff_string + " NL " + FieryMouse.heal_string;
+            this.rawDescription = FieryMouse.move1 + " NL " + FieryMouse.move2 + " NL " + FieryMouse.move3;
             initializeDescription();
         }
     }
