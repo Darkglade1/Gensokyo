@@ -1,9 +1,14 @@
 package Gensokyo.minions;
 
+import Gensokyo.cards.Pets.SummonYinYangFox;
+import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.monsters.MonsterGroup;
 import kobting.friendlyminions.helpers.BasePlayerMinionHelper;
+
+import java.util.ArrayList;
+import java.util.Collections;
 
 public class PetUtils {
 
@@ -25,5 +30,12 @@ public class PetUtils {
             }
         }
         return null;
+    }
+
+    public static AbstractCard getRandomPetCard() {
+        ArrayList<AbstractCard> list = new ArrayList<>();
+        list.add(new SummonYinYangFox());
+        Collections.shuffle(list, AbstractDungeon.cardRandomRng.random);
+        return list.get(0);
     }
 }

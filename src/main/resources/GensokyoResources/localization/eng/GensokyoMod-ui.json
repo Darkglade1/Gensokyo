@@ -90,6 +90,18 @@
       " NL Exhaust."
     ]
   },
+  "Gensokyo:VanishingMod": {
+    "TEXT": [
+      " NL gensokyo:Vanishing ",
+      "."
+    ]
+  },
+  "Gensokyo:EvolveMod": {
+    "TEXT": [
+      " NL gensokyo:Evolve ",
+      "."
+    ]
+  },
   "Gensokyo:PetMisc": {
     "TEXT": [
       "I can only have one pet out at a time!"
