@@ -165,5 +165,9 @@
   "Gensokyo:SummonYinYangFox": {
     "NAME": "Yin Yang Fox",
     "DESCRIPTION": "Summon a Yin Yang Fox gensokyo:Pet with !M! HP."
+  },
+  "Gensokyo:SummonYinYangFoxPreview": {
+    "NAME": "Yin Yang Fox Moves",
+    "DESCRIPTION": ""
   }
 }

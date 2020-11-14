@@ -22,6 +22,7 @@ public class SummonYinYangFox extends AbstractSummonPetCard {
     public SummonYinYangFox() {
         super(ID, IMG, COST, TYPE, COLOR, RARITY, TARGET);
         misc = max_hp = LARGE_HP;
+        this.cardsToPreview = new SummonYinYangFoxPreview();
     }
 
     @Override
