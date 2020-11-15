@@ -1,13 +1,13 @@
 package Gensokyo.cards.Evolve;
 
-import Gensokyo.cards.AbstractDefaultCard;
+import Gensokyo.cards.AbstractShopSpecialCard;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 
-public abstract class AbstractEvolveCard extends AbstractDefaultCard {
+public abstract class AbstractEvolveCard extends AbstractShopSpecialCard {
 
-    public AbstractEvolveCard(String ID, String IMG, int COST, CardType TYPE, CardColor COLOR, CardRarity RARITY, CardTarget TARGET) {
-        super(ID, IMG, COST, TYPE, COLOR, RARITY, TARGET);
+    public AbstractEvolveCard(String ID, String IMG, int COST, CardType TYPE, CardRarity RARITY, CardTarget TARGET) {
+        super(ID, IMG, COST, TYPE, RARITY, TARGET);
         purgeOnUse = true;
     }
 

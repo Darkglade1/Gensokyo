@@ -14,7 +14,7 @@ public class SummonFieryMouse extends AbstractSummonPetCard {
     public static final String IMG = makeCardPath("FieryMouse.png");
 
     public SummonFieryMouse() {
-        super(ID, IMG, COST, TYPE, COLOR, RARITY, TARGET);
+        super(ID, IMG, COST, TYPE, RARITY, TARGET);
         misc = max_hp = MEDIUM_HP;
         this.cardsToPreview = new SummonFieryMousePreview();
     }

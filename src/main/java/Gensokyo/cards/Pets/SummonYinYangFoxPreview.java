@@ -10,7 +10,7 @@ public class SummonYinYangFoxPreview extends AbstractPetPreviewCard {
         public static final String IMG = makeCardPath("YinYangFox.png");
 
         public SummonYinYangFoxPreview() {
-            super(ID, IMG, COST, TYPE, COLOR, RARITY, TARGET);
+            super(ID, IMG, COST, TYPE, RARITY, TARGET);
             this.rawDescription = YingYangFox.move1 + " NL " + YingYangFox.move2 + " NL " + YingYangFox.move3;
             initializeDescription();
         }

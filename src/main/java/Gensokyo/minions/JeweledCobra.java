@@ -17,8 +17,8 @@ public class JeweledCobra extends AbstractPet {
     public static String[] MOVES = monsterStrings.MOVES;
     public static String[] DIALOG = monsterStrings.DIALOG;
     public static String NAME = monsterStrings.NAME;
-    private static final int poison = 4;
-    private static final int aoePoison = 2;
+    private static final int poison = 5;
+    private static final int aoePoison = 3;
     private static final int block = 6;
     public static final String move1 = MOVES[0] + poison + MOVES[1];
     public static final String move2 = MOVES[2] + aoePoison + MOVES[3];

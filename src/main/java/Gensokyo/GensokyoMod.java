@@ -231,22 +231,40 @@ public class GensokyoMod implements
         public static AbstractCard.CardColor URBAN_LEGEND;
         @SpireEnum(name = "Urban Legend") @SuppressWarnings("unused")
         public static CardLibrary.LibraryType LIBRARY_COLOR;
+
+        @SpireEnum(name = "Shop Special") // These two HAVE to have the same absolutely identical name.
+        public static AbstractCard.CardColor SHOP_SPECIAL;
+        @SpireEnum(name = "Shop Special") @SuppressWarnings("unused")
+        public static CardLibrary.LibraryType SHOP_LIBRARY_COLOR;
     }
 
     public static final Color URBAN_LEGEND = CardHelper.getColor(0, 0, 0);
+    public static final Color SHOP_SPECIAL = CardHelper.getColor(0, 255, 0);
 
     // Card backgrounds - The actual rectangular card.
     private static final String ATTACK_BLACK = "GensokyoResources/images/512/attack_blacky.png";
     private static final String SKILL_BLACK = "GensokyoResources/images/512/skill_blacky.png";
     private static final String POWER_BLACK = "GensokyoResources/images/512/power_blacky.png";
 
+    private static final String ATTACK_GREEN = "GensokyoResources/images/512/attack_green.png";
+    private static final String SKILL_GREEN = "GensokyoResources/images/512/skill_green.png";
+    private static final String POWER_GREEN = "GensokyoResources/images/512/power_green.png";
+
     private static final String ENERGY_ORB_BLACK = "GensokyoResources/images/512/card_blacky_orb.png";
-    private static final String CARD_ENERGY_ORB = "GensokyoResources/images/512/card_small_orb_blacky.png";
+    private static final String CARD_ENERGY_ORB_BLACK = "GensokyoResources/images/512/card_small_orb_blacky.png";
+
+    private static final String ENERGY_ORB_GREEN = "GensokyoResources/images/512/card_green_orb.png";
+    private static final String CARD_ENERGY_ORB_GREEN = "GensokyoResources/images/512/card_small_orb_green.png";
 
     private static final String ATTACK_BLACK_PORTRAIT = "GensokyoResources/images/1024/attack_blacky.png";
     private static final String SKILL_BLACK_PORTRAIT = "GensokyoResources/images/1024/skill_blacky.png";
     private static final String POWER_BLACK_PORTRAIT = "GensokyoResources/images/1024/power_blacky.png";
     private static final String ENERGY_ORB_BLACK_PORTRAIT = "GensokyoResources/images/1024/card_small_orb_blacky.png";
+
+    private static final String ATTACK_GREEN_PORTRAIT = "GensokyoResources/images/1024/attack_green.png";
+    private static final String SKILL_GREEN_PORTRAIT = "GensokyoResources/images/1024/skill_green.png";
+    private static final String POWER_GREEN_PORTRAIT = "GensokyoResources/images/1024/power_green.png";
+    private static final String ENERGY_ORB_GREEN_PORTRAIT = "GensokyoResources/images/1024/card_small_orb_green.png";
 
           
     public static boolean hasMarisa;
@@ -302,7 +320,12 @@ public class GensokyoMod implements
                 URBAN_LEGEND, URBAN_LEGEND, URBAN_LEGEND, URBAN_LEGEND,
                 ATTACK_BLACK, SKILL_BLACK, POWER_BLACK, ENERGY_ORB_BLACK,
                 ATTACK_BLACK_PORTRAIT, SKILL_BLACK_PORTRAIT, POWER_BLACK_PORTRAIT,
-                ENERGY_ORB_BLACK_PORTRAIT, CARD_ENERGY_ORB);
+                ENERGY_ORB_BLACK_PORTRAIT, CARD_ENERGY_ORB_BLACK);
+        BaseMod.addColor(Enums.SHOP_SPECIAL, SHOP_SPECIAL, SHOP_SPECIAL, SHOP_SPECIAL,
+                SHOP_SPECIAL, SHOP_SPECIAL, SHOP_SPECIAL, SHOP_SPECIAL,
+                ATTACK_GREEN, SKILL_GREEN, POWER_GREEN, ENERGY_ORB_GREEN,
+                ATTACK_GREEN_PORTRAIT, SKILL_GREEN_PORTRAIT, POWER_GREEN_PORTRAIT,
+                ENERGY_ORB_GREEN_PORTRAIT, CARD_ENERGY_ORB_GREEN);
         loadConfigData();
     }
     
@@ -369,7 +392,7 @@ public class GensokyoMod implements
 
         (new Gensokyo()).addAct(Exordium.ID);
         (new Gensokyoer()).addAct(TheCity.ID);
-        (new Gensokyoest()).addAct(TheBeyond.ID);
+        //(new Gensokyoest()).addAct(TheBeyond.ID);
 
 
         //Act 1

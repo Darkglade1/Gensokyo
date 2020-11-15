@@ -14,7 +14,7 @@ public class SummonJeweledCobra extends AbstractSummonPetCard {
     public static final String IMG = makeCardPath("JeweledCobra.png");
 
     public SummonJeweledCobra() {
-        super(ID, IMG, COST, TYPE, COLOR, RARITY, TARGET);
+        super(ID, IMG, COST, TYPE, RARITY, TARGET);
         misc = max_hp = MEDIUM_HP;
         this.cardsToPreview = new SummonJeweledCobraPreview();
     }

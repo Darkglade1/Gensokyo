@@ -10,7 +10,7 @@ public class SummonJeweledCobraPreview extends AbstractPetPreviewCard {
         public static final String IMG = makeCardPath("JeweledCobra.png");
 
         public SummonJeweledCobraPreview() {
-            super(ID, IMG, COST, TYPE, COLOR, RARITY, TARGET);
+            super(ID, IMG, COST, TYPE, RARITY, TARGET);
             this.rawDescription = JeweledCobra.move1 + " NL " + JeweledCobra.move2 + " NL " + JeweledCobra.move3;
             initializeDescription();
         }

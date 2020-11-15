@@ -14,7 +14,7 @@ public class SummonYinYangFox extends AbstractSummonPetCard {
     public static final String IMG = makeCardPath("YinYangFox.png");
 
     public SummonYinYangFox() {
-        super(ID, IMG, COST, TYPE, COLOR, RARITY, TARGET);
+        super(ID, IMG, COST, TYPE, RARITY, TARGET);
         misc = max_hp = LARGE_HP;
         this.cardsToPreview = new SummonYinYangFoxPreview();
     }

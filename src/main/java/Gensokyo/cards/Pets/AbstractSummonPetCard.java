@@ -2,6 +2,7 @@ package Gensokyo.cards.Pets;
 
 import Gensokyo.GensokyoMod;
 import Gensokyo.cards.AbstractDefaultCard;
+import Gensokyo.cards.AbstractShopSpecialCard;
 import Gensokyo.relics.Companionship;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
@@ -14,7 +15,7 @@ import kobting.friendlyminions.helpers.BasePlayerMinionHelper;
 
 import static Gensokyo.minions.PetUtils.playerHasPet;
 
-public abstract class AbstractSummonPetCard extends AbstractDefaultCard {
+public abstract class AbstractSummonPetCard extends AbstractShopSpecialCard {
     public static final String TEXT_ID = GensokyoMod.makeID("PetMisc");
     public static final String[] UI_TEXT = CardCrawlGame.languagePack.getUIString(TEXT_ID).TEXT;
     float scaleWidth = 1.0F * Settings.scale;
@@ -33,8 +34,8 @@ public abstract class AbstractSummonPetCard extends AbstractDefaultCard {
 
     public int max_hp;
 
-    public AbstractSummonPetCard(String ID, String IMG, int COST, CardType TYPE, CardColor COLOR, CardRarity RARITY, CardTarget TARGET) {
-        super(ID, IMG, COST, TYPE, COLOR, RARITY, TARGET);
+    public AbstractSummonPetCard(String ID, String IMG, int COST, CardType TYPE, CardRarity RARITY, CardTarget TARGET) {
+        super(ID, IMG, COST, TYPE, RARITY, TARGET);
         purgeOnUse = true;
         isInnate = true;
         selfRetain = true;

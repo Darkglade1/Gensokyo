@@ -23,7 +23,7 @@ public class MysteriousEgg extends AbstractEvolveCard {
     private static final int EVOLVE = 4;
 
     public MysteriousEgg() {
-        super(ID, IMG, COST, TYPE, COLOR, RARITY, TARGET);
+        super(ID, IMG, COST, TYPE, RARITY, TARGET);
         CardModifierManager.addModifier(this, new EvolveMod(EVOLVE));
     }
 

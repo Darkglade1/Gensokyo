@@ -10,7 +10,7 @@ public class SummonFieryMousePreview extends AbstractPetPreviewCard {
         public static final String IMG = makeCardPath("FieryMouse.png");
 
         public SummonFieryMousePreview() {
-            super(ID, IMG, COST, TYPE, COLOR, RARITY, TARGET);
+            super(ID, IMG, COST, TYPE, RARITY, TARGET);
             this.rawDescription = FieryMouse.move1 + " NL " + FieryMouse.move2 + " NL " + FieryMouse.move3;
             initializeDescription();
         }
