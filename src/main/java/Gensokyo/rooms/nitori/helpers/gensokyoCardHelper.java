@@ -24,7 +24,7 @@ public class gensokyoCardHelper {
         Collections.shuffle(list, AbstractDungeon.cardRandomRng.random);
         ArrayList<AbstractCard> cards = new ArrayList<>(new ArrayList<>(list.subList(0, 5)));
         ArrayList<AbstractCard> evolveList = getAllEvolveCards();
-        Collections.shuffle(list, AbstractDungeon.cardRandomRng.random);
+        Collections.shuffle(evolveList, AbstractDungeon.cardRandomRng.random);
         cards.addAll(new ArrayList<>(evolveList.subList(0, 5)));
         return cards;
     }

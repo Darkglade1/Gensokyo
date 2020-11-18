@@ -10,7 +10,6 @@ import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.core.Settings;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.helpers.MathHelper;
-import com.megacrit.cardcrawl.localization.UIStrings;
 import com.megacrit.cardcrawl.vfx.BobEffect;
 
 import static Gensokyo.GensokyoMod.makeUIPath;
@@ -21,8 +20,6 @@ public class NitoriStoreScreen {
     protected static NitoriStoreTools.SpinningCardItems cards;
     protected static NitoriStoreTools.SpinningRelicItems relics;
     protected static NitoriStoreTools.CosmoBanners banners;
-    protected static NitoriStoreTools.purgeRelicsPage purgeRelics;
-    protected static NitoriStoreTools.randomRelicsPage randomRelics;
 
     protected static float yScale;
     protected static int currentRenderSwitch;
@@ -42,8 +39,6 @@ public class NitoriStoreScreen {
         seaImg = new Texture(seaImagePath);
         cards = new NitoriStoreTools.SpinningCardItems();
         relics = new NitoriStoreTools.SpinningRelicItems();
-        purgeRelics = new NitoriStoreTools.purgeRelicsPage();
-        randomRelics = new NitoriStoreTools.randomRelicsPage();
         banners = new NitoriStoreTools.CosmoBanners();
     }
 
@@ -92,12 +87,6 @@ public class NitoriStoreScreen {
             case 2:
                 relics.render(sb);
                 break;
-            case 3:
-                randomRelics.render(sb);
-                break;
-            case 4:
-                purgeRelics.render(sb);
-                break;
             default:
                 break;
         }
@@ -105,19 +94,12 @@ public class NitoriStoreScreen {
     }
 
     public static void update() {
-        purgeRelics.update();
         switch (currentRenderSwitch){
             case 1:
                 cards.update();
                 break;
             case 2:
                 relics.update();
-                break;
-            case 3:
-                randomRelics.update();
-                break;
-            case 4:
-                purgeRelics.update();
                 break;
             default:
                 break;
