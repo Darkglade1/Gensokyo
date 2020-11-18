@@ -509,6 +509,12 @@
     "DIALOG": [
       "Your time's run out."
     ]
+  },
+  "Gensokyo:Nitori": {
+    "MOVES": [
+
+    ],
+    "NAME": "Lateral-Thinking Kappa"
   }
 }
 

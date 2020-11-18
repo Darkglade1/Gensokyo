@@ -105,6 +105,17 @@
   "Gensokyo:PetMisc": {
     "TEXT": [
       "I can only have one pet out at a time!"
+      ]
+  },
+  "Gensokyo:NitoriShop": {
+    "TEXT": [
+      "Remove a Card."
+    ]
+  },
+  "Gensokyo:TempHPIntent": {
+    "TEXT": [
+      "Reinforcing",
+      "This enemy intends to gain #yTemporary #yHP on its turn."
     ]
   }
 }

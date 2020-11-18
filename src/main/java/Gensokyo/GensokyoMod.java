@@ -3,6 +3,7 @@ package Gensokyo;
 import Gensokyo.RazIntent.AreaAttackIntent;
 import Gensokyo.RazIntent.CustomIntent;
 import Gensokyo.RazIntent.PurifyIntent;
+import Gensokyo.RazIntent.TempHPIntent;
 import Gensokyo.cards.AllTheWorldsEvil;
 import Gensokyo.cards.Evolve.BlemishedSteel;
 import Gensokyo.cards.Evolve.DepletedGenerator;
@@ -165,6 +166,9 @@ import Gensokyo.relics.act2.SongOfSouls;
 import Gensokyo.relics.act2.SpiderMask;
 import Gensokyo.relics.act2.UndefinedDarkness;
 import Gensokyo.relics.act3.EmptyGrave;
+import Gensokyo.rooms.nitori.Nitori;
+import Gensokyo.rooms.nitori.NitoriTicket;
+import Gensokyo.rooms.nitori.helpers.gensokyoRelicHelper;
 import Gensokyo.util.IDCheckDontTouchPls;
 import Gensokyo.util.TextureLoader;
 import Gensokyo.variables.DefaultCustomVariable;
@@ -196,6 +200,7 @@ import com.megacrit.cardcrawl.dungeons.TheBeyond;
 import com.megacrit.cardcrawl.dungeons.TheCity;
 import com.megacrit.cardcrawl.helpers.CardHelper;
 import com.megacrit.cardcrawl.helpers.CardLibrary;
+import com.megacrit.cardcrawl.helpers.RelicLibrary;
 import com.megacrit.cardcrawl.localization.CardStrings;
 import com.megacrit.cardcrawl.localization.EventStrings;
 import com.megacrit.cardcrawl.localization.MonsterStrings;
@@ -204,6 +209,7 @@ import com.megacrit.cardcrawl.localization.RelicStrings;
 import com.megacrit.cardcrawl.localization.UIStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.monsters.MonsterGroup;
+import com.megacrit.cardcrawl.relics.AbstractRelic;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
@@ -390,6 +396,11 @@ public class GensokyoMod implements
     
     @Override
     public void receivePostInitialize() {
+
+        for(AbstractRelic r: RelicLibrary.commonList){ gensokyoRelicHelper.addRelic(r); }
+        for(AbstractRelic r: RelicLibrary.uncommonList){ gensokyoRelicHelper.addRelic(r); }
+        for(AbstractRelic r: RelicLibrary.rareList){ gensokyoRelicHelper.addRelic(r); }
+
         logger.info("Loading badge image and mod options");
         
         // Load the Mod Badge
@@ -400,6 +411,12 @@ public class GensokyoMod implements
         
         BaseMod.registerModBadge(badgeTexture, MODNAME, AUTHOR, DESCRIPTION, settingsPanel);
 
+
+        // Universal
+        CustomIntent.add(new TempHPIntent());
+        BaseMod.addMonster(Nitori.ID, (BaseMod.GetMonster) Nitori::new);
+
+        //Act 1
         (new Gensokyo()).addAct(Exordium.ID);
         (new Gensokyoer()).addAct(TheCity.ID);
         //(new Gensokyoest()).addAct(TheBeyond.ID);

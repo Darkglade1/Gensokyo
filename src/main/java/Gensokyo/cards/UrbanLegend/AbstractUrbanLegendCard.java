@@ -13,6 +13,9 @@ import com.megacrit.cardcrawl.cards.AbstractCard;
 
 import java.lang.reflect.Method;
 
+import static Gensokyo.rooms.nitori.helpers.gensokyoCardHelper.addCard;
+import static Gensokyo.rooms.nitori.helpers.gensokyoCardHelper.getUrbanLegendCards;
+
 public abstract class AbstractUrbanLegendCard extends AbstractDefaultCard {
     public static TextureAtlas.AtlasRegion[] frames;
     public static final CardColor COLOR = GensokyoMod.Enums.URBAN_LEGEND;
@@ -33,6 +36,7 @@ public abstract class AbstractUrbanLegendCard extends AbstractDefaultCard {
             frames[4] = regionFromTexture("GensokyoResources/images/1024/skillframe_blacky.png");
             frames[5] = regionFromTexture("GensokyoResources/images/1024/powerframe_blacky.png");
         }
+        if(!getUrbanLegendCards().contains(this)){ addCard(this); }
     }
 
     @SpireOverride

@@ -786,5 +786,29 @@
       "[???]",
       "Choose a Card to Transform"
     ]
+  },
+  "Gensokyo:CandidFriend": {
+    "NAME": "Candid Friend",
+    "DESCRIPTIONS": [
+      "In the middle of the Genbu Ravine, you notice a short girl sat on a rug, fiddling away with tools. NL She seems to be busy, but still manages to talk to you while working. NL \"By the way, it's dangerous if you go any further, so how about you prepare before you leave?\"",
+      "Nitori seems suprised. NL \"You wanted to fight me?\" NL \"I'd like to try some new weapons I made, so okay!\"",
+      "You leave, allowing her to continue working."
+    ],
+    "OPTIONS": [
+      "[ #rWarning! ] #rFight. #gReward: #g???",
+      "[Inspect Shop]",
+      "[Leave]",
+      "[Fight]"
+    ]
+  },
+  "Gensokyo:CandidFailure": {
+    "NAME": "Candid Friend",
+    "DESCRIPTIONS": [
+      "You sit on the ground at the Genbu Ravine, parallel to Nitori. NL \"Thanks for the battle, I don't get to try my weapons in combat that often.",
+      "You leave, allowing her to continue working."
+    ],
+    "OPTIONS": [
+      "[Leave]"
+    ]
   }
 }

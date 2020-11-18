@@ -155,6 +155,9 @@ public class LunaticPrincess extends AbstractPower implements InvisiblePower {
     }
 
     private void updateRequest() {
+        if (request.cardToTransform == null) {
+            return;
+        }
         request.rawDescription = languagePack.getCardStrings(request.cardToTransform.cardID).DESCRIPTION;
         if (request.completed) {
             request.rawDescription += DESCRIPTIONS[15];
