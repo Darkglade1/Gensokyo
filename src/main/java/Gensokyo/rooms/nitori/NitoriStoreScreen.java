@@ -50,7 +50,6 @@ public class NitoriStoreScreen {
     public static void open() {
         rugY = Settings.HEIGHT;
         pullY = Settings.HEIGHT;
-        //if (questLogStrings == null) questLogStrings = CardCrawlGame.languagePack.getUIString("QuestLog");
         AbstractDungeon.player.releaseCard();
         AbstractDungeon.screen = NITORI_STORE;
         AbstractDungeon.overlayMenu.showBlackScreen();

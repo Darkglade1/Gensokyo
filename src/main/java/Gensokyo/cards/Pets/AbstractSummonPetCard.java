@@ -19,10 +19,8 @@ import static Gensokyo.minions.PetUtils.playerHasPet;
 public abstract class AbstractSummonPetCard extends AbstractShopSpecialCard {
     public static final String TEXT_ID = GensokyoMod.makeID("PetMisc");
     public static final String[] UI_TEXT = CardCrawlGame.languagePack.getUIString(TEXT_ID).TEXT;
-    float scaleWidth = 1.0F * Settings.scale;
-    float scaleHeight = Settings.scale;
-    public final float PET_X_POSITION = -1200.0f * scaleWidth;
-    public final float PET_Y_POSITION = 240.0f * scaleHeight;
+    public final float PET_X_POSITION = -1200.0f;
+    public final float PET_Y_POSITION = 240.0f;
     public static final int LARGE_HP = 30;
     public static final int MEDIUM_HP = 25;
     public static final int SMALL_HP = 20;

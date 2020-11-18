@@ -1,21 +1,14 @@
 package Gensokyo.rooms.nitori.helpers;
 
-import Gensokyo.dungeon.Gensokyo;
-import Gensokyo.dungeon.Gensokyoer;
-import Gensokyo.patches.NitoriShopPatches;
 import Gensokyo.rooms.nitori.NitoriBomb;
 import Gensokyo.rooms.nitori.NitoriRandom;
 import Gensokyo.rooms.nitori.NitoriStoreScreen;
 import Gensokyo.rooms.nitori.NitoriTicket;
-import actlikeit.dungeons.CustomDungeon;
-import basemod.ReflectionHacks;
-import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.graphics.g2d.TextureRegion;
 import com.badlogic.gdx.math.MathUtils;
-import com.badlogic.gdx.math.Vector2;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.cards.CardGroup;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
@@ -26,13 +19,11 @@ import com.megacrit.cardcrawl.helpers.Hitbox;
 import com.megacrit.cardcrawl.helpers.ImageMaster;
 import com.megacrit.cardcrawl.helpers.MathHelper;
 import com.megacrit.cardcrawl.helpers.input.InputHelper;
-import com.megacrit.cardcrawl.localization.MonsterStrings;
 import com.megacrit.cardcrawl.localization.UIStrings;
 import com.megacrit.cardcrawl.relics.AbstractRelic;
 import com.megacrit.cardcrawl.vfx.BobEffect;
 import com.megacrit.cardcrawl.vfx.FastCardObtainEffect;
 import com.megacrit.cardcrawl.vfx.cardManip.PurgeCardEffect;
-import org.apache.logging.log4j.core.appender.rolling.action.IfAll;
 
 import java.util.ArrayList;
 
@@ -41,7 +32,6 @@ import static Gensokyo.patches.NitoriShopPatches.NITORI_STORE;
 import static Gensokyo.rooms.nitori.helpers.gensokyoCardHelper.getNitoriShopCards;
 import static com.badlogic.gdx.graphics.Color.WHITE;
 import static com.megacrit.cardcrawl.dungeons.AbstractDungeon.returnRandomRelic;
-import static com.megacrit.cardcrawl.shop.Merchant.NAMES;
 
 public class NitoriStoreTools {
 

@@ -1,45 +1,45 @@
 package Gensokyo.rooms.nitori.helpers;
 
-import Gensokyo.cards.UrbanLegend.AbstractUrbanLegendCard;
+import Gensokyo.cards.Evolve.BlemishedSteel;
+import Gensokyo.cards.Evolve.DepletedGenerator;
+import Gensokyo.cards.Evolve.ExoticEgg;
+import Gensokyo.cards.Evolve.LockedMedkit;
+import Gensokyo.cards.Evolve.MysteriousEgg;
+import Gensokyo.cards.Evolve.RustyChest;
+import Gensokyo.cards.Evolve.ScrapIron;
+import Gensokyo.cards.Evolve.Shovel;
+import Gensokyo.cards.Evolve.TarnishedGold;
+import Gensokyo.cards.Evolve.TrainingManual;
+import Gensokyo.relics.act1.OccultBall;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
-import com.megacrit.cardcrawl.unlock.UnlockTracker;
 
 import java.util.ArrayList;
+import java.util.Collections;
 
 public class gensokyoCardHelper {
-    public static ArrayList<AbstractUrbanLegendCard> legendCards = new ArrayList<>();
+
     public static ArrayList<AbstractCard> getNitoriShopCards() {
-        return getNitoriShopCards(10);
-    }
-    public static ArrayList<AbstractCard> getNitoriShopCards(int amount) {
-        ArrayList<AbstractCard> cards = new ArrayList<AbstractCard>();
-        int amountOfCardsToGive = amount;
-        int attempts = 1000;
-        do {
-            boolean isUnique = true;
-            AbstractCard card = getRandomLegendCard().makeStatEquivalentCopy();
-            for(AbstractCard c : cards) { if(c.cardID.equals(card.cardID)) { isUnique = false; } }
-            if(isUnique) {
-                cards.add(card);
-                amountOfCardsToGive--;
-            }
-            attempts--;
-        } while(amountOfCardsToGive > 0 && attempts >= 0);
+        ArrayList<AbstractCard> list = OccultBall.getAllUrbanLegends();
+        Collections.shuffle(list, AbstractDungeon.cardRandomRng.random);
+        ArrayList<AbstractCard> cards = new ArrayList<>(new ArrayList<>(list.subList(0, 5)));
+        ArrayList<AbstractCard> evolveList = getAllEvolveCards();
+        Collections.shuffle(list, AbstractDungeon.cardRandomRng.random);
+        cards.addAll(new ArrayList<>(evolveList.subList(0, 5)));
         return cards;
     }
-    public static AbstractUrbanLegendCard getRandomLegendCard() {
-        AbstractUrbanLegendCard card =  legendCards.get(AbstractDungeon.cardRng.random(legendCards.size() -1));
-        UnlockTracker.markCardAsSeen(card.cardID);
-        card.isSeen = true;
-        return (AbstractUrbanLegendCard) card.makeStatEquivalentCopy();
+    public static ArrayList<AbstractCard> getAllEvolveCards() {
+        ArrayList<AbstractCard> list = new ArrayList<>();
+        list.add(new BlemishedSteel());
+        list.add(new DepletedGenerator());
+        list.add(new ExoticEgg());
+        list.add(new LockedMedkit());
+        list.add(new MysteriousEgg());
+        list.add(new RustyChest());
+        list.add(new ScrapIron());
+        list.add(new Shovel());
+        list.add(new TarnishedGold());
+        list.add(new TrainingManual());
+        return list;
     }
-    public static void addCard(AbstractCard card) {
-        if(card instanceof AbstractUrbanLegendCard) { legendCards.add((AbstractUrbanLegendCard) card); }
-    }
-    public static AbstractUrbanLegendCard[] getlegendCards() {
-        return legendCards.toArray(new AbstractUrbanLegendCard[0]);
-    }
-    public static boolean legendCardsContains(AbstractUrbanLegendCard card){ return legendCards.contains(card); }
-    public static ArrayList<AbstractUrbanLegendCard> getUrbanLegendCards(){ return legendCards;}
 }
