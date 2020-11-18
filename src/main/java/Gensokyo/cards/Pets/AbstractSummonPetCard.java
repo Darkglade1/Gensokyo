@@ -1,7 +1,6 @@
 package Gensokyo.cards.Pets;
 
 import Gensokyo.GensokyoMod;
-import Gensokyo.cards.AbstractDefaultCard;
 import Gensokyo.cards.AbstractShopSpecialCard;
 import Gensokyo.relics.Companionship;
 import com.megacrit.cardcrawl.cards.AbstractCard;

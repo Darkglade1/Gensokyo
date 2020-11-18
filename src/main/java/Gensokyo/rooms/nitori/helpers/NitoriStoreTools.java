@@ -1,5 +1,16 @@
 package Gensokyo.rooms.nitori.helpers;
 
+import Gensokyo.cards.Evolve.BlemishedSteel;
+import Gensokyo.cards.Evolve.DepletedGenerator;
+import Gensokyo.cards.Evolve.ExoticEgg;
+import Gensokyo.cards.Evolve.LockedMedkit;
+import Gensokyo.cards.Evolve.MysteriousEgg;
+import Gensokyo.cards.Evolve.RustyChest;
+import Gensokyo.cards.Evolve.ScrapIron;
+import Gensokyo.cards.Evolve.Shovel;
+import Gensokyo.cards.Evolve.TarnishedGold;
+import Gensokyo.cards.Evolve.TrainingManual;
+import Gensokyo.cards.UrbanLegend.AbstractUrbanLegendCard;
 import Gensokyo.rooms.nitori.NitoriBomb;
 import Gensokyo.rooms.nitori.NitoriRandom;
 import Gensokyo.rooms.nitori.NitoriStoreScreen;
@@ -109,8 +120,6 @@ public class NitoriStoreTools {
                 return false;
             });
         }
-
-        public ArrayList<CardItem> getCardItems() { return cardItems; }
     }
 
     public static class CardItem {
@@ -124,8 +133,8 @@ public class NitoriStoreTools {
         public CardItem(AbstractCard card, int padding, int row) {
             this.card = card;
             this.row = row;
-            price = 99;
-            price = MathUtils.round(price * AbstractDungeon.merchantRng.random(0.95F, 1.05F));
+            setPrice(card);
+            price = MathUtils.round(price * AbstractDungeon.merchantRng.random(0.90F, 1.10F));
             if(AbstractDungeon.player.hasRelic(NitoriTicket.ID)){ price /= 2; }
             card.targetDrawScale = 0.75F;
             card.current_x = DRAW_START_X + card.IMG_WIDTH_S / 2F + padX * padding;
@@ -133,6 +142,33 @@ public class NitoriStoreTools {
             card.current_y = this.row == 0 ? NitoriStoreScreen.getPullY() + TOP_ROW_Y : (this.row == 1 ? NitoriStoreScreen.getPullY() + MIDDLE_ROW_Y : NitoriStoreScreen.getPullY() + BOTTOM_ROW_Y);
             card.target_y = card.current_y;
             hb = new Hitbox(card.current_x, card.current_y, card.hb.width, card.hb.height);
+        }
+        public void setPrice(AbstractCard card) {
+            if (card instanceof AbstractUrbanLegendCard) {
+                price = 200;
+            } else if (card.cardID.equals(Shovel.ID)) {
+                price = 50;
+            } else if (card.cardID.equals(BlemishedSteel.ID)) {
+                price = 80;
+            } else if (card.cardID.equals(DepletedGenerator.ID)) {
+                price = 45;
+            } else if (card.cardID.equals(ExoticEgg.ID)) {
+                price = 100;
+            } else if (card.cardID.equals(LockedMedkit.ID)) {
+                price = 70;
+            } else if (card.cardID.equals(MysteriousEgg.ID)) {
+                price = 60;
+            } else if (card.cardID.equals(RustyChest.ID)) {
+                price = 20;
+            } else if (card.cardID.equals(ScrapIron.ID)) {
+                price = 40;
+            } else if (card.cardID.equals(TarnishedGold.ID)) {
+                price = 30;
+            } else if (card.cardID.equals(TrainingManual.ID)) {
+                price = 35;
+            } else {
+                price = 99;
+            }
         }
         public void render(SpriteBatch sb) {
             sb.setColor(WHITE.cpy());
