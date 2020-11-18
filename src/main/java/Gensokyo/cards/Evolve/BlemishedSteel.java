@@ -2,17 +2,17 @@ package Gensokyo.cards.Evolve;
 
 import Gensokyo.CardMods.EvolveMod;
 import Gensokyo.GensokyoMod;
-import Gensokyo.minions.PetUtils;
 import basemod.helpers.CardModifierManager;
-import com.megacrit.cardcrawl.actions.unique.AddCardToDeckAction;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
+import com.megacrit.cardcrawl.core.Settings;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
+import com.megacrit.cardcrawl.relics.AbstractRelic;
 
 import static Gensokyo.GensokyoMod.makeCardPath;
 
-public class MysteriousEgg extends AbstractEvolveCard {
-    public static final String ID = GensokyoMod.makeID(MysteriousEgg.class.getSimpleName());
+public class BlemishedSteel extends AbstractEvolveCard {
+    public static final String ID = GensokyoMod.makeID(BlemishedSteel.class.getSimpleName());
     public static final String IMG = makeCardPath("MysteriousEgg.png");
 
     private static final CardRarity RARITY = CardRarity.SPECIAL;
@@ -21,7 +21,7 @@ public class MysteriousEgg extends AbstractEvolveCard {
     private static final int COST = 1;
     private static final int EVOLVE = 4;
 
-    public MysteriousEgg() {
+    public BlemishedSteel() {
         super(ID, IMG, COST, TYPE, RARITY, TARGET);
         CardModifierManager.addModifier(this, new EvolveMod(EVOLVE));
     }
@@ -32,6 +32,7 @@ public class MysteriousEgg extends AbstractEvolveCard {
 
     @Override
     public void triggerEvolve() {
-        AbstractDungeon.actionManager.addToBottom(new AddCardToDeckAction(PetUtils.getRandomPetCard()));
+        AbstractRelic relic = AbstractDungeon.returnRandomScreenlessRelic(AbstractRelic.RelicTier.RARE);
+        AbstractDungeon.getCurrRoom().spawnRelicAndObtain(Settings.WIDTH / 2.0F, Settings.HEIGHT / 2.0F, relic);
     }
 }

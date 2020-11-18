@@ -185,5 +185,41 @@
   "Gensokyo:MysteriousEgg": {
     "NAME": "Mysterious Egg",
     "DESCRIPTION": "Random gensokyo:Pet card."
+  },
+  "Gensokyo:ExoticEgg": {
+    "NAME": "Exotic Egg",
+    "DESCRIPTION": "Random gensokyo:Pet card."
+  },
+  "Gensokyo:Shovel": {
+    "NAME": "Shovel",
+    "DESCRIPTION": "Random relic."
+  },
+  "Gensokyo:BlemishedSteel": {
+    "NAME": "Blemished Steel",
+    "DESCRIPTION": "Random rare relic."
+  },
+  "Gensokyo:DepletedGenerator": {
+    "NAME": "Depleted Generator",
+    "DESCRIPTION": "Rare card reward."
+  },
+  "Gensokyo:ScrapIron": {
+    "NAME": "ScrapIron",
+    "DESCRIPTION": "Random common relic."
+  },
+  "Gensokyo:TarnishedGold": {
+    "NAME": "Tarnished Gold",
+    "DESCRIPTION": "!Gensokyo:SecondMagic! gold."
+  },
+  "Gensokyo:RustyChest": {
+    "NAME": "Rusty Chest",
+    "DESCRIPTION": "!Gensokyo:SecondMagic! gold."
+  },
+  "Gensokyo:TrainingManual": {
+    "NAME": "Training Manual",
+    "DESCRIPTION": "Upgraded card reward."
+  },
+  "Gensokyo:LockedMedkit": {
+    "NAME": "Locked Medkit",
+    "DESCRIPTION": "Heal to full HP."
   }
 }

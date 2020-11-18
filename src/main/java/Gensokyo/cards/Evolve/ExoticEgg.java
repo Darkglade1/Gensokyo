@@ -11,17 +11,17 @@ import com.megacrit.cardcrawl.monsters.AbstractMonster;
 
 import static Gensokyo.GensokyoMod.makeCardPath;
 
-public class MysteriousEgg extends AbstractEvolveCard {
-    public static final String ID = GensokyoMod.makeID(MysteriousEgg.class.getSimpleName());
+public class ExoticEgg extends AbstractEvolveCard {
+    public static final String ID = GensokyoMod.makeID(ExoticEgg.class.getSimpleName());
     public static final String IMG = makeCardPath("MysteriousEgg.png");
 
     private static final CardRarity RARITY = CardRarity.SPECIAL;
     private static final CardTarget TARGET = CardTarget.NONE;
     private static final CardType TYPE = CardType.SKILL;
-    private static final int COST = 1;
-    private static final int EVOLVE = 4;
+    private static final int COST = 2;
+    private static final int EVOLVE = 2;
 
-    public MysteriousEgg() {
+    public ExoticEgg() {
         super(ID, IMG, COST, TYPE, RARITY, TARGET);
         CardModifierManager.addModifier(this, new EvolveMod(EVOLVE));
     }
