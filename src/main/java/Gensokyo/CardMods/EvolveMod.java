@@ -3,13 +3,12 @@ package Gensokyo.CardMods;
 import Gensokyo.GensokyoMod;
 import Gensokyo.cards.Evolve.AbstractEvolveCard;
 import basemod.abstracts.AbstractCardModifier;
-import com.evacipated.cardcrawl.mod.stslib.StSLib;
 import com.megacrit.cardcrawl.actions.utility.UseCardAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.core.AbstractCreature;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 
-public class EvolveMod extends VanishingMod {
+public class EvolveMod extends ItemMod {
 
     public static final String ID = GensokyoMod.makeID("EvolveMod");
     public static final String[] TEXT = CardCrawlGame.languagePack.getUIString(ID).TEXT;

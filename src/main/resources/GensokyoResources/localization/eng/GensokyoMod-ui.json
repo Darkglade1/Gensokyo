@@ -90,9 +90,9 @@
       " NL Exhaust."
     ]
   },
-  "Gensokyo:VanishingMod": {
+  "Gensokyo:ItemMod": {
     "TEXT": [
-      " NL gensokyo:Vanishing ",
+      " NL gensokyo:Item ",
       "."
     ]
   },

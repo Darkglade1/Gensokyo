@@ -59,10 +59,10 @@
     "DESCRIPTION": "A summon that you can issue an order to every turn. If the pet dies, its respective pet card is removed from the deck. The pet’s HP persists between combats and is fully restored when you rest at a campfire. You can only have one pet summoned at a time."
   },
   {
-    "PROPER_NAME": "Vanishing",
+    "PROPER_NAME": "Item",
     "NAMES": [
-      "Vanishing",
-      "vanishing"
+      "Item",
+      "item"
     ],
     "DESCRIPTION": "Removed from your master deck after being played the specified number of times."
   },

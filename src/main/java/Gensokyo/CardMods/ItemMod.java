@@ -12,15 +12,15 @@ import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 
 import java.util.ArrayList;
 
-public class VanishingMod extends AbstractCardModifier {
+public class ItemMod extends AbstractCardModifier {
 
-    public static final String ID = GensokyoMod.makeID("VanishingMod");
+    public static final String ID = GensokyoMod.makeID("ItemMod");
     public static final String[] TEXT = CardCrawlGame.languagePack.getUIString(ID).TEXT;
 
     protected int uses;
     boolean masterCardRemoved = false;
 
-    public VanishingMod(int uses) {
+    public ItemMod(int uses) {
         this.uses = uses;
     }
 
@@ -42,9 +42,9 @@ public class VanishingMod extends AbstractCardModifier {
         if (masterCard != null) {
             ArrayList<AbstractCardModifier> mods = CardModifierManager.getModifiers(masterCard, identifier(null));
             for (AbstractCardModifier mod : mods) {
-                if (mod instanceof VanishingMod) {
-                    VanishingMod vanishingMod = (VanishingMod)mod;
-                    vanishingMod.uses = uses;
+                if (mod instanceof ItemMod) {
+                    ItemMod itemMod = (ItemMod)mod;
+                    itemMod.uses = uses;
                 }
             }
             masterCard.initializeDescription();
@@ -57,6 +57,6 @@ public class VanishingMod extends AbstractCardModifier {
 
     @Override
     public AbstractCardModifier makeCopy() {
-        return new VanishingMod(uses);
+        return new ItemMod(uses);
     }
 }
