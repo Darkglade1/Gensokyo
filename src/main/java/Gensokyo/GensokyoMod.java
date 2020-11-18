@@ -4,7 +4,16 @@ import Gensokyo.RazIntent.AreaAttackIntent;
 import Gensokyo.RazIntent.CustomIntent;
 import Gensokyo.RazIntent.PurifyIntent;
 import Gensokyo.cards.AllTheWorldsEvil;
+import Gensokyo.cards.Evolve.BlemishedSteel;
+import Gensokyo.cards.Evolve.DepletedGenerator;
+import Gensokyo.cards.Evolve.ExoticEgg;
+import Gensokyo.cards.Evolve.LockedMedkit;
 import Gensokyo.cards.Evolve.MysteriousEgg;
+import Gensokyo.cards.Evolve.RustyChest;
+import Gensokyo.cards.Evolve.ScrapIron;
+import Gensokyo.cards.Evolve.Shovel;
+import Gensokyo.cards.Evolve.TarnishedGold;
+import Gensokyo.cards.Evolve.TrainingManual;
 import Gensokyo.cards.Pets.SummonFieryMouse;
 import Gensokyo.cards.Pets.SummonJeweledCobra;
 import Gensokyo.cards.Pets.SummonPsychicCat;
@@ -794,11 +803,23 @@ public class GensokyoMod implements
         BaseMod.addCard(new SlitMouthedWoman());
         BaseMod.addCard(new Doppelganger());
 
+        //Pets
         BaseMod.addCard(new SummonYinYangFox());
         BaseMod.addCard(new SummonFieryMouse());
         BaseMod.addCard(new SummonJeweledCobra());
         BaseMod.addCard(new SummonPsychicCat());
+
+        //Evolve cards
         BaseMod.addCard(new MysteriousEgg());
+        BaseMod.addCard(new BlemishedSteel());
+        BaseMod.addCard(new DepletedGenerator());
+        BaseMod.addCard(new ExoticEgg());
+        BaseMod.addCard(new LockedMedkit());
+        BaseMod.addCard(new RustyChest());
+        BaseMod.addCard(new ScrapIron());
+        BaseMod.addCard(new Shovel());
+        BaseMod.addCard(new TarnishedGold());
+        BaseMod.addCard(new TrainingManual());
 
         if (hasMarisa) {
             BaseMod.addCard(new MarisaTwilightSpark());

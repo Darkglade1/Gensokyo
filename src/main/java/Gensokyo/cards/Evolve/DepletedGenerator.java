@@ -16,7 +16,7 @@ import static Gensokyo.GensokyoMod.makeCardPath;
 
 public class DepletedGenerator extends AbstractEvolveCard {
     public static final String ID = GensokyoMod.makeID(DepletedGenerator.class.getSimpleName());
-    public static final String IMG = makeCardPath("MysteriousEgg.png");
+    public static final String IMG = makeCardPath("DepletedGenerator.png");
 
     private static final CardRarity RARITY = CardRarity.SPECIAL;
     private static final CardTarget TARGET = CardTarget.NONE;

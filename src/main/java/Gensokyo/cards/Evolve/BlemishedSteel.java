@@ -13,7 +13,7 @@ import static Gensokyo.GensokyoMod.makeCardPath;
 
 public class BlemishedSteel extends AbstractEvolveCard {
     public static final String ID = GensokyoMod.makeID(BlemishedSteel.class.getSimpleName());
-    public static final String IMG = makeCardPath("MysteriousEgg.png");
+    public static final String IMG = makeCardPath("BlemishedSteel.png");
 
     private static final CardRarity RARITY = CardRarity.SPECIAL;
     private static final CardTarget TARGET = CardTarget.NONE;
