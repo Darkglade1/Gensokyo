@@ -56,6 +56,9 @@ public class NitoriStoreScreen {
         } else { CardCrawlGame.sound.play("MAP_OPEN_2", 0.1f); }
 
         yScale = 0.0f;
+
+        NitoriStoreScreen.setRenderSwitch(1); //automatically bring up the cards page
+        NitoriStoreScreen.setPullY(Settings.HEIGHT);
     }
 
     public static void close() {
