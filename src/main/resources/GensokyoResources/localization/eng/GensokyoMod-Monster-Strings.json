@@ -483,6 +483,22 @@
       " Block."
     ]
   },
+  "Gensokyo:PsychicCat": {
+    "NAME": "Psychic Cat",
+    "DIALOG": [
+      "Debuff",
+      "Debuff",
+      "Draw"
+    ],
+    "MOVES": [
+      "Pet applies ",
+      " Weak to ALL enemies.",
+      "Pet applies ",
+      " Vulnerable to ALL enemies.",
+      "You draw ",
+      " card."
+    ]
+  },
   "Gensokyo:Sakuya": {
     "MOVES": [
       "World Creation Press",

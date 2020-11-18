@@ -7,6 +7,7 @@ import Gensokyo.cards.AllTheWorldsEvil;
 import Gensokyo.cards.Evolve.MysteriousEgg;
 import Gensokyo.cards.Pets.SummonFieryMouse;
 import Gensokyo.cards.Pets.SummonJeweledCobra;
+import Gensokyo.cards.Pets.SummonPsychicCat;
 import Gensokyo.cards.UrbanLegend.Apocalypse;
 import Gensokyo.cards.BlessingOfConstitution;
 import Gensokyo.cards.BlessingOfFortitude;
@@ -796,6 +797,7 @@ public class GensokyoMod implements
         BaseMod.addCard(new SummonYinYangFox());
         BaseMod.addCard(new SummonFieryMouse());
         BaseMod.addCard(new SummonJeweledCobra());
+        BaseMod.addCard(new SummonPsychicCat());
         BaseMod.addCard(new MysteriousEgg());
 
         if (hasMarisa) {

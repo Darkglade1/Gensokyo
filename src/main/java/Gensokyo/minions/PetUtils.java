@@ -2,6 +2,7 @@ package Gensokyo.minions;
 
 import Gensokyo.cards.Pets.SummonFieryMouse;
 import Gensokyo.cards.Pets.SummonJeweledCobra;
+import Gensokyo.cards.Pets.SummonPsychicCat;
 import Gensokyo.cards.Pets.SummonYinYangFox;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
@@ -39,6 +40,7 @@ public class PetUtils {
         list.add(new SummonYinYangFox());
         list.add(new SummonFieryMouse());
         list.add(new SummonJeweledCobra());
+        list.add(new SummonPsychicCat());
         Collections.shuffle(list, AbstractDungeon.cardRandomRng.random);
         return list.get(0);
     }

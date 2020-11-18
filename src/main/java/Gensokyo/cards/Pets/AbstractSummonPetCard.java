@@ -11,6 +11,7 @@ import com.megacrit.cardcrawl.core.Settings;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.monsters.MonsterGroup;
+import com.megacrit.cardcrawl.rooms.AbstractRoom;
 import kobting.friendlyminions.helpers.BasePlayerMinionHelper;
 
 import static Gensokyo.minions.PetUtils.playerHasPet;
@@ -84,7 +85,11 @@ public abstract class AbstractSummonPetCard extends AbstractShopSpecialCard {
     @Override
     public AbstractCard makeCopy() {
         AbstractCard card = super.makeCopy();
-        card.uuid = this.uuid; //copy uuid so copies still yeet the same card from master deck
+        if (AbstractDungeon.getCurrRoom() != null && AbstractDungeon.getCurrRoom().phase == AbstractRoom.RoomPhase.COMBAT) {
+            card.uuid = this.uuid; //copy uuid so copies still yeet the same card from master deck
+            //we have a in-combat check so this only applies to copies made in combat
+            //copies from dollys mirror and other out of combat sources should still get a new uuid
+        }
         return card;
     }
 
