@@ -71,4 +71,9 @@ public abstract class AbstractShopSpecialCard extends AbstractDefaultCard {
         Texture texture = AssetLoader.loadImage(tex);
         return new TextureAtlas.AtlasRegion(texture, 0, 0, texture.getWidth(), texture.getHeight());
     }
+
+    @Override
+    public boolean canUpgrade() {
+        return false;
+    }
 }
