@@ -2,15 +2,12 @@ package Gensokyo.events.extra;
 
 import Gensokyo.rooms.nitori.Nitori;
 import Gensokyo.rooms.nitori.NitoriStoreScreen;
-import Gensokyo.rooms.nitori.NitoriTicket;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
-import com.megacrit.cardcrawl.core.Settings;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.events.AbstractEvent;
 import com.megacrit.cardcrawl.events.RoomEventDialog;
 import com.megacrit.cardcrawl.localization.EventStrings;
 import com.megacrit.cardcrawl.monsters.MonsterGroup;
-import com.megacrit.cardcrawl.relics.AbstractRelic;
 
 import static Gensokyo.GensokyoMod.makeID;
 
@@ -25,9 +22,8 @@ public class CandidFriend extends AbstractEvent {
     private enum CurScreen { INTRO, PRE_COMBAT, END }
     private Nitori nitori = new Nitori();
     public CandidFriend() {
-        //initializeImage("images/events/sphereClosed.png", 1120.0F * Settings.scale, AbstractDungeon.floorY - 50.0F * Settings.scale);
         this.body = INTRO_MSG;
-        this.roomEventText.addDialogOption(OPTIONS[0]);
+        //this.roomEventText.addDialogOption(OPTIONS[0]);
         this.roomEventText.addDialogOption(OPTIONS[1]);
         this.roomEventText.addDialogOption(OPTIONS[2]);
         this.hasDialog = true;
@@ -49,17 +45,16 @@ public class CandidFriend extends AbstractEvent {
         switch (this.screen) {
             case INTRO:
                 switch (buttonPressed) {
+//                    case 0:
+//                        this.screen = CurScreen.PRE_COMBAT;
+//                        this.roomEventText.updateBodyText(DESCRIPTIONS[1]);
+//                        this.roomEventText.updateDialogOption(0, OPTIONS[3]);
+//                        this.roomEventText.clearRemainingOptions();
+//                        return;
                     case 0:
-                        this.screen = CurScreen.PRE_COMBAT;
-                        this.roomEventText.updateBodyText(DESCRIPTIONS[1]);
-                        this.roomEventText.updateDialogOption(0, OPTIONS[3]);
-                        this.roomEventText.clearRemainingOptions();
-                        //logMetric("Mysterious Sphere", "Fight");
-                        return;
-                    case 1:
                         NitoriStoreScreen.open();
                         return;
-                    case 2:
+                    case 1:
                         this.screen = CurScreen.END;
                         this.roomEventText.updateBodyText(DESCRIPTIONS[2]);
                         this.roomEventText.updateDialogOption(0, OPTIONS[2]);
@@ -67,21 +62,21 @@ public class CandidFriend extends AbstractEvent {
                         return;
                 }
                 break;
-            case PRE_COMBAT:
-                CardCrawlGame.music.fadeOutTempBGM();
-                AbstractDungeon.scene.fadeOutAmbiance();
-                CardCrawlGame.music.unsilenceBGM();
-                if (Settings.isDailyRun) { AbstractDungeon.getCurrRoom().addGoldToRewards(AbstractDungeon.miscRng.random(50));
-                } else { AbstractDungeon.getCurrRoom().addGoldToRewards(AbstractDungeon.miscRng.random(45, 55)); }
-                AbstractDungeon.getCurrRoom().addRelicToRewards(new NitoriTicket());
-                if (this.img != null) {
-                    this.img.dispose();
-                    this.img = null;
-                }
-                //this.img = ImageMaster.loadImage("images/events/sphereOpen.png");
-                enterCombat();
-                AbstractDungeon.lastCombatMetricKey = "Nitori";
-                break;
+//            case PRE_COMBAT:
+//                CardCrawlGame.music.fadeOutTempBGM();
+//                AbstractDungeon.scene.fadeOutAmbiance();
+//                CardCrawlGame.music.unsilenceBGM();
+//                if (Settings.isDailyRun) { AbstractDungeon.getCurrRoom().addGoldToRewards(AbstractDungeon.miscRng.random(50));
+//                } else { AbstractDungeon.getCurrRoom().addGoldToRewards(AbstractDungeon.miscRng.random(45, 55)); }
+//                AbstractDungeon.getCurrRoom().addRelicToRewards(new NitoriTicket());
+//                if (this.img != null) {
+//                    this.img.dispose();
+//                    this.img = null;
+//                }
+//                //this.img = ImageMaster.loadImage("images/events/sphereOpen.png");
+//                enterCombat();
+//                AbstractDungeon.lastCombatMetricKey = "Nitori";
+//                break;
             case END:
                 openMap();
                 break;

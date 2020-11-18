@@ -167,7 +167,6 @@ import Gensokyo.relics.act2.SpiderMask;
 import Gensokyo.relics.act2.UndefinedDarkness;
 import Gensokyo.relics.act3.EmptyGrave;
 import Gensokyo.rooms.nitori.Nitori;
-import Gensokyo.rooms.nitori.NitoriTicket;
 import Gensokyo.rooms.nitori.helpers.gensokyoRelicHelper;
 import Gensokyo.util.IDCheckDontTouchPls;
 import Gensokyo.util.TextureLoader;
@@ -414,7 +413,7 @@ public class GensokyoMod implements
 
         // Universal
         CustomIntent.add(new TempHPIntent());
-        BaseMod.addMonster(Nitori.ID, (BaseMod.GetMonster) Nitori::new);
+        //BaseMod.addMonster(Nitori.ID, (BaseMod.GetMonster) Nitori::new);
 
         //Act 1
         (new Gensokyo()).addAct(Exordium.ID);

@@ -11,10 +11,8 @@ import Gensokyo.cards.Evolve.Shovel;
 import Gensokyo.cards.Evolve.TarnishedGold;
 import Gensokyo.cards.Evolve.TrainingManual;
 import Gensokyo.cards.UrbanLegend.AbstractUrbanLegendCard;
-import Gensokyo.rooms.nitori.NitoriBomb;
 import Gensokyo.rooms.nitori.NitoriRandom;
 import Gensokyo.rooms.nitori.NitoriStoreScreen;
-import Gensokyo.rooms.nitori.NitoriTicket;
 import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
@@ -135,7 +133,7 @@ public class NitoriStoreTools {
             this.row = row;
             setPrice(card);
             price = MathUtils.round(price * AbstractDungeon.merchantRng.random(0.90F, 1.10F));
-            if(AbstractDungeon.player.hasRelic(NitoriTicket.ID)){ price /= 2; }
+            //if(AbstractDungeon.player.hasRelic(NitoriTicket.ID)){ price /= 2; }
             card.targetDrawScale = 0.75F;
             card.current_x = DRAW_START_X + card.IMG_WIDTH_S / 2F + padX * padding;
             card.target_x = card.current_x;
@@ -319,7 +317,7 @@ public class NitoriStoreTools {
                     break;
             }
             price = MathUtils.round(price * AbstractDungeon.merchantRng.random(0.95F, 1.05F));
-            if(AbstractDungeon.player.hasRelic(NitoriTicket.ID)){ price /= 2; }
+            //if(AbstractDungeon.player.hasRelic(NitoriTicket.ID)){ price /= 2; }
             relic.currentX = DRAW_START_X + relic.img.getWidth() / 2F + padX * padding;
             relic.targetX = relic.currentX;
             relic.currentY = row == 0 ? NitoriStoreScreen.getPullY() + TOP_TOP_ROW_Y : (row == 1 ? NitoriStoreScreen.getPullY() + TOP_MIDDLE_ROW_Y : NitoriStoreScreen.getPullY() + BOTTOM_ROW_Y);
@@ -524,7 +522,7 @@ public class NitoriStoreTools {
             ArrayList<AbstractRelic> purgeRelics;
             purgeRelics = getRandomRelics(AbstractRelic.RelicTier.COMMON, 20);
             for(AbstractRelic c: purgeRelics) {
-                c = new NitoriBomb();
+                //c = new NitoriBomb();
                 relics.add(c);
             }
             int padding = 0;
@@ -536,7 +534,7 @@ public class NitoriStoreTools {
             int price = 75;
             for(RelicItem relic : relicItems){
                 relic.price = price;
-                if(AbstractDungeon.player.hasRelic(NitoriTicket.ID)){ relic.price /= 2; }
+               // if(AbstractDungeon.player.hasRelic(NitoriTicket.ID)){ relic.price /= 2; }
                 price+= 25;
             }
         }
@@ -610,7 +608,7 @@ public class NitoriStoreTools {
             logger.info("dum");
             for(RelicItem relic : relicItems){
                 relic.price = price;
-                if(AbstractDungeon.player.hasRelic(NitoriTicket.ID)){ relic.price /= 2; }
+                //if(AbstractDungeon.player.hasRelic(NitoriTicket.ID)){ relic.price /= 2; }
             }
         }
 
