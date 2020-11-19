@@ -107,9 +107,9 @@
       "I can only have one pet out at a time!"
       ]
   },
-  "Gensokyo:NitoriShop": {
+  "Gensokyo:BloodcastMod": {
     "TEXT": [
-      "Remove a Card."
+      "gensokyo:Bloodcast. NL "
     ]
   },
   "Gensokyo:TempHPIntent": {

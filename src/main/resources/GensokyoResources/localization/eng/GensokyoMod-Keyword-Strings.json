@@ -73,5 +73,13 @@
       "evolve"
     ],
     "DESCRIPTION": "Transforms into a special reward after being played the specified number of times."
+  },
+  {
+    "PROPER_NAME": "Bloodcast",
+    "NAMES": [
+      "Bloodcast",
+      "bloodcast"
+    ],
+    "DESCRIPTION": "When you have insufficient [E] to play this card, you may instead pay #b1 HP for every missing [E] ."
   }
 ]

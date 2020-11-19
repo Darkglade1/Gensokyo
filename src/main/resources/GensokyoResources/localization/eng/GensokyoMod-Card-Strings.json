@@ -222,6 +222,30 @@
     "NAME": "Locked Medkit",
     "DESCRIPTION": "Heal to full HP."
   },
+  "Gensokyo:RPG": {
+    "NAME": "RPG",
+    "DESCRIPTION": "Deal !D! damage to ALL enemies."
+  },
+  "Gensokyo:ReactiveArmor": {
+    "NAME": "Reactive Armor",
+    "DESCRIPTION": "Gain !B! Block for each enemy in combat."
+  },
+  "Gensokyo:Taser": {
+    "NAME": "Taser",
+    "DESCRIPTION": "Deal !D! damage. NL Apply !M! Stun."
+  },
+  "Gensokyo:MedicineKit": {
+    "NAME": "Medicine Kit",
+    "DESCRIPTION": "Remove all of your debuffs and heal !M! HP for each debuff removed."
+  },
+  "Gensokyo:OverchargedCore": {
+    "NAME": "Overcharged Core",
+    "DESCRIPTION": "Gain !M! Strength, Dexterity, and Focus. NL Lose !M! HP."
+  },
+  "Gensokyo:LifeforceConverter": {
+    "NAME": "Lifeforce Converter",
+    "DESCRIPTION": "Give ALL cards in your hand gensokyo:Bloodcast this combat."
+  },
   "Gensokyo:FlashFlood": {
     "NAME": "Flash Flood",
     "DESCRIPTION": "When this card is drawn, reduce its cost by !M! this combat. NL Exhaust."

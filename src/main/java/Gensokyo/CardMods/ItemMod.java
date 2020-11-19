@@ -35,20 +35,26 @@ public class ItemMod extends AbstractCardModifier {
     }
 
     @Override
+    public boolean isInherent(AbstractCard card) {
+        return true;
+    }
+
+    @Override
     public void onUse(AbstractCard card, AbstractCreature target, UseCardAction action) {
         uses--;
         card.initializeDescription();
         AbstractCard masterCard = StSLib.getMasterDeckEquivalent(card);
         if (masterCard != null) {
+            ItemMod itemMod = null;
             ArrayList<AbstractCardModifier> mods = CardModifierManager.getModifiers(masterCard, identifier(null));
             for (AbstractCardModifier mod : mods) {
                 if (mod instanceof ItemMod) {
-                    ItemMod itemMod = (ItemMod)mod;
-                    itemMod.uses = uses;
+                    itemMod = (ItemMod)mod;
+                    itemMod.uses--;
                 }
             }
             masterCard.initializeDescription();
-            if (uses == 0) {
+            if (itemMod != null && itemMod.uses == 0) {
                 AbstractDungeon.player.masterDeck.removeCard(masterCard);
                 masterCardRemoved = true;
             }
