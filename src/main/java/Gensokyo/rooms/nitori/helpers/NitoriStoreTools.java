@@ -10,6 +10,7 @@ import Gensokyo.cards.Evolve.ScrapIron;
 import Gensokyo.cards.Evolve.Shovel;
 import Gensokyo.cards.Evolve.TarnishedGold;
 import Gensokyo.cards.Evolve.TrainingManual;
+import Gensokyo.cards.Item.AbstractItemCard;
 import Gensokyo.cards.UrbanLegend.AbstractUrbanLegendCard;
 import Gensokyo.rooms.nitori.NitoriStoreScreen;
 import com.badlogic.gdx.graphics.Color;
@@ -165,6 +166,17 @@ public class NitoriStoreTools {
                 price = 30;
             } else if (card.cardID.equals(TrainingManual.ID)) {
                 price = 35;
+            } else if (card instanceof AbstractItemCard) {
+                AbstractItemCard itemCard = (AbstractItemCard)card;
+                if (itemCard.rarity == AbstractItemCard.ItemRarity.ITEM_COMMON) {
+                    price = 30;
+                }
+                else if (itemCard.rarity == AbstractItemCard.ItemRarity.ITEM_UNCOMMON) {
+                    price = 50;
+                }
+                else if (itemCard.rarity == AbstractItemCard.ItemRarity.ITEM_RARE) {
+                    price = 70;
+                }
             } else {
                 price = 99;
             }

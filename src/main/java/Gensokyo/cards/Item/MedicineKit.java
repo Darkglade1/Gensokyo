@@ -27,6 +27,7 @@ public class MedicineKit extends AbstractItemCard {
         CardModifierManager.addModifier(this, new ItemMod(ITEM));
         magicNumber = baseMagicNumber = HEAL;
         selfRetain = true;
+        rarity = ItemRarity.ITEM_UNCOMMON;
     }
 
     @Override

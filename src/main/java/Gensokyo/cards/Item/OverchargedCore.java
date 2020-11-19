@@ -28,6 +28,7 @@ public class OverchargedCore extends AbstractItemCard {
         super(ID, IMG, COST, TYPE, RARITY, TARGET);
         CardModifierManager.addModifier(this, new ItemMod(ITEM));
         magicNumber = baseMagicNumber = BUFF;
+        rarity = ItemRarity.ITEM_RARE;
     }
 
     @Override

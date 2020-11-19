@@ -29,18 +29,13 @@ public class BloodcastMod extends AbstractCardModifier implements AlternateCardC
     }
 
     @Override
-    public boolean prioritizeAlternateCost(AbstractCard card) {
-        return false;
+    public int getAlternateResource(AbstractCard card) {
+        return AbstractDungeon.player.currentHealth;
     }
 
     @Override
     public boolean canSplitCost(AbstractCard card) {
         return true;
-    }
-
-    @Override
-    public int getAlternateResource(AbstractCard card) {
-        return AbstractDungeon.player.currentHealth;
     }
 
     @Override

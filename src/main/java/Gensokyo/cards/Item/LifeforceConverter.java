@@ -25,6 +25,7 @@ public class LifeforceConverter extends AbstractItemCard {
     public LifeforceConverter() {
         super(ID, IMG, COST, TYPE, RARITY, TARGET);
         CardModifierManager.addModifier(this, new ItemMod(ITEM));
+        rarity = ItemRarity.ITEM_UNCOMMON;
     }
 
     @Override

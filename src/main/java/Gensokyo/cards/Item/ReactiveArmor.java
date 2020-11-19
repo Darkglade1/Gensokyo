@@ -25,6 +25,7 @@ public class ReactiveArmor extends AbstractItemCard {
         super(ID, IMG, COST, TYPE, RARITY, TARGET);
         CardModifierManager.addModifier(this, new ItemMod(ITEM));
         this.baseBlock = BLOCK;
+        rarity = ItemRarity.ITEM_COMMON;
     }
 
     @Override

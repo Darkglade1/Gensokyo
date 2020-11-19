@@ -26,6 +26,7 @@ public class RPG extends AbstractItemCard {
         CardModifierManager.addModifier(this, new ItemMod(ITEM));
         this.baseDamage = DAMAGE;
         this.isMultiDamage = true;
+        rarity = ItemRarity.ITEM_COMMON;
     }
 
     @Override

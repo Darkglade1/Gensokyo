@@ -1,12 +1,15 @@
 package Gensokyo.monsters.act1;
 
-import Gensokyo.actions.YinYangAttackAction;
 import Gensokyo.actions.YinYangMoveAction;
+import Gensokyo.minions.PetUtils;
 import Gensokyo.powers.act1.MonsterPosition;
+import Gensokyo.powers.act1.Position;
 import basemod.abstracts.CustomMonster;
 import basemod.animations.SpriterAnimation;
+import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.animations.VFXAction;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
+import com.megacrit.cardcrawl.actions.common.DamageAction;
 import com.megacrit.cardcrawl.actions.common.ReducePowerAction;
 import com.megacrit.cardcrawl.actions.common.RollMoveAction;
 import com.megacrit.cardcrawl.actions.common.SuicideAction;
@@ -15,6 +18,7 @@ import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.core.Settings;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.localization.MonsterStrings;
+import kobting.friendlyminions.enums.MonsterIntentEnum;
 
 public class YinYangOrb extends CustomMonster {
     public static final String ID = "Gensokyo:YinYangOrb";
@@ -77,7 +81,17 @@ public class YinYangOrb extends CustomMonster {
             break;
         case ATTACK:
             move();
-            AbstractDungeon.actionManager.addToBottom(new YinYangAttackAction(this.position, this.damage.get(0)));
+            int playerPosition = 1;
+            if (AbstractDungeon.player.hasPower(Position.POWER_ID)) {
+                playerPosition = AbstractDungeon.player.getPower(Position.POWER_ID).amount;
+            }
+            if (playerPosition == this.position) {
+                if (this.intent == MonsterIntentEnum.ATTACK_MINION) {
+                    AbstractDungeon.actionManager.addToBottom(new DamageAction(PetUtils.getPet(), this.damage.get(0), AbstractGameAction.AttackEffect.BLUNT_HEAVY, true));
+                } else {
+                    AbstractDungeon.actionManager.addToBottom(new DamageAction(AbstractDungeon.player, this.damage.get(0), AbstractGameAction.AttackEffect.BLUNT_HEAVY, true));
+                }
+            }
             AbstractDungeon.actionManager.addToBottom(new SuicideAction(this));
             break;
         }

@@ -30,6 +30,7 @@ public class Taser extends AbstractItemCard {
         CardModifierManager.addModifier(this, new ItemMod(ITEM));
         baseDamage = DAMAGE;
         magicNumber = baseMagicNumber = STUN;
+        rarity = ItemRarity.ITEM_RARE;
     }
 
     @Override

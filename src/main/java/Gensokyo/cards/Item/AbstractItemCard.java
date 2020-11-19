@@ -9,6 +9,14 @@ import com.megacrit.cardcrawl.rooms.AbstractRoom;
 
 public abstract class AbstractItemCard extends AbstractShopSpecialCard {
 
+    public enum ItemRarity {
+        ITEM_COMMON,
+        ITEM_UNCOMMON,
+        ITEM_RARE;
+    }
+
+    public ItemRarity rarity;
+
     public AbstractItemCard(String ID, String IMG, int COST, CardType TYPE, CardRarity RARITY, CardTarget TARGET) {
         super(ID, IMG, COST, TYPE, RARITY, TARGET);
         purgeOnUse = true;
