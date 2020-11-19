@@ -1,5 +1,6 @@
 package Gensokyo.monsters.act1;
 
+import Gensokyo.actions.SuicideActionAction;
 import Gensokyo.actions.YinYangMoveAction;
 import Gensokyo.minions.PetUtils;
 import Gensokyo.powers.act1.MonsterPosition;
@@ -86,17 +87,9 @@ public class YinYangOrb extends CustomMonster {
                 playerPosition = AbstractDungeon.player.getPower(Position.POWER_ID).amount;
             }
             if (playerPosition == this.position) {
-                if (this.intent == MonsterIntentEnum.ATTACK_MINION) {
-                    if (PetUtils.getPet() != null) {
-                        AbstractDungeon.actionManager.addToBottom(new DamageAction(PetUtils.getPet(), this.damage.get(0), AbstractGameAction.AttackEffect.BLUNT_HEAVY, true));
-                    } else {
-                        AbstractDungeon.actionManager.addToBottom(new DamageAction(AbstractDungeon.player, this.damage.get(0), AbstractGameAction.AttackEffect.BLUNT_HEAVY, true));
-                    }
-                } else {
-                    AbstractDungeon.actionManager.addToBottom(new DamageAction(AbstractDungeon.player, this.damage.get(0), AbstractGameAction.AttackEffect.BLUNT_HEAVY, true));
-                }
+                AbstractDungeon.actionManager.addToBottom(new DamageAction(AbstractDungeon.player, this.damage.get(0), AbstractGameAction.AttackEffect.BLUNT_HEAVY, true));
             }
-            AbstractDungeon.actionManager.addToBottom(new SuicideAction(this));
+            addToBot(new SuicideActionAction(this));
             break;
         }
         AbstractDungeon.actionManager.addToBottom(new RollMoveAction(this));
