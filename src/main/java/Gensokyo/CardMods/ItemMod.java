@@ -35,11 +35,6 @@ public class ItemMod extends AbstractCardModifier {
     }
 
     @Override
-    public boolean isInherent(AbstractCard card) {
-        return true;
-    }
-
-    @Override
     public void onUse(AbstractCard card, AbstractCreature target, UseCardAction action) {
         uses--;
         card.initializeDescription();
@@ -63,7 +58,6 @@ public class ItemMod extends AbstractCardModifier {
 
     @Override
     public AbstractCardModifier makeCopy() {
-        System.out.println(uses);
         return new ItemMod(uses);
     }
 }
