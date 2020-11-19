@@ -34,7 +34,10 @@ public class LifeforceConverter extends AbstractItemCard {
             @Override
             public void update() {
                 for (AbstractCard card : AbstractDungeon.player.hand.group) {
-                    CardModifierManager.addModifier(card, new BloodcastMod());
+                    if (card.cost >= 0 && !CardModifierManager.hasModifier(card, BloodcastMod.ID)) {
+                        card.flash();
+                        CardModifierManager.addModifier(card, new BloodcastMod());
+                    }
                 }
                 this.isDone = true;
             }

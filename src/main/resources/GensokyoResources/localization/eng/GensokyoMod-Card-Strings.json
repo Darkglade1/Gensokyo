@@ -244,7 +244,7 @@
   },
   "Gensokyo:LifeforceConverter": {
     "NAME": "Lifeforce Converter",
-    "DESCRIPTION": "Give ALL cards in your hand gensokyo:Bloodcast this combat."
+    "DESCRIPTION": "Give ALL non-X-cost cards in your hand gensokyo:Bloodcast this combat."
   },
   "Gensokyo:FlashFlood": {
     "NAME": "Flash Flood",
