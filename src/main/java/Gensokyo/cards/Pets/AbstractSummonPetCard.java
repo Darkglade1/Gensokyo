@@ -2,7 +2,11 @@ package Gensokyo.cards.Pets;
 
 import Gensokyo.GensokyoMod;
 import Gensokyo.cards.AbstractShopSpecialCard;
+import Gensokyo.powers.act1.PetPosition;
+import Gensokyo.powers.act1.Position;
+import Gensokyo.powers.act2.RivalPlayerPosition;
 import Gensokyo.relics.Companionship;
+import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
@@ -48,6 +52,12 @@ public abstract class AbstractSummonPetCard extends AbstractShopSpecialCard {
         }
         if (!AbstractDungeon.player.hasRelic(Companionship.ID)) {
             AbstractDungeon.getCurrRoom().spawnRelicAndObtain(Settings.WIDTH / 2.0F, Settings.HEIGHT / 2.0F, new Companionship());
+        }
+    }
+
+    public void applySpellCardRules(AbstractMonster m) {
+        if (AbstractDungeon.player.hasPower(RivalPlayerPosition.POWER_ID)  || AbstractDungeon.player.hasPower(Position.POWER_ID)) {
+            AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(m, m, new PetPosition(m)));
         }
     }
 

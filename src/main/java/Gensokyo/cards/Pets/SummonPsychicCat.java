@@ -26,6 +26,7 @@ public class SummonPsychicCat extends AbstractSummonPetCard {
             PsychicCat cat =  new PsychicCat(max_hp, magicNumber, PET_X_POSITION, PET_Y_POSITION);
             cat.setAssociatedCard(this);
             BasePlayerMinionHelper.addMinion(p, cat);
+            applySpellCardRules(cat);
         }
     }
 }

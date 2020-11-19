@@ -26,6 +26,7 @@ public class SummonJeweledCobra extends AbstractSummonPetCard {
             JeweledCobra cobra =  new JeweledCobra(max_hp, magicNumber, PET_X_POSITION, PET_Y_POSITION);
             cobra.setAssociatedCard(this);
             BasePlayerMinionHelper.addMinion(p, cobra);
+            applySpellCardRules(cobra);
         }
     }
 }

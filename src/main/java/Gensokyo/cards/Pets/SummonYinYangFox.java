@@ -26,6 +26,7 @@ public class SummonYinYangFox extends AbstractSummonPetCard {
             YingYangFox fox =  new YingYangFox(max_hp, magicNumber, PET_X_POSITION, PET_Y_POSITION);
             fox.setAssociatedCard(this);
             BasePlayerMinionHelper.addMinion(p, fox);
+            applySpellCardRules(fox);
         }
     }
 }

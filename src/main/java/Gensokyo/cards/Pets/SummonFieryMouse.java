@@ -26,6 +26,7 @@ public class SummonFieryMouse extends AbstractSummonPetCard {
             FieryMouse fieryMouse =  new FieryMouse(max_hp, magicNumber, PET_X_POSITION, PET_Y_POSITION);
             fieryMouse.setAssociatedCard(this);
             BasePlayerMinionHelper.addMinion(p, fieryMouse);
+            applySpellCardRules(fieryMouse);
         }
     }
 }
