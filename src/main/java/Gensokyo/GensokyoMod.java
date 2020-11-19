@@ -15,6 +15,12 @@ import Gensokyo.cards.Evolve.ScrapIron;
 import Gensokyo.cards.Evolve.Shovel;
 import Gensokyo.cards.Evolve.TarnishedGold;
 import Gensokyo.cards.Evolve.TrainingManual;
+import Gensokyo.cards.Item.LifeforceConverter;
+import Gensokyo.cards.Item.MedicineKit;
+import Gensokyo.cards.Item.OverchargedCore;
+import Gensokyo.cards.Item.RPG;
+import Gensokyo.cards.Item.ReactiveArmor;
+import Gensokyo.cards.Item.Taser;
 import Gensokyo.cards.Pets.SummonFieryMouse;
 import Gensokyo.cards.Pets.SummonJeweledCobra;
 import Gensokyo.cards.Pets.SummonPsychicCat;
@@ -166,7 +172,6 @@ import Gensokyo.relics.act2.SongOfSouls;
 import Gensokyo.relics.act2.SpiderMask;
 import Gensokyo.relics.act2.UndefinedDarkness;
 import Gensokyo.relics.act3.EmptyGrave;
-import Gensokyo.rooms.nitori.Nitori;
 import Gensokyo.rooms.nitori.helpers.gensokyoRelicHelper;
 import Gensokyo.util.IDCheckDontTouchPls;
 import Gensokyo.util.TextureLoader;
@@ -195,7 +200,6 @@ import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.core.Settings;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.dungeons.Exordium;
-import com.megacrit.cardcrawl.dungeons.TheBeyond;
 import com.megacrit.cardcrawl.dungeons.TheCity;
 import com.megacrit.cardcrawl.helpers.CardHelper;
 import com.megacrit.cardcrawl.helpers.CardLibrary;
@@ -836,6 +840,14 @@ public class GensokyoMod implements
         BaseMod.addCard(new Shovel());
         BaseMod.addCard(new TarnishedGold());
         BaseMod.addCard(new TrainingManual());
+
+        //Item cards
+        BaseMod.addCard(new RPG());
+        BaseMod.addCard(new Taser());
+        BaseMod.addCard(new ReactiveArmor());
+        BaseMod.addCard(new OverchargedCore());
+        BaseMod.addCard(new MedicineKit());
+        BaseMod.addCard(new LifeforceConverter());
 
         if (hasMarisa) {
             BaseMod.addCard(new MarisaTwilightSpark());

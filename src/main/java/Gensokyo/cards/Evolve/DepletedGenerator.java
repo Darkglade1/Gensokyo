@@ -34,6 +34,12 @@ public class DepletedGenerator extends AbstractEvolveCard {
     }
 
     @Override
+    public float getTitleFontSize()
+    {
+        return 16;
+    }
+
+    @Override
     public void triggerEvolve() {
         RewardItem item = new RewardItem();
         ArrayList<AbstractCard> group = new ArrayList<>();

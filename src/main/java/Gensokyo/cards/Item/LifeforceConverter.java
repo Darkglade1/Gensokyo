@@ -12,9 +12,9 @@ import com.megacrit.cardcrawl.monsters.AbstractMonster;
 
 import static Gensokyo.GensokyoMod.makeCardPath;
 
-public class LIfeforceConverter extends AbstractItemCard {
-    public static final String ID = GensokyoMod.makeID(LIfeforceConverter.class.getSimpleName());
-    public static final String IMG = makeCardPath("LIfeforceConverter.png");
+public class LifeforceConverter extends AbstractItemCard {
+    public static final String ID = GensokyoMod.makeID(LifeforceConverter.class.getSimpleName());
+    public static final String IMG = makeCardPath("LifeforceConverter.png");
 
     private static final CardRarity RARITY = CardRarity.SPECIAL;
     private static final CardTarget TARGET = CardTarget.NONE;
@@ -22,7 +22,7 @@ public class LIfeforceConverter extends AbstractItemCard {
     private static final int COST = 0;
     private static final int ITEM = 2;
 
-    public LIfeforceConverter() {
+    public LifeforceConverter() {
         super(ID, IMG, COST, TYPE, RARITY, TARGET);
         CardModifierManager.addModifier(this, new ItemMod(ITEM));
     }
@@ -38,5 +38,11 @@ public class LIfeforceConverter extends AbstractItemCard {
                 this.isDone = true;
             }
         });
+    }
+
+    @Override
+    public float getTitleFontSize()
+    {
+        return 16;
     }
 }
