@@ -87,7 +87,11 @@ public class YinYangOrb extends CustomMonster {
             }
             if (playerPosition == this.position) {
                 if (this.intent == MonsterIntentEnum.ATTACK_MINION) {
-                    AbstractDungeon.actionManager.addToBottom(new DamageAction(PetUtils.getPet(), this.damage.get(0), AbstractGameAction.AttackEffect.BLUNT_HEAVY, true));
+                    if (PetUtils.getPet() != null) {
+                        AbstractDungeon.actionManager.addToBottom(new DamageAction(PetUtils.getPet(), this.damage.get(0), AbstractGameAction.AttackEffect.BLUNT_HEAVY, true));
+                    } else {
+                        AbstractDungeon.actionManager.addToBottom(new DamageAction(AbstractDungeon.player, this.damage.get(0), AbstractGameAction.AttackEffect.BLUNT_HEAVY, true));
+                    }
                 } else {
                     AbstractDungeon.actionManager.addToBottom(new DamageAction(AbstractDungeon.player, this.damage.get(0), AbstractGameAction.AttackEffect.BLUNT_HEAVY, true));
                 }
