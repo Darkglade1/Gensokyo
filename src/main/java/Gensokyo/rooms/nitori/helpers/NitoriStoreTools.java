@@ -29,6 +29,8 @@ import com.megacrit.cardcrawl.helpers.MathHelper;
 import com.megacrit.cardcrawl.helpers.input.InputHelper;
 import com.megacrit.cardcrawl.localization.UIStrings;
 import com.megacrit.cardcrawl.relics.AbstractRelic;
+import com.megacrit.cardcrawl.relics.MembershipCard;
+import com.megacrit.cardcrawl.relics.Waffle;
 import com.megacrit.cardcrawl.vfx.BobEffect;
 import com.megacrit.cardcrawl.vfx.FastCardObtainEffect;
 import com.megacrit.cardcrawl.vfx.cardManip.PurgeCardEffect;
@@ -230,7 +232,12 @@ public class NitoriStoreTools {
 
     public static ArrayList<AbstractRelic> getRandomRelics(AbstractRelic.RelicTier rarity, int size) {
         ArrayList<AbstractRelic> relics = new ArrayList<>();
-        for(int i = 1; i <= size; i++){ relics.add(returnRandomRelic(rarity)); }
+        while (relics.size() < size) {
+            AbstractRelic relic = returnRandomRelic(rarity);
+            if (!relic.relicId.equals(MembershipCard.ID) && !relic.relicId.equals(Waffle.ID)) {
+                relics.add(relic);
+            }
+        }
         return relics;
     }
 
@@ -239,21 +246,11 @@ public class NitoriStoreTools {
 
         public SpinningRelicItems() {
 
-            ArrayList<AbstractRelic> relics = new ArrayList<>();
-            ArrayList<AbstractRelic> cosmoRelics;
-            ArrayList<AbstractRelic> commonRelics;
-            ArrayList<AbstractRelic> uncommonRelics;
             ArrayList<AbstractRelic> shopRelics;
 
-            commonRelics = getRandomRelics(AbstractRelic.RelicTier.COMMON, 5);
-            uncommonRelics = getRandomRelics(AbstractRelic.RelicTier.UNCOMMON, 5);
-            cosmoRelics = getRandomRelics(AbstractRelic.RelicTier.RARE, 5);
             shopRelics = getRandomRelics(AbstractRelic.RelicTier.SHOP, 5);
 
-            relics.addAll(commonRelics);
-            relics.addAll(uncommonRelics);
-            relics.addAll(cosmoRelics);
-            relics.addAll(shopRelics);
+            ArrayList<AbstractRelic> relics = new ArrayList<>(shopRelics);
 
             int padding = 0;
             int row = 0;
@@ -311,7 +308,7 @@ public class NitoriStoreTools {
                     price = 325;
                     break;
             }
-            price = MathUtils.round(price * AbstractDungeon.merchantRng.random(0.95F, 1.05F));
+            price = MathUtils.round(price * AbstractDungeon.merchantRng.random(0.90F, 1.10F));
             //if(AbstractDungeon.player.hasRelic(NitoriTicket.ID)){ price /= 2; }
             relic.currentX = DRAW_START_X + relic.img.getWidth() / 2F + padX * padding;
             relic.targetX = relic.currentX;
