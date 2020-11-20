@@ -45,6 +45,18 @@
         <file id="10" name="SpellC/tile009.png" width="506" height="339" pivot_x="0" pivot_y="1"/>
         <file id="11" name="SpellC/tile010.png" width="506" height="339" pivot_x="0" pivot_y="1"/>
     </folder>
+    <folder id="4" name="Defeat">
+        <file id="0" name="Defeat/tile009.png" width="336" height="351" pivot_x="0" pivot_y="1"/>
+        <file id="1" name="Defeat/tile000.png" width="338" height="351" pivot_x="0" pivot_y="1"/>
+        <file id="2" name="Defeat/tile001.png" width="338" height="351" pivot_x="0" pivot_y="1"/>
+        <file id="3" name="Defeat/tile002.png" width="338" height="351" pivot_x="0" pivot_y="1"/>
+        <file id="4" name="Defeat/tile003.png" width="338" height="351" pivot_x="0" pivot_y="1"/>
+        <file id="5" name="Defeat/tile004.png" width="338" height="351" pivot_x="0" pivot_y="1"/>
+        <file id="6" name="Defeat/tile005.png" width="338" height="351" pivot_x="0" pivot_y="1"/>
+        <file id="7" name="Defeat/tile006.png" width="338" height="351" pivot_x="0" pivot_y="1"/>
+        <file id="8" name="Defeat/tile007.png" width="338" height="351" pivot_x="0" pivot_y="1"/>
+        <file id="9" name="Defeat/tile008.png" width="338" height="351" pivot_x="0" pivot_y="1"/>
+    </folder>
     <entity id="0" name="Doremy">
         <animation id="0" name="Idle" length="1000" interval="100">
             <mainline>
@@ -141,28 +153,28 @@
             </mainline>
             <timeline id="0" name="tile000_000">
                 <key id="0" spin="0">
-                    <object folder="1" file="1" x="-219" y="337"/>
+                    <object folder="1" file="1" x="-219" y="337" angle="0"/>
                 </key>
                 <key id="1" time="125" spin="0">
-                    <object folder="1" file="2" x="-219" y="337"/>
+                    <object folder="1" file="2" x="-219" y="337" angle="0"/>
                 </key>
                 <key id="2" time="250" spin="0">
-                    <object folder="1" file="3" x="-219" y="337"/>
+                    <object folder="1" file="3" x="-219" y="337" angle="0"/>
                 </key>
                 <key id="3" time="375" spin="0">
-                    <object folder="1" file="4" x="-219" y="337"/>
+                    <object folder="1" file="4" x="-219" y="337" angle="0"/>
                 </key>
                 <key id="4" time="500" spin="0">
-                    <object folder="1" file="5" x="-219" y="337"/>
+                    <object folder="1" file="5" x="-219" y="337" angle="0"/>
                 </key>
                 <key id="5" time="625" spin="0">
-                    <object folder="1" file="6" x="-219" y="337"/>
+                    <object folder="1" file="6" x="-219" y="337" angle="0"/>
                 </key>
                 <key id="6" time="750" spin="0">
-                    <object folder="1" file="7" x="-219" y="337"/>
+                    <object folder="1" file="7" x="-219" y="337" angle="0"/>
                 </key>
                 <key id="7" time="875" spin="0">
-                    <object folder="1" file="0" x="-219" y="337"/>
+                    <object folder="1" file="0" x="-219" y="337" angle="0"/>
                 </key>
             </timeline>
         </animation>
@@ -192,25 +204,25 @@
             </mainline>
             <timeline id="0" name="tile000_001">
                 <key id="0" spin="0">
-                    <object folder="2" file="1" x="-151" y="301"/>
+                    <object folder="2" file="1" x="-151" y="301" angle="0"/>
                 </key>
                 <key id="1" time="142" spin="0">
-                    <object folder="2" file="2" x="-151" y="301"/>
+                    <object folder="2" file="2" x="-151" y="301" angle="0"/>
                 </key>
                 <key id="2" time="285" spin="0">
-                    <object folder="2" file="3" x="-151" y="301"/>
+                    <object folder="2" file="3" x="-151" y="301" angle="0"/>
                 </key>
                 <key id="3" time="428" spin="0">
-                    <object folder="2" file="4" x="-151" y="301"/>
+                    <object folder="2" file="4" x="-151" y="301" angle="0"/>
                 </key>
                 <key id="4" time="571" spin="0">
-                    <object folder="2" file="5" x="-151" y="301"/>
+                    <object folder="2" file="5" x="-151" y="301" angle="0"/>
                 </key>
                 <key id="5" time="714" spin="0">
-                    <object folder="2" file="6" x="-151" y="301"/>
+                    <object folder="2" file="6" x="-151" y="301" angle="0"/>
                 </key>
                 <key id="6" time="857" spin="0">
-                    <object folder="2" file="0" x="-151" y="301"/>
+                    <object folder="2" file="0" x="-151" y="301" angle="0"/>
                 </key>
             </timeline>
         </animation>
@@ -240,25 +252,25 @@
             </mainline>
             <timeline id="0" name="tile000_003">
                 <key id="0" spin="0">
-                    <object folder="3" file="1" x="-233" y="331"/>
+                    <object folder="3" file="1" x="-233" y="331" angle="0"/>
                 </key>
                 <key id="1" time="100" spin="0">
-                    <object folder="3" file="2" x="-233" y="331"/>
+                    <object folder="3" file="2" x="-233" y="331" angle="0"/>
                 </key>
                 <key id="2" time="200" spin="0">
-                    <object folder="3" file="3" x="-233" y="331"/>
+                    <object folder="3" file="3" x="-233" y="331" angle="0"/>
                 </key>
                 <key id="3" time="300" spin="0">
-                    <object folder="3" file="4" x="-233" y="331"/>
+                    <object folder="3" file="4" x="-233" y="331" angle="0"/>
                 </key>
                 <key id="4" time="400" spin="0">
-                    <object folder="3" file="5" x="-233" y="331"/>
+                    <object folder="3" file="5" x="-233" y="331" angle="0"/>
                 </key>
                 <key id="5" time="500" spin="0">
-                    <object folder="3" file="6" x="-233" y="331"/>
+                    <object folder="3" file="6" x="-233" y="331" angle="0"/>
                 </key>
                 <key id="6" time="600" spin="0">
-                    <object folder="3" file="7" x="-233" y="331"/>
+                    <object folder="3" file="7" x="-233" y="331" angle="0"/>
                 </key>
             </timeline>
         </animation>
@@ -282,21 +294,81 @@
             </mainline>
             <timeline id="0" name="tile007">
                 <key id="0" spin="0">
-                    <object folder="3" file="8" x="-256" y="337"/>
+                    <object folder="3" file="8" x="-256" y="337" angle="0"/>
                 </key>
                 <key id="1" time="149" spin="0">
-                    <object folder="3" file="9" x="-256" y="337"/>
+                    <object folder="3" file="9" x="-256" y="337" angle="0"/>
                 </key>
                 <key id="2" time="299" spin="0">
-                    <object folder="3" file="10" x="-256" y="337"/>
+                    <object folder="3" file="10" x="-256" y="337" angle="0"/>
                 </key>
                 <key id="3" time="449" spin="0">
-                    <object folder="3" file="11" x="-256" y="337"/>
+                    <object folder="3" file="11" x="-256" y="337" angle="0"/>
                 </key>
             </timeline>
             <timeline id="1" name="tile011">
                 <key id="0" time="600" spin="0">
-                    <object folder="3" file="0" x="-250" y="337"/>
+                    <object folder="3" file="0" x="-250" y="337" angle="0"/>
+                </key>
+            </timeline>
+        </animation>
+        <animation id="5" name="Defeat" length="900" interval="100">
+            <mainline>
+                <key id="0">
+                    <object_ref id="0" timeline="0" key="0" z_index="0"/>
+                </key>
+                <key id="1" time="100">
+                    <object_ref id="0" timeline="0" key="1" z_index="0"/>
+                </key>
+                <key id="2" time="200">
+                    <object_ref id="0" timeline="0" key="2" z_index="0"/>
+                </key>
+                <key id="3" time="300">
+                    <object_ref id="0" timeline="0" key="3" z_index="0"/>
+                </key>
+                <key id="4" time="397">
+                    <object_ref id="0" timeline="0" key="4" z_index="0"/>
+                </key>
+                <key id="5" time="499">
+                    <object_ref id="0" timeline="0" key="5" z_index="0"/>
+                </key>
+                <key id="6" time="596">
+                    <object_ref id="0" timeline="0" key="6" z_index="0"/>
+                </key>
+                <key id="7" time="697">
+                    <object_ref id="0" timeline="0" key="7" z_index="0"/>
+                </key>
+                <key id="8" time="800">
+                    <object_ref id="0" timeline="0" key="8" z_index="0"/>
+                </key>
+            </mainline>
+            <timeline id="0" name="tile000_002">
+                <key id="0" spin="0">
+                    <object folder="4" file="1" x="-136" y="281"/>
+                </key>
+                <key id="1" time="100" spin="0">
+                    <object folder="4" file="2" x="-136" y="281"/>
+                </key>
+                <key id="2" time="200" spin="0">
+                    <object folder="4" file="3" x="-136" y="281"/>
+                </key>
+                <key id="3" time="300" spin="0">
+                    <object folder="4" file="4" x="-136" y="281"/>
+                </key>
+                <key id="4" time="397" spin="0">
+                    <object folder="4" file="6" x="-136" y="281"/>
+                </key>
+                <key id="5" time="499" spin="0">
+                    <object folder="4" file="7" x="-136" y="281"/>
+                </key>
+                <key id="6" time="596" spin="0">
+                    <object folder="4" file="8" x="-136" y="281"/>
+                </key>
+                <key id="7" time="697" spin="0">
+                    <object folder="4" file="9" x="-136" y="281"/>
+                </key>
+                <key id="8" time="800" spin="0">
+                    <object folder="4" file="0" x="-136" y="281"/>
                 </key>
             </timeline>
         </animation>

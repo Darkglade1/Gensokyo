@@ -26,6 +26,7 @@ import Gensokyo.monsters.act2.Reisen;
 import Gensokyo.monsters.act2.Tenshi;
 import Gensokyo.monsters.act2.Yuyuko;
 import Gensokyo.monsters.act1.marisaMonsters.Patchouli;
+import Gensokyo.monsters.act3.Doremy;
 import Gensokyo.rooms.nitori.Nitori;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.Color;
@@ -135,6 +136,8 @@ public class GensokyoScene extends AbstractScene {
                     this.bg = this.atlas.findRegion("mod/Desert");
                 } else if (mo instanceof BigMudSlime || mo instanceof SlimeBunny) {
                     this.bg = this.atlas.findRegion("mod/Desert");
+                } else if (mo instanceof Doremy) {
+                    this.bg = this.atlas.findRegion("mod/DreamWorld");
                 } else {
                     if (CardCrawlGame.dungeon instanceof Gensokyo) {
                         this.bg = this.atlas.findRegion("mod/TanukiForest");

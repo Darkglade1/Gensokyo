@@ -65,8 +65,8 @@ public class Doremy extends CustomMonster
 
     private static final int DREAM_DURATION = 3;
 
-    private static final int HP = 300;
-    private static final int A8_HP = 315;
+    private static final int HP = 350;
+    private static final int A8_HP = 365;
     private int dreamAttackDamage;
     private int dreamBlock;
     private int nightmareAttackDamage;
@@ -210,7 +210,7 @@ public class Doremy extends CustomMonster
 
     @Override
     public void die(boolean triggerRelics) {
-        //runAnim("Defeat");
+        runAnim("Defeat");
         ((BetterSpriterAnimation)this.animation).startDying();
         super.die(triggerRelics);
     }
