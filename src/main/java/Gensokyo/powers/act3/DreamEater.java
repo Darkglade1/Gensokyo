@@ -35,8 +35,8 @@ public class DreamEater extends AbstractPower {
 
     public static final int A18_BASIC_STRENGTH = 2;
     public static final int A18_COMMON_STRENGTH = 1;
-    public static final int A18_UNCOMMON_STRENGTH = 0;
-    public static final int A18_RARE_STRENGTH = -1;
+    public static final int A18_UNCOMMON_STRENGTH = -1;
+    public static final int A18_RARE_STRENGTH = -2;
 
     private int basicStrength;
     private int commonStrength;
