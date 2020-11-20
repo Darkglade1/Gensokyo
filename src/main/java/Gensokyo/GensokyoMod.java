@@ -142,7 +142,7 @@ import Gensokyo.monsters.act2.NormalEnemies.Wraith;
 import Gensokyo.monsters.act2.Reisen;
 import Gensokyo.monsters.act2.Tenshi;
 import Gensokyo.monsters.act2.Yuyuko;
-import Gensokyo.monsters.act3.Sakuya;
+import Gensokyo.monsters.act3.Doremy;
 import Gensokyo.relics.Companionship;
 import Gensokyo.relics.act1.Bombinomicon;
 import Gensokyo.relics.act1.BookOfSpecters;
@@ -533,8 +533,8 @@ public class GensokyoMod implements
 
 
         //Act 3
+        BaseMod.addMonster(Doremy.ID, (BaseMod.GetMonster) Doremy::new);
         BaseMod.addBoss(Gensokyoest.ID, Yukari.ID, "GensokyoResources/images/monsters/Yukari/Yukari.png", "GensokyoResources/images/monsters/Yukari/YukariOutline.png");
-        BaseMod.addMonster(Sakuya.ID, (BaseMod.GetMonster) Sakuya::new);
 
         // =============== EVENTS =================
 

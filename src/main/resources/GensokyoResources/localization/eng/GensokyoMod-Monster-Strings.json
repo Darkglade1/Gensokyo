@@ -510,6 +510,22 @@
       "Your time's run out."
     ]
   },
+  "Gensokyo:Doremy": {
+    "MOVES": [
+      null,
+      null,
+      null,
+      "There's No Need to Wake Up Anymore",
+      "Ochre Confusion",
+      "Scarlet Nightmare"
+    ],
+    "NAME": "Ruler of Dreams",
+    "DIALOG": [
+      "Care for a sweet dream?",
+      "Good night.",
+      "Destroyer of Dreams"
+    ]
+  },
   "Gensokyo:Nitori": {
     "MOVES": [
 
