@@ -16,4 +16,5 @@ public class EncounterIDs {
     public static final String CHOMPER_AND_GLOOP = "Gensokyo:Chomper_and_Gloop";
     public static final String MONOLITH_AND_DOG = "Gensokyo:Monolith_and_Dog";
     public static final String MIRROR_AND_DOG = "Gensokyo:Mirror_and_Dog";
+    public static final String SCARLET_DEVILS = "Gensokyo:Scarlet_Devils";
 }

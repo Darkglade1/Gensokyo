@@ -143,6 +143,8 @@ import Gensokyo.monsters.act2.Reisen;
 import Gensokyo.monsters.act2.Tenshi;
 import Gensokyo.monsters.act2.Yuyuko;
 import Gensokyo.monsters.act3.Doremy;
+import Gensokyo.monsters.act3.Flandre;
+import Gensokyo.monsters.act3.Remilia;
 import Gensokyo.relics.Companionship;
 import Gensokyo.relics.act1.Bombinomicon;
 import Gensokyo.relics.act1.BookOfSpecters;
@@ -534,6 +536,11 @@ public class GensokyoMod implements
 
         //Act 3
         BaseMod.addMonster(Doremy.ID, (BaseMod.GetMonster) Doremy::new);
+        BaseMod.addMonster(EncounterIDs.SCARLET_DEVILS, "Scarlet Devils", () -> new MonsterGroup(
+                new AbstractMonster[] {
+                        new Remilia(-480.0F, 0.0F),
+                        new Flandre(),
+                }));
         BaseMod.addBoss(Gensokyoest.ID, Yukari.ID, "GensokyoResources/images/monsters/Yukari/Yukari.png", "GensokyoResources/images/monsters/Yukari/YukariOutline.png");
 
         // =============== EVENTS =================

@@ -2,51 +2,32 @@ package Gensokyo.monsters.act3;
 
 import Gensokyo.BetterSpriterAnimation;
 import Gensokyo.GensokyoMod;
-import Gensokyo.RazIntent.IntentEnums;
-import Gensokyo.actions.AnimatedMoveActualAction;
-import Gensokyo.actions.SetFlipAction;
-import Gensokyo.monsters.act2.Miko;
-import Gensokyo.powers.act1.VigorPower;
-import Gensokyo.powers.act2.Purity;
-import Gensokyo.powers.act2.RivalPlayerPosition;
-import Gensokyo.powers.act2.RivalPosition;
-import Gensokyo.powers.act2.TenDesires;
 import Gensokyo.powers.act3.Retribution;
-import Gensokyo.vfx.FlexibleCalmParticleEffect;
-import Gensokyo.vfx.FlexibleStanceAuraEffect;
+import Gensokyo.powers.act3.SistersPlayerPosition;
+import Gensokyo.powers.act3.SistersPosition;
 import basemod.ReflectionHacks;
 import basemod.abstracts.CustomMonster;
-import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.Color;
-import com.badlogic.gdx.graphics.g2d.SpriteBatch;
-import com.badlogic.gdx.math.MathUtils;
 import com.brashmonkey.spriter.Animation;
 import com.brashmonkey.spriter.Player;
 import com.evacipated.cardcrawl.mod.stslib.actions.tempHp.AddTemporaryHPAction;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.animations.TalkAction;
-import com.megacrit.cardcrawl.actions.animations.VFXAction;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.actions.common.DamageAction;
 import com.megacrit.cardcrawl.actions.common.GainBlockAction;
-import com.megacrit.cardcrawl.actions.common.RemoveSpecificPowerAction;
 import com.megacrit.cardcrawl.actions.common.RollMoveAction;
 import com.megacrit.cardcrawl.actions.unique.VampireDamageAction;
-import com.megacrit.cardcrawl.actions.utility.SFXAction;
 import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.core.AbstractCreature;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.core.Settings;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
-import com.megacrit.cardcrawl.helpers.PowerTip;
 import com.megacrit.cardcrawl.localization.MonsterStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.monsters.EnemyMoveInfo;
-import com.megacrit.cardcrawl.powers.StrengthPower;
 import com.megacrit.cardcrawl.powers.VulnerablePower;
 import com.megacrit.cardcrawl.powers.WeakPower;
-import com.megacrit.cardcrawl.stances.CalmStance;
-import com.megacrit.cardcrawl.vfx.combat.LightningEffect;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -64,7 +45,6 @@ public class Remilia extends CustomMonster
     private static final byte ATTACK = 0;
     private static final byte LIFESTEAL_ATTACK = 1;
     private static final byte DEFEND = 2;
-    private static final byte DEBUFF = 3;
 
     private static final int NORMAL_ATTACK_DAMAGE = 25;
 
@@ -77,12 +57,12 @@ public class Remilia extends CustomMonster
     private static final int HP = 150;
 
     private static final int COOLDOWN = 2;
-    private int counter = 0;
+    private int counter = COOLDOWN;
 
     public float originalX;
     public float originalY;
 
-    private Flandre rival;
+    private Flandre sister;
 
     private Map<Byte, EnemyMoveInfo> moves;
 
@@ -101,7 +81,6 @@ public class Remilia extends CustomMonster
         this.moves.put(ATTACK, new EnemyMoveInfo(ATTACK, Intent.ATTACK, NORMAL_ATTACK_DAMAGE, 0, false));
         this.moves.put(LIFESTEAL_ATTACK, new EnemyMoveInfo(LIFESTEAL_ATTACK, Intent.ATTACK_BUFF, LIFESTEAL_ATTACK_DAMAGE, 0, false));
         this.moves.put(DEFEND, new EnemyMoveInfo(DEFEND, Intent.DEFEND_BUFF, -1, 0, false));
-        this.moves.put(DEBUFF, new EnemyMoveInfo(DEBUFF, Intent.DEBUFF, -1, 0, false));
 
         Player.PlayerListener listener = new RemiliaListener(this);
         ((BetterSpriterAnimation)this.animation).myPlayer.addListener(listener);
@@ -116,29 +95,35 @@ public class Remilia extends CustomMonster
 //        }
         for (AbstractMonster mo : AbstractDungeon.getCurrRoom().monsters.monsters) {
             if (mo instanceof Flandre) {
-                rival = (Flandre)mo;
+                sister = (Flandre)mo;
             }
         }
-        if (rival != null) {
-            this.addToBot(new ApplyPowerAction(rival, rival, new RivalPosition(rival, 1)));
+        if (sister != null) {
+            this.addToBot(new ApplyPowerAction(sister, sister, new SistersPosition(sister, 1, false)));
         }
-        this.addToBot(new ApplyPowerAction(this, this, new RivalPosition(this, 1)));
-        this.addToBot(new ApplyPowerAction(AbstractDungeon.player, this, new RivalPlayerPosition(AbstractDungeon.player, 1)));
-        AbstractDungeon.player.drawX += 480.0F * Settings.scale;
-        AbstractDungeon.player.dialogX += 480.0F * Settings.scale;
+        this.addToBot(new ApplyPowerAction(this, this, new SistersPosition(this, 1, true)));
+        this.addToBot(new ApplyPowerAction(AbstractDungeon.player, this, new SistersPlayerPosition(AbstractDungeon.player, 1)));
+        //AbstractDungeon.player.drawX += 480.0F * Settings.scale;
+        //AbstractDungeon.player.dialogX += 480.0F * Settings.scale;
         this.animation.setFlip(true, false);
-        this.halfDead = true;
+//        this.addToBot(new AbstractGameAction() {
+//            @Override
+//            public void update() {
+//                this.isDone = true;
+//                halfDead = true;
+//            }
+//        });
     }
     
     @Override
     public void takeTurn() {
-        this.halfDead = false;
+        //this.halfDead = false;
         if (this.firstMove) {
             AbstractDungeon.actionManager.addToBottom(new TalkAction(this, DIALOG[0]));
             firstMove = false;
         }
         DamageInfo info = new DamageInfo(this, moves.get(this.nextMove).baseDamage, DamageInfo.DamageType.NORMAL);
-        AbstractCreature target = rival;
+        AbstractCreature target = sister;
 
         if(info.base > -1) {
             info.applyPowers(this, target);
@@ -158,16 +143,9 @@ public class Remilia extends CustomMonster
             }
             case DEFEND: {
                 //runAnim("Special");
-                AbstractDungeon.actionManager.addToBottom(new GainBlockAction(this, BLOCK));
+                AbstractDungeon.actionManager.addToBottom(new AddTemporaryHPAction(this, this, BLOCK));
                 AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(this, this, new Retribution(this)));
                 counter = COOLDOWN;
-                break;
-            }
-            case DEBUFF: {
-                //runAnim("Magic");
-                AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(target, this, new WeakPower(target, DEBUFF_AMT, true), DEBUFF_AMT));
-                AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(target, this, new VulnerablePower(target, DEBUFF_AMT, true), DEBUFF_AMT));
-                counter--;
                 break;
             }
         }
@@ -193,11 +171,8 @@ public class Remilia extends CustomMonster
             this.setMoveShortcut(DEFEND);
         } else {
             ArrayList<Byte> possibilities = new ArrayList<>();
-            if (!this.lastMove(LIFESTEAL_ATTACK) && !this.lastMoveBefore(LIFESTEAL_ATTACK)) {
+            if (!this.lastMove(LIFESTEAL_ATTACK)) {
                 possibilities.add(LIFESTEAL_ATTACK);
-            }
-            if (!this.lastMove(DEBUFF) && !this.lastMoveBefore(DEBUFF)) {
-                possibilities.add(DEBUFF);
             }
             if (!this.lastMove(ATTACK)) {
                 possibilities.add(ATTACK);
@@ -213,15 +188,15 @@ public class Remilia extends CustomMonster
 
     @Override
     public void applyPowers() {
-        if (this.nextMove == -1 || rival.isDeadOrEscaped()) {
+        if (this.nextMove == -1 || sister.isDeadOrEscaped()) {
             Color color = new Color(1.0F, 1.0F, 1.0F, 0.5F);
             ReflectionHacks.setPrivate(this, AbstractMonster.class, "intentColor", color);
             super.applyPowers();
             return;
         }
-        AbstractCreature target = rival;
+        AbstractCreature target = sister;
         DamageInfo info = new DamageInfo(this, moves.get(this.nextMove).baseDamage, DamageInfo.DamageType.NORMAL);
-        if (target == rival) {
+        if (target == sister) {
             Color color = new Color(1.0F, 1.0F, 1.0F, 0.5F);
             ReflectionHacks.setPrivate(this, AbstractMonster.class, "intentColor", color);
             if(info.base > -1) {
@@ -243,9 +218,9 @@ public class Remilia extends CustomMonster
     public void die(boolean triggerRelics) {
         //runAnim("Defeat");
         ((BetterSpriterAnimation)this.animation).startDying();
-        if (rival != null) {
-            rival.rivalDefeated();
-            if (rival.isDeadOrEscaped() || rival.isDying) {
+        if (sister != null) {
+            sister.rivalDefeated();
+            if (sister.isDeadOrEscaped() || sister.isDying) {
                 this.onBossVictoryLogic();
             }
         }

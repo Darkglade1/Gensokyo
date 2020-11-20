@@ -39,13 +39,23 @@ public class Doom extends AbstractPower {
     }
 
     @Override
+    public void onInitialApplication() {
+        attacked = true;
+    }
+
+    @Override
     public float atDamageReceive(float damage, DamageInfo.DamageType type) {
         if (type == DamageInfo.DamageType.NORMAL) {
-            attacked = true;
             return damage * ((DOOM_PERCENT * amount) + 1);
         } else {
             return damage;
         }
+    }
+
+    @Override
+    public int onAttacked(DamageInfo info, int damageAmount) {
+        attacked = true;
+        return damageAmount;
     }
 
     @Override

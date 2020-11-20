@@ -1,15 +1,10 @@
-package Gensokyo.powers.act2;
+package Gensokyo.powers.act3;
 
 import Gensokyo.GensokyoMod;
 import Gensokyo.actions.AnimatedMoveEffect;
-import Gensokyo.monsters.act2.Byakuren;
-import Gensokyo.monsters.act2.Miko;
 import Gensokyo.util.TextureLoader;
-import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.Texture;
-import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.graphics.g2d.TextureAtlas;
-import com.badlogic.gdx.graphics.g2d.TextureRegion;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.core.AbstractCreature;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
@@ -25,9 +20,9 @@ import java.util.Collections;
 import static Gensokyo.GensokyoMod.makePowerPath;
 
 
-public class RivalPlayerPosition extends AbstractPower {
+public class SistersPlayerPosition extends AbstractPower {
 
-    public static final String POWER_ID = GensokyoMod.makeID("RivalPlayerPosition");
+    public static final String POWER_ID = GensokyoMod.makeID("SistersPlayerPosition");
     private static final PowerStrings powerStrings = CardCrawlGame.languagePack.getPowerStrings(POWER_ID);
     public static final String NAME = powerStrings.NAME;
     public static final String[] DESCRIPTIONS = powerStrings.DESCRIPTIONS;
@@ -43,7 +38,7 @@ public class RivalPlayerPosition extends AbstractPower {
 
     public ArrayList<Integer> unsafeLanes = new ArrayList<>();
 
-    public RivalPlayerPosition(AbstractCreature owner, int amount) {
+    public SistersPlayerPosition(AbstractCreature owner, int amount) {
         name = NAME;
         ID = POWER_ID;
 
@@ -115,38 +110,70 @@ public class RivalPlayerPosition extends AbstractPower {
         AbstractPower power2 = null;
         unsafeLanes.clear();
         for (AbstractMonster mo : AbstractDungeon.getCurrRoom().monsters.monsters) {
-            if (mo.hasPower(RivalPosition.POWER_ID)) {
+            if (mo.hasPower(SistersPosition.POWER_ID)) {
                 if (power1 == null) {
-                    power1 = mo.getPower(RivalPosition.POWER_ID);
+                    power1 = mo.getPower(SistersPosition.POWER_ID);
                 } else if (power2 == null) {
-                    power2 = mo.getPower(RivalPosition.POWER_ID);
+                    power2 = mo.getPower(SistersPosition.POWER_ID);
                 }
             }
         }
         if (power1 != null && power2 != null) {
+            SistersPosition sister1 = (SistersPosition)power1;
+            SistersPosition sister2 = (SistersPosition)power2;
+
+            SistersPosition ally;
+            SistersPosition enemy;
+
+            if (sister1.ally) {
+                ally = sister1;
+                enemy = sister2;
+            } else {
+                ally = sister2;
+                enemy = sister1;
+            }
 
             if (!firstTime) {
-                power1.amount = newPosition(power1.amount);
-                power2.amount = newPosition(power2.amount);
+                ally.amount = newAllyPosition();
+                enemy.amount = newEnemyPosition(ally.amount);
             } else {
                 firstTime = false;
             }
 
-            updateRivalPositions(power1);
-            updateRivalPositions(power2);
-            power1.updateDescription();
-            power2.updateDescription();
+            updateSisterPositions(ally);
+            updateSisterPositions(enemy);
+            ally.updateDescription();
+            enemy.updateDescription();
 
-            int difference = Math.abs(power1.amount - power2.amount);
+            int difference = Math.abs(ally.amount - enemy.amount);
             if (difference == 0) {
-                unsafeLanes.add(power1.amount);
+                if (ally.amount == 3) {
+                    unsafeLanes.add(1);
+                }
+                if (ally.amount == 1) {
+                    unsafeLanes.add(3);
+                }
             }
             if (difference == 1) {
-                unsafeLanes.add(power1.amount);
-                unsafeLanes.add(power2.amount);
+                if (ally.amount == 3 && enemy.amount == 2) {
+                    unsafeLanes.add(1);
+                    unsafeLanes.add(2);
+                }
+                if (ally.amount == 2 && enemy.amount == 3) {
+                    unsafeLanes.add(3);
+                }
+                if (ally.amount == 2 && enemy.amount == 1) {
+                    unsafeLanes.add(1);
+                }
+                if (ally.amount == 1 && enemy.amount == 2) {
+                    unsafeLanes.add(2);
+                    unsafeLanes.add(3);
+                }
             }
             if (difference == 2) {
-                unsafeLanes.add(difference);
+                unsafeLanes.add(1);
+                unsafeLanes.add(2);
+                unsafeLanes.add(3);
             }
         }
         updateDescription();
@@ -158,7 +185,7 @@ public class RivalPlayerPosition extends AbstractPower {
         }
     }
 
-    private int newPosition(int initialPosition) {
+    private int newAllyPosition() {
         ArrayList<Integer> possiblePositions = new ArrayList<>();
         possiblePositions.add(1);
         possiblePositions.add(2);
@@ -167,7 +194,22 @@ public class RivalPlayerPosition extends AbstractPower {
         return possiblePositions.get(0);
     }
 
-    private void updateRivalPositions(AbstractPower power) {
+    private int newEnemyPosition(int allyPosition) {
+        ArrayList<Integer> possiblePositions = new ArrayList<>();
+        if (allyPosition != 3) {
+            possiblePositions.add(1);
+        }
+        if (allyPosition != 2) {
+            possiblePositions.add(2);
+        }
+        if (allyPosition != 1) {
+            possiblePositions.add(3);
+        }
+        Collections.shuffle(possiblePositions, AbstractDungeon.monsterRng.random);
+        return possiblePositions.get(0);
+    }
+
+    private void updateSisterPositions(AbstractPower power) {
         boolean moveUp = false;
         boolean moveDown = false;
         if (power.amount == 1) {
@@ -197,22 +239,22 @@ public class RivalPlayerPosition extends AbstractPower {
                 moveDown = true;
             }
         }
-        if (moveUp) {
-            if (power.owner instanceof Byakuren) {
-                ((Byakuren)power.owner).runAnim("MoveUp");
-            }
-            if (power.owner instanceof Miko) {
-                ((Miko)power.owner).runAnim("MoveUp");
-            }
-        }
-        if (moveDown) {
-            if (power.owner instanceof Byakuren) {
-                ((Byakuren)power.owner).runAnim("MoveDown");
-            }
-            if (power.owner instanceof Miko) {
-                ((Miko)power.owner).runAnim("MoveDown");
-            }
-        }
+//        if (moveUp) {
+//            if (power.owner instanceof Byakuren) {
+//                ((Byakuren)power.owner).runAnim("MoveUp");
+//            }
+//            if (power.owner instanceof Miko) {
+//                ((Miko)power.owner).runAnim("MoveUp");
+//            }
+//        }
+//        if (moveDown) {
+//            if (power.owner instanceof Byakuren) {
+//                ((Byakuren)power.owner).runAnim("MoveDown");
+//            }
+//            if (power.owner instanceof Miko) {
+//                ((Miko)power.owner).runAnim("MoveDown");
+//            }
+//        }
     }
 
     @Override
