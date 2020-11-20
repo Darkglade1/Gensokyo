@@ -78,7 +78,7 @@ public class Doremy extends CustomMonster
     }
 
     public Doremy(final float x, final float y) {
-        super(Doremy.NAME, ID, HP, -5.0F, 0, 230.0f, 245.0f, null, x, y);
+        super(Doremy.NAME, ID, HP, -5.0F, 0, 240.0f, 260.0f, null, x, y);
         this.animation = new BetterSpriterAnimation("GensokyoResources/images/monsters/Doremy/Spriter/DoremyAnimation.scml");
         this.type = EnemyType.ELITE;
         this.dialogX = (this.hb_x - 70.0F) * Settings.scale;
@@ -204,6 +204,7 @@ public class Doremy extends CustomMonster
         isNightmare = true;
         AbstractDungeon.actionManager.addToBottom(new TalkAction(this, DIALOG[1]));
         this.name = DIALOG[2];
+        this.setMoveShortcut(NIGHTMARE_ATTACK);
     }
 
     @Override

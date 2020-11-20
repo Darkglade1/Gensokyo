@@ -274,7 +274,7 @@
 },
 "Gensokyo:DreamEater": {
         "NAME": "Dream Eater",
-        "DESCRIPTIONS": ["The first card you play each turn for the next #b", " turn(s) is #rPurged and #rremoved #rfrom #ryour #rmaster #rdeck. If a card is removed this way, an effect occurs based on its rarity: ", " NL Basic: ", " NL Common: ", " NL Uncommon: ", " NL Rare: ", "Gains #b", "Loses #b", " #yStrength"]
+        "DESCRIPTIONS": ["The first card you play each turn for the next #b", " turn(s) is #rPurged and #rremoved #rfrom #ryour #rmaster #rdeck. If a card is removed this way, an effect occurs based on its rarity: ", " NL #yBasic: ", " NL #yCommon: ", " NL #yUncommon: ", " NL #yRare: ", "Gains #b", "Loses #b", " #yStrength"]
 },
 "Gensokyo:TimeDilation": {
         "NAME": "Time Dilation",
