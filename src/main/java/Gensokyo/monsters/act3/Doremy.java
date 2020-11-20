@@ -31,9 +31,9 @@ public class Doremy extends CustomMonster
 {
     public static final String ID = GensokyoMod.makeID("Doremy");
     private static final MonsterStrings monsterStrings = CardCrawlGame.languagePack.getMonsterStrings(ID);
-    public static final String NAME = Doremy.monsterStrings.NAME;
-    public static final String[] MOVES = Doremy.monsterStrings.MOVES;
-    public static final String[] DIALOG = Doremy.monsterStrings.DIALOG;
+    public static final String NAME = monsterStrings.NAME;
+    public static final String[] MOVES = monsterStrings.MOVES;
+    public static final String[] DIALOG = monsterStrings.DIALOG;
 
     private boolean firstMove = true;
     private boolean nightmareInflictsFrail = true;

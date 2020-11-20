@@ -113,7 +113,7 @@ public class Miko extends CustomMonster
     public Miko(final float x, final float y) {
         super(NAME, ID, HP, -5.0F, -20.0F, 230.0f, 275.0f, null, x, y);
         this.animation = new BetterSpriterAnimation("GensokyoResources/images/monsters/Miko/Spriter/MikoAnimation.scml");
-        this.type = EnemyType.ELITE;
+        this.type = EnemyType.BOSS;
         this.dialogX = (this.hb_x - 70.0F) * Settings.scale;
         this.dialogY -= (this.hb_y - 55.0F) * Settings.scale;
         if (AbstractDungeon.ascensionLevel >= 19) {

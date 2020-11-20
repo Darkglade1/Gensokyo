@@ -526,6 +526,18 @@
       "Destroyer of Dreams"
     ]
   },
+  "Gensokyo:Flandre": {
+    "MOVES": [
+      "Bloody Catastrophe",
+      "Forbidden Fruit",
+      "Laevatein",
+      "And Then There Were None"
+    ],
+    "NAME": "Devil's Little Sister",
+    "DIALOG": [
+      "Let me play with this one, sister!"
+    ]
+  },
   "Gensokyo:Nitori": {
     "MOVES": [
 
