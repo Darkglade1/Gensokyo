@@ -132,17 +132,17 @@ public class Doremy extends CustomMonster
         }
         switch (this.nextMove) {
             case DREAM_ATTACK: {
-                //runAnim("Attack");
+                runAnim("AttackForward");
                 AbstractDungeon.actionManager.addToBottom(new DamageAction(AbstractDungeon.player, info, AbstractGameAction.AttackEffect.BLUNT_HEAVY));
                 break;
             }
             case DREAM_BLOCK: {
-                //runAnim("Attack");
+                runAnim("SpellCall");
                 AbstractDungeon.actionManager.addToBottom(new GainBlockAction(this, dreamBlock));
                 break;
             }
             case DREAM_DEBUFF: {
-                //runAnim("Spell");
+                runAnim("SpellCall");
                 AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(AbstractDungeon.player, this, new WeakPower(AbstractDungeon.player, DREAM_DEBUFF_AMT, true), DREAM_DEBUFF_AMT));
                 break;
             }
@@ -205,6 +205,7 @@ public class Doremy extends CustomMonster
         AbstractDungeon.actionManager.addToBottom(new TalkAction(this, DIALOG[1]));
         this.name = DIALOG[2];
         this.setMoveShortcut(NIGHTMARE_ATTACK);
+        runAnim("SpellC");
     }
 
     @Override
@@ -222,6 +223,11 @@ public class Doremy extends CustomMonster
     //Resets character back to idle animation
     public void resetAnimation() {
         ((BetterSpriterAnimation)this.animation).myPlayer.setAnimation("Idle");
+    }
+
+    //Resets character back to idle animation
+    public void resetNightmareAnimation() {
+        ((BetterSpriterAnimation)this.animation).myPlayer.setAnimation("NightmareIdle");
     }
 
     //Prevents any further animation once the death animation is finished
@@ -242,8 +248,17 @@ public class Doremy extends CustomMonster
         public void animationFinished(Animation animation){
             if (animation.name.equals("Defeat")) {
                 character.stopAnimation();
-            } else if (!animation.name.equals("Idle")) {
-                character.resetAnimation();
+            } else {
+                if (isNightmare) {
+                    if (!animation.name.equals("NightmareIdle")) {
+                        character.resetNightmareAnimation();
+                    }
+                } else {
+                    if (!animation.name.equals("Idle")) {
+                        character.resetAnimation();
+                    }
+                }
+
             }
         }
 
