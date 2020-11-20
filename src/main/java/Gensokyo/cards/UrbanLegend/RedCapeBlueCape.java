@@ -34,6 +34,7 @@ public class RedCapeBlueCape extends AbstractUrbanLegendCard {
         super(ID, IMG, COST, TYPE, RARITY, TARGET);
         baseDamage = DAMAGE;
         baseBlock = BLOCK;
+        cardsToPreview = new RedCape();
         tags.add(Tags.URBAN_LEGEND);
     }
 
