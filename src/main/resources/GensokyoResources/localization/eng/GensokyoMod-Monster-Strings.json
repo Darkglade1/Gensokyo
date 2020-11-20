@@ -538,6 +538,18 @@
       "Let me play with this one, sister!"
     ]
   },
+  "Gensokyo:Remilia": {
+    "MOVES": [
+      "Scarlet Shoot",
+      "Vampire Claw",
+      "Night Dance",
+      "Vampire Illusion"
+    ],
+    "NAME": "Scarlet Devil",
+    "DIALOG": [
+      "You need to learn some restraint."
+    ]
+  },
   "Gensokyo:Nitori": {
     "MOVES": [
 

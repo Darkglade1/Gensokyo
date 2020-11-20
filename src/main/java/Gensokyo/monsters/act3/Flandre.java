@@ -92,7 +92,7 @@ public class Flandre extends CustomMonster
     public float originalX;
     public float originalY;
 
-    private Byakuren rival;
+    private Remilia rival;
 
     private Map<Byte, EnemyMoveInfo> moves;
 
@@ -138,8 +138,8 @@ public class Flandre extends CustomMonster
     public void usePreBattleAction() {
         AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(this, this, new EyesOfDeath(this, doom)));
         for (AbstractMonster mo : AbstractDungeon.getCurrRoom().monsters.monsters) {
-            if (mo instanceof Byakuren) {
-                rival = (Byakuren) mo;
+            if (mo instanceof Remilia) {
+                rival = (Remilia) mo;
             }
         }
         this.originalX = this.drawX;
@@ -250,7 +250,7 @@ public class Flandre extends CustomMonster
         } else {
             setMoveShortcut(ATTACK);
         }
-
+        rival.halfDead = true;
     }
 
     private void setMoveShortcut(byte next) {

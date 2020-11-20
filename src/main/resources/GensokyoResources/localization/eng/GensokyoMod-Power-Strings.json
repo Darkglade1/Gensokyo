@@ -288,6 +288,10 @@
         "NAME": "And Then There Were None",
         "DESCRIPTIONS": ["#yDoom no longer wears off."]
 },
+"Gensokyo:Retribution": {
+        "NAME": "Retribution",
+        "DESCRIPTIONS": ["The next time this creature receives attack damage this turn, deals that much damage back to the attacker."]
+},
 "Gensokyo:TimeDilation": {
         "NAME": "Time Dilation",
         "DESCRIPTIONS": ["The #b1st, #b4th, #b7th, etc. cards played this combat are instead played #b", " turn later. NL The #b2nd, #b5th, #b8th, etc. cards played this combat are instead played #b", " turns later. NL The #b3rd, #b6th, #b9th, etc. cards played this combat are instead played #b", " turns later."]
