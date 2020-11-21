@@ -535,7 +535,8 @@
     ],
     "NAME": "Devil's Little Sister",
     "DIALOG": [
-      "Let me play with this one, sister!"
+      "Let me play with this one, sister!",
+      "You can't stop me, sister!"
     ]
   },
   "Gensokyo:Remilia": {
@@ -546,7 +547,8 @@
     ],
     "NAME": "Scarlet Devil",
     "DIALOG": [
-      "You need to learn some restraint."
+      "You need to learn some restraint.",
+      "I hope you learned your lesson."
     ]
   },
   "Gensokyo:Nitori": {

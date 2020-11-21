@@ -15,7 +15,7 @@ import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.animations.TalkAction;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.actions.common.DamageAction;
-import com.megacrit.cardcrawl.actions.common.GainBlockAction;
+import com.megacrit.cardcrawl.actions.common.HealAction;
 import com.megacrit.cardcrawl.actions.common.RollMoveAction;
 import com.megacrit.cardcrawl.actions.unique.VampireDamageAction;
 import com.megacrit.cardcrawl.cards.DamageInfo;
@@ -27,7 +27,6 @@ import com.megacrit.cardcrawl.localization.MonsterStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.monsters.EnemyMoveInfo;
 import com.megacrit.cardcrawl.powers.VulnerablePower;
-import com.megacrit.cardcrawl.powers.WeakPower;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -43,16 +42,16 @@ public class Remilia extends CustomMonster
 
     private boolean firstMove = true;
     private static final byte ATTACK = 0;
-    private static final byte LIFESTEAL_ATTACK = 1;
-    private static final byte DEFEND = 2;
+    private static final byte DEBUFF_ATTACK = 1;
+    private static final byte HEAL = 2;
 
     private static final int NORMAL_ATTACK_DAMAGE = 25;
 
-    private static final int LIFESTEAL_ATTACK_DAMAGE = 15;
+    private static final int DEBUFF_ATTACK_DAMAGE = 15;
 
-    private static final int BLOCK = 15;
+    private static final int HEAL_AMT = 10;
 
-    private static final int DEBUFF_AMT = 2;
+    private static final int DEBUFF_AMT = 1;
 
     private static final int HP = 150;
 
@@ -79,8 +78,8 @@ public class Remilia extends CustomMonster
 
         this.moves = new HashMap<>();
         this.moves.put(ATTACK, new EnemyMoveInfo(ATTACK, Intent.ATTACK, NORMAL_ATTACK_DAMAGE, 0, false));
-        this.moves.put(LIFESTEAL_ATTACK, new EnemyMoveInfo(LIFESTEAL_ATTACK, Intent.ATTACK_BUFF, LIFESTEAL_ATTACK_DAMAGE, 0, false));
-        this.moves.put(DEFEND, new EnemyMoveInfo(DEFEND, Intent.DEFEND_BUFF, -1, 0, false));
+        this.moves.put(DEBUFF_ATTACK, new EnemyMoveInfo(DEBUFF_ATTACK, Intent.ATTACK_DEBUFF, DEBUFF_ATTACK_DAMAGE, 0, false));
+        this.moves.put(HEAL, new EnemyMoveInfo(HEAL, Intent.BUFF, -1, 0, false));
 
         Player.PlayerListener listener = new RemiliaListener(this);
         ((BetterSpriterAnimation)this.animation).myPlayer.addListener(listener);
@@ -103,21 +102,27 @@ public class Remilia extends CustomMonster
         }
         this.addToBot(new ApplyPowerAction(this, this, new SistersPosition(this, 1, true)));
         this.addToBot(new ApplyPowerAction(AbstractDungeon.player, this, new SistersPlayerPosition(AbstractDungeon.player, 1)));
-        //AbstractDungeon.player.drawX += 480.0F * Settings.scale;
-        //AbstractDungeon.player.dialogX += 480.0F * Settings.scale;
         this.animation.setFlip(true, false);
-//        this.addToBot(new AbstractGameAction() {
-//            @Override
-//            public void update() {
-//                this.isDone = true;
-//                halfDead = true;
-//            }
-//        });
+        this.addToBot(new AbstractGameAction() {
+            @Override
+            public void update() {
+                halfDead = true;
+                healthBarUpdatedEvent();
+                this.isDone = true;
+            }
+        });
     }
     
     @Override
     public void takeTurn() {
-        //this.halfDead = false;
+        this.addToBot(new AbstractGameAction() {
+            @Override
+            public void update() {
+                halfDead = false;
+                healthBarUpdatedEvent();
+                this.isDone = true;
+            }
+        });
         if (this.firstMove) {
             AbstractDungeon.actionManager.addToBottom(new TalkAction(this, DIALOG[0]));
             firstMove = false;
@@ -135,15 +140,16 @@ public class Remilia extends CustomMonster
                 counter--;
                 break;
             }
-            case LIFESTEAL_ATTACK: {
+            case DEBUFF_ATTACK: {
                 //runAnim("Special");
-                AbstractDungeon.actionManager.addToBottom(new VampireDamageAction(target, info, AbstractGameAction.AttackEffect.POISON));
+                AbstractDungeon.actionManager.addToBottom(new DamageAction(target, info, AbstractGameAction.AttackEffect.POISON));
+                AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(target, this, new VulnerablePower(target, DEBUFF_AMT, true), DEBUFF_AMT));
                 counter--;
                 break;
             }
-            case DEFEND: {
+            case HEAL: {
                 //runAnim("Special");
-                AbstractDungeon.actionManager.addToBottom(new AddTemporaryHPAction(this, this, BLOCK));
+                AbstractDungeon.actionManager.addToBottom(new HealAction(this, this, HEAL_AMT));
                 AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(this, this, new Retribution(this)));
                 counter = COOLDOWN;
                 break;
@@ -168,11 +174,11 @@ public class Remilia extends CustomMonster
     @Override
     protected void getMove(final int num) {
         if (counter == 0) {
-            this.setMoveShortcut(DEFEND);
+            this.setMoveShortcut(HEAL);
         } else {
             ArrayList<Byte> possibilities = new ArrayList<>();
-            if (!this.lastMove(LIFESTEAL_ATTACK)) {
-                possibilities.add(LIFESTEAL_ATTACK);
+            if (!this.lastMove(DEBUFF_ATTACK)) {
+                possibilities.add(DEBUFF_ATTACK);
             }
             if (!this.lastMove(ATTACK)) {
                 possibilities.add(ATTACK);

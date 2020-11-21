@@ -237,9 +237,6 @@ public class Flandre extends CustomMonster
         } else {
             setMoveShortcut(ATTACK);
         }
-//        if (sister != null) {
-//            sister.halfDead = true;
-//        }
     }
 
     private void setMoveShortcut(byte next) {
@@ -249,7 +246,7 @@ public class Flandre extends CustomMonster
 
     @Override
     public void applyPowers() {
-        if (this.nextMove == -1 || sister.isDeadOrEscaped()) {
+        if (this.nextMove == -1 || sister.isDead) {
             Color color = new Color(1.0F, 1.0F, 1.0F, 0.5F);
             ReflectionHacks.setPrivate(this, AbstractMonster.class, "intentColor", color);
             super.applyPowers();

@@ -5,6 +5,7 @@ import Gensokyo.cards.AbstractShopSpecialCard;
 import Gensokyo.powers.act1.PetPosition;
 import Gensokyo.powers.act1.Position;
 import Gensokyo.powers.act2.RivalPlayerPosition;
+import Gensokyo.powers.act3.SistersPlayerPosition;
 import Gensokyo.relics.Companionship;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
@@ -56,7 +57,7 @@ public abstract class AbstractSummonPetCard extends AbstractShopSpecialCard {
     }
 
     public void applySpellCardRules(AbstractMonster m) {
-        if (AbstractDungeon.player.hasPower(RivalPlayerPosition.POWER_ID)  || AbstractDungeon.player.hasPower(Position.POWER_ID)) {
+        if (AbstractDungeon.player.hasPower(RivalPlayerPosition.POWER_ID)  || AbstractDungeon.player.hasPower(Position.POWER_ID) || AbstractDungeon.player.hasPower(SistersPlayerPosition.POWER_ID)) {
             AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(m, m, new PetPosition(m)));
         }
     }

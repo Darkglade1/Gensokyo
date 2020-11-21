@@ -2,9 +2,11 @@ package Gensokyo.powers.act3;
 
 import Gensokyo.GensokyoMod;
 import Gensokyo.actions.AnimatedMoveEffect;
+import Gensokyo.monsters.act3.Remilia;
 import Gensokyo.util.TextureLoader;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.TextureAtlas;
+import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.core.AbstractCreature;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
@@ -177,6 +179,24 @@ public class SistersPlayerPosition extends AbstractPower {
             }
         }
         updateDescription();
+    }
+
+    @Override
+    public void atStartOfTurn() {
+        //HARDCODED JANK REEEEEEEEEEEEEEEE
+        for (AbstractMonster mo : AbstractDungeon.getCurrRoom().monsters.monsters) {
+            if (mo.id.equals(Remilia.ID)) {
+                this.addToBot(new AbstractGameAction() {
+                    @Override
+                    public void update() {
+                        mo.halfDead = true;
+                        mo.healthBarUpdatedEvent();
+                        this.isDone = true;
+                    }
+                });
+                break;
+            }
+        }
     }
 
     private void fixOrbPositioning() {
