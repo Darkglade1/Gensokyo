@@ -280,7 +280,6 @@ public class SistersPlayerPosition extends AbstractPower {
     @Override
     public void onRemove() {
         this.owner.drawY = position1;
-        AbstractDungeon.player.drawX -= 480.0F * Settings.scale;
         super.onRemove();
     }
 

@@ -112,6 +112,20 @@
       "gensokyo:Bloodcast. NL "
     ]
   },
+  "Gensokyo:SistersIntents": {
+    "TEXT": [
+      "This enemy will #yAttack #ryou for #b",
+      " damage because you are in the #ropen.",
+      "This enemy intends to NL #yAttack your #gally for #b",
+      " damage.",
+      "This enemy will #yAttack #ryou for #b",
+      " damage #b",
+      " times because you are in the #ropen.",
+      "This enemy intends to NL #yAttack your #gally for #b",
+      " damage #b",
+      " times."
+    ]
+  },
   "Gensokyo:TempHPIntent": {
     "TEXT": [
       "Reinforcing",

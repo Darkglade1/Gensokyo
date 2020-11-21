@@ -10,6 +10,7 @@ import Gensokyo.powers.act3.AndThenThereWereNone;
 import Gensokyo.powers.act3.Doom;
 import Gensokyo.powers.act3.EyesOfDeath;
 import Gensokyo.powers.act3.SistersPlayerPosition;
+import Gensokyo.powers.act3.SistersPosition;
 import basemod.ReflectionHacks;
 import basemod.abstracts.CustomMonster;
 import com.badlogic.gdx.graphics.Color;
@@ -28,6 +29,7 @@ import com.megacrit.cardcrawl.core.Settings;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.helpers.PowerTip;
 import com.megacrit.cardcrawl.localization.MonsterStrings;
+import com.megacrit.cardcrawl.localization.UIStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.monsters.EnemyMoveInfo;
 import com.megacrit.cardcrawl.powers.AbstractPower;
@@ -45,6 +47,8 @@ public class Flandre extends CustomMonster
     public static final String NAME = monsterStrings.NAME;
     public static final String[] MOVES = monsterStrings.MOVES;
     public static final String[] DIALOG = monsterStrings.DIALOG;
+    private static final UIStrings uiStrings = CardCrawlGame.languagePack.getUIString(GensokyoMod.makeID("SistersIntents"));
+    private static final String[] TEXT = uiStrings.TEXT;
 
     private boolean firstMove = true;
 
@@ -208,12 +212,13 @@ public class Flandre extends CustomMonster
         AbstractDungeon.actionManager.addToBottom(new RollMoveAction(this));
     }
 
-    public void rivalDefeated() {
-        AbstractDungeon.actionManager.addToBottom(new RemoveSpecificPowerAction(this, this, RivalPosition.POWER_ID));
-        AbstractDungeon.actionManager.addToBottom(new RemoveSpecificPowerAction(AbstractDungeon.player, AbstractDungeon.player, RivalPlayerPosition.POWER_ID));
+    public void sisterDefeated() {
+        AbstractDungeon.actionManager.addToBottom(new RemoveSpecificPowerAction(this, this, SistersPosition.POWER_ID));
+        AbstractDungeon.actionManager.addToBottom(new RemoveSpecificPowerAction(AbstractDungeon.player, AbstractDungeon.player, SistersPlayerPosition.POWER_ID));
         AbstractDungeon.actionManager.addToBottom(new TalkAction(this, DIALOG[1], 0.0F, 2.0F));
         AbstractDungeon.actionManager.addToBottom(new AnimatedMoveActualAction(this, this.drawX, this.drawY, originalX, originalY));
         AbstractDungeon.onModifyPower();
+        buffed = true;
     }
 
     @Override
@@ -268,10 +273,11 @@ public class Flandre extends CustomMonster
                 info.applyPowers(this, target);
                 ReflectionHacks.setPrivate(this, AbstractMonster.class, "intentDmg", info.output);
                 PowerTip intentTip = (PowerTip)ReflectionHacks.getPrivate(this, AbstractMonster.class, "intentTip");
-                //intentTip.body = TEXT[7] + info.output + TEXT[8] + moves.get(this.nextMove).multiplier + TEXT[9];
-            } else if (this.intent == Intent.DEBUFF || this.intent == Intent.STRONG_DEBUFF) {
-                PowerTip intentTip = (PowerTip)ReflectionHacks.getPrivate(this, AbstractMonster.class, "intentTip");
-                //intentTip.body = TEXT[11];
+                if (nextMove == MULTIATTACK) {
+                    intentTip.body = TEXT[7] + info.output + TEXT[8] + moves.get(this.nextMove).multiplier + TEXT[9];
+                } else {
+                    intentTip.body = TEXT[2] + info.output + TEXT[3];
+                }
             }
         } else {
             super.applyPowers();
@@ -280,12 +286,11 @@ public class Flandre extends CustomMonster
                 Color color = new Color(0.5F, 0.0F, 1.0F, 0.5F);
                 ReflectionHacks.setPrivate(this, AbstractMonster.class, "intentColor", color);
                 PowerTip intentTip = (PowerTip)ReflectionHacks.getPrivate(this, AbstractMonster.class, "intentTip");
-                //intentTip.body = TEXT[4] + info.output + TEXT[5]+ moves.get(this.nextMove).multiplier + TEXT[6];
-            } else if ((this.intent == Intent.DEBUFF || this.intent == Intent.STRONG_DEBUFF)) {
-                Color color = new Color(0.5F, 0.0F, 1.0F, 0.5F);
-                ReflectionHacks.setPrivate(this, AbstractMonster.class, "intentColor", color);
-                PowerTip intentTip = (PowerTip)ReflectionHacks.getPrivate(this, AbstractMonster.class, "intentTip");
-                //intentTip.body = TEXT[10];
+                if (nextMove == MULTIATTACK) {
+                    intentTip.body = TEXT[4] + info.output + TEXT[5]+ moves.get(this.nextMove).multiplier + TEXT[6];
+                } else {
+                    intentTip.body = TEXT[0] + info.output + TEXT[1];
+                }
             } else {
                 Color color = new Color(1.0F, 1.0F, 1.0F, 0.5F);
                 ReflectionHacks.setPrivate(this, AbstractMonster.class, "intentColor", color);
@@ -303,10 +308,9 @@ public class Flandre extends CustomMonster
     public void die(boolean triggerRelics) {
         ((BetterSpriterAnimation)this.animation).startDying();
         if (sister != null) {
-            if (sister.isDeadOrEscaped() || sister.isDying) {
-                this.onBossVictoryLogic();
-            }
+            sister.sisterDefeated();
         }
+        this.onBossVictoryLogic();
         super.die(triggerRelics);
     }
 }

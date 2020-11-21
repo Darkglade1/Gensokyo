@@ -10,14 +10,13 @@ import basemod.abstracts.CustomMonster;
 import com.badlogic.gdx.graphics.Color;
 import com.brashmonkey.spriter.Animation;
 import com.brashmonkey.spriter.Player;
-import com.evacipated.cardcrawl.mod.stslib.actions.tempHp.AddTemporaryHPAction;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.animations.TalkAction;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.actions.common.DamageAction;
+import com.megacrit.cardcrawl.actions.common.EscapeAction;
 import com.megacrit.cardcrawl.actions.common.HealAction;
 import com.megacrit.cardcrawl.actions.common.RollMoveAction;
-import com.megacrit.cardcrawl.actions.unique.VampireDamageAction;
 import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.core.AbstractCreature;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
@@ -158,18 +157,10 @@ public class Remilia extends CustomMonster
         AbstractDungeon.actionManager.addToBottom(new RollMoveAction(this));
     }
 
-//    public void rivalDefeated() {
-//        AbstractDungeon.actionManager.addToBottom(new RemoveSpecificPowerAction(this, this, RivalPosition.POWER_ID));
-//        AbstractDungeon.actionManager.addToBottom(new RemoveSpecificPowerAction(AbstractDungeon.player, AbstractDungeon.player, RivalPlayerPosition.POWER_ID));
-//        AbstractDungeon.actionManager.addToBottom(new TalkAction(this, DIALOG[1]));
-//        AbstractDungeon.actionManager.addToBottom(new AnimatedMoveActualAction(this, this.drawX, this.drawY, originalX, originalY));
-//        AbstractDungeon.actionManager.addToBottom(new SetFlipAction(this));
-//        AbstractDungeon.onModifyPower();
-//    }
-//
-//    public void setFlip(boolean horizontal, boolean vertical) {
-//        this.animation.setFlip(horizontal, vertical);
-//    }
+    public void sisterDefeated() {
+        AbstractDungeon.actionManager.addToBottom(new TalkAction(this, DIALOG[1]));
+        AbstractDungeon.actionManager.addToBottom(new EscapeAction(this));
+    }
 
     @Override
     protected void getMove(final int num) {
@@ -225,10 +216,7 @@ public class Remilia extends CustomMonster
         //runAnim("Defeat");
         ((BetterSpriterAnimation)this.animation).startDying();
         if (sister != null) {
-            sister.rivalDefeated();
-            if (sister.isDeadOrEscaped() || sister.isDying) {
-                this.onBossVictoryLogic();
-            }
+            sister.sisterDefeated();
         }
         super.die(triggerRelics);
     }
