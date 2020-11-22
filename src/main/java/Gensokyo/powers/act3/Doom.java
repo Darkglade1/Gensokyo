@@ -23,8 +23,8 @@ public class Doom extends AbstractPower {
     private boolean attacked = false;
     public boolean wearOff;
 
-    private static final Texture tex84 = TextureLoader.getTexture(makePowerPath("DemonMask84.png"));
-    private static final Texture tex32 = TextureLoader.getTexture(makePowerPath("DemonMask32.png"));
+    private static final Texture tex84 = TextureLoader.getTexture(makePowerPath("Doom84.png"));
+    private static final Texture tex32 = TextureLoader.getTexture(makePowerPath("Doom32.png"));
 
     public Doom(AbstractCreature owner, int amount, boolean wearOff) {
         this.name = NAME;

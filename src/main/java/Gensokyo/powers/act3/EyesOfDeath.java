@@ -21,8 +21,8 @@ public class EyesOfDeath extends AbstractPower {
 
     public boolean wearOff = true;
 
-    private static final Texture tex84 = TextureLoader.getTexture(makePowerPath("DemonMask84.png"));
-    private static final Texture tex32 = TextureLoader.getTexture(makePowerPath("DemonMask32.png"));
+    private static final Texture tex84 = TextureLoader.getTexture(makePowerPath("EyesOfDeath84.png"));
+    private static final Texture tex32 = TextureLoader.getTexture(makePowerPath("EyesOfDeath32.png"));
 
     public EyesOfDeath(AbstractCreature owner, int amount) {
         this.name = NAME;

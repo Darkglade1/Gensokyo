@@ -17,8 +17,8 @@ public class AndThenThereWereNone extends AbstractPower {
     public static final String NAME = powerStrings.NAME;
     public static final String[] DESCRIPTIONS = powerStrings.DESCRIPTIONS;
 
-    private static final Texture tex84 = TextureLoader.getTexture(makePowerPath("DemonMask84.png"));
-    private static final Texture tex32 = TextureLoader.getTexture(makePowerPath("DemonMask32.png"));
+    private static final Texture tex84 = TextureLoader.getTexture(makePowerPath("None84.png"));
+    private static final Texture tex32 = TextureLoader.getTexture(makePowerPath("None32.png"));
 
     public AndThenThereWereNone(AbstractCreature owner) {
         this.name = NAME;

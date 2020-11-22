@@ -123,7 +123,9 @@
       " times because you are in the #ropen.",
       "This enemy intends to NL #yAttack your #gally for #b",
       " damage #b",
-      " times."
+      " times.",
+      "Your #gally intends to #yAttack the #renemy for #b",
+      " damage."
     ]
   },
   "Gensokyo:TempHPIntent": {

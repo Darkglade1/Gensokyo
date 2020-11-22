@@ -22,7 +22,9 @@ import com.megacrit.cardcrawl.core.AbstractCreature;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.core.Settings;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
+import com.megacrit.cardcrawl.helpers.PowerTip;
 import com.megacrit.cardcrawl.localization.MonsterStrings;
+import com.megacrit.cardcrawl.localization.UIStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.monsters.EnemyMoveInfo;
 import com.megacrit.cardcrawl.powers.VulnerablePower;
@@ -38,6 +40,8 @@ public class Remilia extends CustomMonster
     public static final String NAME = monsterStrings.NAME;
     public static final String[] MOVES = monsterStrings.MOVES;
     public static final String[] DIALOG = monsterStrings.DIALOG;
+    private static final UIStrings uiStrings = CardCrawlGame.languagePack.getUIString(GensokyoMod.makeID("SistersIntents"));
+    private static final String[] TEXT = uiStrings.TEXT;
 
     private boolean firstMove = true;
     private static final byte ATTACK = 0;
@@ -69,7 +73,7 @@ public class Remilia extends CustomMonster
     }
 
     public Remilia(final float x, final float y) {
-        super(NAME, ID, HP, -5.0F, 0.0F, 230.0f, 235.0f, null, x, y);
+        super(NAME, ID, HP, -5.0F, 0.0F, 230.0f, 205.0f, null, x, y);
         this.animation = new BetterSpriterAnimation("GensokyoResources/images/monsters/Remilia/Spriter/RemiliaAnimation.scml");
         this.type = EnemyType.BOSS;
         this.dialogX = (this.hb_x - 70.0F) * Settings.scale;
@@ -198,8 +202,8 @@ public class Remilia extends CustomMonster
             if(info.base > -1) {
                 info.applyPowers(this, target);
                 ReflectionHacks.setPrivate(this, AbstractMonster.class, "intentDmg", info.output);
-                //PowerTip intentTip = (PowerTip)ReflectionHacks.getPrivate(this, AbstractMonster.class, "intentTip");
-                //intentTip.body = TEXT[2] + info.output + TEXT[3];
+                PowerTip intentTip = (PowerTip)ReflectionHacks.getPrivate(this, AbstractMonster.class, "intentTip");
+                intentTip.body = TEXT[10] + info.output + TEXT[11];
             }
         }
     }

@@ -282,7 +282,7 @@
 },
 "Gensokyo:Doom": {
         "NAME": "Doom",
-        "DESCRIPTIONS": ["Receives #b", "% more damage from attacks.", " Wears off at end of round if this creature was NOT attacked this turn."]
+        "DESCRIPTIONS": ["Receive #b", "% more damage from #yAttacks.", " Wears off at end of round if this creature was NOT attacked this turn."]
 },
 "Gensokyo:AndThenThereWereNone": {
         "NAME": "And Then There Were None",

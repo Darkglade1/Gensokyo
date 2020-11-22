@@ -23,8 +23,8 @@ public class Retribution extends AbstractPower {
 
     private boolean justApplied = true;
 
-    private static final Texture tex84 = TextureLoader.getTexture(makePowerPath("DemonMask84.png"));
-    private static final Texture tex32 = TextureLoader.getTexture(makePowerPath("DemonMask32.png"));
+    private static final Texture tex84 = TextureLoader.getTexture(makePowerPath("Counter84.png"));
+    private static final Texture tex32 = TextureLoader.getTexture(makePowerPath("Counter32.png"));
 
     public Retribution(AbstractCreature owner) {
         this.name = NAME;
