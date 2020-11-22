@@ -137,20 +137,20 @@ public class Remilia extends CustomMonster
         }
         switch (this.nextMove) {
             case ATTACK: {
-                //runAnim("Magic");
+                runAnim("Attack");
                 AbstractDungeon.actionManager.addToBottom(new DamageAction(target, info, AbstractGameAction.AttackEffect.SLASH_HEAVY));
                 counter--;
                 break;
             }
             case DEBUFF_ATTACK: {
-                //runAnim("Special");
+                runAnim("Attack");
                 AbstractDungeon.actionManager.addToBottom(new DamageAction(target, info, AbstractGameAction.AttackEffect.POISON));
                 AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(target, this, new VulnerablePower(target, DEBUFF_AMT, true), DEBUFF_AMT));
                 counter--;
                 break;
             }
             case HEAL: {
-                //runAnim("Special");
+                runAnim("Spell");
                 AbstractDungeon.actionManager.addToBottom(new HealAction(this, this, HEAL_AMT));
                 AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(this, this, new Retribution(this)));
                 counter = COOLDOWN;
@@ -216,7 +216,7 @@ public class Remilia extends CustomMonster
 
     @Override
     public void die(boolean triggerRelics) {
-        //runAnim("Defeat");
+        runAnim("Defeat");
         ((BetterSpriterAnimation)this.animation).startDying();
         if (sister != null) {
             sister.sisterDefeated();
