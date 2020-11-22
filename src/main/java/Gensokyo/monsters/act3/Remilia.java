@@ -69,8 +69,8 @@ public class Remilia extends CustomMonster
     }
 
     public Remilia(final float x, final float y) {
-        super(NAME, ID, HP, -5.0F, -20.0F, 230.0f, 265.0f, null, x, y);
-        this.animation = new BetterSpriterAnimation("GensokyoResources/images/monsters/Byakuren/Spriter/ByakurenAnimation.scml");
+        super(NAME, ID, HP, -5.0F, 0.0F, 230.0f, 235.0f, null, x, y);
+        this.animation = new BetterSpriterAnimation("GensokyoResources/images/monsters/Remilia/Spriter/RemiliaAnimation.scml");
         this.type = EnemyType.BOSS;
         this.dialogX = (this.hb_x - 70.0F) * Settings.scale;
         this.dialogY -= (this.hb_y - 55.0F) * Settings.scale;
@@ -101,7 +101,6 @@ public class Remilia extends CustomMonster
         }
         this.addToBot(new ApplyPowerAction(this, this, new SistersPosition(this, 1, true)));
         this.addToBot(new ApplyPowerAction(AbstractDungeon.player, this, new SistersPlayerPosition(AbstractDungeon.player, 1)));
-        this.animation.setFlip(true, false);
         this.addToBot(new AbstractGameAction() {
             @Override
             public void update() {
