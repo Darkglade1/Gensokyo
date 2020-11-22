@@ -92,8 +92,8 @@ public class Flandre extends CustomMonster
     }
 
     public Flandre(final float x, final float y) {
-        super(NAME, ID, HP, -5.0F, -20.0F, 230.0f, 275.0f, null, x, y);
-        this.animation = new BetterSpriterAnimation("GensokyoResources/images/monsters/Miko/Spriter/MikoAnimation.scml");
+        super(NAME, ID, HP, 0.0F, 0.0F, 230.0f, 245.0f, null, x, y);
+        this.animation = new BetterSpriterAnimation("GensokyoResources/images/monsters/Flandre/Spriter/FlandreAnimation.scml");
         this.type = EnemyType.BOSS;
         this.dialogX = (this.hb_x - 70.0F) * Settings.scale;
         this.dialogY -= (this.hb_y - 55.0F) * Settings.scale;

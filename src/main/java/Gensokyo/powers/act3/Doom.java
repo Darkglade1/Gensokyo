@@ -54,7 +54,9 @@ public class Doom extends AbstractPower {
 
     @Override
     public int onAttacked(DamageInfo info, int damageAmount) {
-        attacked = true;
+        if (info.type == DamageInfo.DamageType.NORMAL) {
+            attacked = true;
+        }
         return damageAmount;
     }
 
