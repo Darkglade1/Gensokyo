@@ -202,6 +202,7 @@ import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.core.Settings;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.dungeons.Exordium;
+import com.megacrit.cardcrawl.dungeons.TheBeyond;
 import com.megacrit.cardcrawl.dungeons.TheCity;
 import com.megacrit.cardcrawl.helpers.CardHelper;
 import com.megacrit.cardcrawl.helpers.CardLibrary;
@@ -419,12 +420,11 @@ public class GensokyoMod implements
 
         // Universal
         CustomIntent.add(new TempHPIntent());
-        //BaseMod.addMonster(Nitori.ID, (BaseMod.GetMonster) Nitori::new);
 
         //Act 1
         (new Gensokyo()).addAct(Exordium.ID);
         (new Gensokyoer()).addAct(TheCity.ID);
-        //(new Gensokyoest()).addAct(TheBeyond.ID);
+        (new Gensokyoest()).addAct(TheBeyond.ID);
 
 
         //Act 1
@@ -541,7 +541,7 @@ public class GensokyoMod implements
                         new Remilia(-480.0F, 0.0F),
                         new Flandre(),
                 }));
-        BaseMod.addBoss(Gensokyoest.ID, Yukari.ID, "GensokyoResources/images/monsters/Yukari/Yukari.png", "GensokyoResources/images/monsters/Yukari/YukariOutline.png");
+        BaseMod.addBoss(Gensokyoest.ID, EncounterIDs.SCARLET_DEVILS, "GensokyoResources/images/monsters/Flandre/Sisters.png", "GensokyoResources/images/monsters/Flandre/SistersOutline.png");
 
         // =============== EVENTS =================
 

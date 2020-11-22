@@ -4,6 +4,7 @@ import Gensokyo.BetterSpriterAnimation;
 import Gensokyo.GensokyoMod;
 import Gensokyo.RazIntent.IntentEnums;
 import Gensokyo.actions.AnimatedMoveActualAction;
+import Gensokyo.monsters.AbstractSpriterMonster;
 import Gensokyo.powers.act2.RivalPlayerPosition;
 import Gensokyo.powers.act2.RivalPosition;
 import Gensokyo.powers.act3.AndThenThereWereNone;
@@ -40,7 +41,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 
-public class Flandre extends CustomMonster
+public class Flandre extends AbstractSpriterMonster
 {
     public static final String ID = GensokyoMod.makeID("Flandre");
     private static final MonsterStrings monsterStrings = CardCrawlGame.languagePack.getMonsterStrings(ID);

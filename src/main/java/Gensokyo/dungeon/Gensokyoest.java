@@ -1,5 +1,6 @@
 package Gensokyo.dungeon;
 
+import Gensokyo.monsters.act3.Doremy;
 import Gensokyo.scenes.GensokyoScene;
 import actlikeit.dungeons.CustomDungeon;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
@@ -110,7 +111,7 @@ public class Gensokyoest extends CustomDungeon {
 
     protected void generateElites(int count) {
         ArrayList<MonsterInfo> monsters = new ArrayList();
-        monsters.add(new MonsterInfo("Giant Head", 2.0F));
+        monsters.add(new MonsterInfo(Doremy.ID, 2.0F));
         monsters.add(new MonsterInfo("Nemesis", 2.0F));
         monsters.add(new MonsterInfo("Reptomancer", 2.0F));
         MonsterInfo.normalizeWeights(monsters);
