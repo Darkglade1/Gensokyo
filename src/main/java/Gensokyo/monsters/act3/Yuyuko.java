@@ -21,6 +21,7 @@ import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.graphics.g2d.TextureRegion;
 import com.brashmonkey.spriter.Animation;
 import com.brashmonkey.spriter.Player;
+import com.evacipated.cardcrawl.mod.stslib.patches.core.AbstractCreature.TempHPField;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.animations.TalkAction;
 import com.megacrit.cardcrawl.actions.animations.VFXAction;
@@ -154,13 +155,13 @@ public class Yuyuko extends AbstractSpriterMonster
         SpawnMinions();
         nextBlueSoul();
         nextPurpleSoul();
-        AbstractDungeon.actionManager.addToBottom(new TalkAction(this, DIALOG[0]));
         AbstractDungeon.actionManager.addToBottom(new SetMaxHealthToCurrentAction());
     }
 
     @Override
     public void takeTurn() {
         if (this.firstMove) {
+            AbstractDungeon.actionManager.addToBottom(new TalkAction(this, DIALOG[0]));
             this.firstMove = false;
         }
         DamageInfo info = new DamageInfo(this, moves.get(this.nextMove).baseDamage, DamageInfo.DamageType.NORMAL);
@@ -174,15 +175,15 @@ public class Yuyuko extends AbstractSpriterMonster
                 break;
             }
             case LAW_OF_MORTALITY: {
-//                runAnim("ButterflyCircle");
-//                CardCrawlGame.sound.playV("Gensokyo:pest", 1.3F);
-//                AbstractDungeon.actionManager.addToBottom(new VFXAction(new EmptyEffect(), 1.3F));
                 useFastAttackAnimation();
                 AbstractDungeon.actionManager.addToBottom(new DamageAction(AbstractDungeon.player, info, AbstractGameAction.AttackEffect.POISON));
                 AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(AbstractDungeon.player, this, new WeakPower(AbstractDungeon.player, DEBUFF_AMOUNT, true), DEBUFF_AMOUNT));
                 break;
             }
             case RESURRECTION_BUTTERFLY: {
+                runAnim("ButterflyCircle");
+                CardCrawlGame.sound.playV("Gensokyo:pest", 1.3F);
+                AbstractDungeon.actionManager.addToBottom(new VFXAction(new EmptyEffect(), 1.3F));
                 AbstractDungeon.actionManager.addToBottom(new MakeTempCardInDiscardAction(new Butterfly(), statusAmt));
                 break;
             }
@@ -264,7 +265,8 @@ public class Yuyuko extends AbstractSpriterMonster
 
     @Override
     protected void getMove(final int num) {
-        if (AbstractDungeon.player.maxHealth == 1) {
+        if (AbstractDungeon.player.maxHealth == 1 && TempHPField.tempHp.get(AbstractDungeon.player) == 0 && !firstMove) {
+            AbstractDungeon.actionManager.addToBottom(new TalkAction(this, DIALOG[1]));
             setMoveShortcut(SAIGYOUJI_PARINIRVANA);
         } else if (counter <= 0) {
             setMoveShortcut(INVITATION_FROM_NETHER_SIDE);
