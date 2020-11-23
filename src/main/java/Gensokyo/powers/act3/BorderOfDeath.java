@@ -18,8 +18,8 @@ public class BorderOfDeath extends AbstractPower {
     public static final String NAME = powerStrings.NAME;
     public static final String[] DESCRIPTIONS = powerStrings.DESCRIPTIONS;
 
-    private static final Texture tex84 = TextureLoader.getTexture(makePowerPath("Doom84.png"));
-    private static final Texture tex32 = TextureLoader.getTexture(makePowerPath("Doom32.png"));
+    private static final Texture tex84 = TextureLoader.getTexture(makePowerPath("Border84.png"));
+    private static final Texture tex32 = TextureLoader.getTexture(makePowerPath("Border32.png"));
 
     public BorderOfDeath(AbstractCreature owner, int amount) {
         this.name = NAME;

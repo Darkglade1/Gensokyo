@@ -2,28 +2,11 @@ package Gensokyo.rooms.nitori;
 
 import Gensokyo.BetterSpriterAnimation;
 import Gensokyo.RazIntent.IntentEnums;
-import Gensokyo.cards.EMP;
-import Gensokyo.cards.FlashFlood;
-import Gensokyo.cards.SelfRepair;
-import Gensokyo.cards.TorpedoBarrage;
-import Gensokyo.cards.Whirlpool;
-import Gensokyo.powers.extra.HydraulicCamouflage;
-import Gensokyo.powers.extra.NitoriTimer;
 import basemod.abstracts.CustomMonster;
 import com.badlogic.gdx.graphics.Color;
-import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.brashmonkey.spriter.Animation;
 import com.brashmonkey.spriter.Player;
-import com.evacipated.cardcrawl.mod.stslib.actions.tempHp.AddTemporaryHPAction;
-import com.megacrit.cardcrawl.actions.AbstractGameAction;
-import com.megacrit.cardcrawl.actions.animations.VFXAction;
-import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
-import com.megacrit.cardcrawl.actions.common.DamageAction;
-import com.megacrit.cardcrawl.actions.common.GainBlockAction;
-import com.megacrit.cardcrawl.actions.common.MakeTempCardInDiscardAction;
-import com.megacrit.cardcrawl.actions.common.MakeTempCardInDrawPileAction;
-import com.megacrit.cardcrawl.actions.common.RollMoveAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
@@ -31,18 +14,8 @@ import com.megacrit.cardcrawl.core.Settings;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.helpers.ImageMaster;
 import com.megacrit.cardcrawl.localization.MonsterStrings;
-import com.megacrit.cardcrawl.powers.AbstractPower;
-import com.megacrit.cardcrawl.powers.ArtifactPower;
-import com.megacrit.cardcrawl.powers.DexterityPower;
-import com.megacrit.cardcrawl.powers.FrailPower;
-import com.megacrit.cardcrawl.powers.StrengthPower;
-import com.megacrit.cardcrawl.powers.VulnerablePower;
-import com.megacrit.cardcrawl.powers.WeakPower;
-import com.megacrit.cardcrawl.rooms.EventRoom;
-import com.megacrit.cardcrawl.vfx.combat.HeartMegaDebuffEffect;
 
 import static Gensokyo.GensokyoMod.makeID;
-import static Gensokyo.GensokyoMod.makeUIPath;
 import static com.megacrit.cardcrawl.shop.Merchant.DRAW_X;
 import static com.megacrit.cardcrawl.shop.Merchant.DRAW_Y;
 
@@ -100,7 +73,7 @@ public class Nitori extends CustomMonster {
     private static final byte TURN_LIMIT_REACHED = 99;
     // Move Characteristics for Nitori, ordered by move-byte appearance (See Above)
     // OPENING
-    private static final AbstractCard[] OPENING_STATUS_POOL = {new FlashFlood(), new TorpedoBarrage(), new EMP(), new Whirlpool(), new SelfRepair()};
+    //private static final AbstractCard[] OPENING_STATUS_POOL = {new FlashFlood(), new TorpedoBarrage(), new EMP(), new Whirlpool(), new SelfRepair()};
     private static final int PHASE1_OPENING_STATUS_AMOUNT = 1;
     private static final int PHASE2_OPENING_STATUS_AMOUNT = 2;
     private static final int PHASE3_OPENING_STATUS_AMOUNT = 4;
@@ -130,7 +103,7 @@ public class Nitori extends CustomMonster {
     private static final int PHASE2_RNG_FRAIL_ATTACK_FRAIL_AMOUNT = 2;
     private static final int PHASE3_RNG_FRAIL_ATTACK_FRAIL_AMOUNT = 3;
     private static final int PHASE4_RNG_FRAIL_ATTACK_FRAIL_AMOUNT = 3;
-    private static final AbstractCard PHASE4_RNG_FRAIL_ATTACK_STATUS = new FlashFlood();
+    //private static final AbstractCard PHASE4_RNG_FRAIL_ATTACK_STATUS = new FlashFlood();
     // RNG_TEMPHP
     private static final int PHASE1_RNG_TEMPHP_TEMPHP = 20;
     private static final int PHASE2_RNG_TEMPHP_TEMPHP = 30;
@@ -445,7 +418,7 @@ public class Nitori extends CustomMonster {
             default:
                 powerAmount = 50;
         }
-        addToBot(new ApplyPowerAction(this, this, new NitoriTimer(this, powerAmount)));
+        //addToBot(new ApplyPowerAction(this, this, new NitoriTimer(this, powerAmount)));
     }
     @Override
     public void takeTurn() {

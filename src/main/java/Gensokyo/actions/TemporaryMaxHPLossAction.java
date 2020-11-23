@@ -19,13 +19,10 @@ public class TemporaryMaxHPLossAction extends AbstractGameAction {
     public void update() {
         int playerTempHP = TempHPField.tempHp.get(AbstractDungeon.player);
         if (playerTempHP >= amount) {
-            System.out.println("Losing temp hp: " + amount);
             TempHPField.tempHp.set(AbstractDungeon.player, playerTempHP - amount);
             isDone = true;
         } else {
             int maxHPAmountToLose = amount - playerTempHP;
-            System.out.println("Current temp HP: " + playerTempHP);
-            System.out.println("Losing this much max hp: " + maxHPAmountToLose);
             int loseableMaxHP = AbstractDungeon.player.maxHealth - 1;
             int maxHPLoss = Math.min(loseableMaxHP, maxHPAmountToLose);
             if (playerTempHP > 0) {

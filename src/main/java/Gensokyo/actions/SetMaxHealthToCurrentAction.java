@@ -1,8 +1,6 @@
 package Gensokyo.actions;
 
-import Gensokyo.powers.act3.BorderOfDeath;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
-import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.core.Settings;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 
@@ -19,8 +17,9 @@ public class SetMaxHealthToCurrentAction extends AbstractGameAction {
             return;
         }
         int loseableMaxHP = AbstractDungeon.player.maxHealth - AbstractDungeon.player.currentHealth;
-        AbstractDungeon.player.decreaseMaxHealth(loseableMaxHP);
-        AbstractDungeon.actionManager.addToTop(new ApplyPowerAction(AbstractDungeon.player, AbstractDungeon.player, new BorderOfDeath(AbstractDungeon.player, loseableMaxHP), loseableMaxHP));
+        if (loseableMaxHP > 0) {
+            AbstractDungeon.actionManager.addToTop(new TemporaryMaxHPLossAction(loseableMaxHP));
+        }
         isDone = true;
     }
 }
