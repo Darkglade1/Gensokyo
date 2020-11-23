@@ -2,10 +2,7 @@ package Gensokyo.monsters.act3;
 
 import Gensokyo.BetterSpriterAnimation;
 import Gensokyo.GensokyoMod;
-import Gensokyo.powers.act3.BorderOfDeath;
-import Gensokyo.vfx.EmptyEffect;
-import com.megacrit.cardcrawl.actions.animations.VFXAction;
-import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
+import Gensokyo.actions.TemporaryMaxHPLossAction;
 import com.megacrit.cardcrawl.actions.common.RollMoveAction;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
@@ -34,11 +31,8 @@ public class PurpleSoul extends YuyukoSoul
         super.takeTurn();
         switch (this.nextMove) {
             case DEBUFF: {
-                master.runAnim("SoulGrab");
-                CardCrawlGame.sound.playV("Gensokyo:ghost", 1.3F);
-                AbstractDungeon.actionManager.addToBottom(new VFXAction(new EmptyEffect(), 1.0F));
-                AbstractDungeon.player.decreaseMaxHealth(MAX_HP_REDUCTION);
-                addToBot(new ApplyPowerAction(AbstractDungeon.player, AbstractDungeon.player, new BorderOfDeath(AbstractDungeon.player, MAX_HP_REDUCTION), MAX_HP_REDUCTION));
+                Yuyuko.playGhostEffect(master);
+                AbstractDungeon.actionManager.addToBottom(new TemporaryMaxHPLossAction(MAX_HP_REDUCTION));
                 break;
             }
         }

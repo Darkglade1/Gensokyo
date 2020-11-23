@@ -2,13 +2,11 @@ package Gensokyo.monsters.act3;
 
 import Gensokyo.monsters.AbstractSpriterMonster;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
-import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 
 public class YuyukoSoul extends AbstractSpriterMonster {
     protected static final byte NONE = 0;
     protected static final byte DEBUFF = 1;
-    protected static final int DEBUFF_AMT = 1;
-    protected static final int HP = 6;
+    protected static final int HP = 10;
     protected static final int MAX_HP_REDUCTION = 5;
     private static final float HB_W = 50.0F;
     private static final float HB_H = 100.0f;
@@ -20,11 +18,7 @@ public class YuyukoSoul extends AbstractSpriterMonster {
         super(name, id, maxHealth, hb_x, hb_y, HB_W, HB_H, imgUrl, offsetX, offsetY);
         this.master = master;
         this.setHp(HP + bonusHealth);
-        if (AbstractDungeon.ascensionLevel >= 18) {
-            this.cooldown = 0;
-        } else {
-            this.cooldown = 1;
-        }
+        this.cooldown = 1;
     }
 
     @Override

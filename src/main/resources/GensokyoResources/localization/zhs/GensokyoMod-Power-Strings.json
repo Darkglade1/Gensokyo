@@ -147,10 +147,6 @@
         "NAME": "二重身",
         "DESCRIPTIONS": ["你的下 #b", " 张牌", " 张牌", " 将打出两次。"]
 },
-"Gensokyo:Reflowering": {
-        "NAME": "二度绽放",
-        "DESCRIPTIONS": ["当一名 a #y幽灵 死亡， 失去 #b", " 点 #y力量 。"]
-},
 "Gensokyo:NextTurnInnocence": {
         "NAME": "纯真",
         "DESCRIPTIONS": ["下一回合，这个单位的其他 #y格挡 获得将 #y翻倍 并转化为 #g回复生命 。"]

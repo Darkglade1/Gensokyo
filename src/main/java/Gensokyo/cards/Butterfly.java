@@ -1,6 +1,7 @@
 package Gensokyo.cards;
 
 import Gensokyo.GensokyoMod;
+import Gensokyo.actions.TemporaryMaxHPLossAction;
 import Gensokyo.powers.act3.BorderOfDeath;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
@@ -34,8 +35,7 @@ public class Butterfly extends AbstractDefaultCard {
 
     @Override
     public void triggerOnExhaust() {
-        AbstractDungeon.player.decreaseMaxHealth(magicNumber);
-        addToBot(new ApplyPowerAction(AbstractDungeon.player, AbstractDungeon.player, new BorderOfDeath(AbstractDungeon.player, magicNumber), magicNumber));
+        AbstractDungeon.actionManager.addToBottom(new TemporaryMaxHPLossAction(magicNumber));
     }
 
     @Override

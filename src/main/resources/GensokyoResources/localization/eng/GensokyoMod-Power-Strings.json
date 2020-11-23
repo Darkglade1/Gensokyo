@@ -147,10 +147,6 @@
         "NAME": "Doppelganger",
         "DESCRIPTIONS": ["Your next #b", " card is", " cards are", " played twice."]
 },
-"Gensokyo:Reflowering": {
-        "NAME": "Reflowering",
-        "DESCRIPTIONS": ["Whenever a #ySpirit dies, loses #b", " #yStrength."]
-},
 "Gensokyo:NextTurnInnocence": {
         "NAME": "Innocence",
         "DESCRIPTIONS": ["Next turn, this creature's outgoing #yBlock gain is #ydoubled and converted to #ghealing instead."]
@@ -306,7 +302,7 @@
 },
 "Gensokyo:Deathtouch": {
         "NAME": "Deathtouch",
-        "DESCRIPTIONS": ["Whenever you receive attack damage from this enemy, lose that much Max HP this combat."]
+        "DESCRIPTIONS": ["Whenever you receive attack damage from this enemy, you #rlose that much #yMax #yHP this combat."]
 },
 "Gensokyo:TimeDilation": {
         "NAME": "Time Dilation",

@@ -1,10 +1,10 @@
 package Gensokyo.powers.act3;
 
 import Gensokyo.GensokyoMod;
+import Gensokyo.actions.TemporaryMaxHPLossAction;
 import Gensokyo.util.TextureLoader;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.TextureAtlas;
-import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.core.AbstractCreature;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
@@ -33,12 +33,11 @@ public class Deathtouch extends AbstractPower {
         updateDescription();
     }
 
+    @Override
     public void onInflictDamage(DamageInfo info, int damageAmount, AbstractCreature target) {
         if (damageAmount > 0 && info.type == DamageInfo.DamageType.NORMAL && target == AbstractDungeon.player) {
-            AbstractDungeon.player.decreaseMaxHealth(damageAmount);
-            addToBot(new ApplyPowerAction(AbstractDungeon.player, AbstractDungeon.player, new BorderOfDeath(AbstractDungeon.player, damageAmount), damageAmount));
+            AbstractDungeon.actionManager.addToBottom(new TemporaryMaxHPLossAction(damageAmount));
         }
-
     }
 
     @Override

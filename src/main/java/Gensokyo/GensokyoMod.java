@@ -2,6 +2,7 @@ package Gensokyo;
 
 import Gensokyo.RazIntent.AreaAttackIntent;
 import Gensokyo.RazIntent.CustomIntent;
+import Gensokyo.RazIntent.DeathIntent;
 import Gensokyo.RazIntent.PurifyIntent;
 import Gensokyo.RazIntent.TempHPIntent;
 import Gensokyo.cards.AllTheWorldsEvil;
@@ -472,7 +473,6 @@ public class GensokyoMod implements
 
         //Act 2
         CustomIntent.add(new AreaAttackIntent());
-        //CustomIntent.add(new DeathIntent());
         CustomIntent.add(new PurifyIntent());
         BaseMod.addMonster(Kaguya.ID, (BaseMod.GetMonster) Kaguya::new);
         BaseMod.addMonster(Eiki.ID, (BaseMod.GetMonster) Eiki::new);
@@ -542,6 +542,7 @@ public class GensokyoMod implements
                         new Flandre(),
                 }));
         BaseMod.addMonster(Yuyuko.ID, (BaseMod.GetMonster) Yuyuko::new);
+        CustomIntent.add(new DeathIntent());
         BaseMod.addBoss(Gensokyoest.ID, EncounterIDs.SCARLET_DEVILS, "GensokyoResources/images/monsters/Flandre/Sisters.png", "GensokyoResources/images/monsters/Flandre/SistersOutline.png");
 
         // =============== EVENTS =================
