@@ -4,6 +4,7 @@ import Gensokyo.BetterSpriterAnimation;
 import Gensokyo.GensokyoMod;
 import Gensokyo.RazIntent.IntentEnums;
 import Gensokyo.actions.RezAction;
+import Gensokyo.actions.SetMaxHealthToCurrentAction;
 import Gensokyo.actions.TemporaryMaxHPLossAction;
 import Gensokyo.actions.UsePreBattleActionAction;
 import Gensokyo.actions.YeetPlayerAction;
@@ -12,6 +13,7 @@ import Gensokyo.monsters.AbstractSpriterMonster;
 import Gensokyo.powers.act3.Deathtouch;
 import Gensokyo.vfx.EmptyEffect;
 import actlikeit.dungeons.CustomDungeon;
+import basemod.ReflectionHacks;
 import basemod.animations.AbstractAnimation;
 import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.Texture;
@@ -32,7 +34,9 @@ import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.core.Settings;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
+import com.megacrit.cardcrawl.helpers.PowerTip;
 import com.megacrit.cardcrawl.localization.MonsterStrings;
+import com.megacrit.cardcrawl.localization.UIStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.monsters.EnemyMoveInfo;
 import com.megacrit.cardcrawl.powers.MinionPower;
@@ -51,6 +55,8 @@ public class Yuyuko extends AbstractSpriterMonster
     public static final String NAME = monsterStrings.NAME;
     public static final String[] MOVES = monsterStrings.MOVES;
     public static final String[] DIALOG = monsterStrings.DIALOG;
+    private static final UIStrings uiStrings = CardCrawlGame.languagePack.getUIString(GensokyoMod.makeID("CurseAttackIntent"));
+    private static final String[] TEXT = uiStrings.TEXT;
 
     private boolean firstMove = true;
     private static final byte GHASTLY_DREAM = 0; //Attack
@@ -132,7 +138,7 @@ public class Yuyuko extends AbstractSpriterMonster
         this.moves.put(GHASTLY_DREAM, new EnemyMoveInfo(GHASTLY_DREAM, Intent.ATTACK, normalDamage, 0, false));
         this.moves.put(LAW_OF_MORTALITY, new EnemyMoveInfo(LAW_OF_MORTALITY, Intent.ATTACK_DEBUFF, debuffDamage, 0, false));
         this.moves.put(RESURRECTION_BUTTERFLY, new EnemyMoveInfo(RESURRECTION_BUTTERFLY, Intent.DEBUFF, -1, 0, false));
-        this.moves.put(INVITATION_FROM_NETHER_SIDE, new EnemyMoveInfo(INVITATION_FROM_NETHER_SIDE, Intent.STRONG_DEBUFF, maxHPReduction, 0, false));
+        this.moves.put(INVITATION_FROM_NETHER_SIDE, new EnemyMoveInfo(INVITATION_FROM_NETHER_SIDE, IntentEnums.ATTACK_CURSE, maxHPReduction, 0, false));
         this.moves.put(SAIGYOUJI_PARINIRVANA, new EnemyMoveInfo(SAIGYOUJI_PARINIRVANA, IntentEnums.DEATH, -1, 0, false));
 
 
@@ -144,11 +150,12 @@ public class Yuyuko extends AbstractSpriterMonster
     @Override
     public void usePreBattleAction() {
         CustomDungeon.playTempMusicInstantly("BorderOfLife");
-        this.addToBot(new ApplyPowerAction(this, this, new Deathtouch(this)));
+        addToBot(new ApplyPowerAction(this, this, new Deathtouch(this)));
         SpawnMinions();
         nextBlueSoul();
         nextPurpleSoul();
         AbstractDungeon.actionManager.addToBottom(new TalkAction(this, DIALOG[0]));
+        AbstractDungeon.actionManager.addToBottom(new SetMaxHealthToCurrentAction());
     }
 
     @Override
@@ -279,6 +286,18 @@ public class Yuyuko extends AbstractSpriterMonster
     private void setMoveShortcut(byte next) {
         EnemyMoveInfo info = this.moves.get(next);
         this.setMove(MOVES[next], next, info.intent, info.baseDamage, info.multiplier, info.isMultiDamage);
+    }
+
+    @Override
+    public void applyPowers() {
+        //Make sure the intent isn't affected by damage modifiers
+        if (intent == IntentEnums.ATTACK_CURSE) {
+            ReflectionHacks.setPrivate(this, AbstractMonster.class, "intentDmg", maxHPReduction);
+            PowerTip intentTip = (PowerTip)ReflectionHacks.getPrivate(this, AbstractMonster.class, "intentTip");
+            intentTip.body = TEXT[1] + maxHPReduction + TEXT[2];
+        } else {
+            super.applyPowers();
+        }
     }
 
     @Override

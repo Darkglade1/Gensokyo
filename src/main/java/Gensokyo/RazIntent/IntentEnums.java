@@ -11,5 +11,7 @@ public class IntentEnums {
     @SpireEnum
     public static AbstractMonster.Intent PURIFY;
     @SpireEnum
+    public static AbstractMonster.Intent ATTACK_CURSE;
+    @SpireEnum
     public static AbstractMonster.Intent TEMPHP;
 }

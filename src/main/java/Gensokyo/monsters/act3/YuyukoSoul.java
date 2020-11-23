@@ -1,9 +1,18 @@
 package Gensokyo.monsters.act3;
 
+import Gensokyo.GensokyoMod;
+import Gensokyo.RazIntent.IntentEnums;
 import Gensokyo.monsters.AbstractSpriterMonster;
+import basemod.ReflectionHacks;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
+import com.megacrit.cardcrawl.core.CardCrawlGame;
+import com.megacrit.cardcrawl.helpers.PowerTip;
+import com.megacrit.cardcrawl.localization.UIStrings;
+import com.megacrit.cardcrawl.monsters.AbstractMonster;
 
 public class YuyukoSoul extends AbstractSpriterMonster {
+    private static final UIStrings uiStrings = CardCrawlGame.languagePack.getUIString(GensokyoMod.makeID("CurseAttackIntent"));
+    private static final String[] TEXT = uiStrings.TEXT;
     protected static final byte NONE = 0;
     protected static final byte DEBUFF = 1;
     protected static final int HP = 10;
@@ -58,13 +67,25 @@ public class YuyukoSoul extends AbstractSpriterMonster {
     }
 
     @Override
+    public void applyPowers() {
+        //Make sure the intent isn't affected by damage modifiers
+        if (this.intent == IntentEnums.ATTACK_CURSE) {
+            ReflectionHacks.setPrivate(this, AbstractMonster.class, "intentDmg", MAX_HP_REDUCTION);
+            PowerTip intentTip = (PowerTip)ReflectionHacks.getPrivate(this, AbstractMonster.class, "intentTip");
+            intentTip.body = TEXT[1] + MAX_HP_REDUCTION + TEXT[2];
+        } else {
+            super.applyPowers();
+        }
+    }
+
+    @Override
     protected void getMove(int num) {
         if (!active) {
             this.setMove(NONE, Intent.NONE);
         } else if (cooldown > 0) {
             this.setMove(NONE, Intent.NONE);
         } else {
-            this.setMove(DEBUFF, Intent.DEBUFF);
+            this.setMove(null, DEBUFF, IntentEnums.ATTACK_CURSE, MAX_HP_REDUCTION, 0, false);
         }
     }
 }

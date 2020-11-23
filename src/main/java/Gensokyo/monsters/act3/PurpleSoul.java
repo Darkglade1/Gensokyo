@@ -31,8 +31,10 @@ public class PurpleSoul extends YuyukoSoul
         super.takeTurn();
         switch (this.nextMove) {
             case DEBUFF: {
-                Yuyuko.playGhostEffect(master);
-                AbstractDungeon.actionManager.addToBottom(new TemporaryMaxHPLossAction(MAX_HP_REDUCTION));
+                if (AbstractDungeon.player.maxHealth > 1) {
+                    Yuyuko.playGhostEffect(master);
+                    AbstractDungeon.actionManager.addToBottom(new TemporaryMaxHPLossAction(MAX_HP_REDUCTION));
+                }
                 break;
             }
         }

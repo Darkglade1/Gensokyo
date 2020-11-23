@@ -1,6 +1,7 @@
 package Gensokyo;
 
 import Gensokyo.RazIntent.AreaAttackIntent;
+import Gensokyo.RazIntent.CurseAttackIntent;
 import Gensokyo.RazIntent.CustomIntent;
 import Gensokyo.RazIntent.DeathIntent;
 import Gensokyo.RazIntent.PurifyIntent;
@@ -543,6 +544,7 @@ public class GensokyoMod implements
                 }));
         BaseMod.addMonster(Yuyuko.ID, (BaseMod.GetMonster) Yuyuko::new);
         CustomIntent.add(new DeathIntent());
+        CustomIntent.add(new CurseAttackIntent());
         BaseMod.addBoss(Gensokyoest.ID, EncounterIDs.SCARLET_DEVILS, "GensokyoResources/images/monsters/Flandre/Sisters.png", "GensokyoResources/images/monsters/Flandre/SistersOutline.png");
 
         // =============== EVENTS =================
