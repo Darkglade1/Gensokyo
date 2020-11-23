@@ -300,6 +300,14 @@
         "NAME": "Spell Card Rules",
         "DESCRIPTIONS": ["You are in lane #b" , ". Whenever you play a #ySkill, move #yUp #b1 lane. Whenever you play an #yAttack, move #yDown #b1 lane. NL If your #gally is between you and the #renemy, your #gally will take the hit for you instead.", " NL #yLane #b", " is #runsafe."]
 },
+"Gensokyo:BorderOfDeath": {
+        "NAME": "Border of Death",
+        "DESCRIPTIONS": ["At the end of combat, gain #b", " Max HP."]
+},
+"Gensokyo:Deathtouch": {
+        "NAME": "Deathtouch",
+        "DESCRIPTIONS": ["Whenever you receive attack damage from this enemy, lose that much Max HP this combat."]
+},
 "Gensokyo:TimeDilation": {
         "NAME": "Time Dilation",
         "DESCRIPTIONS": ["The #b1st, #b4th, #b7th, etc. cards played this combat are instead played #b", " turn later. NL The #b2nd, #b5th, #b8th, etc. cards played this combat are instead played #b", " turns later. NL The #b3rd, #b6th, #b9th, etc. cards played this combat are instead played #b", " turns later."]

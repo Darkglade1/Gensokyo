@@ -1,7 +1,6 @@
-package Gensokyo.monsters.act2;
+package Gensokyo.monsters.act3;
 
 import Gensokyo.monsters.AbstractSpriterMonster;
-import Gensokyo.powers.act2.Reflowering;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 
@@ -10,6 +9,7 @@ public class YuyukoSoul extends AbstractSpriterMonster {
     protected static final byte DEBUFF = 1;
     protected static final int DEBUFF_AMT = 1;
     protected static final int HP = 6;
+    protected static final int MAX_HP_REDUCTION = 5;
     private static final float HB_W = 50.0F;
     private static final float HB_H = 100.0f;
     public boolean active = false;
@@ -46,9 +46,6 @@ public class YuyukoSoul extends AbstractSpriterMonster {
     @Override
     public void die(boolean triggerRelics) {
         super.die(false);
-        if (master.hasPower(Reflowering.POWER_ID)) {
-            master.getPower(Reflowering.POWER_ID).onSpecificTrigger();
-        }
         if (this instanceof BlueSoul) {
             master.blueSouls.remove(this);
             master.nextBlueSoul();

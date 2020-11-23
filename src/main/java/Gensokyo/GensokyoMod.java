@@ -5,6 +5,7 @@ import Gensokyo.RazIntent.CustomIntent;
 import Gensokyo.RazIntent.PurifyIntent;
 import Gensokyo.RazIntent.TempHPIntent;
 import Gensokyo.cards.AllTheWorldsEvil;
+import Gensokyo.cards.Butterfly;
 import Gensokyo.cards.Evolve.BlemishedSteel;
 import Gensokyo.cards.Evolve.DepletedGenerator;
 import Gensokyo.cards.Evolve.ExoticEgg;
@@ -141,7 +142,7 @@ import Gensokyo.monsters.act2.NormalEnemies.TanukiDog;
 import Gensokyo.monsters.act2.NormalEnemies.Wraith;
 import Gensokyo.monsters.act2.Reisen;
 import Gensokyo.monsters.act2.Tenshi;
-import Gensokyo.monsters.act2.Yuyuko;
+import Gensokyo.monsters.act3.Yuyuko;
 import Gensokyo.monsters.act3.Doremy;
 import Gensokyo.monsters.act3.Flandre;
 import Gensokyo.monsters.act3.Remilia;
@@ -483,7 +484,6 @@ public class GensokyoMod implements
         BaseMod.addMonster(Reisen.ID, (BaseMod.GetMonster) Reisen::new);
         BaseMod.addMonster(Koishi.ID, (BaseMod.GetMonster) Koishi::new);
         BaseMod.addMonster(Tenshi.ID, (BaseMod.GetMonster) Tenshi::new);
-        BaseMod.addMonster(Yuyuko.ID, (BaseMod.GetMonster) Yuyuko::new);
 
         BaseMod.addBoss(Gensokyoer.ID, Kaguya.ID, "GensokyoResources/images/monsters/Kaguya/Kaguya.png", "GensokyoResources/images/monsters/Kaguya/KaguyaOutline.png");
         BaseMod.addBoss(Gensokyoer.ID, Eiki.ID, "GensokyoResources/images/monsters/Eiki/Eiki.png", "GensokyoResources/images/monsters/Eiki/EikiOutline.png");
@@ -541,6 +541,7 @@ public class GensokyoMod implements
                         new Remilia(-480.0F, 0.0F),
                         new Flandre(),
                 }));
+        BaseMod.addMonster(Yuyuko.ID, (BaseMod.GetMonster) Yuyuko::new);
         BaseMod.addBoss(Gensokyoest.ID, EncounterIDs.SCARLET_DEVILS, "GensokyoResources/images/monsters/Flandre/Sisters.png", "GensokyoResources/images/monsters/Flandre/SistersOutline.png");
 
         // =============== EVENTS =================
@@ -809,6 +810,7 @@ public class GensokyoMod implements
         BaseMod.addCard(new ReflexRadar());
         BaseMod.addCard(new MindShatter());
         BaseMod.addCard(new ShootingStar());
+        BaseMod.addCard(new Butterfly());
 
         //Urban Legends
         BaseMod.addCard(new MissMary());

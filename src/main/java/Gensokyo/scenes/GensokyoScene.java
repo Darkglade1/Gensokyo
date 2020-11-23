@@ -24,7 +24,7 @@ import Gensokyo.monsters.act2.NormalEnemies.TanukiDog;
 import Gensokyo.monsters.act2.NormalEnemies.Wraith;
 import Gensokyo.monsters.act2.Reisen;
 import Gensokyo.monsters.act2.Tenshi;
-import Gensokyo.monsters.act2.Yuyuko;
+import Gensokyo.monsters.act3.Yuyuko;
 import Gensokyo.monsters.act1.marisaMonsters.Patchouli;
 import Gensokyo.monsters.act3.Doremy;
 import Gensokyo.monsters.act3.Flandre;

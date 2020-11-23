@@ -1,10 +1,15 @@
-package Gensokyo.monsters.act2;
+package Gensokyo.monsters.act3;
 
 import Gensokyo.BetterSpriterAnimation;
+import Gensokyo.GensokyoMod;
+import Gensokyo.RazIntent.IntentEnums;
 import Gensokyo.actions.RezAction;
 import Gensokyo.actions.UsePreBattleActionAction;
+import Gensokyo.actions.YeetPlayerAction;
+import Gensokyo.cards.Butterfly;
 import Gensokyo.monsters.AbstractSpriterMonster;
-import Gensokyo.powers.act2.Reflowering;
+import Gensokyo.powers.act3.BorderOfDeath;
+import Gensokyo.powers.act3.Deathtouch;
 import Gensokyo.vfx.EmptyEffect;
 import actlikeit.dungeons.CustomDungeon;
 import basemod.animations.AbstractAnimation;
@@ -19,6 +24,8 @@ import com.megacrit.cardcrawl.actions.animations.TalkAction;
 import com.megacrit.cardcrawl.actions.animations.VFXAction;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.actions.common.DamageAction;
+import com.megacrit.cardcrawl.actions.common.GainBlockAction;
+import com.megacrit.cardcrawl.actions.common.MakeTempCardInDiscardAction;
 import com.megacrit.cardcrawl.actions.common.RollMoveAction;
 import com.megacrit.cardcrawl.actions.common.SpawnMonsterAction;
 import com.megacrit.cardcrawl.actions.common.SuicideAction;
@@ -30,8 +37,7 @@ import com.megacrit.cardcrawl.localization.MonsterStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.monsters.EnemyMoveInfo;
 import com.megacrit.cardcrawl.powers.MinionPower;
-import com.megacrit.cardcrawl.powers.StrengthPower;
-import com.megacrit.cardcrawl.powers.VulnerablePower;
+import com.megacrit.cardcrawl.powers.WeakPower;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -41,44 +47,53 @@ public class Yuyuko extends AbstractSpriterMonster
 {
     private static final Texture FAN = new Texture("GensokyoResources/images/monsters/Yuyuko/Fan.png");
     private TextureRegion FAN_REGION;
-    public static final String ID = "Gensokyo:Yuyuko";
-    private static final MonsterStrings monsterStrings;
-    public static final String NAME;
-    public static final String[] MOVES;
-    public static final String[] DIALOG;
+    public static final String ID = GensokyoMod.makeID("Yuyuko");
+    private static final MonsterStrings monsterStrings = CardCrawlGame.languagePack.getMonsterStrings(ID);
+    public static final String NAME = monsterStrings.NAME;
+    public static final String[] MOVES = monsterStrings.MOVES;
+    public static final String[] DIALOG = monsterStrings.DIALOG;
+
     private boolean firstMove = true;
-    private static final byte GHASTLY_DREAM = 0;
-    private static final byte LAW_OF_MORTALITY = 1;
-    private static final byte RESURRECTION_BUTTERFLY = 2;
+    private static final byte GHASTLY_DREAM = 0; //Attack
+    private static final byte LAW_OF_MORTALITY = 1; //Debuff attack
+    private static final byte RESURRECTION_BUTTERFLY = 2; //Shuffle statuses
+    private static final byte GIFTS_TO_THE_DECEASED = 3; //AoE Block
+    private static final byte INVITATION_FROM_NETHER_SIDE = 4; //Reduce Max HP
+    private static final byte SAIGYOUJI_PARINIRVANA = 5; //Instant kill
 
-    private static final int NORMAL_ATTACK_DAMAGE = 13;
-    private static final int A3_NORMAL_ATTACK_DAMAGE = 14;
-    private static final int NORMAL_ATTACK_HITS = 3;
+    private static final int NORMAL_ATTACK_DAMAGE = 20;
+    private static final int A4_NORMAL_ATTACK_DAMAGE = 22;;
 
-    private static final int DEBUFF_ATTACK_DAMAGE = 13;
-    private static final int A3_DEBUFF_ATTACK_DAMAGE = 14;
-    private static final int DEBUFF_ATTACK_HITS = 2;
-    private static final int DEBUFF_AMOUNT = 1;
+    private static final int DEBUFF_ATTACK_DAMAGE = 12;
+    private static final int A4_DEBUFF_ATTACK_DAMAGE = 13;
+    private static final int DEBUFF_AMOUNT = 2;
 
-    private static final int STRENGTH = 3;
-    private static final int A18_STRENGTH = 4;
+    private static final int STATUS_AMT = 3;
+    private static final int A19_STATUS_AMT = 4;
+    private int statusAmt;
 
-    private static final int HP_MIN = 95;
-    private static final int HP_MAX = 97;
-    private static final int A_2_HP_MIN = 98;
-    private static final int A_2_HP_MAX = 101;
+    private static final int BLOCK = 15;
+    private static final int A9_BLOCK = 17;
+    private int block;
+
+    private static final int MAX_HP_REDUCTION = 10;
+    private static final int A19_MAX_HP_REDUCTION = 12;
+    private int maxHPReduction;
+
+    private static final int COOLDOWN = 2;
+    private int counter = COOLDOWN;
+
+    private static final int HP = 400;
+    private static final int A9_HP = 430;
 
     private static final int MINION_HEALTH_INCREMENT = 2;
-    private static final int A8_MINION_HEALTH_INCREMENT = 3;
+    private static final int A9_MINION_HEALTH_INCREMENT = 3;
 
-    private static final int STR_LOSS = 1;
     private static final int BLUE_SOULS = 5;
     private static final int PURPLE_SOULS = 5;
-    private static final int DEAD_MINIONS_THRESHOLD = 7;
 
     private int normalDamage;
     private int debuffDamage;
-    private int strength;
     private int minionHealthIncrement;
 
     private Map<Byte, EnemyMoveInfo> moves;
@@ -91,36 +106,44 @@ public class Yuyuko extends AbstractSpriterMonster
     }
 
     public Yuyuko(final float x, final float y) {
-        super(NAME, ID, HP_MAX, -5.0F, 0, 230.0f, 295.0f, null, x, y);
+        super(NAME, ID, HP, -5.0F, 0, 230.0f, 295.0f, null, x, y);
         this.animation = new BetterSpriterAnimation("GensokyoResources/images/monsters/Yuyuko/Spriter/YuyukoAnimation.scml");
-        this.type = EnemyType.ELITE;
+        this.type = EnemyType.BOSS;
         this.dialogX = (this.hb_x - 70.0F) * Settings.scale;
         this.dialogY -= (this.hb_y - 55.0F) * Settings.scale;
-        if (AbstractDungeon.ascensionLevel >= 18) {
-            this.strength = A18_STRENGTH;
+        if (AbstractDungeon.ascensionLevel >= 19) {
+            this.maxHPReduction = A19_MAX_HP_REDUCTION;
+            this.statusAmt = A19_STATUS_AMT;
         } else {
-            this.strength = STRENGTH;
+            this.maxHPReduction = MAX_HP_REDUCTION;
+            this.statusAmt = STATUS_AMT;
         }
-        if (AbstractDungeon.ascensionLevel >= 8) {
-            this.setHp(A_2_HP_MIN, A_2_HP_MAX);
-            minionHealthIncrement = A8_MINION_HEALTH_INCREMENT;
+        if (AbstractDungeon.ascensionLevel >= 9) {
+            this.setHp(A9_HP);
+            minionHealthIncrement = A9_MINION_HEALTH_INCREMENT;
+            block = A9_BLOCK;
         } else {
-            this.setHp(HP_MIN, HP_MAX);
+            this.setHp(HP);
             minionHealthIncrement = MINION_HEALTH_INCREMENT;
+            block = BLOCK;
         }
 
-        if (AbstractDungeon.ascensionLevel >= 3) {
-            this.debuffDamage = A3_DEBUFF_ATTACK_DAMAGE;
-            this.normalDamage = A3_NORMAL_ATTACK_DAMAGE;
+        if (AbstractDungeon.ascensionLevel >= 4) {
+            this.debuffDamage = A4_DEBUFF_ATTACK_DAMAGE;
+            this.normalDamage = A4_NORMAL_ATTACK_DAMAGE;
         } else {
             this.debuffDamage = DEBUFF_ATTACK_DAMAGE;
             this.normalDamage = NORMAL_ATTACK_DAMAGE;
         }
 
         this.moves = new HashMap<>();
-        this.moves.put(GHASTLY_DREAM, new EnemyMoveInfo(GHASTLY_DREAM, Intent.ATTACK, normalDamage, NORMAL_ATTACK_HITS, true));
-        this.moves.put(LAW_OF_MORTALITY, new EnemyMoveInfo(LAW_OF_MORTALITY, Intent.ATTACK_DEBUFF, debuffDamage, DEBUFF_ATTACK_HITS, true));
-        this.moves.put(RESURRECTION_BUTTERFLY, new EnemyMoveInfo(RESURRECTION_BUTTERFLY, Intent.BUFF, -1, 0, false));
+        this.moves.put(GHASTLY_DREAM, new EnemyMoveInfo(GHASTLY_DREAM, Intent.ATTACK, normalDamage, 0, false));
+        this.moves.put(LAW_OF_MORTALITY, new EnemyMoveInfo(LAW_OF_MORTALITY, Intent.ATTACK_DEBUFF, debuffDamage, 0, false));
+        this.moves.put(RESURRECTION_BUTTERFLY, new EnemyMoveInfo(RESURRECTION_BUTTERFLY, Intent.DEBUFF, -1, 0, false));
+        this.moves.put(GIFTS_TO_THE_DECEASED, new EnemyMoveInfo(GIFTS_TO_THE_DECEASED, Intent.DEFEND, -1, 0, false));
+        this.moves.put(INVITATION_FROM_NETHER_SIDE, new EnemyMoveInfo(INVITATION_FROM_NETHER_SIDE, Intent.STRONG_DEBUFF, maxHPReduction, 0, false));
+        this.moves.put(SAIGYOUJI_PARINIRVANA, new EnemyMoveInfo(GIFTS_TO_THE_DECEASED, IntentEnums.DEATH, -1, 0, false));
+
 
         this.FAN_REGION = new TextureRegion(FAN);
         Player.PlayerListener listener = new YuyukoListener(this);
@@ -130,7 +153,7 @@ public class Yuyuko extends AbstractSpriterMonster
     @Override
     public void usePreBattleAction() {
         CustomDungeon.playTempMusicInstantly("BorderOfLife");
-        this.addToBot(new ApplyPowerAction(this, this, new Reflowering(this, STR_LOSS)));
+        this.addToBot(new ApplyPowerAction(this, this, new Deathtouch(this)));
         SpawnMinions();
         nextBlueSoul();
         nextPurpleSoul();
@@ -148,36 +171,52 @@ public class Yuyuko extends AbstractSpriterMonster
         }
         switch (this.nextMove) {
             case GHASTLY_DREAM: {
-                runAnim("SoulGrab");
-                CardCrawlGame.sound.playV("Gensokyo:ghost", 1.3F);
-                AbstractDungeon.actionManager.addToBottom(new VFXAction(new EmptyEffect(), 1.0F));
-                for (int i = 0; i < NORMAL_ATTACK_HITS; i++) {
-                    AbstractDungeon.actionManager.addToBottom(new DamageAction(AbstractDungeon.player, info, AbstractGameAction.AttackEffect.POISON));
-                }
+                useFastAttackAnimation();
+                AbstractDungeon.actionManager.addToBottom(new DamageAction(AbstractDungeon.player, info, AbstractGameAction.AttackEffect.POISON));
                 break;
             }
             case LAW_OF_MORTALITY: {
-                runAnim("ButterflyCircle");
-                CardCrawlGame.sound.playV("Gensokyo:pest", 1.3F);
-                AbstractDungeon.actionManager.addToBottom(new VFXAction(new EmptyEffect(), 1.3F));
-
-                for (int i = 0; i < DEBUFF_ATTACK_HITS; i++) {
-                    AbstractDungeon.actionManager.addToBottom(new DamageAction(AbstractDungeon.player, info, AbstractGameAction.AttackEffect.POISON));
-                }
-                AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(AbstractDungeon.player, this, new VulnerablePower(AbstractDungeon.player, DEBUFF_AMOUNT, true), DEBUFF_AMOUNT));
+//                runAnim("ButterflyCircle");
+//                CardCrawlGame.sound.playV("Gensokyo:pest", 1.3F);
+//                AbstractDungeon.actionManager.addToBottom(new VFXAction(new EmptyEffect(), 1.3F));
+                useFastAttackAnimation();
+                AbstractDungeon.actionManager.addToBottom(new DamageAction(AbstractDungeon.player, info, AbstractGameAction.AttackEffect.POISON));
+                AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(AbstractDungeon.player, this, new WeakPower(AbstractDungeon.player, DEBUFF_AMOUNT, true), DEBUFF_AMOUNT));
                 break;
             }
             case RESURRECTION_BUTTERFLY: {
-                AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(this, this, new StrengthPower(this, strength), strength));
+                AbstractDungeon.actionManager.addToBottom(new MakeTempCardInDiscardAction(new Butterfly(), statusAmt));
                 break;
             }
-//            case SAIGYOUJI_PARINIRVANA: {
+            case GIFTS_TO_THE_DECEASED: {
+                for (AbstractMonster mo : AbstractDungeon.getCurrRoom().monsters.monsters) {
+                    if (!mo.isDeadOrEscaped()) {
+                        AbstractDungeon.actionManager.addToBottom(new GainBlockAction(mo, this, block));
+                    }
+                }
+                break;
+            }
+            case INVITATION_FROM_NETHER_SIDE: {
+                runAnim("SoulGrab");
+                CardCrawlGame.sound.playV("Gensokyo:ghost", 1.3F);
+                AbstractDungeon.actionManager.addToBottom(new VFXAction(new EmptyEffect(), 1.0F));
+                AbstractDungeon.player.decreaseMaxHealth(maxHPReduction);
+                addToBot(new ApplyPowerAction(AbstractDungeon.player, AbstractDungeon.player, new BorderOfDeath(AbstractDungeon.player, maxHPReduction), maxHPReduction));
+                counter = COOLDOWN + 1;
+                break;
+            }
+            case SAIGYOUJI_PARINIRVANA: {
 //                runAnim("MagicCircle");
 //                CardCrawlGame.sound.playV("Gensokyo:magic", 1.2F);
 //                AbstractDungeon.actionManager.addToBottom(new VFXAction(new EmptyEffect(), 1.0F));
-//                break;
- //           }
+                runAnim("SoulGrab");
+                CardCrawlGame.sound.playV("Gensokyo:ghost", 1.3F);
+                AbstractDungeon.actionManager.addToBottom(new VFXAction(new EmptyEffect(), 1.0F));
+                AbstractDungeon.actionManager.addToBottom(new YeetPlayerAction());
+                break;
+            }
         }
+        counter--;
         AbstractDungeon.actionManager.addToBottom(new RollMoveAction(this));
     }
 
@@ -234,29 +273,26 @@ public class Yuyuko extends AbstractSpriterMonster
 
     @Override
     protected void getMove(final int num) {
-        if (firstMove) {
-            this.setMoveShortcut(GHASTLY_DREAM);
-        } else if (deadMinions() >= DEAD_MINIONS_THRESHOLD && !this.lastMove(RESURRECTION_BUTTERFLY) && !this.lastMoveBefore(RESURRECTION_BUTTERFLY)) {
-            this.setMoveShortcut(RESURRECTION_BUTTERFLY);
-        } else if (this.lastMove(RESURRECTION_BUTTERFLY)) {
-            this.setMoveShortcut(LAW_OF_MORTALITY);
+        if (AbstractDungeon.player.maxHealth == 1) {
+            setMoveShortcut(SAIGYOUJI_PARINIRVANA);
+        } else if (counter <= 0) {
+            setMoveShortcut(INVITATION_FROM_NETHER_SIDE);
         } else {
             ArrayList<Byte> possibilities = new ArrayList<>();
             if (!this.lastMove(GHASTLY_DREAM)) {
                 possibilities.add(GHASTLY_DREAM);
             }
-            if (!this.lastMove(LAW_OF_MORTALITY)) {
+            if (!this.lastMove(LAW_OF_MORTALITY) && !this.lastMoveBefore(LAW_OF_MORTALITY)) {
                 possibilities.add(LAW_OF_MORTALITY);
+            }
+            if (!this.lastMove(RESURRECTION_BUTTERFLY) && !this.lastMoveBefore(RESURRECTION_BUTTERFLY)) {
+                possibilities.add(RESURRECTION_BUTTERFLY);
+            }
+            if (!this.lastMove(GIFTS_TO_THE_DECEASED) && !this.lastMoveBefore(GIFTS_TO_THE_DECEASED)) {
+                possibilities.add(GIFTS_TO_THE_DECEASED);
             }
             this.setMoveShortcut(possibilities.get(AbstractDungeon.monsterRng.random(possibilities.size() - 1)));
         }
-    }
-
-    private int deadMinions() {
-        int dead = 0;
-        dead += BLUE_SOULS - blueSouls.size();
-        dead += PURPLE_SOULS - purpleSouls.size();
-        return dead;
     }
 
     private void setMoveShortcut(byte next) {
@@ -290,13 +326,6 @@ public class Yuyuko extends AbstractSpriterMonster
                 }
             }
         }
-    }
-
-    static {
-        monsterStrings = CardCrawlGame.languagePack.getMonsterStrings("Gensokyo:Yuyuko");
-        NAME = Yuyuko.monsterStrings.NAME;
-        MOVES = Yuyuko.monsterStrings.MOVES;
-        DIALOG = Yuyuko.monsterStrings.DIALOG;
     }
 
     //Runs a specific animation

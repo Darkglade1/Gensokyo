@@ -232,35 +232,6 @@
       "Woah, I caught one!"
     ]
   },
-  "Gensokyo:Yuyuko": {
-    "MOVES": [
-      "Ghastly Dream",
-      "Law of Mortality",
-      "Resurrection Butterfly"
-    ],
-    "NAME": "Princess of the Netherworld",
-    "DIALOG": [
-      "A lovely day for death, isn't it?"
-    ]
-  },
-  "Gensokyo:BlueSoul": {
-    "MOVES": [
-
-    ],
-    "NAME": "Spirit",
-    "DIALOG": [
-
-    ]
-  },
-  "Gensokyo:PurpleSoul": {
-    "MOVES": [
-
-    ],
-    "NAME": "Spirit",
-    "DIALOG": [
-
-    ]
-  },
   "Gensokyo:Eiki": {
     "MOVES": [
       "Cleansed Crystal Judgement - ",
@@ -549,6 +520,38 @@
     "DIALOG": [
       "You need to learn some restraint.",
       "I hope you learned your lesson."
+    ]
+  },
+  "Gensokyo:Yuyuko": {
+    "MOVES": [
+      "Ghastly Dream",
+      "Law of Mortality",
+      "Resurrection Butterfly",
+      "Gifts to the Deceased",
+      "Invitation to Nether Side",
+      "Saigyouji Parinirvana"
+    ],
+    "NAME": "Princess of the Netherworld",
+    "DIALOG": [
+      "A lovely day for death, isn't it?"
+    ]
+  },
+  "Gensokyo:BlueSoul": {
+    "MOVES": [
+
+    ],
+    "NAME": "Spirit",
+    "DIALOG": [
+
+    ]
+  },
+  "Gensokyo:PurpleSoul": {
+    "MOVES": [
+
+    ],
+    "NAME": "Spirit",
+    "DIALOG": [
+
     ]
   },
   "Gensokyo:Nitori": {

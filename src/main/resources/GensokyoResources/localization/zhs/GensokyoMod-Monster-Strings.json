@@ -232,35 +232,6 @@
       "喔哦，逮到一个！"
     ]
   },
-  "Gensokyo:Yuyuko": {
-    "MOVES": [
-      "惊梦",
-      "生者必灭之理",
-      "反魂蝶"
-    ],
-    "NAME": "亡灵公主",
-    "DIALOG": [
-      "死气宜人的一天, 对吧?"
-    ]
-  },
-  "Gensokyo:BlueSoul": {
-    "MOVES": [
-
-    ],
-    "NAME": "幽灵",
-    "DIALOG": [
-
-    ]
-  },
-  "Gensokyo:PurpleSoul": {
-    "MOVES": [
-
-    ],
-    "NAME": "幽灵",
-    "DIALOG": [
-
-    ]
-  },
   "Gensokyo:Eiki": {
     "MOVES": [
       "净颇梨审判 - ",
@@ -432,5 +403,37 @@
 
     ],
     "NAME": "食人花"
+  },
+  "Gensokyo:Yuyuko": {
+    "MOVES": [
+      "惊梦",
+      "生者必灭之理",
+      "反魂蝶",
+      "Gifts to the Deceased",
+      "Invitation to Nether Side",
+      "Saigyouji Parinirvana"
+    ],
+    "NAME": "亡灵公主",
+    "DIALOG": [
+      "死气宜人的一天, 对吧?"
+    ]
+  },
+  "Gensokyo:BlueSoul": {
+    "MOVES": [
+
+    ],
+    "NAME": "幽灵",
+    "DIALOG": [
+
+    ]
+  },
+  "Gensokyo:PurpleSoul": {
+    "MOVES": [
+
+    ],
+    "NAME": "幽灵",
+    "DIALOG": [
+
+    ]
   }
 }

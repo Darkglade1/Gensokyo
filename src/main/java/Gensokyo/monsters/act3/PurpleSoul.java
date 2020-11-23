@@ -1,20 +1,23 @@
-package Gensokyo.monsters.act2;
+package Gensokyo.monsters.act3;
 
 import Gensokyo.BetterSpriterAnimation;
+import Gensokyo.GensokyoMod;
+import Gensokyo.powers.act3.BorderOfDeath;
+import Gensokyo.vfx.EmptyEffect;
+import com.megacrit.cardcrawl.actions.animations.VFXAction;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.actions.common.RollMoveAction;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.localization.MonsterStrings;
-import com.megacrit.cardcrawl.powers.WeakPower;
 
 public class PurpleSoul extends YuyukoSoul
 {
-    public static final String ID = "Gensokyo:PurpleSoul";
-    private static final MonsterStrings monsterStrings;
-    public static final String NAME;
-    public static final String[] MOVES;
-    public static final String[] DIALOG;
+    public static final String ID = GensokyoMod.makeID("PurpleSoul");
+    private static final MonsterStrings monsterStrings = CardCrawlGame.languagePack.getMonsterStrings(ID);
+    public static final String NAME = monsterStrings.NAME;
+    public static final String[] MOVES = monsterStrings.MOVES;
+    public static final String[] DIALOG = monsterStrings.DIALOG;
 
     public PurpleSoul() {
         this(0.0f, 0.0f, null, 0);
@@ -31,17 +34,14 @@ public class PurpleSoul extends YuyukoSoul
         super.takeTurn();
         switch (this.nextMove) {
             case DEBUFF: {
-                AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(AbstractDungeon.player, this, new WeakPower(AbstractDungeon.player, DEBUFF_AMT, true), DEBUFF_AMT));
+                master.runAnim("SoulGrab");
+                CardCrawlGame.sound.playV("Gensokyo:ghost", 1.3F);
+                AbstractDungeon.actionManager.addToBottom(new VFXAction(new EmptyEffect(), 1.0F));
+                AbstractDungeon.player.decreaseMaxHealth(MAX_HP_REDUCTION);
+                addToBot(new ApplyPowerAction(AbstractDungeon.player, AbstractDungeon.player, new BorderOfDeath(AbstractDungeon.player, MAX_HP_REDUCTION), MAX_HP_REDUCTION));
                 break;
             }
         }
         AbstractDungeon.actionManager.addToBottom(new RollMoveAction(this));
-    }
-
-    static {
-        monsterStrings = CardCrawlGame.languagePack.getMonsterStrings("Gensokyo:PurpleSoul");
-        NAME = PurpleSoul.monsterStrings.NAME;
-        MOVES = PurpleSoul.monsterStrings.MOVES;
-        DIALOG = PurpleSoul.monsterStrings.DIALOG;
     }
 }

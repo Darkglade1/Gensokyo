@@ -246,6 +246,10 @@
     "NAME": "Lifeforce Converter",
     "DESCRIPTION": "Give ALL non-X-cost cards in your hand gensokyo:Bloodcast this combat."
   },
+  "Gensokyo:Butterfly": {
+    "NAME": "Butterfly",
+    "DESCRIPTION": "Unplayable. NL If this card is exhausted, lose !M! Max HP this combat."
+  },
   "Gensokyo:FlashFlood": {
     "NAME": "Flash Flood",
     "DESCRIPTION": "When this card is drawn, reduce its cost by !M! this combat. NL Exhaust."
