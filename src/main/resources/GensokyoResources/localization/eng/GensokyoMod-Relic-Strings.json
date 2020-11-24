@@ -193,6 +193,13 @@
       "Your single-target #yAttacks deal damage to ALL enemies."
     ]
   },
+  "Gensokyo:TheCrow": {
+    "NAME": "The Crow",
+    "FLAVOR": "Power beckons, sweet and smile. \n Madness answers, bleak and vile.",
+    "DESCRIPTIONS": [
+      "At the end of your turn, gain #b", " #yRitual and take damage equal to the amount of #yStrength you have."
+    ]
+  },
   "Gensokyo:MarisaIngredientList": {
     "NAME": "Ingredient List",
     "FLAVOR": "A bunch of messy scribbles on a page. Apparently creates something known as the \"Improbability Potion\".",

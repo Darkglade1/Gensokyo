@@ -178,6 +178,7 @@ import Gensokyo.relics.act2.SpiderMask;
 import Gensokyo.relics.act2.UndefinedDarkness;
 import Gensokyo.relics.act3.DualWield;
 import Gensokyo.relics.act3.EmptyGrave;
+import Gensokyo.relics.act3.TheCrow;
 import Gensokyo.rooms.nitori.helpers.gensokyoRelicHelper;
 import Gensokyo.util.IDCheckDontTouchPls;
 import Gensokyo.util.TextureLoader;
@@ -785,6 +786,7 @@ public class GensokyoMod implements
         //Act 3
         BaseMod.addRelic(new EmptyGrave(), RelicType.SHARED);
         BaseMod.addRelic(new DualWield(), RelicType.SHARED);
+        BaseMod.addRelic(new TheCrow(), RelicType.SHARED);
 
         //Other relics
         BaseMod.addRelic(new Companionship(), RelicType.SHARED);
