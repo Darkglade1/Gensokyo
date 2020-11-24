@@ -1,20 +1,17 @@
 package Gensokyo.relics.act3;
 
 import Gensokyo.GensokyoMod;
+import Gensokyo.actions.DamageAllEnemiesIgnoreZeroDamageAction;
 import Gensokyo.util.TextureLoader;
 import basemod.abstracts.CustomRelic;
 import com.badlogic.gdx.graphics.Texture;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
-import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
-import com.megacrit.cardcrawl.actions.common.DamageAllEnemiesAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.AbstractCreature;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
-import com.megacrit.cardcrawl.helpers.PowerTip;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
-import com.megacrit.cardcrawl.powers.IntangiblePlayerPower;
 
 import static Gensokyo.GensokyoMod.makeRelicOutlinePath;
 import static Gensokyo.GensokyoMod.makeRelicPath;
@@ -31,6 +28,11 @@ public class DualWield extends CustomRelic {
 
     public DualWield() {
         super(ID, IMG, OUTLINE, RelicTier.SPECIAL, LandingSound.HEAVY);
+    }
+
+    @Override
+    public void onVictory() {
+        active = true; //In case it gets stuck in the inactive position due to the queue getting cleared at end of combat
     }
 
     @Override
@@ -71,7 +73,7 @@ public class DualWield extends CustomRelic {
                         newMultiDamage[i] = 0;
                     }
                 }
-                AbstractDungeon.actionManager.addToTop(new DamageAllEnemiesAction(AbstractDungeon.player, newMultiDamage, DamageInfo.DamageType.NORMAL, AbstractGameAction.AttackEffect.SLASH_HEAVY));
+                AbstractDungeon.actionManager.addToTop(new DamageAllEnemiesIgnoreZeroDamageAction(AbstractDungeon.player, newMultiDamage, DamageInfo.DamageType.NORMAL, AbstractGameAction.AttackEffect.SLASH_HEAVY));
             }
         }
     }
