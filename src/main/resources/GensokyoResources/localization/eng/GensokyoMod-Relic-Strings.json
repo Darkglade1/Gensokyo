@@ -186,6 +186,13 @@
       "After climbing #b", " floors, heal #b", "% of your Max HP."
     ]
   },
+  "Gensokyo:DualWield": {
+    "NAME": "Dual Wield",
+    "FLAVOR": "Rip and tear, a bloody grin. \n Reap and sow, a horrid din.",
+    "DESCRIPTIONS": [
+      "Your single-target #yAttacks deal damage to ALL enemies."
+    ]
+  },
   "Gensokyo:MarisaIngredientList": {
     "NAME": "Ingredient List",
     "FLAVOR": "A bunch of messy scribbles on a page. Apparently creates something known as the \"Improbability Potion\".",
