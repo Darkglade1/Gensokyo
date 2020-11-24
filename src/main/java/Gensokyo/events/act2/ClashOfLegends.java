@@ -1,4 +1,4 @@
-package Gensokyo.events.act1;
+package Gensokyo.events.act2;
 
 import Gensokyo.GensokyoMod;
 import Gensokyo.relics.act1.OccultBall;

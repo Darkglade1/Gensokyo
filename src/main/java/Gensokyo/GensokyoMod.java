@@ -70,7 +70,7 @@ import Gensokyo.events.act1.ALandWhereOnlyIAmMissing;
 import Gensokyo.events.act1.AMomentFractured;
 import Gensokyo.events.act1.ASwiftSlash;
 import Gensokyo.events.act1.BambooForestOfTheLost;
-import Gensokyo.events.act1.ClashOfLegends;
+import Gensokyo.events.act2.ClashOfLegends;
 import Gensokyo.events.act1.DemonBookSeller;
 import Gensokyo.events.act1.FieldTripToAnotherWorld;
 import Gensokyo.events.act1.ForestOfMagic;
@@ -103,6 +103,7 @@ import Gensokyo.events.act2.TheWhiteLotus;
 import Gensokyo.events.act2.TreasureHunter;
 import Gensokyo.events.act2.VillageOfCats;
 import Gensokyo.events.act3.IAmNotThere;
+import Gensokyo.events.act3.OwlFriend;
 import Gensokyo.events.act3.TheDreamer;
 import Gensokyo.monsters.act1.Aya;
 import Gensokyo.monsters.act1.Cirno;
@@ -604,6 +605,7 @@ public class GensokyoMod implements
         //Act 3
         BaseMod.addEvent(TheDreamer.ID, TheDreamer.class, Gensokyoest.ID);
         BaseMod.addEvent(IAmNotThere.ID, IAmNotThere.class, Gensokyoest.ID);
+        BaseMod.addEvent(OwlFriend.ID, OwlFriend.class, Gensokyoest.ID);
         // =============== /EVENTS/ =================
 
         logger.info("Done loading badge Image and mod options");

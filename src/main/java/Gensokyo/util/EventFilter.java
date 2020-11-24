@@ -1,7 +1,7 @@
 package Gensokyo.util;
 
 import Gensokyo.GensokyoMod;
-import Gensokyo.events.act1.ClashOfLegends;
+import Gensokyo.events.act2.ClashOfLegends;
 import Gensokyo.events.act1.DemonBookSeller;
 import Gensokyo.events.act1.FieldTripToAnotherWorld;
 import Gensokyo.events.act1.ForestOfMagic;

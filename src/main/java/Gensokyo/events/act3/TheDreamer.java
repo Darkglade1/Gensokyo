@@ -109,6 +109,7 @@ public class TheDreamer extends AbstractImageEvent {
             for (int i = 0; i < AbstractDungeon.gridSelectScreen.selectedCards.size(); i++) {
                 AbstractCard c = AbstractDungeon.gridSelectScreen.selectedCards.get(i);
                 CardModifierManager.addModifier(c, cardMod.makeCopy());
+                AbstractDungeon.gridSelectScreen.selectedCards.remove(c);
             }
         }
     }

@@ -697,6 +697,32 @@
       "[Leave]"
     ]
   },
+  "Gensokyo:OwlFriend": {
+    "NAME": "Owl Friend",
+    "DESCRIPTIONS": [
+      "The forest around you is thick, but as you push through the trees to reach a clearing, you see a #pmysterious creature there. It turns to face you, speaking in a strangely distorted voice. NL NL \"Has a #gfriend come to #grest, NL NL Within the #ybowels of my #ynest?\"",
+      "You don't trust this creature, so you say your excuses and prepare to make a hasty retreat. NL NL \"Gifts I bear for those in #rneed. NL NL All yours, perhaps, for but a #rdeed.\"",
+      "The deed is short, swift, and #rbloody. The creature seems pleased by your decision. NL NL \"A monster is one with inhuman #rpower. NL NL So what is a human who makes others #rcower?\"",
+      "You don't trust the creature or its supposed gifts."
+    ],
+    "OPTIONS": [
+      "[Continue]",
+      "[Gift of Madness] #gObtain #ga #gSpecial #gRelic.",
+      "[Gift of Violence] #gObtain #ga #gSpecial #gRelic.",
+      " #rGive #r",
+      " #rcard ",
+      " #rcards ",
+      "#rin #ryour #rdeck #rAutoplay.",
+      "#rin #ryour #rdeck #rUnplayable.",
+      "Select ",
+      " Card ",
+      " Cards ",
+      "to give Autoplay.",
+      "to give Unplayable.",
+      "[Locked] Requires: Playable cards",
+      "[Leave]"
+    ]
+  },
   "Gensokyo:MarisaAnOldGhost": {
     "NAME": "An Old Ghost",
     "DESCRIPTIONS": [

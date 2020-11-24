@@ -134,6 +134,16 @@
       "This enemy intends to reduce your #yMax #yHP by #b", " this combat."
     ]
   },
+  "Gensokyo:AutoplayMod": {
+    "TEXT": [
+      "Autoplay. NL "
+    ]
+  },
+  "Gensokyo:UnplayableMod": {
+    "TEXT": [
+      "Unplayable. NL "
+    ]
+  },
   "Gensokyo:TempHPIntent": {
     "TEXT": [
       "Reinforcing",
