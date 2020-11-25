@@ -723,6 +723,27 @@
       "[Leave]"
     ]
   },
+  "Gensokyo:PrincessOfTheMoon": {
+    "NAME": "Princess of the Moon",
+    "DESCRIPTIONS": [
+      "You find yourself in the bamboo #gforest again, and as you're trekking along, you come across a cabin in the woods. NL NL You peer in one of the windows and see a woman sitting on a couch. NL NL \"Ah, being able to visit teacher every so often is quite nice. But I wonder why she decided to lecture us on the merits between using #rforce or #gdiplomacy? Is it not obvious that #gdiplomacy is the superior choice? I think everyone would be happier if wars were won with #gwords rather than #rweapons.\"",
+      "The woman pauses, biting into a peach. NL NL \"What do you think, stranger? Would you rather conquer others with #gwords or #rweapons?\" NL NL You flinch from being addressed so suddenly, scrambling for a response.",
+      "\"You would agree with my sister, then? I should've expected as much from a denizen of this #pimpure planet.\" NL NL The woman sighs, clearly disappointed by your choice. NL NL \"But the way of words involves respecting the words of others as well, so I suppose I'll leave you to enact your wanton #rviolence.\" NL NL Space distorts around the woman, and with a brief flash of light, she disappears.",
+      "\"I'm glad to see you chose the civilized approach. Perhaps there's hope for this #pimpure planet after all.\" NL NL The woman smiled, pure and honest. NL NL \"Ah, but I must get going. My sister will worry if I tarry here for too long.\" NL NL Space distorts around the woman, and with a brief flash of light, she disappears.",
+      "You slip away, unwilling to engage the woman in a philosophical discussion."
+    ],
+    "OPTIONS": [
+      "[Continue]",
+      "[Weapons] #gRemove #g",
+      " #gSkills #gfrom #gyour #gdeck.",
+      "[Words] #gRemove #g",
+      " #gAttacks #gfrom #gyour #gdeck.",
+      "[Locked] Requires: Skills",
+      "[Locked] Requires: Attacks",
+      "Select Cards to Remove.",
+      "[Leave]"
+    ]
+  },
   "Gensokyo:MarisaAnOldGhost": {
     "NAME": "An Old Ghost",
     "DESCRIPTIONS": [
