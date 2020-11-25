@@ -25,6 +25,14 @@ public class DrawCardCallbackAction extends AbstractGameAction {
         this.effect = effect;
     }
 
+    public DrawCardCallbackAction(DamageInfo info, AbstractMonster target, AttackEffect effect) {
+        this(0, info, target, effect);
+    }
+
+    public DrawCardCallbackAction(int blockGain) {
+        this(blockGain, null, null, null);
+    }
+
     @Override
     public void update() {
         for (AbstractCard card : DrawCardAction.drawnCards) {

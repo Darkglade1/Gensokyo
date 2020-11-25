@@ -254,6 +254,10 @@
     "NAME": "Brilliant Dragon Bullet",
     "DESCRIPTION": "Deal !D! damage. NL Draw !M! card. If it's an Attack, deal !D! damage."
   },
+  "Gensokyo:LifeSpringInfinity": {
+    "NAME": "Life Spring Infinity",
+    "DESCRIPTION": "Draw !M! cards. Gain !B! Block for every Skill drawn this way."
+  },
   "Gensokyo:FlashFlood": {
     "NAME": "Flash Flood",
     "DESCRIPTION": "When this card is drawn, reduce its cost by !M! this combat. NL Exhaust."

@@ -25,6 +25,7 @@ import Gensokyo.cards.Item.RPG;
 import Gensokyo.cards.Item.ReactiveArmor;
 import Gensokyo.cards.Item.Taser;
 import Gensokyo.cards.Lunar.BrilliantDragonBullet;
+import Gensokyo.cards.Lunar.LifeSpringInfinity;
 import Gensokyo.cards.Pets.SummonFieryMouse;
 import Gensokyo.cards.Pets.SummonJeweledCobra;
 import Gensokyo.cards.Pets.SummonPsychicCat;
@@ -895,6 +896,7 @@ public class GensokyoMod implements
 
         //Lunar cards
         BaseMod.addCard(new BrilliantDragonBullet());
+        BaseMod.addCard(new LifeSpringInfinity());
 
         if (hasMarisa) {
             BaseMod.addCard(new MarisaTwilightSpark());

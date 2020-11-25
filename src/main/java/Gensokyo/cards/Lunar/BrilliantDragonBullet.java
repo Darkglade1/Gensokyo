@@ -38,7 +38,7 @@ public class BrilliantDragonBullet extends AbstractDefaultCard {
         DamageInfo info = new DamageInfo(p, this.damage, this.damageTypeForTurn);
         AbstractGameAction.AttackEffect effect = AbstractGameAction.AttackEffect.BLUNT_LIGHT;
         addToBot(new DamageAction(m, info, effect));
-        addToBot(new DrawCardAction(magicNumber, new DrawCardCallbackAction(0, info, m, effect)));
+        addToBot(new DrawCardAction(magicNumber, new DrawCardCallbackAction(info, m, effect)));
     }
 
     @Override
