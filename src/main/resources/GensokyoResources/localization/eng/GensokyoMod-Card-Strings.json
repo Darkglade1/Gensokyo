@@ -250,6 +250,10 @@
     "NAME": "Butterfly",
     "DESCRIPTION": "Unplayable. NL If this card is exhausted, lose !M! Max HP this combat."
   },
+  "Gensokyo:BrilliantDragonBullet": {
+    "NAME": "Brilliant Dragon Bullet",
+    "DESCRIPTION": "Deal !D! damage. NL Draw !M! card. If it's an Attack, deal !D! damage."
+  },
   "Gensokyo:FlashFlood": {
     "NAME": "Flash Flood",
     "DESCRIPTION": "When this card is drawn, reduce its cost by !M! this combat. NL Exhaust."

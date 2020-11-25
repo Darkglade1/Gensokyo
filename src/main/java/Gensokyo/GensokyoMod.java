@@ -24,6 +24,7 @@ import Gensokyo.cards.Item.OverchargedCore;
 import Gensokyo.cards.Item.RPG;
 import Gensokyo.cards.Item.ReactiveArmor;
 import Gensokyo.cards.Item.Taser;
+import Gensokyo.cards.Lunar.BrilliantDragonBullet;
 import Gensokyo.cards.Pets.SummonFieryMouse;
 import Gensokyo.cards.Pets.SummonJeweledCobra;
 import Gensokyo.cards.Pets.SummonPsychicCat;
@@ -265,36 +266,53 @@ public class GensokyoMod implements
         public static AbstractCard.CardColor SHOP_SPECIAL;
         @SpireEnum(name = "Shop Special") @SuppressWarnings("unused")
         public static CardLibrary.LibraryType SHOP_LIBRARY_COLOR;
+
+        @SpireEnum(name = "Lunar") // These two HAVE to have the same absolutely identical name.
+        public static AbstractCard.CardColor LUNAR;
+        @SpireEnum(name = "Lunar") @SuppressWarnings("unused")
+        public static CardLibrary.LibraryType LUNAR_LIBRARY_COLOR;
     }
 
     public static final Color URBAN_LEGEND = CardHelper.getColor(0, 0, 0);
     public static final Color SHOP_SPECIAL = CardHelper.getColor(0, 255, 0);
+    public static final Color LUNAR = CardHelper.getColor(128, 123, 122);
 
     // Card backgrounds - The actual rectangular card.
     private static final String ATTACK_BLACK = "GensokyoResources/images/512/attack_blacky.png";
     private static final String SKILL_BLACK = "GensokyoResources/images/512/skill_blacky.png";
     private static final String POWER_BLACK = "GensokyoResources/images/512/power_blacky.png";
 
-    private static final String ATTACK_GREEN = "GensokyoResources/images/512/attack_green.png";
-    private static final String SKILL_GREEN = "GensokyoResources/images/512/skill_green.png";
-    private static final String POWER_GREEN = "GensokyoResources/images/512/power_green.png";
-
     private static final String ENERGY_ORB_BLACK = "GensokyoResources/images/512/card_blacky_orb.png";
     private static final String CARD_ENERGY_ORB_BLACK = "GensokyoResources/images/512/card_small_orb_blacky.png";
-
-    private static final String ENERGY_ORB_GREEN = "GensokyoResources/images/512/card_green_orb.png";
-    private static final String CARD_ENERGY_ORB_GREEN = "GensokyoResources/images/512/card_small_orb_green.png";
 
     private static final String ATTACK_BLACK_PORTRAIT = "GensokyoResources/images/1024/attack_blacky.png";
     private static final String SKILL_BLACK_PORTRAIT = "GensokyoResources/images/1024/skill_blacky.png";
     private static final String POWER_BLACK_PORTRAIT = "GensokyoResources/images/1024/power_blacky.png";
     private static final String ENERGY_ORB_BLACK_PORTRAIT = "GensokyoResources/images/1024/card_small_orb_blacky.png";
 
+    private static final String ATTACK_GREEN = "GensokyoResources/images/512/attack_green.png";
+    private static final String SKILL_GREEN = "GensokyoResources/images/512/skill_green.png";
+    private static final String POWER_GREEN = "GensokyoResources/images/512/power_green.png";
+
+    private static final String ENERGY_ORB_GREEN = "GensokyoResources/images/512/card_green_orb.png";
+    private static final String CARD_ENERGY_ORB_GREEN = "GensokyoResources/images/512/card_small_orb_green.png";
+
     private static final String ATTACK_GREEN_PORTRAIT = "GensokyoResources/images/1024/attack_green.png";
     private static final String SKILL_GREEN_PORTRAIT = "GensokyoResources/images/1024/skill_green.png";
     private static final String POWER_GREEN_PORTRAIT = "GensokyoResources/images/1024/power_green.png";
     private static final String ENERGY_ORB_GREEN_PORTRAIT = "GensokyoResources/images/1024/card_small_orb_green.png";
 
+    private static final String ATTACK_LUNAR = "GensokyoResources/images/512/attack_lunar.png";
+    private static final String SKILL_LUNAR = "GensokyoResources/images/512/skill_lunar.png";
+    private static final String POWER_LUNAR = "GensokyoResources/images/512/power_lunar.png";
+
+    private static final String ENERGY_ORB_LUNAR = "GensokyoResources/images/512/card_lunar_orb.png";
+    private static final String CARD_ENERGY_ORB_LUNAR = "GensokyoResources/images/512/card_small_orb_lunar.png";
+
+    private static final String ATTACK_LUNAR_PORTRAIT = "GensokyoResources/images/1024/attack_lunar.png";
+    private static final String SKILL_LUNAR_PORTRAIT = "GensokyoResources/images/1024/skill_lunar.png";
+    private static final String POWER_LUNAR_PORTRAIT = "GensokyoResources/images/1024/power_lunar.png";
+    private static final String ENERGY_ORB_LUNAR_PORTRAIT = "GensokyoResources/images/1024/card_small_orb_lunar.png";
           
     public static boolean hasMarisa;
 
@@ -355,6 +373,11 @@ public class GensokyoMod implements
                 ATTACK_GREEN, SKILL_GREEN, POWER_GREEN, ENERGY_ORB_GREEN,
                 ATTACK_GREEN_PORTRAIT, SKILL_GREEN_PORTRAIT, POWER_GREEN_PORTRAIT,
                 ENERGY_ORB_GREEN_PORTRAIT, CARD_ENERGY_ORB_GREEN);
+        BaseMod.addColor(Enums.LUNAR, LUNAR, LUNAR, LUNAR,
+                LUNAR, LUNAR, LUNAR, LUNAR,
+                ATTACK_LUNAR, SKILL_LUNAR, POWER_LUNAR, ENERGY_ORB_LUNAR,
+                ATTACK_LUNAR_PORTRAIT, SKILL_LUNAR_PORTRAIT, POWER_LUNAR_PORTRAIT,
+                ENERGY_ORB_LUNAR_PORTRAIT, CARD_ENERGY_ORB_LUNAR);
         loadConfigData();
     }
     
@@ -869,6 +892,9 @@ public class GensokyoMod implements
         BaseMod.addCard(new OverchargedCore());
         BaseMod.addCard(new MedicineKit());
         BaseMod.addCard(new LifeforceConverter());
+
+        //Lunar cards
+        BaseMod.addCard(new BrilliantDragonBullet());
 
         if (hasMarisa) {
             BaseMod.addCard(new MarisaTwilightSpark());
