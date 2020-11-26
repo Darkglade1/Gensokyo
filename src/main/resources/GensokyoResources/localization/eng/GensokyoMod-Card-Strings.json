@@ -294,6 +294,27 @@
     "NAME": "Unlikely Aid",
     "DESCRIPTION": "Deal !D! damage. NL Choose 1 of !M! cards from your master deck to add to your hand. It costs 0 this turn and exhausts."
   },
+  "Gensokyo:MorningStar": {
+    "NAME": "Morning Star",
+    "DESCRIPTION": "Gain !B! Block. NL Deal !D! damage. NL Exhaust all Statuses in your hand."
+  },
+  "Gensokyo:RisingWorld": {
+    "NAME": "Rising World",
+    "DESCRIPTION": "Scry !M!. Cards discarded this way are Upgraded. NL Draw !Gensokyo:SecondMagic! card."
+  },
+  "Gensokyo:HouraiInAPot": {
+    "NAME": "Hourai in a Pot",
+    "DESCRIPTION": "Play the top !M! cards of your draw pile."
+  },
+  "Gensokyo:Dawn": {
+    "NAME": "Dawn",
+    "DESCRIPTION": "Whenever this card is drawn, gain [E] .",
+    "UPGRADE_DESCRIPTION": "Whenever this card is drawn, gain [E] [E] ."
+  },
+  "Gensokyo:UnhurriedMind": {
+    "NAME": "Unhurried Mind",
+    "DESCRIPTION": "Your draw pile is viewed in order."
+  },
   "Gensokyo:FlashFlood": {
     "NAME": "Flash Flood",
     "DESCRIPTION": "When this card is drawn, reduce its cost by !M! this combat. NL Exhaust."
