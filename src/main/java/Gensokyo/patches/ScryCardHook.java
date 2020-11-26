@@ -20,9 +20,7 @@ public class ScryCardHook {
     public static class GetScryedCards {
         @SpireInsertPatch(locator = Locator.class)
         public static void patch(ScryAction __instance) {
-            System.out.println(AbstractDungeon.gridSelectScreen.selectedCards);
             if (callback != null) {
-                System.out.println("Accepting callback");
                 callback.accept(AbstractDungeon.gridSelectScreen.selectedCards);
             }
         }
