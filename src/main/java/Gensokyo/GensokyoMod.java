@@ -30,7 +30,6 @@ import Gensokyo.cards.Lunar.Dawn;
 import Gensokyo.cards.Lunar.DreamlikeParadise;
 import Gensokyo.cards.Lunar.EverlastingLife;
 import Gensokyo.cards.Lunar.HouraiInAPot;
-import Gensokyo.cards.Lunar.IndomitableWill;
 import Gensokyo.cards.Lunar.LifeSpringInfinity;
 import Gensokyo.cards.Lunar.MorningMist;
 import Gensokyo.cards.Lunar.MorningStar;
@@ -915,7 +914,6 @@ public class GensokyoMod implements
         BaseMod.addCard(new NewMoon());
         BaseMod.addCard(new MorningMist());
         BaseMod.addCard(new EverlastingLife());
-        BaseMod.addCard(new IndomitableWill());
         BaseMod.addCard(new LifeSpringInfinity());
         BaseMod.addCard(new DreamlikeParadise());
         BaseMod.addCard(new RainbowDanmaku());

@@ -274,10 +274,6 @@
     "NAME": "Everlasting Life",
     "DESCRIPTION": "Gain !B! Block. NL Scry !M!."
   },
-  "Gensokyo:IndomitableWill": {
-    "NAME": "Indomitable Will",
-    "DESCRIPTION": "Scry !M!. Gain !Gensokyo:SecondMagic! Strength for every Attack discarded and !Gensokyo:SecondMagic! Dexterity for every Skill discarded this way."
-  },
   "Gensokyo:LifeSpringInfinity": {
     "NAME": "Life Spring Infinity",
     "DESCRIPTION": "Draw !M! cards. Gain !B! Block for every Skill drawn this way."
