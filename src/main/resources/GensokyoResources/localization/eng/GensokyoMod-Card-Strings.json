@@ -286,6 +286,10 @@
     "NAME": "Rainbow Danmaku",
     "DESCRIPTION": "Deal !D! damage. NL Scry !M!. For every Attack discarded this way, deal !D! damage again."
   },
+  "Gensokyo:UnlikelyAid": {
+    "NAME": "Unlikely Aid",
+    "DESCRIPTION": "Deal !D! damage. NL Choose 1 of !M! cards from your master deck to add to your hand. It costs 0 this turn and exhausts."
+  },
   "Gensokyo:FlashFlood": {
     "NAME": "Flash Flood",
     "DESCRIPTION": "When this card is drawn, reduce its cost by !M! this combat. NL Exhaust."

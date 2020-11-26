@@ -33,6 +33,7 @@ import Gensokyo.cards.Lunar.MorningMist;
 import Gensokyo.cards.Lunar.NewMoon;
 import Gensokyo.cards.Lunar.RainbowDanmaku;
 import Gensokyo.cards.Lunar.SalamanderShield;
+import Gensokyo.cards.Lunar.UnlikelyAid;
 import Gensokyo.cards.Pets.SummonFieryMouse;
 import Gensokyo.cards.Pets.SummonJeweledCobra;
 import Gensokyo.cards.Pets.SummonPsychicCat;
@@ -911,6 +912,7 @@ public class GensokyoMod implements
         BaseMod.addCard(new LifeSpringInfinity());
         BaseMod.addCard(new DreamlikeParadise());
         BaseMod.addCard(new RainbowDanmaku());
+        BaseMod.addCard(new UnlikelyAid());
 
         if (hasMarisa) {
             BaseMod.addCard(new MarisaTwilightSpark());
