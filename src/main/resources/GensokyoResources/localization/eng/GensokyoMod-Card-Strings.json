@@ -258,6 +258,10 @@
     "NAME": "Salamander Shield",
     "DESCRIPTION": "Gain !B! Block. NL Draw !M! card. If it's a Skill, gain !B! Block again."
   },
+  "Gensokyo:BuddhistDiamond": {
+    "NAME": "Buddhist Diamond",
+    "DESCRIPTION": "Deal !D! damage. NL When this card is discarded by Scry, increase its damage by !M! this combat."
+  },
   "Gensokyo:NewMoon": {
     "NAME": "New Moon",
     "DESCRIPTION": "Deal !D! damage. NL Put a card from your hand on top of your draw pile."
@@ -280,7 +284,7 @@
   },
   "Gensokyo:DreamlikeParadise": {
     "NAME": "Dreamlike Paradise",
-    "DESCRIPTION": "Scry !M!. Cards discarded this way cost 0 until played."
+    "DESCRIPTION": "Scry !M!. Cards discarded this way cost 0 until played. NL Draw !Gensokyo:SecondMagic! card."
   },
   "Gensokyo:RainbowDanmaku": {
     "NAME": "Rainbow Danmaku",

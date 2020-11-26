@@ -1,5 +1,6 @@
 package Gensokyo.patches;
 
+import Gensokyo.cards.Lunar.OnDiscardedByScry;
 import com.evacipated.cardcrawl.modthespire.lib.LineFinder;
 import com.evacipated.cardcrawl.modthespire.lib.Matcher;
 import com.evacipated.cardcrawl.modthespire.lib.SpireInsertLocator;
@@ -22,6 +23,11 @@ public class ScryCardHook {
         public static void patch(ScryAction __instance) {
             if (callback != null) {
                 callback.accept(AbstractDungeon.gridSelectScreen.selectedCards);
+            }
+            for (AbstractCard card : AbstractDungeon.gridSelectScreen.selectedCards) {
+                if (card instanceof OnDiscardedByScry) {
+                    ((OnDiscardedByScry) card).onDiscardedByScry();
+                }
             }
         }
 

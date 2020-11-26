@@ -3,6 +3,7 @@ package Gensokyo.cards.Lunar;
 import Gensokyo.GensokyoMod;
 import Gensokyo.actions.CallbackScryAction;
 import Gensokyo.cards.AbstractDefaultCard;
+import com.megacrit.cardcrawl.actions.common.DrawCardAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
@@ -25,10 +26,12 @@ public class DreamlikeParadise extends AbstractDefaultCard {
     private static final int COST = 1;
     private static final int SCRY = 3;
     private static final int UPGRADE_PLUS_SCRY = 1;
+    private static final int DRAW = 1;
 
     public DreamlikeParadise() {
         super(ID, IMG, COST, TYPE, COLOR, RARITY, TARGET);
         magicNumber = baseMagicNumber = SCRY;
+        defaultSecondMagicNumber = defaultBaseSecondMagicNumber = DRAW;
     }
 
     @Override
@@ -41,6 +44,7 @@ public class DreamlikeParadise extends AbstractDefaultCard {
             }
         };
         addToBot(new CallbackScryAction(magicNumber, consumer));
+        addToBot(new DrawCardAction(defaultSecondMagicNumber));
     }
 
     @Override

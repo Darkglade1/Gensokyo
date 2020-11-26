@@ -25,6 +25,7 @@ import Gensokyo.cards.Item.RPG;
 import Gensokyo.cards.Item.ReactiveArmor;
 import Gensokyo.cards.Item.Taser;
 import Gensokyo.cards.Lunar.BrilliantDragonBullet;
+import Gensokyo.cards.Lunar.BuddhistDiamond;
 import Gensokyo.cards.Lunar.DreamlikeParadise;
 import Gensokyo.cards.Lunar.EverlastingLife;
 import Gensokyo.cards.Lunar.IndomitableWill;
@@ -905,6 +906,7 @@ public class GensokyoMod implements
         //Lunar cards
         BaseMod.addCard(new BrilliantDragonBullet());
         BaseMod.addCard(new SalamanderShield());
+        BaseMod.addCard(new BuddhistDiamond());
         BaseMod.addCard(new NewMoon());
         BaseMod.addCard(new MorningMist());
         BaseMod.addCard(new EverlastingLife());
