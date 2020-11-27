@@ -69,8 +69,8 @@ public class Yuyuko extends AbstractSpriterMonster
     private static final int NORMAL_ATTACK_DAMAGE = 20;
     private static final int A4_NORMAL_ATTACK_DAMAGE = 22;;
 
-    private static final int DEBUFF_ATTACK_DAMAGE = 14;
-    private static final int A4_DEBUFF_ATTACK_DAMAGE = 15;
+    private static final int DEBUFF_ATTACK_DAMAGE = 15;
+    private static final int A4_DEBUFF_ATTACK_DAMAGE = 16;
     private static final int DEBUFF_AMOUNT = 1;
 
     private static final int STATUS_AMT = 3;
@@ -84,8 +84,8 @@ public class Yuyuko extends AbstractSpriterMonster
     private static final int COOLDOWN = 2;
     private int counter = COOLDOWN;
 
-    private static final int HP = 400;
-    private static final int A9_HP = 430;
+    private static final int HP = 430;
+    private static final int A9_HP = 450;
 
     private static final int MINION_HEALTH_INCREMENT = 2;
     private static final int A9_MINION_HEALTH_INCREMENT = 3;

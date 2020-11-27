@@ -48,15 +48,15 @@ public class Doremy extends CustomMonster
     public static final byte NIGHTMARE_BUFF = 5;
 
     private static final int DREAM_ATTACK_DAMAGE = 9;
-    private static final int A3_DREAM_ATTACK_DAMAGE = 7;
+    private static final int A3_DREAM_ATTACK_DAMAGE = 10;
 
     private static final int DREAM_DEBUFF_AMT = 2;
 
     private static final int DREAM_BLOCK_AMT = 10;
     private static final int A8_DREAM_BLOCK_AMT = 12;
 
-    private static final int NIGHTMARE_ATTACK_DAMAGE = 6;
-    private static final int A3_NIGHTMARE_ATTACK_DAMAGE = 7;
+    private static final int NIGHTMARE_ATTACK_DAMAGE = 7;
+    private static final int A3_NIGHTMARE_ATTACK_DAMAGE = 8;
     private static final int HITS = 6;
 
     private static final int NIGHTMARE_DEBUFF_AMT = 3;
