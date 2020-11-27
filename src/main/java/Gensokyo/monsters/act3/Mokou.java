@@ -5,6 +5,7 @@ import Gensokyo.GensokyoMod;
 import Gensokyo.actions.RezAction;
 import Gensokyo.actions.SetFlipAction;
 import Gensokyo.cards.ImpossibleRequests.ImpossibleRequest;
+import Gensokyo.cards.NewImpossibleRequests.NewImpossibleRequest;
 import Gensokyo.powers.act2.BetterDrawReductionPower;
 import Gensokyo.powers.act2.DummyLunaticPrincess;
 import Gensokyo.powers.act2.HouraiImmortal;
@@ -111,7 +112,7 @@ public class Mokou extends CustomMonster
     private boolean phase2 = false;
 
     private Map<Byte, EnemyMoveInfo> moves;
-    public ImpossibleRequest request;
+    public NewImpossibleRequest request;
     private int requestsCompleted = 0;
 
     public Mokou() {
@@ -186,7 +187,7 @@ public class Mokou extends CustomMonster
     public void usePreBattleAction() {
         AbstractDungeon.getCurrRoom().cannotLose = true;
         //CustomDungeon.playTempMusicInstantly("LunaticPrincess");
-        request = new ImpossibleRequest();
+        request = new NewImpossibleRequest();
         if (AbstractDungeon.ascensionLevel >= 19) {
             request.upgrade();
         }
