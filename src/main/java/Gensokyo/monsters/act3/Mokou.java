@@ -2,13 +2,32 @@ package Gensokyo.monsters.act3;
 
 import Gensokyo.BetterSpriterAnimation;
 import Gensokyo.GensokyoMod;
+import Gensokyo.actions.AnimatedMoveActualAction;
 import Gensokyo.actions.RezAction;
+import Gensokyo.cards.Lunar.BrilliantDragonBullet;
+import Gensokyo.cards.Lunar.BuddhistDiamond;
+import Gensokyo.cards.Lunar.Dawn;
+import Gensokyo.cards.Lunar.DreamlikeParadise;
+import Gensokyo.cards.Lunar.EverlastingLife;
+import Gensokyo.cards.Lunar.HouraiInAPot;
+import Gensokyo.cards.Lunar.LifeSpringInfinity;
+import Gensokyo.cards.Lunar.MorningMist;
+import Gensokyo.cards.Lunar.MorningStar;
+import Gensokyo.cards.Lunar.NewMoon;
+import Gensokyo.cards.Lunar.RainbowDanmaku;
+import Gensokyo.cards.Lunar.RisingWorld;
+import Gensokyo.cards.Lunar.SalamanderShield;
+import Gensokyo.cards.Lunar.UnhurriedMind;
+import Gensokyo.cards.Lunar.UnlikelyAid;
 import Gensokyo.cards.NewImpossibleRequests.NewImpossibleRequest;
+import Gensokyo.monsters.act2.Kaguya;
 import Gensokyo.powers.act1.VigorPower;
+import Gensokyo.powers.act2.DummyLunaticPrincess;
 import Gensokyo.powers.act3.MokouHouraiImmortal;
 import Gensokyo.powers.act3.NewDummyLunaticPrincess;
 import Gensokyo.powers.act3.NewLunaticPrincess;
 import basemod.abstracts.CustomMonster;
+import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.math.MathUtils;
 import com.brashmonkey.spriter.Animation;
 import com.brashmonkey.spriter.Player;
@@ -20,8 +39,15 @@ import com.megacrit.cardcrawl.actions.common.DamageAction;
 import com.megacrit.cardcrawl.actions.common.GainBlockAction;
 import com.megacrit.cardcrawl.actions.common.InstantKillAction;
 import com.megacrit.cardcrawl.actions.common.MakeTempCardInDiscardAction;
+import com.megacrit.cardcrawl.actions.common.MakeTempCardInDrawPileAction;
+import com.megacrit.cardcrawl.actions.common.MakeTempCardInHandAction;
 import com.megacrit.cardcrawl.actions.common.ReducePowerAction;
+import com.megacrit.cardcrawl.actions.common.RemoveSpecificPowerAction;
 import com.megacrit.cardcrawl.actions.common.RollMoveAction;
+import com.megacrit.cardcrawl.actions.utility.WaitAction;
+import com.megacrit.cardcrawl.actions.watcher.PressEndTurnButtonAction;
+import com.megacrit.cardcrawl.actions.watcher.SkipEnemiesTurnAction;
+import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.cards.status.Burn;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
@@ -33,6 +59,8 @@ import com.megacrit.cardcrawl.powers.AbstractPower;
 import com.megacrit.cardcrawl.powers.GainStrengthPower;
 import com.megacrit.cardcrawl.powers.StrengthPower;
 import com.megacrit.cardcrawl.relics.AbstractRelic;
+import com.megacrit.cardcrawl.rooms.AbstractRoom;
+import com.megacrit.cardcrawl.unlock.UnlockTracker;
 import com.megacrit.cardcrawl.vfx.cardManip.ShowCardAndAddToHandEffect;
 import com.megacrit.cardcrawl.vfx.combat.GhostIgniteEffect;
 
@@ -109,6 +137,7 @@ public class Mokou extends CustomMonster
     private Map<Byte, EnemyMoveInfo> moves;
     public NewImpossibleRequest request;
     private int requestsCompleted = 0;
+    private Kaguya kaguya = null;
 
     public Mokou() {
         this(0.0f, 0.0f);
@@ -199,7 +228,7 @@ public class Mokou extends CustomMonster
     
     @Override
     public void takeTurn() {
-        if (this.firstMove) {
+        if (this.firstMove && !phase2) {
             addToBot(new TalkAction(this, DIALOG[1]));
             this.firstMove = false;
         }
@@ -325,8 +354,83 @@ public class Mokou extends CustomMonster
         assignPhase2Values();
         counter = COOLDOWN + 1;
         AbstractDungeon.actionManager.addToBottom(new RezAction(this));
+        AbstractDungeon.actionManager.addToBottom(new RemoveSpecificPowerAction(this, this, NewDummyLunaticPrincess.POWER_ID));
         AbstractDungeon.actionManager.addToBottom(new RollMoveAction(this));
-        AbstractDungeon.actionManager.addToBottom(new TalkAction(this, DIALOG[1]));
+        kaguya = new Kaguya(-1300.0F, 0.0f);
+        kaguya.setFlip(true, false);
+        addToBot(new AnimatedMoveActualAction(kaguya, kaguya.drawX, kaguya.drawY, AbstractDungeon.player.drawX, AbstractDungeon.player.drawY));
+        AbstractDungeon.actionManager.addToBottom(new WaitAction(2.5F));
+        float duration = 3.0f;
+        AbstractDungeon.actionManager.addToBottom(new TalkAction(kaguya, DIALOG[2], duration, duration));
+        AbstractDungeon.actionManager.addToBottom(new TalkAction(this, DIALOG[3], duration, duration));
+        AbstractDungeon.actionManager.addToBottom(new TalkAction(kaguya, DIALOG[4], duration, duration));
+        addToBot(new AbstractGameAction() {
+            @Override
+            public void update() {
+                AbstractDungeon.player.drawPile.group.clear();
+                AbstractDungeon.player.discardPile.group.clear();
+                AbstractDungeon.player.exhaustPile.group.clear();
+                AbstractDungeon.player.hand.group.clear();
+                this.isDone = true;
+            }
+        });
+        addToBot(new AbstractGameAction() {
+            @Override
+            public void update() {
+                ArrayList<AbstractCard> newStartingDeck = getKaguyaStartingDeck();
+                AbstractDungeon.player.drawPile.group.addAll(newStartingDeck);
+                AbstractDungeon.player.drawPile.shuffle();
+                for (AbstractCard card : newStartingDeck) {
+                    UnlockTracker.addCard(card.cardID);
+                }
+                this.isDone = true;
+            }
+        });
+
+        if (requestsCompleted >= 5) {
+            addToBot(new MakeTempCardInHandAction(new UnhurriedMind(), 1));
+        }
+        if (requestsCompleted >= 4) {
+            addToBot(new MakeTempCardInDrawPileAction(new Dawn(), 1, true, true, false));
+        }
+        if (requestsCompleted >= 3) {
+            addToBot(new MakeTempCardInDrawPileAction(new HouraiInAPot(), 1, true, true, false));
+        }
+        if (requestsCompleted >= 2) {
+            addToBot(new MakeTempCardInDrawPileAction(new RisingWorld(), 1, true, true, false));
+        }
+        if (requestsCompleted >= 1) {
+            addToBot(new MakeTempCardInDrawPileAction(new MorningStar(), 1, true, true, false));
+        }
+        addToBot(new SkipEnemiesTurnAction());
+        addToBot(new PressEndTurnButtonAction());
+    }
+
+    private ArrayList<AbstractCard> getKaguyaStartingDeck() {
+        ArrayList<AbstractCard> cards = new ArrayList<>();
+        for (int i = 0; i < 3; i++) {
+            cards.add(new BrilliantDragonBullet());
+            cards.add(new SalamanderShield());
+        }
+        for (int i = 0; i < 2; i++) {
+            cards.add(new BuddhistDiamond());
+            cards.add(new EverlastingLife());
+            cards.add(new MorningMist());
+            cards.add(new NewMoon());
+        }
+        cards.add(new DreamlikeParadise());
+        cards.add(new LifeSpringInfinity());
+        cards.add(new RainbowDanmaku());
+        cards.add(new UnlikelyAid());
+        return cards;
+    }
+
+    @Override
+    public void render(SpriteBatch sb) {
+        super.render(sb);
+        if (kaguya != null) {
+            kaguya.render(sb);
+        }
     }
 
     @Override

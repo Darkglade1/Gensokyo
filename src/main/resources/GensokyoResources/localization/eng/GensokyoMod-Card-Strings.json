@@ -268,7 +268,7 @@
   },
   "Gensokyo:MorningMist": {
     "NAME": "Morning Mist",
-    "DESCRIPTION": "Scry !M!. NL Put a card from your discard pile on top of your draw pile."
+    "DESCRIPTION": "Gain !B! Block. NL Put a card from your discard pile on top of your draw pile."
   },
   "Gensokyo:EverlastingLife": {
     "NAME": "Everlasting Life",
@@ -280,7 +280,7 @@
   },
   "Gensokyo:DreamlikeParadise": {
     "NAME": "Dreamlike Paradise",
-    "DESCRIPTION": "Scry !M!. Cards discarded this way cost 0 until played. NL Draw !Gensokyo:SecondMagic! card."
+    "DESCRIPTION": "Scry !M!. Cards discarded this way cost 0 until played. NL Whenever this card is drawn, draw !Gensokyo:SecondMagic! card."
   },
   "Gensokyo:RainbowDanmaku": {
     "NAME": "Rainbow Danmaku",
@@ -292,11 +292,11 @@
   },
   "Gensokyo:MorningStar": {
     "NAME": "Morning Star",
-    "DESCRIPTION": "Gain !B! Block. NL Deal !D! damage. NL Exhaust all Statuses in your hand."
+    "DESCRIPTION": "Gain !B! Block. NL Deal !D! damage. NL Exhaust ALL your Status cards."
   },
   "Gensokyo:RisingWorld": {
     "NAME": "Rising World",
-    "DESCRIPTION": "Scry !M!. Cards discarded this way are Upgraded. NL Draw !Gensokyo:SecondMagic! card."
+    "DESCRIPTION": "Scry !M!. Cards discarded this way are Upgraded. NL Whenever this card is drawn, draw !Gensokyo:SecondMagic! card."
   },
   "Gensokyo:HouraiInAPot": {
     "NAME": "Hourai in a Pot",

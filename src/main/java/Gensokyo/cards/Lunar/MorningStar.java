@@ -48,6 +48,16 @@ public class MorningStar extends AbstractImpossibleRequestRewardCard {
                         this.addToTop(new ExhaustSpecificCardAction(card, AbstractDungeon.player.hand));
                     }
                 }
+                for (AbstractCard card : AbstractDungeon.player.drawPile.group) {
+                    if (card.type == CardType.STATUS) {
+                        this.addToTop(new ExhaustSpecificCardAction(card, AbstractDungeon.player.drawPile));
+                    }
+                }
+                for (AbstractCard card : AbstractDungeon.player.discardPile.group) {
+                    if (card.type == CardType.STATUS) {
+                        this.addToTop(new ExhaustSpecificCardAction(card, AbstractDungeon.player.discardPile));
+                    }
+                }
                 this.isDone = true;
             }
         });

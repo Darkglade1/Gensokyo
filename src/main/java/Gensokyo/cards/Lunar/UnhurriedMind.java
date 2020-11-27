@@ -20,6 +20,7 @@ public class UnhurriedMind extends AbstractImpossibleRequestRewardCard {
 
     public UnhurriedMind() {
         super(ID, IMG, COST, TYPE, RARITY, TARGET);
+        selfRetain = true;
     }
 
     @Override

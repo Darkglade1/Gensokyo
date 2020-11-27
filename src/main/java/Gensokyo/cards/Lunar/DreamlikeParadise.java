@@ -44,6 +44,10 @@ public class DreamlikeParadise extends AbstractDefaultCard {
             }
         };
         addToBot(new CallbackScryAction(magicNumber, consumer));
+    }
+
+    @Override
+    public void triggerWhenDrawn() {
         addToBot(new DrawCardAction(defaultSecondMagicNumber));
     }
 

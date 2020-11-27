@@ -40,6 +40,10 @@ public class RisingWorld extends AbstractImpossibleRequestRewardCard {
             }
         };
         addToBot(new CallbackScryAction(magicNumber, consumer));
+    }
+
+    @Override
+    public void triggerWhenDrawn() {
         addToBot(new DrawCardAction(defaultSecondMagicNumber));
     }
 

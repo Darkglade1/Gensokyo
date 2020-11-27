@@ -58,7 +58,7 @@ public class UnlikelyAid extends AbstractDefaultCard {
         } else {
             ArrayList<AbstractCard> selectedCards = new ArrayList<>();
             while (selectedCards.size() < magicNumber) {
-                AbstractCard randomCard = masterdeck.group.get(AbstractDungeon.cardRandomRng.random(masterdeck.size()));
+                AbstractCard randomCard = masterdeck.group.get(AbstractDungeon.cardRandomRng.random(masterdeck.size() - 1));
                 if (!containsCard(selectedCards, randomCard)) {
                     selectedCards.add(randomCard);
                 }
