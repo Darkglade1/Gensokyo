@@ -10,7 +10,7 @@ import static Gensokyo.GensokyoMod.makeCardPath;
 public class RedStoneOfAja extends AbstractDefaultCard {
 
     public static final String ID = GensokyoMod.makeID(RedStoneOfAja.class.getSimpleName());
-    public static final String IMG = makeCardPath("BranchOfHourai.png");
+    public static final String IMG = makeCardPath("RedStoneOfAja.png");
 
     private static final CardRarity RARITY = CardRarity.CURSE;
     private static final CardTarget TARGET = CardTarget.NONE;

@@ -10,7 +10,7 @@ import static Gensokyo.GensokyoMod.makeCardPath;
 public class TreeOceanOfHourai extends AbstractDefaultCard {
 
     public static final String ID = GensokyoMod.makeID(TreeOceanOfHourai.class.getSimpleName());
-    public static final String IMG = makeCardPath("SwallowCowrieShell.png");
+    public static final String IMG = makeCardPath("TreeOceanOfHourai.png");
 
     private static final CardRarity RARITY = CardRarity.CURSE;
     private static final CardTarget TARGET = CardTarget.NONE;

@@ -10,7 +10,7 @@ import static Gensokyo.GensokyoMod.makeCardPath;
 public class LunarIlmenite extends AbstractDefaultCard {
 
     public static final String ID = GensokyoMod.makeID(LunarIlmenite.class.getSimpleName());
-    public static final String IMG = makeCardPath("BuddhaStoneBowl.png");
+    public static final String IMG = makeCardPath("LunarIlmenite.png");
 
     private static final CardRarity RARITY = CardRarity.CURSE;
     private static final CardTarget TARGET = CardTarget.NONE;

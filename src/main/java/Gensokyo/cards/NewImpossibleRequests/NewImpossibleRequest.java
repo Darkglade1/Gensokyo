@@ -42,7 +42,7 @@ public class NewImpossibleRequest extends AbstractDefaultCard {
     public boolean completed = false;
 
     public static final String ID = GensokyoMod.makeID(NewImpossibleRequest.class.getSimpleName());
-    public static final String IMG = makeCardPath("BuddhaStoneBowl.png");
+    public static final String IMG = makeCardPath("LunarIlmenite.png");
 
     private static final CardRarity RARITY = CardRarity.CURSE;
     private static final CardTarget TARGET = CardTarget.NONE;

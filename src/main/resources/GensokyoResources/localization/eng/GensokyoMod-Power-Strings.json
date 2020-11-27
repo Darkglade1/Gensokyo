@@ -315,7 +315,7 @@
 "Gensokyo:NewLunaticPrincess": {
         "NAME": "New Lunatic Princess",
         "DESCRIPTIONS": [
-                " NL (You have played ", "Power.)", "Powers.)",
+                " NL (You have played ", " Power.)", " Powers.)",
                 " Skill.)", " Skills.)",
                 " NL (Best so far: ", " card.)", " cards.)",
                 " damage.)",

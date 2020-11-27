@@ -39,6 +39,7 @@ import Gensokyo.cards.Lunar.RisingWorld;
 import Gensokyo.cards.Lunar.SalamanderShield;
 import Gensokyo.cards.Lunar.UnhurriedMind;
 import Gensokyo.cards.Lunar.UnlikelyAid;
+import Gensokyo.cards.NewImpossibleRequests.NewImpossibleRequest;
 import Gensokyo.cards.Pets.SummonFieryMouse;
 import Gensokyo.cards.Pets.SummonJeweledCobra;
 import Gensokyo.cards.Pets.SummonPsychicCat;
@@ -862,6 +863,7 @@ public class GensokyoMod implements
         BaseMod.addCard(new MindShatter());
         BaseMod.addCard(new ShootingStar());
         BaseMod.addCard(new Butterfly());
+        BaseMod.addCard(new NewImpossibleRequest());
 
         //Urban Legends
         BaseMod.addCard(new MissMary());
