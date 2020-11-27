@@ -16,7 +16,7 @@ import static Gensokyo.GensokyoMod.makeCardPath;
 public class SalamanderShield extends AbstractDefaultCard {
 
     public static final String ID = GensokyoMod.makeID(SalamanderShield.class.getSimpleName());
-    public static final String IMG = makeCardPath("CrescentMoonSlash.png");
+    public static final String IMG = makeCardPath("SalamanderShield.png");
 
     private static final CardRarity RARITY = CardRarity.COMMON;
     private static final CardTarget TARGET = CardTarget.SELF;

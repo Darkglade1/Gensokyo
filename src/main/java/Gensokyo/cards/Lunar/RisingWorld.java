@@ -15,7 +15,7 @@ import static Gensokyo.GensokyoMod.makeCardPath;
 public class RisingWorld extends AbstractImpossibleRequestRewardCard {
 
     public static final String ID = GensokyoMod.makeID(RisingWorld.class.getSimpleName());
-    public static final String IMG = makeCardPath("CrescentMoonSlash.png");
+    public static final String IMG = makeCardPath("RisingWorld.png");
 
     private static final CardRarity RARITY = CardRarity.SPECIAL;
     private static final CardTarget TARGET = CardTarget.NONE;

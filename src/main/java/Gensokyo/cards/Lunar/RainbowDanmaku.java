@@ -18,7 +18,7 @@ import static Gensokyo.GensokyoMod.makeCardPath;
 public class RainbowDanmaku extends AbstractDefaultCard {
 
     public static final String ID = GensokyoMod.makeID(RainbowDanmaku.class.getSimpleName());
-    public static final String IMG = makeCardPath("CrescentMoonSlash.png");
+    public static final String IMG = makeCardPath("RainbowDanmaku.png");
 
     private static final CardRarity RARITY = CardRarity.RARE;
     private static final CardTarget TARGET = CardTarget.ENEMY;

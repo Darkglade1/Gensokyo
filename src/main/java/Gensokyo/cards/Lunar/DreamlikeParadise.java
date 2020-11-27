@@ -16,7 +16,7 @@ import static Gensokyo.GensokyoMod.makeCardPath;
 public class DreamlikeParadise extends AbstractDefaultCard {
 
     public static final String ID = GensokyoMod.makeID(DreamlikeParadise.class.getSimpleName());
-    public static final String IMG = makeCardPath("CrescentMoonSlash.png");
+    public static final String IMG = makeCardPath("DreamlikeParadise.png");
 
     private static final CardRarity RARITY = CardRarity.RARE;
     private static final CardTarget TARGET = CardTarget.NONE;

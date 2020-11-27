@@ -11,7 +11,7 @@ import static com.megacrit.cardcrawl.core.CardCrawlGame.languagePack;
 public class Dawn extends AbstractImpossibleRequestRewardCard {
 
     public static final String ID = GensokyoMod.makeID(Dawn.class.getSimpleName());
-    public static final String IMG = makeCardPath("CrescentMoonSlash.png");
+    public static final String IMG = makeCardPath("Dawn.png");
 
     private static final CardRarity RARITY = CardRarity.SPECIAL;
     private static final CardTarget TARGET = CardTarget.NONE;
