@@ -304,6 +304,24 @@
         "NAME": "Deathtouch",
         "DESCRIPTIONS": ["Whenever you receive attack damage from this enemy, you #rlose that much #yMax #yHP this combat."]
 },
+"Gensokyo:MokouHouraiImmortal": {
+        "NAME": "Hourai Immortal",
+        "DESCRIPTIONS": ["Whenever this creature dies, it #yimmediately revives at full HP. Transitions to the next phase after dying #b", " more time.", " more times."]
+},
+"Gensokyo:NewDummyLunaticPrincess": {
+        "NAME": "Eternal Grudge",
+        "DESCRIPTIONS": ["Whenever this creature dies, #ytransform the #pImpossible #pRequest into the next #prequest. For every completed request when the next phase begins, you gain a powerful card."]
+},
+"Gensokyo:NewLunaticPrincess": {
+        "NAME": "New Lunatic Princess",
+        "DESCRIPTIONS": [
+                " NL (You have played ", "Power.)", "Powers.)",
+                " Skill.)", " Skills.)",
+                " NL (Best so far: ", " card.)", " cards.)",
+                " damage.)",
+                " NL (You have gained ", " Block.)",
+                " NL (Completed)."]
+},
 "Gensokyo:TimeDilation": {
         "NAME": "Time Dilation",
         "DESCRIPTIONS": ["The #b1st, #b4th, #b7th, etc. cards played this combat are instead played #b", " turn later. NL The #b2nd, #b5th, #b8th, etc. cards played this combat are instead played #b", " turns later. NL The #b3rd, #b6th, #b9th, etc. cards played this combat are instead played #b", " turns later."]

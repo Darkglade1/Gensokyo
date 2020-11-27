@@ -3,6 +3,7 @@ package Gensokyo.cards.NewImpossibleRequests;
 import Gensokyo.GensokyoMod;
 import Gensokyo.cards.AbstractDefaultCard;
 import Gensokyo.powers.act2.LunaticPrincess;
+import Gensokyo.powers.act3.NewLunaticPrincess;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.common.ExhaustSpecificCardAction;
@@ -301,8 +302,8 @@ public class NewImpossibleRequest extends AbstractDefaultCard {
                         newRequest.requestCounter = oldRequest.requestCounter;
                         newRequest.completed = oldRequest.completed;
                         newRequest.transform();
-                        if (AbstractDungeon.player.hasPower(LunaticPrincess.POWER_ID)) {
-                            LunaticPrincess power = (LunaticPrincess)AbstractDungeon.player.getPower(LunaticPrincess.POWER_ID);
+                        if (AbstractDungeon.player.hasPower(NewLunaticPrincess.POWER_ID)) {
+                            NewLunaticPrincess power = (NewLunaticPrincess)AbstractDungeon.player.getPower(NewLunaticPrincess.POWER_ID);
                             power.pointToNewRequest(newRequest);
                         }
                     }

@@ -161,6 +161,7 @@ import Gensokyo.monsters.act2.NormalEnemies.TanukiDog;
 import Gensokyo.monsters.act2.NormalEnemies.Wraith;
 import Gensokyo.monsters.act2.Reisen;
 import Gensokyo.monsters.act2.Tenshi;
+import Gensokyo.monsters.act3.Mokou;
 import Gensokyo.monsters.act3.Yuyuko;
 import Gensokyo.monsters.act3.Doremy;
 import Gensokyo.monsters.act3.Flandre;
@@ -586,6 +587,7 @@ public class GensokyoMod implements
         BaseMod.addMonster(Yuyuko.ID, (BaseMod.GetMonster) Yuyuko::new);
         CustomIntent.add(new DeathIntent());
         CustomIntent.add(new CurseAttackIntent());
+        BaseMod.addMonster(Mokou.ID, (BaseMod.GetMonster) Mokou::new);
         BaseMod.addBoss(Gensokyoest.ID, EncounterIDs.SCARLET_DEVILS, "GensokyoResources/images/monsters/Flandre/Sisters.png", "GensokyoResources/images/monsters/Flandre/SistersOutline.png");
         BaseMod.addBoss(Gensokyoest.ID, Yuyuko.ID, "GensokyoResources/images/monsters/Yuyuko/Yuyuko.png", "GensokyoResources/images/monsters/Yuyuko/YuyukoOutline.png");
 
