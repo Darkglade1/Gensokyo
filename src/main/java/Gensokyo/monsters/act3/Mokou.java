@@ -362,21 +362,12 @@ public class Mokou extends CustomMonster
         AbstractDungeon.actionManager.addToBottom(new WaitAction(2.5F));
 
         float duration = 3.0f;
-        addToBot(new AbstractGameAction() {
-            @Override
-            public void update() {
-                AbstractDungeon.actionManager.addToTop(new TalkAction(kaguya, DIALOG[2], duration, duration));
-                this.isDone = true;
-            }
-        });
+        AbstractDungeon.actionManager.addToBottom(new TalkAction(true, DIALOG[2], duration, duration));
+        AbstractDungeon.actionManager.addToBottom(new WaitAction(2.5F));
         AbstractDungeon.actionManager.addToBottom(new TalkAction(this, DIALOG[3], duration, duration));
-        addToBot(new AbstractGameAction() {
-            @Override
-            public void update() {
-                AbstractDungeon.actionManager.addToTop(new TalkAction(kaguya, DIALOG[4], duration, duration));
-                this.isDone = true;
-            }
-        });
+        AbstractDungeon.actionManager.addToBottom(new WaitAction(2.5F));
+        AbstractDungeon.actionManager.addToBottom(new TalkAction(true, DIALOG[4], duration, duration));
+        AbstractDungeon.actionManager.addToBottom(new WaitAction(2.5F));
 
         addToBot(new AbstractGameAction() {
             @Override

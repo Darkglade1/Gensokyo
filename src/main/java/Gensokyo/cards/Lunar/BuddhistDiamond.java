@@ -24,8 +24,8 @@ public class BuddhistDiamond extends AbstractDefaultCard implements OnDiscardedB
     private static final int COST = 2;
     private static final int DAMAGE = 24;
     private static final int UPGRADE_PLUS_DMG = 6;
-    private static final int DAMAGE_INCREASE = 12;
-    private static final int UPGRADE_DAMAGE_INCREASE = 3;
+    private static final int DAMAGE_INCREASE = 16;
+    private static final int UPGRADE_DAMAGE_INCREASE = 4;
 
     public BuddhistDiamond() {
         super(ID, IMG, COST, TYPE, COLOR, RARITY, TARGET);
