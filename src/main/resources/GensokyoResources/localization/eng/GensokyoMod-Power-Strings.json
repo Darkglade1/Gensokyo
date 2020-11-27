@@ -310,7 +310,7 @@
 },
 "Gensokyo:NewDummyLunaticPrincess": {
         "NAME": "Eternal Grudge",
-        "DESCRIPTIONS": ["Whenever this creature dies, #ytransform the #pImpossible #pRequest into the next #prequest. For every completed request when the next phase begins, you gain a powerful card."]
+        "DESCRIPTIONS": ["Whenever this creature dies, #ytransform the #pImpossible #pRequest into the next #prequest. For every #gcompleted #prequest when the next phase begins, you gain a #ypowerful #ycard."]
 },
 "Gensokyo:NewLunaticPrincess": {
         "NAME": "New Lunatic Princess",

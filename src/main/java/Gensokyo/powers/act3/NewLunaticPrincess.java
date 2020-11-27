@@ -95,7 +95,9 @@ public class NewLunaticPrincess extends AbstractPower implements InvisiblePower 
                     request.completed = true;
                     counter = 0;
                 } else {
-                    counter = AbstractDungeon.player.hand.size();
+                    if (AbstractDungeon.player.hand.size() > counter) {
+                        counter = AbstractDungeon.player.hand.size();
+                    }
                 }
                 updateRequest();
             }
@@ -111,7 +113,9 @@ public class NewLunaticPrincess extends AbstractPower implements InvisiblePower 
                     request.completed = true;
                     counter = 0;
                 } else {
-                    counter = info.output;
+                    if (info.output > counter) {
+                        counter = info.output;
+                    }
                 }
                 updateRequest();
             }

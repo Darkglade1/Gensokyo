@@ -18,9 +18,12 @@ public class LunarIlmenite extends AbstractDefaultCard {
     public static final CardColor COLOR = CardColor.CURSE;
 
     private static final int COST = -2;
+    private static final int POWERS = 2;
+    private static final int UPGRADE_POWERS = 1;
 
     public LunarIlmenite() {
         super(ID, IMG, COST, TYPE, COLOR, RARITY, TARGET);
+        magicNumber = baseMagicNumber = POWERS;
     }
 
     @Override
@@ -38,6 +41,7 @@ public class LunarIlmenite extends AbstractDefaultCard {
     public void upgrade() {
         if (!upgraded) {
             upgradeName();
+            upgradeMagicNumber(UPGRADE_POWERS);
             initializeDescription();
         }
     }

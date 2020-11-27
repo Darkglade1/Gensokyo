@@ -18,7 +18,7 @@ public class SeamlessCeiling extends AbstractDefaultCard {
     public static final CardColor COLOR = CardColor.CURSE;
 
     private static final int COST = -2;
-    private static final int CARDS_GOAL = 6;
+    private static final int CARDS_GOAL = 7;
     private static final int UPGRADE_GOAL = 1;
 
     public SeamlessCeiling() {

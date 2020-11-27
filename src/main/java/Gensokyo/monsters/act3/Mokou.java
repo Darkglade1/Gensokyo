@@ -4,9 +4,7 @@ import Gensokyo.BetterSpriterAnimation;
 import Gensokyo.GensokyoMod;
 import Gensokyo.actions.RezAction;
 import Gensokyo.cards.NewImpossibleRequests.NewImpossibleRequest;
-import Gensokyo.powers.act2.DummyLunaticPrincess;
-import Gensokyo.powers.act2.HouraiImmortal;
-import Gensokyo.powers.act2.LunaticPrincess;
+import Gensokyo.powers.act1.VigorPower;
 import Gensokyo.powers.act3.MokouHouraiImmortal;
 import Gensokyo.powers.act3.NewDummyLunaticPrincess;
 import Gensokyo.powers.act3.NewLunaticPrincess;
@@ -80,7 +78,11 @@ public class Mokou extends CustomMonster
 
     private static final int BLOCK = 10;
     private static final int A9_BLOCK = 12;
+    private static final int PHASE2_BLOCK = 20;
+    private static final int A9_PHASE2_BLOCK = 24;
     private int block;
+
+    private static final int VIGOR_AMT = 2;
 
     private static final int STATUS_AMT = 2;
     private static final int A19_STATUS_AMT = 3;
@@ -99,7 +101,7 @@ public class Mokou extends CustomMonster
     private static final int COOLDOWN = 2;
     private int counter = COOLDOWN;
 
-    private static final int DEATH_THRESHOLD = 6;
+    private static final int DEATH_THRESHOLD = 5;
     private int deathCounter = DEATH_THRESHOLD;
 
     private boolean phase2 = false;
@@ -154,11 +156,13 @@ public class Mokou extends CustomMonster
         this.moves.put(PHOENIX_REBIRTH, new EnemyMoveInfo(PHOENIX_REBIRTH, Intent.DEFEND_BUFF, -1, 0, false));
     }
 
-    private void assignPhase2Moves() {
+    private void assignPhase2Values() {
         if (AbstractDungeon.ascensionLevel >= 9) {
             this.setHp(A9_PHASE2_HP);
+            this.block = A9_PHASE2_BLOCK;
         } else {
             this.setHp(PHASE2_HP);
+            this.block = PHASE2_BLOCK;
         }
         if (AbstractDungeon.ascensionLevel >= 4) {
             this.blazingKickDamage = A4_PHASE2_BLAZING_KICK_DAMAGE;
@@ -174,6 +178,7 @@ public class Mokou extends CustomMonster
         this.moves.put(BLAZING_KICK, new EnemyMoveInfo(BLAZING_KICK, Intent.ATTACK, this.blazingKickDamage, 0, false));
         this.moves.put(HONEST_MAN_DEATH, new EnemyMoveInfo(HONEST_MAN_DEATH, Intent.ATTACK, this.honestManDeathDamage, hits, true));
         this.moves.put(FUJIYAMA_VOLCANO, new EnemyMoveInfo(FUJIYAMA_VOLCANO, Intent.ATTACK_DEBUFF, this.fujiyamaVolcanoDamage, 0, false));
+        this.moves.put(PHOENIX_REBIRTH, new EnemyMoveInfo(PHOENIX_REBIRTH, Intent.DEFEND_BUFF, -1, 0, false));
     }
 
     @Override
@@ -225,7 +230,11 @@ public class Mokou extends CustomMonster
                 break;
             }
             case PHOENIX_REBIRTH: {
-                addToBot(new ApplyPowerAction(this, this, new StrengthPower(this, strengthGain), strengthGain));
+                if (phase2) {
+                    addToBot(new ApplyPowerAction(this, this, new VigorPower(this, VIGOR_AMT, true), VIGOR_AMT));
+                } else {
+                    addToBot(new ApplyPowerAction(this, this, new StrengthPower(this, strengthGain), strengthGain));
+                }
                 addToBot(new GainBlockAction(this, block));
                 counter = COOLDOWN + 1;
                 break;
@@ -262,7 +271,7 @@ public class Mokou extends CustomMonster
     @Override
     public void damage(DamageInfo info) {
         super.damage(info);
-        if (this.currentHealth <= 0 && !this.halfDead) {
+        if (this.currentHealth <= 0 && !this.halfDead && !phase2) {
             this.halfDead = true;
             Iterator var2 = this.powers.iterator();
 
@@ -280,7 +289,7 @@ public class Mokou extends CustomMonster
 
             ArrayList<AbstractPower> powersToRemove = new ArrayList<>();
             for (AbstractPower power : this.powers) {
-                if (!(power instanceof HouraiImmortal) && !(power instanceof DummyLunaticPrincess) && !(power instanceof StrengthPower) && !(power instanceof GainStrengthPower)) {
+                if (!(power instanceof MokouHouraiImmortal) && !(power instanceof NewDummyLunaticPrincess) && !(power instanceof StrengthPower) && !(power instanceof GainStrengthPower)) {
                     powersToRemove.add(power);
                 }
             }
@@ -297,20 +306,27 @@ public class Mokou extends CustomMonster
 
             request.completed = false;
             request.requestCounter++;
-            if (AbstractDungeon.player.hasPower(LunaticPrincess.POWER_ID)) {
-                LunaticPrincess power = (LunaticPrincess)AbstractDungeon.player.getPower(LunaticPrincess.POWER_ID);
+            if (AbstractDungeon.player.hasPower(NewLunaticPrincess.POWER_ID)) {
+                NewLunaticPrincess power = (NewLunaticPrincess)AbstractDungeon.player.getPower(NewLunaticPrincess.POWER_ID);
                 power.counter = 0;
             }
             request.transform();
 
             deathCounter--;
-            AbstractDungeon.actionManager.addToBottom(new ReducePowerAction(this, this, HouraiImmortal.POWER_ID, 1));
+            AbstractDungeon.actionManager.addToBottom(new ReducePowerAction(this, this, MokouHouraiImmortal.POWER_ID, 1));
             if (this.deathCounter <= 0) {
-                phase2 = true;
-                assignPhase2Moves();
-                AbstractDungeon.actionManager.addToBottom(new TalkAction(this, DIALOG[1]));
+                transitionToPhase2();
             }
         }
+    }
+
+    private void transitionToPhase2() {
+        phase2 = true;
+        assignPhase2Values();
+        counter = COOLDOWN + 1;
+        AbstractDungeon.actionManager.addToBottom(new RezAction(this));
+        AbstractDungeon.actionManager.addToBottom(new RollMoveAction(this));
+        AbstractDungeon.actionManager.addToBottom(new TalkAction(this, DIALOG[1]));
     }
 
     @Override
