@@ -554,6 +554,19 @@
 
     ]
   },
+  "Gensokyo:Mokou": {
+    "MOVES": [
+      "Blazing Kick",
+      "Honest Man's Death",
+      "Fujiyama Volcano",
+      "Phoenix Rebirth"
+    ],
+    "NAME": "Crimson Watchguard",
+    "DIALOG": [
+      "Ugh, she's late again.",
+      "Guess I'll warm up on you in the meantime!"
+    ]
+  },
   "Gensokyo:Nitori": {
     "MOVES": [
 
