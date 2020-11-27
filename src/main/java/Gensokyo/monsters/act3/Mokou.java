@@ -275,7 +275,7 @@ public class Mokou extends CustomMonster
 
     @Override
     protected void getMove(final int num) {
-        if (counter <= 0 && !phase2) {
+        if (counter <= 0) {
             setMoveShortcut(PHOENIX_REBIRTH);
         } else {
             ArrayList<Byte> possibilities = new ArrayList<>();
@@ -360,10 +360,24 @@ public class Mokou extends CustomMonster
         kaguya.setFlip(true, false);
         addToBot(new AnimatedMoveActualAction(kaguya, kaguya.drawX, kaguya.drawY, AbstractDungeon.player.drawX, AbstractDungeon.player.drawY));
         AbstractDungeon.actionManager.addToBottom(new WaitAction(2.5F));
+
         float duration = 3.0f;
-        AbstractDungeon.actionManager.addToBottom(new TalkAction(kaguya, DIALOG[2], duration, duration));
+        addToBot(new AbstractGameAction() {
+            @Override
+            public void update() {
+                AbstractDungeon.actionManager.addToTop(new TalkAction(kaguya, DIALOG[2], duration, duration));
+                this.isDone = true;
+            }
+        });
         AbstractDungeon.actionManager.addToBottom(new TalkAction(this, DIALOG[3], duration, duration));
-        AbstractDungeon.actionManager.addToBottom(new TalkAction(kaguya, DIALOG[4], duration, duration));
+        addToBot(new AbstractGameAction() {
+            @Override
+            public void update() {
+                AbstractDungeon.actionManager.addToTop(new TalkAction(kaguya, DIALOG[4], duration, duration));
+                this.isDone = true;
+            }
+        });
+
         addToBot(new AbstractGameAction() {
             @Override
             public void update() {
