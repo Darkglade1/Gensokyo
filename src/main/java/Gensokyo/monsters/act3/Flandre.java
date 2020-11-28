@@ -20,8 +20,10 @@ import com.megacrit.cardcrawl.actions.animations.TalkAction;
 import com.megacrit.cardcrawl.actions.animations.VFXAction;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.actions.common.DamageAction;
+import com.megacrit.cardcrawl.actions.common.HealAction;
 import com.megacrit.cardcrawl.actions.common.RemoveSpecificPowerAction;
 import com.megacrit.cardcrawl.actions.common.RollMoveAction;
+import com.megacrit.cardcrawl.actions.unique.RemoveDebuffsAction;
 import com.megacrit.cardcrawl.actions.unique.VampireDamageAction;
 import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.core.AbstractCreature;
@@ -58,17 +60,17 @@ public class Flandre extends AbstractSpriterMonster
     private static final byte MULTIATTACK = 2;
     private static final byte BUFF = 3;
 
-    private static final int ATTACK_DAMAGE = 40;
-    private static final int A4_ATTACK_DAMAGE = 44;
+    private static final int ATTACK_DAMAGE = 50;
+    private static final int A4_ATTACK_DAMAGE = 55;
     private int attackDamage;
 
-    private static final int MULTI_ATTACK_DAMAGE = 15;
-    private static final int A4_MULTI_ATTACK_DAMAGE = 16;
+    private static final int MULTI_ATTACK_DAMAGE = 18;
+    private static final int A4_MULTI_ATTACK_DAMAGE = 20;
     private static final int MULTI_ATTACK_HITS = 2;
     private int multiAttackDamage;
 
-    private static final int LIFESTEAL_ATTACK_DAMAGE = 30;
-    private static final int A4_LIFESTEAL_ATTACK_DAMAGE = 33;
+    private static final int LIFESTEAL_ATTACK_DAMAGE = 36;
+    private static final int A4_LIFESTEAL_ATTACK_DAMAGE = 40;
     private int lifestealDamage;
 
     private static final int DOOM = 1;
@@ -77,6 +79,10 @@ public class Flandre extends AbstractSpriterMonster
 
     private static final float BUFF_HP_THRESHOLD = 0.50f;
     private boolean buffed = false;
+
+    private static final int HEAL = 100;
+    private static final int A19_HEAL = 150;
+    private int heal;
 
     private static final int HP = 800;
     private static final int A9_HP = 850;
@@ -100,8 +106,10 @@ public class Flandre extends AbstractSpriterMonster
         this.dialogY -= (this.hb_y - 55.0F) * Settings.scale;
         if (AbstractDungeon.ascensionLevel >= 19) {
             this.doom = A19_DOOM;
+            this.heal = A19_HEAL;
         } else {
             this.doom = DOOM;
+            this.heal = HEAL;
         }
         if (AbstractDungeon.ascensionLevel >= 9) {
             this.setHp(A9_HP);
@@ -206,6 +214,8 @@ public class Flandre extends AbstractSpriterMonster
                 }
                 addToBot(new ApplyPowerAction(this, this, new AndThenThereWereNone(this)));
                 buffed = true;
+                addToBot(new RemoveDebuffsAction(this));
+                addToBot(new HealAction(this, this, heal));
                 break;
             }
 

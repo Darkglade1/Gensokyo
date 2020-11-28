@@ -19,7 +19,7 @@ public class Mysterium extends AbstractDefaultCard {
 
     private static final int COST = -2;
     private static final int DAMAGE_GOAL = 20;
-    private static final int UPGRADE_GOAL = 25;
+    private static final int UPGRADE_GOAL = 5;
 
     public Mysterium() {
         super(ID, IMG, COST, TYPE, COLOR, RARITY, TARGET);

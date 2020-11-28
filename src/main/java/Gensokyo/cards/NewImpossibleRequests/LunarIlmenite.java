@@ -18,7 +18,7 @@ public class LunarIlmenite extends AbstractDefaultCard {
     public static final CardColor COLOR = CardColor.CURSE;
 
     private static final int COST = -2;
-    private static final int POWERS = 2;
+    private static final int POWERS = 3;
     private static final int UPGRADE_POWERS = 1;
 
     public LunarIlmenite() {

@@ -51,14 +51,6 @@ public class NewLunaticPrincess extends AbstractPower implements InvisiblePower 
     }
 
     @Override
-    public void atStartOfTurn() {
-        if (request.requestCounter == NewImpossibleRequest.LUNAR_ILMENITE) {
-            counter = 0;
-        }
-        updateRequest();
-    }
-
-    @Override
     public void onUseCard(AbstractCard card, UseCardAction action) {
         if (request.requestCounter == NewImpossibleRequest.LUNAR_ILMENITE) {
             if (card.type == AbstractCard.CardType.POWER) {

@@ -18,8 +18,8 @@ public class TreeOceanOfHourai extends AbstractDefaultCard {
     public static final CardColor COLOR = CardColor.CURSE;
 
     private static final int COST = -2;
-    private static final int BLOCK_GOAL = 100;
-    private static final int UPGRADE_GOAL = 120;
+    private static final int BLOCK_GOAL = 80;
+    private static final int UPGRADE_GOAL = 20;
 
     public TreeOceanOfHourai() {
         super(ID, IMG, COST, TYPE, COLOR, RARITY, TARGET);
