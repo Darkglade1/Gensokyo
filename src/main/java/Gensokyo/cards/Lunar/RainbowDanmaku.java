@@ -27,7 +27,7 @@ public class RainbowDanmaku extends AbstractDefaultCard {
 
     private static final int COST = 3;
     private static final int SCRY = 5;
-    private static final int DAMAGE = 15;
+    private static final int DAMAGE = 20;
     private static final int UPGRADE_PLUS_DAMAGE = 5;
 
     public RainbowDanmaku() {

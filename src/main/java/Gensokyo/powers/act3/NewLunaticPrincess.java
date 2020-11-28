@@ -107,7 +107,7 @@ public class NewLunaticPrincess extends AbstractPower implements InvisiblePower 
     @Override
     public void onAttack(DamageInfo info, int damageAmount, AbstractCreature target) {
         if (request.requestCounter == NewImpossibleRequest.MYSTERIUM) {
-            if (info.owner == AbstractDungeon.player) {
+            if (info.owner == AbstractDungeon.player && info.type == DamageInfo.DamageType.NORMAL) {
                 if (info.output >= request.mysterium.magicNumber) {
                     this.flash();
                     request.completed = true;

@@ -329,7 +329,7 @@
   },
   "Gensokyo:Mysterium": {
     "NAME": "Mysterium",
-    "DESCRIPTION": "gensokyo:Impossible_Request. NL Deal at least !M! damage in a single attack."
+    "DESCRIPTION": "gensokyo:Impossible_Request. NL Deal at least !M! damage in a single hit from an Attack."
   },
   "Gensokyo:TreeOceanOfHourai": {
     "NAME": "Tree Ocean of Hourai",
