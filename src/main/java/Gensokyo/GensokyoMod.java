@@ -591,6 +591,7 @@ public class GensokyoMod implements
         BaseMod.addMonster(Mokou.ID, (BaseMod.GetMonster) Mokou::new);
         BaseMod.addBoss(Gensokyoest.ID, EncounterIDs.SCARLET_DEVILS, "GensokyoResources/images/monsters/Flandre/Sisters.png", "GensokyoResources/images/monsters/Flandre/SistersOutline.png");
         BaseMod.addBoss(Gensokyoest.ID, Yuyuko.ID, "GensokyoResources/images/monsters/Yuyuko/Yuyuko.png", "GensokyoResources/images/monsters/Yuyuko/YuyukoOutline.png");
+        BaseMod.addBoss(Gensokyoest.ID, Mokou.ID, "GensokyoResources/images/monsters/Mokou/Mokou.png", "GensokyoResources/images/monsters/Mokou/MokouOutline.png");
 
         // =============== EVENTS =================
 

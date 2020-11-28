@@ -24,6 +24,7 @@ import Gensokyo.monsters.act2.NormalEnemies.TanukiDog;
 import Gensokyo.monsters.act2.NormalEnemies.Wraith;
 import Gensokyo.monsters.act2.Reisen;
 import Gensokyo.monsters.act2.Tenshi;
+import Gensokyo.monsters.act3.Mokou;
 import Gensokyo.monsters.act3.Yuyuko;
 import Gensokyo.monsters.act1.marisaMonsters.Patchouli;
 import Gensokyo.monsters.act3.Doremy;
@@ -142,6 +143,8 @@ public class GensokyoScene extends AbstractScene {
                     this.bg = this.atlas.findRegion("mod/DreamWorld");
                 } else if (mo instanceof Flandre || mo instanceof Remilia) {
                     this.bg = this.atlas.findRegion("mod/Palace");
+                } else if (mo instanceof Mokou) {
+                    this.bg = this.atlas.findRegion("mod/BambooForest");
                 } else {
                     if (CardCrawlGame.dungeon instanceof Gensokyo) {
                         this.bg = this.atlas.findRegion("mod/TanukiForest");
