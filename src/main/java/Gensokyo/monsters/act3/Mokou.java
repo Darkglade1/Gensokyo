@@ -22,10 +22,10 @@ import Gensokyo.cards.Lunar.UnlikelyAid;
 import Gensokyo.cards.NewImpossibleRequests.NewImpossibleRequest;
 import Gensokyo.monsters.act2.Kaguya;
 import Gensokyo.powers.act1.VigorPower;
-import Gensokyo.powers.act2.DummyLunaticPrincess;
 import Gensokyo.powers.act3.MokouHouraiImmortal;
 import Gensokyo.powers.act3.NewDummyLunaticPrincess;
 import Gensokyo.powers.act3.NewLunaticPrincess;
+import Gensokyo.vfx.EmptyEffect;
 import basemod.abstracts.CustomMonster;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.math.MathUtils;
@@ -59,7 +59,6 @@ import com.megacrit.cardcrawl.powers.AbstractPower;
 import com.megacrit.cardcrawl.powers.GainStrengthPower;
 import com.megacrit.cardcrawl.powers.StrengthPower;
 import com.megacrit.cardcrawl.relics.AbstractRelic;
-import com.megacrit.cardcrawl.rooms.AbstractRoom;
 import com.megacrit.cardcrawl.unlock.UnlockTracker;
 import com.megacrit.cardcrawl.vfx.cardManip.ShowCardAndAddToHandEffect;
 import com.megacrit.cardcrawl.vfx.combat.GhostIgniteEffect;
@@ -223,6 +222,7 @@ public class Mokou extends CustomMonster
         addToBot(new ApplyPowerAction(this, this, new NewDummyLunaticPrincess(this)));
         addToBot(new ApplyPowerAction(AbstractDungeon.player, this, new NewLunaticPrincess(AbstractDungeon.player, this, request)));
         AbstractDungeon.effectList.add(new ShowCardAndAddToHandEffect(request));
+        UnlockTracker.unlockCard(NewImpossibleRequest.ID);
         addToBot(new TalkAction(this, DIALOG[0]));
     }
     
@@ -350,24 +350,29 @@ public class Mokou extends CustomMonster
     }
 
     private void transitionToPhase2() {
+        float scaleWidth = 1.0F * Settings.scale;
+        float scaleHeight = Settings.scale;
+
         phase2 = true;
         assignPhase2Values();
         counter = COOLDOWN + 1;
         AbstractDungeon.actionManager.addToBottom(new RezAction(this));
+        AbstractDungeon.actionManager.addToBottom(new RemoveSpecificPowerAction(AbstractDungeon.player, AbstractDungeon.player, NewLunaticPrincess.POWER_ID));
         AbstractDungeon.actionManager.addToBottom(new RemoveSpecificPowerAction(this, this, NewDummyLunaticPrincess.POWER_ID));
         AbstractDungeon.actionManager.addToBottom(new RollMoveAction(this));
-        kaguya = new Kaguya(-1300.0F, 0.0f);
+        kaguya = new Kaguya(-1600.0F, -30.0f);
         kaguya.setFlip(true, false);
-        addToBot(new AnimatedMoveActualAction(kaguya, kaguya.drawX, kaguya.drawY, AbstractDungeon.player.drawX, AbstractDungeon.player.drawY));
+        addToBot(new AnimatedMoveActualAction(kaguya, kaguya.drawX, kaguya.drawY, AbstractDungeon.player.drawX, kaguya.drawY));
         AbstractDungeon.actionManager.addToBottom(new WaitAction(2.5F));
 
-        float duration = 3.0f;
+        float duration = 5.0f;
+        float waitDuration = 2.0f;
         AbstractDungeon.actionManager.addToBottom(new TalkAction(true, DIALOG[2], duration, duration));
-        AbstractDungeon.actionManager.addToBottom(new WaitAction(2.5F));
+        AbstractDungeon.actionManager.addToBottom(new VFXAction(new EmptyEffect(), waitDuration));
         AbstractDungeon.actionManager.addToBottom(new TalkAction(this, DIALOG[3], duration, duration));
-        AbstractDungeon.actionManager.addToBottom(new WaitAction(2.5F));
+        AbstractDungeon.actionManager.addToBottom(new VFXAction(new EmptyEffect(), waitDuration));
         AbstractDungeon.actionManager.addToBottom(new TalkAction(true, DIALOG[4], duration, duration));
-        AbstractDungeon.actionManager.addToBottom(new WaitAction(2.5F));
+        AbstractDungeon.actionManager.addToBottom(new VFXAction(new EmptyEffect(), waitDuration));
 
         addToBot(new AbstractGameAction() {
             @Override
