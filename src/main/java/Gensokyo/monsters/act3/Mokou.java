@@ -45,7 +45,6 @@ import com.megacrit.cardcrawl.actions.common.MakeTempCardInHandAction;
 import com.megacrit.cardcrawl.actions.common.ReducePowerAction;
 import com.megacrit.cardcrawl.actions.common.RemoveSpecificPowerAction;
 import com.megacrit.cardcrawl.actions.common.RollMoveAction;
-import com.megacrit.cardcrawl.actions.utility.WaitAction;
 import com.megacrit.cardcrawl.actions.watcher.PressEndTurnButtonAction;
 import com.megacrit.cardcrawl.actions.watcher.SkipEnemiesTurnAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
@@ -183,6 +182,9 @@ public class Mokou extends CustomMonster
         this.moves.put(HONEST_MAN_DEATH, new EnemyMoveInfo(HONEST_MAN_DEATH, Intent.ATTACK, this.honestManDeathDamage, hits, true));
         this.moves.put(FUJIYAMA_VOLCANO, new EnemyMoveInfo(FUJIYAMA_VOLCANO, Intent.ATTACK_DEBUFF, this.fujiyamaVolcanoDamage, 0, false));
         this.moves.put(PHOENIX_REBIRTH, new EnemyMoveInfo(PHOENIX_REBIRTH, Intent.DEFEND_BUFF, -1, 0, false));
+
+        Player.PlayerListener listener = new MokouListener(this);
+        ((BetterSpriterAnimation)this.animation).myPlayer.addListener(listener);
     }
 
     private void assignPhase2Values() {
@@ -240,17 +242,20 @@ public class Mokou extends CustomMonster
 
         switch (this.nextMove) {
             case BLAZING_KICK: {
+                runAnim("Kick");
                 AbstractDungeon.actionManager.addToBottom(new VFXAction(this, new GhostIgniteEffect(AbstractDungeon.player.hb.cX + MathUtils.random(-120.0F, 120.0F) * Settings.scale, AbstractDungeon.player.hb.cY + MathUtils.random(-120.0F, 120.0F) * Settings.scale), 0.05F));
                 AbstractDungeon.actionManager.addToBottom(new DamageAction(AbstractDungeon.player, info, AbstractGameAction.AttackEffect.BLUNT_HEAVY, true));
                 break;
             }
             case HONEST_MAN_DEATH: {
+                runAnim("MagicA");
                 for (int i = 0; i < hits; i++) {
                     AbstractDungeon.actionManager.addToBottom(new DamageAction(AbstractDungeon.player, info, AbstractGameAction.AttackEffect.FIRE));
                 }
                 break;
             }
             case FUJIYAMA_VOLCANO: {
+                runAnim("MagicA");
                 AbstractDungeon.actionManager.addToBottom(new DamageAction(AbstractDungeon.player, info, AbstractGameAction.AttackEffect.FIRE));
                 Burn burn = new Burn();
                 if (phase2) {
@@ -260,6 +265,7 @@ public class Mokou extends CustomMonster
                 break;
             }
             case PHOENIX_REBIRTH: {
+                runAnim("MagicB");
                 if (phase2) {
                     addToBot(new ApplyPowerAction(this, this, new VigorPower(this, VIGOR_AMT, true), VIGOR_AMT));
                 } else {
@@ -435,7 +441,7 @@ public class Mokou extends CustomMonster
         if (requestsCompleted >= 1) {
             addToBot(new MakeTempCardInDrawPileAction(new MorningStar(), 1, true, true, false));
         }
-        
+
         if (!AbstractDungeon.actionManager.turnHasEnded) {
             addToBot(new SkipEnemiesTurnAction());
             addToBot(new PressEndTurnButtonAction());
@@ -476,8 +482,10 @@ public class Mokou extends CustomMonster
             AbstractDungeon.getCurrRoom().cannotLose = false;
         }
         if (!AbstractDungeon.getCurrRoom().cannotLose) {
-            super.die();
+            runAnim("Defeat");
+            ((BetterSpriterAnimation)this.animation).startDying();
             this.onBossVictoryLogic();
+            super.die();
         }
         if (this.maxHealth <= 0) {
             this.maxHealth = originalMaxHP;
