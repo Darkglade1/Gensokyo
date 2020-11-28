@@ -22,6 +22,7 @@ import Gensokyo.cards.Lunar.UnlikelyAid;
 import Gensokyo.cards.NewImpossibleRequests.NewImpossibleRequest;
 import Gensokyo.monsters.act2.Kaguya;
 import Gensokyo.powers.act1.VigorPower;
+import Gensokyo.powers.act3.MakePlayerInvisible;
 import Gensokyo.powers.act3.MokouHouraiImmortal;
 import Gensokyo.powers.act3.NewDummyLunaticPrincess;
 import Gensokyo.powers.act3.NewLunaticPrincess;
@@ -355,7 +356,7 @@ public class Mokou extends CustomMonster
 
         phase2 = true;
         assignPhase2Values();
-        counter = COOLDOWN + 1;
+        counter = COOLDOWN;
         AbstractDungeon.actionManager.addToBottom(new RezAction(this));
         AbstractDungeon.actionManager.addToBottom(new RemoveSpecificPowerAction(AbstractDungeon.player, AbstractDungeon.player, NewLunaticPrincess.POWER_ID));
         AbstractDungeon.actionManager.addToBottom(new RemoveSpecificPowerAction(this, this, NewDummyLunaticPrincess.POWER_ID));
@@ -363,16 +364,38 @@ public class Mokou extends CustomMonster
         kaguya = new Kaguya(-1600.0F, -30.0f);
         kaguya.setFlip(true, false);
         addToBot(new AnimatedMoveActualAction(kaguya, kaguya.drawX, kaguya.drawY, AbstractDungeon.player.drawX, kaguya.drawY));
-        AbstractDungeon.actionManager.addToBottom(new WaitAction(2.5F));
+        AbstractDungeon.actionManager.addToBottom(new VFXAction(new EmptyEffect(), 0.5f));
 
-        float duration = 5.0f;
-        float waitDuration = 2.0f;
+        float duration = 2.0f;
+        float waitDuration = 1.5f;
         AbstractDungeon.actionManager.addToBottom(new TalkAction(true, DIALOG[2], duration, duration));
         AbstractDungeon.actionManager.addToBottom(new VFXAction(new EmptyEffect(), waitDuration));
         AbstractDungeon.actionManager.addToBottom(new TalkAction(this, DIALOG[3], duration, duration));
         AbstractDungeon.actionManager.addToBottom(new VFXAction(new EmptyEffect(), waitDuration));
-        AbstractDungeon.actionManager.addToBottom(new TalkAction(true, DIALOG[4], duration, duration));
+        AbstractDungeon.actionManager.addToBottom(new TalkAction(true, DIALOG[4] + AbstractDungeon.player.name + DIALOG[5], duration, duration));
         AbstractDungeon.actionManager.addToBottom(new VFXAction(new EmptyEffect(), waitDuration));
+
+        float originalPlayerX = AbstractDungeon.player.drawX;
+        float originalPlayerY = AbstractDungeon.player.drawY;
+
+        addToBot(new AbstractGameAction() {
+            @Override
+            public void update() {
+                AbstractDungeon.player.flipHorizontal = !AbstractDungeon.player.flipHorizontal;
+                this.isDone = true;
+            }
+        });
+        addToBot(new AnimatedMoveActualAction(AbstractDungeon.player, AbstractDungeon.player.drawX, AbstractDungeon.player.drawY, -200.0F * scaleWidth, AbstractDungeon.player.drawY));
+        AbstractDungeon.actionManager.addToBottom(new VFXAction(new EmptyEffect(), 0.5f));
+        addToBot(new ApplyPowerAction(AbstractDungeon.player, AbstractDungeon.player, new MakePlayerInvisible(AbstractDungeon.player)));
+        addToBot(new AbstractGameAction() {
+            @Override
+            public void update() {
+                AbstractDungeon.player.drawX = originalPlayerX;
+                AbstractDungeon.player.drawY = originalPlayerY;
+                this.isDone = true;
+            }
+        });
 
         addToBot(new AbstractGameAction() {
             @Override
@@ -391,7 +414,7 @@ public class Mokou extends CustomMonster
                 AbstractDungeon.player.drawPile.group.addAll(newStartingDeck);
                 AbstractDungeon.player.drawPile.shuffle();
                 for (AbstractCard card : newStartingDeck) {
-                    UnlockTracker.addCard(card.cardID);
+                    UnlockTracker.unlockCard(card.cardID);
                 }
                 this.isDone = true;
             }

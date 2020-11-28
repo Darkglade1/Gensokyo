@@ -304,8 +304,8 @@
   },
   "Gensokyo:Dawn": {
     "NAME": "Dawn",
-    "DESCRIPTION": "Whenever this card is drawn, gain [E] .",
-    "UPGRADE_DESCRIPTION": "Whenever this card is drawn, gain [E] [E] ."
+    "DESCRIPTION": "Whenever this card is drawn, gain [E] and draw !Gensokyo:SecondMagic! card.",
+    "UPGRADE_DESCRIPTION": "Whenever this card is drawn, gain [E] [E] and draw !Gensokyo:SecondMagic! card."
   },
   "Gensokyo:UnhurriedMind": {
     "NAME": "Unhurried Mind",

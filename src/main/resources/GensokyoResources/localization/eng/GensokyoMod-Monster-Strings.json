@@ -567,7 +567,7 @@
       "Guess I'll warm up on you in the meantime!",
       "Oh, were you waiting for me?",
       "Nice of you to finally show up! At least I'm all fired up now.",
-      "Sorry for the trouble, stranger. Allow me to handle things from here."
+      "Sorry for the trouble, ", ". Allow me to handle things from here."
     ]
   },
   "Gensokyo:Nitori": {

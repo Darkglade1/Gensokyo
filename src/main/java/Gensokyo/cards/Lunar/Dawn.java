@@ -1,6 +1,7 @@
 package Gensokyo.cards.Lunar;
 
 import Gensokyo.GensokyoMod;
+import com.megacrit.cardcrawl.actions.common.DrawCardAction;
 import com.megacrit.cardcrawl.actions.common.GainEnergyAction;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
@@ -20,10 +21,12 @@ public class Dawn extends AbstractImpossibleRequestRewardCard {
     private static final int COST = -2;
     private static final int ENERGY = 1;
     private static final int UPGRADE_PLUS_ENERGY = 1;
+    private static final int DRAW = 1;
 
     public Dawn() {
         super(ID, IMG, COST, TYPE, RARITY, TARGET);
         magicNumber = baseMagicNumber = ENERGY;
+        defaultSecondMagicNumber = defaultBaseSecondMagicNumber = DRAW;
     }
 
     @Override
@@ -33,6 +36,7 @@ public class Dawn extends AbstractImpossibleRequestRewardCard {
     @Override
     public void triggerWhenDrawn() {
         addToBot(new GainEnergyAction(magicNumber));
+        addToBot(new DrawCardAction(defaultSecondMagicNumber));
     }
 
     @Override
