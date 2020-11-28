@@ -79,7 +79,6 @@ public class NewLunaticPrincess extends AbstractPower implements InvisiblePower 
 
     @Override
     public void atEndOfTurnPreEndTurnCards(boolean isPlayer) {
-        this.flash();
         if (isPlayer) {
             if (request.requestCounter == NewImpossibleRequest.SEAMLESS_CEILING) {
                 if (AbstractDungeon.player.hand.size() >= request.seamlessCeiling.magicNumber) {

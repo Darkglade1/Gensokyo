@@ -113,11 +113,11 @@ public class Mokou extends CustomMonster
     private static final int VIGOR_AMT = 2;
 
     private static final int STATUS_AMT = 2;
-    private static final int A19_STATUS_AMT = 3;
+    private static final int A19_STATUS_AMT = 2;
     private int statusAmt;
 
     public static final int STRENGTH_GAIN = 3;
-    public static final int A19_STRENGTH_GAIN = 4;
+    public static final int A19_STRENGTH_GAIN = 3;
     private int strengthGain;
 
     private static final int HP = 70;
@@ -435,8 +435,12 @@ public class Mokou extends CustomMonster
         if (requestsCompleted >= 1) {
             addToBot(new MakeTempCardInDrawPileAction(new MorningStar(), 1, true, true, false));
         }
-        addToBot(new SkipEnemiesTurnAction());
-        addToBot(new PressEndTurnButtonAction());
+        
+        if (!AbstractDungeon.actionManager.turnHasEnded) {
+            addToBot(new SkipEnemiesTurnAction());
+            addToBot(new PressEndTurnButtonAction());
+        }
+
     }
 
     private ArrayList<AbstractCard> getKaguyaStartingDeck() {
