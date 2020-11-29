@@ -744,6 +744,19 @@
       "[Leave]"
     ]
   },
+  "Gensokyo:KappaWarehouse": {
+    "NAME": "Kappa Warehouse",
+    "DESCRIPTIONS": [
+      "You come across an abandoned warehouse in the woods. A sign on the door says, \"Kappa Territory! Keep Out!\" NL NL But you can't read the Kappa's language, so that sign can't stop you. NL NL You enter the warehouse and find all manner of odd #ycontraptions and #yartifacts stashed inside.",
+      "You grab something that seems vaguely useful. Perhaps it'll come in handy later.",
+      "You don't feel like trusting unfamiliar technology."
+    ],
+    "OPTIONS": [
+      "[Take Something] #gObtain ",
+      ".",
+      "[Leave]"
+    ]
+  },
   "Gensokyo:MarisaAnOldGhost": {
     "NAME": "An Old Ghost",
     "DESCRIPTIONS": [

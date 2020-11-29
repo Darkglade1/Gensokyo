@@ -18,7 +18,7 @@ public class RPG extends AbstractItemCard {
     private static final CardTarget TARGET = CardTarget.ALL_ENEMY;
     private static final CardType TYPE = CardType.ATTACK;
     private static final int COST = 2;
-    private static final int DAMAGE = 24;
+    private static final int DAMAGE = 25;
     private static final int ITEM = 3;
 
     public RPG() {

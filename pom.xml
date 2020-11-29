@@ -6,13 +6,13 @@
     <groupId>gensokyo</groupId>
     <artifactId>Gensokyo</artifactId>
     <name>Gensokyo</name>
-    <version>3.0.0</version>
-    <description>An alternate Act 1  and 2 mod inspired by Touhou Project.</description>
+    <version>4.0.0</version>
+    <description>An alternate Act 1, 2, and 3 mod inspired by Touhou Project.</description>
 
     <properties>
         <maven.compiler.source>1.8</maven.compiler.source>
         <maven.compiler.target>1.8</maven.compiler.target>
-        <SlayTheSpire.version>01-27-2020</SlayTheSpire.version>
+        <SlayTheSpire.version>07-30-2020</SlayTheSpire.version>
         <ModTheSpire.version>3.8.0</ModTheSpire.version>
         <!--CHANGE THIS TO YOUR STEAM INSTALLATION-->
         <Steam.path>C:\Program Files (x86)\Steam\steamapps</Steam.path>
