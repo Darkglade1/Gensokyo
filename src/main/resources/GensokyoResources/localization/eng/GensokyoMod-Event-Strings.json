@@ -752,8 +752,30 @@
       "You don't feel like trusting unfamiliar technology."
     ],
     "OPTIONS": [
-      "[Take Something] #gObtain ",
+      "[Take something] #gObtain ",
       ".",
+      "[Leave]"
+    ]
+  },
+  "Gensokyo:BloodForBlood": {
+    "NAME": "Blood for Blood",
+    "DESCRIPTIONS": [
+      "The #pgraveyard is chilling, both figuratively and literally. Perhaps skulking around in the #pdead of #pnight in a place like this wasn't such a great idea after all? NL NL You pause as you notice a tombstone with #rblood splattered over it. You feel drawn to it, eyes riveted on that #rblood-soaked marble; perhaps if you offered #rblood to it, you would be granted great #ypower.",
+      "Your #rblood seeps into the stone, and you hear a ghostly whisper in your ears. NL NL \"Another one in search of my guidance? Tonight sure has been busy for me.\" NL NL The #pspirit grins at you, #pdark and #psinister. NL NL \"But if it's #ypower you @want,@ it's #ypower you'll @get!\"@ NL NL She waves a hand, and you feel your #rblood boil and #yawaken.",
+      "Making a #rblood sacrifice in the #pdead of #pnight to a strange tombstone didn't sound like the greatest idea."
+    ],
+    "OPTIONS": [
+      "[Make a sacrifice] #rLose #r",
+      " #rHP.",
+      " #gGive #g",
+      " #gcard ",
+      " #gcards ",
+      "#gin #gyour #gdeck #gBloodcast.",
+      "Select ",
+      " Card ",
+      " Cards ",
+      "to give Bloodcast.",
+      "[Locked] Requires: Valid Cards",
       "[Leave]"
     ]
   },
