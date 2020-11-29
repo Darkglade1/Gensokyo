@@ -2,6 +2,7 @@ package Gensokyo.events.act3;
 
 import Gensokyo.CardMods.BloodcastMod;
 import Gensokyo.GensokyoMod;
+import Gensokyo.relics.dummyRelics.DummyBloodcastTooltip;
 import basemod.abstracts.AbstractCardModifier;
 import basemod.helpers.CardModifierManager;
 import com.megacrit.cardcrawl.cards.AbstractCard;
@@ -49,11 +50,10 @@ public class BloodForBlood extends AbstractImageEvent {
         validCards = getValidCards();
         if (validCards.size() >= NUM_BLOODCAST) {
             if (NUM_BLOODCAST == 1) {
-                this.imageEventText.setDialogOption(OPTIONS[0] + hpCost + OPTIONS[1] + OPTIONS[2] + NUM_BLOODCAST + OPTIONS[3] + OPTIONS[5]);
+                this.imageEventText.setDialogOption(OPTIONS[0] + hpCost + OPTIONS[1] + OPTIONS[2] + NUM_BLOODCAST + OPTIONS[3] + OPTIONS[5], new DummyBloodcastTooltip());
             } else {
-                this.imageEventText.setDialogOption(OPTIONS[0] + hpCost + OPTIONS[1] + OPTIONS[2] + NUM_BLOODCAST + OPTIONS[4] + OPTIONS[5]);
+                this.imageEventText.setDialogOption(OPTIONS[0] + hpCost + OPTIONS[1] + OPTIONS[2] + NUM_BLOODCAST + OPTIONS[4] + OPTIONS[5], new DummyBloodcastTooltip());
             }
-            this.imageEventText.optionList.get(0).
         } else {
             this.imageEventText.setDialogOption(OPTIONS[10], true);
         }

@@ -200,6 +200,13 @@
       "At the end of your turn, gain #b", " #yRitual and take damage equal to the amount of #yStrength you have."
     ]
   },
+  "Gensokyo:DummyBloodcastTooltip": {
+    "NAME": "Bloodcast",
+    "FLAVOR": "",
+    "DESCRIPTIONS": [
+      "When you have insufficient [E] to play this card, you may instead pay #b1 HP for every missing [E] ."
+    ]
+  },
   "Gensokyo:MarisaIngredientList": {
     "NAME": "Ingredient List",
     "FLAVOR": "A bunch of messy scribbles on a page. Apparently creates something known as the \"Improbability Potion\".",
