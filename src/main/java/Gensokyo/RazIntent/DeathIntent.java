@@ -4,6 +4,7 @@ import Gensokyo.GensokyoMod;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.localization.UIStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
+import actlikeit.RazIntent.CustomIntent;
 
 import static Gensokyo.GensokyoMod.makeUIPath;
 

@@ -56,8 +56,10 @@ import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.localization.MonsterStrings;
 import com.megacrit.cardcrawl.monsters.EnemyMoveInfo;
 import com.megacrit.cardcrawl.powers.AbstractPower;
+import com.megacrit.cardcrawl.powers.FrailPower;
 import com.megacrit.cardcrawl.powers.GainStrengthPower;
 import com.megacrit.cardcrawl.powers.StrengthPower;
+import com.megacrit.cardcrawl.powers.WeakPower;
 import com.megacrit.cardcrawl.relics.AbstractRelic;
 import com.megacrit.cardcrawl.unlock.UnlockTracker;
 import com.megacrit.cardcrawl.vfx.cardManip.ShowCardAndAddToHandEffect;
@@ -88,11 +90,11 @@ public class Mokou extends CustomMonster
     private static final int A4_PHASE2_BLAZING_KICK_DAMAGE = 55;
     private int blazingKickDamage;
 
-    private static final int HONEST_MAN_DEATH_DAMAGE = 10;
-    private static final int A4_HONEST_MAN_DEATH_DAMAGE = 11;
+    private static final int HONEST_MAN_DEATH_DAMAGE = 8;
+    private static final int A4_HONEST_MAN_DEATH_DAMAGE = 9;
     private static final int HITS = 2;
-    private static final int PHASE2_HONEST_MAN_DEATH_DAMAGE = 13;
-    private static final int A4_PHASE2_HONEST_MAN_DEATH_DAMAGE = 14;
+    private static final int PHASE2_HONEST_MAN_DEATH_DAMAGE = 11;
+    private static final int A4_PHASE2_HONEST_MAN_DEATH_DAMAGE = 12;
     private static final int PHASE2_HITS = 3;
     private int honestManDeathDamage;
     private int hits;
@@ -115,9 +117,7 @@ public class Mokou extends CustomMonster
     private static final int A19_STATUS_AMT = 2;
     private int statusAmt;
 
-    public static final int STRENGTH_GAIN = 3;
-    public static final int A19_STRENGTH_GAIN = 3;
-    private int strengthGain;
+    private static final int DEBUFF_AMT = 1;
 
     private static final int HP = 70;
     private static final int A9_HP = 74;
@@ -150,10 +150,8 @@ public class Mokou extends CustomMonster
         this.dialogY -= (this.hb_y - 55.0F) * Settings.scale;
 
         if (AbstractDungeon.ascensionLevel >= 19) {
-            this.strengthGain = A19_STRENGTH_GAIN;
             this.statusAmt = A19_STATUS_AMT;
         } else {
-            this.strengthGain = STRENGTH_GAIN;
             this.statusAmt = STATUS_AMT;
         }
 
@@ -179,7 +177,7 @@ public class Mokou extends CustomMonster
 
         this.moves = new HashMap<>();
         this.moves.put(BLAZING_KICK, new EnemyMoveInfo(BLAZING_KICK, Intent.ATTACK, this.blazingKickDamage, 0, false));
-        this.moves.put(HONEST_MAN_DEATH, new EnemyMoveInfo(HONEST_MAN_DEATH, Intent.ATTACK, this.honestManDeathDamage, hits, true));
+        this.moves.put(HONEST_MAN_DEATH, new EnemyMoveInfo(HONEST_MAN_DEATH, Intent.ATTACK_DEBUFF, this.honestManDeathDamage, hits, true));
         this.moves.put(FUJIYAMA_VOLCANO, new EnemyMoveInfo(FUJIYAMA_VOLCANO, Intent.ATTACK_DEBUFF, this.fujiyamaVolcanoDamage, 0, false));
         this.moves.put(PHOENIX_REBIRTH, new EnemyMoveInfo(PHOENIX_REBIRTH, Intent.DEFEND_BUFF, -1, 0, false));
 
@@ -207,7 +205,7 @@ public class Mokou extends CustomMonster
         this.hits = PHASE2_HITS;
         moves.clear();
         this.moves.put(BLAZING_KICK, new EnemyMoveInfo(BLAZING_KICK, Intent.ATTACK, this.blazingKickDamage, 0, false));
-        this.moves.put(HONEST_MAN_DEATH, new EnemyMoveInfo(HONEST_MAN_DEATH, Intent.ATTACK, this.honestManDeathDamage, hits, true));
+        this.moves.put(HONEST_MAN_DEATH, new EnemyMoveInfo(HONEST_MAN_DEATH, Intent.ATTACK_DEBUFF, this.honestManDeathDamage, hits, true));
         this.moves.put(FUJIYAMA_VOLCANO, new EnemyMoveInfo(FUJIYAMA_VOLCANO, Intent.ATTACK_DEBUFF, this.fujiyamaVolcanoDamage, 0, false));
         this.moves.put(PHOENIX_REBIRTH, new EnemyMoveInfo(PHOENIX_REBIRTH, Intent.DEFEND_BUFF, -1, 0, false));
     }
@@ -252,6 +250,8 @@ public class Mokou extends CustomMonster
                 for (int i = 0; i < hits; i++) {
                     AbstractDungeon.actionManager.addToBottom(new DamageAction(AbstractDungeon.player, info, AbstractGameAction.AttackEffect.FIRE));
                 }
+                addToBot(new ApplyPowerAction(AbstractDungeon.player, AbstractDungeon.player, new WeakPower(AbstractDungeon.player, DEBUFF_AMT, true), DEBUFF_AMT));
+                addToBot(new ApplyPowerAction(AbstractDungeon.player, AbstractDungeon.player, new FrailPower(AbstractDungeon.player, DEBUFF_AMT, true), DEBUFF_AMT));
                 break;
             }
             case FUJIYAMA_VOLCANO: {
@@ -266,11 +266,7 @@ public class Mokou extends CustomMonster
             }
             case PHOENIX_REBIRTH: {
                 runAnim("MagicB");
-                if (phase2) {
-                    addToBot(new ApplyPowerAction(this, this, new VigorPower(this, VIGOR_AMT, true), VIGOR_AMT));
-                } else {
-                    addToBot(new ApplyPowerAction(this, this, new StrengthPower(this, strengthGain), strengthGain));
-                }
+                addToBot(new ApplyPowerAction(this, this, new VigorPower(this, VIGOR_AMT, true), VIGOR_AMT));
                 addToBot(new GainBlockAction(this, block));
                 counter = COOLDOWN + 1;
                 break;
@@ -325,7 +321,7 @@ public class Mokou extends CustomMonster
 
             ArrayList<AbstractPower> powersToRemove = new ArrayList<>();
             for (AbstractPower power : this.powers) {
-                if (!(power instanceof MokouHouraiImmortal) && !(power instanceof NewDummyLunaticPrincess) && !(power instanceof StrengthPower) && !(power instanceof GainStrengthPower)) {
+                if (!(power instanceof MokouHouraiImmortal) && !(power instanceof NewDummyLunaticPrincess) && !(power instanceof VigorPower)) {
                     powersToRemove.add(power);
                 }
             }
@@ -433,7 +429,7 @@ public class Mokou extends CustomMonster
             addToBot(new MakeTempCardInDrawPileAction(new Dawn(), 1, true, true, false));
         }
         if (requestsCompleted >= 3) {
-            addToBot(new MakeTempCardInDrawPileAction(new HouraiInAPot(), 1, true, true, false));
+            addToBot(new MakeTempCardInHandAction(new HouraiInAPot(), 1));
         }
         if (requestsCompleted >= 2) {
             addToBot(new MakeTempCardInDrawPileAction(new RisingWorld(), 1, true, true, false));

@@ -300,7 +300,7 @@
   },
   "Gensokyo:HouraiInAPot": {
     "NAME": "Hourai in a Pot",
-    "DESCRIPTION": "Play the top !M! cards of your draw pile."
+    "DESCRIPTION": "Discard any number of cards then draw that many."
   },
   "Gensokyo:Dawn": {
     "NAME": "Dawn",

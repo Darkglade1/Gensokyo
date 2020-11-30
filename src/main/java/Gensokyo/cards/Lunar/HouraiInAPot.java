@@ -1,7 +1,7 @@
 package Gensokyo.cards.Lunar;
 
 import Gensokyo.GensokyoMod;
-import com.megacrit.cardcrawl.actions.common.PlayTopCardAction;
+import com.megacrit.cardcrawl.actions.unique.GamblingChipAction;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
@@ -19,17 +19,16 @@ public class HouraiInAPot extends AbstractImpossibleRequestRewardCard {
 
     private static final int COST = 1;
     private static final int UPGRADE_COST = 0;
-    private static final int PLAYS = 2;
 
     public HouraiInAPot() {
         super(ID, IMG, COST, TYPE, RARITY, TARGET);
-        magicNumber = baseMagicNumber = PLAYS;
+        selfRetain = true;
     }
 
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
-        for (int i = 0; i < magicNumber; i++) {
-            addToBot(new PlayTopCardAction(AbstractDungeon.getCurrRoom().monsters.getRandomMonster(null, true, AbstractDungeon.cardRandomRng), false));
+        if (!AbstractDungeon.player.hand.isEmpty()) {
+            addToBot(new GamblingChipAction(AbstractDungeon.player, true));
         }
     }
 
