@@ -47,7 +47,7 @@ import static com.megacrit.cardcrawl.dungeons.AbstractDungeon.returnRandomRelic;
 public class NitoriStoreTools {
 
     protected static final float DRAW_START_X = Settings.WIDTH * 0.16F;
-    protected static int tmp = (int) (Settings.WIDTH - DRAW_START_X * 2.0F - AbstractCard.IMG_WIDTH_S * 5.0F) / 4;
+    protected static int tmp = (int) (Settings.WIDTH - DRAW_START_X * 2.0F - AbstractCard.IMG_WIDTH_S * 5.0F) / 3;
     protected static float padX = (int) (tmp + AbstractCard.IMG_WIDTH_S);
 
     protected static final float TOP_TOP_ROW_Y = Settings.isFourByThree ? (971.5F * Settings.scale) : (921.5F * Settings.scale);
@@ -103,8 +103,8 @@ public class NitoriStoreTools {
         public void update() {
             for (CardItem cardItem : cardItems) {
                 cardItem.update();
-                if (cardItem.isHovered()) { cardItem.card.drawScale = MathUtils.lerp(0.4f, .85f, cardItem.card.drawScale);
-                } else { cardItem.card.drawScale = MathUtils.lerp(0.85f, 0.4f, cardItem.card.drawScale); }
+                if (cardItem.isHovered()) { cardItem.card.drawScale = MathUtils.lerp(0.7f, 1.0f, cardItem.card.drawScale);
+                } else { cardItem.card.drawScale = MathUtils.lerp(1.0f, 0.7f, cardItem.card.drawScale); }
             }
 
             cardItems.removeIf((cardItem) -> {
