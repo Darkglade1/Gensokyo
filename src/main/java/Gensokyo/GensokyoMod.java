@@ -1,11 +1,10 @@
 package Gensokyo;
 
-import Gensokyo.RazIntent.AreaAttackIntent;
-import Gensokyo.RazIntent.CurseAttackIntent;
-import Gensokyo.RazIntent.CustomIntent;
-import Gensokyo.RazIntent.DeathIntent;
-import Gensokyo.RazIntent.PurifyIntent;
-import Gensokyo.RazIntent.TempHPIntent;
+import Gensokyo.CustomIntents.AreaAttackIntent;
+import Gensokyo.CustomIntents.CurseAttackIntent;
+import Gensokyo.CustomIntents.DeathIntent;
+import Gensokyo.CustomIntents.PurifyIntent;
+import Gensokyo.CustomIntents.TempHPIntent;
 import Gensokyo.cards.AllTheWorldsEvil;
 import Gensokyo.cards.Butterfly;
 import Gensokyo.cards.Evolve.BlemishedSteel;
@@ -244,6 +243,7 @@ import com.megacrit.cardcrawl.monsters.MonsterGroup;
 import com.megacrit.cardcrawl.relics.AbstractRelic;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
+import actlikeit.RazIntent.CustomIntent;
 
 import java.io.InputStream;
 import java.io.InputStreamReader;

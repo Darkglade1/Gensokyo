@@ -1,13 +1,12 @@
 package Gensokyo.rooms.nitori;
 
 import Gensokyo.BetterSpriterAnimation;
-import Gensokyo.RazIntent.IntentEnums;
+import Gensokyo.CustomIntents.IntentEnums;
 import basemod.abstracts.CustomMonster;
 import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.brashmonkey.spriter.Animation;
 import com.brashmonkey.spriter.Player;
-import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.core.Settings;

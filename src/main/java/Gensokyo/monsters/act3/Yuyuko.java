@@ -2,7 +2,7 @@ package Gensokyo.monsters.act3;
 
 import Gensokyo.BetterSpriterAnimation;
 import Gensokyo.GensokyoMod;
-import Gensokyo.RazIntent.IntentEnums;
+import Gensokyo.CustomIntents.IntentEnums;
 import Gensokyo.actions.RezAction;
 import Gensokyo.actions.SetMaxHealthToCurrentAction;
 import Gensokyo.actions.TemporaryMaxHPLossAction;

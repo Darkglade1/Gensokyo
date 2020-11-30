@@ -1,7 +1,7 @@
 package Gensokyo.monsters.act2;
 
 import Gensokyo.BetterSpriterAnimation;
-import Gensokyo.RazIntent.IntentEnums;
+import Gensokyo.CustomIntents.IntentEnums;
 import Gensokyo.actions.AnimatedMoveActualAction;
 import Gensokyo.powers.act2.Counter;
 import Gensokyo.powers.act2.RivalPlayerPosition;

@@ -2,18 +2,14 @@ package Gensokyo.monsters.act3;
 
 import Gensokyo.BetterSpriterAnimation;
 import Gensokyo.GensokyoMod;
-import Gensokyo.RazIntent.IntentEnums;
 import Gensokyo.actions.AnimatedMoveActualAction;
 import Gensokyo.monsters.AbstractSpriterMonster;
-import Gensokyo.powers.act2.RivalPlayerPosition;
-import Gensokyo.powers.act2.RivalPosition;
 import Gensokyo.powers.act3.AndThenThereWereNone;
 import Gensokyo.powers.act3.Doom;
 import Gensokyo.powers.act3.EyesOfDeath;
 import Gensokyo.powers.act3.SistersPlayerPosition;
 import Gensokyo.powers.act3.SistersPosition;
 import basemod.ReflectionHacks;
-import basemod.abstracts.CustomMonster;
 import com.badlogic.gdx.graphics.Color;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.animations.TalkAction;

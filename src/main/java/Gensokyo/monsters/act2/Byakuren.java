@@ -1,7 +1,7 @@
 package Gensokyo.monsters.act2;
 
 import Gensokyo.BetterSpriterAnimation;
-import Gensokyo.RazIntent.IntentEnums;
+import Gensokyo.CustomIntents.IntentEnums;
 import Gensokyo.actions.AnimatedMoveActualAction;
 import Gensokyo.actions.SetFlipAction;
 import Gensokyo.powers.act1.VigorPower;
@@ -40,12 +40,10 @@ import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.monsters.EnemyMoveInfo;
 import com.megacrit.cardcrawl.powers.StrengthPower;
 import com.megacrit.cardcrawl.stances.CalmStance;
-import com.megacrit.cardcrawl.vfx.AbstractGameEffect;
 import com.megacrit.cardcrawl.vfx.combat.LightningEffect;
 
 import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.Iterator;
 import java.util.Map;
 
 public class Byakuren extends CustomMonster

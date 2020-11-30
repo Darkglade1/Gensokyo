@@ -1,4 +1,4 @@
-package Gensokyo.RazIntent;
+package Gensokyo.CustomIntents;
 
 import Gensokyo.GensokyoMod;
 import com.megacrit.cardcrawl.core.CardCrawlGame;

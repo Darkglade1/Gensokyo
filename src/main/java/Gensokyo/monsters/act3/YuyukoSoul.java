@@ -1,7 +1,7 @@
 package Gensokyo.monsters.act3;
 
 import Gensokyo.GensokyoMod;
-import Gensokyo.RazIntent.IntentEnums;
+import Gensokyo.CustomIntents.IntentEnums;
 import Gensokyo.monsters.AbstractSpriterMonster;
 import basemod.ReflectionHacks;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
