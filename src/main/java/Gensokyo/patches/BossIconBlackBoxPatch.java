@@ -6,6 +6,8 @@ import Gensokyo.monsters.act2.Kaguya;
 import Gensokyo.monsters.act1.Kokoro;
 import Gensokyo.monsters.act1.Reimu;
 import Gensokyo.monsters.act1.Yukari;
+import Gensokyo.monsters.act3.Mokou;
+import Gensokyo.monsters.act3.Yuyuko;
 import basemod.patches.com.megacrit.cardcrawl.dungeons.AbstractDungeon.CustomBosses;
 import com.evacipated.cardcrawl.modthespire.lib.LineFinder;
 import com.evacipated.cardcrawl.modthespire.lib.Matcher;
@@ -44,6 +46,15 @@ public class BossIconBlackBoxPatch {
         } else if (key.equals(EncounterIDs.ETERNAL_RIVALS)) {
             DungeonMap.boss = ImageMaster.loadImage("GensokyoResources/images/monsters/Byakuren/Rival.png");
             DungeonMap.bossOutline = ImageMaster.loadImage("GensokyoResources/images/monsters/Byakuren/RivalOutline.png");
+        } else if (key.equals(Yuyuko.ID)) {
+            DungeonMap.boss = ImageMaster.loadImage("GensokyoResources/images/monsters/Yuyuko/Yuyuko.png");
+            DungeonMap.bossOutline = ImageMaster.loadImage("GensokyoResources/images/monsters/Yuyuko/YuyukoOutline.png");
+        } else if (key.equals(Mokou.ID)) {
+            DungeonMap.boss = ImageMaster.loadImage("GensokyoResources/images/monsters/Mokou/Mokou.png");
+            DungeonMap.bossOutline = ImageMaster.loadImage("GensokyoResources/images/monsters/Mokou/MokouOutline.png");
+        } else if (key.equals(EncounterIDs.SCARLET_DEVILS)) {
+            DungeonMap.boss = ImageMaster.loadImage("GensokyoResources/images/monsters/Flandre/Sisters.png");
+            DungeonMap.bossOutline = ImageMaster.loadImage("GensokyoResources/images/monsters/Flandre/SistersOutline.png");
         }
     }
     private static class Locator extends SpireInsertLocator {
