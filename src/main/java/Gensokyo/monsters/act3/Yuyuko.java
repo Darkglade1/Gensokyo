@@ -1,8 +1,8 @@
 package Gensokyo.monsters.act3;
 
 import Gensokyo.BetterSpriterAnimation;
-import Gensokyo.GensokyoMod;
 import Gensokyo.CustomIntents.IntentEnums;
+import Gensokyo.GensokyoMod;
 import Gensokyo.actions.RezAction;
 import Gensokyo.actions.SetMaxHealthToCurrentAction;
 import Gensokyo.actions.TemporaryMaxHPLossAction;
@@ -11,6 +11,7 @@ import Gensokyo.actions.YeetPlayerAction;
 import Gensokyo.cards.Butterfly;
 import Gensokyo.monsters.AbstractSpriterMonster;
 import Gensokyo.powers.act3.Deathtouch;
+import Gensokyo.powers.act3.Empower;
 import Gensokyo.vfx.EmptyEffect;
 import actlikeit.dungeons.CustomDungeon;
 import basemod.ReflectionHacks;
@@ -83,15 +84,17 @@ public class Yuyuko extends AbstractSpriterMonster
     private static final int A19_MAX_HP_REDUCTION = 12;
     private int maxHPReduction;
 
+    private static final int EMPOWER_AMT = 5;
+    private static final int A19_EMPOWER_AMT = 6;
+    private int empower;
+
     private static final int BLOCK = 15;
-    private static final int A9_BLOCK = 16;
-    private int block;
 
     private static final int COOLDOWN = 2;
     private int counter = COOLDOWN;
 
-    private static final int HP = 430;
-    private static final int A9_HP = 450;
+    private static final int HP = 330;
+    private static final int A9_HP = 350;
 
     private static final int MINION_HEALTH_INCREMENT = 2;
     private static final int A9_MINION_HEALTH_INCREMENT = 3;
@@ -121,18 +124,18 @@ public class Yuyuko extends AbstractSpriterMonster
         if (AbstractDungeon.ascensionLevel >= 19) {
             this.maxHPReduction = A19_MAX_HP_REDUCTION;
             this.statusAmt = A19_STATUS_AMT;
+            empower = A19_EMPOWER_AMT;
         } else {
             this.maxHPReduction = MAX_HP_REDUCTION;
             this.statusAmt = STATUS_AMT;
+            empower = EMPOWER_AMT;
         }
         if (AbstractDungeon.ascensionLevel >= 9) {
             this.setHp(A9_HP);
             minionHealthIncrement = A9_MINION_HEALTH_INCREMENT;
-            block = A9_BLOCK;
         } else {
             this.setHp(HP);
             minionHealthIncrement = MINION_HEALTH_INCREMENT;
-            block = BLOCK;
         }
 
         if (AbstractDungeon.ascensionLevel >= 4) {
@@ -149,7 +152,7 @@ public class Yuyuko extends AbstractSpriterMonster
         this.moves.put(RESURRECTION_BUTTERFLY, new EnemyMoveInfo(RESURRECTION_BUTTERFLY, Intent.DEBUFF, -1, 0, false));
         this.moves.put(INVITATION_FROM_NETHER_SIDE, new EnemyMoveInfo(INVITATION_FROM_NETHER_SIDE, IntentEnums.ATTACK_CURSE, maxHPReduction, 0, false));
         this.moves.put(SAIGYOUJI_PARINIRVANA, new EnemyMoveInfo(SAIGYOUJI_PARINIRVANA, IntentEnums.DEATH, -1, 0, false));
-        this.moves.put(GIFTS, new EnemyMoveInfo(GIFTS, Intent.DEFEND, -1, 0, false));
+        this.moves.put(GIFTS, new EnemyMoveInfo(GIFTS, Intent.BUFF, -1, 0, false));
 
         this.FAN_REGION = new TextureRegion(FAN);
         Player.PlayerListener listener = new YuyukoListener(this);
@@ -210,17 +213,18 @@ public class Yuyuko extends AbstractSpriterMonster
                 break;
             }
             case GIFTS: {
-                boolean gaveBlock = false;
+                boolean gaveGift = false;
                 for (AbstractMonster mo : AbstractDungeon.getMonsters().monsters) {
                     if (mo instanceof YuyukoSoul) {
                         if (!mo.isDeadOrEscaped()) {
-                            gaveBlock = true;
-                            addToBot(new GainBlockAction(mo, block));
+                            gaveGift = true;
+                            addToBot(new ApplyPowerAction(mo, this, new Empower(mo, empower), empower));
                         }
                     }
                 }
-                if (!gaveBlock) {
-                    addToBot(new GainBlockAction(this, block));
+
+                if (!gaveGift) {
+                    addToBot(new GainBlockAction(this, BLOCK));
                 }
                 counter = COOLDOWN + 1;
                 break;

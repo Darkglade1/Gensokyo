@@ -304,6 +304,10 @@
         "NAME": "Deathtouch",
         "DESCRIPTIONS": ["Whenever you receive attack damage from this enemy, you #rlose that much #yMax #yHP this combat. NL Your #yMax #yHP cannot go below #b1."]
 },
+"Gensokyo:Empower": {
+        "NAME": "Empower",
+        "DESCRIPTIONS": ["This creature's #yCurse has been increased by #b", "."]
+},
 "Gensokyo:MokouHouraiImmortal": {
         "NAME": "Hourai Immortal",
         "DESCRIPTIONS": ["Whenever this creature dies, it #yimmediately revives at full HP. Transitions to the next phase after dying #b", " more time.", " more times."]

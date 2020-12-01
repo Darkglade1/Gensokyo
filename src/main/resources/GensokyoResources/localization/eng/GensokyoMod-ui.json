@@ -115,15 +115,15 @@
   "Gensokyo:SistersIntents": {
     "TEXT": [
       "This enemy will #yAttack #ryou for #b",
-      " damage because you are in the #ropen.",
+      " damage because your #gally is NOT in the way.",
       "This enemy intends to NL #yAttack your #gally for #b",
-      " damage.",
+      " damage because your #gally is in the way.",
       "This enemy will #yAttack #ryou for #b",
       " damage #b",
-      " times because you are in the #ropen.",
+      " times because your #gally is NOT in the way.",
       "This enemy intends to NL #yAttack your #gally for #b",
       " damage #b",
-      " times.",
+      " times because your #gally is in the way.",
       "Your #gally intends to #yAttack the #renemy for #b",
       " damage."
     ]
