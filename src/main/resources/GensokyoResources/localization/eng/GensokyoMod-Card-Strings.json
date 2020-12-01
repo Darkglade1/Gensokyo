@@ -280,11 +280,11 @@
   },
   "Gensokyo:DreamlikeParadise": {
     "NAME": "Dreamlike Paradise",
-    "DESCRIPTION": "Scry !M!. Cards discarded this way cost 0 until played. NL Whenever this card is drawn, draw !Gensokyo:SecondMagic! card."
+    "DESCRIPTION": "Scry !M!. NL Cards discarded this way cost 0 until played. NL Whenever this card is drawn, draw !Gensokyo:SecondMagic! card."
   },
   "Gensokyo:RainbowDanmaku": {
     "NAME": "Rainbow Danmaku",
-    "DESCRIPTION": "Deal !D! damage. NL Scry !M!. For every Attack discarded this way, deal !D! damage again."
+    "DESCRIPTION": "Deal !D! damage. NL Scry !M!. NL For every Attack discarded this way, deal !D! damage again."
   },
   "Gensokyo:UnlikelyAid": {
     "NAME": "Unlikely Aid",
@@ -296,7 +296,7 @@
   },
   "Gensokyo:RisingWorld": {
     "NAME": "Rising World",
-    "DESCRIPTION": "Scry !M!. Cards discarded this way are Upgraded. NL Whenever this card is drawn, draw !Gensokyo:SecondMagic! card."
+    "DESCRIPTION": "Scry !M!. NL Cards discarded this way are Upgraded. NL Whenever this card is drawn, draw !Gensokyo:SecondMagic! card."
   },
   "Gensokyo:HouraiInAPot": {
     "NAME": "Hourai in a Pot",
@@ -309,7 +309,7 @@
   },
   "Gensokyo:UnhurriedMind": {
     "NAME": "Unhurried Mind",
-    "DESCRIPTION": "Your draw pile is viewed in order."
+    "DESCRIPTION": "Play the top !M! cards of your draw pile."
   },
   "Gensokyo:NewImpossibleRequest": {
     "NAME": "New Impossible Request",

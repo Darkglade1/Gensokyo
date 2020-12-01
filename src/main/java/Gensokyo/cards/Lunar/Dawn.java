@@ -1,6 +1,7 @@
 package Gensokyo.cards.Lunar;
 
 import Gensokyo.GensokyoMod;
+import Gensokyo.cards.AbstractDefaultCard;
 import com.megacrit.cardcrawl.actions.common.DrawCardAction;
 import com.megacrit.cardcrawl.actions.common.GainEnergyAction;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
@@ -9,14 +10,15 @@ import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import static Gensokyo.GensokyoMod.makeCardPath;
 import static com.megacrit.cardcrawl.core.CardCrawlGame.languagePack;
 
-public class Dawn extends AbstractImpossibleRequestRewardCard {
+public class Dawn extends AbstractDefaultCard {
 
     public static final String ID = GensokyoMod.makeID(Dawn.class.getSimpleName());
     public static final String IMG = makeCardPath("Dawn.png");
 
-    private static final CardRarity RARITY = CardRarity.SPECIAL;
+    private static final CardRarity RARITY = CardRarity.RARE;
     private static final CardTarget TARGET = CardTarget.NONE;
     private static final CardType TYPE = CardType.SKILL;
+    public static final CardColor COLOR = GensokyoMod.Enums.LUNAR;
 
     private static final int COST = -2;
     private static final int ENERGY = 1;
@@ -24,7 +26,7 @@ public class Dawn extends AbstractImpossibleRequestRewardCard {
     private static final int DRAW = 1;
 
     public Dawn() {
-        super(ID, IMG, COST, TYPE, RARITY, TARGET);
+        super(ID, IMG, COST, TYPE, COLOR, RARITY, TARGET);
         magicNumber = baseMagicNumber = ENERGY;
         defaultSecondMagicNumber = defaultBaseSecondMagicNumber = DRAW;
     }

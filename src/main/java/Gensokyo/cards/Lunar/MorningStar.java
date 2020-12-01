@@ -1,6 +1,7 @@
 package Gensokyo.cards.Lunar;
 
 import Gensokyo.GensokyoMod;
+import Gensokyo.cards.AbstractDefaultCard;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.common.DamageAction;
 import com.megacrit.cardcrawl.actions.common.ExhaustSpecificCardAction;
@@ -13,14 +14,15 @@ import com.megacrit.cardcrawl.monsters.AbstractMonster;
 
 import static Gensokyo.GensokyoMod.makeCardPath;
 
-public class MorningStar extends AbstractImpossibleRequestRewardCard {
+public class MorningStar extends AbstractDefaultCard {
 
     public static final String ID = GensokyoMod.makeID(MorningStar.class.getSimpleName());
     public static final String IMG = makeCardPath("MorningStar.png");
 
-    private static final CardRarity RARITY = CardRarity.SPECIAL;
+    private static final CardRarity RARITY = CardRarity.RARE;
     private static final CardTarget TARGET = CardTarget.ENEMY;
     private static final CardType TYPE = CardType.ATTACK;
+    public static final CardColor COLOR = GensokyoMod.Enums.LUNAR;
 
     private static final int COST = 1;
     private static final int DAMAGE = 10;
@@ -29,7 +31,7 @@ public class MorningStar extends AbstractImpossibleRequestRewardCard {
     private static final int UPGRADE_PLUS_BLOCK = 3;
 
     public MorningStar() {
-        super(ID, IMG, COST, TYPE, RARITY, TARGET);
+        super(ID, IMG, COST, TYPE, COLOR, RARITY, TARGET);
         baseDamage = DAMAGE;
         baseBlock = BLOCK;
     }

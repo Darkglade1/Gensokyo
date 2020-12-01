@@ -44,6 +44,7 @@ public class SomeoneElsesStory extends AbstractImageEvent {
     private int screenNum = 0;
     private int playerOriginalCurrHP;
     private int playerOriginalMaxHP;
+    private boolean winTriggered = false;
 
     public SomeoneElsesStory() {
         super(NAME, DESCRIPTIONS[0], IMG);
@@ -53,38 +54,46 @@ public class SomeoneElsesStory extends AbstractImageEvent {
     }
 
     public void mokouWins() {
-        restoreHP();
-        enterImageFromCombat();
-        this.imageEventText.updateBodyText(DESCRIPTIONS[2]);
-        screenNum = 1;
-        this.imageEventText.updateDialogOption(0, OPTIONS[2]);
-        this.imageEventText.clearRemainingOptions();
+        if (!winTriggered) {
+            winTriggered = true;
+            restoreHPAndOtherStuff();
+            enterImageFromCombat();
+            this.imageEventText.updateBodyText(DESCRIPTIONS[2]);
+            screenNum = 1;
+            this.imageEventText.updateDialogOption(0, OPTIONS[2]);
+            this.imageEventText.clearRemainingOptions();
+        }
     }
 
     public void kaguyaWins(boolean upgradeReward) {
-        restoreHP();
-        enterImageFromCombat();
-        this.imageEventText.updateBodyText(DESCRIPTIONS[1]);
-        screenNum = 1;
-        this.imageEventText.updateDialogOption(0, OPTIONS[2]);
-        this.imageEventText.clearRemainingOptions();
+        if (!winTriggered) {
+            winTriggered = true;
+            restoreHPAndOtherStuff();
+            enterImageFromCombat();
+            this.imageEventText.updateBodyText(DESCRIPTIONS[1]);
+            screenNum = 1;
+            this.imageEventText.updateDialogOption(0, OPTIONS[2]);
+            this.imageEventText.clearRemainingOptions();
 
-        RewardItem reward = new RewardItem();
-        reward.cards = getLunarCardReward(true);
-        if (upgradeReward) {
-            for (AbstractCard card : reward.cards) {
-                card.upgrade();
+            RewardItem reward = new RewardItem();
+            reward.cards = getLunarCardReward(true);
+            if (upgradeReward) {
+                for (AbstractCard card : reward.cards) {
+                    card.upgrade();
+                }
             }
+            AbstractDungeon.getCurrRoom().rewards.clear();
+            AbstractDungeon.getCurrRoom().addCardReward(reward);
+            AbstractDungeon.getCurrRoom().phase = AbstractRoom.RoomPhase.COMPLETE;
+            AbstractDungeon.combatRewardScreen.open();
         }
-        AbstractDungeon.getCurrRoom().rewards.clear();
-        AbstractDungeon.getCurrRoom().addCardReward(reward);
-        AbstractDungeon.getCurrRoom().phase = AbstractRoom.RoomPhase.COMPLETE;
-        AbstractDungeon.combatRewardScreen.open();
     }
 
-    private void restoreHP() {
+    private void restoreHPAndOtherStuff() {
         AbstractDungeon.player.currentHealth = playerOriginalCurrHP;
         AbstractDungeon.player.maxHealth = playerOriginalMaxHP;
+        AbstractDungeon.actionManager.clear();
+        AbstractDungeon.overlayMenu.hideCombatPanels();
     }
 
     public static ArrayList<AbstractCard> getLunarCardReward(boolean rareOnly) {
@@ -97,7 +106,7 @@ public class SomeoneElsesStory extends AbstractImageEvent {
             cards.add(new NewMoon());
 
             for (AbstractCard rare : getAllLunarRares()) {
-                if (AbstractDungeon.rollRarity() == AbstractCard.CardRarity.RARE) {
+                if (AbstractDungeon.rollRareOrUncommon(0.2f) == AbstractCard.CardRarity.RARE) {
                     cards.add(rare);
                 }
             }
