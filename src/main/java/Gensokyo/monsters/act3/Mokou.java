@@ -2,30 +2,21 @@ package Gensokyo.monsters.act3;
 
 import Gensokyo.BetterSpriterAnimation;
 import Gensokyo.GensokyoMod;
-import Gensokyo.actions.AnimatedMoveActualAction;
-import Gensokyo.actions.RezAction;
 import Gensokyo.cards.Lunar.BrilliantDragonBullet;
 import Gensokyo.cards.Lunar.BuddhistDiamond;
-import Gensokyo.cards.Lunar.Dawn;
 import Gensokyo.cards.Lunar.DreamlikeParadise;
 import Gensokyo.cards.Lunar.EverlastingLife;
-import Gensokyo.cards.Lunar.HouraiInAPot;
 import Gensokyo.cards.Lunar.LifeSpringInfinity;
 import Gensokyo.cards.Lunar.MorningMist;
 import Gensokyo.cards.Lunar.MorningStar;
 import Gensokyo.cards.Lunar.NewMoon;
 import Gensokyo.cards.Lunar.RainbowDanmaku;
-import Gensokyo.cards.Lunar.RisingWorld;
 import Gensokyo.cards.Lunar.SalamanderShield;
-import Gensokyo.cards.Lunar.UnhurriedMind;
 import Gensokyo.cards.Lunar.UnlikelyAid;
-import Gensokyo.cards.NewImpossibleRequests.NewImpossibleRequest;
+import Gensokyo.events.act3.SomeoneElsesStory;
 import Gensokyo.monsters.act2.Kaguya;
 import Gensokyo.powers.act1.VigorPower;
-import Gensokyo.powers.act3.MakePlayerInvisible;
-import Gensokyo.powers.act3.MokouHouraiImmortal;
-import Gensokyo.powers.act3.NewDummyLunaticPrincess;
-import Gensokyo.powers.act3.NewLunaticPrincess;
+import Gensokyo.powers.act3.SomeoneElse;
 import Gensokyo.vfx.EmptyEffect;
 import basemod.abstracts.CustomMonster;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
@@ -38,15 +29,8 @@ import com.megacrit.cardcrawl.actions.animations.VFXAction;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.actions.common.DamageAction;
 import com.megacrit.cardcrawl.actions.common.GainBlockAction;
-import com.megacrit.cardcrawl.actions.common.InstantKillAction;
 import com.megacrit.cardcrawl.actions.common.MakeTempCardInDiscardAction;
-import com.megacrit.cardcrawl.actions.common.MakeTempCardInDrawPileAction;
-import com.megacrit.cardcrawl.actions.common.MakeTempCardInHandAction;
-import com.megacrit.cardcrawl.actions.common.ReducePowerAction;
-import com.megacrit.cardcrawl.actions.common.RemoveSpecificPowerAction;
 import com.megacrit.cardcrawl.actions.common.RollMoveAction;
-import com.megacrit.cardcrawl.actions.watcher.PressEndTurnButtonAction;
-import com.megacrit.cardcrawl.actions.watcher.SkipEnemiesTurnAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.cards.status.Burn;
@@ -55,19 +39,14 @@ import com.megacrit.cardcrawl.core.Settings;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.localization.MonsterStrings;
 import com.megacrit.cardcrawl.monsters.EnemyMoveInfo;
-import com.megacrit.cardcrawl.powers.AbstractPower;
 import com.megacrit.cardcrawl.powers.FrailPower;
-import com.megacrit.cardcrawl.powers.GainStrengthPower;
-import com.megacrit.cardcrawl.powers.StrengthPower;
 import com.megacrit.cardcrawl.powers.WeakPower;
-import com.megacrit.cardcrawl.relics.AbstractRelic;
+import com.megacrit.cardcrawl.rooms.EventRoom;
 import com.megacrit.cardcrawl.unlock.UnlockTracker;
-import com.megacrit.cardcrawl.vfx.cardManip.ShowCardAndAddToHandEffect;
 import com.megacrit.cardcrawl.vfx.combat.GhostIgniteEffect;
 
 import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.Iterator;
 import java.util.Map;
 
 public class Mokou extends CustomMonster
@@ -128,14 +107,13 @@ public class Mokou extends CustomMonster
     private static final int COOLDOWN = 2;
     private int counter = COOLDOWN;
 
-    private static final int DEATH_THRESHOLD = 5;
-    private int deathCounter = DEATH_THRESHOLD;
+    public static final int KAGUYA_HP = 60;
+    private static final float BONUS_THRESHOLD = 0.75f;
+    private int bonus;
 
     private boolean phase2 = false;
 
     private Map<Byte, EnemyMoveInfo> moves;
-    public NewImpossibleRequest request;
-    private int requestsCompleted = 0;
     private Kaguya kaguya = null;
 
     public Mokou() {
@@ -183,9 +161,12 @@ public class Mokou extends CustomMonster
 
         Player.PlayerListener listener = new MokouListener(this);
         ((BetterSpriterAnimation)this.animation).myPlayer.addListener(listener);
+
+        assignPhase2Values();
     }
 
     private void assignPhase2Values() {
+        phase2 = true;
         if (AbstractDungeon.ascensionLevel >= 9) {
             this.setHp(A9_PHASE2_HP);
             this.block = A9_PHASE2_BLOCK;
@@ -212,27 +193,46 @@ public class Mokou extends CustomMonster
 
     @Override
     public void usePreBattleAction() {
-        AbstractDungeon.getCurrRoom().cannotLose = true;
         //CustomDungeon.playTempMusicInstantly("LunaticPrincess");
-        request = new NewImpossibleRequest();
-        if (AbstractDungeon.ascensionLevel >= 19) {
-            request.upgrade();
-        }
-        request.transform();
-        addToBot(new ApplyPowerAction(this, this, new MokouHouraiImmortal(this, DEATH_THRESHOLD)));
-        addToBot(new ApplyPowerAction(this, this, new NewDummyLunaticPrincess(this)));
-        addToBot(new ApplyPowerAction(AbstractDungeon.player, this, new NewLunaticPrincess(AbstractDungeon.player, this, request)));
-        AbstractDungeon.effectList.add(new ShowCardAndAddToHandEffect(request));
-        UnlockTracker.unlockCard(NewImpossibleRequest.ID);
-        addToBot(new TalkAction(this, DIALOG[0]));
+        kaguya = new Kaguya(-1600.0F, -30.0f);
+        kaguya.setFlip(true, false);
+        kaguya.drawX = AbstractDungeon.player.drawX;
+        bonus = (int)(KAGUYA_HP * BONUS_THRESHOLD);
+        AbstractDungeon.player.powers.add(new SomeoneElse(AbstractDungeon.player, bonus, this));
+
+        addToBot(new AbstractGameAction() {
+            @Override
+            public void update() {
+                AbstractDungeon.player.drawPile.group.clear();
+                AbstractDungeon.player.discardPile.group.clear();
+                AbstractDungeon.player.exhaustPile.group.clear();
+                AbstractDungeon.player.hand.group.clear();
+                this.isDone = true;
+            }
+        });
+        addToBot(new AbstractGameAction() {
+            @Override
+            public void update() {
+                ArrayList<AbstractCard> newStartingDeck = getKaguyaStartingDeck();
+                AbstractDungeon.player.drawPile.group.addAll(newStartingDeck);
+                AbstractDungeon.player.drawPile.shuffle();
+                for (AbstractCard card : newStartingDeck) {
+                    UnlockTracker.unlockCard(card.cardID);
+                }
+                this.isDone = true;
+            }
+        });
+
+        float duration = 2.0f;
+        float waitDuration = 1.5f;
+        addToBot(new TalkAction(this, DIALOG[0], duration, duration));
+        addToBot(new VFXAction(new EmptyEffect(), waitDuration));
+        addToBot(new TalkAction(true, DIALOG[1], duration, duration));
+        addToBot(new VFXAction(new EmptyEffect(), waitDuration));
     }
     
     @Override
     public void takeTurn() {
-        if (this.firstMove && !phase2) {
-            addToBot(new TalkAction(this, DIALOG[1]));
-            this.firstMove = false;
-        }
         DamageInfo info = new DamageInfo(this, moves.get(this.nextMove).baseDamage, DamageInfo.DamageType.NORMAL);
         if(info.base > -1) {
             info.applyPowers(this, AbstractDungeon.player);
@@ -300,150 +300,98 @@ public class Mokou extends CustomMonster
         this.setMove(MOVES[next], next, info.intent, info.baseDamage, info.multiplier, info.isMultiDamage);
     }
 
-    @Override
-    public void damage(DamageInfo info) {
-        super.damage(info);
-        if (this.currentHealth <= 0 && !this.halfDead && !phase2) {
-            this.halfDead = true;
-            Iterator var2 = this.powers.iterator();
-
-            while (var2.hasNext()) {
-                AbstractPower p = (AbstractPower) var2.next();
-                p.onDeath();
-            }
-
-            var2 = AbstractDungeon.player.relics.iterator();
-
-            while (var2.hasNext()) {
-                AbstractRelic r = (AbstractRelic) var2.next();
-                r.onMonsterDeath(this);
-            }
-
-            ArrayList<AbstractPower> powersToRemove = new ArrayList<>();
-            for (AbstractPower power : this.powers) {
-                if (!(power instanceof MokouHouraiImmortal) && !(power instanceof NewDummyLunaticPrincess) && !(power instanceof VigorPower)) {
-                    powersToRemove.add(power);
-                }
-            }
-            for (AbstractPower power : powersToRemove) {
-                this.powers.remove(power);
-            }
-
-            AbstractDungeon.actionManager.addToBottom(new RezAction(this));
-            AbstractDungeon.onModifyPower();
-
-            if (request.completed) {
-                requestsCompleted++;
-            }
-
-            request.completed = false;
-            request.requestCounter++;
-            if (AbstractDungeon.player.hasPower(NewLunaticPrincess.POWER_ID)) {
-                NewLunaticPrincess power = (NewLunaticPrincess)AbstractDungeon.player.getPower(NewLunaticPrincess.POWER_ID);
-                power.counter = 0;
-            }
-            request.transform();
-
-            deathCounter--;
-            AbstractDungeon.actionManager.addToBottom(new ReducePowerAction(this, this, MokouHouraiImmortal.POWER_ID, 1));
-            if (this.deathCounter <= 0) {
-                transitionToPhase2();
-            }
-        }
-    }
-
-    private void transitionToPhase2() {
-        float scaleWidth = 1.0F * Settings.scale;
-        float scaleHeight = Settings.scale;
-
-        phase2 = true;
-        assignPhase2Values();
-        counter = COOLDOWN;
-        AbstractDungeon.actionManager.addToBottom(new RezAction(this));
-        AbstractDungeon.actionManager.addToBottom(new RemoveSpecificPowerAction(AbstractDungeon.player, AbstractDungeon.player, NewLunaticPrincess.POWER_ID));
-        AbstractDungeon.actionManager.addToBottom(new RemoveSpecificPowerAction(this, this, NewDummyLunaticPrincess.POWER_ID));
-        AbstractDungeon.actionManager.addToBottom(new RollMoveAction(this));
-        kaguya = new Kaguya(-1600.0F, -30.0f);
-        kaguya.setFlip(true, false);
-        addToBot(new AnimatedMoveActualAction(kaguya, kaguya.drawX, kaguya.drawY, AbstractDungeon.player.drawX, kaguya.drawY));
-        AbstractDungeon.actionManager.addToBottom(new VFXAction(new EmptyEffect(), 0.5f));
-
-        float duration = 2.0f;
-        float waitDuration = 1.5f;
-        AbstractDungeon.actionManager.addToBottom(new TalkAction(true, DIALOG[2], duration, duration));
-        AbstractDungeon.actionManager.addToBottom(new VFXAction(new EmptyEffect(), waitDuration));
-        AbstractDungeon.actionManager.addToBottom(new TalkAction(this, DIALOG[3], duration, duration));
-        AbstractDungeon.actionManager.addToBottom(new VFXAction(new EmptyEffect(), waitDuration));
-        AbstractDungeon.actionManager.addToBottom(new TalkAction(true, DIALOG[4] + AbstractDungeon.player.name + DIALOG[5], duration, duration));
-        AbstractDungeon.actionManager.addToBottom(new VFXAction(new EmptyEffect(), waitDuration));
-
-        float originalPlayerX = AbstractDungeon.player.drawX;
-        float originalPlayerY = AbstractDungeon.player.drawY;
-
-        addToBot(new AbstractGameAction() {
-            @Override
-            public void update() {
-                AbstractDungeon.player.flipHorizontal = !AbstractDungeon.player.flipHorizontal;
-                this.isDone = true;
-            }
-        });
-        addToBot(new AnimatedMoveActualAction(AbstractDungeon.player, AbstractDungeon.player.drawX, AbstractDungeon.player.drawY, -200.0F * scaleWidth, AbstractDungeon.player.drawY));
-        AbstractDungeon.actionManager.addToBottom(new VFXAction(new EmptyEffect(), 0.5f));
-        addToBot(new ApplyPowerAction(AbstractDungeon.player, AbstractDungeon.player, new MakePlayerInvisible(AbstractDungeon.player)));
-        addToBot(new AbstractGameAction() {
-            @Override
-            public void update() {
-                AbstractDungeon.player.drawX = originalPlayerX;
-                AbstractDungeon.player.drawY = originalPlayerY;
-                this.isDone = true;
-            }
-        });
-
-        addToBot(new AbstractGameAction() {
-            @Override
-            public void update() {
-                AbstractDungeon.player.drawPile.group.clear();
-                AbstractDungeon.player.discardPile.group.clear();
-                AbstractDungeon.player.exhaustPile.group.clear();
-                AbstractDungeon.player.hand.group.clear();
-                this.isDone = true;
-            }
-        });
-        addToBot(new AbstractGameAction() {
-            @Override
-            public void update() {
-                ArrayList<AbstractCard> newStartingDeck = getKaguyaStartingDeck();
-                AbstractDungeon.player.drawPile.group.addAll(newStartingDeck);
-                AbstractDungeon.player.drawPile.shuffle();
-                for (AbstractCard card : newStartingDeck) {
-                    UnlockTracker.unlockCard(card.cardID);
-                }
-                this.isDone = true;
-            }
-        });
-
-        if (requestsCompleted >= 5) {
-            addToBot(new MakeTempCardInHandAction(new UnhurriedMind(), 1));
-        }
-        if (requestsCompleted >= 4) {
-            addToBot(new MakeTempCardInDrawPileAction(new Dawn(), 1, true, true, false));
-        }
-        if (requestsCompleted >= 3) {
-            addToBot(new MakeTempCardInHandAction(new HouraiInAPot(), 1));
-        }
-        if (requestsCompleted >= 2) {
-            addToBot(new MakeTempCardInDrawPileAction(new RisingWorld(), 1, true, true, false));
-        }
-        if (requestsCompleted >= 1) {
-            addToBot(new MakeTempCardInDrawPileAction(new MorningStar(), 1, true, true, false));
-        }
-
-        if (!AbstractDungeon.actionManager.turnHasEnded) {
-            addToBot(new SkipEnemiesTurnAction());
-            addToBot(new PressEndTurnButtonAction());
-        }
-
-    }
+//    private void transitionToPhase2() {
+//        float scaleWidth = 1.0F * Settings.scale;
+//        float scaleHeight = Settings.scale;
+//
+//        phase2 = true;
+//        assignPhase2Values();
+//        counter = COOLDOWN;
+//        AbstractDungeon.actionManager.addToBottom(new RezAction(this));
+//        AbstractDungeon.actionManager.addToBottom(new RemoveSpecificPowerAction(AbstractDungeon.player, AbstractDungeon.player, NewLunaticPrincess.POWER_ID));
+//        AbstractDungeon.actionManager.addToBottom(new RemoveSpecificPowerAction(this, this, NewDummyLunaticPrincess.POWER_ID));
+//        AbstractDungeon.actionManager.addToBottom(new RollMoveAction(this));
+//        kaguya = new Kaguya(-1600.0F, -30.0f);
+//        kaguya.setFlip(true, false);
+//        addToBot(new AnimatedMoveActualAction(kaguya, kaguya.drawX, kaguya.drawY, AbstractDungeon.player.drawX, kaguya.drawY));
+//        AbstractDungeon.actionManager.addToBottom(new VFXAction(new EmptyEffect(), 0.5f));
+//
+//        float duration = 2.0f;
+//        float waitDuration = 1.5f;
+//        AbstractDungeon.actionManager.addToBottom(new TalkAction(true, DIALOG[2], duration, duration));
+//        AbstractDungeon.actionManager.addToBottom(new VFXAction(new EmptyEffect(), waitDuration));
+//        AbstractDungeon.actionManager.addToBottom(new TalkAction(this, DIALOG[3], duration, duration));
+//        AbstractDungeon.actionManager.addToBottom(new VFXAction(new EmptyEffect(), waitDuration));
+//        AbstractDungeon.actionManager.addToBottom(new TalkAction(true, DIALOG[4] + AbstractDungeon.player.name + DIALOG[5], duration, duration));
+//        AbstractDungeon.actionManager.addToBottom(new VFXAction(new EmptyEffect(), waitDuration));
+//
+//        float originalPlayerX = AbstractDungeon.player.drawX;
+//        float originalPlayerY = AbstractDungeon.player.drawY;
+//
+//        addToBot(new AbstractGameAction() {
+//            @Override
+//            public void update() {
+//                AbstractDungeon.player.flipHorizontal = !AbstractDungeon.player.flipHorizontal;
+//                this.isDone = true;
+//            }
+//        });
+//        addToBot(new AnimatedMoveActualAction(AbstractDungeon.player, AbstractDungeon.player.drawX, AbstractDungeon.player.drawY, -200.0F * scaleWidth, AbstractDungeon.player.drawY));
+//        AbstractDungeon.actionManager.addToBottom(new VFXAction(new EmptyEffect(), 0.5f));
+//        addToBot(new ApplyPowerAction(AbstractDungeon.player, AbstractDungeon.player, new SomeoneElse(AbstractDungeon.player)));
+//        addToBot(new AbstractGameAction() {
+//            @Override
+//            public void update() {
+//                AbstractDungeon.player.drawX = originalPlayerX;
+//                AbstractDungeon.player.drawY = originalPlayerY;
+//                this.isDone = true;
+//            }
+//        });
+//
+//        addToBot(new AbstractGameAction() {
+//            @Override
+//            public void update() {
+//                AbstractDungeon.player.drawPile.group.clear();
+//                AbstractDungeon.player.discardPile.group.clear();
+//                AbstractDungeon.player.exhaustPile.group.clear();
+//                AbstractDungeon.player.hand.group.clear();
+//                this.isDone = true;
+//            }
+//        });
+//        addToBot(new AbstractGameAction() {
+//            @Override
+//            public void update() {
+//                ArrayList<AbstractCard> newStartingDeck = getKaguyaStartingDeck();
+//                AbstractDungeon.player.drawPile.group.addAll(newStartingDeck);
+//                AbstractDungeon.player.drawPile.shuffle();
+//                for (AbstractCard card : newStartingDeck) {
+//                    UnlockTracker.unlockCard(card.cardID);
+//                }
+//                this.isDone = true;
+//            }
+//        });
+//
+//        if (requestsCompleted >= 5) {
+//            addToBot(new MakeTempCardInHandAction(new UnhurriedMind(), 1));
+//        }
+//        if (requestsCompleted >= 4) {
+//            addToBot(new MakeTempCardInDrawPileAction(new Dawn(), 1, true, true, false));
+//        }
+//        if (requestsCompleted >= 3) {
+//            addToBot(new MakeTempCardInHandAction(new HouraiInAPot(), 1));
+//        }
+//        if (requestsCompleted >= 2) {
+//            addToBot(new MakeTempCardInDrawPileAction(new RisingWorld(), 1, true, true, false));
+//        }
+//        if (requestsCompleted >= 1) {
+//            addToBot(new MakeTempCardInDrawPileAction(new MorningStar(), 1, true, true, false));
+//        }
+//
+//        if (!AbstractDungeon.actionManager.turnHasEnded) {
+//            addToBot(new SkipEnemiesTurnAction());
+//            addToBot(new PressEndTurnButtonAction());
+//        }
+//
+//    }
 
     private ArrayList<AbstractCard> getKaguyaStartingDeck() {
         ArrayList<AbstractCard> cards = new ArrayList<>();
@@ -461,6 +409,7 @@ public class Mokou extends CustomMonster
         cards.add(new LifeSpringInfinity());
         cards.add(new RainbowDanmaku());
         cards.add(new UnlikelyAid());
+        cards.add(new MorningStar());
         return cards;
     }
 
@@ -474,19 +423,16 @@ public class Mokou extends CustomMonster
 
     @Override
     public void die() {
-        if (phase2) {
-            AbstractDungeon.getCurrRoom().cannotLose = false;
+        if (AbstractDungeon.getCurrRoom() instanceof EventRoom) {
+            EventRoom event = (EventRoom) AbstractDungeon.getCurrRoom();
+            if (event.event instanceof SomeoneElsesStory) {
+                ((SomeoneElsesStory) event.event).kaguyaWins(AbstractDungeon.player.currentHealth >= bonus);
+            }
         }
-        if (!AbstractDungeon.getCurrRoom().cannotLose) {
-            runAnim("Defeat");
-            ((BetterSpriterAnimation)this.animation).startDying();
-            this.onBossVictoryLogic();
-            super.die();
-        }
-        if (this.maxHealth <= 0) {
-            this.maxHealth = originalMaxHP;
-            AbstractDungeon.actionManager.addToBottom(new InstantKillAction(this));
-        }
+        runAnim("Defeat");
+        ((BetterSpriterAnimation) this.animation).startDying();
+        this.onBossVictoryLogic();
+        super.die();
     }
 
     //Runs a specific animation

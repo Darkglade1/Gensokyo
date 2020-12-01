@@ -779,6 +779,20 @@
       "[Leave]"
     ]
   },
+  "Gensokyo:SomeoneElsesStory": {
+    "NAME": "Someone Else's Story",
+    "DESCRIPTIONS": [
+      "You find yourself in the midst of a festival, people of all shapes, sizes, and #punusual appendages bustling about around you. In the center of a crowd, you see someone who seems to be recounting a tale of long ago. NL NL \"And there we were, my #rmortal #renemy and I ready to fight to the @death@ once ~more~ -\" NL NL The woman hiccups, and you deduce that she is probably drunk.",
+      "\"And with a mighty blow, #gvictory was mine once again!\" NL NL The crowd cheers at the clearly exaggerated story, and you shake your head in disbelief before moving on.",
+      "\"Alas, my #rmortal #renemy got the better of me that day. But fret not, for I will soon have my #pvengeance on her!\" NL NL The crowd cheers at the clearly exaggerated story, and you shake your head in disbelief before moving on.",
+      "You briefly listen to the woman's tales of #pimpossible feats and #pimpossible requests. NL NL Most of it sounds unbelievable, but you feel like you still managed to learn something about the people of this land."
+    ],
+    "OPTIONS": [
+      "[Listen closely] #rFight #ra #rspecial #renemy. #gIf #gyou #gwin, #gadd #ga #grare #gLunar #gcard #gto #gyour #gdeck.",
+      "[Listen briefly] #gAdd #ga #gLunar #gcard #gto #gyour #gdeck.",
+      "[Leave]"
+    ]
+  },
   "Gensokyo:MarisaAnOldGhost": {
     "NAME": "An Old Ghost",
     "DESCRIPTIONS": [

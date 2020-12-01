@@ -1,6 +1,6 @@
 package Gensokyo.patches;
 
-import Gensokyo.powers.act3.MakePlayerInvisible;
+import Gensokyo.powers.act3.SomeoneElse;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.evacipated.cardcrawl.modthespire.lib.SpirePatch;
 import com.evacipated.cardcrawl.modthespire.lib.SpireReturn;
@@ -17,7 +17,7 @@ public class InvisiblePlayerPatch {
     )
     public static class RenderPatch {
         public static SpireReturn Prefix(AbstractPlayer __instance, SpriteBatch sb) {
-            if (AbstractDungeon.player.hasPower(MakePlayerInvisible.POWER_ID)) {
+            if (AbstractDungeon.player.hasPower(SomeoneElse.POWER_ID)) {
                 __instance.renderHealth(sb);
                 if (!__instance.orbs.isEmpty()) {
                     Iterator var2 = __instance.orbs.iterator();

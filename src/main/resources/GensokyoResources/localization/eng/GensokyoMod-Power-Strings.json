@@ -308,23 +308,9 @@
         "NAME": "Empower",
         "DESCRIPTIONS": ["This creature's #yCurse has been increased by #b", "."]
 },
-"Gensokyo:MokouHouraiImmortal": {
-        "NAME": "Hourai Immortal",
-        "DESCRIPTIONS": ["Whenever this creature dies, it #yimmediately revives at full HP. Transitions to the next phase after dying #b", " more time.", " more times."]
-},
-"Gensokyo:NewDummyLunaticPrincess": {
-        "NAME": "Eternal Grudge",
-        "DESCRIPTIONS": ["Whenever this creature dies, #ytransform the #pImpossible #pRequest into the next #prequest. For every #gcompleted #prequest when the next phase begins, you gain a #ypowerful #ycard."]
-},
-"Gensokyo:NewLunaticPrincess": {
-        "NAME": "New Lunatic Princess",
-        "DESCRIPTIONS": [
-                " NL (You have played ", " Power.)", " Powers.)",
-                " Skill.)", " Skills.)",
-                " NL (Best so far: ", " card.)", " cards.)",
-                " damage.)",
-                " NL (You have gained ", " Block.)",
-                " NL (Completed)."]
+"Gensokyo:SomeoneElse": {
+        "NAME": "Someone Else's Story",
+        "DESCRIPTIONS": ["#rDefeat merely takes you back to the event. NL If you #gwin with at least #b", " HP remaining, the reward card is #yUpgraded. NL Your current and Max HP are restored to their original values after this encounter."]
 },
 "Gensokyo:TimeDilation": {
         "NAME": "Time Dilation",
