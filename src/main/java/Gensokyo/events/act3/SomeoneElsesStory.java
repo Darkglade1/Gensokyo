@@ -39,7 +39,7 @@ public class SomeoneElsesStory extends AbstractImageEvent {
     private static final String NAME = eventStrings.NAME;
     private static final String[] DESCRIPTIONS = eventStrings.DESCRIPTIONS;
     private static final String[] OPTIONS = eventStrings.OPTIONS;
-    public static final String IMG = makeEventPath("Library.png");
+    public static final String IMG = makeEventPath("Festival.png");
 
     private int screenNum = 0;
     private int playerOriginalCurrHP;

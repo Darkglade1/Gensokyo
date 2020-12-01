@@ -198,7 +198,9 @@ public class Mokou extends CustomMonster
         kaguya.setFlip(true, false);
         kaguya.drawX = AbstractDungeon.player.drawX;
         bonus = (int)(KAGUYA_HP * BONUS_THRESHOLD);
-        AbstractDungeon.player.powers.add(new SomeoneElse(AbstractDungeon.player, bonus, this));
+        SomeoneElse power = new SomeoneElse(AbstractDungeon.player, bonus, this);
+        power.updateDescription();
+        AbstractDungeon.player.powers.add(power);
 
         addToBot(new AbstractGameAction() {
             @Override

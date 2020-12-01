@@ -49,9 +49,6 @@ public class BossIconBlackBoxPatch {
         } else if (key.equals(Yuyuko.ID)) {
             DungeonMap.boss = ImageMaster.loadImage("GensokyoResources/images/monsters/Yuyuko/Yuyuko.png");
             DungeonMap.bossOutline = ImageMaster.loadImage("GensokyoResources/images/monsters/Yuyuko/YuyukoOutline.png");
-        } else if (key.equals(Mokou.ID)) {
-            DungeonMap.boss = ImageMaster.loadImage("GensokyoResources/images/monsters/Mokou/Mokou.png");
-            DungeonMap.bossOutline = ImageMaster.loadImage("GensokyoResources/images/monsters/Mokou/MokouOutline.png");
         } else if (key.equals(EncounterIDs.SCARLET_DEVILS)) {
             DungeonMap.boss = ImageMaster.loadImage("GensokyoResources/images/monsters/Flandre/Sisters.png");
             DungeonMap.bossOutline = ImageMaster.loadImage("GensokyoResources/images/monsters/Flandre/SistersOutline.png");

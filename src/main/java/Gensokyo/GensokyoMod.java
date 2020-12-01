@@ -121,6 +121,7 @@ import Gensokyo.events.act3.IAmNotThere;
 import Gensokyo.events.act3.KappaWarehouse;
 import Gensokyo.events.act3.OwlFriend;
 import Gensokyo.events.act3.PrincessOfTheMoon;
+import Gensokyo.events.act3.SomeoneElsesStory;
 import Gensokyo.events.act3.TheDreamer;
 import Gensokyo.monsters.act1.Aya;
 import Gensokyo.monsters.act1.Cirno;
@@ -592,7 +593,6 @@ public class GensokyoMod implements
         BaseMod.addMonster(Mokou.ID, (BaseMod.GetMonster) Mokou::new);
         BaseMod.addBoss(Gensokyoest.ID, EncounterIDs.SCARLET_DEVILS, "GensokyoResources/images/monsters/Flandre/Sisters.png", "GensokyoResources/images/monsters/Flandre/SistersOutline.png");
         BaseMod.addBoss(Gensokyoest.ID, Yuyuko.ID, "GensokyoResources/images/monsters/Yuyuko/Yuyuko.png", "GensokyoResources/images/monsters/Yuyuko/YuyukoOutline.png");
-        BaseMod.addBoss(Gensokyoest.ID, Mokou.ID, "GensokyoResources/images/monsters/Mokou/Mokou.png", "GensokyoResources/images/monsters/Mokou/MokouOutline.png");
 
         // =============== EVENTS =================
 
@@ -652,6 +652,7 @@ public class GensokyoMod implements
         BaseMod.addEvent(PrincessOfTheMoon.ID, PrincessOfTheMoon.class, Gensokyoest.ID);
         BaseMod.addEvent(KappaWarehouse.ID, KappaWarehouse.class, Gensokyoest.ID);
         BaseMod.addEvent(BloodForBlood.ID, BloodForBlood.class, Gensokyoest.ID);
+        BaseMod.addEvent(SomeoneElsesStory.ID, SomeoneElsesStory.class, Gensokyoest.ID);
         // =============== /EVENTS/ =================
 
         logger.info("Done loading badge Image and mod options");
