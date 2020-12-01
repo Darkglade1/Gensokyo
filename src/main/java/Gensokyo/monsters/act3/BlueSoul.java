@@ -2,11 +2,7 @@ package Gensokyo.monsters.act3;
 
 import Gensokyo.BetterSpriterAnimation;
 import Gensokyo.GensokyoMod;
-import Gensokyo.actions.TemporaryMaxHPLossAction;
-import com.evacipated.cardcrawl.mod.stslib.patches.core.AbstractCreature.TempHPField;
-import com.megacrit.cardcrawl.actions.common.RollMoveAction;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
-import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.localization.MonsterStrings;
 
 public class BlueSoul extends YuyukoSoul
@@ -27,18 +23,5 @@ public class BlueSoul extends YuyukoSoul
         this.type = EnemyType.NORMAL;
     }
 
-    @Override
-    public void takeTurn() {
-        super.takeTurn();
-        switch (this.nextMove) {
-            case DEBUFF: {
-                if (AbstractDungeon.player.maxHealth > 1 || TempHPField.tempHp.get(AbstractDungeon.player) > 0) {
-                    Yuyuko.playGhostEffect(master);
-                    AbstractDungeon.actionManager.addToBottom(new TemporaryMaxHPLossAction(MAX_HP_REDUCTION));
-                }
-                break;
-            }
-        }
-        AbstractDungeon.actionManager.addToBottom(new RollMoveAction(this));
-    }
+
 }

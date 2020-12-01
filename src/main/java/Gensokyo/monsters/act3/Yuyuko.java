@@ -27,6 +27,7 @@ import com.megacrit.cardcrawl.actions.animations.TalkAction;
 import com.megacrit.cardcrawl.actions.animations.VFXAction;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.actions.common.DamageAction;
+import com.megacrit.cardcrawl.actions.common.GainBlockAction;
 import com.megacrit.cardcrawl.actions.common.MakeTempCardInDiscardAction;
 import com.megacrit.cardcrawl.actions.common.RollMoveAction;
 import com.megacrit.cardcrawl.actions.common.SpawnMonsterAction;
@@ -65,6 +66,7 @@ public class Yuyuko extends AbstractSpriterMonster
     private static final byte RESURRECTION_BUTTERFLY = 2; //Shuffle statuses
     private static final byte INVITATION_FROM_NETHER_SIDE = 3; //Reduce Max HP
     private static final byte SAIGYOUJI_PARINIRVANA = 4; //Instant kill
+    private static final byte GIFTS = 5; //block
 
     private static final int NORMAL_ATTACK_DAMAGE = 20;
     private static final int A4_NORMAL_ATTACK_DAMAGE = 22;;
@@ -80,6 +82,10 @@ public class Yuyuko extends AbstractSpriterMonster
     private static final int MAX_HP_REDUCTION = 10;
     private static final int A19_MAX_HP_REDUCTION = 12;
     private int maxHPReduction;
+
+    private static final int BLOCK = 15;
+    private static final int A9_BLOCK = 16;
+    private int block;
 
     private static final int COOLDOWN = 2;
     private int counter = COOLDOWN;
@@ -122,9 +128,11 @@ public class Yuyuko extends AbstractSpriterMonster
         if (AbstractDungeon.ascensionLevel >= 9) {
             this.setHp(A9_HP);
             minionHealthIncrement = A9_MINION_HEALTH_INCREMENT;
+            block = A9_BLOCK;
         } else {
             this.setHp(HP);
             minionHealthIncrement = MINION_HEALTH_INCREMENT;
+            block = BLOCK;
         }
 
         if (AbstractDungeon.ascensionLevel >= 4) {
@@ -141,7 +149,7 @@ public class Yuyuko extends AbstractSpriterMonster
         this.moves.put(RESURRECTION_BUTTERFLY, new EnemyMoveInfo(RESURRECTION_BUTTERFLY, Intent.DEBUFF, -1, 0, false));
         this.moves.put(INVITATION_FROM_NETHER_SIDE, new EnemyMoveInfo(INVITATION_FROM_NETHER_SIDE, IntentEnums.ATTACK_CURSE, maxHPReduction, 0, false));
         this.moves.put(SAIGYOUJI_PARINIRVANA, new EnemyMoveInfo(SAIGYOUJI_PARINIRVANA, IntentEnums.DEATH, -1, 0, false));
-
+        this.moves.put(GIFTS, new EnemyMoveInfo(GIFTS, Intent.DEFEND, -1, 0, false));
 
         this.FAN_REGION = new TextureRegion(FAN);
         Player.PlayerListener listener = new YuyukoListener(this);
@@ -199,6 +207,22 @@ public class Yuyuko extends AbstractSpriterMonster
 //                AbstractDungeon.actionManager.addToBottom(new VFXAction(new EmptyEffect(), 1.0F));
                 playGhostEffect(this);
                 AbstractDungeon.actionManager.addToBottom(new YeetPlayerAction());
+                break;
+            }
+            case GIFTS: {
+                boolean gaveBlock = false;
+                for (AbstractMonster mo : AbstractDungeon.getMonsters().monsters) {
+                    if (mo instanceof YuyukoSoul) {
+                        if (!mo.isDeadOrEscaped()) {
+                            gaveBlock = true;
+                            addToBot(new GainBlockAction(mo, block));
+                        }
+                    }
+                }
+                if (!gaveBlock) {
+                    addToBot(new GainBlockAction(this, block));
+                }
+                counter = COOLDOWN + 1;
                 break;
             }
         }
@@ -269,7 +293,11 @@ public class Yuyuko extends AbstractSpriterMonster
             AbstractDungeon.actionManager.addToBottom(new TalkAction(this, DIALOG[1]));
             setMoveShortcut(SAIGYOUJI_PARINIRVANA);
         } else if (counter <= 0) {
-            setMoveShortcut(INVITATION_FROM_NETHER_SIDE);
+            if (blueSouls.size() > 0 || purpleSouls.size() > 0) {
+                setMoveShortcut(GIFTS);
+            } else {
+                setMoveShortcut(INVITATION_FROM_NETHER_SIDE);
+            }
         } else {
             ArrayList<Byte> possibilities = new ArrayList<>();
             if (!this.lastMove(GHASTLY_DREAM)) {

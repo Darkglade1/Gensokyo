@@ -302,7 +302,7 @@
 },
 "Gensokyo:Deathtouch": {
         "NAME": "Deathtouch",
-        "DESCRIPTIONS": ["Whenever you receive attack damage from this enemy, you #rlose that much #yMax #yHP this combat."]
+        "DESCRIPTIONS": ["Whenever you receive attack damage from this enemy, you #rlose that much #yMax #yHP this combat. NL Your #yMax #yHP cannot go below #b1."]
 },
 "Gensokyo:MokouHouraiImmortal": {
         "NAME": "Hourai Immortal",
