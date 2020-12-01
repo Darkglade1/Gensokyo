@@ -80,8 +80,8 @@ public class Flandre extends AbstractSpriterMonster
     private static final int A19_HEAL = 150;
     private int heal;
 
-    private static final int HP = 700;
-    private static final int A9_HP = 750;
+    private static final int HP = 666;
+    private static final int A9_HP = 700;
 
     public float originalX;
     public float originalY;
