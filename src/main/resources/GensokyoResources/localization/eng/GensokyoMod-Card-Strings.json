@@ -311,30 +311,6 @@
     "NAME": "Unhurried Mind",
     "DESCRIPTION": "Play the top !M! cards of your draw pile."
   },
-  "Gensokyo:NewImpossibleRequest": {
-    "NAME": "New Impossible Request",
-    "DESCRIPTION": "gensokyo:Impossible_Request."
-  },
-  "Gensokyo:LunarIlmenite": {
-    "NAME": "Lunar Ilmenite",
-    "DESCRIPTION": "gensokyo:Impossible_Request. NL Play !M! Powers."
-  },
-  "Gensokyo:RedStoneOfAja": {
-    "NAME": "Red Stone of Aja",
-    "DESCRIPTION": "gensokyo:Impossible_Request. NL Play !M! Skills."
-  },
-  "Gensokyo:SeamlessCeiling": {
-    "NAME": "Seamless Ceiling of Kinkaku-ji",
-    "DESCRIPTION": "gensokyo:Impossible_Request. NL End your turn with at least !M! cards in hand."
-  },
-  "Gensokyo:Mysterium": {
-    "NAME": "Mysterium",
-    "DESCRIPTION": "gensokyo:Impossible_Request. NL Deal at least !M! damage in a single hit from an Attack."
-  },
-  "Gensokyo:TreeOceanOfHourai": {
-    "NAME": "Tree Ocean of Hourai",
-    "DESCRIPTION": "gensokyo:Impossible_Request. NL Gain !M! Block."
-  },
   "Gensokyo:FlashFlood": {
     "NAME": "Flash Flood",
     "DESCRIPTION": "When this card is drawn, reduce its cost by !M! this combat. NL Exhaust."

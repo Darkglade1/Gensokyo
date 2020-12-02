@@ -81,7 +81,7 @@ public class OwlFriend extends AbstractImageEvent {
                         cardMod = new AutoplayMod();
                         CardGroup group = new CardGroup(CardGroup.CardGroupType.UNSPECIFIED);
                         for (AbstractCard card : AbstractDungeon.player.masterDeck.group) {
-                            if (card.cost != -2 && !AutoplayField.autoplay.get(card)) {
+                            if (card.cost != -2 && !AutoplayField.autoplay.get(card) && !CardModifierManager.hasModifier(card, AutoplayMod.ID)) {
                                 group.addToBottom(card);
                             }
                         }
@@ -153,7 +153,7 @@ public class OwlFriend extends AbstractImageEvent {
     private boolean HasPlayableCardsExcludeAutoplay() {
         int count = 0;
         for (AbstractCard card : AbstractDungeon.player.masterDeck.group) {
-            if (card.cost != -2 && !AutoplayField.autoplay.get(card)) {
+            if (card.cost != -2 && !AutoplayField.autoplay.get(card) && !CardModifierManager.hasModifier(card, AutoplayMod.ID)) {
                 count++;
             }
         }

@@ -45,7 +45,7 @@ public class LittleGreenMen extends AbstractUrbanLegendCard {
     public void upgrade() {
         if (!upgraded) {
             upgradeName();
-            AlwaysRetainField.alwaysRetain.set(this, true);
+            selfRetain = true;
             rawDescription = languagePack.getCardStrings(cardID).UPGRADE_DESCRIPTION;
             initializeDescription();
         }
