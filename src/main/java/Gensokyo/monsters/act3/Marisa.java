@@ -50,9 +50,9 @@ public class Marisa extends CustomMonster
     private static final int A18_STATUS_AMT = 2;
     private int statusAmt;
 
-    private static final int MULTI_ATTACK_DMG = 6;
-    private static final int A3_MULTI_ATTACK_DMG = 6;
-    private static final int MULTI_ATTACK_HITS = 4;
+    private static final int MULTI_ATTACK_DMG = 3;
+    private static final int A3_MULTI_ATTACK_DMG = 3;
+    private static final int MULTI_ATTACK_HITS = 6;
     private int multiAttackDmg;
 
     private static final int ATTACK_DEBUFF_DMG = 9;
@@ -68,8 +68,8 @@ public class Marisa extends CustomMonster
     private static final int A18_STRENGTH = 7;
     private int strength;
 
-    private static final int HP = 200;
-    private static final int A8_HP = 215;;
+    private static final int HP = 250;
+    private static final int A8_HP = 265;;
 
     private Map<Byte, EnemyMoveInfo> moves;
 
