@@ -167,20 +167,24 @@ public class Marisa extends CustomMonster
 
     @Override
     protected void getMove(final int num) {
-        ArrayList<Byte> possibilities = new ArrayList<>();
-        if (!this.lastMove(ATTACK_STATUS)) {
-            possibilities.add(ATTACK_STATUS);
+        if (this.firstMove) {
+            setMoveShortcut(MULTI_ATTACK);
+        } else {
+            ArrayList<Byte> possibilities = new ArrayList<>();
+            if (!this.lastMove(ATTACK_STATUS)) {
+                possibilities.add(ATTACK_STATUS);
+            }
+            if (!this.lastMove(MULTI_ATTACK) && !this.lastMoveBefore(MULTI_ATTACK)) {
+                possibilities.add(MULTI_ATTACK);
+            }
+            if (!this.lastMove(ATTACK_DEBUFF) && !this.lastMoveBefore(ATTACK_DEBUFF)) {
+                possibilities.add(ATTACK_DEBUFF);
+            }
+            if (!this.lastMove(BUFF) && !this.lastMoveBefore(BUFF)) {
+                possibilities.add(BUFF);
+            }
+            setMoveShortcut(possibilities.get(AbstractDungeon.monsterRng.random(possibilities.size() - 1)));
         }
-        if (!this.lastMove(MULTI_ATTACK) && !this.lastMoveBefore(MULTI_ATTACK)) {
-            possibilities.add(MULTI_ATTACK);
-        }
-        if (!this.lastMove(ATTACK_DEBUFF) && !this.lastMoveBefore(ATTACK_DEBUFF)) {
-            possibilities.add(ATTACK_DEBUFF);
-        }
-        if (!this.lastMove(BUFF) && !this.lastMoveBefore(BUFF)) {
-            possibilities.add(BUFF);
-        }
-        setMoveShortcut(possibilities.get(AbstractDungeon.monsterRng.random(possibilities.size() - 1)));
     }
 
     @Override
