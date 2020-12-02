@@ -312,6 +312,10 @@
         "NAME": "Someone Else's Story",
         "DESCRIPTIONS": ["#rDefeat merely takes you back to the event but forfeits the card reward. NL If you #gwin with at least #b", " HP remaining, the card reward is #yUpgraded. NL Your current and Max HP are restored to their original values after this encounter."]
 },
+"Gensokyo:ChargeUp": {
+        "NAME": "Charge Up",
+        "DESCRIPTIONS": ["Whenever you play #b", " cards, gains #b", " #yStrength. NL Loses all #yStrength after attacking."]
+},
 "Gensokyo:TimeDilation": {
         "NAME": "Time Dilation",
         "DESCRIPTIONS": ["The #b1st, #b4th, #b7th, etc. cards played this combat are instead played #b", " turn later. NL The #b2nd, #b5th, #b8th, etc. cards played this combat are instead played #b", " turns later. NL The #b3rd, #b6th, #b9th, etc. cards played this combat are instead played #b", " turns later."]

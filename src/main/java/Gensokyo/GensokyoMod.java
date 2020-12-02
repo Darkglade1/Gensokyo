@@ -163,6 +163,7 @@ import Gensokyo.monsters.act2.NormalEnemies.TanukiDog;
 import Gensokyo.monsters.act2.NormalEnemies.Wraith;
 import Gensokyo.monsters.act2.Reisen;
 import Gensokyo.monsters.act2.Tenshi;
+import Gensokyo.monsters.act3.Marisa;
 import Gensokyo.monsters.act3.Mokou;
 import Gensokyo.monsters.act3.Yuyuko;
 import Gensokyo.monsters.act3.Doremy;
@@ -582,6 +583,8 @@ public class GensokyoMod implements
 
         //Act 3
         BaseMod.addMonster(Doremy.ID, (BaseMod.GetMonster) Doremy::new);
+        BaseMod.addMonster(Marisa.ID, (BaseMod.GetMonster) Marisa::new);
+
         BaseMod.addMonster(EncounterIDs.SCARLET_DEVILS, "Scarlet Devils", () -> new MonsterGroup(
                 new AbstractMonster[] {
                         new Remilia(-480.0F, 0.0F),

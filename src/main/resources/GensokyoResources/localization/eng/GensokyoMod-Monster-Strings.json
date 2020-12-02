@@ -568,6 +568,18 @@
       "Go ahead and try."
     ]
   },
+  "Gensokyo:Marisa": {
+    "MOVES": [
+      "Master Spark",
+      "Starlight Starbright",
+      "Witching Blast",
+      "Earthlight Ray"
+    ],
+    "NAME": "Ordinary Magician",
+    "DIALOG": [
+      "Reimu couldn't handle you, huh? Guess it's my turn then!"
+    ]
+  },
   "Gensokyo:Nitori": {
     "MOVES": [
 
