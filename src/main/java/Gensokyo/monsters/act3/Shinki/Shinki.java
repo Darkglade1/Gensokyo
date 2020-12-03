@@ -3,34 +3,26 @@ package Gensokyo.monsters.act3.Shinki;
 import Gensokyo.BetterSpriterAnimation;
 import Gensokyo.GensokyoMod;
 import Gensokyo.actions.ShinkiEventAction;
+import Gensokyo.actions.UsePreBattleActionAction;
 import Gensokyo.monsters.AbstractSpriterMonster;
-import Gensokyo.powers.act1.VigorPower;
-import Gensokyo.powers.act3.ChargeUp;
 import Gensokyo.powers.act3.UnstableReality;
 import basemod.ReflectionHacks;
-import basemod.abstracts.CustomMonster;
-import com.brashmonkey.spriter.Animation;
-import com.brashmonkey.spriter.Player;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.animations.TalkAction;
-import com.megacrit.cardcrawl.actions.animations.VFXAction;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.actions.common.DamageAction;
 import com.megacrit.cardcrawl.actions.common.EscapeAction;
-import com.megacrit.cardcrawl.actions.common.MakeTempCardInDiscardAction;
 import com.megacrit.cardcrawl.actions.common.RollMoveAction;
 import com.megacrit.cardcrawl.actions.common.SpawnMonsterAction;
 import com.megacrit.cardcrawl.cards.DamageInfo;
-import com.megacrit.cardcrawl.cards.status.Burn;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.core.Settings;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
+import com.megacrit.cardcrawl.events.AbstractEvent;
 import com.megacrit.cardcrawl.events.GenericEventDialog;
 import com.megacrit.cardcrawl.localization.MonsterStrings;
 import com.megacrit.cardcrawl.monsters.EnemyMoveInfo;
-import com.megacrit.cardcrawl.powers.FrailPower;
 import com.megacrit.cardcrawl.screens.DeathScreen;
-import com.megacrit.cardcrawl.vfx.combat.LaserBeamEffect;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -55,7 +47,7 @@ public class Shinki extends AbstractSpriterMonster
 
     public GenericEventDialog imageEventText;
     public AbstractShinkiDelusion currentDelusion;
-    private ArrayList<AbstractShinkiDelusion> delusionList;
+    private ArrayList<AbstractShinkiDelusion> delusionList = new ArrayList<>();
     public int delusionsDefeated = 0;
     public AbstractShinkiEvent currentEvent;
 
@@ -75,19 +67,25 @@ public class Shinki extends AbstractSpriterMonster
         this.type = EnemyType.BOSS;
         this.dialogX = (this.hb_x - 70.0F) * Settings.scale;
         this.dialogY -= (this.hb_y - 55.0F) * Settings.scale;
-        delusionList.add(new Alice(-480.0f, 0.0f, this));
         this.moves = new HashMap<>();
         this.moves.put(UNKNOWN, new EnemyMoveInfo(UNKNOWN, Intent.UNKNOWN, DAMAGE, 0, false));
+
+        AbstractEvent.type = AbstractEvent.EventType.IMAGE;
+        this.imageEventText = new GenericEventDialog();
+        this.imageEventText.hide();
+        this.imageEventText.clear();
     }
 
     @Override
     public void usePreBattleAction() {
         //AbstractDungeon.getCurrRoom().playBgmInstantly("Wind God Girl");
+        delusionList.add(new Alice(-480.0f, 0.0f, this));
         AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(this, this, new UnstableReality(this)));
     }
 
     @Override
     public void takeTurn() {
+        AbstractEvent.type = AbstractEvent.EventType.IMAGE;
         if (this.firstMove) {
             AbstractDungeon.actionManager.addToBottom(new TalkAction(this, DIALOG[0]));
             firstMove = false;
@@ -104,6 +102,7 @@ public class Shinki extends AbstractSpriterMonster
                 } else if (currentDelusion == null) {
                     currentDelusion = delusionList.remove(0);
                     AbstractDungeon.actionManager.addToBottom(new SpawnMonsterAction(currentDelusion, false));
+                    AbstractDungeon.actionManager.addToBottom(new UsePreBattleActionAction(currentDelusion));
                     runEvent(currentDelusion.event1);
                 } else if (currentDelusion.currentHealth <= (int)(currentDelusion.maxHealth * THRESHOLD1)) {
                     runEvent(currentDelusion.event2);

@@ -591,7 +591,10 @@
   },
   "Gensokyo:Alice": {
     "MOVES": [
-      null
+      "Artful Sacrifice",
+      "Devilry Light Ray",
+      "Spectrum Mystery",
+      "Little Legion"
     ],
     "NAME": "The One Who Left",
     "DIALOG": [

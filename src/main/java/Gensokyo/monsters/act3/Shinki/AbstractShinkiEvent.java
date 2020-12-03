@@ -8,12 +8,10 @@ public abstract class AbstractShinkiEvent {
     public String title;
     public String bodyText;
     public String image;
-    ArrayList<String> options;
+    ArrayList<String> options = new ArrayList<>();
 
-    public AbstractShinkiEvent(String title, String bodyText, ArrayList<String> options) {
-        this.title = title;
-        this.bodyText = bodyText;
-        this.options = options;
+    public AbstractShinkiEvent() {
+
     }
 
     public abstract void buttonEffect(int buttonPressed);

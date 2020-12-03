@@ -4,8 +4,8 @@ import Gensokyo.BetterSpriterAnimation;
 import Gensokyo.CustomIntents.IntentEnums;
 import Gensokyo.GensokyoMod;
 import Gensokyo.powers.act1.VigorPower;
-import Gensokyo.powers.act3.ChargeUp;
 import Gensokyo.powers.act3.DollJudgement;
+import com.badlogic.gdx.graphics.Color;
 import com.brashmonkey.spriter.Animation;
 import com.brashmonkey.spriter.Player;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
@@ -13,17 +13,19 @@ import com.megacrit.cardcrawl.actions.animations.TalkAction;
 import com.megacrit.cardcrawl.actions.animations.VFXAction;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.actions.common.DamageAction;
-import com.megacrit.cardcrawl.actions.common.MakeTempCardInDiscardAction;
 import com.megacrit.cardcrawl.actions.common.RollMoveAction;
+import com.megacrit.cardcrawl.actions.common.SpawnMonsterAction;
+import com.megacrit.cardcrawl.actions.utility.SFXAction;
 import com.megacrit.cardcrawl.cards.DamageInfo;
-import com.megacrit.cardcrawl.cards.status.Burn;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.core.Settings;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.localization.MonsterStrings;
 import com.megacrit.cardcrawl.monsters.EnemyMoveInfo;
-import com.megacrit.cardcrawl.powers.FrailPower;
-import com.megacrit.cardcrawl.vfx.combat.LaserBeamEffect;
+import com.megacrit.cardcrawl.powers.ExplosivePower;
+import com.megacrit.cardcrawl.vfx.BorderFlashEffect;
+import com.megacrit.cardcrawl.vfx.combat.LightningEffect;
+import com.megacrit.cardcrawl.vfx.combat.SmallLaserEffect;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -56,6 +58,8 @@ public class Alice extends AbstractShinkiDelusion
 
     private static final int STRENGTH = 1;
 
+    public static final int DOLLS_EXPLODE_TIMER = 3;
+
     private static final int HP = 200;
     private static final int A9_HP = 220;
 
@@ -69,6 +73,9 @@ public class Alice extends AbstractShinkiDelusion
         this.dialogX = (this.hb_x - 70.0F) * Settings.scale;
         this.dialogY -= (this.hb_y - 55.0F) * Settings.scale;
         this.shinki = shinki;
+        this.event1 = new AliceEvent1();
+        this.event2 = new AliceEvent1();
+        this.event3 = new AliceEvent1();
         if (AbstractDungeon.ascensionLevel >= 9) {
             setHp(A9_HP);
         } else {
@@ -110,13 +117,34 @@ public class Alice extends AbstractShinkiDelusion
         }
         switch (this.nextMove) {
             case ATTACK: {
-                AbstractDungeon.actionManager.addToBottom(new VFXAction(new LaserBeamEffect(this.hb.cX, this.hb.cY + 60.0F * Settings.scale), 1.5F));
-                AbstractDungeon.actionManager.addToBottom(new DamageAction(AbstractDungeon.player, info, AbstractGameAction.AttackEffect.NONE));
+                DamageInfo playerInfo = new DamageInfo(this, moves.get(this.nextMove).baseDamage, DamageInfo.DamageType.NORMAL);
+                playerInfo.applyPowers(this, AbstractDungeon.player);
+                AbstractDungeon.actionManager.addToBottom(new VFXAction(new LightningEffect(AbstractDungeon.player.drawX, AbstractDungeon.player.drawY)));
+                AbstractDungeon.actionManager.addToBottom(new SFXAction("ORB_LIGHTNING_EVOKE", 0.1F));
+                AbstractDungeon.actionManager.addToBottom(new DamageAction(AbstractDungeon.player, playerInfo, AbstractGameAction.AttackEffect.NONE));
+
+                DamageInfo monsterInfo = new DamageInfo(this, moves.get(this.nextMove).baseDamage, DamageInfo.DamageType.NORMAL);
+                monsterInfo.applyPowers(this, shinki);
+                AbstractDungeon.actionManager.addToBottom(new VFXAction(new LightningEffect(shinki.drawX, shinki.drawY)));
+                AbstractDungeon.actionManager.addToBottom(new SFXAction("ORB_LIGHTNING_EVOKE", 0.1F));
+                AbstractDungeon.actionManager.addToBottom(new DamageAction(shinki, monsterInfo, AbstractGameAction.AttackEffect.NONE));
                 break;
             }
             case MULTI_ATTACK: {
                 for (int i = 0; i < MULTI_ATTACK_HITS; i++) {
-                    AbstractDungeon.actionManager.addToBottom(new DamageAction(AbstractDungeon.player, info, AbstractGameAction.AttackEffect.FIRE));
+                    DamageInfo playerInfo = new DamageInfo(this, moves.get(this.nextMove).baseDamage, DamageInfo.DamageType.NORMAL);
+                    playerInfo.applyPowers(this, AbstractDungeon.player);
+                    AbstractDungeon.actionManager.addToBottom(new SFXAction("ATTACK_MAGIC_BEAM_SHORT", 0.5F));
+                    AbstractDungeon.actionManager.addToBottom(new VFXAction(new BorderFlashEffect(Color.SKY)));
+                    AbstractDungeon.actionManager.addToBottom(new VFXAction(new SmallLaserEffect(AbstractDungeon.player.hb.cX, AbstractDungeon.player.hb.cY, this.hb.cX, this.hb.cY), 0.1F));
+                    AbstractDungeon.actionManager.addToBottom(new DamageAction(AbstractDungeon.player, playerInfo, AbstractGameAction.AttackEffect.NONE));
+
+                    DamageInfo monsterInfo = new DamageInfo(this, moves.get(this.nextMove).baseDamage, DamageInfo.DamageType.NORMAL);
+                    monsterInfo.applyPowers(this, shinki);
+                    AbstractDungeon.actionManager.addToBottom(new SFXAction("ATTACK_MAGIC_BEAM_SHORT", 0.5F));
+                    AbstractDungeon.actionManager.addToBottom(new VFXAction(new BorderFlashEffect(Color.SKY)));
+                    AbstractDungeon.actionManager.addToBottom(new VFXAction(new SmallLaserEffect(shinki.hb.cX, shinki.hb.cY, this.hb.cX, this.hb.cY), 0.1F));
+                    AbstractDungeon.actionManager.addToBottom(new DamageAction(shinki, monsterInfo, AbstractGameAction.AttackEffect.NONE));
                 }
                 break;
             }
@@ -124,8 +152,24 @@ public class Alice extends AbstractShinkiDelusion
                 addToBot(new ApplyPowerAction(this, this, new VigorPower(this, BUFF_AMT, true), BUFF_AMT));
                 break;
             }
+            case SUMMON: {
+                Summon();
+                break;
+            }
         }
         AbstractDungeon.actionManager.addToBottom(new RollMoveAction(this));
+    }
+
+    private void Summon() {
+        Doll minion1 = new Doll(-500.0F, 0.0F, this);
+        dolls.add(minion1);
+        AbstractDungeon.actionManager.addToBottom(new SpawnMonsterAction(minion1, true));
+        AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(minion1, this, new ExplosivePower(minion1, DOLLS_EXPLODE_TIMER)));
+
+        Doll minion2 = new Doll(-300.0F, 0.0F, this);
+        dolls.add(minion2);
+        AbstractDungeon.actionManager.addToBottom(new SpawnMonsterAction(minion2, true));
+        AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(minion2, this, new ExplosivePower(minion2, DOLLS_EXPLODE_TIMER)));
     }
 
     public void setMoveShortcut(byte next) {
@@ -135,14 +179,14 @@ public class Alice extends AbstractShinkiDelusion
 
     @Override
     protected void getMove(final int num) {
-        if (this.firstMove) {
-            setMoveShortcut(MULTI_ATTACK);
+        if (dolls.size() == 0) {
+            setMoveShortcut(SUMMON);
         } else {
             ArrayList<Byte> possibilities = new ArrayList<>();
             if (!this.lastMove(ATTACK)) {
                 possibilities.add(ATTACK);
             }
-            if (!this.lastMove(MULTI_ATTACK) && !this.lastMoveBefore(MULTI_ATTACK)) {
+            if (!this.lastMove(MULTI_ATTACK)) {
                 possibilities.add(MULTI_ATTACK);
             }
             if (!this.lastMove(BUFF) && !this.lastMoveBefore(BUFF)) {

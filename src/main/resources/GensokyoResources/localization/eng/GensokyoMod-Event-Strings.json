@@ -793,6 +793,16 @@
       "[Leave]"
     ]
   },
+  "Gensokyo:AliceEvent1": {
+    "NAME": "A Demon Lord's Daughter",
+    "DESCRIPTIONS": [
+      "You were the god of this world. But even a god could become #plonely. To your creations, you were a figure on a pedestal, an untouchable being forever out of their reach. NL NL Perhaps that was why when a small, human girl fell into your realm, a frail little thing that could've been a snack for any passing demon, you intervened. \"This girl is my daughter,\" you told your loyal subjects. \"You would do well to treat her as such.\" NL NL And as you made such a proclamation, you remembered how the girl -"
+    ],
+    "OPTIONS": [
+      "[Gazed at you in wonder] #gDraw ", " #gextra #gcard #gat #gthe #gstart #gof #gyour #gturn.",
+      "[Smiled at you in joy] #gEvery ", " #gturns, #ggain ", " #gEnergy."
+    ]
+  },
   "Gensokyo:MarisaAnOldGhost": {
     "NAME": "An Old Ghost",
     "DESCRIPTIONS": [
