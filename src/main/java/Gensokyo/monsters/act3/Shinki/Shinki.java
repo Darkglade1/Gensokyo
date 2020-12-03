@@ -64,7 +64,7 @@ public class Shinki extends AbstractSpriterMonster
 
     public Shinki(final float x, final float y) {
         super(NAME, ID, HP, -5.0F, 0, 230.0f, 225.0f, null, x, y);
-        this.animation = new BetterSpriterAnimation("GensokyoResources/images/monsters/Marisa/Spriter/MarisaAnimation.scml");
+        this.animation = new BetterSpriterAnimation("GensokyoResources/images/monsters/Shinki/Spriter/ShinkiAnimation.scml");
         this.type = EnemyType.BOSS;
         this.dialogX = (this.hb_x - 70.0F) * Settings.scale;
         this.dialogY -= (this.hb_y - 55.0F) * Settings.scale;

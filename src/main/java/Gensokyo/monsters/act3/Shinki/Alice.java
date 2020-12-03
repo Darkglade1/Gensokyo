@@ -103,6 +103,7 @@ public class Alice extends AbstractShinkiDelusion
     @Override
     public void usePreBattleAction() {
         AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(this, this, new DollJudgement(this, STRENGTH)));
+        Summon();
     }
 
     @Override
@@ -161,12 +162,12 @@ public class Alice extends AbstractShinkiDelusion
     }
 
     private void Summon() {
-        Doll minion1 = new Doll(-500.0F, 0.0F, this);
+        Doll minion1 = new Doll(-720.0F, 0.0F, this);
         dolls.add(minion1);
         AbstractDungeon.actionManager.addToBottom(new SpawnMonsterAction(minion1, true));
         AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(minion1, this, new ExplosivePower(minion1, DOLLS_EXPLODE_TIMER)));
 
-        Doll minion2 = new Doll(-300.0F, 0.0F, this);
+        Doll minion2 = new Doll(-240.0F, 0.0F, this);
         dolls.add(minion2);
         AbstractDungeon.actionManager.addToBottom(new SpawnMonsterAction(minion2, true));
         AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(minion2, this, new ExplosivePower(minion2, DOLLS_EXPLODE_TIMER)));
