@@ -55,6 +55,8 @@ public class Shinki extends AbstractSpriterMonster
     private static final int NUM_DELUSIONS_TO_FIGHT = 2;
     private static final float THRESHOLD1 = 0.70f;
     private static final float THRESHOLD2 = 0.40f;
+    private boolean threshold1Triggered = false;
+    private boolean threshold2Triggered = false;
 
     private Map<Byte, EnemyMoveInfo> moves;
 
@@ -63,13 +65,13 @@ public class Shinki extends AbstractSpriterMonster
     }
 
     public Shinki(final float x, final float y) {
-        super(NAME, ID, HP, -5.0F, 0, 230.0f, 225.0f, null, x, y);
+        super(NAME, ID, HP, -5.0F, 0, 230.0f, 255.0f, null, x, y);
         this.animation = new BetterSpriterAnimation("GensokyoResources/images/monsters/Shinki/Spriter/ShinkiAnimation.scml");
         this.type = EnemyType.BOSS;
         this.dialogX = (this.hb_x - 70.0F) * Settings.scale;
         this.dialogY -= (this.hb_y - 55.0F) * Settings.scale;
         this.moves = new HashMap<>();
-        this.moves.put(UNKNOWN, new EnemyMoveInfo(UNKNOWN, Intent.UNKNOWN, DAMAGE, 0, false));
+        this.moves.put(UNKNOWN, new EnemyMoveInfo(UNKNOWN, Intent.MAGIC, DAMAGE, 0, false));
 
         AbstractEvent.type = AbstractEvent.EventType.IMAGE;
         this.imageEventText = new GenericEventDialog();
@@ -105,10 +107,14 @@ public class Shinki extends AbstractSpriterMonster
                     AbstractDungeon.actionManager.addToBottom(new SpawnMonsterAction(currentDelusion, false));
                     AbstractDungeon.actionManager.addToBottom(new UsePreBattleActionAction(currentDelusion));
                     runEvent(currentDelusion.event1);
-                } else if (currentDelusion.currentHealth <= (int)(currentDelusion.maxHealth * THRESHOLD1)) {
+                    threshold1Triggered = false;
+                    threshold2Triggered = false;
+                } else if (currentDelusion.currentHealth <= (int)(currentDelusion.maxHealth * THRESHOLD1) && !threshold1Triggered) {
                     runEvent(currentDelusion.event2);
-                } else if (currentDelusion.currentHealth <= (int)(currentDelusion.maxHealth * THRESHOLD2)) {
+                    threshold1Triggered = true;
+                } else if (currentDelusion.currentHealth <= (int)(currentDelusion.maxHealth * THRESHOLD2) && !threshold2Triggered) {
                     runEvent(currentDelusion.event3);
+                    threshold2Triggered = true;
                 } else {
                     AbstractDungeon.actionManager.addToBottom(new DamageAction(currentDelusion, info, AbstractGameAction.AttackEffect.FIRE));
                 }
@@ -119,6 +125,7 @@ public class Shinki extends AbstractSpriterMonster
     }
 
     private void runEvent(AbstractShinkiEvent event) {
+        this.imageEventText.clearAllDialogs();
         this.currentEvent = event;
         ReflectionHacks.setPrivate(this.imageEventText, GenericEventDialog.class, "title", event.title);
         this.imageEventText.loadImage(event.image);

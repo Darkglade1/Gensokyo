@@ -73,9 +73,9 @@ public class Alice extends AbstractShinkiDelusion
         this.dialogX = (this.hb_x - 70.0F) * Settings.scale;
         this.dialogY -= (this.hb_y - 55.0F) * Settings.scale;
         this.shinki = shinki;
-        this.event1 = new AliceEvent1();
-        this.event2 = new AliceEvent1();
-        this.event3 = new AliceEvent1();
+        this.event1 = new AliceEvent1(shinki);
+        this.event2 = new AliceEvent2(shinki);
+        this.event3 = new AliceEvent3(shinki);
         if (AbstractDungeon.ascensionLevel >= 9) {
             setHp(A9_HP);
         } else {
@@ -180,7 +180,7 @@ public class Alice extends AbstractShinkiDelusion
 
     @Override
     protected void getMove(final int num) {
-        if (dolls.size() == 0) {
+        if (dolls.size() == 0 && !firstMove) {
             setMoveShortcut(SUMMON);
         } else {
             ArrayList<Byte> possibilities = new ArrayList<>();

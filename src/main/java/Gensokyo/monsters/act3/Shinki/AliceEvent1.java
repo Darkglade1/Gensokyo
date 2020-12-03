@@ -18,16 +18,17 @@ public class AliceEvent1 extends AbstractShinkiEvent{
     private static final String NAME = eventStrings.NAME;
     private static final String[] DESCRIPTIONS = eventStrings.DESCRIPTIONS;
     private static final String[] OPTIONS = eventStrings.OPTIONS;
-    public static final String IMG = makeEventPath("Graveyard.png");
+    public static final String IMG = makeEventPath("Alice1.png");
 
     private static final int DRAW = 1;
     private static final int ENERGY_TURN = 3;
     private static final int ENERGY_AMT = 2;
 
-    public AliceEvent1() {
+    public AliceEvent1(Shinki shinki) {
         this.title = NAME;
         this.bodyText = DESCRIPTIONS[0];
         this.image = IMG;
+        this.shinki = shinki;
         String option1 = OPTIONS[0] + DRAW + OPTIONS[1];
         String option2 = OPTIONS[2] + ENERGY_TURN + OPTIONS[3] + ENERGY_AMT + OPTIONS[4];
         this.options.add(option1);

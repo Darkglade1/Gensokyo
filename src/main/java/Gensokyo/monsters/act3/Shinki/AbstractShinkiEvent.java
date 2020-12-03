@@ -8,6 +8,7 @@ public abstract class AbstractShinkiEvent {
     public String title;
     public String bodyText;
     public String image;
+    public Shinki shinki;
     ArrayList<String> options = new ArrayList<>();
 
     public AbstractShinkiEvent() {

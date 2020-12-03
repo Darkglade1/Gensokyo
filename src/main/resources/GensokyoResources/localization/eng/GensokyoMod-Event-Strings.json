@@ -803,6 +803,26 @@
       "[Smiled at you in joy] #gEvery #g", " #gturns, #ggain #g", " #gEnergy."
     ]
   },
+  "Gensokyo:AliceEvent2": {
+    "NAME": "Daughter of Evil",
+    "DESCRIPTIONS": [
+      "But although you were a #gcapable god, you were a #rterrible parent. You didn't understand why she wanted so much attention from you. You didn't understand why she looked so #phorrified when you #rexecuted a #rtreacherous #pdemon. You didn't understand why she started to avoid you, why she started to shrink away from your touch. NL NL And when she walked into your office exactly one year later and asked if you remembered what day it was, you answered promptly: \"Of course,\" you said. \"It's Tuesday.\" NL NL But that must not have been the answer she expected, for she -"
+    ],
+    "OPTIONS": [
+      "[Flew into a rage] #rThe #renemy #rgains #r", " #rStrength.",
+      "[Spun on her heel and ran away] #rThe #renemy #rgains #r", " #rMetallicize."
+    ]
+  },
+  "Gensokyo:AliceEvent3": {
+    "NAME": "The One Who Left",
+    "DESCRIPTIONS": [
+      "The encounter with that shrine maiden had left your world in #rruins and your daughter missing. But no matter what nook you peered into, no matter what cranny you searched, she was nowhere to be found. Finally, in the #rruins of the room that was once hers, you find a letter. It contained only a single word: \"Goodbye.\" NL NL It shouldn't have mattered to you. You had only taken the girl in on a mere #pwhim. So why did it #phurt so much? NL NL And so you broke down there, @crying@ amidst the #rshattered remains of your #ydreams."
+    ],
+    "OPTIONS": [
+      "[It's your fault] #rYour #rally #rloses #r", " #rHP.",
+      "[It's her fault] #rThe #renemy #rheals #r", " #rHP."
+    ]
+  },
   "Gensokyo:MarisaAnOldGhost": {
     "NAME": "An Old Ghost",
     "DESCRIPTIONS": [
