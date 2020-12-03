@@ -316,6 +316,14 @@
         "NAME": "Charge Up",
         "DESCRIPTIONS": ["Whenever you play #b", " cards, gains #b", " #yStrength. NL Loses all #yStrength after attacking."]
 },
+"Gensokyo:UnstableReality": {
+        "NAME": "Unstable Reality",
+        "DESCRIPTIONS": ["This creature is your #gally. If your #gally #rdies, you #rlose."]
+},
+"Gensokyo:DollJudgement": {
+        "NAME": "Doll Judgement",
+        "DESCRIPTIONS": ["Whenever a #yDoll dies, gains #b", " #yStrength."]
+},
 "Gensokyo:TimeDilation": {
         "NAME": "Time Dilation",
         "DESCRIPTIONS": ["The #b1st, #b4th, #b7th, etc. cards played this combat are instead played #b", " turn later. NL The #b2nd, #b5th, #b8th, etc. cards played this combat are instead played #b", " turns later. NL The #b3rd, #b6th, #b9th, etc. cards played this combat are instead played #b", " turns later."]

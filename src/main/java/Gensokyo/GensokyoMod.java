@@ -165,6 +165,7 @@ import Gensokyo.monsters.act2.Reisen;
 import Gensokyo.monsters.act2.Tenshi;
 import Gensokyo.monsters.act3.Marisa;
 import Gensokyo.monsters.act3.Mokou;
+import Gensokyo.monsters.act3.Shinki.Shinki;
 import Gensokyo.monsters.act3.Yuyuko;
 import Gensokyo.monsters.act3.Doremy;
 import Gensokyo.monsters.act3.Flandre;
@@ -594,6 +595,7 @@ public class GensokyoMod implements
         CustomIntent.add(new DeathIntent());
         CustomIntent.add(new CurseAttackIntent());
         BaseMod.addMonster(Mokou.ID, (BaseMod.GetMonster) Mokou::new);
+        BaseMod.addMonster(Shinki.ID, (BaseMod.GetMonster) Shinki::new);
         BaseMod.addBoss(Gensokyoest.ID, EncounterIDs.SCARLET_DEVILS, "GensokyoResources/images/monsters/Flandre/Sisters.png", "GensokyoResources/images/monsters/Flandre/SistersOutline.png");
         BaseMod.addBoss(Gensokyoest.ID, Yuyuko.ID, "GensokyoResources/images/monsters/Yuyuko/Yuyuko.png", "GensokyoResources/images/monsters/Yuyuko/YuyukoOutline.png");
 

@@ -1,10 +1,11 @@
-package Gensokyo.monsters.act3;
+package Gensokyo.monsters.act3.Shinki;
 
 import Gensokyo.BetterSpriterAnimation;
+import Gensokyo.CustomIntents.IntentEnums;
 import Gensokyo.GensokyoMod;
 import Gensokyo.powers.act1.VigorPower;
 import Gensokyo.powers.act3.ChargeUp;
-import basemod.abstracts.CustomMonster;
+import Gensokyo.powers.act3.DollJudgement;
 import com.brashmonkey.spriter.Animation;
 import com.brashmonkey.spriter.Player;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
@@ -28,98 +29,73 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 
-public class Marisa extends CustomMonster
+public class Alice extends AbstractShinkiDelusion
 {
-    public static final String ID = GensokyoMod.makeID("Marisa");
+    public static final String ID = GensokyoMod.makeID("Alice");
     private static final MonsterStrings monsterStrings = CardCrawlGame.languagePack.getMonsterStrings(ID);
     public static final String NAME = monsterStrings.NAME;
     public static final String[] MOVES = monsterStrings.MOVES;
     public static final String[] DIALOG = monsterStrings.DIALOG;
 
     private boolean firstMove = true;
-    private static final byte ATTACK_STATUS = 0;
+    private static final byte ATTACK = 0;
     private static final byte MULTI_ATTACK = 1;
-    private static final byte ATTACK_DEBUFF = 2;
-    private static final byte BUFF = 3;
+    private static final byte BUFF = 2;
+    private static final byte SUMMON = 3;
 
-    private static final int ATTACK_STATUS_DMG = 25;
-    private static final int A3_ATTACK_STATUS_DMG = 27;
-    private int attackStatusDmg;
+    private static final int ATTACK_DMG = 22;
+    private static final int A4_ATTACK_DMG = 24;
+    private int attackDmg;
 
-    private static final int STATUS_AMT = 1;
-    private static final int A18_STATUS_AMT = 2;
-    private int statusAmt;
-
-    private static final int MULTI_ATTACK_DMG = 3;
-    private static final int A3_MULTI_ATTACK_DMG = 3;
-    private static final int MULTI_ATTACK_HITS = 6;
+    private static final int MULTI_ATTACK_DMG = 8;
+    private static final int A4_MULTI_ATTACK_DMG = 9;
+    private static final int MULTI_ATTACK_HITS = 2;
     private int multiAttackDmg;
 
-    private static final int ATTACK_DEBUFF_DMG = 9;
-    private static final int A3_ATTACK_DEBUFF_DMG = 10;
-    private static final int ATTACK_DEBUFF_HITS = 2;
-    private int attackDebuffDmg;
-
-    private static final int DEBUFF_AMT = 2;
-    
     private static final int BUFF_AMT = 2;
 
-    private static final int STRENGTH = 5;
-    private static final int A18_STRENGTH = 7;
-    private int strength;
+    private static final int STRENGTH = 1;
 
-    private static final int HP = 250;
-    private static final int A8_HP = 265;
+    private static final int HP = 200;
+    private static final int A9_HP = 220;
 
+    public ArrayList<Doll> dolls = new ArrayList<>();
     private Map<Byte, EnemyMoveInfo> moves;
 
-    public Marisa() {
-        this(0.0f, 0.0f);
-    }
-
-    public Marisa(final float x, final float y) {
+    public Alice(final float x, final float y, Shinki shinki) {
         super(NAME, ID, HP, -5.0F, 0, 230.0f, 225.0f, null, x, y);
         this.animation = new BetterSpriterAnimation("GensokyoResources/images/monsters/Marisa/Spriter/MarisaAnimation.scml");
-        this.type = EnemyType.ELITE;
+        this.type = EnemyType.BOSS;
         this.dialogX = (this.hb_x - 70.0F) * Settings.scale;
         this.dialogY -= (this.hb_y - 55.0F) * Settings.scale;
-        if (AbstractDungeon.ascensionLevel >= 18) {
-            this.strength = A18_STRENGTH;
-            this.statusAmt = A18_STATUS_AMT;
-        } else {
-            this.strength = STRENGTH;
-            this.statusAmt = STATUS_AMT;
-        }
-        if (AbstractDungeon.ascensionLevel >= 8) {
-            setHp(A8_HP);
+        this.shinki = shinki;
+        if (AbstractDungeon.ascensionLevel >= 9) {
+            setHp(A9_HP);
         } else {
             setHp(HP);
         }
 
-        if (AbstractDungeon.ascensionLevel >= 3) {
-            attackStatusDmg = A3_ATTACK_STATUS_DMG;
-            multiAttackDmg = A3_MULTI_ATTACK_DMG;
-            attackDebuffDmg = A3_ATTACK_DEBUFF_DMG;
+        if (AbstractDungeon.ascensionLevel >= 4) {
+            attackDmg = A4_ATTACK_DMG;
+            multiAttackDmg = A4_MULTI_ATTACK_DMG;
         } else {
-            attackStatusDmg = ATTACK_STATUS_DMG;
+            attackDmg = ATTACK_DMG;
             multiAttackDmg = MULTI_ATTACK_DMG;
-            attackDebuffDmg = ATTACK_DEBUFF_DMG;
         }
 
         this.moves = new HashMap<>();
-        this.moves.put(ATTACK_STATUS, new EnemyMoveInfo(ATTACK_STATUS, Intent.ATTACK_DEBUFF, attackStatusDmg, 0, false));
-        this.moves.put(MULTI_ATTACK, new EnemyMoveInfo(MULTI_ATTACK, Intent.ATTACK, multiAttackDmg, MULTI_ATTACK_HITS, true));
-        this.moves.put(ATTACK_DEBUFF, new EnemyMoveInfo(ATTACK_DEBUFF, Intent.ATTACK_DEBUFF, attackDebuffDmg, ATTACK_DEBUFF_HITS, true));
+        this.moves.put(ATTACK, new EnemyMoveInfo(ATTACK, IntentEnums.ATTACK_AREA, attackDmg, 0, false));
+        this.moves.put(MULTI_ATTACK, new EnemyMoveInfo(MULTI_ATTACK, IntentEnums.ATTACK_AREA, multiAttackDmg, MULTI_ATTACK_HITS, true));
         this.moves.put(BUFF, new EnemyMoveInfo(BUFF, Intent.BUFF, -1, 0, false));
+        this.moves.put(SUMMON, new EnemyMoveInfo(SUMMON, Intent.UNKNOWN, -1, 0, false));
 
-        Player.PlayerListener listener = new MarisaListener(this);
+        Player.PlayerListener listener = new AliceListener(this);
         ((BetterSpriterAnimation)this.animation).myPlayer.addListener(listener);
     }
 
     @Override
     public void usePreBattleAction() {
-        //AbstractDungeon.getCurrRoom().playBgmInstantly("Wind God Girl");
-        AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(this, this, new ChargeUp(this, strength)));
+        AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(this, this, new DollJudgement(this, STRENGTH)));
     }
 
     @Override
@@ -133,23 +109,15 @@ public class Marisa extends CustomMonster
             info.applyPowers(this, AbstractDungeon.player);
         }
         switch (this.nextMove) {
-            case ATTACK_STATUS: {
+            case ATTACK: {
                 AbstractDungeon.actionManager.addToBottom(new VFXAction(new LaserBeamEffect(this.hb.cX, this.hb.cY + 60.0F * Settings.scale), 1.5F));
                 AbstractDungeon.actionManager.addToBottom(new DamageAction(AbstractDungeon.player, info, AbstractGameAction.AttackEffect.NONE));
-                AbstractDungeon.actionManager.addToBottom(new MakeTempCardInDiscardAction(new Burn(), statusAmt));
                 break;
             }
             case MULTI_ATTACK: {
                 for (int i = 0; i < MULTI_ATTACK_HITS; i++) {
                     AbstractDungeon.actionManager.addToBottom(new DamageAction(AbstractDungeon.player, info, AbstractGameAction.AttackEffect.FIRE));
                 }
-                break;
-            }
-            case ATTACK_DEBUFF: {
-                for (int i = 0; i < ATTACK_DEBUFF_HITS; i++) {
-                    AbstractDungeon.actionManager.addToBottom(new DamageAction(AbstractDungeon.player, info, AbstractGameAction.AttackEffect.POISON));
-                }
-                AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(AbstractDungeon.player, this, new FrailPower(AbstractDungeon.player, DEBUFF_AMT, true), DEBUFF_AMT));
                 break;
             }
             case BUFF: {
@@ -171,14 +139,11 @@ public class Marisa extends CustomMonster
             setMoveShortcut(MULTI_ATTACK);
         } else {
             ArrayList<Byte> possibilities = new ArrayList<>();
-            if (!this.lastMove(ATTACK_STATUS)) {
-                possibilities.add(ATTACK_STATUS);
+            if (!this.lastMove(ATTACK)) {
+                possibilities.add(ATTACK);
             }
             if (!this.lastMove(MULTI_ATTACK) && !this.lastMoveBefore(MULTI_ATTACK)) {
                 possibilities.add(MULTI_ATTACK);
-            }
-            if (!this.lastMove(ATTACK_DEBUFF) && !this.lastMoveBefore(ATTACK_DEBUFF)) {
-                possibilities.add(ATTACK_DEBUFF);
             }
             if (!this.lastMove(BUFF) && !this.lastMoveBefore(BUFF)) {
                 possibilities.add(BUFF);
@@ -189,7 +154,6 @@ public class Marisa extends CustomMonster
 
     @Override
     public void die(boolean triggerRelics) {
-        //runAnim("Defeat");
         ((BetterSpriterAnimation)this.animation).startDying();
         super.die(triggerRelics);
     }
@@ -211,11 +175,11 @@ public class Marisa extends CustomMonster
         ((BetterSpriterAnimation)this.animation).myPlayer.speed = 0;
     }
 
-    public class MarisaListener implements Player.PlayerListener {
+    public class AliceListener implements Player.PlayerListener {
 
-        private Marisa character;
+        private Alice character;
 
-        public MarisaListener(Marisa character) {
+        public AliceListener(Alice character) {
             this.character = character;
         }
 

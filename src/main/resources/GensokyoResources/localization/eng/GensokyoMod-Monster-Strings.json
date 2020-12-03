@@ -580,6 +580,33 @@
       "Reimu couldn't handle you, huh? Guess it's my turn then!"
     ]
   },
+  "Gensokyo:Shinki": {
+    "MOVES": [
+      null
+    ],
+    "NAME": "Lonely God",
+    "DIALOG": [
+      "This destruction . . . is all my fault."
+    ]
+  },
+  "Gensokyo:Alice": {
+    "MOVES": [
+      null
+    ],
+    "NAME": "The One Who Left",
+    "DIALOG": [
+      "You were a terrible parent."
+    ]
+  },
+  "Gensokyo:Doll": {
+    "MOVES": [
+      null
+    ],
+    "NAME": "Exploding Doll",
+    "DIALOG": [
+
+    ]
+  },
   "Gensokyo:Nitori": {
     "MOVES": [
 
