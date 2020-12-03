@@ -224,6 +224,13 @@ public class Remilia extends CustomMonster
         super.die(triggerRelics);
     }
 
+    @Override
+    public void damage(DamageInfo info) {
+        if (info.owner == sister) { //Just to be really sure she can't take damage from anything else
+            super.damage(info);
+        }
+    }
+
     //Runs a specific animation
     public void runAnim(String animation) {
         ((BetterSpriterAnimation)this.animation).myPlayer.setAnimation(animation);
