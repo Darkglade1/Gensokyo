@@ -7,6 +7,7 @@ import Gensokyo.actions.UsePreBattleActionAction;
 import Gensokyo.monsters.AbstractSpriterMonster;
 import Gensokyo.powers.act3.UnstableReality;
 import basemod.ReflectionHacks;
+import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.animations.TalkAction;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
@@ -144,5 +145,13 @@ public class Shinki extends AbstractSpriterMonster
         AbstractDungeon.deathScreen = new DeathScreen(AbstractDungeon.getMonsters());
         AbstractDungeon.actionManager.clearPostCombatActions();
         super.die(triggerRelics);
+    }
+
+    @Override
+    public void render(final SpriteBatch sb) {
+        super.render(sb);
+        if (AbstractDungeon.id != null) {
+            this.imageEventText.render(sb);
+        }
     }
 }
