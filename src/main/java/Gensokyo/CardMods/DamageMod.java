@@ -19,10 +19,7 @@ public class DamageMod extends AbstractCardModifier {
 
     public static final String ID = GensokyoMod.makeID("DamageMod");
     public static final String[] TEXT = CardCrawlGame.languagePack.getUIString(ID).TEXT;
-
-    static Texture attackImg = TextureLoader.getTexture(GensokyoMod.makeCardPath("PotionAttack.png"));
-    static TextureAtlas.AtlasRegion attackImgAtlas = new TextureAtlas.AtlasRegion(attackImg, 0, 0, attackImg.getWidth(), attackImg.getHeight());
-
+    
     private int damageAmt;
 
     public DamageMod(int damageAmt) {
@@ -41,7 +38,7 @@ public class DamageMod extends AbstractCardModifier {
         card.target = AbstractCard.CardTarget.ENEMY;
         card.type = AbstractCard.CardType.ATTACK;
         if (card instanceof CustomPotion) {
-            card.portrait = attackImgAtlas;
+            ((CustomPotion) card).loadCardImage(GensokyoMod.makeCardPath("PotionAttack.png"));
         }
     }
 

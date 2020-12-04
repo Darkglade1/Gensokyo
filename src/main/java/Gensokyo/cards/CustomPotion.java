@@ -1,10 +1,9 @@
 package Gensokyo.cards;
 
 import Gensokyo.GensokyoMod;
-import Gensokyo.actions.CrescentMoonSlashAction;
-import com.megacrit.cardcrawl.actions.AbstractGameAction;
+import Gensokyo.util.TextureLoader;
+import com.badlogic.gdx.graphics.Texture;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
-import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 
 import static Gensokyo.GensokyoMod.makeCardPath;
@@ -23,6 +22,16 @@ public class CustomPotion extends AbstractDefaultCard {
 
     public CustomPotion() {
         super(ID, IMG, COST, TYPE, COLOR, RARITY, TARGET);
+    }
+
+    @Override
+    protected Texture getPortraitImage() {
+        if (this.type == CardType.ATTACK) {
+            final Texture texture = TextureLoader.getTexture(makeCardPath("PotionAttack_p.png"));
+            return texture;
+        } else {
+            return super.getPortraitImage();
+        }
     }
 
     @Override
