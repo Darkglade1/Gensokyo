@@ -6,26 +6,19 @@ import basemod.abstracts.AbstractCardModifier;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 
-public class RetainMod extends AbstractCardModifier {
+public class InnateMod extends AbstractCardModifier {
 
-    public static final String ID = GensokyoMod.makeID("RetainMod");
+    public static final String ID = GensokyoMod.makeID("InnateMod");
     public static final String[] TEXT = CardCrawlGame.languagePack.getUIString(ID).TEXT;
-
-    private boolean alreadyRetain = false;
 
     @Override
     public AbstractCardModifier makeCopy() {
-        return new RetainMod();
+        return new InnateMod();
     }
 
     @Override
     public void onInitialApplication(AbstractCard card) {
-        if (!card.selfRetain) {
-            card.selfRetain = true;
-            alreadyRetain = false;
-        } else {
-            alreadyRetain = true;
-        }
+        card.isInnate = true;
     }
 
     @Override
@@ -35,9 +28,10 @@ public class RetainMod extends AbstractCardModifier {
 
     @Override
     public String modifyDescription(String rawDescription, AbstractCard card) {
-        if (!alreadyRetain && !(card instanceof AbstractDefaultCard)) {
+        if (!(card instanceof AbstractDefaultCard)) {
             return TEXT[0] + rawDescription;
+        } else {
+            return rawDescription;
         }
-        return rawDescription;
     }
 }

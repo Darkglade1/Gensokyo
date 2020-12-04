@@ -180,6 +180,11 @@
       " NL Apply ", " Poison."
     ]
   },
+  "Gensokyo:InnateMod": {
+    "TEXT": [
+      "Innate. NL "
+    ]
+  },
   "Gensokyo:TempHPIntent": {
     "TEXT": [
       "Reinforcing",

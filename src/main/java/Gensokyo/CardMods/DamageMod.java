@@ -1,7 +1,11 @@
 package Gensokyo.CardMods;
 
 import Gensokyo.GensokyoMod;
+import Gensokyo.cards.CustomPotion;
+import Gensokyo.util.TextureLoader;
 import basemod.abstracts.AbstractCardModifier;
+import com.badlogic.gdx.graphics.Texture;
+import com.badlogic.gdx.graphics.g2d.TextureAtlas;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.common.DamageAction;
 import com.megacrit.cardcrawl.actions.utility.UseCardAction;
@@ -15,6 +19,9 @@ public class DamageMod extends AbstractCardModifier {
 
     public static final String ID = GensokyoMod.makeID("DamageMod");
     public static final String[] TEXT = CardCrawlGame.languagePack.getUIString(ID).TEXT;
+
+    static Texture attackImg = TextureLoader.getTexture(GensokyoMod.makeCardPath("PotionAttack.png"));
+    static TextureAtlas.AtlasRegion attackImgAtlas = new TextureAtlas.AtlasRegion(attackImg, 0, 0, attackImg.getWidth(), attackImg.getHeight());
 
     private int damageAmt;
 
@@ -33,6 +40,9 @@ public class DamageMod extends AbstractCardModifier {
         card.baseDamage = damageAmt;
         card.target = AbstractCard.CardTarget.ENEMY;
         card.type = AbstractCard.CardType.ATTACK;
+        if (card instanceof CustomPotion) {
+            card.portrait = attackImgAtlas;
+        }
     }
 
     @Override

@@ -4,6 +4,7 @@ import Gensokyo.CardMods.BlockMod;
 import Gensokyo.CardMods.CostMod;
 import Gensokyo.CardMods.DamageMod;
 import Gensokyo.CardMods.DrawMod;
+import Gensokyo.CardMods.InnateMod;
 import Gensokyo.CardMods.PoisonMod;
 import Gensokyo.CardMods.RetainMod;
 import Gensokyo.CardMods.VulnerableMod;
@@ -41,13 +42,13 @@ public class MedicineSeller extends AbstractImageEvent {
     private static final int NUM_MODIFIERS = 3;
 
     private static final int BLOCK0 = 4;
-    private static final int BLOCK1 = 9;
-    private static final int BLOCK2 = 15;
+    private static final int BLOCK1 = 8;
+    private static final int BLOCK2 = 14;
     private int block;
 
     private static final int DAMAGE0 = 5;
-    private static final int DAMAGE1 = 10;
-    private static final int DAMAGE2 = 16;
+    private static final int DAMAGE1 = 9;
+    private static final int DAMAGE2 = 15;
     private int damage;
 
     private static final int DRAW0 = 1;
@@ -75,6 +76,7 @@ public class MedicineSeller extends AbstractImageEvent {
 
     private AbstractCardModifier option1;
     private AbstractCardModifier option2;
+    private AbstractCardModifier bonusMod;
 
     private AbstractCard potionPreview1;
     private AbstractCard potionPreview2;
@@ -133,7 +135,6 @@ public class MedicineSeller extends AbstractImageEvent {
                 switch (buttonPressed) {
                     case 0:
                         currentPotion = potionPreview1.makeStatEquivalentCopy();
-                        System.out.println(CardModifierManager.modifiers(currentPotion));
                         possibleMods.remove(option1);
                         chosenMods.add(option1);
                         if (chosenMods.size() >= NUM_MODIFIERS) {
@@ -221,10 +222,18 @@ public class MedicineSeller extends AbstractImageEvent {
     private void doneMakingPotion() {
         this.imageEventText.updateBodyText(DESCRIPTIONS[2]);
         this.imageEventText.clearAllDialogs();
-        potionPreview1 = currentPotion.makeCopy();
-        CardModifierManager.addModifier(potionPreview1, new RetainMod());
+        potionPreview1 = currentPotion.makeStatEquivalentCopy();
+
         if (AbstractDungeon.player.gold >= BONUS_GOLD_COST) {
-            this.imageEventText.setDialogOption(OPTIONS[0] + BONUS_GOLD_COST + OPTIONS[1] + OPTIONS[9], potionPreview1);
+            if (AbstractDungeon.cardRandomRng.randomBoolean()) {
+                bonusMod = new RetainMod();
+                CardModifierManager.addModifier(potionPreview1, bonusMod);
+                this.imageEventText.setDialogOption(OPTIONS[0] + BONUS_GOLD_COST + OPTIONS[1] + OPTIONS[9], potionPreview1);
+            } else {
+                bonusMod = new InnateMod();
+                CardModifierManager.addModifier(potionPreview1, bonusMod);
+                this.imageEventText.setDialogOption(OPTIONS[0] + BONUS_GOLD_COST + OPTIONS[1] + OPTIONS[10], potionPreview1);
+            }
         } else {
             this.imageEventText.setDialogOption(OPTIONS[7], true);
         }

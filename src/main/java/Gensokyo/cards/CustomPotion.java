@@ -12,7 +12,7 @@ import static Gensokyo.GensokyoMod.makeCardPath;
 public class CustomPotion extends AbstractDefaultCard {
 
     public static final String ID = GensokyoMod.makeID(CustomPotion.class.getSimpleName());
-    public static final String IMG = makeCardPath("CrescentMoonSlash.png");
+    public static final String IMG = makeCardPath("PotionSkill.png");
 
     private static final CardRarity RARITY = CardRarity.SPECIAL;
     private static final CardTarget TARGET = CardTarget.SELF;
