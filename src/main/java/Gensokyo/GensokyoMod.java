@@ -7,6 +7,7 @@ import Gensokyo.CustomIntents.PurifyIntent;
 import Gensokyo.CustomIntents.TempHPIntent;
 import Gensokyo.cards.AllTheWorldsEvil;
 import Gensokyo.cards.Butterfly;
+import Gensokyo.cards.CustomPotion;
 import Gensokyo.cards.Evolve.BlemishedSteel;
 import Gensokyo.cards.Evolve.DepletedGenerator;
 import Gensokyo.cards.Evolve.ExoticEgg;
@@ -119,6 +120,7 @@ import Gensokyo.events.act2.VillageOfCats;
 import Gensokyo.events.act3.BloodForBlood;
 import Gensokyo.events.act3.IAmNotThere;
 import Gensokyo.events.act3.KappaWarehouse;
+import Gensokyo.events.act3.MedicineSeller;
 import Gensokyo.events.act3.OwlFriend;
 import Gensokyo.events.act3.PrincessOfTheMoon;
 import Gensokyo.events.act3.SomeoneElsesStory;
@@ -658,6 +660,7 @@ public class GensokyoMod implements
         BaseMod.addEvent(KappaWarehouse.ID, KappaWarehouse.class, Gensokyoest.ID);
         BaseMod.addEvent(BloodForBlood.ID, BloodForBlood.class, Gensokyoest.ID);
         BaseMod.addEvent(SomeoneElsesStory.ID, SomeoneElsesStory.class, Gensokyoest.ID);
+        BaseMod.addEvent(MedicineSeller.ID, MedicineSeller.class, Gensokyoest.ID);
         // =============== /EVENTS/ =================
 
         logger.info("Done loading badge Image and mod options");
@@ -873,6 +876,7 @@ public class GensokyoMod implements
         BaseMod.addCard(new MindShatter());
         BaseMod.addCard(new ShootingStar());
         BaseMod.addCard(new Butterfly());
+        BaseMod.addCard(new CustomPotion());
 
         //Urban Legends
         BaseMod.addCard(new MissMary());

@@ -311,6 +311,10 @@
     "NAME": "Unhurried Mind",
     "DESCRIPTION": "Play the top !M! cards of your draw pile."
   },
+  "Gensokyo:CustomPotion": {
+    "NAME": "Custom Potion",
+    "DESCRIPTION": ""
+  },
   "Gensokyo:FlashFlood": {
     "NAME": "Flash Flood",
     "DESCRIPTION": "When this card is drawn, reduce its cost by !M! this combat. NL Exhaust."

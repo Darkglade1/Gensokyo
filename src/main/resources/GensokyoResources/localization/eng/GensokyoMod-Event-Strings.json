@@ -793,6 +793,30 @@
       "[Leave]"
     ]
   },
+  "Gensokyo:MedicineSeller": {
+    "NAME": "Medicine Seller",
+    "DESCRIPTIONS": [
+      "You notice a #pshifty-looking character in the human village, moving between the houses and peddling her wares. The villagers seem to respond to her quite #gwarmly, so you decide to approach her as well to see what services she offers. NL NL The figure turns to you as you approach, smiling. NL NL \"Hey, want to buy a potion? I can custom make something to suit your needs!\"",
+      "\"Alright. Tell me what you want.\"",
+      "\"That should be good enough! Although if you throw in a little #yextra, I can #gspice it up even more. How about it?\"",
+      "\"There we go! Thank you for your patronage.\" NL NL The figure walks away, leaving you with your custom #ypotion in hand. Hopefully, it's worth all the #ymoney you spent on it.",
+      "\"Ah, that's alright then. Thank you for your patronage.\" NL NL The figure walks away, leaving you with your custom #ypotion in hand. Hopefully, it's worth all the money you spent on it.",
+      "You don’t need a #ypotion for your journey."
+    ],
+    "OPTIONS": [
+      "[Accept] #rLose #r",
+      " #rGold. ",
+      "#gCreate #ga #gcustom #gcard #gto #gadd #gto #gyour #gdeck.",
+      "#gGive #gthe #gcustom #gcard ",
+      ".",
+      "[Refuse] Keep the custom card as is.",
+      "[Leave]",
+      "[Locked] Requires: Gold",
+      "#gMake #gthe #gcustom #gcard #gcost #g",
+      "#gGive #gthe #gcustom #gcard #gRetain.",
+      "#gGive #gthe #gcustom #gcard #gInnate."
+    ]
+  },
   "Gensokyo:AliceEvent1": {
     "NAME": "A Demon Lord's Daughter",
     "DESCRIPTIONS": [
