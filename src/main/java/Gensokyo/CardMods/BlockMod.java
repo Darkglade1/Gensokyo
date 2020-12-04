@@ -18,7 +18,7 @@ public class BlockMod extends AbstractCardModifier {
 
     public BlockMod(int blockAmt) {
         this.blockAmt = blockAmt;
-        this.priority = 2;
+        this.priority = -2;
     }
 
     @Override

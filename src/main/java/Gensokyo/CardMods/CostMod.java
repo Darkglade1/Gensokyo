@@ -21,6 +21,8 @@ public class CostMod extends AbstractCardModifier {
     @Override
     public void onInitialApplication(AbstractCard card) {
         card.cost = cost;
+        card.costForTurn = cost;
+        card.isCostModified = true;
     }
 
     @Override

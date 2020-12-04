@@ -20,7 +20,7 @@ public class DamageMod extends AbstractCardModifier {
 
     public DamageMod(int damageAmt) {
         this.damageAmt = damageAmt;
-        this.priority = 1;
+        this.priority = -1;
     }
 
     @Override

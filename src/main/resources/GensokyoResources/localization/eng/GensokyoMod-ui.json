@@ -147,37 +147,37 @@
   "Gensokyo:BlockMod": {
     "TEXT": [
       "Gain ", " Block",
-      "NL Gain !B! Block."
+      " NL Gain !B! Block."
     ]
   },
   "Gensokyo:DamageMod": {
     "TEXT": [
       "Deal ", " damage",
-      "NL Deal !D! damage."
+      " NL Deal !D! damage."
     ]
   },
   "Gensokyo:DrawMod": {
     "TEXT": [
       "Draw ", " card(s)",
-      "NL Draw ", " card.", " cards."
+      " NL Draw ", " card.", " cards."
     ]
   },
   "Gensokyo:WeakMod": {
     "TEXT": [
       "Apply ", " Weak",
-      "NL Apply ", " Weak."
+      " NL Apply ", " Weak."
     ]
   },
   "Gensokyo:VulnerableMod": {
     "TEXT": [
       "Apply ", " Vulnerable",
-      "NL Apply ", " Vulnerable."
+      " NL Apply ", " Vulnerable."
     ]
   },
   "Gensokyo:PoisonMod": {
     "TEXT": [
       "Apply ", " Poison",
-      "NL Apply ", " Poison."
+      " NL Apply ", " Poison."
     ]
   },
   "Gensokyo:TempHPIntent": {
