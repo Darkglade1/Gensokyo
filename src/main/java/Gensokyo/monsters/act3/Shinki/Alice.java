@@ -118,6 +118,7 @@ public class Alice extends AbstractShinkiDelusion
         }
         switch (this.nextMove) {
             case ATTACK: {
+                runAnim("SpellAttack");
                 DamageInfo playerInfo = new DamageInfo(this, moves.get(this.nextMove).baseDamage, DamageInfo.DamageType.NORMAL);
                 playerInfo.applyPowers(this, AbstractDungeon.player);
                 AbstractDungeon.actionManager.addToBottom(new VFXAction(new LightningEffect(AbstractDungeon.player.drawX, AbstractDungeon.player.drawY)));
@@ -132,6 +133,7 @@ public class Alice extends AbstractShinkiDelusion
                 break;
             }
             case MULTI_ATTACK: {
+                runAnim("SpellAttack");
                 for (int i = 0; i < MULTI_ATTACK_HITS; i++) {
                     DamageInfo playerInfo = new DamageInfo(this, moves.get(this.nextMove).baseDamage, DamageInfo.DamageType.NORMAL);
                     playerInfo.applyPowers(this, AbstractDungeon.player);
@@ -150,10 +152,12 @@ public class Alice extends AbstractShinkiDelusion
                 break;
             }
             case BUFF: {
+                runAnim("SpellBuff");
                 addToBot(new ApplyPowerAction(this, this, new VigorPower(this, BUFF_AMT, true), BUFF_AMT));
                 break;
             }
             case SUMMON: {
+                runAnim("SpellBuff");
                 Summon();
                 break;
             }

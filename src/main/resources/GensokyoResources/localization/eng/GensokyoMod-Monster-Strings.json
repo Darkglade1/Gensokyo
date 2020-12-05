@@ -598,7 +598,10 @@
     ],
     "NAME": "The One Who Left",
     "DIALOG": [
-      "You were a terrible parent."
+      "At first, I was happy.",
+      "You were a terrible parent.",
+      "I left because of your arrogant short-sightedness.",
+      "Thank you for everything."
     ]
   },
   "Gensokyo:Doll": {
