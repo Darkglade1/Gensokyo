@@ -4,6 +4,8 @@ import Gensokyo.BetterSpriterAnimation;
 import Gensokyo.GensokyoMod;
 import Gensokyo.monsters.AbstractSpriterMonster;
 import Gensokyo.powers.act3.DollJudgement;
+import Gensokyo.powers.act3.ExplosiveDoll;
+import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.actions.common.RollMoveAction;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
@@ -21,12 +23,13 @@ public class Doll extends AbstractSpriterMonster {
     protected static final byte EXPLODE = 1;
     protected static final int HP = 25;
     protected static final int A9_HP = 27;
-//    private static final int EXPLODE_DAMAGE = 20;
-//    private static final int A4_EXPLODE_DAMAGE = 22;
-//    private int explodeDamage;
+    private static final int EXPLODE_DAMAGE = 20;
+    private static final int A4_EXPLODE_DAMAGE = 22;
+    public static final int DOLLS_EXPLODE_TIMER = 3;
+    private int explodeDamage;
     private static final float HB_W = 50.0F;
     private static final float HB_H = 100.0f;
-    protected int cooldown;
+    protected int cooldown = DOLLS_EXPLODE_TIMER;
     protected Alice master;
 
     public Doll(float x, float y, Alice master) {
@@ -40,12 +43,16 @@ public class Doll extends AbstractSpriterMonster {
             this.setHp(HP);
         }
 
-        this.cooldown = Alice.DOLLS_EXPLODE_TIMER;
-//        if (AbstractDungeon.ascensionLevel >= 19) {
-//            explodeDamage = A4_EXPLODE_DAMAGE;
-//        } else {
-//            explodeDamage = EXPLODE_DAMAGE;
-//        }
+        if (AbstractDungeon.ascensionLevel >= 19) {
+            explodeDamage = A4_EXPLODE_DAMAGE;
+        } else {
+            explodeDamage = EXPLODE_DAMAGE;
+        }
+    }
+
+    @Override
+    public void usePreBattleAction() {
+        AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(this, this, new ExplosiveDoll(this, cooldown, explodeDamage, master.shinki)));
     }
 
     public void setFlip(boolean horizontal, boolean vertical) {

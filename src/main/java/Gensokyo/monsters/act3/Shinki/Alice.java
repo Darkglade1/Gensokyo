@@ -3,6 +3,7 @@ package Gensokyo.monsters.act3.Shinki;
 import Gensokyo.BetterSpriterAnimation;
 import Gensokyo.CustomIntents.IntentEnums;
 import Gensokyo.GensokyoMod;
+import Gensokyo.actions.UsePreBattleActionAction;
 import Gensokyo.powers.act1.VigorPower;
 import Gensokyo.powers.act3.DollJudgement;
 import com.badlogic.gdx.graphics.Color;
@@ -15,12 +16,14 @@ import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.actions.common.DamageAction;
 import com.megacrit.cardcrawl.actions.common.RollMoveAction;
 import com.megacrit.cardcrawl.actions.common.SpawnMonsterAction;
+import com.megacrit.cardcrawl.actions.common.SuicideAction;
 import com.megacrit.cardcrawl.actions.utility.SFXAction;
 import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.core.Settings;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.localization.MonsterStrings;
+import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.monsters.EnemyMoveInfo;
 import com.megacrit.cardcrawl.powers.ExplosivePower;
 import com.megacrit.cardcrawl.vfx.BorderFlashEffect;
@@ -57,8 +60,6 @@ public class Alice extends AbstractShinkiDelusion
     private static final int BUFF_AMT = 2;
 
     private static final int STRENGTH = 1;
-
-    public static final int DOLLS_EXPLODE_TIMER = 3;
 
     private static final int HP = 200;
     private static final int A9_HP = 220;
@@ -169,13 +170,13 @@ public class Alice extends AbstractShinkiDelusion
         Doll minion1 = new Doll(-720.0F, 0.0F, this);
         dolls.add(minion1);
         AbstractDungeon.actionManager.addToBottom(new SpawnMonsterAction(minion1, true));
-        AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(minion1, this, new ExplosivePower(minion1, DOLLS_EXPLODE_TIMER)));
+        AbstractDungeon.actionManager.addToBottom(new UsePreBattleActionAction(minion1));
 
         Doll minion2 = new Doll(-240.0F, 0.0F, this);
         minion2.setFlip(true, false);
         dolls.add(minion2);
         AbstractDungeon.actionManager.addToBottom(new SpawnMonsterAction(minion2, true));
-        AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(minion2, this, new ExplosivePower(minion2, DOLLS_EXPLODE_TIMER)));
+        AbstractDungeon.actionManager.addToBottom(new UsePreBattleActionAction(minion2));
     }
 
     public void setMoveShortcut(byte next) {
@@ -205,6 +206,13 @@ public class Alice extends AbstractShinkiDelusion
     @Override
     public void die(boolean triggerRelics) {
         ((BetterSpriterAnimation)this.animation).startDying();
+        for (AbstractMonster mo : AbstractDungeon.getCurrRoom().monsters.monsters) {
+            if (mo instanceof Doll) {
+                if (!mo.isDead && !mo.isDying) {
+                    AbstractDungeon.actionManager.addToBottom(new SuicideAction(mo));
+                }
+            }
+        }
         super.die(triggerRelics);
     }
 

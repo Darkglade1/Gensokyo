@@ -328,6 +328,10 @@
         "NAME": "Energized",
         "DESCRIPTIONS": ["Every #b", " turns, gain", " ."]
 },
+"Gensokyo:ExplosiveDoll": {
+        "NAME": "Explosive",
+        "DESCRIPTIONS": ["Will #rexplode ", "this turn,", "in #b", " turns,", " dealing #b", " damage to #yyou and your #gally."]
+},
 "Gensokyo:TimeDilation": {
         "NAME": "Time Dilation",
         "DESCRIPTIONS": ["The #b1st, #b4th, #b7th, etc. cards played this combat are instead played #b", " turn later. NL The #b2nd, #b5th, #b8th, etc. cards played this combat are instead played #b", " turns later. NL The #b3rd, #b6th, #b9th, etc. cards played this combat are instead played #b", " turns later."]
