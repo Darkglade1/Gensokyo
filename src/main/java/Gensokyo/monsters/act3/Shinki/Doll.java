@@ -31,7 +31,7 @@ public class Doll extends AbstractSpriterMonster {
 
     public Doll(float x, float y, Alice master) {
         super(NAME, ID, HP, -5.0F, 0, HB_W, HB_H, null, x, y);
-        this.animation = new BetterSpriterAnimation("GensokyoResources/images/monsters/Yuyuko/BlueSoul/Spriter/BlueSoulAnimation.scml");
+        this.animation = new BetterSpriterAnimation("GensokyoResources/images/monsters/Doll/Spriter/DollAnimation.scml");
         this.type = EnemyType.NORMAL;
         this.master = master;
         if (AbstractDungeon.ascensionLevel >= 9) {
@@ -46,6 +46,10 @@ public class Doll extends AbstractSpriterMonster {
 //        } else {
 //            explodeDamage = EXPLODE_DAMAGE;
 //        }
+    }
+
+    public void setFlip(boolean horizontal, boolean vertical) {
+        this.animation.setFlip(horizontal, vertical);
     }
 
     @Override

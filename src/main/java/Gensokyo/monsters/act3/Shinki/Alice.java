@@ -168,6 +168,7 @@ public class Alice extends AbstractShinkiDelusion
         AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(minion1, this, new ExplosivePower(minion1, DOLLS_EXPLODE_TIMER)));
 
         Doll minion2 = new Doll(-240.0F, 0.0F, this);
+        minion2.setFlip(true, false);
         dolls.add(minion2);
         AbstractDungeon.actionManager.addToBottom(new SpawnMonsterAction(minion2, true));
         AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(minion2, this, new ExplosivePower(minion2, DOLLS_EXPLODE_TIMER)));

@@ -104,9 +104,9 @@ public class Shinki extends AbstractSpriterMonster
                     this.onBossVictoryLogic();
                 } else if (currentDelusion == null) {
                     currentDelusion = delusionList.remove(0);
+                    runEvent(currentDelusion.event1);
                     AbstractDungeon.actionManager.addToBottom(new SpawnMonsterAction(currentDelusion, false));
                     AbstractDungeon.actionManager.addToBottom(new UsePreBattleActionAction(currentDelusion));
-                    runEvent(currentDelusion.event1);
                     threshold1Triggered = false;
                     threshold2Triggered = false;
                 } else if (currentDelusion.currentHealth <= (int)(currentDelusion.maxHealth * THRESHOLD1) && !threshold1Triggered) {
