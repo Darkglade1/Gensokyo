@@ -68,7 +68,7 @@ public class Alice extends AbstractShinkiDelusion
 
     public Alice(final float x, final float y, Shinki shinki) {
         super(NAME, ID, HP, -5.0F, 0, 230.0f, 225.0f, null, x, y);
-        this.animation = new BetterSpriterAnimation("GensokyoResources/images/monsters/Marisa/Spriter/MarisaAnimation.scml");
+        this.animation = new BetterSpriterAnimation("GensokyoResources/images/monsters/Alice/Spriter/AliceAnimation.scml");
         this.type = EnemyType.BOSS;
         this.dialogX = (this.hb_x - 70.0F) * Settings.scale;
         this.dialogY -= (this.hb_y - 55.0F) * Settings.scale;
