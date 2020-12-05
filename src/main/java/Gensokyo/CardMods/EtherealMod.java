@@ -2,6 +2,7 @@ package Gensokyo.CardMods;
 
 import Gensokyo.GensokyoMod;
 import basemod.abstracts.AbstractCardModifier;
+import com.evacipated.cardcrawl.mod.stslib.fields.cards.AbstractCard.CommonKeywordIconsField;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 
@@ -34,7 +35,7 @@ public class EtherealMod extends AbstractCardModifier {
 
     @Override
     public String modifyDescription(String rawDescription, AbstractCard card) {
-        if (!alreadyEthereal) {
+        if (!alreadyEthereal && !(CommonKeywordIconsField.useIcons.get(card))) {
             return TEXT[0] + rawDescription;
         }
         return rawDescription;

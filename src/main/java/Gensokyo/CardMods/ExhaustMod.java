@@ -2,6 +2,7 @@ package Gensokyo.CardMods;
 
 import Gensokyo.GensokyoMod;
 import basemod.abstracts.AbstractCardModifier;
+import com.evacipated.cardcrawl.mod.stslib.fields.cards.AbstractCard.CommonKeywordIconsField;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 
@@ -34,7 +35,7 @@ public class ExhaustMod extends AbstractCardModifier {
 
     @Override
     public String modifyDescription(String rawDescription, AbstractCard card) {
-        if (!alreadyExhaust) {
+        if (!alreadyExhaust && !(CommonKeywordIconsField.useIcons.get(card))) {
             return rawDescription + TEXT[0];
         }
         return rawDescription;
