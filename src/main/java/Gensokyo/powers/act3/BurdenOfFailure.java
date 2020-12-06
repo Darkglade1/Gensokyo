@@ -39,11 +39,13 @@ public class BurdenOfFailure extends AbstractPower {
     }
 
     @Override
-    public void onInflictDamage(DamageInfo info, int damageAmount, AbstractCreature target) {
-        if (damageAmount == 0 && info.type == DamageInfo.DamageType.NORMAL && target == AbstractDungeon.player) {
+    public void onAttack(DamageInfo info, int damageAmount, AbstractCreature target) {
+        if (damageAmount == 0 && target == AbstractDungeon.player && info.type == DamageInfo.DamageType.NORMAL) {
+            this.flash();
             addToBot(new LoseHPAction(yumeko.shinki, owner, amount));
             yumeko.powerTriggered = true;
         }
+
     }
 
     @Override

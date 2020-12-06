@@ -1,42 +1,25 @@
 package Gensokyo.monsters.act3.Shinki;
 
 import Gensokyo.BetterSpriterAnimation;
-import Gensokyo.CustomIntents.IntentEnums;
 import Gensokyo.GensokyoMod;
-import Gensokyo.actions.UsePreBattleActionAction;
-import Gensokyo.powers.act1.VigorPower;
 import Gensokyo.powers.act3.BurdenOfFailure;
-import Gensokyo.powers.act3.DollJudgement;
-import com.badlogic.gdx.graphics.Color;
-import com.brashmonkey.spriter.Animation;
-import com.brashmonkey.spriter.Player;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.animations.TalkAction;
-import com.megacrit.cardcrawl.actions.animations.VFXAction;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.actions.common.DamageAction;
 import com.megacrit.cardcrawl.actions.common.GainBlockAction;
 import com.megacrit.cardcrawl.actions.common.MakeTempCardInDrawPileAction;
 import com.megacrit.cardcrawl.actions.common.RollMoveAction;
-import com.megacrit.cardcrawl.actions.common.SpawnMonsterAction;
-import com.megacrit.cardcrawl.actions.common.SuicideAction;
-import com.megacrit.cardcrawl.actions.utility.SFXAction;
 import com.megacrit.cardcrawl.cards.DamageInfo;
-import com.megacrit.cardcrawl.cards.status.Burn;
 import com.megacrit.cardcrawl.cards.status.Dazed;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.core.Settings;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.localization.MonsterStrings;
-import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.monsters.EnemyMoveInfo;
 import com.megacrit.cardcrawl.powers.FrailPower;
 import com.megacrit.cardcrawl.powers.VulnerablePower;
-import com.megacrit.cardcrawl.vfx.BorderFlashEffect;
-import com.megacrit.cardcrawl.vfx.combat.LightningEffect;
-import com.megacrit.cardcrawl.vfx.combat.SmallLaserEffect;
 
-import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -84,9 +67,9 @@ public class Yumeko extends AbstractShinkiDelusion
         this.dialogX = (this.hb_x - 70.0F) * Settings.scale;
         this.dialogY -= (this.hb_y - 55.0F) * Settings.scale;
         this.shinki = shinki;
-        this.event1 = new AliceEvent1(shinki);
-        this.event2 = new AliceEvent2(shinki);
-        this.event3 = new AliceEvent3(shinki);
+        this.event1 = new YumekoEvent1(shinki);
+        this.event2 = new YumekoEvent2(shinki);
+        this.event3 = new YumekoEvent3(shinki);
         if (AbstractDungeon.ascensionLevel >= 9) {
             setHp(A9_HP);
             this.block = A9_BLOCK;
