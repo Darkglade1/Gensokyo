@@ -612,6 +612,20 @@
     "DIALOG": [
 
     ]
+  },
+  "Gensokyo:Yumeko": {
+    "MOVES": [
+      "Judgement Blade",
+      "Misery Doll",
+      "Overwhelming Burden"
+    ],
+    "NAME": "The One She Failed",
+    "DIALOG": [
+      "I will repel this intruder, my lady!",
+      "It's your fault for leaving me with flaws.",
+      "You should've made me stronger!",
+      "Don't blame yourself for my failures."
+    ]
   }
 }
 

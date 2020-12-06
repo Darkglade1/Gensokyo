@@ -26,6 +26,7 @@ import com.megacrit.cardcrawl.monsters.EnemyMoveInfo;
 import com.megacrit.cardcrawl.screens.DeathScreen;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -83,6 +84,8 @@ public class Shinki extends AbstractSpriterMonster
     public void usePreBattleAction() {
         //AbstractDungeon.getCurrRoom().playBgmInstantly("Wind God Girl");
         delusionList.add(new Alice(-480.0f, 0.0f, this));
+        delusionList.add(new Yumeko(-480.0f, 0.0f, this));
+        Collections.shuffle(delusionList, AbstractDungeon.monsterRng.random);
         AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(this, this, new UnstableReality(this)));
     }
 
