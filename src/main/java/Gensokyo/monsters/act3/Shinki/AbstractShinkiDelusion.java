@@ -21,5 +21,7 @@ public abstract class AbstractShinkiDelusion extends AbstractSpriterMonster {
         super.die(triggerRelics);
     }
 
+    public abstract String eventDialog(int eventNum);
+
 
 }

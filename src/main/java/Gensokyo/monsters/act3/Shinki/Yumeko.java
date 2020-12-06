@@ -61,7 +61,7 @@ public class Yumeko extends AbstractShinkiDelusion
     private Map<Byte, EnemyMoveInfo> moves;
 
     public Yumeko(final float x, final float y, Shinki shinki) {
-        super(NAME, ID, HP, -5.0F, 0, 230.0f, 225.0f, null, x, y);
+        super(NAME, ID, HP, -5.0F, 0, 230.0f, 245.0f, null, x, y);
         this.animation = new BetterSpriterAnimation("GensokyoResources/images/monsters/Yumeko/Spriter/YumekoAnimation.scml");
         this.type = EnemyType.BOSS;
         this.dialogX = (this.hb_x - 70.0F) * Settings.scale;
@@ -100,7 +100,6 @@ public class Yumeko extends AbstractShinkiDelusion
     @Override
     public void takeTurn() {
         if (this.firstMove) {
-            AbstractDungeon.actionManager.addToBottom(new TalkAction(this, DIALOG[0]));
             firstMove = false;
         }
         DamageInfo info = new DamageInfo(this, moves.get(this.nextMove).baseDamage, DamageInfo.DamageType.NORMAL);
@@ -148,7 +147,13 @@ public class Yumeko extends AbstractShinkiDelusion
 
     @Override
     public void die(boolean triggerRelics) {
+        AbstractDungeon.actionManager.addToBottom(new TalkAction(this, DIALOG[3]));
         ((BetterSpriterAnimation)this.animation).startDying();
         super.die(triggerRelics);
+    }
+
+    @Override
+    public String eventDialog(int eventNum) {
+        return DIALOG[eventNum];
     }
 }

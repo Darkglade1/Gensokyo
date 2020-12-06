@@ -1,5 +1,6 @@
 package Gensokyo.patches;
 
+import Gensokyo.GensokyoMod;
 import Gensokyo.cards.Pets.AbstractSummonPetCard;
 import Gensokyo.minions.AbstractPet;
 import com.evacipated.cardcrawl.modthespire.lib.LineFinder;
@@ -24,11 +25,13 @@ public class PetPatches {
     )
     public static class OnVictoryPatch {
         public static void Prefix(AbstractPlayer __instance) {
-            MonsterGroup playerMinions = BasePlayerMinionHelper.getMinions(__instance);
-            for (AbstractMonster mo : playerMinions.monsters) {
-                if (mo instanceof AbstractPet) {
-                    AbstractPet pet = (AbstractPet)mo;
-                    pet.onVictoryUpdateHP();
+            if (GensokyoMod.hasFriendlyMinions) {
+                MonsterGroup playerMinions = BasePlayerMinionHelper.getMinions(__instance);
+                for (AbstractMonster mo : playerMinions.monsters) {
+                    if (mo instanceof AbstractPet) {
+                        AbstractPet pet = (AbstractPet)mo;
+                        pet.onVictoryUpdateHP();
+                    }
                 }
             }
         }
@@ -38,10 +41,12 @@ public class PetPatches {
     public static class CampfirePetHeal {
         @SpireInsertPatch(locator = PlayerHealLocator.class)
         public static void Insert(CampfireSleepEffect __instance) {
-            for (AbstractCard card : AbstractDungeon.player.masterDeck.group) {
-                if (card instanceof AbstractSummonPetCard) {
-                    AbstractSummonPetCard summonPetCard = (AbstractSummonPetCard)card;
-                    summonPetCard.updateHP(summonPetCard.max_hp);
+            if (GensokyoMod.hasFriendlyMinions) {
+                for (AbstractCard card : AbstractDungeon.player.masterDeck.group) {
+                    if (card instanceof AbstractSummonPetCard) {
+                        AbstractSummonPetCard summonPetCard = (AbstractSummonPetCard)card;
+                        summonPetCard.updateHP(summonPetCard.max_hp);
+                    }
                 }
             }
         }
@@ -59,10 +64,12 @@ public class PetPatches {
     public static class DungeonTransitionHeal {
         @SpirePostfixPatch
         public static void Postfix() {
-            for (AbstractCard card : AbstractDungeon.player.masterDeck.group) {
-                if (card instanceof AbstractSummonPetCard) {
-                    AbstractSummonPetCard summonPetCard = (AbstractSummonPetCard)card;
-                    summonPetCard.updateHP(summonPetCard.max_hp);
+            if (GensokyoMod.hasFriendlyMinions) {
+                for (AbstractCard card : AbstractDungeon.player.masterDeck.group) {
+                    if (card instanceof AbstractSummonPetCard) {
+                        AbstractSummonPetCard summonPetCard = (AbstractSummonPetCard)card;
+                        summonPetCard.updateHP(summonPetCard.max_hp);
+                    }
                 }
             }
         }

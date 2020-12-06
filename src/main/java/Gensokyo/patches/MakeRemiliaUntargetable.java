@@ -21,7 +21,7 @@ import javassist.CtBehavior;
 public class MakeRemiliaUntargetable {
     @SpireInsertPatch(locator = MakeRemiliaUntargetable.Locator.class, localvars = {"hoveredMonster"})
     public static void MakeHoveredMonsterNull(AbstractPlayer instance, @ByRef AbstractMonster[] hoveredMonster) {
-        if (hoveredMonster[0] != null && hoveredMonster[0].id.equals(Remilia.ID)) {
+        if (hoveredMonster[0] != null && hoveredMonster[0].id.equals(Remilia.ID) ) {
             hoveredMonster[0] = null;
         }
     }

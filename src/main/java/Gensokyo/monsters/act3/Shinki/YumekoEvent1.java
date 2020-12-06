@@ -18,7 +18,7 @@ public class YumekoEvent1 extends AbstractShinkiEvent{
     private static final String NAME = eventStrings.NAME;
     private static final String[] DESCRIPTIONS = eventStrings.DESCRIPTIONS;
     private static final String[] OPTIONS = eventStrings.OPTIONS;
-    public static final String IMG = makeEventPath("Alice1.png");
+    public static final String IMG = makeEventPath("Yumeko1.png");
 
     private static final int STR = 3;
     private static final int DEX = 3;

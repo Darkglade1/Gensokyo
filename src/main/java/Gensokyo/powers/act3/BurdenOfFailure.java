@@ -23,8 +23,8 @@ public class BurdenOfFailure extends AbstractPower {
 
     private Yumeko yumeko;
 
-    private static final Texture tex84 = TextureLoader.getTexture(makePowerPath("Reflowering84.png"));
-    private static final Texture tex32 = TextureLoader.getTexture(makePowerPath("Reflowering32.png"));
+    private static final Texture tex84 = TextureLoader.getTexture(makePowerPath("Burden84.png"));
+    private static final Texture tex32 = TextureLoader.getTexture(makePowerPath("Burden32.png"));
 
     public BurdenOfFailure(AbstractCreature owner, int amount, Yumeko yumeko) {
         this.name = NAME;

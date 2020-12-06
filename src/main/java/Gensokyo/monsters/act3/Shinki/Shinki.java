@@ -86,7 +86,7 @@ public class Shinki extends AbstractSpriterMonster
         delusionList.add(new Alice(-480.0f, 0.0f, this));
         delusionList.add(new Yumeko(-480.0f, 0.0f, this));
         Collections.shuffle(delusionList, AbstractDungeon.monsterRng.random);
-        AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(this, this, new UnstableReality(this)));
+        AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(this, this, new UnstableReality(this, NUM_DELUSIONS_TO_FIGHT)));
     }
 
     @Override
@@ -112,12 +112,15 @@ public class Shinki extends AbstractSpriterMonster
                     AbstractDungeon.actionManager.addToBottom(new UsePreBattleActionAction(currentDelusion));
                     threshold1Triggered = false;
                     threshold2Triggered = false;
+                    AbstractDungeon.actionManager.addToBottom(new TalkAction(currentDelusion, currentDelusion.eventDialog(0)));
                 } else if (currentDelusion.currentHealth <= (int)(currentDelusion.maxHealth * THRESHOLD1) && !threshold1Triggered) {
                     runEvent(currentDelusion.event2);
                     threshold1Triggered = true;
+                    AbstractDungeon.actionManager.addToBottom(new TalkAction(currentDelusion, currentDelusion.eventDialog(1)));
                 } else if (currentDelusion.currentHealth <= (int)(currentDelusion.maxHealth * THRESHOLD2) && !threshold2Triggered) {
                     runEvent(currentDelusion.event3);
                     threshold2Triggered = true;
+                    AbstractDungeon.actionManager.addToBottom(new TalkAction(currentDelusion, currentDelusion.eventDialog(2)));
                 } else {
                     AbstractDungeon.actionManager.addToBottom(new DamageAction(currentDelusion, info, AbstractGameAction.AttackEffect.FIRE));
                 }

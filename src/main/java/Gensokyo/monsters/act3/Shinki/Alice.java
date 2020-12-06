@@ -25,7 +25,6 @@ import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.localization.MonsterStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.monsters.EnemyMoveInfo;
-import com.megacrit.cardcrawl.powers.ExplosivePower;
 import com.megacrit.cardcrawl.vfx.BorderFlashEffect;
 import com.megacrit.cardcrawl.vfx.combat.LightningEffect;
 import com.megacrit.cardcrawl.vfx.combat.SmallLaserEffect;
@@ -99,6 +98,7 @@ public class Alice extends AbstractShinkiDelusion
 
         Player.PlayerListener listener = new AliceListener(this);
         ((BetterSpriterAnimation)this.animation).myPlayer.addListener(listener);
+        this.animation.setFlip(true, false);
     }
 
     @Override
@@ -110,7 +110,6 @@ public class Alice extends AbstractShinkiDelusion
     @Override
     public void takeTurn() {
         if (this.firstMove) {
-            AbstractDungeon.actionManager.addToBottom(new TalkAction(this, DIALOG[0]));
             firstMove = false;
         }
         DamageInfo info = new DamageInfo(this, moves.get(this.nextMove).baseDamage, DamageInfo.DamageType.NORMAL);
@@ -205,6 +204,7 @@ public class Alice extends AbstractShinkiDelusion
 
     @Override
     public void die(boolean triggerRelics) {
+        AbstractDungeon.actionManager.addToBottom(new TalkAction(this, DIALOG[3]));
         ((BetterSpriterAnimation)this.animation).startDying();
         for (AbstractMonster mo : AbstractDungeon.getCurrRoom().monsters.monsters) {
             if (mo instanceof Doll) {
@@ -214,6 +214,11 @@ public class Alice extends AbstractShinkiDelusion
             }
         }
         super.die(triggerRelics);
+    }
+
+    @Override
+    public String eventDialog(int eventNum) {
+        return DIALOG[eventNum];
     }
 
     //Runs a specific animation
