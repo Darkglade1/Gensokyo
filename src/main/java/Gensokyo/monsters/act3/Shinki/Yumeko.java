@@ -123,6 +123,7 @@ public class Yumeko extends AbstractShinkiDelusion
                 addToBot(new GainBlockAction(this, block));
                 addToBot(new ApplyPowerAction(AbstractDungeon.player, this, new VulnerablePower(AbstractDungeon.player, DEBUFF_AMT, true), DEBUFF_AMT));
                 addToBot(new ApplyPowerAction(AbstractDungeon.player, this, new FrailPower(AbstractDungeon.player, DEBUFF_AMT, true), DEBUFF_AMT));
+                powerTriggered = false;
                 break;
             }
         }
