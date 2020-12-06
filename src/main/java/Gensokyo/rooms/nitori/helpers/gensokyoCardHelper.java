@@ -23,6 +23,8 @@ import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import java.util.ArrayList;
 import java.util.Collections;
 
+import static Gensokyo.GensokyoMod.hasFriendlyMinions;
+
 public class gensokyoCardHelper {
 
     public static ArrayList<AbstractCard> getNitoriShopCards() {
@@ -42,11 +44,13 @@ public class gensokyoCardHelper {
 
     public static ArrayList<AbstractCard> getAllEvolveCards() {
         ArrayList<AbstractCard> list = new ArrayList<>();
+        if (hasFriendlyMinions) {
+            list.add(new ExoticEgg());
+            list.add(new MysteriousEgg());
+        }
         list.add(new BlemishedSteel());
         list.add(new DepletedGenerator());
-        list.add(new ExoticEgg());
         list.add(new LockedMedkit());
-        list.add(new MysteriousEgg());
         list.add(new RustyChest());
         list.add(new ScrapIron());
         list.add(new Shovel());

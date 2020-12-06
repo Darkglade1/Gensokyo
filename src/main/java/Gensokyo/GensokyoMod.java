@@ -270,7 +270,7 @@ public class GensokyoMod implements
     //This is for the in-game mod settings panel.
     private static final String MODNAME = "Gensokyo";
     private static final String AUTHOR = "Darkglade";
-    private static final String DESCRIPTION = "An alternate Act 1 and 2 mod inspired by Touhou Project.";
+    private static final String DESCRIPTION = "An alternate Act 1, 2, and 3 mod inspired by Touhou Project.";
     
     // =============== INPUT TEXTURE LOCATION =================
     
@@ -336,9 +336,11 @@ public class GensokyoMod implements
     private static final String ENERGY_ORB_LUNAR_PORTRAIT = "GensokyoResources/images/1024/card_small_orb_lunar.png";
           
     public static boolean hasMarisa;
+    public static boolean hasFriendlyMinions;
 
     static {
         hasMarisa = Loader.isModLoaded("TS05_Marisa");
+        hasFriendlyMinions = Loader.isModLoaded("Friendly_Minions_0987678");
     }
     
     // =============== MAKE IMAGE PATHS =================
@@ -841,7 +843,9 @@ public class GensokyoMod implements
         BaseMod.addRelic(new TheCrow(), RelicType.SHARED);
 
         //Other relics
-        BaseMod.addRelic(new Companionship(), RelicType.SHARED);
+        if (hasFriendlyMinions) {
+            BaseMod.addRelic(new Companionship(), RelicType.SHARED);
+        }
 
         logger.info("Done adding relics!");
     }
@@ -894,16 +898,20 @@ public class GensokyoMod implements
         BaseMod.addCard(new Doppelganger());
 
         //Pets
-        BaseMod.addCard(new SummonYinYangFox());
-        BaseMod.addCard(new SummonFieryMouse());
-        BaseMod.addCard(new SummonJeweledCobra());
-        BaseMod.addCard(new SummonPsychicCat());
+        if (hasFriendlyMinions) {
+            BaseMod.addCard(new SummonYinYangFox());
+            BaseMod.addCard(new SummonFieryMouse());
+            BaseMod.addCard(new SummonJeweledCobra());
+            BaseMod.addCard(new SummonPsychicCat());
+        }
 
         //Evolve cards
-        BaseMod.addCard(new MysteriousEgg());
+        if (hasFriendlyMinions) {
+            BaseMod.addCard(new MysteriousEgg());
+            BaseMod.addCard(new ExoticEgg());
+        }
         BaseMod.addCard(new BlemishedSteel());
         BaseMod.addCard(new DepletedGenerator());
-        BaseMod.addCard(new ExoticEgg());
         BaseMod.addCard(new LockedMedkit());
         BaseMod.addCard(new RustyChest());
         BaseMod.addCard(new ScrapIron());
