@@ -40,8 +40,8 @@ public class Nitori extends CustomMonster {
     // Nitori's ID, used for localisation files, and is prefixed with the modID.
     public static final String ID = makeID(Nitori.class.getSimpleName());
     // Localisation files for Nitori, fetched using the ID.
-    private static final MonsterStrings monsterStrings = CardCrawlGame.languagePack.getMonsterStrings(ID);
-    private static final String NAME = monsterStrings.NAME;
+    //private static final MonsterStrings monsterStrings = CardCrawlGame.languagePack.getMonsterStrings(ID);
+    //private static final String NAME = monsterStrings.NAME;
     // Nitori's "States". This controls the scaling of Nitori's actions mentioned earlier in the file.
     // PHASE_1 refers to pre Act 1 Boss Nitori.
     // PHASE_2 refers to pre Act 2 Boss Nitori.
@@ -158,7 +158,7 @@ public class Nitori extends CustomMonster {
     private boolean RNG_STR_DEX_DOWN_DONE = false;
     public Nitori() { this(0.0f, 0.0f); }
     public Nitori(final float x, final float y) {
-        super(NAME, ID, HP_0BOSS, -5.0F, 0, 280.0f, 285.0f, null, x, y);
+        super("", ID, HP_0BOSS, -5.0F, 0, 280.0f, 285.0f, null, x, y);
         this.animation = new BetterSpriterAnimation("GensokyoResources/images/monsters/Nitori/Spriter/NitoriAnimations.scml");
         this.type = EnemyType.BOSS;
         this.dialogX = (this.hb_x - 70.0F) * Settings.scale;

@@ -61,6 +61,8 @@ public class TanukiDog extends AbstractSpriterMonster
     public TanukiDog(final float x, final float y) {
         super(TanukiDog.NAME, ID, HP_MAX, -5.0F, 0, 200.0f, 160.0f, null, x, y);
         this.animation = new BetterSpriterAnimation("GensokyoResources/images/monsters/TanukiDog/Spriter/TanukiDogAnimation.scml");
+        int time = ((BetterSpriterAnimation)this.animation).myPlayer.getAnimation().length;
+        ((BetterSpriterAnimation)this.animation).myPlayer.setTime((int)(time * Math.random()));
         this.type = EnemyType.NORMAL;
         this.dialogX = (this.hb_x - 70.0F) * Settings.scale;
         this.dialogY -= (this.hb_y - 55.0F) * Settings.scale;
