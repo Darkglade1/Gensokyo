@@ -335,27 +335,5 @@
 "Gensokyo:TimeDilation": {
         "NAME": "Time Dilation",
         "DESCRIPTIONS": ["The #b1st, #b4th, #b7th, etc. cards played this combat are instead played #b", " turn later. NL The #b2nd, #b5th, #b8th, etc. cards played this combat are instead played #b", " turns later. NL The #b3rd, #b6th, #b9th, etc. cards played this combat are instead played #b", " turns later."]
-},
-"Gensokyo:HydraulicCamouflage": {
-        "NAME": "Hydraulic Camouflage",
-        "DESCRIPTIONS": [
-                "Every other #ydebuff applied to this creature is #ynegated.",
-                "Receives #b10% reduced damage. NL Every other #ydebuff applied to this creature is #ynegated.",
-                "Hydraulic Camouflage EX"
-        ]
-},
-"Gensokyo:DeEnergized": {
-        "NAME": "De-Energized",
-        "DESCRIPTIONS": [
-                "Next turn, lose #b%1$s energy.",
-                "For the next #b%1$s turns, lose #b%2$s energy."
-        ]
-},
-"Gensokyo:NitoriTimer": {
-        "NAME": "Ticking Clock",
-        "DESCRIPTIONS": [
-                "After #b%1$s turns have passed, Nitori will end the combat.",
-                "Next turn, Nitori will end the combat."
-        ]
 }
 }

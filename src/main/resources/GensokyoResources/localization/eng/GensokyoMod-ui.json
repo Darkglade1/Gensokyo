@@ -184,11 +184,5 @@
     "TEXT": [
       "Innate. NL "
     ]
-  },
-  "Gensokyo:TempHPIntent": {
-    "TEXT": [
-      "Reinforcing",
-      "This enemy intends to gain #yTemporary #yHP on its turn."
-    ]
   }
 }

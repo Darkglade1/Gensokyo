@@ -4,7 +4,6 @@ import Gensokyo.CustomIntents.AreaAttackIntent;
 import Gensokyo.CustomIntents.CurseAttackIntent;
 import Gensokyo.CustomIntents.DeathIntent;
 import Gensokyo.CustomIntents.PurifyIntent;
-import Gensokyo.CustomIntents.TempHPIntent;
 import Gensokyo.cards.AllTheWorldsEvil;
 import Gensokyo.cards.Butterfly;
 import Gensokyo.cards.CustomPotion;
@@ -468,10 +467,6 @@ public class GensokyoMod implements
         ModPanel settingsPanel = new ModPanel();
         
         BaseMod.registerModBadge(badgeTexture, MODNAME, AUTHOR, DESCRIPTION, settingsPanel);
-
-
-        // Universal
-        CustomIntent.add(new TempHPIntent());
 
         //Act 1
         (new Gensokyo()).addAct(Exordium.ID);

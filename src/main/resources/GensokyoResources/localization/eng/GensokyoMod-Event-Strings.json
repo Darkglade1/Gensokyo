@@ -950,15 +950,5 @@
       "[Leave]",
       "[Fight]"
     ]
-  },
-  "Gensokyo:CandidFailure": {
-    "NAME": "Candid Friend",
-    "DESCRIPTIONS": [
-      "You sit on the ground at the Genbu Ravine, parallel to Nitori. NL \"Thanks for the battle, I don't get to try my weapons in combat that often.",
-      "You leave, allowing her to continue working."
-    ],
-    "OPTIONS": [
-      "[Leave]"
-    ]
   }
 }

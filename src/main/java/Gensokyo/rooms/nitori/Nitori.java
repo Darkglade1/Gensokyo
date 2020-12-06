@@ -399,7 +399,6 @@ public class Nitori extends CustomMonster {
             // Hydraulic Camouflage EX - Receives 10% reduced damage from ALL sources. Every other debuff is negated.
 
     public void usePreBattleAction() {
-        AbstractDungeon.getCurrRoom().playBGM("こころ.ogg");
         int powerAmount;
         switch (getBeginningState()){
             case PHASE_1:
