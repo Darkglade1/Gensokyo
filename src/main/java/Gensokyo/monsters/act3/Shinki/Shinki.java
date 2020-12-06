@@ -87,6 +87,14 @@ public class Shinki extends AbstractSpriterMonster
         delusionList.add(new Yumeko(-480.0f, 0.0f, this));
         Collections.shuffle(delusionList, AbstractDungeon.monsterRng.random);
         AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(this, this, new UnstableReality(this, NUM_DELUSIONS_TO_FIGHT)));
+        this.addToBot(new AbstractGameAction() {
+            @Override
+            public void update() {
+                halfDead = true;
+                healthBarUpdatedEvent();
+                this.isDone = true;
+            }
+        });
     }
 
     @Override
@@ -158,6 +166,13 @@ public class Shinki extends AbstractSpriterMonster
         AbstractDungeon.deathScreen = new DeathScreen(AbstractDungeon.getMonsters());
         AbstractDungeon.actionManager.clearPostCombatActions();
         super.die(triggerRelics);
+    }
+
+    @Override
+    public void damage(DamageInfo info) {
+        if (info.owner instanceof AbstractShinkiDelusion || info.owner instanceof Doll) { //Just to be really sure she can't take damage from anything else
+            super.damage(info);
+        }
     }
 
     @Override

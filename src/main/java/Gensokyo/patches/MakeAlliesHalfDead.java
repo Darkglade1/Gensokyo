@@ -1,6 +1,7 @@
 package Gensokyo.patches;
 
 import Gensokyo.monsters.act3.Remilia;
+import Gensokyo.monsters.act3.Shinki.Shinki;
 import com.evacipated.cardcrawl.modthespire.lib.LineFinder;
 import com.evacipated.cardcrawl.modthespire.lib.Matcher;
 import com.evacipated.cardcrawl.modthespire.lib.SpireInsertLocator;
@@ -18,13 +19,13 @@ import javassist.CtBehavior;
         method = "getNextAction"
 
 )
-// A patch to make Remilia halfdead at the start of the player's turn
-public class MakeRemiliaHalfDead {
-    @SpireInsertPatch(locator = MakeRemiliaHalfDead.Locator.class)
-    public static void MakeRemiliaHalfDeadReee(GameActionManager instance) {
+// A patch to make allies halfdead at the start of the player's turn
+public class MakeAlliesHalfDead {
+    @SpireInsertPatch(locator = MakeAlliesHalfDead.Locator.class)
+    public static void MakeAlliesHalfDeadReee(GameActionManager instance) {
         if (AbstractDungeon.getCurrRoom() != null) {
             for (AbstractMonster mo : AbstractDungeon.getCurrRoom().monsters.monsters) {
-                if (mo.id.equals(Remilia.ID)) {
+                if (mo.id.equals(Remilia.ID) || mo.id.equals(Shinki.ID)) {
                     AbstractDungeon.actionManager.addToBottom(new AbstractGameAction() {
                         @Override
                         public void update() {

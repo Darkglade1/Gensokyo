@@ -71,6 +71,7 @@ public class Doll extends AbstractSpriterMonster {
 
     @Override
     public void takeTurn() {
+        master.shinki.halfDead = false;
         if (cooldown > 0) {
             cooldown--;
         }

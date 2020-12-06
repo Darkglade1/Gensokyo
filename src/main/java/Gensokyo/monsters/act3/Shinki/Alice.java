@@ -116,6 +116,7 @@ public class Alice extends AbstractShinkiDelusion
         if(info.base > -1) {
             info.applyPowers(this, AbstractDungeon.player);
         }
+        shinki.halfDead = false;
         switch (this.nextMove) {
             case ATTACK: {
                 runAnim("SpellAttack");
