@@ -336,6 +336,10 @@
         "NAME": "Burden of Failure",
         "DESCRIPTIONS": ["If this creature fails to deal unblocked attack damage when it attacks, your #gally #rloses #b", " HP."]
 },
+"Gensokyo:ExposedBack": {
+        "NAME": "Exposed Back",
+        "DESCRIPTIONS": ["Receives #b", "% more damage from #yAttacks."]
+},
 "Gensokyo:TimeDilation": {
         "NAME": "Time Dilation",
         "DESCRIPTIONS": ["The #b1st, #b4th, #b7th, etc. cards played this combat are instead played #b", " turn later. NL The #b2nd, #b5th, #b8th, etc. cards played this combat are instead played #b", " turns later. NL The #b3rd, #b6th, #b9th, etc. cards played this combat are instead played #b", " turns later."]

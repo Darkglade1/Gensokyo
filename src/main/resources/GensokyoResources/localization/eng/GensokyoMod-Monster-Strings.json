@@ -626,6 +626,20 @@
       "You should've made me stronger!",
       "Don't blame yourself for my failures."
     ]
+  },
+  "Gensokyo:Sariel": {
+    "MOVES": [
+      "Touch of Death",
+      "Death Blow"
+    ],
+    "NAME": "The One Left Behind",
+    "DIALOG": [
+      "As you wish.",
+      "Why did you toss me aside?",
+      "I waited for you, but you never came.",
+      "It was nice while it lasted.",
+      "Let us dance until the moment you die."
+    ]
   }
 }
 
