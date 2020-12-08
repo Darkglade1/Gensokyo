@@ -891,6 +891,36 @@
       "[You should've done better] #rShuffle #r", " ", " #rinto #ryour #rdiscard #rpile."
     ]
   },
+  "Gensokyo:SarielEvent1": {
+    "NAME": "Angel of Death",
+    "DESCRIPTIONS": [
+      "In this world of yours, every child you brought forth was another #ygem to #gcherish. But some gems developed #rrough surfaces and #rsharp edges, defying your rules and causing trouble for your other children. NL NL You needed someone who could hunt down the criminals and troublemakers of your world and bring them to justice, an angel of #pdeath who would enforce the laws of the god of this world. NL NL To this child, you gave the #yloyalty to follow your every command. To this angel, you gave -"
+    ],
+    "OPTIONS": [
+      "[Strength to surpass all others] #gEvery #g", "th #gAttack #gyou #gplay #gis #gplayed #gtwice.",
+      "[Agility to pursue all who might flee] #gEvery #g", "th #gSkill #gyou #gplay #gis #gplayed #gtwice."
+    ]
+  },
+  "Gensokyo:SarielEvent2": {
+    "NAME": "Good Angels Never Die",
+    "DESCRIPTIONS": [
+      "Your little angel was #yperfect. NL NL All it took was a few whispered words from you, and she would take care of the problems #yquickly and #yefficiently. Before long, you heard rumors of an angel of #pdeath spreading amongst your other children, a #preaper who hunted down those who would dare cause a disturbance. Soon enough, the troublemakers and criminals stopped appearing, and you no longer needed to send your angel out. NL NL Soon enough, you forgot that you even had an angel at all. Until one day, when she quietly slipped into your office and asked:"
+    ],
+    "OPTIONS": [
+      "[Give me someone to kill] #rThe #renemy #rloses #rExposed #rBack #rand #rattacks #ryou #rinstead.",
+      "[Why did you abandon me?] #rThe #renemy #rdeals #r", "% #rmore #rdamage."
+    ]
+  },
+  "Gensokyo:SarielEvent3": {
+    "NAME": "The One Left Behind",
+    "DESCRIPTIONS": [
+      "You found her standing there amidst the #pruins of Makai, the lone figure who had been all but forgotten. NL NL How #pfoolish of you. If you could’ve spared a thought for your #yangel, perhaps you could’ve sent her after the intruders. Perhaps your angel could’ve succeeded where others could not and prevented the #pcatastrophe from occurring. NL NL Your hand reached out to her to find that she's as cold as death. You realized that she had long since turned to stone, waiting for an order that would never come."
+    ],
+    "OPTIONS": [
+      "[This is your tragedy] #rYou #rgain #r" , " #rWeak #rand #rFrail.",
+      "[This is your mistake] #rYou #rgain #r" , " #rEntangled."
+    ]
+  },
   "Gensokyo:MarisaAnOldGhost": {
     "NAME": "An Old Ghost",
     "DESCRIPTIONS": [

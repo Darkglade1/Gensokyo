@@ -69,9 +69,9 @@ public class Sariel extends AbstractShinkiDelusion
         this.dialogY -= (this.hb_y - 55.0F) * Settings.scale;
         this.shinki = shinki;
         this.target = shinki;
-        this.event1 = new YumekoEvent1(shinki);
-        this.event2 = new YumekoEvent2(shinki);
-        this.event3 = new YumekoEvent3(shinki);
+        this.event1 = new SarielEvent1(shinki);
+        this.event2 = new SarielEvent2(shinki);
+        this.event3 = new SarielEvent3(shinki);
         if (AbstractDungeon.ascensionLevel >= 19) {
             this.debuffAmt = A19_DEBUFF_AMT;
             this.powerAmt = A19_POWER_AMT;
@@ -102,6 +102,10 @@ public class Sariel extends AbstractShinkiDelusion
     @Override
     public void usePreBattleAction() {
         AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(this, this, new ExposedBack(this, powerAmt)));
+    }
+
+    public void setFlip(boolean horizontal, boolean vertical) {
+        this.animation.setFlip(horizontal, vertical);
     }
 
     @Override
