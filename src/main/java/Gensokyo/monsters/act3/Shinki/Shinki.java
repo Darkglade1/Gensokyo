@@ -83,7 +83,7 @@ public class Shinki extends AbstractSpriterMonster
     @Override
     public void usePreBattleAction() {
         //AbstractDungeon.getCurrRoom().playBgmInstantly("Wind God Girl");
-        //delusionList.add(new Alice(-480.0f, 0.0f, this));
+        delusionList.add(new Alice(-480.0f, 0.0f, this));
         delusionList.add(new Yumeko(-480.0f, 0.0f, this));
         delusionList.add(new Sariel(-480.0f, 0.0f, this));
         Collections.shuffle(delusionList, AbstractDungeon.monsterRng.random);
@@ -112,6 +112,8 @@ public class Shinki extends AbstractSpriterMonster
         switch (this.nextMove) {
             case UNKNOWN: {
                 if (delusionsDefeated >= NUM_DELUSIONS_TO_FIGHT) {
+                    this.animation.setFlip(true, false);
+                    AbstractDungeon.actionManager.addToBottom(new TalkAction(this, DIALOG[1]));
                     AbstractDungeon.actionManager.addToBottom(new EscapeAction(this));
                     this.onBossVictoryLogic();
                 } else if (currentDelusion == null) {
@@ -125,7 +127,14 @@ public class Shinki extends AbstractSpriterMonster
                 } else if (currentDelusion.currentHealth <= (int)(currentDelusion.maxHealth * THRESHOLD1) && !threshold1Triggered) {
                     runEvent(currentDelusion.event2);
                     threshold1Triggered = true;
-                    AbstractDungeon.actionManager.addToBottom(new TalkAction(currentDelusion, currentDelusion.eventDialog(1)));
+                    //hack to make sariel say something different depending on what event option got picked
+                    this.addToBot(new AbstractGameAction() {
+                        @Override
+                        public void update() {
+                            this.isDone = true;
+                            AbstractDungeon.actionManager.addToBottom(new TalkAction(currentDelusion, currentDelusion.eventDialog(1)));
+                        }
+                    });
                 } else if (currentDelusion.currentHealth <= (int)(currentDelusion.maxHealth * THRESHOLD2) && !threshold2Triggered) {
                     runEvent(currentDelusion.event3);
                     threshold2Triggered = true;

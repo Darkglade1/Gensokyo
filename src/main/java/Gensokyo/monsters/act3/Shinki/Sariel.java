@@ -31,12 +31,12 @@ public class Sariel extends AbstractShinkiDelusion
     public static final String NAME = monsterStrings.NAME;
     public static final String[] MOVES = monsterStrings.MOVES;
     public static final String[] DIALOG = monsterStrings.DIALOG;
-    private static final UIStrings uiStrings = CardCrawlGame.languagePack.getUIString(GensokyoMod.makeID("SistersIntents"));
+    private static final UIStrings uiStrings = CardCrawlGame.languagePack.getUIString(GensokyoMod.makeID("SarielIntents"));
     private static final String[] TEXT = uiStrings.TEXT;
 
     private boolean firstMove = true;
-    private static final byte ATTACK = 0;
-    private static final byte DEBUFF_ATTACK = 1;
+    private static final byte DEBUFF_ATTACK = 0;
+    private static final byte ATTACK = 1;
 
     private static final int ATTACK_DMG = 30;
     private static final int A4_ATTACK_DMG = 33;
@@ -120,12 +120,16 @@ public class Sariel extends AbstractShinkiDelusion
         shinki.halfDead = false;
         switch (this.nextMove) {
             case ATTACK: {
-                useFastAttackAnimation();
+                if (target == AbstractDungeon.player) {
+                    useFastAttackAnimation();
+                }
                 AbstractDungeon.actionManager.addToBottom(new DamageAction(target, info, AbstractGameAction.AttackEffect.SLASH_HEAVY));
                 break;
             }
             case DEBUFF_ATTACK: {
-                useFastAttackAnimation();
+                if (target == AbstractDungeon.player) {
+                    useFastAttackAnimation();
+                }
                 AbstractDungeon.actionManager.addToBottom(new DamageAction(target, info, AbstractGameAction.AttackEffect.SLASH_DIAGONAL));
                 AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(target, this, new VulnerablePower(target, debuffAmt, true), debuffAmt));
                 break;
@@ -167,7 +171,7 @@ public class Sariel extends AbstractShinkiDelusion
                 info.applyPowers(this, target);
                 ReflectionHacks.setPrivate(this, AbstractMonster.class, "intentDmg", info.output);
                 PowerTip intentTip = ReflectionHacks.getPrivate(this, AbstractMonster.class, "intentTip");
-                intentTip.body = TEXT[2] + info.output + TEXT[3];
+                intentTip.body = TEXT[0] + info.output + TEXT[1];
             }
         } else {
             super.applyPowers();
@@ -176,7 +180,7 @@ public class Sariel extends AbstractShinkiDelusion
 
     @Override
     public String eventDialog(int eventNum) {
-        if (eventNum == 2 && target == AbstractDungeon.player) {
+        if (eventNum == 1 && target == AbstractDungeon.player) {
             return DIALOG[4];
         } else {
             return DIALOG[eventNum];

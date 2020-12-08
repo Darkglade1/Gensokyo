@@ -184,5 +184,11 @@
     "TEXT": [
       "Innate. NL "
     ]
+  },
+  "Gensokyo:SarielIntents": {
+    "TEXT": [
+      "This enemy intends to NL #yAttack your #gally for #b",
+      " damage."
+    ]
   }
 }

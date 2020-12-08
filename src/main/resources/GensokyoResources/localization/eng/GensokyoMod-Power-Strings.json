@@ -342,7 +342,7 @@
 },
 "Gensokyo:SarielEventPower": {
         "NAME": "Angel's Grace",
-        "DESCRIPTIONS": ["Every #b", " #yAttack", " #ySkill", " you play is played twice."]
+        "DESCRIPTIONS": ["Every #b", "th #yAttack", "th #ySkill", " you play is played twice."]
 },
 "Gensokyo:TimeDilation": {
         "NAME": "Time Dilation",
