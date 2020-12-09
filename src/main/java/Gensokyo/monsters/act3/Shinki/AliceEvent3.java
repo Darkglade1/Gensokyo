@@ -48,7 +48,8 @@ public class AliceEvent3 extends AbstractShinkiEvent{
     public void buttonEffect(int buttonPressed) {
         switch (buttonPressed) {
             case 0:
-                AbstractDungeon.actionManager.addToBottom(new LoseHPAction(shinki, shinki, allyDamage));
+                System.out.println(shinki.halfDead);
+                AbstractDungeon.actionManager.addToBottom(new LoseHPAction(shinki, shinki.currentDelusion, allyDamage));
                 break;
             case 1:
                 AbstractDungeon.actionManager.addToBottom(new HealAction(shinki.currentDelusion, shinki.currentDelusion, enemyHeal));

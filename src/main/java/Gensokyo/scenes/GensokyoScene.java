@@ -26,6 +26,7 @@ import Gensokyo.monsters.act2.Reisen;
 import Gensokyo.monsters.act2.Tenshi;
 import Gensokyo.monsters.act3.Marisa;
 import Gensokyo.monsters.act3.Mokou;
+import Gensokyo.monsters.act3.Shinki.Shinki;
 import Gensokyo.monsters.act3.Yuyuko;
 import Gensokyo.monsters.act1.marisaMonsters.Patchouli;
 import Gensokyo.monsters.act3.Doremy;
@@ -148,6 +149,8 @@ public class GensokyoScene extends AbstractScene {
                     this.bg = this.atlas.findRegion("mod/BambooForest");
                 } else if (mo instanceof Marisa) {
                     this.bg = this.atlas.findRegion("mod/HakureiShrine");
+                } else if (mo instanceof Shinki) {
+                    this.bg = this.atlas.findRegion("mod/FancyPlaceNight");
                 } else {
                     if (CardCrawlGame.dungeon instanceof Gensokyo) {
                         this.bg = this.atlas.findRegion("mod/TanukiForest");

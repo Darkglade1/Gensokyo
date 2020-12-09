@@ -162,7 +162,6 @@ public class Sariel extends AbstractShinkiDelusion
 
     @Override
     public void applyPowers() {
-        System.out.println("APPLYPOWERS");
         if (this.nextMove == -1) {
             Color color = new Color(1.0F, 1.0F, 1.0F, 0.5F);
             ReflectionHacks.setPrivate(this, AbstractMonster.class, "intentColor", color);

@@ -87,7 +87,7 @@ public class Shinki extends AbstractSpriterMonster
     public void usePreBattleAction() {
         //AbstractDungeon.getCurrRoom().playBgmInstantly("Wind God Girl");
         delusionList.add(new Alice(-480.0f, 0.0f, this));
-        //delusionList.add(new Yumeko(-480.0f, 0.0f, this));
+        delusionList.add(new Yumeko(-480.0f, 0.0f, this));
         delusionList.add(new Sariel(-480.0f, 0.0f, this));
         Collections.shuffle(delusionList, AbstractDungeon.monsterRng.random);
         AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(this, this, new UnstableReality(this, NUM_DELUSIONS_TO_FIGHT)));
