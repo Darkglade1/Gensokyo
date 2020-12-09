@@ -7,6 +7,7 @@ import Gensokyo.monsters.act1.Kokoro;
 import Gensokyo.monsters.act1.Reimu;
 import Gensokyo.monsters.act1.Yukari;
 import Gensokyo.monsters.act3.Mokou;
+import Gensokyo.monsters.act3.Shinki.Shinki;
 import Gensokyo.monsters.act3.Yuyuko;
 import basemod.patches.com.megacrit.cardcrawl.dungeons.AbstractDungeon.CustomBosses;
 import com.evacipated.cardcrawl.modthespire.lib.LineFinder;
@@ -52,6 +53,9 @@ public class BossIconBlackBoxPatch {
         } else if (key.equals(EncounterIDs.SCARLET_DEVILS)) {
             DungeonMap.boss = ImageMaster.loadImage("GensokyoResources/images/monsters/Flandre/Sisters.png");
             DungeonMap.bossOutline = ImageMaster.loadImage("GensokyoResources/images/monsters/Flandre/SistersOutline.png");
+        } else if (key.equals(Shinki.ID)) {
+            DungeonMap.boss = ImageMaster.loadImage("GensokyoResources/images/monsters/Shinki/Shinki.png");
+            DungeonMap.bossOutline = ImageMaster.loadImage("GensokyoResources/images/monsters/Shinki/ShinkiOutline.png");
         }
     }
     private static class Locator extends SpireInsertLocator {

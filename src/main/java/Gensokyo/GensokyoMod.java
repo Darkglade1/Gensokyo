@@ -582,8 +582,8 @@ public class GensokyoMod implements
 
 
         //Act 3
-        BaseMod.addMonster(Doremy.ID, (BaseMod.GetMonster) Doremy::new);
-        BaseMod.addMonster(Marisa.ID, (BaseMod.GetMonster) Marisa::new);
+        CustomIntent.add(new DeathIntent());
+        CustomIntent.add(new CurseAttackIntent());
 
         BaseMod.addMonster(EncounterIDs.SCARLET_DEVILS, "Scarlet Devils", () -> new MonsterGroup(
                 new AbstractMonster[] {
@@ -591,12 +591,17 @@ public class GensokyoMod implements
                         new Flandre(),
                 }));
         BaseMod.addMonster(Yuyuko.ID, (BaseMod.GetMonster) Yuyuko::new);
-        CustomIntent.add(new DeathIntent());
-        CustomIntent.add(new CurseAttackIntent());
-        BaseMod.addMonster(Mokou.ID, (BaseMod.GetMonster) Mokou::new);
         BaseMod.addMonster(Shinki.ID, (BaseMod.GetMonster) Shinki::new);
+
         BaseMod.addBoss(Gensokyoest.ID, EncounterIDs.SCARLET_DEVILS, "GensokyoResources/images/monsters/Flandre/Sisters.png", "GensokyoResources/images/monsters/Flandre/SistersOutline.png");
         BaseMod.addBoss(Gensokyoest.ID, Yuyuko.ID, "GensokyoResources/images/monsters/Yuyuko/Yuyuko.png", "GensokyoResources/images/monsters/Yuyuko/YuyukoOutline.png");
+        BaseMod.addBoss(Gensokyoest.ID, Shinki.ID, "GensokyoResources/images/monsters/Shinki/Shinki.png", "GensokyoResources/images/monsters/Shinki/ShinkiOutline.png");
+
+        BaseMod.addMonster(Doremy.ID, (BaseMod.GetMonster) Doremy::new);
+        BaseMod.addMonster(Marisa.ID, (BaseMod.GetMonster) Marisa::new);
+
+        BaseMod.addMonster(Mokou.ID, (BaseMod.GetMonster) Mokou::new);
+
 
         // =============== EVENTS =================
 
