@@ -16,8 +16,7 @@ public abstract class AbstractShinkiDelusion extends AbstractSpriterMonster {
 
     @Override
     public void die(boolean triggerRelics) {
-        shinki.currentDelusion = null;
-        shinki.delusionsDefeated++;
+        shinki.onDelusionDeath();
         super.die(triggerRelics);
     }
 

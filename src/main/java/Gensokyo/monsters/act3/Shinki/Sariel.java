@@ -4,6 +4,7 @@ import Gensokyo.BetterSpriterAnimation;
 import Gensokyo.GensokyoMod;
 import Gensokyo.powers.act3.ExposedBack;
 import basemod.ReflectionHacks;
+import com.badlogic.gdx.graphics.Color;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.animations.TalkAction;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
@@ -31,7 +32,7 @@ public class Sariel extends AbstractShinkiDelusion
     public static final String NAME = monsterStrings.NAME;
     public static final String[] MOVES = monsterStrings.MOVES;
     public static final String[] DIALOG = monsterStrings.DIALOG;
-    private static final UIStrings uiStrings = CardCrawlGame.languagePack.getUIString(GensokyoMod.makeID("SarielIntents"));
+    private static final UIStrings uiStrings = CardCrawlGame.languagePack.getUIString(GensokyoMod.makeID("DelusionIntents"));
     private static final String[] TEXT = uiStrings.TEXT;
 
     private boolean firstMove = true;
@@ -161,11 +162,16 @@ public class Sariel extends AbstractShinkiDelusion
 
     @Override
     public void applyPowers() {
+        System.out.println("APPLYPOWERS");
         if (this.nextMove == -1) {
+            Color color = new Color(1.0F, 1.0F, 1.0F, 0.5F);
+            ReflectionHacks.setPrivate(this, AbstractMonster.class, "intentColor", color);
             super.applyPowers();
             return;
         }
         DamageInfo info = new DamageInfo(this, moves.get(this.nextMove).baseDamage, DamageInfo.DamageType.NORMAL);
+        Color color = new Color(1.0F, 1.0F, 1.0F, 0.5F);
+        ReflectionHacks.setPrivate(this, AbstractMonster.class, "intentColor", color);
         if (target == shinki) {
             if(info.base > -1) {
                 info.applyPowers(this, target);

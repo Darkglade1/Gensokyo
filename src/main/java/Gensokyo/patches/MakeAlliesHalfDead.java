@@ -31,6 +31,7 @@ public class MakeAlliesHalfDead {
                         public void update() {
                             mo.halfDead = true;
                             mo.healthBarUpdatedEvent();
+                            AbstractDungeon.onModifyPower(); //I need this here to fucking make sure alice and sariel intents get updated akdjgkadjgaldjbfag
                             this.isDone = true;
                         }
                     });

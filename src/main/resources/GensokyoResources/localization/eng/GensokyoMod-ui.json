@@ -185,10 +185,15 @@
       "Innate. NL "
     ]
   },
-  "Gensokyo:SarielIntents": {
+  "Gensokyo:DelusionIntents": {
     "TEXT": [
       "This enemy intends to NL #yAttack your #gally for #b",
-      " damage."
+      " damage.",
+      "This enemy intends to NL #yAttack #ryou AND your #gally for #b",
+      " damage.",
+      "This enemy intends to NL #yAttack #ryou AND your #gally for #b",
+      " damage #b",
+      " times."
     ]
   }
 }

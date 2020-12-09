@@ -6,10 +6,12 @@ import Gensokyo.actions.ShinkiEventAction;
 import Gensokyo.actions.UsePreBattleActionAction;
 import Gensokyo.monsters.AbstractSpriterMonster;
 import Gensokyo.powers.act3.UnstableReality;
+import Gensokyo.vfx.EmptyEffect;
 import basemod.ReflectionHacks;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.animations.TalkAction;
+import com.megacrit.cardcrawl.actions.animations.VFXAction;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.actions.common.DamageAction;
 import com.megacrit.cardcrawl.actions.common.EscapeAction;
@@ -40,6 +42,7 @@ public class Shinki extends AbstractSpriterMonster
 
     private boolean firstMove = true;
     private static final byte UNKNOWN = 0;
+    private static final byte NONE = 1;
 
     private static final int DAMAGE = 7;
     private static final int DEBUFF = 1;
@@ -72,8 +75,8 @@ public class Shinki extends AbstractSpriterMonster
         this.dialogX = (this.hb_x - 70.0F) * Settings.scale;
         this.dialogY -= (this.hb_y - 55.0F) * Settings.scale;
         this.moves = new HashMap<>();
-        this.moves.put(UNKNOWN, new EnemyMoveInfo(UNKNOWN, Intent.MAGIC, DAMAGE, 0, false));
-
+        this.moves.put(UNKNOWN, new EnemyMoveInfo(UNKNOWN, Intent.UNKNOWN, DAMAGE, 0, false));
+        this.moves.put(NONE, new EnemyMoveInfo(NONE, Intent.NONE, DAMAGE, 0, false));
         AbstractEvent.type = AbstractEvent.EventType.IMAGE;
         this.imageEventText = new GenericEventDialog();
         this.imageEventText.hide();
@@ -84,7 +87,7 @@ public class Shinki extends AbstractSpriterMonster
     public void usePreBattleAction() {
         //AbstractDungeon.getCurrRoom().playBgmInstantly("Wind God Girl");
         delusionList.add(new Alice(-480.0f, 0.0f, this));
-        delusionList.add(new Yumeko(-480.0f, 0.0f, this));
+        //delusionList.add(new Yumeko(-480.0f, 0.0f, this));
         delusionList.add(new Sariel(-480.0f, 0.0f, this));
         Collections.shuffle(delusionList, AbstractDungeon.monsterRng.random);
         AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(this, this, new UnstableReality(this, NUM_DELUSIONS_TO_FIGHT)));
@@ -106,46 +109,54 @@ public class Shinki extends AbstractSpriterMonster
             firstMove = false;
         }
         DamageInfo info = new DamageInfo(this, moves.get(this.nextMove).baseDamage, DamageInfo.DamageType.NORMAL);
-        if(info.base > -1 && currentDelusion != null) {
+        if (info.base > -1 && currentDelusion != null) {
             info.applyPowers(this, currentDelusion);
         }
-        switch (this.nextMove) {
-            case UNKNOWN: {
-                if (delusionsDefeated >= NUM_DELUSIONS_TO_FIGHT) {
-                    this.animation.setFlip(true, false);
-                    AbstractDungeon.actionManager.addToBottom(new TalkAction(this, DIALOG[1]));
-                    AbstractDungeon.actionManager.addToBottom(new EscapeAction(this));
-                    this.onBossVictoryLogic();
-                } else if (currentDelusion == null) {
-                    currentDelusion = delusionList.remove(0);
-                    runEvent(currentDelusion.event1);
-                    AbstractDungeon.actionManager.addToBottom(new SpawnMonsterAction(currentDelusion, false));
-                    AbstractDungeon.actionManager.addToBottom(new UsePreBattleActionAction(currentDelusion));
-                    threshold1Triggered = false;
-                    threshold2Triggered = false;
-                    AbstractDungeon.actionManager.addToBottom(new TalkAction(currentDelusion, currentDelusion.eventDialog(0)));
-                } else if (currentDelusion.currentHealth <= (int)(currentDelusion.maxHealth * THRESHOLD1) && !threshold1Triggered) {
-                    runEvent(currentDelusion.event2);
-                    threshold1Triggered = true;
-                    //hack to make sariel say something different depending on what event option got picked
-                    this.addToBot(new AbstractGameAction() {
-                        @Override
-                        public void update() {
-                            this.isDone = true;
-                            AbstractDungeon.actionManager.addToBottom(new TalkAction(currentDelusion, currentDelusion.eventDialog(1)));
-                        }
-                    });
-                } else if (currentDelusion.currentHealth <= (int)(currentDelusion.maxHealth * THRESHOLD2) && !threshold2Triggered) {
-                    runEvent(currentDelusion.event3);
-                    threshold2Triggered = true;
-                    AbstractDungeon.actionManager.addToBottom(new TalkAction(currentDelusion, currentDelusion.eventDialog(2)));
-                } else {
-                    AbstractDungeon.actionManager.addToBottom(new DamageAction(currentDelusion, info, AbstractGameAction.AttackEffect.FIRE));
+        if (currentDelusion == null) {
+            currentDelusion = delusionList.remove(0);
+            runEvent(currentDelusion.event1);
+            AbstractDungeon.actionManager.addToBottom(new SpawnMonsterAction(currentDelusion, false));
+            AbstractDungeon.actionManager.addToBottom(new UsePreBattleActionAction(currentDelusion));
+            threshold1Triggered = false;
+            threshold2Triggered = false;
+            AbstractDungeon.actionManager.addToBottom(new TalkAction(currentDelusion, currentDelusion.eventDialog(0)));
+        } else if (currentDelusion.currentHealth <= (int) (currentDelusion.maxHealth * THRESHOLD1) && !threshold1Triggered) {
+            runEvent(currentDelusion.event2);
+            threshold1Triggered = true;
+            //hack to make sariel say something different depending on what event option got picked
+            this.addToBot(new AbstractGameAction() {
+                @Override
+                public void update() {
+                    this.isDone = true;
+                    AbstractDungeon.actionManager.addToBottom(new TalkAction(currentDelusion, currentDelusion.eventDialog(1)));
                 }
-                break;
-            }
-        }
+            });
+        } else if (currentDelusion.currentHealth <= (int) (currentDelusion.maxHealth * THRESHOLD2) && !threshold2Triggered) {
+            runEvent(currentDelusion.event3);
+            threshold2Triggered = true;
+            AbstractDungeon.actionManager.addToBottom(new TalkAction(currentDelusion, currentDelusion.eventDialog(2)));
+        } //else {
+//                    AbstractDungeon.actionManager.addToBottom(new DamageAction(currentDelusion, info, AbstractGameAction.AttackEffect.FIRE));
+//                }
         AbstractDungeon.actionManager.addToBottom(new RollMoveAction(this));
+    }
+
+    public void onDelusionDeath() {
+        currentDelusion = null;
+        delusionsDefeated++;
+        if (delusionsDefeated >= NUM_DELUSIONS_TO_FIGHT) {
+            this.addToBot(new AbstractGameAction() {
+                @Override
+                public void update() {
+                    this.isDone = true;
+                    animation.setFlip(true, false);
+                }
+            });
+            addToBot(new VFXAction(new EmptyEffect(), 1.0f));
+            AbstractDungeon.actionManager.addToBottom(new TalkAction(this, DIALOG[1]));
+            AbstractDungeon.actionManager.addToBottom(new EscapeAction(this));
+            this.onBossVictoryLogic();
+        }
     }
 
     private void runEvent(AbstractShinkiEvent event) {
@@ -162,12 +173,16 @@ public class Shinki extends AbstractSpriterMonster
 
     public void setMoveShortcut(byte next) {
         EnemyMoveInfo info = this.moves.get(next);
-        this.setMove(MOVES[next], next, info.intent, info.baseDamage, info.multiplier, info.isMultiDamage);
+        this.setMove(null, next, info.intent, info.baseDamage, info.multiplier, info.isMultiDamage);
     }
 
     @Override
     protected void getMove(final int num) {
-        setMoveShortcut(UNKNOWN);
+        if (this.firstMove) {
+            setMoveShortcut(UNKNOWN);
+        } else {
+            setMoveShortcut(NONE);
+        }
     }
 
     @Override

@@ -6,6 +6,7 @@ import Gensokyo.GensokyoMod;
 import Gensokyo.actions.UsePreBattleActionAction;
 import Gensokyo.powers.act1.VigorPower;
 import Gensokyo.powers.act3.DollJudgement;
+import basemod.ReflectionHacks;
 import com.badlogic.gdx.graphics.Color;
 import com.brashmonkey.spriter.Animation;
 import com.brashmonkey.spriter.Player;
@@ -19,10 +20,13 @@ import com.megacrit.cardcrawl.actions.common.SpawnMonsterAction;
 import com.megacrit.cardcrawl.actions.common.SuicideAction;
 import com.megacrit.cardcrawl.actions.utility.SFXAction;
 import com.megacrit.cardcrawl.cards.DamageInfo;
+import com.megacrit.cardcrawl.core.AbstractCreature;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.core.Settings;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
+import com.megacrit.cardcrawl.helpers.PowerTip;
 import com.megacrit.cardcrawl.localization.MonsterStrings;
+import com.megacrit.cardcrawl.localization.UIStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.monsters.EnemyMoveInfo;
 import com.megacrit.cardcrawl.vfx.BorderFlashEffect;
@@ -40,6 +44,8 @@ public class Alice extends AbstractShinkiDelusion
     public static final String NAME = monsterStrings.NAME;
     public static final String[] MOVES = monsterStrings.MOVES;
     public static final String[] DIALOG = monsterStrings.DIALOG;
+    private static final UIStrings uiStrings = CardCrawlGame.languagePack.getUIString(GensokyoMod.makeID("DelusionIntents"));
+    private static final String[] TEXT = uiStrings.TEXT;
 
     private boolean firstMove = true;
     private static final byte ATTACK = 0;
@@ -200,6 +206,31 @@ public class Alice extends AbstractShinkiDelusion
                 possibilities.add(BUFF);
             }
             setMoveShortcut(possibilities.get(AbstractDungeon.monsterRng.random(possibilities.size() - 1)));
+        }
+    }
+
+    @Override
+    public void applyPowers() {
+        System.out.println("APPLYPOWERS");
+        if (this.nextMove == -1) {
+            Color color = new Color(1.0F, 1.0F, 1.0F, 0.5F);
+            ReflectionHacks.setPrivate(this, AbstractMonster.class, "intentColor", color);
+            super.applyPowers();
+            return;
+        }
+        DamageInfo info = new DamageInfo(this, moves.get(this.nextMove).baseDamage, DamageInfo.DamageType.NORMAL);
+        Color color = new Color(1.0F, 1.0F, 1.0F, 0.5F);
+        ReflectionHacks.setPrivate(this, AbstractMonster.class, "intentColor", color);
+        if (info.base > -1) {
+            int multiplier = moves.get(this.nextMove).multiplier;
+            info.applyPowers(this, AbstractDungeon.player);
+            ReflectionHacks.setPrivate(this, AbstractMonster.class, "intentDmg", info.output);
+            PowerTip intentTip = ReflectionHacks.getPrivate(this, AbstractMonster.class, "intentTip");
+            if (multiplier > 0) {
+                intentTip.body = TEXT[4] + info.output + TEXT[5] + multiplier + TEXT[6];
+            } else {
+                intentTip.body = TEXT[2] + info.output + TEXT[3];
+            }
         }
     }
 

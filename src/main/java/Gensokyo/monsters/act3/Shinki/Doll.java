@@ -21,8 +21,8 @@ public class Doll extends AbstractSpriterMonster {
 
     protected static final byte NONE = 0;
     protected static final byte EXPLODE = 1;
-    protected static final int HP = 25;
-    protected static final int A9_HP = 27;
+    protected static final int HP = 20;
+    protected static final int A9_HP = 22;
     private static final int EXPLODE_DAMAGE = 20;
     private static final int A4_EXPLODE_DAMAGE = 22;
     public static final int DOLLS_EXPLODE_TIMER = 3;
