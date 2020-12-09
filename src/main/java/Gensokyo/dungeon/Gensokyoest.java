@@ -1,6 +1,7 @@
 package Gensokyo.dungeon;
 
 import Gensokyo.monsters.act3.Doremy;
+import Gensokyo.monsters.act3.Marisa;
 import Gensokyo.scenes.GensokyoScene;
 import actlikeit.dungeons.CustomDungeon;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
@@ -22,6 +23,7 @@ public class Gensokyoest extends CustomDungeon {
 
     public Gensokyoest() {
         super(NAME, ID, "images/ui/event/panel.png", false, 2, 12, 10);
+        this.addTempMusic("BorderOfLife", "audio/music/Gensokyo/Border of Life.ogg");
     }
 
     public Gensokyoest(CustomDungeon cd, AbstractPlayer p, ArrayList<String> emptyList) {
@@ -41,7 +43,7 @@ public class Gensokyoest extends CustomDungeon {
         shopRoomChance = 0.05F;
         restRoomChance = 0.12F;
         treasureRoomChance = 0.0F;
-        eventRoomChance = 0.25F;
+        eventRoomChance = 0.22F;
         eliteRoomChance = 0.08F;
         smallChestChance = 50;
         mediumChestChance = 33;
@@ -112,7 +114,7 @@ public class Gensokyoest extends CustomDungeon {
     protected void generateElites(int count) {
         ArrayList<MonsterInfo> monsters = new ArrayList();
         monsters.add(new MonsterInfo(Doremy.ID, 2.0F));
-        monsters.add(new MonsterInfo("Nemesis", 2.0F));
+        monsters.add(new MonsterInfo(Marisa.ID, 2.0F));
         monsters.add(new MonsterInfo("Reptomancer", 2.0F));
         MonsterInfo.normalizeWeights(monsters);
         this.populateMonsterList(monsters, count, true);

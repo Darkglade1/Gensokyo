@@ -134,18 +134,21 @@ public class Marisa extends CustomMonster
         }
         switch (this.nextMove) {
             case ATTACK_STATUS: {
-                AbstractDungeon.actionManager.addToBottom(new VFXAction(new LaserBeamEffect(this.hb.cX, this.hb.cY + 60.0F * Settings.scale), 1.5F));
+                runAnim("Spark");
+                AbstractDungeon.actionManager.addToBottom(new VFXAction(new LaserBeamEffect(this.hb.cX, this.hb.cY + 5.0F * Settings.scale), 1.0F));
                 AbstractDungeon.actionManager.addToBottom(new DamageAction(AbstractDungeon.player, info, AbstractGameAction.AttackEffect.NONE));
                 AbstractDungeon.actionManager.addToBottom(new MakeTempCardInDiscardAction(new Burn(), statusAmt));
                 break;
             }
             case MULTI_ATTACK: {
+                runAnim("Spark");
                 for (int i = 0; i < MULTI_ATTACK_HITS; i++) {
                     AbstractDungeon.actionManager.addToBottom(new DamageAction(AbstractDungeon.player, info, AbstractGameAction.AttackEffect.FIRE));
                 }
                 break;
             }
             case ATTACK_DEBUFF: {
+                runAnim("Smack");
                 for (int i = 0; i < ATTACK_DEBUFF_HITS; i++) {
                     AbstractDungeon.actionManager.addToBottom(new DamageAction(AbstractDungeon.player, info, AbstractGameAction.AttackEffect.POISON));
                 }
@@ -153,6 +156,7 @@ public class Marisa extends CustomMonster
                 break;
             }
             case BUFF: {
+                runAnim("Special");
                 addToBot(new ApplyPowerAction(this, this, new VigorPower(this, BUFF_AMT, true), BUFF_AMT));
                 break;
             }
@@ -189,7 +193,7 @@ public class Marisa extends CustomMonster
 
     @Override
     public void die(boolean triggerRelics) {
-        //runAnim("Defeat");
+        runAnim("Defeat");
         ((BetterSpriterAnimation)this.animation).startDying();
         super.die(triggerRelics);
     }

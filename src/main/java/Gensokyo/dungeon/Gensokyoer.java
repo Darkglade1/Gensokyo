@@ -36,7 +36,6 @@ public class Gensokyoer extends CustomDungeon {
         this.addTempMusic("CosmicMind", "audio/music/Gensokyo/CosmicMind.ogg");
         this.addTempMusic("FullMoon", "audio/music/Gensokyo/FullMoon.ogg");
         this.addTempMusic("Hartmann", "audio/music/Gensokyo/Hartmann.ogg");
-        this.addTempMusic("BorderOfLife", "audio/music/Gensokyo/Border of Life.ogg");
         this.addTempMusic("Bhavagra", "audio/music/Gensokyo/Bhavagra.ogg");
     }
 
