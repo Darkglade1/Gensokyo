@@ -270,7 +270,7 @@
 },
 "Gensokyo:DreamEater": {
         "NAME": "Dream Eater",
-        "DESCRIPTIONS": ["The first card you play each turn for the next #b", " turn(s) is #rPurged and #rremoved #rfrom #ryour #rmaster #rdeck. If a card is removed this way, an effect occurs based on its rarity: ", " NL #yBasic: ", " NL #yCommon: ", " NL #yUncommon: ", " NL #yRare: ", "Gains #b", "Loses #b", " #yStrength."]
+        "DESCRIPTIONS": ["The first card you play each turn for the next #b", " turn(s) is #rPurged and #rremoved #rfrom #ryour #rmaster #rdeck. If a card is removed this way, an effect occurs based on its rarity: ", " NL #yStarter: ", " NL #yCommon: ", " NL #yUncommon: ", " NL #yRare: ", "Gains #b", "Loses #b", " #yStrength."]
 },
 "Gensokyo:EyesOfDeath": {
         "NAME": "Eyes of Death Perception",
@@ -343,6 +343,10 @@
 "Gensokyo:SarielEventPower": {
         "NAME": "Angel's Grace",
         "DESCRIPTIONS": ["Every #b", "th #yAttack", "th #ySkill", " you play is played twice."]
+},
+"Gensokyo:UnknownCurse": {
+        "NAME": "Unknown Curse",
+        "DESCRIPTIONS": ["Your cards have been #pobscured!"]
 },
 "Gensokyo:TimeDilation": {
         "NAME": "Time Dilation",

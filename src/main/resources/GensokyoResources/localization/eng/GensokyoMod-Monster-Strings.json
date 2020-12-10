@@ -641,6 +641,13 @@
       "It was nice while it lasted.",
       "Let us dance until the moment you die."
     ]
+  },
+  "Gensokyo:SeedOfUnknown": {
+    "MOVES": [
+    ],
+    "NAME": "Seed of Unknown",
+    "DIALOG": [
+    ]
   }
 }
 

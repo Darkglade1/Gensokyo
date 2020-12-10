@@ -1,8 +1,10 @@
 package Gensokyo.patches.relics;
 
+import Gensokyo.CardMods.ObscureMod;
 import Gensokyo.GensokyoMod;
 import Gensokyo.relics.act2.UndefinedDarkness;
 import Gensokyo.util.TextureLoader;
+import basemod.helpers.CardModifierManager;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.graphics.g2d.TextureAtlas;
@@ -75,7 +77,7 @@ public class ObscureCardsPatch {
     )
     public static class ObscureTips {
         public static SpireReturn Prefix(AbstractCard __instance, SpriteBatch sb) {
-            if (UndefinedDarkness.obscuredCards.contains(__instance)) {
+            if (UndefinedDarkness.obscuredCards.contains(__instance) || CardModifierManager.hasModifier(__instance, ObscureMod.ID)) {
                 return SpireReturn.Return(null);
             }
             return SpireReturn.Continue();
