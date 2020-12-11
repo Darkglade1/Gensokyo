@@ -648,6 +648,13 @@
     "NAME": "Seed of Unknown",
     "DIALOG": [
     ]
+  },
+  "Gensokyo:AncientGuardian": {
+    "MOVES": [
+    ],
+    "NAME": "Ancient Guardian",
+    "DIALOG": [
+    ]
   }
 }
 

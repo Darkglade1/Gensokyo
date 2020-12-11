@@ -166,6 +166,7 @@ import Gensokyo.monsters.act2.Reisen;
 import Gensokyo.monsters.act2.Tenshi;
 import Gensokyo.monsters.act3.Marisa;
 import Gensokyo.monsters.act3.Mokou;
+import Gensokyo.monsters.act3.NormalEnemies.AncientGuardian;
 import Gensokyo.monsters.act3.NormalEnemies.SeedOfUnknown;
 import Gensokyo.monsters.act3.Shinki.Shinki;
 import Gensokyo.monsters.act3.Yuyuko;
@@ -604,6 +605,7 @@ public class GensokyoMod implements
         BaseMod.addMonster(Mokou.ID, (BaseMod.GetMonster) Mokou::new);
 
         BaseMod.addMonster(SeedOfUnknown.ID, (BaseMod.GetMonster) SeedOfUnknown::new);
+        BaseMod.addMonster(AncientGuardian.ID, (BaseMod.GetMonster) AncientGuardian::new);
 
 
         // =============== EVENTS =================
