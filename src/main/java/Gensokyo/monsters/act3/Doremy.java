@@ -55,18 +55,18 @@ public class Doremy extends CustomMonster
     private static final int DREAM_BLOCK_AMT = 10;
     private static final int A8_DREAM_BLOCK_AMT = 12;
 
-    private static final int NIGHTMARE_ATTACK_DAMAGE = 6;
-    private static final int A3_NIGHTMARE_ATTACK_DAMAGE = 7;
-    private static final int HITS = 6;
+    private static final int NIGHTMARE_ATTACK_DAMAGE = 9;
+    private static final int A3_NIGHTMARE_ATTACK_DAMAGE = 10;
+    private static final int HITS = 3;
 
     private static final int NIGHTMARE_DEBUFF_AMT = 3;
 
     private static final int NIGHTMARE_BUFF_AMT = 2;
 
-    private static final int DREAM_DURATION = 3;
+    private static final int DREAM_DURATION = 1;
 
-    private static final int HP = 350;
-    private static final int A8_HP = 365;
+    private static final int HP = 250;
+    private static final int A8_HP = 265;
     private int dreamAttackDamage;
     private int dreamBlock;
     private int nightmareAttackDamage;
@@ -123,7 +123,6 @@ public class Doremy extends CustomMonster
     @Override
     public void takeTurn() {
         if (this.firstMove) {
-            AbstractDungeon.actionManager.addToBottom(new TalkAction(this, DIALOG[0]));
             firstMove = false;
         }
         DamageInfo info = new DamageInfo(this, moves.get(this.nextMove).baseDamage, DamageInfo.DamageType.NORMAL);

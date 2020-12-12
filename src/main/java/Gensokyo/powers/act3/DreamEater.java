@@ -28,15 +28,15 @@ public class DreamEater extends AbstractPower {
     private static final Texture tex84 = TextureLoader.getTexture(makePowerPath("DreamEater84.png"));
     private static final Texture tex32 = TextureLoader.getTexture(makePowerPath("DreamEater32.png"));
 
-    public static final int BASIC_STRENGTH = 1;
+    public static final int BASIC_STRENGTH = 2;
     public static final int COMMON_STRENGTH = 0;
-    public static final int UNCOMMON_STRENGTH = -1;
-    public static final int RARE_STRENGTH = -2;
+    public static final int UNCOMMON_STRENGTH = -2;
+    public static final int RARE_STRENGTH = -4;
 
-    public static final int A18_BASIC_STRENGTH = 2;
+    public static final int A18_BASIC_STRENGTH = 3;
     public static final int A18_COMMON_STRENGTH = 1;
     public static final int A18_UNCOMMON_STRENGTH = -1;
-    public static final int A18_RARE_STRENGTH = -2;
+    public static final int A18_RARE_STRENGTH = -3;
 
     private int basicStrength;
     private int commonStrength;
@@ -119,7 +119,7 @@ public class DreamEater extends AbstractPower {
 
     @Override
     public void updateDescription() {
-        this.description = DESCRIPTIONS[0] + amount + DESCRIPTIONS[1];
+        this.description = DESCRIPTIONS[0] + DESCRIPTIONS[1];
         String basicString;
         if (basicStrength < 0) {
             basicString = DESCRIPTIONS[2] + DESCRIPTIONS[7] + Math.abs(basicStrength) + DESCRIPTIONS[8];
