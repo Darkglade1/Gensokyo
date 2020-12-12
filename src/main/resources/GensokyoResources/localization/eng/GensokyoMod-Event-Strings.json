@@ -793,26 +793,6 @@
       "[Leave]"
     ]
   },
-  "Gensokyo:ProphetOfDisaster": {
-    "NAME": "Prophet of Disaster",
-    "DESCRIPTIONS": [
-      "You see a woman sitting in the distance, gazing at a shape twirling and twisting in the palm of her hand. NL NL \"Disaster will soon #pbefall you.\" NL NL You are startled by her sudden words and even more startled by her sudden portent of your #pdoom. NL NL \"I can read it in the #yair around you. It shouldn't be a surprise, given how much conflict you've been embroiled in since you've come here.\"",
-      "She stands up, dispelling the figure dancing in her hand. \"But it is my duty to prevent #pcalamities from happening, so I am willing to lend you a little #gaid.\" NL NL You certainly wouldn't be averse to receiving some help.",
-      "The watery figure coalesced back into her palm, where it danced, twirled, and shape-shifted into a #yrelic that neatly fit into your hand. NL NL \"It's not much, but I wish you the best of luck.\" NL NL You thank the woman for her help before continuing on your way."
-    ],
-    "OPTIONS": [
-      "[Accept] ",
-      "#rLose #r",
-      " #rHP. ",
-      "#gChoose #g1 #gof #g",
-      " #gRare ",
-      " #gUncommon ",
-      " #gCommon ",
-      "#gRelics #gto #gobtain.",
-      "[Leave]",
-      "[Continue]"
-    ]
-  },
   "Gensokyo:SomeoneElsesStory": {
     "NAME": "Someone Else's Story",
     "DESCRIPTIONS": [
@@ -849,6 +829,42 @@
       "#gMake #gthe #gcustom #gcard #gcost #g",
       "#gGive #gthe #gcustom #gcard #gRetain.",
       "#gGive #gthe #gcustom #gcard #gInnate."
+    ]
+  },
+  "Gensokyo:ProphetOfDisaster": {
+    "NAME": "Prophet of Disaster",
+    "DESCRIPTIONS": [
+      "You see a woman sitting in the distance, gazing at a shape twirling and twisting in the palm of her hand. NL NL \"Disaster will soon #pbefall you.\" NL NL You are startled by her sudden words and even more startled by her sudden portent of your #pdoom. NL NL \"I can read it in the #yair around you. It shouldn't be a surprise, given how much conflict you've been embroiled in since you've come here.\"",
+      "She stands up, dispelling the figure dancing in her hand. \"But it is my duty to prevent #pcalamities from happening, so I am willing to lend you a little #gaid.\" NL NL You certainly wouldn't be averse to receiving some help.",
+      "The watery figure coalesced back into her palm, where it danced, twirled, and shape-shifted into a #yrelic that neatly fit into your hand. NL NL \"It's not much, but I wish you the best of luck.\" NL NL You thank the woman for her help before continuing on your way."
+    ],
+    "OPTIONS": [
+      "[Accept] ",
+      "#rLose #r",
+      " #rHP. ",
+      "#gChoose #g1 #gof #g",
+      " #gRare ",
+      " #gUncommon ",
+      " #gCommon ",
+      "#gRelics #gto #gobtain.",
+      "[Leave]",
+      "[Continue]"
+    ]
+  },
+  "Gensokyo:ProbabilitySpaceHypervessel": {
+    "NAME": "Probability Space Hypervessel",
+    "DESCRIPTIONS": [
+      "You find another building out in the middle of nowhere, so like the bundle of #ycuriosity that you are, you decide to investigate. Inside, you find reality to be strangely #pdistorted, almost #psluggish. In the distance, you see what appears to be another person. NL NL \"Hello! My creator is not here at the moment, so please come back later!\" You try to talk to this humanoid figure, but it merely continues to repeat those words at you, so you decide to ignore it. Some of the tools here look quite interesting, perhaps even useful.",
+      "You poke around the laboratory for a while. Hopefully, whoever owns this place doesn't mind the mess you made."
+    ],
+    "OPTIONS": [
+      "[Improve yourself] #gUpgrade #g",
+      " #grandom #gcard.",
+      "[Perform experiment] #gTransform #ga #gcard #ginto #ga #grandom #gRare #gcard.",
+      "[Swipe some flasks] #gObtain #g",
+      " #gPotions.",
+      "Choose a Card to Transform",
+      "[Leave]"
     ]
   },
   "Gensokyo:AliceEvent1": {

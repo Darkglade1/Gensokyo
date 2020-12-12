@@ -122,6 +122,7 @@ import Gensokyo.events.act3.KappaWarehouse;
 import Gensokyo.events.act3.MedicineSeller;
 import Gensokyo.events.act3.OwlFriend;
 import Gensokyo.events.act3.PrincessOfTheMoon;
+import Gensokyo.events.act3.ProbabilitySpaceHypervessel;
 import Gensokyo.events.act3.ProphetOfDisaster;
 import Gensokyo.events.act3.SomeoneElsesStory;
 import Gensokyo.events.act3.TheDreamer;
@@ -670,6 +671,7 @@ public class GensokyoMod implements
         BaseMod.addEvent(SomeoneElsesStory.ID, SomeoneElsesStory.class, Gensokyoest.ID);
         BaseMod.addEvent(MedicineSeller.ID, MedicineSeller.class, Gensokyoest.ID);
         BaseMod.addEvent(ProphetOfDisaster.ID, ProphetOfDisaster.class, Gensokyoest.ID);
+        BaseMod.addEvent(ProbabilitySpaceHypervessel.ID, ProbabilitySpaceHypervessel.class, Gensokyoest.ID);
         // =============== /EVENTS/ =================
 
         logger.info("Done loading badge Image and mod options");
