@@ -793,6 +793,26 @@
       "[Leave]"
     ]
   },
+  "Gensokyo:ProphetOfDisaster": {
+    "NAME": "Prophet of Disaster",
+    "DESCRIPTIONS": [
+      "You see a woman sitting in the distance, gazing at a shape twirling and twisting in the palm of her hand. NL NL \"Disaster will soon #pbefall you.\" NL NL You are startled by her sudden words and even more startled by her sudden portent of your #pdoom. NL NL \"I can read it in the #yair around you. It shouldn't be a surprise, given how much conflict you've been embroiled in since you've come here.\"",
+      "She stands up, dispelling the figure dancing in her hand. \"But it is my duty to prevent #pcalamities from happening, so I am willing to lend you a little #gaid.\" NL NL You certainly wouldn't be averse to receiving some help.",
+      "The watery figure coalesced back into her palm, where it danced, twirled, and shape-shifted into a #yrelic that neatly fit into your hand. NL NL \"It's not much, but I wish you the best of luck.\" NL NL You thank the woman for her help before continuing on your way."
+    ],
+    "OPTIONS": [
+      "[Accept] ",
+      "#rLose #r",
+      " #rHP. ",
+      "#gChoose #g1 #gof #g",
+      " #gRare ",
+      " #gUncommon ",
+      " #gCommon ",
+      "#gRelics #gto #gobtain.",
+      "[Leave]",
+      "[Continue]"
+    ]
+  },
   "Gensokyo:SomeoneElsesStory": {
     "NAME": "Someone Else's Story",
     "DESCRIPTIONS": [
