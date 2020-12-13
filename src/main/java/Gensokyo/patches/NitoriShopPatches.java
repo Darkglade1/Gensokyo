@@ -2,6 +2,7 @@ package Gensokyo.patches;
 
 import Gensokyo.dungeon.Gensokyo;
 import Gensokyo.dungeon.Gensokyoer;
+import Gensokyo.dungeon.Gensokyoest;
 import Gensokyo.rooms.nitori.NitoriRoom;
 import Gensokyo.rooms.nitori.NitoriStoreScreen;
 import actlikeit.dungeons.CustomDungeon;
@@ -106,7 +107,7 @@ public class NitoriShopPatches {
             if(CardCrawlGame.dungeon == null){ return; }
             for(ArrayList<MapRoomNode> rows : AbstractDungeon.map) {
                 for(MapRoomNode node : rows) {
-                    if(CardCrawlGame.dungeon instanceof Gensokyo || CardCrawlGame.dungeon instanceof Gensokyoer) {
+                    if(CardCrawlGame.dungeon instanceof Gensokyo || CardCrawlGame.dungeon instanceof Gensokyoer || CardCrawlGame.dungeon instanceof Gensokyoest) {
                         if (node != null && node.room instanceof ShopRoom) { shopNodes.add(node); }
                         if (node != null && !(node.room instanceof MonsterRoomBoss ||
                                 node.room instanceof RestRoom ||

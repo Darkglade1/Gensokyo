@@ -2,6 +2,7 @@ package Gensokyo.patches;
 
 import Gensokyo.monsters.act3.Remilia;
 import Gensokyo.monsters.act3.Shinki.Shinki;
+import Gensokyo.monsters.act3.Yuyuko;
 import com.evacipated.cardcrawl.modthespire.lib.LineFinder;
 import com.evacipated.cardcrawl.modthespire.lib.Matcher;
 import com.evacipated.cardcrawl.modthespire.lib.SpireInsertLocator;
@@ -36,6 +37,15 @@ public class MakeAlliesHalfDead {
                         }
                     });
                     break;
+                }
+                if (mo.id.equals(Yuyuko.ID)) {
+                    AbstractDungeon.actionManager.addToBottom(new AbstractGameAction() {
+                        @Override
+                        public void update() {
+                            AbstractDungeon.onModifyPower(); //I need this here in case the Spirits get fucking STRENGTH somehow
+                            this.isDone = true;
+                        }
+                    });
                 }
             }
         }
