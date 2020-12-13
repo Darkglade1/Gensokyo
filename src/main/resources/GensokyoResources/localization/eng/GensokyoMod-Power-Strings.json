@@ -358,7 +358,7 @@
 },
 "Gensokyo:Titan": {
         "NAME": "Titan",
-        "DESCRIPTIONS": ["This creature's base attack damage is equal to its current HP, up to a maximum of #b", "."]
+        "DESCRIPTIONS": ["This creature's base attack damage is equal to half its current HP, up to a maximum of #b", "."]
 },
 "Gensokyo:TimeDilation": {
         "NAME": "Time Dilation",

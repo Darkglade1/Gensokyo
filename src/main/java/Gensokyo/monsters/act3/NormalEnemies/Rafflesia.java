@@ -35,8 +35,8 @@ public class Rafflesia extends AbstractSpriterMonster
     private static final byte ATTACK = 0;
     private static final byte DEBUFF = 1;
 
-    private static final int ATTACK_DMG = 22;
-    private static final int A2_ATTACK_DMG = 24;
+    private static final int ATTACK_DMG = 20;
+    private static final int A2_ATTACK_DMG = 22;
     private int attackDmg;
 
     private static final int STATUS_AMT = 3;

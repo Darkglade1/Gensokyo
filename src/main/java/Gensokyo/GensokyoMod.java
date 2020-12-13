@@ -17,6 +17,7 @@ import Gensokyo.cards.Evolve.ScrapIron;
 import Gensokyo.cards.Evolve.Shovel;
 import Gensokyo.cards.Evolve.TarnishedGold;
 import Gensokyo.cards.Evolve.TrainingManual;
+import Gensokyo.cards.GreaterSplit;
 import Gensokyo.cards.Item.LifeforceConverter;
 import Gensokyo.cards.Item.MedicineKit;
 import Gensokyo.cards.Item.OverchargedCore;
@@ -894,6 +895,7 @@ public class GensokyoMod implements
         BaseMod.addCard(new ShootingStar());
         BaseMod.addCard(new Butterfly());
         BaseMod.addCard(new CustomPotion());
+        BaseMod.addCard(new GreaterSplit());
 
         //Urban Legends
         BaseMod.addCard(new MissMary());

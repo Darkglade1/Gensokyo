@@ -34,7 +34,7 @@ public class AtlasGolem extends AbstractSpriterMonster
     private static final byte UNKNOWN2 = 2;
 
     private static final int MAX_DAMAGE = 50;
-    private static final int A2_MAX_DAMAGE = 60;
+    private static final int A2_MAX_DAMAGE = 55;
     private int maxDamage;
 
     private static final int HP = 200;
@@ -97,14 +97,14 @@ public class AtlasGolem extends AbstractSpriterMonster
     @Override
     public void damage(DamageInfo info) {
         super.damage(info);
-        if (this.nextMove == ATTACK) {
+        if (this.intent == Intent.ATTACK) {
             setAttack();
             createIntent();
         }
     }
 
     private void setAttack() {
-        int damage = this.currentHealth;
+        int damage = this.currentHealth / 2;
         damage = Math.min(damage, maxDamage);
         this.damage.get(0).base = damage;
         this.applyPowers();
@@ -120,16 +120,12 @@ public class AtlasGolem extends AbstractSpriterMonster
     protected void getMove(final int num) {
         if (this.lastMove(UNKNOWN1)) {
             setMoveShortcut(UNKNOWN2);
-            System.out.println("hello2");
         } else if (this.lastMove(UNKNOWN2)) {
             setAttack();
-            System.out.println("hello3");
         } else if (this.lastMove(ATTACK)){
             setMoveShortcut(UNKNOWN1);
-            System.out.println("hello4");
         } else {
             setMoveShortcut(UNKNOWN1);
-            System.out.println("hello1");
         }
     }
 }

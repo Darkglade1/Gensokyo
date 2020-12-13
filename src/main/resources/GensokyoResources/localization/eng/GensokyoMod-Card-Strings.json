@@ -314,5 +314,11 @@
   "Gensokyo:CustomPotion": {
     "NAME": "Custom Potion",
     "DESCRIPTION": ""
+  },
+  "Gensokyo:GreaterSplit": {
+    "NAME": "Greater Split: Vertical",
+    "DESCRIPTION": "Deal !D! damage. NL Apply !M! *Stun.",
+    "UPGRADE_DESCRIPTION": "Deal !D! damage and apply !M! *Stun to ALL enemies.",
+    "EXTENDED_DESCRIPTION": ["Greater Split: Horizontal"]
   }
 }
