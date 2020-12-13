@@ -173,6 +173,8 @@ import Gensokyo.monsters.act3.Marisa;
 import Gensokyo.monsters.act3.Mokou;
 import Gensokyo.monsters.act3.NormalEnemies.AncientGuardian;
 import Gensokyo.monsters.act3.NormalEnemies.AtlasGolem;
+import Gensokyo.monsters.act3.NormalEnemies.Dawnsword;
+import Gensokyo.monsters.act3.NormalEnemies.Duskaxe;
 import Gensokyo.monsters.act3.NormalEnemies.Rafflesia;
 import Gensokyo.monsters.act3.NormalEnemies.SeedOfUnknown;
 import Gensokyo.monsters.act3.Shinki.Shinki;
@@ -615,6 +617,11 @@ public class GensokyoMod implements
         BaseMod.addMonster(AncientGuardian.ID, (BaseMod.GetMonster) AncientGuardian::new);
         BaseMod.addMonster(Rafflesia.ID, (BaseMod.GetMonster) Rafflesia::new);
         BaseMod.addMonster(AtlasGolem.ID, (BaseMod.GetMonster) AtlasGolem::new);
+        BaseMod.addMonster(EncounterIDs.DUSK_AND_DAWN, "Dusk_and_Dawn", () -> new MonsterGroup(
+                new AbstractMonster[] {
+                        new Dawnsword(-450.0F, 0.0F),
+                        new Duskaxe(-150.0F, 0.0F),
+                }));
 
 
         // =============== EVENTS =================

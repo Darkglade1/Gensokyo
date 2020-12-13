@@ -672,6 +672,24 @@
     "NAME": "Atlas Golem",
     "DIALOG": [
     ]
+  },
+  "Gensokyo:Duskaxe": {
+    "MOVES": [
+      "Dusk Breaker",
+      "Twilight's Call"
+    ],
+    "NAME": "Duskaxe",
+    "DIALOG": [
+    ]
+  },
+  "Gensokyo:Dawnsword": {
+    "MOVES": [
+      "Crack of Dawn",
+      "Dawning Light"
+    ],
+    "NAME": "Dawnsword",
+    "DIALOG": [
+    ]
   }
 }
 
