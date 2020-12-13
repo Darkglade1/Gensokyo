@@ -43,8 +43,8 @@ public class Reimu extends CustomMonster
     private static final byte ATTACK = 4;
     private static final byte ATTACK_DEBUFF = 5;
     private static final byte MEGA_DEBUFF = 6;
-    private static final int HP = 180;
-    private static final int A9_HP = 190;
+    private static final int HP = 200;
+    private static final int A9_HP = 210;
     private static final int NORMAL_ATTACK_DAMAGE = 11;
     private static final int A4_NORMAL_ATTACK_DAMAGE = 12;
     private static final int DEBUFF_ATTACK_DAMAGE = 7;

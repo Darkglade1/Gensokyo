@@ -36,11 +36,11 @@ public class Chomper extends AbstractSpriterMonster
     private static final byte LIFESTEAL_ATTACK = 1;
     private static final byte DEBUFF = 2;
     private static final byte STRONG_DEBUFF = 3;
-    private static final int ATTACK_DAMAGE = 8;
-    private static final int A2_ATTACK_DAMAGE = 9;
+    private static final int ATTACK_DAMAGE = 7;
+    private static final int A2_ATTACK_DAMAGE = 8;
     private static final int HITS = 2;
-    private static final int LIFESTEAL_DAMAGE = 10;
-    private static final int A2_LIFESTEAL_DAMAGE = 11;
+    private static final int LIFESTEAL_DAMAGE = 9;
+    private static final int A2_LIFESTEAL_DAMAGE = 10;
     private static final int DEBUFF_AMT = 2;
     private static final int STR = 2;
     private static final int POWER_AMT = 4;
