@@ -3,6 +3,7 @@ package Gensokyo.dungeon;
 import Gensokyo.monsters.act3.Doremy;
 import Gensokyo.monsters.act3.Marisa;
 import Gensokyo.monsters.act3.NormalEnemies.AncientGuardian;
+import Gensokyo.monsters.act3.NormalEnemies.Rafflesia;
 import Gensokyo.monsters.act3.NormalEnemies.SeedOfUnknown;
 import Gensokyo.scenes.GensokyoScene;
 import actlikeit.dungeons.CustomDungeon;
@@ -90,7 +91,7 @@ public class Gensokyoest extends CustomDungeon {
     }
 
     protected void generateWeakEnemies(int count) {
-        ArrayList<MonsterInfo> monsters = new ArrayList();
+        ArrayList<MonsterInfo> monsters = new ArrayList<>();
         monsters.add(new MonsterInfo("3 Darklings", 2.0F));
         monsters.add(new MonsterInfo(AncientGuardian.ID, 2.0F));
         monsters.add(new MonsterInfo("3 Shapes", 2.0F));
@@ -99,11 +100,11 @@ public class Gensokyoest extends CustomDungeon {
     }
 
     protected void generateStrongEnemies(int count) {
-        ArrayList<MonsterInfo> monsters = new ArrayList();
+        ArrayList<MonsterInfo> monsters = new ArrayList<>();
         monsters.add(new MonsterInfo(SeedOfUnknown.ID, 1.0F));
         monsters.add(new MonsterInfo("Transient", 1.0F));
         monsters.add(new MonsterInfo("4 Shapes", 1.0F));
-        monsters.add(new MonsterInfo("Maw", 1.0F));
+        monsters.add(new MonsterInfo(Rafflesia.ID, 1.0F));
         monsters.add(new MonsterInfo("Sphere and 2 Shapes", 1.0F));
         monsters.add(new MonsterInfo("Jaw Worm Horde", 1.0F));
         monsters.add(new MonsterInfo("3 Darklings", 1.0F));

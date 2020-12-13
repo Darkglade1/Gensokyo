@@ -655,6 +655,13 @@
     "NAME": "Ancient Guardian",
     "DIALOG": [
     ]
+  },
+  "Gensokyo:Rafflesia": {
+    "MOVES": [
+    ],
+    "NAME": "Rafflesia",
+    "DIALOG": [
+    ]
   }
 }
 

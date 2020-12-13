@@ -1,6 +1,7 @@
 package Gensokyo.scenes;
 
 import Gensokyo.dungeon.Gensokyo;
+import Gensokyo.dungeon.Gensokyoer;
 import Gensokyo.monsters.act1.Aya;
 import Gensokyo.monsters.act1.Cirno;
 import Gensokyo.monsters.act1.Kokoro;
@@ -27,6 +28,7 @@ import Gensokyo.monsters.act2.Tenshi;
 import Gensokyo.monsters.act3.Marisa;
 import Gensokyo.monsters.act3.Mokou;
 import Gensokyo.monsters.act3.NormalEnemies.AncientGuardian;
+import Gensokyo.monsters.act3.NormalEnemies.Rafflesia;
 import Gensokyo.monsters.act3.NormalEnemies.SeedOfUnknown;
 import Gensokyo.monsters.act3.Shinki.Shinki;
 import Gensokyo.monsters.act3.Yuyuko;
@@ -157,25 +159,27 @@ public class GensokyoScene extends AbstractScene {
                     this.bg = this.atlas.findRegion("mod/Cave");
                 } else if (mo instanceof AncientGuardian) {
                     this.bg = this.atlas.findRegion("mod/Desert");
+                } else if (mo instanceof Rafflesia) {
+                    this.bg = this.atlas.findRegion("mod/Forest");
                 } else {
-                    if (CardCrawlGame.dungeon instanceof Gensokyo) {
-                        this.bg = this.atlas.findRegion("mod/TanukiForest");
-                    } else {
+                    if (CardCrawlGame.dungeon instanceof Gensokyoer) {
                         this.bg = this.atlas.findRegion("mod/TanukiForestNight");
+                    } else {
+                        this.bg = this.atlas.findRegion("mod/TanukiForest");
                     }
                 }
             }
         } else if (room instanceof ShopRoom) {
-            if (CardCrawlGame.dungeon instanceof Gensokyo) {
-                this.bg = this.atlas.findRegion("mod/Shop");
-            } else {
+            if (CardCrawlGame.dungeon instanceof Gensokyoer) {
                 this.bg = this.atlas.findRegion("mod/HumanVillage");
+            } else {
+                this.bg = this.atlas.findRegion("mod/Shop");
             }
         } else {
-            if (CardCrawlGame.dungeon instanceof Gensokyo) {
-                this.bg = this.atlas.findRegion("mod/TanukiForest");
-            } else {
+            if (CardCrawlGame.dungeon instanceof Gensokyoer) {
                 this.bg = this.atlas.findRegion("mod/TanukiForestNight");
+            } else {
+                this.bg = this.atlas.findRegion("mod/TanukiForest");
             }
         }
         this.fadeInAmbiance();

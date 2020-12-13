@@ -352,6 +352,10 @@
         "NAME": "Guardian of Relics",
         "DESCRIPTIONS": ["At the end of its turn, gains #yBlock equal to the number of #yRelics you have."]
 },
+"Gensokyo:Sinflower": {
+        "NAME": "Sinflower",
+        "DESCRIPTIONS": ["Whenever you attack this creature, remove your leftmost #ydebuff."]
+},
 "Gensokyo:TimeDilation": {
         "NAME": "Time Dilation",
         "DESCRIPTIONS": ["The #b1st, #b4th, #b7th, etc. cards played this combat are instead played #b", " turn later. NL The #b2nd, #b5th, #b8th, etc. cards played this combat are instead played #b", " turns later. NL The #b3rd, #b6th, #b9th, etc. cards played this combat are instead played #b", " turns later."]
