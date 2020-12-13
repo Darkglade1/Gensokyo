@@ -662,6 +662,16 @@
     "NAME": "Rafflesia",
     "DIALOG": [
     ]
+  },
+  "Gensokyo:AtlasGolem": {
+    "MOVES": [
+      "Avalanche",
+      "Slow Start",
+      "Rock Polish"
+    ],
+    "NAME": "Atlas Golem",
+    "DIALOG": [
+    ]
   }
 }
 

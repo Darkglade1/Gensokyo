@@ -3,6 +3,7 @@ package Gensokyo.dungeon;
 import Gensokyo.monsters.act3.Doremy;
 import Gensokyo.monsters.act3.Marisa;
 import Gensokyo.monsters.act3.NormalEnemies.AncientGuardian;
+import Gensokyo.monsters.act3.NormalEnemies.AtlasGolem;
 import Gensokyo.monsters.act3.NormalEnemies.Rafflesia;
 import Gensokyo.monsters.act3.NormalEnemies.SeedOfUnknown;
 import Gensokyo.scenes.GensokyoScene;
@@ -102,7 +103,7 @@ public class Gensokyoest extends CustomDungeon {
     protected void generateStrongEnemies(int count) {
         ArrayList<MonsterInfo> monsters = new ArrayList<>();
         monsters.add(new MonsterInfo(SeedOfUnknown.ID, 1.0F));
-        monsters.add(new MonsterInfo("Transient", 1.0F));
+        monsters.add(new MonsterInfo(AtlasGolem.ID, 1.0F));
         monsters.add(new MonsterInfo("4 Shapes", 1.0F));
         monsters.add(new MonsterInfo(Rafflesia.ID, 1.0F));
         monsters.add(new MonsterInfo("Sphere and 2 Shapes", 1.0F));

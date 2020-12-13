@@ -28,6 +28,7 @@ import Gensokyo.monsters.act2.Tenshi;
 import Gensokyo.monsters.act3.Marisa;
 import Gensokyo.monsters.act3.Mokou;
 import Gensokyo.monsters.act3.NormalEnemies.AncientGuardian;
+import Gensokyo.monsters.act3.NormalEnemies.AtlasGolem;
 import Gensokyo.monsters.act3.NormalEnemies.Rafflesia;
 import Gensokyo.monsters.act3.NormalEnemies.SeedOfUnknown;
 import Gensokyo.monsters.act3.Shinki.Shinki;
@@ -161,6 +162,8 @@ public class GensokyoScene extends AbstractScene {
                     this.bg = this.atlas.findRegion("mod/Desert");
                 } else if (mo instanceof Rafflesia) {
                     this.bg = this.atlas.findRegion("mod/Forest");
+                } else if (mo instanceof AtlasGolem) {
+                    this.bg = this.atlas.findRegion("mod/Cave");
                 } else {
                     if (CardCrawlGame.dungeon instanceof Gensokyoer) {
                         this.bg = this.atlas.findRegion("mod/TanukiForestNight");

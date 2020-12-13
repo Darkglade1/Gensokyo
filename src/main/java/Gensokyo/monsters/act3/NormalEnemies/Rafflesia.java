@@ -4,7 +4,6 @@ import Gensokyo.BetterSpriterAnimation;
 import Gensokyo.GensokyoMod;
 import Gensokyo.monsters.AbstractSpriterMonster;
 import Gensokyo.powers.act2.GlitterPower;
-import Gensokyo.powers.act3.GuardianOfRelics;
 import Gensokyo.powers.act3.Sinflower;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
