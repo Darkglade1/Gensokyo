@@ -320,5 +320,9 @@
     "DESCRIPTION": "Deal !D! damage. NL Apply !M! *Stun.",
     "UPGRADE_DESCRIPTION": "Deal !D! damage and apply !M! *Stun to ALL enemies.",
     "EXTENDED_DESCRIPTION": ["Greater Split: Horizontal"]
+  },
+  "Gensokyo:PrivateSquare": {
+    "NAME": "Private Square",
+    "DESCRIPTION": "Take an extra turn after this one. End your turn. NL Add a copy of this card that costs !M! more to your hand. NL If you deal damage to an enemy while this is in your hand, exhaust it."
   }
 }

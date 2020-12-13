@@ -42,6 +42,7 @@ import Gensokyo.cards.Lunar.UnlikelyAid;
 import Gensokyo.cards.Pets.SummonFieryMouse;
 import Gensokyo.cards.Pets.SummonJeweledCobra;
 import Gensokyo.cards.Pets.SummonPsychicCat;
+import Gensokyo.cards.PrivateSquare;
 import Gensokyo.cards.UrbanLegend.Apocalypse;
 import Gensokyo.cards.BlessingOfConstitution;
 import Gensokyo.cards.BlessingOfFortitude;
@@ -896,6 +897,7 @@ public class GensokyoMod implements
         BaseMod.addCard(new Butterfly());
         BaseMod.addCard(new CustomPotion());
         BaseMod.addCard(new GreaterSplit());
+        BaseMod.addCard(new PrivateSquare());
 
         //Urban Legends
         BaseMod.addCard(new MissMary());
