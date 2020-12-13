@@ -867,6 +867,22 @@
       "[Leave]"
     ]
   },
+  "Gensokyo:ThoseWhoFightMonsters": {
+    "NAME": "Those Who Fight Monsters",
+    "DESCRIPTIONS": [
+      "You hear #rfighting up ahead, and you arrive to see two figures in the sky duking it out with both #yblade and #ybullet. NL NL Perhaps you could learn something if you stayed to observe the outcome?",
+      "You observe the #rwarrior #rin #rred, taking note of the great #ystrength and #ypower behind her swings. Yet you could tell there was something missing in her resolve, some hint of #pdoubt that prevented her from reaching her full potential.",
+      "You observe the #bmaid #bin #bblue, taking note of the great #yagility and #ydexterity she displayed in evading her opponent's strikes. Yet you could spot a hint of #parrogance in her movements, a stubborn #ppride that prevented her from being truly serious in this fight.",
+      "You don't want to risk getting caught in the crossfire of this fight."
+    ],
+    "OPTIONS": [
+      "[Observe the woman in red] #gObtain ",
+      "[Observe the maid in blue] #gObtain ",
+      ". #rBecome #rCursed #r- ",
+      ".",
+      "[Leave]"
+    ]
+  },
   "Gensokyo:AliceEvent1": {
     "NAME": "A Demon Lord's Daughter",
     "DESCRIPTIONS": [
