@@ -47,11 +47,11 @@ public class Yukari extends CustomMonster
     private static final byte ATTACK = 4;
     private static final byte LAST_WORD = 5;
     private static final byte TRAIN = 6;
-    private static final int NORMAL_ATTACK_DAMAGE = 9;
-    private static final int A4_NORMAL_ATTACK_DAMAGE = 10;
+    private static final int NORMAL_ATTACK_DAMAGE = 10;
+    private static final int A4_NORMAL_ATTACK_DAMAGE = 11;
     private static final int NORMAL_ATTACK_HITS = 2;
-    private static final int DEBUFF_ATTACK_DAMAGE = 13;
-    private static final int A4_DEBUFF_ATTACK_DAMAGE = 14;
+    private static final int DEBUFF_ATTACK_DAMAGE = 14;
+    private static final int A4_DEBUFF_ATTACK_DAMAGE = 16;
     private static final int TRAIN_ATTACK_DAMAGE = 7;
     private static final int A4_TRAIN_ATTACK_DAMAGE = 8;
     private static final int TRAIN_ATTACK_HITS = 3;
@@ -60,8 +60,8 @@ public class Yukari extends CustomMonster
     private static final int OPENING_AMOUNT = 1;
     private static final int WOUND_AMOUNT = 1;
     private static final int A19_WOUND_AMOUNT = 2;
-    private static final int BLOCK = 8;
-    private static final int A9_BLOCK = 9;
+    private static final int BLOCK = 9;
+    private static final int A9_BLOCK = 10;
     private int normalDamage;
     private int debuffDamage;
     private int trainDamage;
