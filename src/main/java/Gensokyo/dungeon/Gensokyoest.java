@@ -95,7 +95,7 @@ public class Gensokyoest extends CustomDungeon {
         ArrayList<MonsterInfo> monsters = new ArrayList<>();
         monsters.add(new MonsterInfo("3 Darklings", 2.0F));
         monsters.add(new MonsterInfo(AncientGuardian.ID, 2.0F));
-        monsters.add(new MonsterInfo("3 Shapes", 2.0F));
+        monsters.add(new MonsterInfo(EncounterIDs.BATS_3, 2.0F));
         MonsterInfo.normalizeWeights(monsters);
         this.populateMonsterList(monsters, count, false);
     }
@@ -104,9 +104,9 @@ public class Gensokyoest extends CustomDungeon {
         ArrayList<MonsterInfo> monsters = new ArrayList<>();
         monsters.add(new MonsterInfo(SeedOfUnknown.ID, 1.0F));
         monsters.add(new MonsterInfo(AtlasGolem.ID, 1.0F));
-        monsters.add(new MonsterInfo("4 Shapes", 1.0F));
+        monsters.add(new MonsterInfo(EncounterIDs.BATS_4, 1.0F));
         monsters.add(new MonsterInfo(Rafflesia.ID, 1.0F));
-        monsters.add(new MonsterInfo("Sphere and 2 Shapes", 1.0F));
+        //monsters.add(new MonsterInfo("Sphere and 2 Shapes", 1.0F));
         monsters.add(new MonsterInfo(EncounterIDs.DUSK_AND_DAWN, 1.0F));
         monsters.add(new MonsterInfo("3 Darklings", 1.0F));
         monsters.add(new MonsterInfo("Writhing Mass", 1.0F));
@@ -116,7 +116,7 @@ public class Gensokyoest extends CustomDungeon {
     }
 
     protected void generateElites(int count) {
-        ArrayList<MonsterInfo> monsters = new ArrayList();
+        ArrayList<MonsterInfo> monsters = new ArrayList<>();
         monsters.add(new MonsterInfo(Doremy.ID, 2.0F));
         monsters.add(new MonsterInfo(Marisa.ID, 2.0F));
         monsters.add(new MonsterInfo("Reptomancer", 2.0F));
@@ -125,37 +125,13 @@ public class Gensokyoest extends CustomDungeon {
     }
 
     protected ArrayList<String> generateExclusions() {
-        ArrayList<String> retVal = new ArrayList();
-        String var2 = (String)monsterList.get(monsterList.size() - 1);
-        byte var3 = -1;
-        switch(var2.hashCode()) {
-            case -500373089:
-                if (var2.equals("3 Shapes")) {
-                    var3 = 2;
-                }
+        ArrayList<String> retVal = new ArrayList<>();
+        switch (monsterList.get(monsterList.size() - 1))
+        {
+            case EncounterIDs.BATS_3:
+                retVal.add(EncounterIDs.BATS_4);
                 break;
-            case 1014856122:
-                if (var2.equals("3 Darklings")) {
-                    var3 = 0;
-                }
-                break;
-            case 1679632599:
-                if (var2.equals("Orb Walker")) {
-                    var3 = 1;
-                }
         }
-
-        switch(var3) {
-            case 0:
-                retVal.add("3 Darklings");
-                break;
-            case 1:
-                retVal.add("Orb Walker");
-                break;
-            case 2:
-                retVal.add("4 Shapes");
-        }
-
         return retVal;
     }
 

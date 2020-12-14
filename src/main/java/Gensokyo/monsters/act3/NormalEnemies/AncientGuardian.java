@@ -7,6 +7,7 @@ import Gensokyo.powers.act3.GuardianOfRelics;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.actions.common.DamageAction;
+import com.megacrit.cardcrawl.actions.common.GainBlockAction;
 import com.megacrit.cardcrawl.actions.common.MakeTempCardInDiscardAction;
 import com.megacrit.cardcrawl.actions.common.MakeTempCardInDrawPileAction;
 import com.megacrit.cardcrawl.actions.common.RollMoveAction;
@@ -37,16 +38,18 @@ public class AncientGuardian extends AbstractSpriterMonster
     private static final byte ATTACK_STATUS = 1;
     private static final byte BUFF = 2;
 
-    private static final int ATTACK_DMG = 18;
-    private static final int A2_ATTACK_DMG = 20;
+    private static final int ATTACK_DMG = 20;
+    private static final int A2_ATTACK_DMG = 22;
     private int attackDmg;
 
-    private static final int ATTACK_STATUS_DMG = 13;
-    private static final int A2_ATTACK_STATUS_DMG = 14;
+    private static final int ATTACK_STATUS_DMG = 14;
+    private static final int A2_ATTACK_STATUS_DMG = 15;
     private int attackStatusDmg;
 
     private static final int STATUS_AMT = 1;
     private static final int ARTIFACT = 2;
+
+    private static final int BLOCK = 20;
 
     private static final int HP_MIN = 100;
     private static final int HP_MAX = 106;
@@ -83,7 +86,7 @@ public class AncientGuardian extends AbstractSpriterMonster
         this.moves = new HashMap<>();
         this.moves.put(ATTACK, new EnemyMoveInfo(ATTACK, Intent.ATTACK, attackDmg, 0, false));
         this.moves.put(ATTACK_STATUS, new EnemyMoveInfo(ATTACK_STATUS, Intent.ATTACK_DEBUFF, attackStatusDmg, 0, false));
-        this.moves.put(BUFF, new EnemyMoveInfo(BUFF, Intent.BUFF, -1, 0, false));
+        this.moves.put(BUFF, new EnemyMoveInfo(BUFF, Intent.DEFEND_BUFF, -1, 0, false));
     }
 
     @Override
@@ -120,6 +123,7 @@ public class AncientGuardian extends AbstractSpriterMonster
             }
             case BUFF: {
                 addToBot(new ApplyPowerAction(this, this, new BarricadePower(this)));
+                addToBot(new GainBlockAction(this, BLOCK));
                 break;
             }
         }

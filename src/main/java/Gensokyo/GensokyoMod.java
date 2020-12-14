@@ -175,8 +175,11 @@ import Gensokyo.monsters.act3.NormalEnemies.AncientGuardian;
 import Gensokyo.monsters.act3.NormalEnemies.AtlasGolem;
 import Gensokyo.monsters.act3.NormalEnemies.Dawnsword;
 import Gensokyo.monsters.act3.NormalEnemies.Duskaxe;
+import Gensokyo.monsters.act3.NormalEnemies.FeralBat;
+import Gensokyo.monsters.act3.NormalEnemies.LoudBat;
 import Gensokyo.monsters.act3.NormalEnemies.Rafflesia;
 import Gensokyo.monsters.act3.NormalEnemies.SeedOfUnknown;
+import Gensokyo.monsters.act3.NormalEnemies.VampireBat;
 import Gensokyo.monsters.act3.Shinki.Shinki;
 import Gensokyo.monsters.act3.Yuyuko;
 import Gensokyo.monsters.act3.Doremy;
@@ -621,6 +624,19 @@ public class GensokyoMod implements
                 new AbstractMonster[] {
                         new Dawnsword(-450.0F, 0.0F),
                         new Duskaxe(-150.0F, 0.0F),
+                }));
+        BaseMod.addMonster(EncounterIDs.BATS_3, "3_Bats", () -> new MonsterGroup(
+                new AbstractMonster[] {
+                        new LoudBat(-450.0F, 0.0F),
+                        new VampireBat(-200.0F, 0.0F),
+                        new FeralBat(50.0F, 0.0F)
+                }));
+        BaseMod.addMonster(EncounterIDs.BATS_4, "4_Bats", () -> new MonsterGroup(
+                new AbstractMonster[] {
+                        new LoudBat(-450.0F, 0.0F),
+                        new VampireBat(-200.0F, 0.0F),
+                        new VampireBat(50.0F, 0.0F),
+                        new FeralBat(300.0F, 0.0F)
                 }));
 
 

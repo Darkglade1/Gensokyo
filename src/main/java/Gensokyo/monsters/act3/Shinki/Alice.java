@@ -66,8 +66,8 @@ public class Alice extends AbstractShinkiDelusion
 
     private static final int STRENGTH = 1;
 
-    private static final int HP = 200;
-    private static final int A9_HP = 220;
+    private static final int HP = 230;
+    private static final int A9_HP = 250;
 
     public ArrayList<Doll> dolls = new ArrayList<>();
     private Map<Byte, EnemyMoveInfo> moves;

@@ -690,6 +690,30 @@
     "NAME": "Dawnsword",
     "DIALOG": [
     ]
+  },
+  "Gensokyo:VampireBat": {
+    "MOVES": [
+
+    ],
+    "NAME": "Vampire Bat",
+    "DIALOG": [
+    ]
+  },
+  "Gensokyo:FeralBat": {
+    "MOVES": [
+
+    ],
+    "NAME": "Feral Bat",
+    "DIALOG": [
+    ]
+  },
+  "Gensokyo:LoudBat": {
+    "MOVES": [
+
+    ],
+    "NAME": "Loud Bat",
+    "DIALOG": [
+    ]
   }
 }
 

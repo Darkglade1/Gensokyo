@@ -54,8 +54,8 @@ public class Yumeko extends AbstractShinkiDelusion
 
     private static final int POWER_AMT = 30;
 
-    private static final int HP = 300;
-    private static final int A9_HP = 330;
+    private static final int HP = 350;
+    private static final int A9_HP = 380;
 
     public boolean powerTriggered = false;
     private Map<Byte, EnemyMoveInfo> moves;

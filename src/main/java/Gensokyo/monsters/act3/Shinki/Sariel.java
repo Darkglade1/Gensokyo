@@ -51,12 +51,12 @@ public class Sariel extends AbstractShinkiDelusion
     private static final int A19_DEBUFF_AMT = 3;
     private int debuffAmt;
 
-    private static final int POWER_AMT = 50;
-    private static final int A19_POWER_AMT = 25;
+    private static final int POWER_AMT = 34;
+    private static final int A19_POWER_AMT = 15;
     private int powerAmt;
 
-    private static final int HP = 250;
-    private static final int A9_HP = 270;
+    private static final int HP = 300;
+    private static final int A9_HP = 320;
 
     public AbstractCreature target;
 
