@@ -302,7 +302,7 @@
 },
 "Gensokyo:Deathtouch": {
         "NAME": "Deathtouch",
-        "DESCRIPTIONS": ["Whenever you receive attack damage from this enemy, you #rlose that much #yMax #yHP this combat. NL Your #yMax #yHP cannot go below #b1."]
+        "DESCRIPTIONS": ["Whenever you receive unblocked attack damage from this enemy, you #rlose that much #yMax #yHP this combat. NL Your #yMax #yHP cannot go below #b1."]
 },
 "Gensokyo:Empower": {
         "NAME": "Empower",
@@ -363,6 +363,10 @@
 "Gensokyo:DawningLight": {
         "NAME": "Dawning Light",
         "DESCRIPTIONS": ["If this creature inflicts unblocked attack damage this turn, it gains #b", " #yStrength."]
+},
+"Gensokyo:RuthlessStabs": {
+        "NAME": "Ruthless Stabs",
+        "DESCRIPTIONS": ["Whenever you receive unblocked attack damage from this enemy, shuffle an #rInfected #rWound into your discard pile."]
 },
 "Gensokyo:TimeDilation": {
         "NAME": "Time Dilation",

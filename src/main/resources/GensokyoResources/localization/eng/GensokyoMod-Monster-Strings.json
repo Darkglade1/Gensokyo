@@ -714,6 +714,14 @@
     "NAME": "Loud Bat",
     "DIALOG": [
     ]
+  },
+  "Gensokyo:Sharpion": {
+    "MOVES": [
+
+    ],
+    "NAME": "Sharpion",
+    "DIALOG": [
+    ]
   }
 }
 

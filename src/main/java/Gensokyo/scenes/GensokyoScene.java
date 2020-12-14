@@ -35,6 +35,7 @@ import Gensokyo.monsters.act3.NormalEnemies.FeralBat;
 import Gensokyo.monsters.act3.NormalEnemies.LoudBat;
 import Gensokyo.monsters.act3.NormalEnemies.Rafflesia;
 import Gensokyo.monsters.act3.NormalEnemies.SeedOfUnknown;
+import Gensokyo.monsters.act3.NormalEnemies.Sharpion;
 import Gensokyo.monsters.act3.NormalEnemies.VampireBat;
 import Gensokyo.monsters.act3.Shinki.Shinki;
 import Gensokyo.monsters.act3.Yuyuko;
@@ -173,6 +174,8 @@ public class GensokyoScene extends AbstractScene {
                     this.bg = this.atlas.findRegion("mod/Ruins");
                 } else if (mo instanceof VampireBat || mo instanceof FeralBat || mo instanceof LoudBat) {
                     this.bg = this.atlas.findRegion("mod/Forest");
+                } else if (mo instanceof Sharpion) {
+                    this.bg = this.atlas.findRegion("mod/Desert");
                 } else {
                     if (CardCrawlGame.dungeon instanceof Gensokyoer) {
                         this.bg = this.atlas.findRegion("mod/TanukiForestNight");

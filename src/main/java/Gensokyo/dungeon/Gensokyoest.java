@@ -6,6 +6,7 @@ import Gensokyo.monsters.act3.NormalEnemies.AncientGuardian;
 import Gensokyo.monsters.act3.NormalEnemies.AtlasGolem;
 import Gensokyo.monsters.act3.NormalEnemies.Rafflesia;
 import Gensokyo.monsters.act3.NormalEnemies.SeedOfUnknown;
+import Gensokyo.monsters.act3.NormalEnemies.Sharpion;
 import Gensokyo.scenes.GensokyoScene;
 import actlikeit.dungeons.CustomDungeon;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
@@ -109,7 +110,7 @@ public class Gensokyoest extends CustomDungeon {
         //monsters.add(new MonsterInfo("Sphere and 2 Shapes", 1.0F));
         monsters.add(new MonsterInfo(EncounterIDs.DUSK_AND_DAWN, 1.0F));
         monsters.add(new MonsterInfo("3 Darklings", 1.0F));
-        monsters.add(new MonsterInfo("Writhing Mass", 1.0F));
+        monsters.add(new MonsterInfo(Sharpion.ID, 1.0F));
         MonsterInfo.normalizeWeights(monsters);
         this.populateFirstStrongEnemy(monsters, this.generateExclusions());
         this.populateMonsterList(monsters, count, false);

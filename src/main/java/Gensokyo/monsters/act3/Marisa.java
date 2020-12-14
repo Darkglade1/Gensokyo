@@ -65,7 +65,7 @@ public class Marisa extends CustomMonster
     private static final int BUFF_AMT = 2;
 
     private static final int STRENGTH = 5;
-    private static final int A18_STRENGTH = 7;
+    private static final int A18_STRENGTH = 8;
     private int strength;
 
     private static final int HP = 250;

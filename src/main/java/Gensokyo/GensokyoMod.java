@@ -18,6 +18,7 @@ import Gensokyo.cards.Evolve.Shovel;
 import Gensokyo.cards.Evolve.TarnishedGold;
 import Gensokyo.cards.Evolve.TrainingManual;
 import Gensokyo.cards.GreaterSplit;
+import Gensokyo.cards.InfectedWound;
 import Gensokyo.cards.Item.LifeforceConverter;
 import Gensokyo.cards.Item.MedicineKit;
 import Gensokyo.cards.Item.OverchargedCore;
@@ -179,6 +180,7 @@ import Gensokyo.monsters.act3.NormalEnemies.FeralBat;
 import Gensokyo.monsters.act3.NormalEnemies.LoudBat;
 import Gensokyo.monsters.act3.NormalEnemies.Rafflesia;
 import Gensokyo.monsters.act3.NormalEnemies.SeedOfUnknown;
+import Gensokyo.monsters.act3.NormalEnemies.Sharpion;
 import Gensokyo.monsters.act3.NormalEnemies.VampireBat;
 import Gensokyo.monsters.act3.Shinki.Shinki;
 import Gensokyo.monsters.act3.Yuyuko;
@@ -638,6 +640,7 @@ public class GensokyoMod implements
                         new VampireBat(50.0F, 0.0F),
                         new FeralBat(300.0F, 0.0F)
                 }));
+        BaseMod.addMonster(Sharpion.ID, (BaseMod.GetMonster) Sharpion::new);
 
 
         // =============== EVENTS =================
@@ -923,6 +926,7 @@ public class GensokyoMod implements
         BaseMod.addCard(new CustomPotion());
         BaseMod.addCard(new GreaterSplit());
         BaseMod.addCard(new PrivateSquare());
+        BaseMod.addCard(new InfectedWound());
 
         //Urban Legends
         BaseMod.addCard(new MissMary());
