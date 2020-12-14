@@ -20,11 +20,11 @@ public class AliceEvent3 extends AbstractShinkiEvent{
     public static final String IMG = makeEventPath("Alice3.png");
 
     private static final int ALLY_DAMAGE = 50;
-    private static final int HIGH_ALLY_DAMAGE = 65;
+    private static final int HIGH_ALLY_DAMAGE = 75;
     private int allyDamage;
 
     private static final int ENEMY_HEAL = 60;
-    private static final int HIGH_ASC_ENEMY_HEAL = 80;
+    private static final int HIGH_ASC_ENEMY_HEAL = 90;
     private int enemyHeal;
 
     public AliceEvent3(Shinki shinki) {

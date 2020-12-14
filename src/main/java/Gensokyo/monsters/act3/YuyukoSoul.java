@@ -23,7 +23,7 @@ public class YuyukoSoul extends AbstractSpriterMonster {
     protected static final byte DEBUFF = 1;
     protected static final int HP = 20;
     protected static final int MAX_HP_REDUCTION = 5;
-    protected static final int A19_MAX_HP_REDUCTION = 6;
+    protected static final int A19_MAX_HP_REDUCTION = 7;
     protected int hp_reduction;
     protected int bonus = 0;
     private static final float HB_W = 50.0F;

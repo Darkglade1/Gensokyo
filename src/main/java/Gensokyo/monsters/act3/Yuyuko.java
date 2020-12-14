@@ -10,6 +10,7 @@ import Gensokyo.actions.UsePreBattleActionAction;
 import Gensokyo.actions.YeetPlayerAction;
 import Gensokyo.cards.Butterfly;
 import Gensokyo.monsters.AbstractSpriterMonster;
+import Gensokyo.powers.act3.BorderOfDeath;
 import Gensokyo.powers.act3.Deathtouch;
 import Gensokyo.powers.act3.Empower;
 import Gensokyo.vfx.EmptyEffect;
@@ -42,6 +43,7 @@ import com.megacrit.cardcrawl.localization.MonsterStrings;
 import com.megacrit.cardcrawl.localization.UIStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.monsters.EnemyMoveInfo;
+import com.megacrit.cardcrawl.powers.AbstractPower;
 import com.megacrit.cardcrawl.powers.MinionPower;
 import com.megacrit.cardcrawl.powers.WeakPower;
 
@@ -77,15 +79,15 @@ public class Yuyuko extends AbstractSpriterMonster
     private static final int DEBUFF_AMOUNT = 1;
 
     private static final int STATUS_AMT = 3;
-    private static final int A19_STATUS_AMT = 4;
+    private static final int A19_STATUS_AMT = 5;
     private int statusAmt;
 
     private static final int MAX_HP_REDUCTION = 10;
-    private static final int A19_MAX_HP_REDUCTION = 12;
+    private static final int A19_MAX_HP_REDUCTION = 14;
     private int maxHPReduction;
 
     private static final int EMPOWER_AMT = 5;
-    private static final int A19_EMPOWER_AMT = 6;
+    private static final int A19_EMPOWER_AMT = 7;
     private int empower;
 
     private static final int BLOCK = 15;
@@ -105,6 +107,8 @@ public class Yuyuko extends AbstractSpriterMonster
     private int normalDamage;
     private int debuffDamage;
     private int minionHealthIncrement;
+
+    private int playerInitialCurrentHP;
 
     private Map<Byte, EnemyMoveInfo> moves;
     public ArrayList<YuyukoSoul> blueSouls = new ArrayList<>();
@@ -166,6 +170,7 @@ public class Yuyuko extends AbstractSpriterMonster
         SpawnMinions();
         nextBlueSoul();
         nextPurpleSoul();
+        playerInitialCurrentHP = AbstractDungeon.player.currentHealth;
         AbstractDungeon.actionManager.addToBottom(new SetMaxHealthToCurrentAction());
     }
 
@@ -359,6 +364,11 @@ public class Yuyuko extends AbstractSpriterMonster
                     AbstractDungeon.actionManager.addToBottom(new SuicideAction(mo));
                 }
             }
+        }
+        AbstractPower power = AbstractDungeon.player.getPower(BorderOfDeath.POWER_ID);
+        if (power != null) {
+            BorderOfDeath death = (BorderOfDeath)power;
+            death.playerHpResetAmount = playerInitialCurrentHP; //prevent yuyuko from being a free heal
         }
         onBossVictoryLogic();
     }

@@ -21,11 +21,11 @@ public class AliceEvent2 extends AbstractShinkiEvent{
     public static final String IMG = makeEventPath("Alice2.png");
 
     private static final int STR = 3;
-    private static final int HIGH_ASC_STR = 4;
+    private static final int HIGH_ASC_STR = 5;
     private int str;
 
     private static final int METALLICIZE = 10;
-    private static final int HIGH_ASC_METALLICIZE = 13;
+    private static final int HIGH_ASC_METALLICIZE = 15;
     private int metallicize;
 
     public AliceEvent2(Shinki shinki) {

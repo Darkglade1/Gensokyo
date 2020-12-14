@@ -22,11 +22,11 @@ public class YumekoEvent2 extends AbstractShinkiEvent{
     public static final String IMG = makeEventPath("Yumeko2.png");
 
     private static final int STR = 10;
-    private static final int HIGH_ASC_STR = 13;
+    private static final int HIGH_ASC_STR = 15;
     private int str;
 
     private static final int POWER = 15;
-    private static final int HIGH_ASC_POWER = 20;
+    private static final int HIGH_ASC_POWER = 30;
     private int power;
 
     public YumekoEvent2(Shinki shinki) {

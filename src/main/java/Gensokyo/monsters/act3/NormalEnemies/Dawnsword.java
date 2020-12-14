@@ -34,7 +34,7 @@ public class Dawnsword extends AbstractSpriterMonster
     private int attackDmg;
 
     private static final int STRENGTH = 8;
-    private static final int A17_STRENGTH = 10;
+    private static final int A17_STRENGTH = 12;
     private int strength;
 
     private static final int HP_MIN = 80;

@@ -42,7 +42,7 @@ public class Rafflesia extends AbstractSpriterMonster
     private static final int STATUS_AMT = 3;
 
     private static final int CONTRICTED_AMT = 5;
-    private static final int A17_CONSTRICTED_AMT = 7;
+    private static final int A17_CONSTRICTED_AMT = 8;
     private int constricted;
 
     private static final int GLITTER_AMT = 1;

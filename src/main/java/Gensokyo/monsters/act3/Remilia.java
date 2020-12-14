@@ -56,7 +56,7 @@ public class Remilia extends CustomMonster
 
     private static final int DEBUFF_AMT = 1;
 
-    private static final int HP = 150;
+    private static final int HP = 120;
 
     private static final int COOLDOWN = 2;
     private int counter = COOLDOWN;

@@ -18,6 +18,8 @@ public class BorderOfDeath extends AbstractPower {
     public static final String NAME = powerStrings.NAME;
     public static final String[] DESCRIPTIONS = powerStrings.DESCRIPTIONS;
 
+    public int playerHpResetAmount;
+
     private static final Texture tex84 = TextureLoader.getTexture(makePowerPath("Border84.png"));
     private static final Texture tex32 = TextureLoader.getTexture(makePowerPath("Border32.png"));
 
@@ -35,6 +37,9 @@ public class BorderOfDeath extends AbstractPower {
    @Override
    public void onVictory() {
        AbstractDungeon.player.increaseMaxHp(amount, true);
+       if (playerHpResetAmount > 0) {
+           AbstractDungeon.player.currentHealth = playerHpResetAmount;
+       }
    }
 
     @Override
