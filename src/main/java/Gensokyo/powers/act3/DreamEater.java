@@ -28,16 +28,19 @@ public class DreamEater extends AbstractPower {
     private static final Texture tex84 = TextureLoader.getTexture(makePowerPath("DreamEater84.png"));
     private static final Texture tex32 = TextureLoader.getTexture(makePowerPath("DreamEater32.png"));
 
-    public static final int BASIC_STRENGTH = 2;
-    public static final int COMMON_STRENGTH = 0;
-    public static final int UNCOMMON_STRENGTH = -2;
-    public static final int RARE_STRENGTH = -4;
+    private static final int CURSE_STRENGTH = 4;
+    private static final int BASIC_STRENGTH = 2;
+    private static final int COMMON_STRENGTH = 0;
+    private static final int UNCOMMON_STRENGTH = -2;
+    private static final int RARE_STRENGTH = -4;
 
-    public static final int A18_BASIC_STRENGTH = 3;
-    public static final int A18_COMMON_STRENGTH = 1;
-    public static final int A18_UNCOMMON_STRENGTH = -1;
-    public static final int A18_RARE_STRENGTH = -3;
+    private static final int A18_CURSE_STRENGTH = 5;
+    private static final int A18_BASIC_STRENGTH = 3;
+    private static final int A18_COMMON_STRENGTH = 1;
+    private static final int A18_UNCOMMON_STRENGTH = -1;
+    private static final int A18_RARE_STRENGTH = -3;
 
+    private int curseStrength;
     private int basicStrength;
     private int commonStrength;
     private int uncommonStrength;
@@ -56,11 +59,13 @@ public class DreamEater extends AbstractPower {
         this.doremy = doremy;
 
         if (!stronger) {
+            curseStrength = CURSE_STRENGTH;
             basicStrength = BASIC_STRENGTH;
             commonStrength = COMMON_STRENGTH;
             uncommonStrength = UNCOMMON_STRENGTH;
             rareStrength = RARE_STRENGTH;
         } else {
+            curseStrength = A18_CURSE_STRENGTH;
             basicStrength = A18_BASIC_STRENGTH;
             commonStrength = A18_COMMON_STRENGTH;
             uncommonStrength = A18_UNCOMMON_STRENGTH;
@@ -88,7 +93,9 @@ public class DreamEater extends AbstractPower {
 
     private void gainStrengthBasedOnCard(AbstractCard card) {
         int strength = 0;
-        if (card.rarity == AbstractCard.CardRarity.RARE) {
+        if (card.type == AbstractCard.CardType.CURSE || card.color == AbstractCard.CardColor.CURSE) {
+            strength = curseStrength;
+        } else if (card.rarity == AbstractCard.CardRarity.RARE) {
             strength = rareStrength;
         } else if (card.rarity == AbstractCard.CardRarity.UNCOMMON) {
             strength = uncommonStrength;
@@ -120,6 +127,17 @@ public class DreamEater extends AbstractPower {
     @Override
     public void updateDescription() {
         this.description = DESCRIPTIONS[0] + DESCRIPTIONS[1];
+
+        String curseString;
+        if (basicStrength < 0) {
+            curseString = DESCRIPTIONS[9] + DESCRIPTIONS[7] + Math.abs(curseStrength) + DESCRIPTIONS[8];
+        } else {
+            curseString = DESCRIPTIONS[9] + DESCRIPTIONS[6] + curseStrength + DESCRIPTIONS[8];
+        }
+        if (basicStrength != 0) {
+            description += curseString;
+        }
+        
         String basicString;
         if (basicStrength < 0) {
             basicString = DESCRIPTIONS[2] + DESCRIPTIONS[7] + Math.abs(basicStrength) + DESCRIPTIONS[8];
