@@ -33,6 +33,7 @@ import Gensokyo.monsters.act3.NormalEnemies.Dawnsword;
 import Gensokyo.monsters.act3.NormalEnemies.Duskaxe;
 import Gensokyo.monsters.act3.NormalEnemies.FeralBat;
 import Gensokyo.monsters.act3.NormalEnemies.LoudBat;
+import Gensokyo.monsters.act3.NormalEnemies.MadBoulder;
 import Gensokyo.monsters.act3.NormalEnemies.Rafflesia;
 import Gensokyo.monsters.act3.NormalEnemies.SeedOfUnknown;
 import Gensokyo.monsters.act3.NormalEnemies.Sharpion;
@@ -176,6 +177,8 @@ public class GensokyoScene extends AbstractScene {
                     this.bg = this.atlas.findRegion("mod/Forest");
                 } else if (mo instanceof Sharpion) {
                     this.bg = this.atlas.findRegion("mod/Desert");
+                } else if (mo instanceof MadBoulder) {
+                    this.bg = this.atlas.findRegion("mod/Island");
                 } else {
                     if (CardCrawlGame.dungeon instanceof Gensokyoer) {
                         this.bg = this.atlas.findRegion("mod/TanukiForestNight");

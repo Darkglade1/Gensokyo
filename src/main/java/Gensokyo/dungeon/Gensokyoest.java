@@ -94,7 +94,7 @@ public class Gensokyoest extends CustomDungeon {
 
     protected void generateWeakEnemies(int count) {
         ArrayList<MonsterInfo> monsters = new ArrayList<>();
-        monsters.add(new MonsterInfo("3 Darklings", 2.0F));
+        monsters.add(new MonsterInfo(EncounterIDs.BOULDERS_3, 2.0F));
         monsters.add(new MonsterInfo(AncientGuardian.ID, 2.0F));
         monsters.add(new MonsterInfo(EncounterIDs.BATS_3, 2.0F));
         MonsterInfo.normalizeWeights(monsters);
@@ -109,7 +109,7 @@ public class Gensokyoest extends CustomDungeon {
         monsters.add(new MonsterInfo(Rafflesia.ID, 1.0F));
         //monsters.add(new MonsterInfo("Sphere and 2 Shapes", 1.0F));
         monsters.add(new MonsterInfo(EncounterIDs.DUSK_AND_DAWN, 1.0F));
-        monsters.add(new MonsterInfo("3 Darklings", 1.0F));
+        monsters.add(new MonsterInfo(EncounterIDs.BOULDERS_3, 1.0F));
         monsters.add(new MonsterInfo(Sharpion.ID, 1.0F));
         MonsterInfo.normalizeWeights(monsters);
         this.populateFirstStrongEnemy(monsters, this.generateExclusions());
@@ -120,7 +120,7 @@ public class Gensokyoest extends CustomDungeon {
         ArrayList<MonsterInfo> monsters = new ArrayList<>();
         monsters.add(new MonsterInfo(Doremy.ID, 2.0F));
         monsters.add(new MonsterInfo(Marisa.ID, 2.0F));
-        monsters.add(new MonsterInfo("Reptomancer", 2.0F));
+        //monsters.add(new MonsterInfo("Reptomancer", 2.0F));
         MonsterInfo.normalizeWeights(monsters);
         this.populateMonsterList(monsters, count, true);
     }
@@ -131,6 +131,9 @@ public class Gensokyoest extends CustomDungeon {
         {
             case EncounterIDs.BATS_3:
                 retVal.add(EncounterIDs.BATS_4);
+                break;
+            case EncounterIDs.BOULDERS_3:
+                retVal.add(EncounterIDs.BOULDERS_3);
                 break;
         }
         return retVal;

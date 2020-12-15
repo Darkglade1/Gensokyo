@@ -722,6 +722,14 @@
     "NAME": "Sharpion",
     "DIALOG": [
     ]
+  },
+  "Gensokyo:MadBoulder": {
+    "MOVES": [
+
+    ],
+    "NAME": "Mad Boulder",
+    "DIALOG": [
+    ]
   }
 }
 

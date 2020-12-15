@@ -178,6 +178,7 @@ import Gensokyo.monsters.act3.NormalEnemies.Dawnsword;
 import Gensokyo.monsters.act3.NormalEnemies.Duskaxe;
 import Gensokyo.monsters.act3.NormalEnemies.FeralBat;
 import Gensokyo.monsters.act3.NormalEnemies.LoudBat;
+import Gensokyo.monsters.act3.NormalEnemies.MadBoulder;
 import Gensokyo.monsters.act3.NormalEnemies.Rafflesia;
 import Gensokyo.monsters.act3.NormalEnemies.SeedOfUnknown;
 import Gensokyo.monsters.act3.NormalEnemies.Sharpion;
@@ -641,6 +642,12 @@ public class GensokyoMod implements
                         new FeralBat(300.0F, 0.0F)
                 }));
         BaseMod.addMonster(Sharpion.ID, (BaseMod.GetMonster) Sharpion::new);
+        BaseMod.addMonster(EncounterIDs.BOULDERS_3, "3_Boulders", () -> new MonsterGroup(
+                new AbstractMonster[] {
+                        new MadBoulder(-450.0F, 0.0F),
+                        new MadBoulder(-150.0F, 0.0F),
+                        new MadBoulder(150.0F, 0.0F)
+                }));
 
 
         // =============== EVENTS =================

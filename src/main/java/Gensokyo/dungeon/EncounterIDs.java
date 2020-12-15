@@ -20,4 +20,5 @@ public class EncounterIDs {
     public static final String DUSK_AND_DAWN = "Gensokyo:Dusk_and_Dawn";
     public static final String BATS_3 = "Gensokyo:3_Bats";
     public static final String BATS_4 = "Gensokyo:4_Bats";
+    public static final String BOULDERS_3 = "Gensokyo:3_Boulders";
 }
