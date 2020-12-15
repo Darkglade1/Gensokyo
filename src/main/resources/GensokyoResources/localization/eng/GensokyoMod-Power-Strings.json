@@ -302,7 +302,7 @@
 },
 "Gensokyo:Deathtouch": {
         "NAME": "Deathtouch",
-        "DESCRIPTIONS": ["Whenever you receive unblocked attack damage from this enemy, you #rlose that much #yMax #yHP this combat. NL Your #yMax #yHP cannot go below #b1."]
+        "DESCRIPTIONS": ["Whenever you receive unblocked attack damage from this enemy, you #rlose that much #yMax #yHP this combat. NL Your #yMax #yHP cannot go below #b1. NL At the start of combat, your #ymax #yHP is reduced to your #ycurrent #yHP for this combat."]
 },
 "Gensokyo:Empower": {
         "NAME": "Empower",
