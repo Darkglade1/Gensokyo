@@ -94,7 +94,7 @@ public class EventFilter {
                     eventsToRemove.add(event);
                 }
             } else if (event.equals(IAmNotThere.ID)) {
-                if (!(AbstractDungeon.floorNum <= 45)) {
+                if (!(AbstractDungeon.floorNum <= 47)) {
                     eventsToRemove.add(event);
                 }
             } else if (event.equals(MedicineSeller.ID)) {

@@ -7,6 +7,7 @@ import Gensokyo.actions.UsePreBattleActionAction;
 import Gensokyo.monsters.AbstractSpriterMonster;
 import Gensokyo.powers.act3.UnstableReality;
 import Gensokyo.vfx.EmptyEffect;
+import actlikeit.dungeons.CustomDungeon;
 import basemod.ReflectionHacks;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
@@ -85,7 +86,7 @@ public class Shinki extends AbstractSpriterMonster
 
     @Override
     public void usePreBattleAction() {
-        //AbstractDungeon.getCurrRoom().playBgmInstantly("Wind God Girl");
+        CustomDungeon.playTempMusicInstantly("InfiniteBeing");
         delusionList.add(new Alice(-480.0f, 0.0f, this));
         delusionList.add(new Yumeko(-480.0f, 0.0f, this));
         delusionList.add(new Sariel(-480.0f, 0.0f, this));

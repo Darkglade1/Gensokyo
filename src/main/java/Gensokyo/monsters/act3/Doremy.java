@@ -3,6 +3,7 @@ package Gensokyo.monsters.act3;
 import Gensokyo.BetterSpriterAnimation;
 import Gensokyo.GensokyoMod;
 import Gensokyo.powers.act3.DreamEater;
+import actlikeit.dungeons.CustomDungeon;
 import basemod.abstracts.CustomMonster;
 import com.brashmonkey.spriter.Animation;
 import com.brashmonkey.spriter.Player;
@@ -115,7 +116,7 @@ public class Doremy extends CustomMonster
 
     @Override
     public void usePreBattleAction() {
-        //AbstractDungeon.getCurrRoom().playBgmInstantly("Bhavagra");
+        CustomDungeon.playTempMusicInstantly("SpringDream");
         boolean stronger = AbstractDungeon.ascensionLevel >= 18;
         AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(this, this, new DreamEater(this, DREAM_DURATION, stronger, this)));
     }

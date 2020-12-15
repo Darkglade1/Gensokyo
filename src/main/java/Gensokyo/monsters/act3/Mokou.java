@@ -22,6 +22,7 @@ import Gensokyo.monsters.act2.Kaguya;
 import Gensokyo.powers.act1.VigorPower;
 import Gensokyo.powers.act3.SomeoneElse;
 import Gensokyo.vfx.EmptyEffect;
+import actlikeit.dungeons.CustomDungeon;
 import basemod.abstracts.CustomMonster;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.math.MathUtils;
@@ -198,7 +199,7 @@ public class Mokou extends CustomMonster
 
     @Override
     public void usePreBattleAction() {
-        //CustomDungeon.playTempMusicInstantly("LunaticPrincess");
+        CustomDungeon.playTempMusicInstantly("ImmortalSmoke");
         kaguya = new Kaguya(-1600.0F, -30.0f);
         kaguya.setFlip(true, false);
         kaguya.drawX = AbstractDungeon.player.drawX;

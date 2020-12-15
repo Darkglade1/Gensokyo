@@ -41,7 +41,7 @@ public class Doom extends AbstractPower {
 
     @Override
     public void onInitialApplication() {
-        if (owner.id.equals(Flandre.ID)) {
+        if (owner instanceof Flandre) {
             addToBot(new RemoveSpecificPowerAction(owner, owner, this));
         }
         attacked = true;

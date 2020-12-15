@@ -9,6 +9,7 @@ import Gensokyo.powers.act3.Doom;
 import Gensokyo.powers.act3.EyesOfDeath;
 import Gensokyo.powers.act3.SistersPlayerPosition;
 import Gensokyo.powers.act3.SistersPosition;
+import actlikeit.dungeons.CustomDungeon;
 import basemod.ReflectionHacks;
 import com.badlogic.gdx.graphics.Color;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
@@ -132,6 +133,7 @@ public class Flandre extends AbstractSpriterMonster
 
     @Override
     public void usePreBattleAction() {
+        CustomDungeon.playTempMusicInstantly("UNOwen");
         AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(this, this, new EyesOfDeath(this, doom)));
         for (AbstractMonster mo : AbstractDungeon.getCurrRoom().monsters.monsters) {
             if (mo instanceof Remilia) {

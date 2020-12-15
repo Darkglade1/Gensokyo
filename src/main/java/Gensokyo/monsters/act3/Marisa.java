@@ -4,6 +4,7 @@ import Gensokyo.BetterSpriterAnimation;
 import Gensokyo.GensokyoMod;
 import Gensokyo.powers.act1.VigorPower;
 import Gensokyo.powers.act3.ChargeUp;
+import actlikeit.dungeons.CustomDungeon;
 import basemod.abstracts.CustomMonster;
 import com.brashmonkey.spriter.Animation;
 import com.brashmonkey.spriter.Player;
@@ -118,7 +119,7 @@ public class Marisa extends CustomMonster
 
     @Override
     public void usePreBattleAction() {
-        //AbstractDungeon.getCurrRoom().playBgmInstantly("Wind God Girl");
+        CustomDungeon.playTempMusicInstantly("MasterSpark");
         AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(this, this, new ChargeUp(this, strength)));
     }
 

@@ -28,7 +28,13 @@ public class Gensokyoest extends CustomDungeon {
 
     public Gensokyoest() {
         super(NAME, ID, "images/ui/event/panel.png", false, 2, 12, 10);
+        this.setMainMusic("audio/music/Gensokyo/StrangeBirdMysteriousCat.mp3");
         this.addTempMusic("BorderOfLife", "audio/music/Gensokyo/Border of Life.ogg");
+        this.addTempMusic("ImmortalSmoke", "audio/music/Gensokyo/Immortal-Smoke.mp3");
+        this.addTempMusic("InfiniteBeing", "audio/music/Gensokyo/Infinite-Being.mp3");
+        this.addTempMusic("MasterSpark", "audio/music/Gensokyo/Master-Spark.mp3");
+        this.addTempMusic("SpringDream", "audio/music/Gensokyo/SpringDream.mp3");
+        this.addTempMusic("UNOwen", "audio/music/Gensokyo/UN-Owen-Was-Her.mp3");
     }
 
     public Gensokyoest(CustomDungeon cd, AbstractPlayer p, ArrayList<String> emptyList) {
@@ -48,7 +54,7 @@ public class Gensokyoest extends CustomDungeon {
         shopRoomChance = 0.05F;
         restRoomChance = 0.12F;
         treasureRoomChance = 0.0F;
-        eventRoomChance = 0.22F;
+        eventRoomChance = 0.25F;
         eliteRoomChance = 0.08F;
         smallChestChance = 50;
         mediumChestChance = 33;
