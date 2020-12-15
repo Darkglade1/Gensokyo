@@ -1,6 +1,7 @@
 package Gensokyo.powers.act3;
 
 import Gensokyo.GensokyoMod;
+import Gensokyo.monsters.act3.Flandre;
 import Gensokyo.util.TextureLoader;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.TextureAtlas;
@@ -40,6 +41,9 @@ public class Doom extends AbstractPower {
 
     @Override
     public void onInitialApplication() {
+        if (owner.id.equals(Flandre.ID)) {
+            addToBot(new RemoveSpecificPowerAction(owner, owner, this));
+        }
         attacked = true;
     }
 

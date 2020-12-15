@@ -154,7 +154,7 @@ public class MadBoulder extends AbstractSpriterMonster
             setMoveShortcut(ATTACK_BUFF);
         } else {
             ArrayList<Byte> possibilities = new ArrayList<>();
-            if (!this.lastMove(ATTACK)) {
+            if (!this.lastMove(ATTACK) && ! firstMove) {
                 possibilities.add(ATTACK);
             }
             if (!this.lastMove(DEBUFF) && !this.lastMoveBefore(DEBUFF)) {
