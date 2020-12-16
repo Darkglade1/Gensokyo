@@ -2,7 +2,6 @@ package Gensokyo.cards.UrbanLegend;
 
 import Gensokyo.GensokyoMod;
 import Gensokyo.tags.Tags;
-import com.evacipated.cardcrawl.mod.stslib.fields.cards.AbstractCard.AlwaysRetainField;
 import com.megacrit.cardcrawl.actions.common.GainEnergyAction;
 import com.megacrit.cardcrawl.actions.common.MakeTempCardInDrawPileAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
@@ -23,7 +22,7 @@ public class LittleGreenMen extends AbstractUrbanLegendCard {
     private static final CardType TYPE = CardType.SKILL;
 
     private static final int COST = 0;
-    private static final int ENERGY = 1;
+    private static final int ENERGY = 2;
 
     public LittleGreenMen() {
         super(ID, IMG, COST, TYPE, RARITY, TARGET);
@@ -34,7 +33,7 @@ public class LittleGreenMen extends AbstractUrbanLegendCard {
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
         AbstractDungeon.actionManager.addToBottom(new GainEnergyAction(magicNumber));
-        AbstractCard copy = this.makeCopy();
+        AbstractCard copy = this.makeStatEquivalentCopy();
         if (upgraded) {
             copy.upgrade();
         }

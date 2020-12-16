@@ -42,8 +42,8 @@
   },
   "Gensokyo:LittleGreenMen": {
     "NAME": "绿色小人",
-    "DESCRIPTION": "获得 [E] 。 NL 将这张牌的复制品加入你的抽牌堆顶部。",
-    "UPGRADE_DESCRIPTION": "保留 。 NL 获得 [E]。 NL 将这张牌的复制品加入你的抽牌堆顶部。"
+    "DESCRIPTION": "获得 [E] [E] 。 NL 将这张牌的复制品加入你的抽牌堆顶部。",
+    "UPGRADE_DESCRIPTION": "保留 。 NL 获得 [E] [E] 。 NL 将这张牌的复制品加入你的抽牌堆顶部。"
   },
   "Gensokyo:TurboGranny": {
     "NAME": "涡轮老妇",
