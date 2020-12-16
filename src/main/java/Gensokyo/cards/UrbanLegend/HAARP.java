@@ -20,8 +20,8 @@ public class HAARP extends AbstractUrbanLegendCard {
     private static final CardType TYPE = CardType.POWER;
 
     private static final int COST = 2;
-    private static final int CHANNEL = 1;
-    private static final int UPGRADE_CHANNEL = 1;
+    private static final int CHANNEL = 2;
+    private static final int UPGRADE_COST = 1;
 
     public HAARP() {
         super(ID, IMG, COST, TYPE, RARITY, TARGET);
@@ -38,7 +38,7 @@ public class HAARP extends AbstractUrbanLegendCard {
     public void upgrade() {
         if (!upgraded) {
             upgradeName();
-            upgradeMagicNumber(UPGRADE_CHANNEL);
+            upgradeBaseCost(UPGRADE_COST);
             initializeDescription();
         }
     }

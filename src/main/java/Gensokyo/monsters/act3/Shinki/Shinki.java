@@ -49,7 +49,7 @@ public class Shinki extends AbstractSpriterMonster
     private static final int DEBUFF = 1;
     private static final int HEAL = 5;
 
-    private static final int HP = 200;
+    private static final int HP = 9999;
 
     public GenericEventDialog imageEventText;
     public AbstractShinkiDelusion currentDelusion;

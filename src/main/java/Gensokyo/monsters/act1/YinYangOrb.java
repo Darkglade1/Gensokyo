@@ -19,6 +19,7 @@ import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.core.Settings;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.localization.MonsterStrings;
+import com.megacrit.cardcrawl.powers.AbstractPower;
 import kobting.friendlyminions.enums.MonsterIntentEnum;
 
 public class YinYangOrb extends CustomMonster {
@@ -69,6 +70,9 @@ public class YinYangOrb extends CustomMonster {
     @Override
     public void die(boolean triggerRelics) {
         super.die(false);
+        for (AbstractPower power : this.powers) {
+            power.onDeath(); //manually call this cause apparently triggerRelics also determines if onDeath powers are called
+        }
         if (delay > 0) {
             master.orbs[delay - 1][position - 1].remove(this);
         }
