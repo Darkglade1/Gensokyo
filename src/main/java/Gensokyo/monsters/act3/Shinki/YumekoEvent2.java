@@ -27,8 +27,8 @@ public class YumekoEvent2 extends AbstractShinkiEvent{
     private int curse1Num;
     AbstractCard curse1 = new Regret();
 
-    private static final int CURSE2_NUM = 1;
-    private static final int HIGH_ASC_CURSE2_NUM = 2;
+    private static final int CURSE2_NUM = 2;
+    private static final int HIGH_ASC_CURSE2_NUM = 3;
     private int curse2Num;
     AbstractCard curse2 = new Normality();
 

@@ -1,6 +1,7 @@
 package Gensokyo.powers.act3;
 
 import Gensokyo.GensokyoMod;
+import Gensokyo.monsters.act3.Shinki.Alice;
 import Gensokyo.util.TextureLoader;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.TextureAtlas;
@@ -22,11 +23,14 @@ public class DollJudgement extends AbstractPower {
     private static final Texture tex84 = TextureLoader.getTexture(makePowerPath("Doll84.png"));
     private static final Texture tex32 = TextureLoader.getTexture(makePowerPath("Doll32.png"));
 
-    public DollJudgement(AbstractCreature owner, int strength) {
+    private Alice alice;
+
+    public DollJudgement(AbstractCreature owner, int strength, Alice alice) {
         this.name = NAME;
         this.ID = POWER_ID;
         this.owner = owner;
         this.amount = strength;
+        this.alice = alice;
         this.type = PowerType.BUFF;
         this.region128 = new TextureAtlas.AtlasRegion(tex84, 0, 0, 84, 84);
         this.region48 = new TextureAtlas.AtlasRegion(tex32, 0, 0, 32, 32);
@@ -36,6 +40,11 @@ public class DollJudgement extends AbstractPower {
     @Override
     public void onSpecificTrigger() {
         addToBot(new ApplyPowerAction(owner, owner, new StrengthPower(owner, amount), amount));
+    }
+
+    @Override
+    public void atEndOfRound() {
+        alice.Summon();
     }
 
     @Override

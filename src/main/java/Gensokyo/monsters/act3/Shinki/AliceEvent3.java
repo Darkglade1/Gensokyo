@@ -20,8 +20,8 @@ public class AliceEvent3 extends AbstractShinkiEvent{
     private static final String[] OPTIONS = eventStrings.OPTIONS;
     public static final String IMG = makeEventPath("Alice3.png");
 
-    private static final int METALLICIZE = 15;
-    private static final int HIGH_METALLICIZE = 25;
+    private static final int METALLICIZE = 20;
+    private static final int HIGH_METALLICIZE = 30;
     private int metallicize;
 
     private static final int ENEMY_HEAL = 60;

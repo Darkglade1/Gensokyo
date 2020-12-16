@@ -56,7 +56,6 @@ public class DollMagnet extends TwoAmountPower {
         }
         if (this.amount >= 2) {
             Doll minion2 = new Doll(-240.0F, 200.0F, alice, true);
-            minion2.setFlip(true, false);
             AbstractDungeon.actionManager.addToBottom(new SpawnMonsterAction(minion2, true));
             AbstractDungeon.actionManager.addToBottom(new UsePreBattleActionAction(minion2));
         }

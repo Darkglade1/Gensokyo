@@ -77,8 +77,8 @@ public class Flandre extends AbstractSpriterMonster
     private static final float BUFF_HP_THRESHOLD = 0.50f;
     private boolean buffed = false;
 
-    private static final int HEAL = 250;
-    private static final int A19_HEAL = 350;
+    private static final int HEAL = 200;
+    private static final int A19_HEAL = 300;
     private int heal;
 
     private static final int HP = 666;

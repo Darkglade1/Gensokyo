@@ -21,11 +21,11 @@ public class Doll extends AbstractSpriterMonster {
 
     protected static final byte NONE = 0;
     protected static final byte EXPLODE = 1;
-    protected static final int HP = 20;
-    protected static final int A9_HP = 22;
-    private static final int EXPLODE_DAMAGE = 20;
-    private static final int A4_EXPLODE_DAMAGE = 22;
-    public static final int DOLLS_EXPLODE_TIMER = 3;
+    protected static final int HP = 10;
+    protected static final int A9_HP = 11;
+    private static final int EXPLODE_DAMAGE = 10;
+    private static final int A4_EXPLODE_DAMAGE = 11;
+    public static final int DOLLS_EXPLODE_TIMER = 1;
     private int explodeDamage;
     private static final float HB_W = 50.0F;
     private static final float HB_H = 100.0f;
@@ -59,10 +59,6 @@ public class Doll extends AbstractSpriterMonster {
     @Override
     public void usePreBattleAction() {
         AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(this, this, new ExplosiveDoll(this, cooldown, explodeDamage)));
-    }
-
-    public void setFlip(boolean horizontal, boolean vertical) {
-        this.animation.setFlip(horizontal, vertical);
     }
 
     @Override

@@ -49,7 +49,7 @@ public class SarielEvent2 extends AbstractShinkiEvent{
     public void buttonEffect(int buttonPressed) {
         switch (buttonPressed) {
             case 0:
-                AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(AbstractDungeon.player, AbstractDungeon.player, new ConstrictedPower(AbstractDungeon.player, AbstractDungeon.player, debuff1Amt),debuff1Amt));
+                AbstractDungeon.actionManager.addToTop(new ApplyPowerAction(AbstractDungeon.player, AbstractDungeon.player, new ConstrictedPower(AbstractDungeon.player, AbstractDungeon.player, debuff1Amt),debuff1Amt));
                 break;
             case 1:
                 AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(AbstractDungeon.player, AbstractDungeon.player, new HexPower(AbstractDungeon.player, debuff2Amt),debuff2Amt));

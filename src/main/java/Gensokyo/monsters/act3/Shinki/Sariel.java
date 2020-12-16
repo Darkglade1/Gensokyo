@@ -32,12 +32,12 @@ public class Sariel extends AbstractShinkiDelusion
     private static final byte DEBUFF_ATTACK = 0;
     private static final byte ATTACK = 1;
 
-    private static final int ATTACK_DMG = 24;
-    private static final int A4_ATTACK_DMG = 26;
+    private static final int ATTACK_DMG = 20;
+    private static final int A4_ATTACK_DMG = 22;
     private int attackDmg;
 
-    private static final int DEBUFF_ATTACK_DMG = 14;
-    private static final int A4_DEBUFF_ATTACK_DMG = 15;
+    private static final int DEBUFF_ATTACK_DMG = 12;
+    private static final int A4_DEBUFF_ATTACK_DMG = 13;
     private int debuffAttackDmg;
 
     private static final int DEBUFF_AMT = 2;
@@ -49,7 +49,7 @@ public class Sariel extends AbstractShinkiDelusion
 //    private int powerAmt;
 
     private static final int HP = 300;
-    private static final int A9_HP = 320;
+    private static final int A9_HP = 315;
 
     private Map<Byte, EnemyMoveInfo> moves;
 

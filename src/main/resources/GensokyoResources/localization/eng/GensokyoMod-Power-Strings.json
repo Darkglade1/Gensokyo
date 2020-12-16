@@ -321,8 +321,8 @@
         "DESCRIPTIONS": ["This creature is your #gally. NL You #gwin when you defeat #b", " #yDelusions."]
 },
 "Gensokyo:DollJudgement": {
-        "NAME": "Doll Judgement",
-        "DESCRIPTIONS": ["Whenever a #yDoll dies, gains #b", " #yStrength."]
+        "NAME": "Little Legion",
+        "DESCRIPTIONS": ["Whenever a #yDoll dies, gains #b", " #yStrength. NL Summons #b2 #yDolls every turn."]
 },
 "Gensokyo:AliceEventEnergy": {
         "NAME": "Energized",

@@ -23,7 +23,7 @@ public class AliceEvent2 extends AbstractShinkiEvent{
     private static final String[] OPTIONS = eventStrings.OPTIONS;
     public static final String IMG = makeEventPath("Alice2.png");
 
-    private static final int TURNS = 3;
+    private static final int TURNS = 1;
     private static final int NUM_DOLLS = 1;
     private static final int HIGH_ASC_NUM_DOLLS = 2;
     private int numDolls;
@@ -45,7 +45,7 @@ public class AliceEvent2 extends AbstractShinkiEvent{
             this.numDolls = NUM_DOLLS;
             this.curseAmt = CURSE_AMT;
         }
-        String option1 = OPTIONS[0] + TURNS + OPTIONS[1] + numDolls + OPTIONS[2];
+        String option1 = OPTIONS[0] + OPTIONS[1] + numDolls + OPTIONS[2];
         String option2 = OPTIONS[3] + curseAmt + OPTIONS[4] + FontHelper.colorString(curse.name, "r") + OPTIONS[5];
         this.options.add(option1);
         this.options.add(option2);
