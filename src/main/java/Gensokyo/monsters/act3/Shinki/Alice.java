@@ -44,8 +44,6 @@ public class Alice extends AbstractShinkiDelusion
     public static final String NAME = monsterStrings.NAME;
     public static final String[] MOVES = monsterStrings.MOVES;
     public static final String[] DIALOG = monsterStrings.DIALOG;
-    private static final UIStrings uiStrings = CardCrawlGame.languagePack.getUIString(GensokyoMod.makeID("DelusionIntents"));
-    private static final String[] TEXT = uiStrings.TEXT;
 
     private boolean firstMove = true;
     private static final byte ATTACK = 0;
@@ -67,7 +65,7 @@ public class Alice extends AbstractShinkiDelusion
     private static final int STRENGTH = 1;
 
     private static final int HP = 230;
-    private static final int A9_HP = 250;
+    private static final int A9_HP = 245;
 
     public ArrayList<Doll> dolls = new ArrayList<>();
     private Map<Byte, EnemyMoveInfo> moves;
@@ -97,14 +95,13 @@ public class Alice extends AbstractShinkiDelusion
         }
 
         this.moves = new HashMap<>();
-        this.moves.put(ATTACK, new EnemyMoveInfo(ATTACK, IntentEnums.ATTACK_AREA, attackDmg, 0, false));
-        this.moves.put(MULTI_ATTACK, new EnemyMoveInfo(MULTI_ATTACK, IntentEnums.ATTACK_AREA, multiAttackDmg, MULTI_ATTACK_HITS, true));
+        this.moves.put(ATTACK, new EnemyMoveInfo(ATTACK, Intent.ATTACK, attackDmg, 0, false));
+        this.moves.put(MULTI_ATTACK, new EnemyMoveInfo(MULTI_ATTACK, Intent.ATTACK, multiAttackDmg, MULTI_ATTACK_HITS, true));
         this.moves.put(BUFF, new EnemyMoveInfo(BUFF, Intent.BUFF, -1, 0, false));
         this.moves.put(SUMMON, new EnemyMoveInfo(SUMMON, Intent.UNKNOWN, -1, 0, false));
 
         Player.PlayerListener listener = new AliceListener(this);
         ((BetterSpriterAnimation)this.animation).myPlayer.addListener(listener);
-        this.animation.setFlip(true, false);
     }
 
     @Override
@@ -122,7 +119,7 @@ public class Alice extends AbstractShinkiDelusion
         if(info.base > -1) {
             info.applyPowers(this, AbstractDungeon.player);
         }
-        shinki.halfDead = false;
+
         switch (this.nextMove) {
             case ATTACK: {
                 runAnim("SpellAttack");
@@ -131,12 +128,6 @@ public class Alice extends AbstractShinkiDelusion
                 AbstractDungeon.actionManager.addToBottom(new VFXAction(new LightningEffect(AbstractDungeon.player.drawX, AbstractDungeon.player.drawY)));
                 AbstractDungeon.actionManager.addToBottom(new SFXAction("ORB_LIGHTNING_EVOKE", 0.1F));
                 AbstractDungeon.actionManager.addToBottom(new DamageAction(AbstractDungeon.player, playerInfo, AbstractGameAction.AttackEffect.NONE));
-
-                DamageInfo monsterInfo = new DamageInfo(this, moves.get(this.nextMove).baseDamage, DamageInfo.DamageType.NORMAL);
-                monsterInfo.applyPowers(this, shinki);
-                AbstractDungeon.actionManager.addToBottom(new VFXAction(new LightningEffect(shinki.drawX, shinki.drawY)));
-                AbstractDungeon.actionManager.addToBottom(new SFXAction("ORB_LIGHTNING_EVOKE", 0.1F));
-                AbstractDungeon.actionManager.addToBottom(new DamageAction(shinki, monsterInfo, AbstractGameAction.AttackEffect.NONE));
                 break;
             }
             case MULTI_ATTACK: {
@@ -148,13 +139,6 @@ public class Alice extends AbstractShinkiDelusion
                     AbstractDungeon.actionManager.addToBottom(new VFXAction(new BorderFlashEffect(Color.SKY)));
                     AbstractDungeon.actionManager.addToBottom(new VFXAction(new SmallLaserEffect(AbstractDungeon.player.hb.cX, AbstractDungeon.player.hb.cY, this.hb.cX, this.hb.cY), 0.1F));
                     AbstractDungeon.actionManager.addToBottom(new DamageAction(AbstractDungeon.player, playerInfo, AbstractGameAction.AttackEffect.NONE));
-
-                    DamageInfo monsterInfo = new DamageInfo(this, moves.get(this.nextMove).baseDamage, DamageInfo.DamageType.NORMAL);
-                    monsterInfo.applyPowers(this, shinki);
-                    AbstractDungeon.actionManager.addToBottom(new SFXAction("ATTACK_MAGIC_BEAM_SHORT", 0.5F));
-                    AbstractDungeon.actionManager.addToBottom(new VFXAction(new BorderFlashEffect(Color.SKY)));
-                    AbstractDungeon.actionManager.addToBottom(new VFXAction(new SmallLaserEffect(shinki.hb.cX, shinki.hb.cY, this.hb.cX, this.hb.cY), 0.1F));
-                    AbstractDungeon.actionManager.addToBottom(new DamageAction(shinki, monsterInfo, AbstractGameAction.AttackEffect.NONE));
                 }
                 break;
             }
@@ -210,36 +194,13 @@ public class Alice extends AbstractShinkiDelusion
     }
 
     @Override
-    public void applyPowers() {
-        if (this.nextMove == -1) {
-            Color color = new Color(1.0F, 1.0F, 1.0F, 0.5F);
-            ReflectionHacks.setPrivate(this, AbstractMonster.class, "intentColor", color);
-            super.applyPowers();
-            return;
-        }
-        DamageInfo info = new DamageInfo(this, moves.get(this.nextMove).baseDamage, DamageInfo.DamageType.NORMAL);
-        Color color = new Color(1.0F, 1.0F, 1.0F, 0.5F);
-        ReflectionHacks.setPrivate(this, AbstractMonster.class, "intentColor", color);
-        if (info.base > -1) {
-            int multiplier = moves.get(this.nextMove).multiplier;
-            info.applyPowers(this, AbstractDungeon.player);
-            ReflectionHacks.setPrivate(this, AbstractMonster.class, "intentDmg", info.output);
-            PowerTip intentTip = ReflectionHacks.getPrivate(this, AbstractMonster.class, "intentTip");
-            if (multiplier > 0) {
-                intentTip.body = TEXT[4] + info.output + TEXT[5] + multiplier + TEXT[6];
-            } else {
-                intentTip.body = TEXT[2] + info.output + TEXT[3];
-            }
-        }
-    }
-
-    @Override
     public void die(boolean triggerRelics) {
         AbstractDungeon.actionManager.addToBottom(new TalkAction(this, DIALOG[3]));
         ((BetterSpriterAnimation)this.animation).startDying();
         for (AbstractMonster mo : AbstractDungeon.getCurrRoom().monsters.monsters) {
             if (mo instanceof Doll) {
-                if (!mo.isDead && !mo.isDying) {
+                Doll doll = (Doll)mo;
+                if (!mo.isDead && !mo.isDying && !doll.spawnedByPower) {
                     AbstractDungeon.actionManager.addToBottom(new SuicideAction(mo));
                 }
             }

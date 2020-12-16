@@ -2,11 +2,12 @@
 package Gensokyo.monsters.act3.Shinki;
 
 import Gensokyo.GensokyoMod;
+import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.actions.common.HealAction;
-import com.megacrit.cardcrawl.actions.common.LoseHPAction;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.localization.EventStrings;
+import com.megacrit.cardcrawl.powers.MetallicizePower;
 
 import static Gensokyo.GensokyoMod.makeEventPath;
 
@@ -19,9 +20,9 @@ public class AliceEvent3 extends AbstractShinkiEvent{
     private static final String[] OPTIONS = eventStrings.OPTIONS;
     public static final String IMG = makeEventPath("Alice3.png");
 
-    private static final int ALLY_DAMAGE = 50;
-    private static final int HIGH_ALLY_DAMAGE = 75;
-    private int allyDamage;
+    private static final int METALLICIZE = 15;
+    private static final int HIGH_METALLICIZE = 25;
+    private int metallicize;
 
     private static final int ENEMY_HEAL = 60;
     private static final int HIGH_ASC_ENEMY_HEAL = 90;
@@ -33,13 +34,13 @@ public class AliceEvent3 extends AbstractShinkiEvent{
         this.image = IMG;
         this.shinki = shinki;
         if (AbstractDungeon.ascensionLevel >= 19) {
-            this.allyDamage = HIGH_ALLY_DAMAGE;
+            this.metallicize = HIGH_METALLICIZE;
             this.enemyHeal = HIGH_ASC_ENEMY_HEAL;
         } else {
-            this.allyDamage = ALLY_DAMAGE;
+            this.metallicize = METALLICIZE;
             this.enemyHeal = ENEMY_HEAL;
         }
-        String option1 = OPTIONS[0] + allyDamage + OPTIONS[1];
+        String option1 = OPTIONS[0] + metallicize + OPTIONS[1];
         String option2 = OPTIONS[2] + enemyHeal + OPTIONS[3];
         this.options.add(option1);
         this.options.add(option2);
@@ -48,7 +49,7 @@ public class AliceEvent3 extends AbstractShinkiEvent{
     public void buttonEffect(int buttonPressed) {
         switch (buttonPressed) {
             case 0:
-                AbstractDungeon.actionManager.addToBottom(new LoseHPAction(shinki, shinki.currentDelusion, allyDamage));
+                AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(shinki.currentDelusion, shinki.currentDelusion, new MetallicizePower(shinki.currentDelusion, metallicize), metallicize));
                 break;
             case 1:
                 AbstractDungeon.actionManager.addToBottom(new HealAction(shinki.currentDelusion, shinki.currentDelusion, enemyHeal));

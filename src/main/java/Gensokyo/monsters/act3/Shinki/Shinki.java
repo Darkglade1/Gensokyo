@@ -18,6 +18,7 @@ import com.megacrit.cardcrawl.actions.common.DamageAction;
 import com.megacrit.cardcrawl.actions.common.EscapeAction;
 import com.megacrit.cardcrawl.actions.common.RollMoveAction;
 import com.megacrit.cardcrawl.actions.common.SpawnMonsterAction;
+import com.megacrit.cardcrawl.actions.common.SuicideAction;
 import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.core.Settings;
@@ -25,6 +26,7 @@ import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.events.AbstractEvent;
 import com.megacrit.cardcrawl.events.GenericEventDialog;
 import com.megacrit.cardcrawl.localization.MonsterStrings;
+import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.monsters.EnemyMoveInfo;
 import com.megacrit.cardcrawl.screens.DeathScreen;
 
@@ -146,6 +148,13 @@ public class Shinki extends AbstractSpriterMonster
         currentDelusion = null;
         delusionsDefeated++;
         if (delusionsDefeated >= NUM_DELUSIONS_TO_FIGHT) {
+            for (AbstractMonster mo : AbstractDungeon.getCurrRoom().monsters.monsters) {
+                if (mo instanceof Doll) {
+                    if (!mo.isDead && !mo.isDying) {
+                        AbstractDungeon.actionManager.addToBottom(new SuicideAction(mo));
+                    }
+                }
+            }
             this.addToBot(new AbstractGameAction() {
                 @Override
                 public void update() {
@@ -187,18 +196,8 @@ public class Shinki extends AbstractSpriterMonster
     }
 
     @Override
-    public void die(boolean triggerRelics) {
-        AbstractDungeon.player.isDead = true;
-        AbstractDungeon.deathScreen = new DeathScreen(AbstractDungeon.getMonsters());
-        AbstractDungeon.actionManager.clearPostCombatActions();
-        super.die(triggerRelics);
-    }
-
-    @Override
     public void damage(DamageInfo info) {
-        if (info.owner instanceof AbstractShinkiDelusion || info.owner instanceof Doll) { //Just to be really sure she can't take damage from anything else
-            super.damage(info);
-        }
+        //Just to be really sure she can't take damage
     }
 
     @Override

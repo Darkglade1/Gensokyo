@@ -31,12 +31,18 @@ public class Doll extends AbstractSpriterMonster {
     private static final float HB_H = 100.0f;
     protected int cooldown = DOLLS_EXPLODE_TIMER;
     protected Alice master;
+    public boolean spawnedByPower;
 
     public Doll(float x, float y, Alice master) {
+        this(x, y, master, false);
+    }
+
+    public Doll(float x, float y, Alice master, boolean spawnedByPower) {
         super(NAME, ID, HP, -5.0F, 0, HB_W, HB_H, null, x, y);
         this.animation = new BetterSpriterAnimation("GensokyoResources/images/monsters/Doll/Spriter/DollAnimation.scml");
         this.type = EnemyType.NORMAL;
         this.master = master;
+        this.spawnedByPower = spawnedByPower;
         if (AbstractDungeon.ascensionLevel >= 9) {
             this.setHp(A9_HP);
         } else {
@@ -52,7 +58,7 @@ public class Doll extends AbstractSpriterMonster {
 
     @Override
     public void usePreBattleAction() {
-        AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(this, this, new ExplosiveDoll(this, cooldown, explodeDamage, master.shinki)));
+        AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(this, this, new ExplosiveDoll(this, cooldown, explodeDamage)));
     }
 
     public void setFlip(boolean horizontal, boolean vertical) {
@@ -61,17 +67,20 @@ public class Doll extends AbstractSpriterMonster {
 
     @Override
     public void die(boolean triggerRelics) {
-        master.dolls.remove(this);
-        AbstractPower power = master.getPower(DollJudgement.POWER_ID);
-        if (power != null) {
-            power.onSpecificTrigger();
+        if (master != null) {
+            if (!spawnedByPower) {
+                master.dolls.remove(this);
+            }
+            AbstractPower power = master.getPower(DollJudgement.POWER_ID);
+            if (power != null) {
+                power.onSpecificTrigger();
+            }
         }
         super.die(false);
     }
 
     @Override
     public void takeTurn() {
-        master.shinki.halfDead = false;
         if (cooldown > 0) {
             cooldown--;
         }

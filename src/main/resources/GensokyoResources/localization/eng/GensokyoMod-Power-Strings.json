@@ -318,7 +318,7 @@
 },
 "Gensokyo:UnstableReality": {
         "NAME": "Delusions of Grief",
-        "DESCRIPTIONS": ["This creature is your #gally. If your #gally #rdies, you #rlose. NL You #gwin when you defeat #b", " #yDelusions."]
+        "DESCRIPTIONS": ["This creature is your #gally. NL You #gwin when you defeat #b", " #yDelusions."]
 },
 "Gensokyo:DollJudgement": {
         "NAME": "Doll Judgement",
@@ -330,15 +330,15 @@
 },
 "Gensokyo:ExplosiveDoll": {
         "NAME": "Explosive",
-        "DESCRIPTIONS": ["Will #rexplode ", "this turn,", "in #b", " turns,", " dealing #b", " damage to #yyou and your #gally."]
+        "DESCRIPTIONS": ["Will #rexplode ", "this turn,", "in #b", " turns,", " dealing #b", " damage to #yyou."]
 },
 "Gensokyo:BurdenOfFailure": {
         "NAME": "Burden of Failure",
-        "DESCRIPTIONS": ["If this creature fails to deal unblocked attack damage when it attacks, your #gally #rloses #b", " HP."]
+        "DESCRIPTIONS": ["If this creature fails to deal unblocked attack damage when it attacks, gains #b", " #yStrength."]
 },
-"Gensokyo:ExposedBack": {
-        "NAME": "Exposed Back",
-        "DESCRIPTIONS": ["Receives #b", "% more damage from #yAttacks."]
+"Gensokyo:DollMagnet": {
+        "NAME": "Doll Magnet",
+        "DESCRIPTIONS": ["Every #b", " turns, spawn #b", " additional Explosive Doll(s)."]
 },
 "Gensokyo:SarielEventPower": {
         "NAME": "Angel's Grace",

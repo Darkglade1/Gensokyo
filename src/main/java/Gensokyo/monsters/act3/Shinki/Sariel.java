@@ -2,9 +2,6 @@ package Gensokyo.monsters.act3.Shinki;
 
 import Gensokyo.BetterSpriterAnimation;
 import Gensokyo.GensokyoMod;
-import Gensokyo.powers.act3.ExposedBack;
-import basemod.ReflectionHacks;
-import com.badlogic.gdx.graphics.Color;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.animations.TalkAction;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
@@ -15,11 +12,9 @@ import com.megacrit.cardcrawl.core.AbstractCreature;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.core.Settings;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
-import com.megacrit.cardcrawl.helpers.PowerTip;
 import com.megacrit.cardcrawl.localization.MonsterStrings;
-import com.megacrit.cardcrawl.localization.UIStrings;
-import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.monsters.EnemyMoveInfo;
+import com.megacrit.cardcrawl.powers.ConstrictedPower;
 import com.megacrit.cardcrawl.powers.VulnerablePower;
 
 import java.util.HashMap;
@@ -32,33 +27,29 @@ public class Sariel extends AbstractShinkiDelusion
     public static final String NAME = monsterStrings.NAME;
     public static final String[] MOVES = monsterStrings.MOVES;
     public static final String[] DIALOG = monsterStrings.DIALOG;
-    private static final UIStrings uiStrings = CardCrawlGame.languagePack.getUIString(GensokyoMod.makeID("DelusionIntents"));
-    private static final String[] TEXT = uiStrings.TEXT;
 
     private boolean firstMove = true;
     private static final byte DEBUFF_ATTACK = 0;
     private static final byte ATTACK = 1;
 
-    private static final int ATTACK_DMG = 36;
-    private static final int A4_ATTACK_DMG = 40;
+    private static final int ATTACK_DMG = 24;
+    private static final int A4_ATTACK_DMG = 26;
     private int attackDmg;
 
-    private static final int DEBUFF_ATTACK_DMG = 20;
-    private static final int A4_DEBUFF_ATTACK_DMG = 22;
+    private static final int DEBUFF_ATTACK_DMG = 14;
+    private static final int A4_DEBUFF_ATTACK_DMG = 15;
     private int debuffAttackDmg;
 
     private static final int DEBUFF_AMT = 2;
     private static final int A19_DEBUFF_AMT = 3;
     private int debuffAmt;
 
-    private static final int POWER_AMT = 25;
-    private static final int A19_POWER_AMT = 10;
-    private int powerAmt;
+//    private static final int POWER_AMT = 25;
+//    private static final int A19_POWER_AMT = 10;
+//    private int powerAmt;
 
-    private static final int HP = 350;
-    private static final int A9_HP = 380;
-
-    public AbstractCreature target;
+    private static final int HP = 300;
+    private static final int A9_HP = 320;
 
     private Map<Byte, EnemyMoveInfo> moves;
 
@@ -69,16 +60,15 @@ public class Sariel extends AbstractShinkiDelusion
         this.dialogX = (this.hb_x - 70.0F) * Settings.scale;
         this.dialogY -= (this.hb_y - 55.0F) * Settings.scale;
         this.shinki = shinki;
-        this.target = shinki;
         this.event1 = new SarielEvent1(shinki);
         this.event2 = new SarielEvent2(shinki);
         this.event3 = new SarielEvent3(shinki);
         if (AbstractDungeon.ascensionLevel >= 19) {
             this.debuffAmt = A19_DEBUFF_AMT;
-            this.powerAmt = A19_POWER_AMT;
+            //this.powerAmt = A19_POWER_AMT;
         } else {
             this.debuffAmt = DEBUFF_AMT;
-            this.powerAmt = POWER_AMT;
+            //this.powerAmt = POWER_AMT;
         }
 
         if (AbstractDungeon.ascensionLevel >= 9) {
@@ -94,7 +84,6 @@ public class Sariel extends AbstractShinkiDelusion
             attackDmg = ATTACK_DMG;
             debuffAttackDmg = DEBUFF_ATTACK_DMG;
         }
-        this.animation.setFlip(true, false);
         this.moves = new HashMap<>();
         this.moves.put(ATTACK, new EnemyMoveInfo(ATTACK, Intent.ATTACK, attackDmg, 0, false));
         this.moves.put(DEBUFF_ATTACK, new EnemyMoveInfo(DEBUFF_ATTACK, Intent.ATTACK_DEBUFF, debuffAttackDmg, 0, false));
@@ -102,11 +91,7 @@ public class Sariel extends AbstractShinkiDelusion
 
     @Override
     public void usePreBattleAction() {
-        AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(this, this, new ExposedBack(this, powerAmt)));
-    }
-
-    public void setFlip(boolean horizontal, boolean vertical) {
-        this.animation.setFlip(horizontal, vertical);
+        //AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(this, this, new ExposedBack(this, powerAmt)));
     }
 
     @Override
@@ -116,23 +101,19 @@ public class Sariel extends AbstractShinkiDelusion
         }
         DamageInfo info = new DamageInfo(this, moves.get(this.nextMove).baseDamage, DamageInfo.DamageType.NORMAL);
         if(info.base > -1) {
-            info.applyPowers(this, target);
+            info.applyPowers(this, AbstractDungeon.player);
         }
-        shinki.halfDead = false;
+
         switch (this.nextMove) {
             case ATTACK: {
-                if (target == AbstractDungeon.player) {
-                    useFastAttackAnimation();
-                }
-                AbstractDungeon.actionManager.addToBottom(new DamageAction(target, info, AbstractGameAction.AttackEffect.SLASH_HEAVY));
+                useFastAttackAnimation();
+                AbstractDungeon.actionManager.addToBottom(new DamageAction(AbstractDungeon.player, info, AbstractGameAction.AttackEffect.SLASH_HEAVY));
                 break;
             }
             case DEBUFF_ATTACK: {
-                if (target == AbstractDungeon.player) {
-                    useFastAttackAnimation();
-                }
-                AbstractDungeon.actionManager.addToBottom(new DamageAction(target, info, AbstractGameAction.AttackEffect.SLASH_DIAGONAL));
-                AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(target, this, new VulnerablePower(target, debuffAmt, true), debuffAmt));
+                useFastAttackAnimation();
+                AbstractDungeon.actionManager.addToBottom(new DamageAction(AbstractDungeon.player, info, AbstractGameAction.AttackEffect.SLASH_DIAGONAL));
+                AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(AbstractDungeon.player, this, new VulnerablePower(AbstractDungeon.player, debuffAmt, true), debuffAmt));
                 break;
             }
         }
@@ -161,31 +142,8 @@ public class Sariel extends AbstractShinkiDelusion
     }
 
     @Override
-    public void applyPowers() {
-        if (this.nextMove == -1) {
-            Color color = new Color(1.0F, 1.0F, 1.0F, 0.5F);
-            ReflectionHacks.setPrivate(this, AbstractMonster.class, "intentColor", color);
-            super.applyPowers();
-            return;
-        }
-        DamageInfo info = new DamageInfo(this, moves.get(this.nextMove).baseDamage, DamageInfo.DamageType.NORMAL);
-        Color color = new Color(1.0F, 1.0F, 1.0F, 0.5F);
-        ReflectionHacks.setPrivate(this, AbstractMonster.class, "intentColor", color);
-        if (target == shinki) {
-            if(info.base > -1) {
-                info.applyPowers(this, target);
-                ReflectionHacks.setPrivate(this, AbstractMonster.class, "intentDmg", info.output);
-                PowerTip intentTip = ReflectionHacks.getPrivate(this, AbstractMonster.class, "intentTip");
-                intentTip.body = TEXT[0] + info.output + TEXT[1];
-            }
-        } else {
-            super.applyPowers();
-        }
-    }
-
-    @Override
     public String eventDialog(int eventNum) {
-        if (eventNum == 1 && target == AbstractDungeon.player) {
+        if (eventNum == 1 && AbstractDungeon.player.hasPower(ConstrictedPower.POWER_ID)) {
             return DIALOG[4];
         } else {
             return DIALOG[eventNum];

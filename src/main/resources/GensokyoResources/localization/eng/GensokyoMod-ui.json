@@ -184,16 +184,5 @@
     "TEXT": [
       "Innate. NL "
     ]
-  },
-  "Gensokyo:DelusionIntents": {
-    "TEXT": [
-      "This enemy intends to NL #yAttack your #gally for #b",
-      " damage.",
-      "This enemy intends to NL #yAttack #ryou and your #gally for #b",
-      " damage.",
-      "This enemy intends to NL #yAttack #ryou and your #gally for #b",
-      " damage #b",
-      " times."
-    ]
   }
 }

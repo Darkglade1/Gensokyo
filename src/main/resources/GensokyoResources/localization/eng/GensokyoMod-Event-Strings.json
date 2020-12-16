@@ -899,8 +899,8 @@
       "But although you were a #gcapable god, you were a #rterrible parent. You didn't understand why she wanted so much attention from you. You didn't understand why she looked so #phorrified when you #rexecuted a #rtreacherous #pdemon. You didn't understand why she started to avoid you, why she started to shrink away from your touch. NL NL And when she walked into your office exactly one year later and asked if you remembered what day it was, you answered promptly: \"Of course,\" you said. \"It's Tuesday.\" NL NL But that must not have been the answer she expected, for she -"
     ],
     "OPTIONS": [
-      "[Flew into a rage] #rThe #renemy #rgains #r", " #rStrength.",
-      "[Spun on her heel and ran away] #rThe #renemy #rgains #r", " #rMetallicize."
+      "[Flew into a rage] #rEvery #r", " #rturns, #rspawn #r", " #radditional #rExplosive #rDoll(s).",
+      "[Spun on her heel and ran away] #rPut #r", " ", " #rinto #ryour #rhand."
     ]
   },
   "Gensokyo:AliceEvent3": {
@@ -909,7 +909,7 @@
       "The encounter with that shrine maiden had left your world in #rruins and your daughter missing. But no matter what nook you peered into, no matter what cranny you searched, she was nowhere to be found. Finally, in the #rruins of the room that was once hers, you find a letter. It contained only a single word: \"Goodbye.\" NL NL It shouldn't have mattered to you. You had only taken the girl in on a mere #pwhim. So why did it #phurt so much? NL NL And so you broke down there, @crying@ amidst the #rshattered remains of your #ydreams."
     ],
     "OPTIONS": [
-      "[It's your fault] #rYour #rally #rloses #r", " #rHP.",
+      "[It's your fault] #rThe #renemy #rgains #r", " #rMetallicize.",
       "[It's her fault] #rThe #renemy #rheals #r", " #rHP."
     ]
   },
@@ -929,8 +929,8 @@
       "She desired to be #yperfect. NL NL Every little #rmistake, every subtle #pinadequacy - your #ydream #ychild stamped out each and every one of her deficiencies. Yet no matter how many flaws she erased, another one always cropped up, another way in which she was less than #yperfect. NL NL And as you watched her toil away in her self-improvement, you wondered whose fault it was for her continued struggles. After all, she was supposed to be your strongest, most perfect creation; if she continued to fail, then it meant that -"
     ],
     "OPTIONS": [
-      "[You weren't good enough] #rBurden #rof #rFailure #ris #rincreased #rby #r", ".",
-      "[She wasn't good enough] #rEnemy #rloses #rBurden #rof #rFailure #rand #rgains #r", " #rStrength."
+      "[You weren't good enough] #rPut #r", " ", " #rinto #ryour #rhand.",
+      "[She wasn't good enough] #rPut #r", " ", " #rinto #ryour #rhand."
     ]
   },
   "Gensokyo:YumekoEvent3": {
@@ -959,8 +959,8 @@
       "Your little angel was #yperfect. NL NL All it took was a few whispered words from you, and she would take care of the problems #yquickly and #yefficiently. Before long, you heard rumors of an angel of #pdeath spreading amongst your other children, a #preaper who hunted down those who would dare cause a disturbance. Soon enough, the troublemakers and criminals stopped appearing, and you no longer needed to send your angel out. NL NL Soon enough, you forgot that you even had an angel at all. Until one day, when she quietly slipped into your office and asked:"
     ],
     "OPTIONS": [
-      "[Give me someone to kill] #rEnemy #rloses #rExposed #rBack #rand #rattacks #ryou #rinstead.",
-      "[Why did you abandon me?] #rEnemy #rdeals #r", "% #rmore #rdamage."
+      "[Give me someone to kill] #rYou #rgain #r", " #rConstricted.",
+      "[Why did you abandon me?] #rYou #rgain #r", " #rHex."
     ]
   },
   "Gensokyo:SarielEvent3": {

@@ -26,14 +26,11 @@ public class ExplosiveDoll extends TwoAmountPower {
     public static final String NAME = powerStrings.NAME;
     public static final String[] DESCRIPTIONS = powerStrings.DESCRIPTIONS;
 
-    private Shinki shinki;
-
-    public ExplosiveDoll(AbstractCreature owner, int turns, int damage, Shinki shinki) {
+    public ExplosiveDoll(AbstractCreature owner, int turns, int damage) {
         this.name = NAME;
         this.ID = POWER_ID;
         this.owner = owner;
         this.amount = damage;
-        this.shinki = shinki;
         this.amount2 = turns;
         this.type = PowerType.BUFF;
         this.loadRegion("explosive");
@@ -47,7 +44,6 @@ public class ExplosiveDoll extends TwoAmountPower {
             this.addToBot(new SuicideAction((AbstractMonster)this.owner));
             DamageInfo damageInfo = new DamageInfo(this.owner, amount, DamageInfo.DamageType.THORNS);
             this.addToBot(new DamageAction(AbstractDungeon.player, damageInfo, AbstractGameAction.AttackEffect.FIRE, true));
-            this.addToBot(new DamageAction(shinki, damageInfo, AbstractGameAction.AttackEffect.FIRE, true));
         } else {
             amount2--;
             this.updateDescription();

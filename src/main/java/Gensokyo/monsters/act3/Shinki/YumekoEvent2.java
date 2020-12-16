@@ -2,13 +2,14 @@
 package Gensokyo.monsters.act3.Shinki;
 
 import Gensokyo.GensokyoMod;
-import Gensokyo.powers.act3.BurdenOfFailure;
-import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
-import com.megacrit.cardcrawl.actions.common.RemoveSpecificPowerAction;
+import com.megacrit.cardcrawl.actions.common.MakeTempCardInHandAction;
+import com.megacrit.cardcrawl.cards.AbstractCard;
+import com.megacrit.cardcrawl.cards.curses.Normality;
+import com.megacrit.cardcrawl.cards.curses.Regret;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
+import com.megacrit.cardcrawl.helpers.FontHelper;
 import com.megacrit.cardcrawl.localization.EventStrings;
-import com.megacrit.cardcrawl.powers.StrengthPower;
 
 import static Gensokyo.GensokyoMod.makeEventPath;
 
@@ -21,13 +22,15 @@ public class YumekoEvent2 extends AbstractShinkiEvent{
     private static final String[] OPTIONS = eventStrings.OPTIONS;
     public static final String IMG = makeEventPath("Yumeko2.png");
 
-    private static final int STR = 10;
-    private static final int HIGH_ASC_STR = 15;
-    private int str;
+    private static final int CURSE1_NUM = 2;
+    private static final int HIGH_ASC_CURSE1_NUM = 3;
+    private int curse1Num;
+    AbstractCard curse1 = new Regret();
 
-    private static final int POWER = 30;
-    private static final int HIGH_ASC_POWER = 45;
-    private int power;
+    private static final int CURSE2_NUM = 1;
+    private static final int HIGH_ASC_CURSE2_NUM = 2;
+    private int curse2Num;
+    AbstractCard curse2 = new Normality();
 
     public YumekoEvent2(Shinki shinki) {
         this.title = NAME;
@@ -35,14 +38,14 @@ public class YumekoEvent2 extends AbstractShinkiEvent{
         this.image = IMG;
         this.shinki = shinki;
         if (AbstractDungeon.ascensionLevel >= 19) {
-            this.str = HIGH_ASC_STR;
-            this.power = HIGH_ASC_POWER;
+            this.curse1Num = HIGH_ASC_CURSE1_NUM;
+            this.curse2Num = HIGH_ASC_CURSE2_NUM;
         } else {
-            this.str = STR;
-            this.power = POWER;
+            this.curse1Num = CURSE1_NUM;
+            this.curse2Num = CURSE2_NUM;
         }
-        String option1 = OPTIONS[0] + power + OPTIONS[1];
-        String option2 = OPTIONS[2] + str + OPTIONS[3];
+        String option1 = OPTIONS[0] + curse1Num + OPTIONS[1] + FontHelper.colorString(curse1.name, "r") + OPTIONS[2];
+        String option2 = OPTIONS[3] + curse2Num + OPTIONS[4] + FontHelper.colorString(curse2.name, "r") + OPTIONS[5];
         this.options.add(option1);
         this.options.add(option2);
     }
@@ -50,14 +53,10 @@ public class YumekoEvent2 extends AbstractShinkiEvent{
     public void buttonEffect(int buttonPressed) {
         switch (buttonPressed) {
             case 0:
-                if (shinki.currentDelusion instanceof Yumeko) {
-                    Yumeko yumeko = (Yumeko)shinki.currentDelusion;
-                    AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(yumeko, yumeko, new BurdenOfFailure(yumeko, power, yumeko), power));
-                }
+                AbstractDungeon.actionManager.addToBottom(new MakeTempCardInHandAction(curse1, curse1Num));
                 break;
             case 1:
-                AbstractDungeon.actionManager.addToBottom(new RemoveSpecificPowerAction(shinki.currentDelusion, shinki.currentDelusion, BurdenOfFailure.POWER_ID));
-                AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(shinki.currentDelusion, shinki.currentDelusion, new StrengthPower(shinki.currentDelusion, str), str));
+                AbstractDungeon.actionManager.addToBottom(new MakeTempCardInHandAction(curse2, curse2Num));
                 break;
         }
     }

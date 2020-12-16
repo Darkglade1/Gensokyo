@@ -36,12 +36,12 @@ public class Yumeko extends AbstractShinkiDelusion
     private static final byte DEBUFF_ATTACK = 1;
     private static final byte DEFEND_DEBUFF = 2;
 
-    private static final int ATTACK_DMG = 24;
-    private static final int A4_ATTACK_DMG = 26;
+    private static final int ATTACK_DMG = 20;
+    private static final int A4_ATTACK_DMG = 22;
     private int attackDmg;
 
-    private static final int DEBUFF_ATTACK_DMG = 16;
-    private static final int A4_DEBUFF_ATTACK_DMG = 18;
+    private static final int DEBUFF_ATTACK_DMG = 14;
+    private static final int A4_DEBUFF_ATTACK_DMG = 15;
     private int debuffAttackDmg;
 
     private static final int STATUS_AMT = 2;
@@ -52,10 +52,12 @@ public class Yumeko extends AbstractShinkiDelusion
 
     private static final int DEBUFF_AMT = 1;
 
-    private static final int POWER_AMT = 45;
+    private static final int POWER_AMT = 2;
+    private static final int A19_POWER_AMT = 3;
+    private int powerAmt;
 
     private static final int HP = 350;
-    private static final int A9_HP = 380;
+    private static final int A9_HP = 370;
 
     public boolean powerTriggered = false;
     private Map<Byte, EnemyMoveInfo> moves;
@@ -70,6 +72,11 @@ public class Yumeko extends AbstractShinkiDelusion
         this.event1 = new YumekoEvent1(shinki);
         this.event2 = new YumekoEvent2(shinki);
         this.event3 = new YumekoEvent3(shinki);
+        if (AbstractDungeon.ascensionLevel >= 19) {
+            this.powerAmt = A19_POWER_AMT;
+        } else {
+            this.powerAmt = POWER_AMT;
+        }
         if (AbstractDungeon.ascensionLevel >= 9) {
             setHp(A9_HP);
             this.block = A9_BLOCK;
@@ -94,7 +101,7 @@ public class Yumeko extends AbstractShinkiDelusion
 
     @Override
     public void usePreBattleAction() {
-        AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(this, this, new BurdenOfFailure(this, POWER_AMT, this)));
+        AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(this, this, new BurdenOfFailure(this, powerAmt, this)));
     }
 
     @Override
@@ -106,7 +113,7 @@ public class Yumeko extends AbstractShinkiDelusion
         if(info.base > -1) {
             info.applyPowers(this, AbstractDungeon.player);
         }
-        shinki.halfDead = false;
+
         switch (this.nextMove) {
             case ATTACK: {
                 useFastAttackAnimation();
