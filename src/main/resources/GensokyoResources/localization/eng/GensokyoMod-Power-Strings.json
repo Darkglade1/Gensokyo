@@ -338,7 +338,7 @@
 },
 "Gensokyo:DollMagnet": {
         "NAME": "Doll Magnet",
-        "DESCRIPTIONS": ["Every #b", " turns, spawn #b", " additional Explosive Doll(s)."]
+        "DESCRIPTIONS": ["Every", " turn, spawn #b", " additional Explosive Doll(s)."]
 },
 "Gensokyo:SarielEventPower": {
         "NAME": "Angel's Grace",
