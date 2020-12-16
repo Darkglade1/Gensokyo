@@ -25,8 +25,8 @@ public class YumekoEvent2 extends AbstractShinkiEvent{
     private static final int HIGH_ASC_STR = 15;
     private int str;
 
-    private static final int POWER = 15;
-    private static final int HIGH_ASC_POWER = 30;
+    private static final int POWER = 30;
+    private static final int HIGH_ASC_POWER = 45;
     private int power;
 
     public YumekoEvent2(Shinki shinki) {

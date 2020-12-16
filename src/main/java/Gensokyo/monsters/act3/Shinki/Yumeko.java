@@ -36,23 +36,23 @@ public class Yumeko extends AbstractShinkiDelusion
     private static final byte DEBUFF_ATTACK = 1;
     private static final byte DEFEND_DEBUFF = 2;
 
-    private static final int ATTACK_DMG = 20;
-    private static final int A4_ATTACK_DMG = 22;
+    private static final int ATTACK_DMG = 24;
+    private static final int A4_ATTACK_DMG = 26;
     private int attackDmg;
 
-    private static final int DEBUFF_ATTACK_DMG = 14;
-    private static final int A4_DEBUFF_ATTACK_DMG = 15;
+    private static final int DEBUFF_ATTACK_DMG = 16;
+    private static final int A4_DEBUFF_ATTACK_DMG = 18;
     private int debuffAttackDmg;
 
     private static final int STATUS_AMT = 2;
 
-    private static final int A9_BLOCK = 12;
-    private static final int BLOCK = 10;
+    private static final int BLOCK = 12;
+    private static final int A9_BLOCK = 15;
     private int block;
 
     private static final int DEBUFF_AMT = 1;
 
-    private static final int POWER_AMT = 30;
+    private static final int POWER_AMT = 45;
 
     private static final int HP = 350;
     private static final int A9_HP = 380;

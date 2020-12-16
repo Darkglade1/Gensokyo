@@ -17,7 +17,6 @@ import com.megacrit.cardcrawl.monsters.EnemyMoveInfo;
 import com.megacrit.cardcrawl.powers.FrailPower;
 import com.megacrit.cardcrawl.powers.WeakPower;
 
-import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -38,7 +37,7 @@ public class SeedOfUnknown extends AbstractSpriterMonster
     private static final int A2_ATTACK_DMG = 24;
     private int attackDmg;
 
-    private static final int DEBUFF_AMT = 1;
+    private static final int DEBUFF_AMT = 2;
 
     private boolean alwaysObscure;
 
@@ -118,14 +117,11 @@ public class SeedOfUnknown extends AbstractSpriterMonster
         if (this.firstMove) {
             setMoveShortcut(BIG_DEBUFF);
         } else {
-            ArrayList<Byte> possibilities = new ArrayList<>();
-            if (!this.lastMove(ATTACK)) {
-                possibilities.add(ATTACK);
+            if (!this.lastMove(DEBUFF) && !this.lastMoveBefore(DEBUFF)) {
+                setMoveShortcut(DEBUFF);
+            } else {
+                setMoveShortcut(ATTACK);
             }
-            if (!this.lastMove(DEBUFF)) {
-                possibilities.add(DEBUFF);
-            }
-            setMoveShortcut(possibilities.get(AbstractDungeon.monsterRng.random(possibilities.size() - 1)));
         }
     }
 }

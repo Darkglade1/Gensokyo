@@ -33,12 +33,12 @@ public class AtlasGolem extends AbstractSpriterMonster
     private static final byte UNKNOWN1 = 1;
     private static final byte UNKNOWN2 = 2;
 
-    private static final int MAX_DAMAGE = 50;
-    private static final int A2_MAX_DAMAGE = 55;
+    private static final int MAX_DAMAGE = 45;
+    private static final int A2_MAX_DAMAGE = 50;
     private int maxDamage;
 
-    private static final int HP = 200;
-    private static final int A7_HP = 220;
+    private static final int HP = 180;
+    private static final int A7_HP = 200;
 
     private Map<Byte, EnemyMoveInfo> moves;
 

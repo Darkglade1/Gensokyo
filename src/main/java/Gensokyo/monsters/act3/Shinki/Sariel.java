@@ -39,24 +39,24 @@ public class Sariel extends AbstractShinkiDelusion
     private static final byte DEBUFF_ATTACK = 0;
     private static final byte ATTACK = 1;
 
-    private static final int ATTACK_DMG = 30;
-    private static final int A4_ATTACK_DMG = 33;
+    private static final int ATTACK_DMG = 36;
+    private static final int A4_ATTACK_DMG = 40;
     private int attackDmg;
 
-    private static final int DEBUFF_ATTACK_DMG = 10;
-    private static final int A4_DEBUFF_ATTACK_DMG = 11;
+    private static final int DEBUFF_ATTACK_DMG = 20;
+    private static final int A4_DEBUFF_ATTACK_DMG = 22;
     private int debuffAttackDmg;
 
     private static final int DEBUFF_AMT = 2;
     private static final int A19_DEBUFF_AMT = 3;
     private int debuffAmt;
 
-    private static final int POWER_AMT = 34;
-    private static final int A19_POWER_AMT = 15;
+    private static final int POWER_AMT = 25;
+    private static final int A19_POWER_AMT = 10;
     private int powerAmt;
 
-    private static final int HP = 300;
-    private static final int A9_HP = 320;
+    private static final int HP = 350;
+    private static final int A9_HP = 380;
 
     public AbstractCreature target;
 

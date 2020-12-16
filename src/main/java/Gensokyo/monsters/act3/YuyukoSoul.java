@@ -21,7 +21,7 @@ public class YuyukoSoul extends AbstractSpriterMonster {
     private static final String[] TEXT = uiStrings.TEXT;
     protected static final byte NONE = 0;
     protected static final byte DEBUFF = 1;
-    protected static final int HP = 20;
+    protected static final int HP = 18;
     protected static final int MAX_HP_REDUCTION = 5;
     protected static final int A19_MAX_HP_REDUCTION = 7;
     protected int hp_reduction;

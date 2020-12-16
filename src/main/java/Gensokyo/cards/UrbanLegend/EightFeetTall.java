@@ -22,12 +22,14 @@ public class EightFeetTall extends AbstractUrbanLegendCard {
 
     private static final int COST = 2;
     private static final int UPGRADED_COST = 1;
-    private static final int DEBUFF = 5;
+    private static final int DEBUFF = 4;
 
     public EightFeetTall() {
         super(ID, IMG, COST, TYPE, RARITY, TARGET);
         magicNumber = baseMagicNumber = DEBUFF;
         exhaust = true;
+        isEthereal = true;
+        isInnate = true;
         tags.add(Tags.URBAN_LEGEND);
     }
 

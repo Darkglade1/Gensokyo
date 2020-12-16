@@ -48,15 +48,13 @@ public class Remilia extends CustomMonster
     private static final byte DEBUFF_ATTACK = 1;
     private static final byte HEAL = 2;
 
-    private static final int NORMAL_ATTACK_DAMAGE = 25;
+    private static final int NORMAL_ATTACK_DAMAGE = 15;
 
-    private static final int DEBUFF_ATTACK_DAMAGE = 15;
-
-    private static final int HEAL_AMT = 10;
+    private static final int DEBUFF_ATTACK_DAMAGE = 10;
 
     private static final int DEBUFF_AMT = 1;
 
-    private static final int HP = 120;
+    private static final int HP = 100;
 
     private static final int COOLDOWN = 2;
     private int counter = COOLDOWN;
@@ -151,7 +149,6 @@ public class Remilia extends CustomMonster
             }
             case HEAL: {
                 runAnim("Spell");
-                AbstractDungeon.actionManager.addToBottom(new HealAction(this, this, HEAL_AMT));
                 AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(this, this, new Retribution(this)));
                 counter = COOLDOWN;
                 break;

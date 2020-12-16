@@ -61,13 +61,13 @@ public class Flandre extends AbstractSpriterMonster
     private static final int A4_ATTACK_DAMAGE = 40;
     private int attackDamage;
 
-    private static final int MULTI_ATTACK_DAMAGE = 15;
-    private static final int A4_MULTI_ATTACK_DAMAGE = 16;
+    private static final int MULTI_ATTACK_DAMAGE = 16;
+    private static final int A4_MULTI_ATTACK_DAMAGE = 17;
     private static final int MULTI_ATTACK_HITS = 2;
     private int multiAttackDamage;
 
-    private static final int LIFESTEAL_ATTACK_DAMAGE = 28;
-    private static final int A4_LIFESTEAL_ATTACK_DAMAGE = 30;
+    private static final int LIFESTEAL_ATTACK_DAMAGE = 30;
+    private static final int A4_LIFESTEAL_ATTACK_DAMAGE = 33;
     private int lifestealDamage;
 
     private static final int DOOM = 1;
@@ -77,12 +77,12 @@ public class Flandre extends AbstractSpriterMonster
     private static final float BUFF_HP_THRESHOLD = 0.50f;
     private boolean buffed = false;
 
-    private static final int HEAL = 150;
-    private static final int A19_HEAL = 300;
+    private static final int HEAL = 250;
+    private static final int A19_HEAL = 350;
     private int heal;
 
-    private static final int HP = 600;
-    private static final int A9_HP = 666;
+    private static final int HP = 666;
+    private static final int A9_HP = 700;
 
     public float originalX;
     public float originalY;

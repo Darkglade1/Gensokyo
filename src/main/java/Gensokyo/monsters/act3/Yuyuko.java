@@ -98,8 +98,8 @@ public class Yuyuko extends AbstractSpriterMonster
     private static final int HP = 330;
     private static final int A9_HP = 350;
 
-    private static final int MINION_HEALTH_INCREMENT = 2;
-    private static final int A9_MINION_HEALTH_INCREMENT = 3;
+    private static final int MINION_HEALTH_INCREMENT = 1;
+    private static final int A9_MINION_HEALTH_INCREMENT = 2;
 
     private static final int BLUE_SOULS = 5;
     private static final int PURPLE_SOULS = 5;
