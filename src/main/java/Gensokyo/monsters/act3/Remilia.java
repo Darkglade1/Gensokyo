@@ -218,7 +218,7 @@ public class Remilia extends CustomMonster
         if (sister != null) {
             sister.sisterDefeated();
         }
-        super.die(triggerRelics);
+        super.die(false);
     }
 
     @Override
