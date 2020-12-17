@@ -21,7 +21,7 @@ public class AliceEventEnergy extends TwoAmountPower {
         this.owner = owner;
         this.type = PowerType.BUFF;
         this.turns = turns;
-        this.amount2 = 0;
+        this.amount2 = -1;
         this.amount = energy;
         this.loadRegion("energized_blue");
         updateDescription();
@@ -30,7 +30,7 @@ public class AliceEventEnergy extends TwoAmountPower {
     @Override
     public void onEnergyRecharge() {
         amount2++;
-        if (amount2 >= turns) {
+        if (amount2 % turns == 0) {
             amount2 = 0;
             this.flash();
             AbstractDungeon.player.gainEnergy(this.amount);

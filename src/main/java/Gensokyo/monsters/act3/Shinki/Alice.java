@@ -46,23 +46,26 @@ public class Alice extends AbstractShinkiDelusion
     private static final byte MULTI_ATTACK = 1;
     private static final byte BUFF_ATTACK = 2;
 
-    private static final int ATTACK_DMG = 8;
-    private static final int A4_ATTACK_DMG = 9;
+    private static final int ATTACK_DMG = 9;
+    private static final int A4_ATTACK_DMG = 10;
     private static final int DOUBLE_ATTACK_HITS = 2;
     private int attackDmg;
 
-    private static final int MULTI_ATTACK_DMG = 4;
-    private static final int A4_MULTI_ATTACK_DMG = 5;
+    private static final int MULTI_ATTACK_DMG = 5;
+    private static final int A4_MULTI_ATTACK_DMG = 6;
     private static final int MULTI_ATTACK_HITS = 3;
     private int multiAttackDmg;
 
-    private static final int BUFF_ATTACK_DMG = 10;
-    private static final int A4_BUFF_ATTACK_DMG = 11;
+    private static final int BUFF_ATTACK_DMG = 11;
+    private static final int A4_BUFF_ATTACK_DMG = 12;
     private int buffAttackDmg;
 
     private static final int BUFF_AMT = 2;
     private static final int TURNS = 3;
-    private static final int STRENGTH = 2;
+
+    private static final int STRENGTH = 1;
+    private static final int A19_STRENGTH = 2;
+    private int strength;
 
     private static final int HP = 250;
     private static final int A9_HP = 265;
@@ -80,6 +83,12 @@ public class Alice extends AbstractShinkiDelusion
         this.event1 = new AliceEvent1(shinki);
         this.event2 = new AliceEvent2(shinki);
         this.event3 = new AliceEvent3(shinki);
+        if (AbstractDungeon.ascensionLevel >= 19) {
+            this.strength = A19_STRENGTH;
+        } else {
+            this.strength = STRENGTH;
+        }
+
         if (AbstractDungeon.ascensionLevel >= 9) {
             setHp(A9_HP);
         } else {
@@ -108,7 +117,7 @@ public class Alice extends AbstractShinkiDelusion
     @Override
     public void usePreBattleAction() {
         AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(this, this, new DollJudgement(this, TURNS, this)));
-        AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(this, this, new GenericStrengthUpPower(this, MOVES[3], STRENGTH)));
+        AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(this, this, new GenericStrengthUpPower(this, MOVES[3], strength)));
     }
 
     @Override

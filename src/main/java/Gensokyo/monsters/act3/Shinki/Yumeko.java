@@ -52,8 +52,8 @@ public class Yumeko extends AbstractShinkiDelusion
 
     private static final int DEBUFF_AMT = 1;
 
-    private static final int POWER_AMT = 2;
-    private static final int A19_POWER_AMT = 3;
+    private static final int POWER_AMT = 3;
+    private static final int A19_POWER_AMT = 5;
     private int powerAmt;
 
     private static final int HP = 350;

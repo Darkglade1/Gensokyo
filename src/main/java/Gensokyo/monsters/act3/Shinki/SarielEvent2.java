@@ -20,8 +20,8 @@ public class SarielEvent2 extends AbstractShinkiEvent{
     private static final String[] OPTIONS = eventStrings.OPTIONS;
     public static final String IMG = makeEventPath("Sariel2.png");
 
-    private static final int DEBUFF1_AMT = 5;
-    private static final int HIGH_ASC_DEBUFF1_AMT = 8;
+    private static final int DEBUFF1_AMT = 8;
+    private static final int HIGH_ASC_DEBUFF1_AMT = 12;
     private int debuff1Amt;
 
     private static final int DEBUFF2_AMT = 1;

@@ -22,7 +22,7 @@ public class AliceEvent1 extends AbstractShinkiEvent{
 
     private static final int DRAW = 1;
     private static final int ENERGY_TURN = 3;
-    private static final int ENERGY_AMT = 2;
+    private static final int ENERGY_AMT = 3;
 
     public AliceEvent1(Shinki shinki) {
         this.title = NAME;

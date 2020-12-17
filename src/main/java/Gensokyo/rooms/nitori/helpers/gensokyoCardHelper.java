@@ -19,6 +19,7 @@ import Gensokyo.cards.Item.Taser;
 import Gensokyo.relics.act1.OccultBall;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
+import com.megacrit.cardcrawl.unlock.UnlockTracker;
 
 import java.util.ArrayList;
 import java.util.Collections;
@@ -39,6 +40,10 @@ public class gensokyoCardHelper {
         ArrayList<AbstractCard> evolveList = getAllEvolveCards();
         Collections.shuffle(evolveList, AbstractDungeon.cardRandomRng.random);
         cards.addAll(new ArrayList<>(evolveList.subList(0, 5)));
+
+        for (AbstractCard card : cards) {
+            UnlockTracker.unlockCard(card.cardID);
+        }
         return cards;
     }
 
