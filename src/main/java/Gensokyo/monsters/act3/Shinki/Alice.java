@@ -24,6 +24,7 @@ import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.localization.MonsterStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.monsters.EnemyMoveInfo;
+import com.megacrit.cardcrawl.powers.GenericStrengthUpPower;
 import com.megacrit.cardcrawl.vfx.BorderFlashEffect;
 import com.megacrit.cardcrawl.vfx.combat.LightningEffect;
 import com.megacrit.cardcrawl.vfx.combat.SmallLaserEffect;
@@ -60,11 +61,11 @@ public class Alice extends AbstractShinkiDelusion
     private int buffAttackDmg;
 
     private static final int BUFF_AMT = 2;
+    private static final int TURNS = 3;
+    private static final int STRENGTH = 2;
 
-    private static final int STRENGTH = 1;
-
-    private static final int HP = 220;
-    private static final int A9_HP = 230;
+    private static final int HP = 250;
+    private static final int A9_HP = 265;
 
     public ArrayList<Doll> dolls = new ArrayList<>();
     private Map<Byte, EnemyMoveInfo> moves;
@@ -106,7 +107,8 @@ public class Alice extends AbstractShinkiDelusion
 
     @Override
     public void usePreBattleAction() {
-        AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(this, this, new DollJudgement(this, STRENGTH, this)));
+        AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(this, this, new DollJudgement(this, TURNS, this)));
+        AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(this, this, new GenericStrengthUpPower(this, MOVES[3], STRENGTH)));
     }
 
     @Override

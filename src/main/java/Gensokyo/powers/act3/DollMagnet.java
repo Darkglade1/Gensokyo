@@ -34,14 +34,9 @@ public class DollMagnet extends TwoAmountPower {
     }
 
     @Override
-    public void onInitialApplication() {
-        spawn();
-    }
-
-    @Override
     public void atEndOfRound() {
         amount2++;
-        if (amount2 % turns == 0 && amount2 > 0) {
+        if (amount2 % turns == 0) {
             amount2 = 0;
             this.flash();
             spawn();
@@ -63,6 +58,6 @@ public class DollMagnet extends TwoAmountPower {
 
     @Override
     public void updateDescription() {
-        this.description = DESCRIPTIONS[0] + DESCRIPTIONS[1] + amount + DESCRIPTIONS[2];
+        this.description = DESCRIPTIONS[0] + turns + DESCRIPTIONS[1] + amount + DESCRIPTIONS[2];
     }
 }

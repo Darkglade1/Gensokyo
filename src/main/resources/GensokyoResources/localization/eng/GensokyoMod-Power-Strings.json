@@ -322,7 +322,7 @@
 },
 "Gensokyo:DollJudgement": {
         "NAME": "Little Legion",
-        "DESCRIPTIONS": ["Whenever a #yDoll dies, gains #b", " #yStrength. NL Summons #b2 #yDolls every turn."]
+        "DESCRIPTIONS": ["Every #b", " turns, summons #b2 #yDolls."]
 },
 "Gensokyo:AliceEventEnergy": {
         "NAME": "Energized",
@@ -338,7 +338,7 @@
 },
 "Gensokyo:DollMagnet": {
         "NAME": "Doll Magnet",
-        "DESCRIPTIONS": ["Every", " turn, spawn #b", " additional Explosive Doll(s)."]
+        "DESCRIPTIONS": ["Every #b", " turns, spawn #b", " additional Explosive Doll(s)."]
 },
 "Gensokyo:SarielEventPower": {
         "NAME": "Angel's Grace",
