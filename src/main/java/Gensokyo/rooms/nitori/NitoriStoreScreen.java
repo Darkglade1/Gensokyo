@@ -50,7 +50,7 @@ public class NitoriStoreScreen {
         AbstractDungeon.overlayMenu.showBlackScreen();
         AbstractDungeon.overlayMenu.proceedButton.hide();
         AbstractDungeon.overlayMenu.cancelButton.show("Return");
-        AbstractDungeon.isScreenUp = true;
+        //AbstractDungeon.isScreenUp = true;
 
         if (MathUtils.randomBoolean()) { CardCrawlGame.sound.play("MAP_OPEN", 0.1f);
         } else { CardCrawlGame.sound.play("MAP_OPEN_2", 0.1f); }

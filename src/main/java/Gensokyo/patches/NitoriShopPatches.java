@@ -5,17 +5,25 @@ import Gensokyo.dungeon.Gensokyoer;
 import Gensokyo.dungeon.Gensokyoest;
 import Gensokyo.rooms.nitori.NitoriRoom;
 import Gensokyo.rooms.nitori.NitoriStoreScreen;
-import actlikeit.dungeons.CustomDungeon;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
-import com.evacipated.cardcrawl.modthespire.lib.*;
+import com.evacipated.cardcrawl.modthespire.lib.ByRef;
+import com.evacipated.cardcrawl.modthespire.lib.LineFinder;
+import com.evacipated.cardcrawl.modthespire.lib.Matcher;
+import com.evacipated.cardcrawl.modthespire.lib.SpireEnum;
+import com.evacipated.cardcrawl.modthespire.lib.SpireInsertLocator;
+import com.evacipated.cardcrawl.modthespire.lib.SpireInsertPatch;
+import com.evacipated.cardcrawl.modthespire.lib.SpirePatch;
 import com.evacipated.cardcrawl.modthespire.patcher.PatchingException;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
+import com.megacrit.cardcrawl.helpers.Hitbox;
+import com.megacrit.cardcrawl.helpers.input.InputHelper;
 import com.megacrit.cardcrawl.map.MapRoomNode;
 import com.megacrit.cardcrawl.rooms.MonsterRoomBoss;
 import com.megacrit.cardcrawl.rooms.MonsterRoomElite;
 import com.megacrit.cardcrawl.rooms.RestRoom;
 import com.megacrit.cardcrawl.rooms.ShopRoom;
+import com.megacrit.cardcrawl.ui.panels.TopPanel;
 import javassist.CannotCompileException;
 import javassist.CtBehavior;
 
@@ -129,6 +137,46 @@ public class NitoriShopPatches {
                     editableNodes.get(rand2).hasEmeraldKey = true;
                 }
                 catch (Exception e){}
+            }
+        }
+    }
+
+    @SpirePatch(clz = TopPanel.class, method = "updateMapButtonLogic")
+    public static class AllowMapButton {
+        @SpireInsertPatch(locator = Locator.class, localvars = {"mapButtonDisabled", "mapHb"})
+        public static void interceptWrongScreen(TopPanel __instance, @ByRef boolean[] mapButtonDisabled, Hitbox mapHb) {
+            if (AbstractDungeon.screen == NITORI_STORE) {
+                mapButtonDisabled[0] = false;
+                mapHb.update();
+
+            }
+        }
+
+        private static class Locator extends SpireInsertLocator {
+            @Override
+            public int[] Locate(CtBehavior ctBehavior) throws Exception {
+                Matcher finalMatcher = new Matcher.FieldAccessMatcher(InputHelper.class, "justClickedLeft");
+                return LineFinder.findInOrder(ctBehavior, finalMatcher);
+            }
+        }
+    }
+
+    @SpirePatch(clz = TopPanel.class, method = "updateDeckViewButtonLogic")
+    public static class AllowDeckButton {
+        @SpireInsertPatch(locator = Locator.class)
+        public static void interceptWrongScreen(TopPanel __instance, @ByRef boolean[] ___deckButtonDisabled, Hitbox ___deckHb) {
+            if (AbstractDungeon.screen == NITORI_STORE) {
+                ___deckButtonDisabled[0] = false;
+                ___deckHb.update();
+
+            }
+        }
+
+        private static class Locator extends SpireInsertLocator {
+            @Override
+            public int[] Locate(CtBehavior ctBehavior) throws Exception {
+                Matcher finalMatcher = new Matcher.FieldAccessMatcher(InputHelper.class, "justClickedLeft");
+                return LineFinder.findInOrder(ctBehavior, finalMatcher);
             }
         }
     }
