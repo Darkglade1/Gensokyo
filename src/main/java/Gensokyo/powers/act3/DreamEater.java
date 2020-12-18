@@ -88,6 +88,7 @@ public class DreamEater extends AbstractPower {
                 AbstractDungeon.player.masterDeck.removeCard(masterCard);
                 gainStrengthBasedOnCard(card);
             }
+            addToBot(new RemoveSpecificPowerAction(owner, owner, this));
         }
     }
 
@@ -109,18 +110,18 @@ public class DreamEater extends AbstractPower {
         }
     }
 
-    @Override
-    public void atStartOfTurn() {
-        triggered = false;
-    }
-
+//    @Override
+//    public void atStartOfTurn() {
+//        triggered = false;
+//    }
+//
     @Override
     public void atEndOfRound() {
         amount--;
         updateDescription();
         if (amount == 0) {
             addToBot(new RemoveSpecificPowerAction(owner, owner, this));
-            doremy.transitionToNightmare();
+            //doremy.transitionToNightmare();
         }
     }
 

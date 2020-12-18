@@ -65,6 +65,7 @@ public class Doremy extends CustomMonster
     private static final int NIGHTMARE_BUFF_AMT = 2;
 
     private static final int DREAM_DURATION = 1;
+    private int turns = DREAM_DURATION;
 
     private static final int HP = 250;
     private static final int A8_HP = 265;
@@ -168,6 +169,16 @@ public class Doremy extends CustomMonster
                 break;
             }
         }
+        turns--;
+        if (turns <= 0 && !isNightmare) {
+            addToBot(new AbstractGameAction() {
+                @Override
+                public void update() {
+                    transitionToNightmare();
+                    this.isDone = true;
+                }
+            });
+        }
         AbstractDungeon.actionManager.addToBottom(new RollMoveAction(this));
     }
 
@@ -204,7 +215,6 @@ public class Doremy extends CustomMonster
         isNightmare = true;
         AbstractDungeon.actionManager.addToBottom(new TalkAction(this, DIALOG[1]));
         this.name = DIALOG[2];
-        this.setMoveShortcut(NIGHTMARE_ATTACK);
         runAnim("SpellC");
     }
 

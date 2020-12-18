@@ -32,13 +32,13 @@ public class Kume extends AbstractSpriterMonster
     private static final byte ATTACK_DEBUFF = 1;
     private static final byte BUFF = 2;
 
-    private static final int MULTI_ATTACK_DMG = 6;
-    private static final int A2_MULTI_ATTACK_DMG = 7;
+    private static final int MULTI_ATTACK_DMG = 7;
+    private static final int A2_MULTI_ATTACK_DMG = 8;
     private static final int MULTI_ATTACK_HITS = 2;
     private int multiAttackDmg;
 
-    private static final int ATTACK_DEBUFF_DMG = 10;
-    private static final int A2_ATTACK_DEBUFF_DMG = 11;
+    private static final int ATTACK_DEBUFF_DMG = 11;
+    private static final int A2_ATTACK_DEBUFF_DMG = 12;
     private int attackDebuffDmg;
 
     private static final int DEBUFF_AMT = 1;

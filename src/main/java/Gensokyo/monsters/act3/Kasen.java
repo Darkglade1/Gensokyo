@@ -27,6 +27,7 @@ import com.megacrit.cardcrawl.monsters.EnemyMoveInfo;
 import com.megacrit.cardcrawl.monsters.city.Byrd;
 import com.megacrit.cardcrawl.monsters.city.Snecko;
 import com.megacrit.cardcrawl.monsters.exordium.JawWorm;
+import com.megacrit.cardcrawl.powers.StrengthPower;
 import com.megacrit.cardcrawl.powers.WeakPower;
 
 import java.util.ArrayList;
@@ -187,6 +188,9 @@ public class Kasen extends CustomMonster
         AbstractDungeon.actionManager.addToBottom(new SpawnMonsterAction(minion1, true));
         AbstractDungeon.actionManager.addToBottom(new UsePreBattleActionAction(minion1));
         AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(minion1, minion1, new KasenMinon(minion1, this)));
+        if (minion1.id.equals(Byrd.ID)) {
+            AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(minion1, minion1, new StrengthPower(minion1, 1), 1));
+        }
 
         AbstractMonster minion2;
         if (hardMinion2) {
