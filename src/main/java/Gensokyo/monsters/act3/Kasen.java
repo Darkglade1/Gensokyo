@@ -5,6 +5,7 @@ import Gensokyo.GensokyoMod;
 import Gensokyo.actions.UsePreBattleActionAction;
 import Gensokyo.powers.act3.AnimalFriend;
 import Gensokyo.powers.act3.KasenMinon;
+import actlikeit.dungeons.CustomDungeon;
 import basemod.ReflectionHacks;
 import basemod.abstracts.CustomMonster;
 import com.brashmonkey.spriter.Animation;
@@ -121,7 +122,7 @@ public class Kasen extends CustomMonster
 
     @Override
     public void usePreBattleAction() {
-        //CustomDungeon.playTempMusicInstantly("MasterSpark");
+        CustomDungeon.playTempMusicInstantly("Battlefield");
         Summon();
         AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(this, this, new AnimalFriend(this, strength, HP_LOSS)));
     }

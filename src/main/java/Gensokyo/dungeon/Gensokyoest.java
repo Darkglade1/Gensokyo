@@ -36,6 +36,7 @@ public class Gensokyoest extends CustomDungeon {
         this.addTempMusic("MasterSpark", "audio/music/Gensokyo/Master-Spark.mp3");
         this.addTempMusic("SpringDream", "audio/music/Gensokyo/SpringDream.mp3");
         this.addTempMusic("UNOwen", "audio/music/Gensokyo/UN-Owen-Was-Her.mp3");
+        this.addTempMusic("Battlefield", "audio/music/Gensokyo/Battlefield.mp3");
     }
 
     public Gensokyoest(CustomDungeon cd, AbstractPlayer p, ArrayList<String> emptyList) {
