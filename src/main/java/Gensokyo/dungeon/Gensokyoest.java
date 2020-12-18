@@ -1,6 +1,7 @@
 package Gensokyo.dungeon;
 
 import Gensokyo.monsters.act3.Doremy;
+import Gensokyo.monsters.act3.Kasen;
 import Gensokyo.monsters.act3.Marisa;
 import Gensokyo.monsters.act3.NormalEnemies.AncientGuardian;
 import Gensokyo.monsters.act3.NormalEnemies.AtlasGolem;
@@ -126,7 +127,7 @@ public class Gensokyoest extends CustomDungeon {
         ArrayList<MonsterInfo> monsters = new ArrayList<>();
         monsters.add(new MonsterInfo(Doremy.ID, 2.0F));
         monsters.add(new MonsterInfo(Marisa.ID, 2.0F));
-        //monsters.add(new MonsterInfo("Reptomancer", 2.0F));
+        monsters.add(new MonsterInfo(Kasen.ID, 2.0F));
         MonsterInfo.normalizeWeights(monsters);
         this.populateMonsterList(monsters, count, true);
     }

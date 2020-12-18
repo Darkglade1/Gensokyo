@@ -170,6 +170,7 @@ import Gensokyo.monsters.act2.NormalEnemies.TanukiDog;
 import Gensokyo.monsters.act2.NormalEnemies.Wraith;
 import Gensokyo.monsters.act2.Reisen;
 import Gensokyo.monsters.act2.Tenshi;
+import Gensokyo.monsters.act3.Kasen;
 import Gensokyo.monsters.act3.Marisa;
 import Gensokyo.monsters.act3.Mokou;
 import Gensokyo.monsters.act3.NormalEnemies.AncientGuardian;
@@ -616,6 +617,7 @@ public class GensokyoMod implements
 
         BaseMod.addMonster(Doremy.ID, (BaseMod.GetMonster) Doremy::new);
         BaseMod.addMonster(Marisa.ID, (BaseMod.GetMonster) Marisa::new);
+        BaseMod.addMonster(Kasen.ID, (BaseMod.GetMonster) Kasen::new);
 
         BaseMod.addMonster(Mokou.ID, (BaseMod.GetMonster) Mokou::new);
 
