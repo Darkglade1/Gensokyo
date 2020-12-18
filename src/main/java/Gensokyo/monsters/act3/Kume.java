@@ -42,6 +42,8 @@ public class Kume extends AbstractSpriterMonster
     private int attackDebuffDmg;
 
     private static final int DEBUFF_AMT = 1;
+    private static final int A17_DEBUFF_AMT = 2;
+    private int debuffAmt;
 
     private static final int STRENGTH = 2;
     private static final int A17_STRENGTH = 3;
@@ -66,8 +68,10 @@ public class Kume extends AbstractSpriterMonster
         this.dialogY -= (this.hb_y - 55.0F) * Settings.scale;
         if (AbstractDungeon.ascensionLevel >= 17) {
             this.strength = A17_STRENGTH;
+            this.debuffAmt = A17_DEBUFF_AMT;
         } else {
             this.strength = STRENGTH;
+            this.debuffAmt = DEBUFF_AMT;
         }
         if (AbstractDungeon.ascensionLevel >= 7) {
             setHp(A7_HP_MIN, A7_HP_MAX);
@@ -106,7 +110,7 @@ public class Kume extends AbstractSpriterMonster
             case ATTACK_DEBUFF: {
                 useFastAttackAnimation();
                 AbstractDungeon.actionManager.addToBottom(new DamageAction(AbstractDungeon.player, info, AbstractGameAction.AttackEffect.BLUNT_HEAVY));
-                AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(AbstractDungeon.player, this, new FrailPower(AbstractDungeon.player, DEBUFF_AMT, true), DEBUFF_AMT));
+                AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(AbstractDungeon.player, this, new FrailPower(AbstractDungeon.player, debuffAmt, true), debuffAmt));
                 break;
             }
             case BUFF: {

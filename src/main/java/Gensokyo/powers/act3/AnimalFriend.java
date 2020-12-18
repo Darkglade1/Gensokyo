@@ -20,8 +20,8 @@ public class AnimalFriend extends TwoAmountPower {
     public static final String NAME = powerStrings.NAME;
     public static final String[] DESCRIPTIONS = powerStrings.DESCRIPTIONS;
 
-    private static final Texture tex84 = TextureLoader.getTexture(makePowerPath("Reflowering84.png"));
-    private static final Texture tex32 = TextureLoader.getTexture(makePowerPath("Reflowering32.png"));
+    private static final Texture tex84 = TextureLoader.getTexture(makePowerPath("Animal84.png"));
+    private static final Texture tex32 = TextureLoader.getTexture(makePowerPath("Animal32.png"));
 
     public AnimalFriend(AbstractCreature owner, int strength, int hpLoss) {
         this.name = NAME;

@@ -68,8 +68,8 @@ public class Kasen extends CustomMonster
 
     private static final int HP_LOSS = 50;
 
-    private static final int HP = 300;
-    private static final int A8_HP = 315;
+    private static final int HP = 320;
+    private static final int A8_HP = 340;
 
     private boolean hardMinion1 = true;
     private boolean hardMinion2 = false;
@@ -137,20 +137,20 @@ public class Kasen extends CustomMonster
         }
         switch (this.nextMove) {
             case MULTI_ATTACK: {
-                //runAnim("Spark");
+                runAnim("AttackClose");
                 for (int i = 0; i < MULTI_ATTACK_HITS; i++) {
                     AbstractDungeon.actionManager.addToBottom(new DamageAction(AbstractDungeon.player, info, AbstractGameAction.AttackEffect.BLUNT_LIGHT));
                 }
                 break;
             }
             case ATTACK_DEBUFF: {
-                //runAnim("Smack");
+                runAnim("AttackForward");
                 AbstractDungeon.actionManager.addToBottom(new DamageAction(AbstractDungeon.player, info, AbstractGameAction.AttackEffect.POISON));
                 AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(AbstractDungeon.player, this, new WeakPower(AbstractDungeon.player, DEBUFF_AMT, true), DEBUFF_AMT));
                 break;
             }
             case DEFEND: {
-                //runAnim("Special");
+                runAnim("Special");
                 for (AbstractMonster mo : AbstractDungeon.getMonsters().monsters) {
                     if (!mo.isDeadOrEscaped()) {
                         addToBot(new GainBlockAction(mo, block));
@@ -159,7 +159,7 @@ public class Kasen extends CustomMonster
                 break;
             }
             case SUMMON: {
-                //runAnim("Smack");
+                runAnim("Special");
                 Summon();
                 break;
             }
@@ -226,7 +226,7 @@ public class Kasen extends CustomMonster
 
     @Override
     public void die(boolean triggerRelics) {
-        //runAnim("Defeat");
+        runAnim("Defeat");
         ((BetterSpriterAnimation)this.animation).startDying();
         super.die(triggerRelics);
         for (AbstractMonster mo : AbstractDungeon.getMonsters().monsters) {
