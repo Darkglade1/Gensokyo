@@ -26,7 +26,7 @@
   },
   "Gensokyo:TekeTeke": {
     "NAME": "Teke Teke",
-    "DESCRIPTION": "Deal !D! damage !Gensokyo:SecondMagic! times to ALL enemies. NL If this brings an enemy below half HP, increase this card's damage by !M! this combat."
+    "DESCRIPTION": "Deal !D! damage !Gensokyo:SecondMagic! times to ALL enemies. NL Whenever this brings an enemy below half HP, increase its damage by !M! and reduce its cost by 1 this combat."
   },
   "Gensokyo:Kunekune": {
     "NAME": "Kunekune",

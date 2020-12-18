@@ -26,7 +26,7 @@
   },
   "Gensokyo:TekeTeke": {
     "NAME": "半身死灵",
-    "DESCRIPTION": "对所有敌人造成 !D! 点伤害 !Gensokyo:SecondMagic! 次。 NL 如果使一名敌人半血以下，本场战斗提高这张牌的伤害 !M! 点。"
+    "DESCRIPTION": "对所有敌人造成 !D! 点伤害 !Gensokyo:SecondMagic! 次。 NL 如果使一名敌人半血以下，本场战斗提高这张牌的伤害 !M! 点和它在本场战斗中的耗能减少 1 。"
   },
   "Gensokyo:Kunekune": {
     "NAME": "扭扭怪",
