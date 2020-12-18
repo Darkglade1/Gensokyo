@@ -1,5 +1,6 @@
 package Gensokyo.rooms.nitori;
 
+import Gensokyo.GensokyoMod;
 import Gensokyo.rooms.nitori.helpers.NitoriStoreTools;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.Color;
@@ -16,6 +17,8 @@ import static Gensokyo.GensokyoMod.makeUIPath;
 import static Gensokyo.patches.NitoriShopPatches.NITORI_STORE;
 
 public class NitoriStoreScreen {
+    public static final String ID = GensokyoMod.makeID("NitoriShop");
+    public static final String[] TEXT = CardCrawlGame.languagePack.getUIString(ID).TEXT;
 
     protected static NitoriStoreTools.SpinningCardItems cards;
     protected static NitoriStoreTools.SpinningRelicItems relics;
@@ -49,7 +52,7 @@ public class NitoriStoreScreen {
         AbstractDungeon.screen = NITORI_STORE;
         AbstractDungeon.overlayMenu.showBlackScreen();
         AbstractDungeon.overlayMenu.proceedButton.hide();
-        AbstractDungeon.overlayMenu.cancelButton.show("Return");
+        AbstractDungeon.overlayMenu.cancelButton.show(TEXT[0]);
         //AbstractDungeon.isScreenUp = true;
 
         if (MathUtils.randomBoolean()) { CardCrawlGame.sound.play("MAP_OPEN", 0.1f);

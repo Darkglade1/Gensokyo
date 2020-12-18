@@ -184,5 +184,10 @@
     "TEXT": [
       "Innate. NL "
     ]
+  },
+  "Gensokyo:NitoriShop": {
+    "TEXT": [
+      "Leave"
+    ]
   }
 }

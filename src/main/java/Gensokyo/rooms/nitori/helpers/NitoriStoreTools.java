@@ -103,8 +103,11 @@ public class NitoriStoreTools {
         public void update() {
             for (CardItem cardItem : cardItems) {
                 cardItem.update();
-                if (cardItem.isHovered()) { cardItem.card.drawScale = MathUtils.lerp(0.7f, 1.0f, cardItem.card.drawScale);
-                } else { cardItem.card.drawScale = MathUtils.lerp(1.0f, 0.7f, cardItem.card.drawScale); }
+                if (cardItem.isHovered()) {
+                    cardItem.card.drawScale = MathUtils.lerp(0.7f, 1.0f, cardItem.card.drawScale);
+                } else {
+                    cardItem.card.drawScale = MathUtils.lerp(1.0f, 0.7f, cardItem.card.drawScale);
+                }
             }
 
             cardItems.removeIf((cardItem) -> {
@@ -187,6 +190,7 @@ public class NitoriStoreTools {
             card.target_y = card.current_y;
             hb.move(card.current_x, card.current_y);
             card.render(sb);
+            card.renderCardTip(sb);
             renderPrice(sb);
             this.hb.render(sb);
         }
@@ -226,6 +230,7 @@ public class NitoriStoreTools {
         }
         public void update() {
             card.update();
+            card.updateHoverLogic();
             this.hb.update();
             if(hb.hovered) {
                 lockAlpha.a = MathHelper.fadeLerpSnap(lockAlpha.a, 0.2f);
