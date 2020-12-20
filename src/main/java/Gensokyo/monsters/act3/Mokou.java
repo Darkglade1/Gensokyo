@@ -71,8 +71,8 @@ public class Mokou extends CustomMonster
 
     private static final int BLAZING_KICK_DAMAGE = 24;
     private static final int A4_BLAZING_KICK_DAMAGE = 26;
-    private static final int PHASE2_BLAZING_KICK_DAMAGE = 50;
-    private static final int A4_PHASE2_BLAZING_KICK_DAMAGE = 55;
+    private static final int PHASE2_BLAZING_KICK_DAMAGE = 45;
+    private static final int A4_PHASE2_BLAZING_KICK_DAMAGE = 50;
     private int blazingKickDamage;
 
     private static final int HONEST_MAN_DEATH_DAMAGE = 8;

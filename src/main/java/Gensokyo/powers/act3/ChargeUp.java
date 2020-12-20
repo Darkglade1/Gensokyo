@@ -47,7 +47,6 @@ public class ChargeUp extends TwoAmountPower {
             AbstractPower str = owner.getPower(StrengthPower.POWER_ID);
             if (str != null) {
                 if (str.amount > 0) {
-                    this.flash();
                     addToBot(new RemoveSpecificPowerAction(owner, owner, StrengthPower.POWER_ID));
                 }
             }

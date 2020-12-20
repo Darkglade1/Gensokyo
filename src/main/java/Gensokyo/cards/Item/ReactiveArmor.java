@@ -31,7 +31,9 @@ public class ReactiveArmor extends AbstractItemCard {
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
         for (AbstractMonster mo : AbstractDungeon.getMonsters().monsters) {
-            this.addToBot(new GainBlockAction(p, block));
+            if (!mo.isDeadOrEscaped()) {
+                this.addToBot(new GainBlockAction(p, block));
+            }
         }
     }
 }
