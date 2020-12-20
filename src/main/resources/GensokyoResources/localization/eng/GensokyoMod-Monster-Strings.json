@@ -470,17 +470,6 @@
       " card."
     ]
   },
-  "Gensokyo:Sakuya": {
-    "MOVES": [
-      "World Creation Press",
-      "Guarding Keystone",
-      "Spiritual Stone"
-    ],
-    "NAME": "Perfect and Elegant Servant",
-    "DIALOG": [
-      "Your time's run out."
-    ]
-  },
   "Gensokyo:Doremy": {
     "MOVES": [
       null,

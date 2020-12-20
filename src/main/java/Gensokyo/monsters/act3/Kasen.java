@@ -212,7 +212,9 @@ public class Kasen extends CustomMonster
 
     @Override
     protected void getMove(final int num) {
-        if (minions[0] == null && minions[1] == null && !firstMove) {
+        if (this.firstMove) {
+            setMoveShortcut(DEFEND);
+        } else if (minions[0] == null && minions[1] == null) {
             setMoveShortcut(SUMMON);
         } else {
             ArrayList<Byte> possibilities = new ArrayList<>();
