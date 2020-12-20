@@ -172,6 +172,41 @@
       "每当你打出打击或防御时，将其 #y消耗 。"
     ]
   },
+  "Gensokyo:Companionship": {
+    "NAME": "Companionship",
+    "FLAVOR": "It's those small moments you end up remembering for the rest of your life.",
+    "DESCRIPTIONS": [
+      " Transfer up to #b", " #yBlock from you to your #ygensokyo:Pet."
+    ]
+  },
+  "Gensokyo:EmptyGrave": {
+    "NAME": "Empty Grave",
+    "FLAVOR": "I am not there. I did not die.",
+    "DESCRIPTIONS": [
+      "After climbing #b", " floors, heal #b", "% of your Max HP."
+    ]
+  },
+  "Gensokyo:DualWield": {
+    "NAME": "Dual Wield",
+    "FLAVOR": "Rip and tear, a bloody grin. \n Reap and sow, a horrid din.",
+    "DESCRIPTIONS": [
+      "Your single-target #yAttacks deal damage to ALL enemies."
+    ]
+  },
+  "Gensokyo:TheCrow": {
+    "NAME": "The Crow",
+    "FLAVOR": "Power beckons, sweet and smile. \n Madness answers, bleak and vile.",
+    "DESCRIPTIONS": [
+      "At the end of your turn, gain #b", " #yRitual and take damage equal to the amount of #yStrength you have."
+    ]
+  },
+  "Gensokyo:DummyBloodcastTooltip": {
+    "NAME": "Bloodcast",
+    "FLAVOR": "",
+    "DESCRIPTIONS": [
+      "When you have insufficient [E] to play this card, you may instead pay #b1 HP for every missing [E] ."
+    ]
+  },
   "Gensokyo:MarisaIngredientList": {
     "NAME": "配料表",
     "FLAVOR": "纸页上的胡乱涂画。似乎能用来制作一种叫 “无常药” 的药剂。",
