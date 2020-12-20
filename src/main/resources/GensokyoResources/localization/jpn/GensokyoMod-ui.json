@@ -66,5 +66,128 @@
       "この敵が予定しているのは #rあなた へ #yデバフ を与えること。 #rクロスファイア 。",
       "この敵が予定しているのは #pライバル へ #yデバフ を与えること。"
     ]
+  },
+  "Gensokyo:Gensokyoest": {
+    "TEXT": [
+      "Gensokyo",
+      "Act 3",
+      "This land exists in #pparallel, yet appears like a #ptime #plong #pgone. The further you venture, the more #gnostalgic you feel.",
+      "Continue your adventure in the land of illusions."
+    ]
+  },
+  "Gensokyo:RetainMod": {
+    "TEXT": [
+      "Retain. NL "
+    ]
+  },
+  "Gensokyo:EtherealMod": {
+    "TEXT": [
+      "Ethereal. NL "
+    ]
+  },
+  "Gensokyo:ExhaustMod": {
+    "TEXT": [
+      " NL Exhaust."
+    ]
+  },
+  "Gensokyo:ItemMod": {
+    "TEXT": [
+      " NL gensokyo:Item ",
+      "."
+    ]
+  },
+  "Gensokyo:EvolveMod": {
+    "TEXT": [
+      " NL gensokyo:Evolve ",
+      "."
+    ]
+  },
+  "Gensokyo:PetMisc": {
+    "TEXT": [
+      "I can only have one pet out at a time!"
+    ]
+  },
+  "Gensokyo:BloodcastMod": {
+    "TEXT": [
+      "gensokyo:Bloodcast. NL "
+    ]
+  },
+  "Gensokyo:SistersIntents": {
+    "TEXT": [
+      "This enemy will #yAttack #ryou for #b",
+      " damage because your #gally is NOT in the way.",
+      "This enemy intends to NL #yAttack your #gally for #b",
+      " damage because your #gally is in the way.",
+      "This enemy will #yAttack #ryou for #b",
+      " damage #b",
+      " times because your #gally is NOT in the way.",
+      "This enemy intends to NL #yAttack your #gally for #b",
+      " damage #b",
+      " times because your #gally is in the way.",
+      "Your #gally intends to #yAttack the #renemy for #b",
+      " damage."
+    ]
+  },
+  "Gensokyo:CurseAttackIntent": {
+    "TEXT": [
+      "Curse",
+      "This enemy intends to reduce your #yMax #yHP by #b", " this combat."
+    ]
+  },
+  "Gensokyo:AutoplayMod": {
+    "TEXT": [
+      "Autoplay. NL "
+    ]
+  },
+  "Gensokyo:UnplayableMod": {
+    "TEXT": [
+      "Unplayable. NL "
+    ]
+  },
+  "Gensokyo:BlockMod": {
+    "TEXT": [
+      "Gain ", " Block",
+      " NL Gain !B! Block."
+    ]
+  },
+  "Gensokyo:DamageMod": {
+    "TEXT": [
+      "Deal ", " damage",
+      " NL Deal !D! damage."
+    ]
+  },
+  "Gensokyo:DrawMod": {
+    "TEXT": [
+      "Draw ", " card(s)",
+      " NL Draw ", " card.", " cards."
+    ]
+  },
+  "Gensokyo:WeakMod": {
+    "TEXT": [
+      "Apply ", " Weak",
+      " NL Apply ", " Weak."
+    ]
+  },
+  "Gensokyo:VulnerableMod": {
+    "TEXT": [
+      "Apply ", " Vulnerable",
+      " NL Apply ", " Vulnerable."
+    ]
+  },
+  "Gensokyo:PoisonMod": {
+    "TEXT": [
+      "Apply ", " Poison",
+      " NL Apply ", " Poison."
+    ]
+  },
+  "Gensokyo:InnateMod": {
+    "TEXT": [
+      "Innate. NL "
+    ]
+  },
+  "Gensokyo:NitoriShop": {
+    "TEXT": [
+      "Leave"
+    ]
   }
 }

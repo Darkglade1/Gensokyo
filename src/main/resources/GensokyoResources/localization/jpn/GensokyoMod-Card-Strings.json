@@ -42,8 +42,8 @@
   },
   "Gensokyo:LittleGreenMen": {
     "NAME": "リトルグリーンマン",
-    "DESCRIPTION": "[E] を得る。 NL このカードのコピーを山札の一番上に置く。",
-    "UPGRADE_DESCRIPTION": "保留 NL [E] を得る。 NL このカードのコピーを山札の一番上に置く。"
+    "DESCRIPTION": "[E] [E] を得る。 NL このカードのコピーを山札の一番上に置く。",
+    "UPGRADE_DESCRIPTION": "保留 NL [E] [E] を得る。 NL このカードのコピーを山札の一番上に置く。"
   },
   "Gensokyo:TurboGranny": {
     "NAME": "ターボババア",
@@ -161,5 +161,173 @@
     "NAME": "流れ星",
     "DESCRIPTION": "デッキにある流れ星以外のカードを複製し、1枚手札に加える。 NL 廃棄",
     "UPGRADE_DESCRIPTION": "保留 NL デッキにある流れ星以外のカードを複製し、1枚手札に加える。 NL 廃棄"
+  },
+  "Gensokyo:SummonYinYangFox": {
+    "NAME": "Yin Yang Fox",
+    "DESCRIPTION": "Summon a Yin Yang Fox gensokyo:Pet with !M! HP."
+  },
+  "Gensokyo:SummonFieryMouse": {
+    "NAME": "Fiery Mouse",
+    "DESCRIPTION": "Summon a Fiery Mouse gensokyo:Pet with !M! HP."
+  },
+  "Gensokyo:SummonJeweledCobra": {
+    "NAME": "JeweledCobra",
+    "DESCRIPTION": "Summon a Jeweled Cobra gensokyo:Pet with !M! HP."
+  },
+  "Gensokyo:SummonPsychicCat": {
+    "NAME": "Psychic Cat",
+    "DESCRIPTION": "Summon a Psychic Cat gensokyo:Pet with !M! HP."
+  },
+  "Gensokyo:PetPreview": {
+    "NAME": "Moves",
+    "DESCRIPTION": ""
+  },
+  "Gensokyo:MysteriousEgg": {
+    "NAME": "Mysterious Egg",
+    "DESCRIPTION": "Random gensokyo:Pet card."
+  },
+  "Gensokyo:ExoticEgg": {
+    "NAME": "Exotic Egg",
+    "DESCRIPTION": "Random gensokyo:Pet card."
+  },
+  "Gensokyo:Shovel": {
+    "NAME": "Shovel",
+    "DESCRIPTION": "Random relic."
+  },
+  "Gensokyo:BlemishedSteel": {
+    "NAME": "Blemished Steel",
+    "DESCRIPTION": "Random rare relic."
+  },
+  "Gensokyo:DepletedGenerator": {
+    "NAME": "Depleted Generator",
+    "DESCRIPTION": "Rare card reward."
+  },
+  "Gensokyo:ScrapIron": {
+    "NAME": "Scrap Iron",
+    "DESCRIPTION": "Random common relic."
+  },
+  "Gensokyo:TarnishedGold": {
+    "NAME": "Tarnished Gold",
+    "DESCRIPTION": "!Gensokyo:SecondMagic! gold."
+  },
+  "Gensokyo:RustyChest": {
+    "NAME": "Rusty Chest",
+    "DESCRIPTION": "!Gensokyo:SecondMagic! gold."
+  },
+  "Gensokyo:TrainingManual": {
+    "NAME": "Training Manual",
+    "DESCRIPTION": "Upgraded card reward."
+  },
+  "Gensokyo:LockedMedkit": {
+    "NAME": "Locked Medkit",
+    "DESCRIPTION": "Heal to full HP."
+  },
+  "Gensokyo:RPG": {
+    "NAME": "RPG",
+    "DESCRIPTION": "Deal !D! damage to ALL enemies."
+  },
+  "Gensokyo:ReactiveArmor": {
+    "NAME": "Reactive Armor",
+    "DESCRIPTION": "Gain !B! Block for each enemy in combat."
+  },
+  "Gensokyo:Taser": {
+    "NAME": "Taser",
+    "DESCRIPTION": "Deal !D! damage. NL Apply !M! *Stun."
+  },
+  "Gensokyo:MedicineKit": {
+    "NAME": "Medicine Kit",
+    "DESCRIPTION": "Remove all of your debuffs and heal !M! HP for each debuff removed."
+  },
+  "Gensokyo:OverchargedCore": {
+    "NAME": "Overcharged Core",
+    "DESCRIPTION": "Gain !M! Strength, Dexterity, and Focus. NL Lose !M! HP."
+  },
+  "Gensokyo:LifeforceConverter": {
+    "NAME": "Lifeforce Converter",
+    "DESCRIPTION": "Give ALL non-X-cost cards in your hand gensokyo:Bloodcast this combat."
+  },
+  "Gensokyo:Butterfly": {
+    "NAME": "Butterfly",
+    "DESCRIPTION": "Unplayable. NL If this card is exhausted, lose !M! Max HP this combat."
+  },
+  "Gensokyo:BrilliantDragonBullet": {
+    "NAME": "Brilliant Dragon Bullet",
+    "DESCRIPTION": "Deal !D! damage. NL Draw !M! card. If it's an Attack, deal !D! damage again."
+  },
+  "Gensokyo:SalamanderShield": {
+    "NAME": "Salamander Shield",
+    "DESCRIPTION": "Gain !B! Block. NL Draw !M! card. If it's a Skill, gain !B! Block again."
+  },
+  "Gensokyo:BuddhistDiamond": {
+    "NAME": "Buddhist Diamond",
+    "DESCRIPTION": "Deal !D! damage. NL When this card is discarded by Scry, increase its damage by !M! this combat."
+  },
+  "Gensokyo:NewMoon": {
+    "NAME": "New Moon",
+    "DESCRIPTION": "Deal !D! damage. NL Put a card from your hand on top of your draw pile."
+  },
+  "Gensokyo:MorningMist": {
+    "NAME": "Morning Mist",
+    "DESCRIPTION": "Gain !B! Block. NL Put a card from your discard pile on top of your draw pile."
+  },
+  "Gensokyo:EverlastingLife": {
+    "NAME": "Everlasting Life",
+    "DESCRIPTION": "Gain !B! Block. NL Scry !M!."
+  },
+  "Gensokyo:LifeSpringInfinity": {
+    "NAME": "Life Spring Infinity",
+    "DESCRIPTION": "Draw !M! cards. Gain !B! Block for every Skill drawn this way."
+  },
+  "Gensokyo:DreamlikeParadise": {
+    "NAME": "Dreamlike Paradise",
+    "DESCRIPTION": "Scry !M!. NL Cards discarded this way cost 0 until played. NL Whenever this card is drawn, draw !Gensokyo:SecondMagic! card."
+  },
+  "Gensokyo:RainbowDanmaku": {
+    "NAME": "Rainbow Danmaku",
+    "DESCRIPTION": "Deal !D! damage. NL Scry !M!. NL For every Attack discarded this way, deal !D! damage again."
+  },
+  "Gensokyo:UnlikelyAid": {
+    "NAME": "Unlikely Aid",
+    "DESCRIPTION": "Deal !D! damage. NL Choose 1 of !M! cards from your master deck to add to your hand. It costs 0 this turn and exhausts."
+  },
+  "Gensokyo:MorningStar": {
+    "NAME": "Morning Star",
+    "DESCRIPTION": "Gain !B! Block. NL Deal !D! damage. NL Exhaust ALL your Status cards."
+  },
+  "Gensokyo:RisingWorld": {
+    "NAME": "Rising World",
+    "DESCRIPTION": "Scry !M!. NL Cards discarded this way are Upgraded. NL Whenever this card is drawn, draw !Gensokyo:SecondMagic! card."
+  },
+  "Gensokyo:HouraiInAPot": {
+    "NAME": "Hourai in a Pot",
+    "DESCRIPTION": "Discard any number of cards then draw that many."
+  },
+  "Gensokyo:Dawn": {
+    "NAME": "Dawn",
+    "DESCRIPTION": "Whenever this card is drawn, gain [E] and draw !Gensokyo:SecondMagic! card.",
+    "UPGRADE_DESCRIPTION": "Whenever this card is drawn, gain [E] [E] and draw !Gensokyo:SecondMagic! card."
+  },
+  "Gensokyo:UnhurriedMind": {
+    "NAME": "Unhurried Mind",
+    "DESCRIPTION": "Play the top !M! cards of your draw pile."
+  },
+  "Gensokyo:CustomPotion": {
+    "NAME": "Custom Potion",
+    "DESCRIPTION": ""
+  },
+  "Gensokyo:GreaterSplit": {
+    "NAME": "Greater Split: Vertical",
+    "DESCRIPTION": "Deal !D! damage. NL Apply !M! *Stun.",
+    "UPGRADE_DESCRIPTION": "Deal !D! damage and apply !M! *Stun to ALL enemies.",
+    "EXTENDED_DESCRIPTION": ["Greater Split: Horizontal"]
+  },
+  "Gensokyo:PrivateSquare": {
+    "NAME": "Private Square",
+    "DESCRIPTION": "Take an extra turn after this one. End your turn. NL Add a copy of this card that costs !M! more to your hand. NL If you deal damage to an enemy while this is in your hand, exhaust it."
+  },
+  "Gensokyo:InfectedWound": {
+    "NAME": "Infected Wound",
+    "DESCRIPTION": "While this card is in your hand, you cannot play Attacks.",
+    "EXTENDED_DESCRIPTION": ["I cannot play Attacks because of Infected Wound!"]
   }
 }
