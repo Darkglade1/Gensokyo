@@ -3,18 +3,18 @@ package Gensokyo.actions;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.math.Interpolation;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
+import com.megacrit.cardcrawl.core.AbstractCreature;
 import com.megacrit.cardcrawl.core.Settings;
-import com.megacrit.cardcrawl.monsters.AbstractMonster;
 
 public class AnimatedMoveActualAction extends AbstractGameAction {
-    AbstractMonster mo;
+    AbstractCreature mo;
     private float graphicsAnimation;
     private float startX;
     private float startY;
     private float endX;
     private float endY;
 
-    public AnimatedMoveActualAction(AbstractMonster mo, float startX, float startY, float endX, float endY) {
+    public AnimatedMoveActualAction(AbstractCreature mo, float startX, float startY, float endX, float endY) {
         this.duration = Settings.ACTION_DUR_FAST;
         this.mo = mo;
         this.startX = startX;

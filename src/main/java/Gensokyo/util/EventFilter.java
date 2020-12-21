@@ -1,7 +1,7 @@
 package Gensokyo.util;
 
 import Gensokyo.GensokyoMod;
-import Gensokyo.events.act1.ClashOfLegends;
+import Gensokyo.events.act2.ClashOfLegends;
 import Gensokyo.events.act1.DemonBookSeller;
 import Gensokyo.events.act1.FieldTripToAnotherWorld;
 import Gensokyo.events.act1.ForestOfMagic;
@@ -19,6 +19,8 @@ import Gensokyo.events.act2.FiresOfInvention;
 import Gensokyo.events.act2.NohDance;
 import Gensokyo.events.act2.OneWingedWhiteHeron;
 import Gensokyo.events.act2.TheWhiteLotus;
+import Gensokyo.events.act3.IAmNotThere;
+import Gensokyo.events.act3.MedicineSeller;
 import ThMod.characters.Marisa;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.relics.HappyFlower;
@@ -89,6 +91,14 @@ public class EventFilter {
                 }
             } else if (event.equals(ChildOfMiare.ID)) {
                 if (!(AbstractDungeon.ascensionLevel < 15)) {
+                    eventsToRemove.add(event);
+                }
+            } else if (event.equals(IAmNotThere.ID)) {
+                if (!(AbstractDungeon.floorNum <= 47)) {
+                    eventsToRemove.add(event);
+                }
+            } else if (event.equals(MedicineSeller.ID)) {
+                if (!(AbstractDungeon.player.gold >= MedicineSeller.INITIAL_GOLD_COST)) {
                     eventsToRemove.add(event);
                 }
             }

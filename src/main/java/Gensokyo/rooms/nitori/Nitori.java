@@ -1,45 +1,22 @@
 package Gensokyo.rooms.nitori;
 
 import Gensokyo.BetterSpriterAnimation;
-import Gensokyo.RazIntent.IntentEnums;
-import Gensokyo.cards.*;
-import Gensokyo.events.extra.CandidFailure;
-import Gensokyo.events.extra.CandidFriend;
-import Gensokyo.monsters.act1.Yukari;
-import Gensokyo.powers.extra.DeEnergized;
-import Gensokyo.powers.extra.HydraulicCamouflage;
-import Gensokyo.powers.extra.NitoriTimer;
+import Gensokyo.CustomIntents.IntentEnums;
 import basemod.abstracts.CustomMonster;
 import com.badlogic.gdx.graphics.Color;
-import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.brashmonkey.spriter.Animation;
 import com.brashmonkey.spriter.Player;
-import com.evacipated.cardcrawl.mod.stslib.actions.tempHp.AddTemporaryHPAction;
-import com.megacrit.cardcrawl.actions.AbstractGameAction;
-import com.megacrit.cardcrawl.actions.animations.VFXAction;
-import com.megacrit.cardcrawl.actions.common.*;
-import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.cards.DamageInfo;
-import com.megacrit.cardcrawl.cards.status.Burn;
-import com.megacrit.cardcrawl.cards.status.Dazed;
-import com.megacrit.cardcrawl.cards.status.VoidCard;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.core.Settings;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
-import com.megacrit.cardcrawl.helpers.Hitbox;
 import com.megacrit.cardcrawl.helpers.ImageMaster;
 import com.megacrit.cardcrawl.localization.MonsterStrings;
-import com.megacrit.cardcrawl.powers.*;
-import com.megacrit.cardcrawl.relics.AbstractRelic;
-import com.megacrit.cardcrawl.rooms.EventRoom;
-import com.megacrit.cardcrawl.vfx.combat.HeartMegaDebuffEffect;
-
-import java.util.Arrays;
 
 import static Gensokyo.GensokyoMod.makeID;
-import static Gensokyo.GensokyoMod.makeUIPath;
-import static com.megacrit.cardcrawl.shop.Merchant.*;
+import static com.megacrit.cardcrawl.shop.Merchant.DRAW_X;
+import static com.megacrit.cardcrawl.shop.Merchant.DRAW_Y;
 
 // (SECTION 0) - Introduction
 
@@ -63,8 +40,8 @@ public class Nitori extends CustomMonster {
     // Nitori's ID, used for localisation files, and is prefixed with the modID.
     public static final String ID = makeID(Nitori.class.getSimpleName());
     // Localisation files for Nitori, fetched using the ID.
-    private static final MonsterStrings monsterStrings = CardCrawlGame.languagePack.getMonsterStrings(ID);
-    private static final String NAME = monsterStrings.NAME;
+    //private static final MonsterStrings monsterStrings = CardCrawlGame.languagePack.getMonsterStrings(ID);
+    //private static final String NAME = monsterStrings.NAME;
     // Nitori's "States". This controls the scaling of Nitori's actions mentioned earlier in the file.
     // PHASE_1 refers to pre Act 1 Boss Nitori.
     // PHASE_2 refers to pre Act 2 Boss Nitori.
@@ -95,7 +72,7 @@ public class Nitori extends CustomMonster {
     private static final byte TURN_LIMIT_REACHED = 99;
     // Move Characteristics for Nitori, ordered by move-byte appearance (See Above)
     // OPENING
-    private static final AbstractCard[] OPENING_STATUS_POOL = {new FlashFlood(), new TorpedoBarrage(), new EMP(), new Whirlpool(), new SelfRepair()};
+    //private static final AbstractCard[] OPENING_STATUS_POOL = {new FlashFlood(), new TorpedoBarrage(), new EMP(), new Whirlpool(), new SelfRepair()};
     private static final int PHASE1_OPENING_STATUS_AMOUNT = 1;
     private static final int PHASE2_OPENING_STATUS_AMOUNT = 2;
     private static final int PHASE3_OPENING_STATUS_AMOUNT = 4;
@@ -125,7 +102,7 @@ public class Nitori extends CustomMonster {
     private static final int PHASE2_RNG_FRAIL_ATTACK_FRAIL_AMOUNT = 2;
     private static final int PHASE3_RNG_FRAIL_ATTACK_FRAIL_AMOUNT = 3;
     private static final int PHASE4_RNG_FRAIL_ATTACK_FRAIL_AMOUNT = 3;
-    private static final AbstractCard PHASE4_RNG_FRAIL_ATTACK_STATUS = new FlashFlood();
+    //private static final AbstractCard PHASE4_RNG_FRAIL_ATTACK_STATUS = new FlashFlood();
     // RNG_TEMPHP
     private static final int PHASE1_RNG_TEMPHP_TEMPHP = 20;
     private static final int PHASE2_RNG_TEMPHP_TEMPHP = 30;
@@ -181,7 +158,7 @@ public class Nitori extends CustomMonster {
     private boolean RNG_STR_DEX_DOWN_DONE = false;
     public Nitori() { this(0.0f, 0.0f); }
     public Nitori(final float x, final float y) {
-        super(NAME, ID, HP_0BOSS, -5.0F, 0, 280.0f, 285.0f, null, x, y);
+        super("", ID, HP_0BOSS, -5.0F, 0, 280.0f, 285.0f, null, x, y);
         this.animation = new BetterSpriterAnimation("GensokyoResources/images/monsters/Nitori/Spriter/NitoriAnimations.scml");
         this.type = EnemyType.BOSS;
         this.dialogX = (this.hb_x - 70.0F) * Settings.scale;
@@ -422,7 +399,6 @@ public class Nitori extends CustomMonster {
             // Hydraulic Camouflage EX - Receives 10% reduced damage from ALL sources. Every other debuff is negated.
 
     public void usePreBattleAction() {
-        AbstractDungeon.getCurrRoom().playBGM("こころ.ogg");
         int powerAmount;
         switch (getBeginningState()){
             case PHASE_1:
@@ -440,289 +416,289 @@ public class Nitori extends CustomMonster {
             default:
                 powerAmount = 50;
         }
-        addToBot(new ApplyPowerAction(this, this, new NitoriTimer(this, powerAmount)));
+        //addToBot(new ApplyPowerAction(this, this, new NitoriTimer(this, powerAmount)));
     }
     @Override
     public void takeTurn() {
-        switch (this.nextMove) {
-            case TURN_LIMIT_REACHED:
-                BATTLE_OVER = true;
-                AbstractDungeon.overlayMenu.proceedButton.hide();
-                NitoriStoreScreen.init();
-                AbstractDungeon.topLevelEffects.clear();
-                AbstractDungeon.effectList.clear();
-                AbstractDungeon.currMapNode.room = new EventRoom();
-                AbstractDungeon.currMapNode.room.setMapImg(new Texture(makeUIPath("nitori.png")), new Texture(makeUIPath("nitori_outline.png")));
-                AbstractDungeon.getCurrRoom().event = new CandidFailure();
-                AbstractDungeon.getCurrRoom().event.reopen();
-                CardCrawlGame.fadeIn(1.5F);
-                AbstractDungeon.rs = AbstractDungeon.RenderScene.EVENT;
-                AbstractDungeon.overlayMenu.hideCombatPanels();
-                break;
-            case OPENING:
-                int statusAmount = 0;
-                float offset = 0.2f;
-                AbstractDungeon.actionManager.addToBottom(new VFXAction(new HeartMegaDebuffEffect()));
-                if(!(STATUSES_DONE)) {
-                    for (AbstractCard c : OPENING_STATUS_POOL) {
-                        if (getState() == nitoriStates.PHASE_1 && statusAmount != PHASE1_OPENING_STATUS_AMOUNT) {
-                            AbstractDungeon.actionManager.addToBottom(new MakeTempCardInDiscardAction(c, 1));
-                            statusAmount++;
-                        } else if (getState() == nitoriStates.PHASE_2 && statusAmount != PHASE2_OPENING_STATUS_AMOUNT) {
-                            AbstractDungeon.actionManager.addToBottom(new MakeTempCardInDiscardAction(c, 1));
-                            statusAmount++;
-                        } else if (getState() == nitoriStates.PHASE_3 && statusAmount != PHASE3_OPENING_STATUS_AMOUNT) {
-                            AbstractDungeon.actionManager.addToBottom(new MakeTempCardInDrawPileAction(c, 1, true, false, false, Settings.WIDTH * offset, Settings.HEIGHT / 2.0F));
-                            statusAmount++;
-                        } else if (getState() == nitoriStates.PHASE_4 && statusAmount != PHASE4_OPENING_STATUS_AMOUNT) {
-                            AbstractDungeon.actionManager.addToBottom(new MakeTempCardInDrawPileAction(c, 1, true, false, false, Settings.WIDTH * offset, Settings.HEIGHT / 2.0F));
-                            statusAmount++;
-                        }
-                    }
-                }
-                switch (getState()){
-                    case PHASE_1:
-                        AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(AbstractDungeon.player, this, new WeakPower(AbstractDungeon.player, OPENING_DEBUFF_AMOUNT, true), OPENING_DEBUFF_AMOUNT));
-                        break;
-                    case PHASE_2:
-                        AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(AbstractDungeon.player, this, new WeakPower(AbstractDungeon.player, OPENING_DEBUFF_AMOUNT, true), OPENING_DEBUFF_AMOUNT));
-                        AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(AbstractDungeon.player, this, new VulnerablePower(AbstractDungeon.player, OPENING_DEBUFF_AMOUNT, true), OPENING_DEBUFF_AMOUNT));
-                        break;
-                    case PHASE_3:
-                        AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(AbstractDungeon.player, this, new WeakPower(AbstractDungeon.player, OPENING_DEBUFF_AMOUNT, true), OPENING_DEBUFF_AMOUNT));
-                        AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(AbstractDungeon.player, this, new VulnerablePower(AbstractDungeon.player, OPENING_DEBUFF_AMOUNT, true), OPENING_DEBUFF_AMOUNT));
-                        AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(AbstractDungeon.player, this, new FrailPower(AbstractDungeon.player, OPENING_DEBUFF_AMOUNT, true), OPENING_DEBUFF_AMOUNT));
-                    case PHASE_4:
-                        AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(AbstractDungeon.player, this, new WeakPower(AbstractDungeon.player, PHASE4_OPENING_DEBUFF_AMOUNT, true), PHASE4_OPENING_DEBUFF_AMOUNT));
-                        AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(AbstractDungeon.player, this, new VulnerablePower(AbstractDungeon.player, PHASE4_OPENING_DEBUFF_AMOUNT, true), PHASE4_OPENING_DEBUFF_AMOUNT));
-                        AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(AbstractDungeon.player, this, new FrailPower(AbstractDungeon.player, PHASE4_OPENING_DEBUFF_AMOUNT, true), PHASE4_OPENING_DEBUFF_AMOUNT));
-                        break;
-                    default: break;
-                }
-                STATUSES_DONE = true;
-                OPENING_DONE = true;
-                break;
-            case BUFF:
-                switch (getState()) {
-                    case PHASE_1:
-                        AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(this, this, new StrengthPower(this, PHASE1_BUFF_STRENGTH_AMOUNT), PHASE1_BUFF_STRENGTH_AMOUNT));
-                        AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(this, this, new ArtifactPower(this, PHASE1_BUFF_ARTIFACT_AMOUNT), PHASE1_BUFF_ARTIFACT_AMOUNT));
-                        break;
-                    case PHASE_2:
-                        AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(this, this, new StrengthPower(this, PHASE2_BUFF_STRENGTH_AMOUNT), PHASE2_BUFF_STRENGTH_AMOUNT));
-                        AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(this, this, new ArtifactPower(this, PHASE2_BUFF_ARTIFACT_AMOUNT), PHASE2_BUFF_ARTIFACT_AMOUNT));
-                        break;
-                    case PHASE_3:
-                        AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(this, this, new StrengthPower(this, PHASE3_BUFF_STRENGTH_AMOUNT), PHASE3_BUFF_STRENGTH_AMOUNT));
-                        boolean hasHydro = false;
-                        for(AbstractPower p: this.powers){
-                            if(p instanceof HydraulicCamouflage){
-                                hasHydro = true;
-                                break;
-                            }
-                        }
-                        if(!(hasHydro)){ AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(this, this, new HydraulicCamouflage(this, false))); }
-                        break;
-                    case PHASE_4:
-                        AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(this, this, new StrengthPower(this, PHASE4_BUFF_STRENGTH_AMOUNT), PHASE4_BUFF_STRENGTH_AMOUNT));
-                        boolean hydroCheck = false;
-                        for(AbstractPower p: this.powers){
-                            if(p instanceof HydraulicCamouflage){
-                                if(!((HydraulicCamouflage) p).returnIsExtra()){ ((HydraulicCamouflage) p).extraTransition(); }
-                                hydroCheck = true;
-                                break;
-                            }
-                        }
-                        if(!(hydroCheck)){ AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(this, this, new HydraulicCamouflage(this, true))); }
-                        break;
-                    default: break;
-                }
-                BUFF_DONE = true;
-                break;
-            case ATTACK_STANDARD_MULTIHIT:
-                for (int i = 0; i < ATTACK_STANDARD_MULTIHIT_HITS; i++) {
-                    switch (getState()) {
-                        case PHASE_1:
-                            AbstractDungeon.actionManager.addToBottom(new DamageAction(AbstractDungeon.player, this.damage.get(0), AbstractGameAction.AttackEffect.BLUNT_LIGHT));
-                            break;
-                        case PHASE_2:
-                            AbstractDungeon.actionManager.addToBottom(new DamageAction(AbstractDungeon.player, this.damage.get(1), AbstractGameAction.AttackEffect.BLUNT_LIGHT));
-                            break;
-                        case PHASE_3:
-                            AbstractDungeon.actionManager.addToBottom(new DamageAction(AbstractDungeon.player, this.damage.get(2), AbstractGameAction.AttackEffect.BLUNT_LIGHT));
-                            break;
-                        case PHASE_4:
-                            AbstractDungeon.actionManager.addToBottom(new DamageAction(AbstractDungeon.player, this.damage.get(3), AbstractGameAction.AttackEffect.BLUNT_LIGHT));
-                            break;
-                        default: break;
-                    }
-                }
-                ATTACK_STANDARD_MULTIHIT_DONE = true;
-                break;
-            case ATTACK_STANDARD:
-                switch (getState()) {
-                    case PHASE_1:
-                        AbstractDungeon.actionManager.addToBottom(new DamageAction(AbstractDungeon.player, this.damage.get(4), AbstractGameAction.AttackEffect.BLUNT_LIGHT));
-                        break;
-                    case PHASE_2:
-                        AbstractDungeon.actionManager.addToBottom(new DamageAction(AbstractDungeon.player, this.damage.get(5), AbstractGameAction.AttackEffect.BLUNT_LIGHT));
-                        break;
-                    case PHASE_3:
-                        AbstractDungeon.actionManager.addToBottom(new DamageAction(AbstractDungeon.player, this.damage.get(6), AbstractGameAction.AttackEffect.BLUNT_LIGHT));
-                        break;
-                    case PHASE_4:
-                        AbstractDungeon.actionManager.addToBottom(new DamageAction(AbstractDungeon.player, this.damage.get(7), AbstractGameAction.AttackEffect.BLUNT_LIGHT));
-                        break;
-                    default: break;
-                }
-                ATTACK_STANDARD_DONE = true;
-                break;
-            case RNG_FRAIL_ATTACK:
-                switch (getState()) {
-                    case PHASE_1:
-                        AbstractDungeon.actionManager.addToBottom(new DamageAction(AbstractDungeon.player, this.damage.get(4), AbstractGameAction.AttackEffect.BLUNT_LIGHT));
-                        break;
-                    case PHASE_2:
-                        AbstractDungeon.actionManager.addToBottom(new DamageAction(AbstractDungeon.player, this.damage.get(5), AbstractGameAction.AttackEffect.BLUNT_LIGHT));
-                        break;
-                    case PHASE_3:
-                        AbstractDungeon.actionManager.addToBottom(new DamageAction(AbstractDungeon.player, this.damage.get(6), AbstractGameAction.AttackEffect.BLUNT_LIGHT));
-                        break;
-                    case PHASE_4:
-                        AbstractDungeon.actionManager.addToBottom(new DamageAction(AbstractDungeon.player, this.damage.get(7), AbstractGameAction.AttackEffect.BLUNT_LIGHT));
-                        break;
-                    default: break;
-                }
-                switch (getState()) {
-                    case PHASE_1:
-                        AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(AbstractDungeon.player, this, new FrailPower(AbstractDungeon.player, PHASE1_RNG_FRAIL_ATTACK_FRAIL_AMOUNT, true), PHASE1_RNG_FRAIL_ATTACK_FRAIL_AMOUNT));
-                        break;
-                    case PHASE_2:
-                        AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(AbstractDungeon.player, this, new FrailPower(AbstractDungeon.player, PHASE2_RNG_FRAIL_ATTACK_FRAIL_AMOUNT, true), PHASE2_RNG_FRAIL_ATTACK_FRAIL_AMOUNT));
-                        break;
-                    case PHASE_3:
-                        AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(AbstractDungeon.player, this, new FrailPower(AbstractDungeon.player, PHASE3_RNG_FRAIL_ATTACK_FRAIL_AMOUNT, true), PHASE3_RNG_FRAIL_ATTACK_FRAIL_AMOUNT));
-                        break;
-                    case PHASE_4:
-                        AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(AbstractDungeon.player, this, new FrailPower(AbstractDungeon.player, PHASE4_RNG_FRAIL_ATTACK_FRAIL_AMOUNT, true), PHASE4_RNG_FRAIL_ATTACK_FRAIL_AMOUNT));
-                        AbstractDungeon.actionManager.addToBottom(new MakeTempCardInDrawPileAction(PHASE4_RNG_FRAIL_ATTACK_STATUS, 1, true, false, false, Settings.WIDTH * 0.5F, Settings.HEIGHT / 2.0F));
-                        break;
-                    default: break;
-                }
-                RNG_FRAIL_ATTACK_DONE = true;
-                break;
-            case RNG_ATTACK_BLOCK:
-                switch (getState()) {
-                    case PHASE_1:
-                        AbstractDungeon.actionManager.addToBottom(new GainBlockAction(this, this, this.damage.get(4).output));
-                        AbstractDungeon.actionManager.addToBottom(new DamageAction(AbstractDungeon.player, this.damage.get(4), AbstractGameAction.AttackEffect.BLUNT_LIGHT));
-                        break;
-                    case PHASE_2:
-                        AbstractDungeon.actionManager.addToBottom(new GainBlockAction(this, this, this.damage.get(5).output));
-                        AbstractDungeon.actionManager.addToBottom(new DamageAction(AbstractDungeon.player, this.damage.get(5), AbstractGameAction.AttackEffect.BLUNT_LIGHT));
-                        break;
-                    case PHASE_3:
-                        AbstractDungeon.actionManager.addToBottom(new GainBlockAction(this, this, this.damage.get(6).output));
-                        AbstractDungeon.actionManager.addToBottom(new DamageAction(AbstractDungeon.player, this.damage.get(6), AbstractGameAction.AttackEffect.BLUNT_LIGHT));
-                        break;
-                    case PHASE_4:
-                        AbstractDungeon.actionManager.addToBottom(new GainBlockAction(this, this, this.damage.get(7).output));
-                        AbstractDungeon.actionManager.addToBottom(new DamageAction(AbstractDungeon.player, this.damage.get(7), AbstractGameAction.AttackEffect.BLUNT_LIGHT));
-                        break;
-                    default: break;
-                }
-                RNG_ATTACK_BLOCK_DONE = true;
-                break;
-            case RNG_TEMPHP:
-                switch (getState()) {
-                    case PHASE_1:
-                        AbstractDungeon.actionManager.addToBottom(new AddTemporaryHPAction(this, this, PHASE1_RNG_TEMPHP_TEMPHP));
-                        break;
-                    case PHASE_2:
-                        AbstractDungeon.actionManager.addToBottom(new AddTemporaryHPAction(this, this, PHASE2_RNG_TEMPHP_TEMPHP));
-                        break;
-                    case PHASE_3:
-                        AbstractDungeon.actionManager.addToBottom(new AddTemporaryHPAction(this, this, PHASE3_RNG_TEMPHP_TEMPHP));
-                        break;
-                    case PHASE_4:
-                        AbstractDungeon.actionManager.addToBottom(new AddTemporaryHPAction(this, this, PHASE4_RNG_TEMPHP_TEMPHP));
-                        break;
-                    default: break;
-                }
-                break;
-            case RNG_ATTACK:
-                for (int i = 0; i < ATTACK_STANDARD_MULTIHIT_HITS; i++) {
-                    switch (getState()) {
-                        case PHASE_1:
-                            AbstractDungeon.actionManager.addToBottom(new DamageAction(AbstractDungeon.player, this.damage.get(0), AbstractGameAction.AttackEffect.BLUNT_LIGHT));
-                            break;
-                        case PHASE_2:
-                            AbstractDungeon.actionManager.addToBottom(new DamageAction(AbstractDungeon.player, this.damage.get(1), AbstractGameAction.AttackEffect.BLUNT_LIGHT));
-                            break;
-                        case PHASE_3:
-                            AbstractDungeon.actionManager.addToBottom(new DamageAction(AbstractDungeon.player, this.damage.get(2), AbstractGameAction.AttackEffect.BLUNT_LIGHT));
-                            break;
-                        case PHASE_4:
-                            AbstractDungeon.actionManager.addToBottom(new DamageAction(AbstractDungeon.player, this.damage.get(3), AbstractGameAction.AttackEffect.BLUNT_LIGHT));
-                            break;
-                        default: break;
-                    }
-                }
-                RNG_ATTACK_DONE = true;
-                break;
-            case RNG_STR_DEX_DOWN:
-                switch (getState()) {
-                    case PHASE_1:
-                        AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(AbstractDungeon.player, this, new StrengthPower(AbstractDungeon.player, -PHASE1_RNG_STR_DEX_DOWN), -PHASE1_RNG_STR_DEX_DOWN));
-                        AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(AbstractDungeon.player, this, new DexterityPower(AbstractDungeon.player, -PHASE1_RNG_STR_DEX_DOWN), -PHASE1_RNG_STR_DEX_DOWN));
-                        break;
-                    case PHASE_2:
-                        AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(AbstractDungeon.player, this, new StrengthPower(AbstractDungeon.player, -PHASE2_RNG_STR_DEX_DOWN), -PHASE2_RNG_STR_DEX_DOWN));
-                        AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(AbstractDungeon.player, this, new DexterityPower(AbstractDungeon.player, -PHASE2_RNG_STR_DEX_DOWN), -PHASE2_RNG_STR_DEX_DOWN));
-                        break;
-                    case PHASE_3:
-                        AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(AbstractDungeon.player, this, new StrengthPower(AbstractDungeon.player, -PHASE3_RNG_STR_DEX_DOWN), -PHASE3_RNG_STR_DEX_DOWN));
-                        AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(AbstractDungeon.player, this, new DexterityPower(AbstractDungeon.player, -PHASE3_RNG_STR_DEX_DOWN), -PHASE3_RNG_STR_DEX_DOWN));
-                        break;
-                    case PHASE_4:
-                        AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(AbstractDungeon.player, this, new StrengthPower(AbstractDungeon.player, -PHASE4_RNG_STR_DEX_DRAIN), -PHASE4_RNG_STR_DEX_DRAIN));
-                        AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(AbstractDungeon.player, this, new DexterityPower(AbstractDungeon.player, -PHASE4_RNG_STR_DEX_DRAIN), -PHASE4_RNG_STR_DEX_DRAIN));
-                        AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(this, this, new StrengthPower(this, PHASE4_RNG_STR_DEX_DRAIN), PHASE4_RNG_STR_DEX_DRAIN));
-                        AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(this, this, new DexterityPower(this, PHASE4_RNG_STR_DEX_DRAIN), PHASE4_RNG_STR_DEX_DRAIN));
-                        break;
-                    default: break;
-                }
-                RNG_STR_DEX_DOWN_DONE = true;
-                break;
-            case TURN_CYCLE_END_ATTACK:
-                switch (getState()) {
-                    case PHASE_1:
-                        AbstractDungeon.actionManager.addToBottom(new DamageAction(AbstractDungeon.player, this.damage.get(8), AbstractGameAction.AttackEffect.BLUNT_LIGHT));
-                        break;
-                    case PHASE_2:
-                        AbstractDungeon.actionManager.addToBottom(new DamageAction(AbstractDungeon.player, this.damage.get(9), AbstractGameAction.AttackEffect.BLUNT_LIGHT));
-                        break;
-                    case PHASE_3:
-                        AbstractDungeon.actionManager.addToBottom(new DamageAction(AbstractDungeon.player, this.damage.get(10), AbstractGameAction.AttackEffect.BLUNT_LIGHT));
-                        break;
-                    case PHASE_4:
-                        AbstractDungeon.actionManager.addToBottom(new DamageAction(AbstractDungeon.player, this.damage.get(11), AbstractGameAction.AttackEffect.BLUNT_LIGHT));
-                        break;
-                    default: break;
-                }
-                OPENING_DONE = false;
-                BUFF_DONE = false;
-                ATTACK_STANDARD_MULTIHIT_DONE = false;
-                ATTACK_STANDARD_DONE = false;
-                RNG_FRAIL_ATTACK_DONE = false;
-                RNG_ATTACK_BLOCK_DONE = false;
-                RNG_TEMPHP_DONE = false;
-                RNG_ATTACK_DONE = false;
-                RNG_STR_DEX_DOWN_DONE = false;
-            default: break;
-        }
-        if(!BATTLE_OVER){ AbstractDungeon.actionManager.addToBottom(new RollMoveAction(this)); }
-        incrementGlobalCounter();
+//        switch (this.nextMove) {
+//            case TURN_LIMIT_REACHED:
+//                BATTLE_OVER = true;
+//                AbstractDungeon.overlayMenu.proceedButton.hide();
+//                NitoriStoreScreen.init();
+//                AbstractDungeon.topLevelEffects.clear();
+//                AbstractDungeon.effectList.clear();
+//                AbstractDungeon.currMapNode.room = new EventRoom();
+//                AbstractDungeon.currMapNode.room.setMapImg(new Texture(makeUIPath("nitori.png")), new Texture(makeUIPath("nitori_outline.png")));
+//                AbstractDungeon.getCurrRoom().event = new CandidFailure();
+//                AbstractDungeon.getCurrRoom().event.reopen();
+//                CardCrawlGame.fadeIn(1.5F);
+//                AbstractDungeon.rs = AbstractDungeon.RenderScene.EVENT;
+//                AbstractDungeon.overlayMenu.hideCombatPanels();
+//                break;
+//            case OPENING:
+//                int statusAmount = 0;
+//                float offset = 0.2f;
+//                AbstractDungeon.actionManager.addToBottom(new VFXAction(new HeartMegaDebuffEffect()));
+//                if(!(STATUSES_DONE)) {
+//                    for (AbstractCard c : OPENING_STATUS_POOL) {
+//                        if (getState() == nitoriStates.PHASE_1 && statusAmount != PHASE1_OPENING_STATUS_AMOUNT) {
+//                            AbstractDungeon.actionManager.addToBottom(new MakeTempCardInDiscardAction(c, 1));
+//                            statusAmount++;
+//                        } else if (getState() == nitoriStates.PHASE_2 && statusAmount != PHASE2_OPENING_STATUS_AMOUNT) {
+//                            AbstractDungeon.actionManager.addToBottom(new MakeTempCardInDiscardAction(c, 1));
+//                            statusAmount++;
+//                        } else if (getState() == nitoriStates.PHASE_3 && statusAmount != PHASE3_OPENING_STATUS_AMOUNT) {
+//                            AbstractDungeon.actionManager.addToBottom(new MakeTempCardInDrawPileAction(c, 1, true, false, false, Settings.WIDTH * offset, Settings.HEIGHT / 2.0F));
+//                            statusAmount++;
+//                        } else if (getState() == nitoriStates.PHASE_4 && statusAmount != PHASE4_OPENING_STATUS_AMOUNT) {
+//                            AbstractDungeon.actionManager.addToBottom(new MakeTempCardInDrawPileAction(c, 1, true, false, false, Settings.WIDTH * offset, Settings.HEIGHT / 2.0F));
+//                            statusAmount++;
+//                        }
+//                    }
+//                }
+//                switch (getState()){
+//                    case PHASE_1:
+//                        AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(AbstractDungeon.player, this, new WeakPower(AbstractDungeon.player, OPENING_DEBUFF_AMOUNT, true), OPENING_DEBUFF_AMOUNT));
+//                        break;
+//                    case PHASE_2:
+//                        AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(AbstractDungeon.player, this, new WeakPower(AbstractDungeon.player, OPENING_DEBUFF_AMOUNT, true), OPENING_DEBUFF_AMOUNT));
+//                        AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(AbstractDungeon.player, this, new VulnerablePower(AbstractDungeon.player, OPENING_DEBUFF_AMOUNT, true), OPENING_DEBUFF_AMOUNT));
+//                        break;
+//                    case PHASE_3:
+//                        AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(AbstractDungeon.player, this, new WeakPower(AbstractDungeon.player, OPENING_DEBUFF_AMOUNT, true), OPENING_DEBUFF_AMOUNT));
+//                        AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(AbstractDungeon.player, this, new VulnerablePower(AbstractDungeon.player, OPENING_DEBUFF_AMOUNT, true), OPENING_DEBUFF_AMOUNT));
+//                        AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(AbstractDungeon.player, this, new FrailPower(AbstractDungeon.player, OPENING_DEBUFF_AMOUNT, true), OPENING_DEBUFF_AMOUNT));
+//                    case PHASE_4:
+//                        AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(AbstractDungeon.player, this, new WeakPower(AbstractDungeon.player, PHASE4_OPENING_DEBUFF_AMOUNT, true), PHASE4_OPENING_DEBUFF_AMOUNT));
+//                        AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(AbstractDungeon.player, this, new VulnerablePower(AbstractDungeon.player, PHASE4_OPENING_DEBUFF_AMOUNT, true), PHASE4_OPENING_DEBUFF_AMOUNT));
+//                        AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(AbstractDungeon.player, this, new FrailPower(AbstractDungeon.player, PHASE4_OPENING_DEBUFF_AMOUNT, true), PHASE4_OPENING_DEBUFF_AMOUNT));
+//                        break;
+//                    default: break;
+//                }
+//                STATUSES_DONE = true;
+//                OPENING_DONE = true;
+//                break;
+//            case BUFF:
+//                switch (getState()) {
+//                    case PHASE_1:
+//                        AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(this, this, new StrengthPower(this, PHASE1_BUFF_STRENGTH_AMOUNT), PHASE1_BUFF_STRENGTH_AMOUNT));
+//                        AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(this, this, new ArtifactPower(this, PHASE1_BUFF_ARTIFACT_AMOUNT), PHASE1_BUFF_ARTIFACT_AMOUNT));
+//                        break;
+//                    case PHASE_2:
+//                        AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(this, this, new StrengthPower(this, PHASE2_BUFF_STRENGTH_AMOUNT), PHASE2_BUFF_STRENGTH_AMOUNT));
+//                        AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(this, this, new ArtifactPower(this, PHASE2_BUFF_ARTIFACT_AMOUNT), PHASE2_BUFF_ARTIFACT_AMOUNT));
+//                        break;
+//                    case PHASE_3:
+//                        AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(this, this, new StrengthPower(this, PHASE3_BUFF_STRENGTH_AMOUNT), PHASE3_BUFF_STRENGTH_AMOUNT));
+//                        boolean hasHydro = false;
+//                        for(AbstractPower p: this.powers){
+//                            if(p instanceof HydraulicCamouflage){
+//                                hasHydro = true;
+//                                break;
+//                            }
+//                        }
+//                        if(!(hasHydro)){ AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(this, this, new HydraulicCamouflage(this, false))); }
+//                        break;
+//                    case PHASE_4:
+//                        AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(this, this, new StrengthPower(this, PHASE4_BUFF_STRENGTH_AMOUNT), PHASE4_BUFF_STRENGTH_AMOUNT));
+//                        boolean hydroCheck = false;
+//                        for(AbstractPower p: this.powers){
+//                            if(p instanceof HydraulicCamouflage){
+//                                if(!((HydraulicCamouflage) p).returnIsExtra()){ ((HydraulicCamouflage) p).extraTransition(); }
+//                                hydroCheck = true;
+//                                break;
+//                            }
+//                        }
+//                        if(!(hydroCheck)){ AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(this, this, new HydraulicCamouflage(this, true))); }
+//                        break;
+//                    default: break;
+//                }
+//                BUFF_DONE = true;
+//                break;
+//            case ATTACK_STANDARD_MULTIHIT:
+//                for (int i = 0; i < ATTACK_STANDARD_MULTIHIT_HITS; i++) {
+//                    switch (getState()) {
+//                        case PHASE_1:
+//                            AbstractDungeon.actionManager.addToBottom(new DamageAction(AbstractDungeon.player, this.damage.get(0), AbstractGameAction.AttackEffect.BLUNT_LIGHT));
+//                            break;
+//                        case PHASE_2:
+//                            AbstractDungeon.actionManager.addToBottom(new DamageAction(AbstractDungeon.player, this.damage.get(1), AbstractGameAction.AttackEffect.BLUNT_LIGHT));
+//                            break;
+//                        case PHASE_3:
+//                            AbstractDungeon.actionManager.addToBottom(new DamageAction(AbstractDungeon.player, this.damage.get(2), AbstractGameAction.AttackEffect.BLUNT_LIGHT));
+//                            break;
+//                        case PHASE_4:
+//                            AbstractDungeon.actionManager.addToBottom(new DamageAction(AbstractDungeon.player, this.damage.get(3), AbstractGameAction.AttackEffect.BLUNT_LIGHT));
+//                            break;
+//                        default: break;
+//                    }
+//                }
+//                ATTACK_STANDARD_MULTIHIT_DONE = true;
+//                break;
+//            case ATTACK_STANDARD:
+//                switch (getState()) {
+//                    case PHASE_1:
+//                        AbstractDungeon.actionManager.addToBottom(new DamageAction(AbstractDungeon.player, this.damage.get(4), AbstractGameAction.AttackEffect.BLUNT_LIGHT));
+//                        break;
+//                    case PHASE_2:
+//                        AbstractDungeon.actionManager.addToBottom(new DamageAction(AbstractDungeon.player, this.damage.get(5), AbstractGameAction.AttackEffect.BLUNT_LIGHT));
+//                        break;
+//                    case PHASE_3:
+//                        AbstractDungeon.actionManager.addToBottom(new DamageAction(AbstractDungeon.player, this.damage.get(6), AbstractGameAction.AttackEffect.BLUNT_LIGHT));
+//                        break;
+//                    case PHASE_4:
+//                        AbstractDungeon.actionManager.addToBottom(new DamageAction(AbstractDungeon.player, this.damage.get(7), AbstractGameAction.AttackEffect.BLUNT_LIGHT));
+//                        break;
+//                    default: break;
+//                }
+//                ATTACK_STANDARD_DONE = true;
+//                break;
+//            case RNG_FRAIL_ATTACK:
+//                switch (getState()) {
+//                    case PHASE_1:
+//                        AbstractDungeon.actionManager.addToBottom(new DamageAction(AbstractDungeon.player, this.damage.get(4), AbstractGameAction.AttackEffect.BLUNT_LIGHT));
+//                        break;
+//                    case PHASE_2:
+//                        AbstractDungeon.actionManager.addToBottom(new DamageAction(AbstractDungeon.player, this.damage.get(5), AbstractGameAction.AttackEffect.BLUNT_LIGHT));
+//                        break;
+//                    case PHASE_3:
+//                        AbstractDungeon.actionManager.addToBottom(new DamageAction(AbstractDungeon.player, this.damage.get(6), AbstractGameAction.AttackEffect.BLUNT_LIGHT));
+//                        break;
+//                    case PHASE_4:
+//                        AbstractDungeon.actionManager.addToBottom(new DamageAction(AbstractDungeon.player, this.damage.get(7), AbstractGameAction.AttackEffect.BLUNT_LIGHT));
+//                        break;
+//                    default: break;
+//                }
+//                switch (getState()) {
+//                    case PHASE_1:
+//                        AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(AbstractDungeon.player, this, new FrailPower(AbstractDungeon.player, PHASE1_RNG_FRAIL_ATTACK_FRAIL_AMOUNT, true), PHASE1_RNG_FRAIL_ATTACK_FRAIL_AMOUNT));
+//                        break;
+//                    case PHASE_2:
+//                        AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(AbstractDungeon.player, this, new FrailPower(AbstractDungeon.player, PHASE2_RNG_FRAIL_ATTACK_FRAIL_AMOUNT, true), PHASE2_RNG_FRAIL_ATTACK_FRAIL_AMOUNT));
+//                        break;
+//                    case PHASE_3:
+//                        AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(AbstractDungeon.player, this, new FrailPower(AbstractDungeon.player, PHASE3_RNG_FRAIL_ATTACK_FRAIL_AMOUNT, true), PHASE3_RNG_FRAIL_ATTACK_FRAIL_AMOUNT));
+//                        break;
+//                    case PHASE_4:
+//                        AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(AbstractDungeon.player, this, new FrailPower(AbstractDungeon.player, PHASE4_RNG_FRAIL_ATTACK_FRAIL_AMOUNT, true), PHASE4_RNG_FRAIL_ATTACK_FRAIL_AMOUNT));
+//                        AbstractDungeon.actionManager.addToBottom(new MakeTempCardInDrawPileAction(PHASE4_RNG_FRAIL_ATTACK_STATUS, 1, true, false, false, Settings.WIDTH * 0.5F, Settings.HEIGHT / 2.0F));
+//                        break;
+//                    default: break;
+//                }
+//                RNG_FRAIL_ATTACK_DONE = true;
+//                break;
+//            case RNG_ATTACK_BLOCK:
+//                switch (getState()) {
+//                    case PHASE_1:
+//                        AbstractDungeon.actionManager.addToBottom(new GainBlockAction(this, this, this.damage.get(4).output));
+//                        AbstractDungeon.actionManager.addToBottom(new DamageAction(AbstractDungeon.player, this.damage.get(4), AbstractGameAction.AttackEffect.BLUNT_LIGHT));
+//                        break;
+//                    case PHASE_2:
+//                        AbstractDungeon.actionManager.addToBottom(new GainBlockAction(this, this, this.damage.get(5).output));
+//                        AbstractDungeon.actionManager.addToBottom(new DamageAction(AbstractDungeon.player, this.damage.get(5), AbstractGameAction.AttackEffect.BLUNT_LIGHT));
+//                        break;
+//                    case PHASE_3:
+//                        AbstractDungeon.actionManager.addToBottom(new GainBlockAction(this, this, this.damage.get(6).output));
+//                        AbstractDungeon.actionManager.addToBottom(new DamageAction(AbstractDungeon.player, this.damage.get(6), AbstractGameAction.AttackEffect.BLUNT_LIGHT));
+//                        break;
+//                    case PHASE_4:
+//                        AbstractDungeon.actionManager.addToBottom(new GainBlockAction(this, this, this.damage.get(7).output));
+//                        AbstractDungeon.actionManager.addToBottom(new DamageAction(AbstractDungeon.player, this.damage.get(7), AbstractGameAction.AttackEffect.BLUNT_LIGHT));
+//                        break;
+//                    default: break;
+//                }
+//                RNG_ATTACK_BLOCK_DONE = true;
+//                break;
+//            case RNG_TEMPHP:
+//                switch (getState()) {
+//                    case PHASE_1:
+//                        AbstractDungeon.actionManager.addToBottom(new AddTemporaryHPAction(this, this, PHASE1_RNG_TEMPHP_TEMPHP));
+//                        break;
+//                    case PHASE_2:
+//                        AbstractDungeon.actionManager.addToBottom(new AddTemporaryHPAction(this, this, PHASE2_RNG_TEMPHP_TEMPHP));
+//                        break;
+//                    case PHASE_3:
+//                        AbstractDungeon.actionManager.addToBottom(new AddTemporaryHPAction(this, this, PHASE3_RNG_TEMPHP_TEMPHP));
+//                        break;
+//                    case PHASE_4:
+//                        AbstractDungeon.actionManager.addToBottom(new AddTemporaryHPAction(this, this, PHASE4_RNG_TEMPHP_TEMPHP));
+//                        break;
+//                    default: break;
+//                }
+//                break;
+//            case RNG_ATTACK:
+//                for (int i = 0; i < ATTACK_STANDARD_MULTIHIT_HITS; i++) {
+//                    switch (getState()) {
+//                        case PHASE_1:
+//                            AbstractDungeon.actionManager.addToBottom(new DamageAction(AbstractDungeon.player, this.damage.get(0), AbstractGameAction.AttackEffect.BLUNT_LIGHT));
+//                            break;
+//                        case PHASE_2:
+//                            AbstractDungeon.actionManager.addToBottom(new DamageAction(AbstractDungeon.player, this.damage.get(1), AbstractGameAction.AttackEffect.BLUNT_LIGHT));
+//                            break;
+//                        case PHASE_3:
+//                            AbstractDungeon.actionManager.addToBottom(new DamageAction(AbstractDungeon.player, this.damage.get(2), AbstractGameAction.AttackEffect.BLUNT_LIGHT));
+//                            break;
+//                        case PHASE_4:
+//                            AbstractDungeon.actionManager.addToBottom(new DamageAction(AbstractDungeon.player, this.damage.get(3), AbstractGameAction.AttackEffect.BLUNT_LIGHT));
+//                            break;
+//                        default: break;
+//                    }
+//                }
+//                RNG_ATTACK_DONE = true;
+//                break;
+//            case RNG_STR_DEX_DOWN:
+//                switch (getState()) {
+//                    case PHASE_1:
+//                        AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(AbstractDungeon.player, this, new StrengthPower(AbstractDungeon.player, -PHASE1_RNG_STR_DEX_DOWN), -PHASE1_RNG_STR_DEX_DOWN));
+//                        AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(AbstractDungeon.player, this, new DexterityPower(AbstractDungeon.player, -PHASE1_RNG_STR_DEX_DOWN), -PHASE1_RNG_STR_DEX_DOWN));
+//                        break;
+//                    case PHASE_2:
+//                        AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(AbstractDungeon.player, this, new StrengthPower(AbstractDungeon.player, -PHASE2_RNG_STR_DEX_DOWN), -PHASE2_RNG_STR_DEX_DOWN));
+//                        AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(AbstractDungeon.player, this, new DexterityPower(AbstractDungeon.player, -PHASE2_RNG_STR_DEX_DOWN), -PHASE2_RNG_STR_DEX_DOWN));
+//                        break;
+//                    case PHASE_3:
+//                        AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(AbstractDungeon.player, this, new StrengthPower(AbstractDungeon.player, -PHASE3_RNG_STR_DEX_DOWN), -PHASE3_RNG_STR_DEX_DOWN));
+//                        AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(AbstractDungeon.player, this, new DexterityPower(AbstractDungeon.player, -PHASE3_RNG_STR_DEX_DOWN), -PHASE3_RNG_STR_DEX_DOWN));
+//                        break;
+//                    case PHASE_4:
+//                        AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(AbstractDungeon.player, this, new StrengthPower(AbstractDungeon.player, -PHASE4_RNG_STR_DEX_DRAIN), -PHASE4_RNG_STR_DEX_DRAIN));
+//                        AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(AbstractDungeon.player, this, new DexterityPower(AbstractDungeon.player, -PHASE4_RNG_STR_DEX_DRAIN), -PHASE4_RNG_STR_DEX_DRAIN));
+//                        AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(this, this, new StrengthPower(this, PHASE4_RNG_STR_DEX_DRAIN), PHASE4_RNG_STR_DEX_DRAIN));
+//                        AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(this, this, new DexterityPower(this, PHASE4_RNG_STR_DEX_DRAIN), PHASE4_RNG_STR_DEX_DRAIN));
+//                        break;
+//                    default: break;
+//                }
+//                RNG_STR_DEX_DOWN_DONE = true;
+//                break;
+//            case TURN_CYCLE_END_ATTACK:
+//                switch (getState()) {
+//                    case PHASE_1:
+//                        AbstractDungeon.actionManager.addToBottom(new DamageAction(AbstractDungeon.player, this.damage.get(8), AbstractGameAction.AttackEffect.BLUNT_LIGHT));
+//                        break;
+//                    case PHASE_2:
+//                        AbstractDungeon.actionManager.addToBottom(new DamageAction(AbstractDungeon.player, this.damage.get(9), AbstractGameAction.AttackEffect.BLUNT_LIGHT));
+//                        break;
+//                    case PHASE_3:
+//                        AbstractDungeon.actionManager.addToBottom(new DamageAction(AbstractDungeon.player, this.damage.get(10), AbstractGameAction.AttackEffect.BLUNT_LIGHT));
+//                        break;
+//                    case PHASE_4:
+//                        AbstractDungeon.actionManager.addToBottom(new DamageAction(AbstractDungeon.player, this.damage.get(11), AbstractGameAction.AttackEffect.BLUNT_LIGHT));
+//                        break;
+//                    default: break;
+//                }
+//                OPENING_DONE = false;
+//                BUFF_DONE = false;
+//                ATTACK_STANDARD_MULTIHIT_DONE = false;
+//                ATTACK_STANDARD_DONE = false;
+//                RNG_FRAIL_ATTACK_DONE = false;
+//                RNG_ATTACK_BLOCK_DONE = false;
+//                RNG_TEMPHP_DONE = false;
+//                RNG_ATTACK_DONE = false;
+//                RNG_STR_DEX_DOWN_DONE = false;
+//            default: break;
+//        }
+//        if(!BATTLE_OVER){ AbstractDungeon.actionManager.addToBottom(new RollMoveAction(this)); }
+//        incrementGlobalCounter();
     }
     @Override
     protected void getMove(int i) {

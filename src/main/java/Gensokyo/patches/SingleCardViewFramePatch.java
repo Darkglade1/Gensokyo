@@ -1,6 +1,7 @@
 package Gensokyo.patches;
 
-import Gensokyo.cards.AbstractUrbanLegendCard;
+import Gensokyo.cards.AbstractShopSpecialCard;
+import Gensokyo.cards.UrbanLegend.AbstractUrbanLegendCard;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.graphics.g2d.TextureAtlas;
 import com.evacipated.cardcrawl.modthespire.lib.ByRef;
@@ -21,7 +22,7 @@ import javassist.CtBehavior;
 public class SingleCardViewFramePatch {
     @SpireInsertPatch(locator = SingleCardViewFramePatch.Locator.class, localvars = {"tmpImg", "card"})
     public static void FixFrames(SingleCardViewPopup _instance, SpriteBatch sb,  @ByRef TextureAtlas.AtlasRegion tmpImg[], AbstractCard card) {
-        if (card instanceof AbstractUrbanLegendCard) {
+        if (card instanceof AbstractUrbanLegendCard || card instanceof AbstractShopSpecialCard) {
             switch (card.type) {
                 case ATTACK:
                     tmpImg[0] = AbstractUrbanLegendCard.frames[3];

@@ -1,7 +1,7 @@
 package Gensokyo.monsters.act2;
 
 import Gensokyo.BetterSpriterAnimation;
-import Gensokyo.RazIntent.IntentEnums;
+import Gensokyo.CustomIntents.IntentEnums;
 import Gensokyo.actions.AnimatedMoveActualAction;
 import Gensokyo.powers.act2.Counter;
 import Gensokyo.powers.act2.RivalPlayerPosition;
@@ -67,13 +67,13 @@ public class Miko extends CustomMonster
     private static final byte AOE_ATTACK = 3;
     private static final byte DEBUFF_ATTACK = 4;
 
-    private static final int NORMAL_ATTACK_DAMAGE = 15;
-    private static final int A4_NORMAL_ATTACK_DAMAGE = 16;
+    private static final int NORMAL_ATTACK_DAMAGE = 13;
+    private static final int A4_NORMAL_ATTACK_DAMAGE = 14;
     private static final int NORMAL_ATTACK_HITS = 2;
     private int normalDamage;
 
-    private static final int AOE_DAMAGE = 12;
-    private static final int A4_AOE_DAMAGE = 13;
+    private static final int AOE_DAMAGE = 11;
+    private static final int A4_AOE_DAMAGE = 12;
     private static final int AOE_HITS = 2;
     private int aoeDamage;
 
@@ -86,8 +86,8 @@ public class Miko extends CustomMonster
     private static final float A9_HEALING = 0.06F;
     private float healing;
 
-    private static final int STRENGTH_STEAL = 4;
-    private static final int A19_STRENGTH_STEAL = 5;
+    private static final int STRENGTH_STEAL = 3;
+    private static final int A19_STRENGTH_STEAL = 4;
     private int strengthSteal;
 
     private static final int COOLDOWN = 3;
@@ -113,7 +113,7 @@ public class Miko extends CustomMonster
     public Miko(final float x, final float y) {
         super(NAME, ID, HP, -5.0F, -20.0F, 230.0f, 275.0f, null, x, y);
         this.animation = new BetterSpriterAnimation("GensokyoResources/images/monsters/Miko/Spriter/MikoAnimation.scml");
-        this.type = EnemyType.ELITE;
+        this.type = EnemyType.BOSS;
         this.dialogX = (this.hb_x - 70.0F) * Settings.scale;
         this.dialogY -= (this.hb_y - 55.0F) * Settings.scale;
         if (AbstractDungeon.ascensionLevel >= 19) {

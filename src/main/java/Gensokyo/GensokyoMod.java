@@ -1,44 +1,85 @@
 package Gensokyo;
 
-import Gensokyo.RazIntent.AreaAttackIntent;
-import Gensokyo.RazIntent.CustomIntent;
-import Gensokyo.RazIntent.PurifyIntent;
-import Gensokyo.RazIntent.TempHPIntent;
+import Gensokyo.CustomIntents.AreaAttackIntent;
+import Gensokyo.CustomIntents.CurseAttackIntent;
+import Gensokyo.CustomIntents.DeathIntent;
+import Gensokyo.CustomIntents.PurifyIntent;
 import Gensokyo.cards.AllTheWorldsEvil;
-import Gensokyo.cards.Apocalypse;
+import Gensokyo.cards.Butterfly;
+import Gensokyo.cards.CustomPotion;
+import Gensokyo.cards.Evolve.BlemishedSteel;
+import Gensokyo.cards.Evolve.DepletedGenerator;
+import Gensokyo.cards.Evolve.ExoticEgg;
+import Gensokyo.cards.Evolve.LockedMedkit;
+import Gensokyo.cards.Evolve.MysteriousEgg;
+import Gensokyo.cards.Evolve.RustyChest;
+import Gensokyo.cards.Evolve.ScrapIron;
+import Gensokyo.cards.Evolve.Shovel;
+import Gensokyo.cards.Evolve.TarnishedGold;
+import Gensokyo.cards.Evolve.TrainingManual;
+import Gensokyo.cards.GreaterSplit;
+import Gensokyo.cards.InfectedWound;
+import Gensokyo.cards.Item.LifeforceConverter;
+import Gensokyo.cards.Item.MedicineKit;
+import Gensokyo.cards.Item.OverchargedCore;
+import Gensokyo.cards.Item.RPG;
+import Gensokyo.cards.Item.ReactiveArmor;
+import Gensokyo.cards.Item.Taser;
+import Gensokyo.cards.Lunar.BrilliantDragonBullet;
+import Gensokyo.cards.Lunar.BuddhistDiamond;
+import Gensokyo.cards.Lunar.Dawn;
+import Gensokyo.cards.Lunar.DreamlikeParadise;
+import Gensokyo.cards.Lunar.EverlastingLife;
+import Gensokyo.cards.Lunar.HouraiInAPot;
+import Gensokyo.cards.Lunar.LifeSpringInfinity;
+import Gensokyo.cards.Lunar.MorningMist;
+import Gensokyo.cards.Lunar.MorningStar;
+import Gensokyo.cards.Lunar.NewMoon;
+import Gensokyo.cards.Lunar.RainbowDanmaku;
+import Gensokyo.cards.Lunar.RisingWorld;
+import Gensokyo.cards.Lunar.SalamanderShield;
+import Gensokyo.cards.Lunar.UnhurriedMind;
+import Gensokyo.cards.Lunar.UnlikelyAid;
+import Gensokyo.cards.Pets.SummonFieryMouse;
+import Gensokyo.cards.Pets.SummonJeweledCobra;
+import Gensokyo.cards.Pets.SummonPsychicCat;
+import Gensokyo.cards.PrivateSquare;
+import Gensokyo.cards.UrbanLegend.Apocalypse;
 import Gensokyo.cards.BlessingOfConstitution;
 import Gensokyo.cards.BlessingOfFortitude;
 import Gensokyo.cards.BlessingOfVigor;
 import Gensokyo.cards.CrescentMoonSlash;
-import Gensokyo.cards.Doppelganger;
-import Gensokyo.cards.EightFeetTall;
+import Gensokyo.cards.UrbanLegend.Doppelganger;
+import Gensokyo.cards.UrbanLegend.EightFeetTall;
 import Gensokyo.cards.EmbersOfLove;
 import Gensokyo.cards.Frozen;
-import Gensokyo.cards.GapWoman;
-import Gensokyo.cards.HAARP;
+import Gensokyo.cards.UrbanLegend.GapWoman;
+import Gensokyo.cards.UrbanLegend.HAARP;
 import Gensokyo.cards.ImpossibleRequests.ImpossibleRequest;
-import Gensokyo.cards.Kunekune;
-import Gensokyo.cards.LittleGreenMen;
-import Gensokyo.cards.LochNessMonster;
-import Gensokyo.cards.ManorOfTheDishes;
+import Gensokyo.cards.UrbanLegend.Kunekune;
+import Gensokyo.cards.UrbanLegend.LittleGreenMen;
+import Gensokyo.cards.UrbanLegend.LochNessMonster;
+import Gensokyo.cards.UrbanLegend.ManorOfTheDishes;
 import Gensokyo.cards.MarisaTwilightSpark;
-import Gensokyo.cards.MenInBlack;
+import Gensokyo.cards.UrbanLegend.MenInBlack;
 import Gensokyo.cards.MindShatter;
-import Gensokyo.cards.MissMary;
-import Gensokyo.cards.MonkeysPaw;
+import Gensokyo.cards.UrbanLegend.MissMary;
+import Gensokyo.cards.UrbanLegend.MonkeysPaw;
+import Gensokyo.cards.Pets.SummonYinYangFox;
 import Gensokyo.cards.Philosophy;
-import Gensokyo.cards.RedCapeBlueCape;
+import Gensokyo.cards.UrbanLegend.RedCapeBlueCape;
 import Gensokyo.cards.ReflexRadar;
-import Gensokyo.cards.SevenSchoolMysteries;
+import Gensokyo.cards.UrbanLegend.SevenSchoolMysteries;
 import Gensokyo.cards.ShootingStar;
-import Gensokyo.cards.SlitMouthedWoman;
-import Gensokyo.cards.SpontaneousHumanCombustion;
+import Gensokyo.cards.UrbanLegend.SlitMouthedWoman;
+import Gensokyo.cards.UrbanLegend.SpontaneousHumanCombustion;
 import Gensokyo.cards.FourOfAKind;
-import Gensokyo.cards.TekeTeke;
-import Gensokyo.cards.TurboGranny;
+import Gensokyo.cards.UrbanLegend.TekeTeke;
+import Gensokyo.cards.UrbanLegend.TurboGranny;
 import Gensokyo.dungeon.EncounterIDs;
 import Gensokyo.dungeon.Gensokyo;
 import Gensokyo.dungeon.Gensokyoer;
+import Gensokyo.dungeon.Gensokyoest;
 import Gensokyo.events.act1.ABanquetForGhosts;
 import Gensokyo.events.act1.ACelestialsPlight;
 import Gensokyo.events.act1.AHoleInReality;
@@ -46,7 +87,7 @@ import Gensokyo.events.act1.ALandWhereOnlyIAmMissing;
 import Gensokyo.events.act1.AMomentFractured;
 import Gensokyo.events.act1.ASwiftSlash;
 import Gensokyo.events.act1.BambooForestOfTheLost;
-import Gensokyo.events.act1.ClashOfLegends;
+import Gensokyo.events.act2.ClashOfLegends;
 import Gensokyo.events.act1.DemonBookSeller;
 import Gensokyo.events.act1.FieldTripToAnotherWorld;
 import Gensokyo.events.act1.ForestOfMagic;
@@ -78,6 +119,17 @@ import Gensokyo.events.act2.PhantomEnsemble;
 import Gensokyo.events.act2.TheWhiteLotus;
 import Gensokyo.events.act2.TreasureHunter;
 import Gensokyo.events.act2.VillageOfCats;
+import Gensokyo.events.act3.BloodForBlood;
+import Gensokyo.events.act3.IAmNotThere;
+import Gensokyo.events.act3.KappaWarehouse;
+import Gensokyo.events.act3.MedicineSeller;
+import Gensokyo.events.act3.OwlFriend;
+import Gensokyo.events.act3.PrincessOfTheMoon;
+import Gensokyo.events.act3.ProbabilitySpaceHypervessel;
+import Gensokyo.events.act3.ProphetOfDisaster;
+import Gensokyo.events.act3.SomeoneElsesStory;
+import Gensokyo.events.act3.TheDreamer;
+import Gensokyo.events.act3.ThoseWhoFightMonsters;
 import Gensokyo.monsters.act1.Aya;
 import Gensokyo.monsters.act1.Cirno;
 import Gensokyo.monsters.act1.GreaterFairy;
@@ -118,7 +170,26 @@ import Gensokyo.monsters.act2.NormalEnemies.TanukiDog;
 import Gensokyo.monsters.act2.NormalEnemies.Wraith;
 import Gensokyo.monsters.act2.Reisen;
 import Gensokyo.monsters.act2.Tenshi;
-import Gensokyo.monsters.act2.Yuyuko;
+import Gensokyo.monsters.act3.Kasen;
+import Gensokyo.monsters.act3.Marisa;
+import Gensokyo.monsters.act3.Mokou;
+import Gensokyo.monsters.act3.NormalEnemies.AncientGuardian;
+import Gensokyo.monsters.act3.NormalEnemies.AtlasGolem;
+import Gensokyo.monsters.act3.NormalEnemies.Dawnsword;
+import Gensokyo.monsters.act3.NormalEnemies.Duskaxe;
+import Gensokyo.monsters.act3.NormalEnemies.FeralBat;
+import Gensokyo.monsters.act3.NormalEnemies.LoudBat;
+import Gensokyo.monsters.act3.NormalEnemies.MadBoulder;
+import Gensokyo.monsters.act3.NormalEnemies.Rafflesia;
+import Gensokyo.monsters.act3.NormalEnemies.SeedOfUnknown;
+import Gensokyo.monsters.act3.NormalEnemies.Sharpion;
+import Gensokyo.monsters.act3.NormalEnemies.VampireBat;
+import Gensokyo.monsters.act3.Shinki.Shinki;
+import Gensokyo.monsters.act3.Yuyuko;
+import Gensokyo.monsters.act3.Doremy;
+import Gensokyo.monsters.act3.Flandre;
+import Gensokyo.monsters.act3.Remilia;
+import Gensokyo.relics.Companionship;
 import Gensokyo.relics.act1.Bombinomicon;
 import Gensokyo.relics.act1.BookOfSpecters;
 import Gensokyo.relics.act1.CelestialsFlawlessClothing;
@@ -146,8 +217,9 @@ import Gensokyo.relics.act2.RedStar;
 import Gensokyo.relics.act2.SongOfSouls;
 import Gensokyo.relics.act2.SpiderMask;
 import Gensokyo.relics.act2.UndefinedDarkness;
-import Gensokyo.rooms.nitori.Nitori;
-import Gensokyo.rooms.nitori.NitoriTicket;
+import Gensokyo.relics.act3.DualWield;
+import Gensokyo.relics.act3.EmptyGrave;
+import Gensokyo.relics.act3.TheCrow;
 import Gensokyo.rooms.nitori.helpers.gensokyoRelicHelper;
 import Gensokyo.util.IDCheckDontTouchPls;
 import Gensokyo.util.TextureLoader;
@@ -176,6 +248,7 @@ import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.core.Settings;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.dungeons.Exordium;
+import com.megacrit.cardcrawl.dungeons.TheBeyond;
 import com.megacrit.cardcrawl.dungeons.TheCity;
 import com.megacrit.cardcrawl.helpers.CardHelper;
 import com.megacrit.cardcrawl.helpers.CardLibrary;
@@ -191,6 +264,7 @@ import com.megacrit.cardcrawl.monsters.MonsterGroup;
 import com.megacrit.cardcrawl.relics.AbstractRelic;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
+import actlikeit.RazIntent.CustomIntent;
 
 import java.io.InputStream;
 import java.io.InputStreamReader;
@@ -214,7 +288,7 @@ public class GensokyoMod implements
     //This is for the in-game mod settings panel.
     private static final String MODNAME = "Gensokyo";
     private static final String AUTHOR = "Darkglade";
-    private static final String DESCRIPTION = "An alternate Act 1 and 2 mod inspired by Touhou Project.";
+    private static final String DESCRIPTION = "An alternate Act 1, 2, and 3 mod inspired by Touhou Project.";
     
     // =============== INPUT TEXTURE LOCATION =================
     
@@ -226,9 +300,21 @@ public class GensokyoMod implements
         public static AbstractCard.CardColor URBAN_LEGEND;
         @SpireEnum(name = "Urban Legend") @SuppressWarnings("unused")
         public static CardLibrary.LibraryType LIBRARY_COLOR;
+
+        @SpireEnum(name = "Shop Special") // These two HAVE to have the same absolutely identical name.
+        public static AbstractCard.CardColor SHOP_SPECIAL;
+        @SpireEnum(name = "Shop Special") @SuppressWarnings("unused")
+        public static CardLibrary.LibraryType SHOP_LIBRARY_COLOR;
+
+        @SpireEnum(name = "Lunar") // These two HAVE to have the same absolutely identical name.
+        public static AbstractCard.CardColor LUNAR;
+        @SpireEnum(name = "Lunar") @SuppressWarnings("unused")
+        public static CardLibrary.LibraryType LUNAR_LIBRARY_COLOR;
     }
 
     public static final Color URBAN_LEGEND = CardHelper.getColor(0, 0, 0);
+    public static final Color SHOP_SPECIAL = CardHelper.getColor(0, 255, 0);
+    public static final Color LUNAR = CardHelper.getColor(128, 123, 122);
 
     // Card backgrounds - The actual rectangular card.
     private static final String ATTACK_BLACK = "GensokyoResources/images/512/attack_blacky.png";
@@ -236,18 +322,43 @@ public class GensokyoMod implements
     private static final String POWER_BLACK = "GensokyoResources/images/512/power_blacky.png";
 
     private static final String ENERGY_ORB_BLACK = "GensokyoResources/images/512/card_blacky_orb.png";
-    private static final String CARD_ENERGY_ORB = "GensokyoResources/images/512/card_small_orb_blacky.png";
+    private static final String CARD_ENERGY_ORB_BLACK = "GensokyoResources/images/512/card_small_orb_blacky.png";
 
     private static final String ATTACK_BLACK_PORTRAIT = "GensokyoResources/images/1024/attack_blacky.png";
     private static final String SKILL_BLACK_PORTRAIT = "GensokyoResources/images/1024/skill_blacky.png";
     private static final String POWER_BLACK_PORTRAIT = "GensokyoResources/images/1024/power_blacky.png";
     private static final String ENERGY_ORB_BLACK_PORTRAIT = "GensokyoResources/images/1024/card_small_orb_blacky.png";
 
+    private static final String ATTACK_GREEN = "GensokyoResources/images/512/attack_green.png";
+    private static final String SKILL_GREEN = "GensokyoResources/images/512/skill_green.png";
+    private static final String POWER_GREEN = "GensokyoResources/images/512/power_green.png";
+
+    private static final String ENERGY_ORB_GREEN = "GensokyoResources/images/512/card_green_orb.png";
+    private static final String CARD_ENERGY_ORB_GREEN = "GensokyoResources/images/512/card_small_orb_green.png";
+
+    private static final String ATTACK_GREEN_PORTRAIT = "GensokyoResources/images/1024/attack_green.png";
+    private static final String SKILL_GREEN_PORTRAIT = "GensokyoResources/images/1024/skill_green.png";
+    private static final String POWER_GREEN_PORTRAIT = "GensokyoResources/images/1024/power_green.png";
+    private static final String ENERGY_ORB_GREEN_PORTRAIT = "GensokyoResources/images/1024/card_small_orb_green.png";
+
+    private static final String ATTACK_LUNAR = "GensokyoResources/images/512/attack_lunar.png";
+    private static final String SKILL_LUNAR = "GensokyoResources/images/512/skill_lunar.png";
+    private static final String POWER_LUNAR = "GensokyoResources/images/512/power_lunar.png";
+
+    private static final String ENERGY_ORB_LUNAR = "GensokyoResources/images/512/card_lunar_orb.png";
+    private static final String CARD_ENERGY_ORB_LUNAR = "GensokyoResources/images/512/card_small_orb_lunar.png";
+
+    private static final String ATTACK_LUNAR_PORTRAIT = "GensokyoResources/images/1024/attack_lunar.png";
+    private static final String SKILL_LUNAR_PORTRAIT = "GensokyoResources/images/1024/skill_lunar.png";
+    private static final String POWER_LUNAR_PORTRAIT = "GensokyoResources/images/1024/power_lunar.png";
+    private static final String ENERGY_ORB_LUNAR_PORTRAIT = "GensokyoResources/images/1024/card_small_orb_lunar.png";
           
     public static boolean hasMarisa;
+    public static boolean hasFriendlyMinions;
 
     static {
         hasMarisa = Loader.isModLoaded("TS05_Marisa");
+        hasFriendlyMinions = Loader.isModLoaded("Friendly_Minions_0987678");
     }
     
     // =============== MAKE IMAGE PATHS =================
@@ -297,7 +408,17 @@ public class GensokyoMod implements
                 URBAN_LEGEND, URBAN_LEGEND, URBAN_LEGEND, URBAN_LEGEND,
                 ATTACK_BLACK, SKILL_BLACK, POWER_BLACK, ENERGY_ORB_BLACK,
                 ATTACK_BLACK_PORTRAIT, SKILL_BLACK_PORTRAIT, POWER_BLACK_PORTRAIT,
-                ENERGY_ORB_BLACK_PORTRAIT, CARD_ENERGY_ORB);
+                ENERGY_ORB_BLACK_PORTRAIT, CARD_ENERGY_ORB_BLACK);
+        BaseMod.addColor(Enums.SHOP_SPECIAL, SHOP_SPECIAL, SHOP_SPECIAL, SHOP_SPECIAL,
+                SHOP_SPECIAL, SHOP_SPECIAL, SHOP_SPECIAL, SHOP_SPECIAL,
+                ATTACK_GREEN, SKILL_GREEN, POWER_GREEN, ENERGY_ORB_GREEN,
+                ATTACK_GREEN_PORTRAIT, SKILL_GREEN_PORTRAIT, POWER_GREEN_PORTRAIT,
+                ENERGY_ORB_GREEN_PORTRAIT, CARD_ENERGY_ORB_GREEN);
+        BaseMod.addColor(Enums.LUNAR, LUNAR, LUNAR, LUNAR,
+                LUNAR, LUNAR, LUNAR, LUNAR,
+                ATTACK_LUNAR, SKILL_LUNAR, POWER_LUNAR, ENERGY_ORB_LUNAR,
+                ATTACK_LUNAR_PORTRAIT, SKILL_LUNAR_PORTRAIT, POWER_LUNAR_PORTRAIT,
+                ENERGY_ORB_LUNAR_PORTRAIT, CARD_ENERGY_ORB_LUNAR);
         loadConfigData();
     }
     
@@ -367,14 +488,13 @@ public class GensokyoMod implements
         
         BaseMod.registerModBadge(badgeTexture, MODNAME, AUTHOR, DESCRIPTION, settingsPanel);
 
-        // Universal
-        CustomIntent.add(new TempHPIntent());
-        BaseMod.addMonster(Nitori.ID, (BaseMod.GetMonster) Nitori::new);
-
         //Act 1
         (new Gensokyo()).addAct(Exordium.ID);
         (new Gensokyoer()).addAct(TheCity.ID);
+        (new Gensokyoest()).addAct(TheBeyond.ID);
 
+
+        //Act 1
         BaseMod.addMonster(Yukari.ID, (BaseMod.GetMonster)Yukari::new);
         BaseMod.addMonster(Kokoro.ID, (BaseMod.GetMonster)Kokoro::new);
         BaseMod.addMonster(Reimu.ID, (BaseMod.GetMonster)Reimu::new);
@@ -418,7 +538,6 @@ public class GensokyoMod implements
 
         //Act 2
         CustomIntent.add(new AreaAttackIntent());
-        //CustomIntent.add(new DeathIntent());
         CustomIntent.add(new PurifyIntent());
         BaseMod.addMonster(Kaguya.ID, (BaseMod.GetMonster) Kaguya::new);
         BaseMod.addMonster(Eiki.ID, (BaseMod.GetMonster) Eiki::new);
@@ -430,7 +549,6 @@ public class GensokyoMod implements
         BaseMod.addMonster(Reisen.ID, (BaseMod.GetMonster) Reisen::new);
         BaseMod.addMonster(Koishi.ID, (BaseMod.GetMonster) Koishi::new);
         BaseMod.addMonster(Tenshi.ID, (BaseMod.GetMonster) Tenshi::new);
-        BaseMod.addMonster(Yuyuko.ID, (BaseMod.GetMonster) Yuyuko::new);
 
         BaseMod.addBoss(Gensokyoer.ID, Kaguya.ID, "GensokyoResources/images/monsters/Kaguya/Kaguya.png", "GensokyoResources/images/monsters/Kaguya/KaguyaOutline.png");
         BaseMod.addBoss(Gensokyoer.ID, Eiki.ID, "GensokyoResources/images/monsters/Eiki/Eiki.png", "GensokyoResources/images/monsters/Eiki/EikiOutline.png");
@@ -481,6 +599,59 @@ public class GensokyoMod implements
                 }));
 
 
+        //Act 3
+        CustomIntent.add(new DeathIntent());
+        CustomIntent.add(new CurseAttackIntent());
+
+        BaseMod.addMonster(EncounterIDs.SCARLET_DEVILS, "Scarlet Devils", () -> new MonsterGroup(
+                new AbstractMonster[] {
+                        new Remilia(-480.0F, 0.0F),
+                        new Flandre(),
+                }));
+        BaseMod.addMonster(Yuyuko.ID, (BaseMod.GetMonster) Yuyuko::new);
+        BaseMod.addMonster(Shinki.ID, (BaseMod.GetMonster) Shinki::new);
+
+        BaseMod.addBoss(Gensokyoest.ID, EncounterIDs.SCARLET_DEVILS, "GensokyoResources/images/monsters/Flandre/Sisters.png", "GensokyoResources/images/monsters/Flandre/SistersOutline.png");
+        BaseMod.addBoss(Gensokyoest.ID, Yuyuko.ID, "GensokyoResources/images/monsters/Yuyuko/Yuyuko.png", "GensokyoResources/images/monsters/Yuyuko/YuyukoOutline.png");
+        BaseMod.addBoss(Gensokyoest.ID, Shinki.ID, "GensokyoResources/images/monsters/Shinki/Shinki.png", "GensokyoResources/images/monsters/Shinki/ShinkiOutline.png");
+
+        BaseMod.addMonster(Doremy.ID, (BaseMod.GetMonster) Doremy::new);
+        BaseMod.addMonster(Marisa.ID, (BaseMod.GetMonster) Marisa::new);
+        BaseMod.addMonster(Kasen.ID, (BaseMod.GetMonster) Kasen::new);
+
+        BaseMod.addMonster(Mokou.ID, (BaseMod.GetMonster) Mokou::new);
+
+        BaseMod.addMonster(SeedOfUnknown.ID, (BaseMod.GetMonster) SeedOfUnknown::new);
+        BaseMod.addMonster(AncientGuardian.ID, (BaseMod.GetMonster) AncientGuardian::new);
+        BaseMod.addMonster(Rafflesia.ID, (BaseMod.GetMonster) Rafflesia::new);
+        BaseMod.addMonster(AtlasGolem.ID, (BaseMod.GetMonster) AtlasGolem::new);
+        BaseMod.addMonster(EncounterIDs.DUSK_AND_DAWN, "Dusk_and_Dawn", () -> new MonsterGroup(
+                new AbstractMonster[] {
+                        new Dawnsword(-450.0F, 0.0F),
+                        new Duskaxe(-150.0F, 0.0F),
+                }));
+        BaseMod.addMonster(EncounterIDs.BATS_3, "3_Bats", () -> new MonsterGroup(
+                new AbstractMonster[] {
+                        new LoudBat(-450.0F, 0.0F),
+                        new VampireBat(-200.0F, 0.0F),
+                        new FeralBat(50.0F, 0.0F)
+                }));
+        BaseMod.addMonster(EncounterIDs.BATS_4, "4_Bats", () -> new MonsterGroup(
+                new AbstractMonster[] {
+                        new LoudBat(-450.0F, 0.0F),
+                        new VampireBat(-200.0F, 0.0F),
+                        new VampireBat(50.0F, 0.0F),
+                        new FeralBat(300.0F, 0.0F)
+                }));
+        BaseMod.addMonster(Sharpion.ID, (BaseMod.GetMonster) Sharpion::new);
+        BaseMod.addMonster(EncounterIDs.BOULDERS_3, "3_Boulders", () -> new MonsterGroup(
+                new AbstractMonster[] {
+                        new MadBoulder(-450.0F, 0.0F),
+                        new MadBoulder(-150.0F, 0.0F),
+                        new MadBoulder(150.0F, 0.0F)
+                }));
+
+
         // =============== EVENTS =================
 
         //Act 1
@@ -512,7 +683,7 @@ public class GensokyoMod implements
         }
 
 
-        //Act2
+        //Act 2
         BaseMod.addEvent(AndThenThereWereNone.ID, AndThenThereWereNone.class, Gensokyoer.ID);
         BaseMod.addEvent(NightmareOfHeian.ID, NightmareOfHeian.class, Gensokyoer.ID);
         BaseMod.addEvent(Impoverished.ID, Impoverished.class, Gensokyoer.ID);
@@ -530,7 +701,20 @@ public class GensokyoMod implements
         BaseMod.addEvent(Boo.ID, Boo.class, Gensokyoer.ID);
         BaseMod.addEvent(PhantomEnsemble.ID, PhantomEnsemble.class, Gensokyoer.ID);
         BaseMod.addEvent(ClashOfLegends.ID, ClashOfLegends.class, Gensokyoer.ID);
-        
+
+
+        //Act 3
+        BaseMod.addEvent(TheDreamer.ID, TheDreamer.class, Gensokyoest.ID);
+        BaseMod.addEvent(IAmNotThere.ID, IAmNotThere.class, Gensokyoest.ID);
+        BaseMod.addEvent(OwlFriend.ID, OwlFriend.class, Gensokyoest.ID);
+        BaseMod.addEvent(PrincessOfTheMoon.ID, PrincessOfTheMoon.class, Gensokyoest.ID);
+        BaseMod.addEvent(KappaWarehouse.ID, KappaWarehouse.class, Gensokyoest.ID);
+        BaseMod.addEvent(BloodForBlood.ID, BloodForBlood.class, Gensokyoest.ID);
+        BaseMod.addEvent(SomeoneElsesStory.ID, SomeoneElsesStory.class, Gensokyoest.ID);
+        BaseMod.addEvent(MedicineSeller.ID, MedicineSeller.class, Gensokyoest.ID);
+        BaseMod.addEvent(ProphetOfDisaster.ID, ProphetOfDisaster.class, Gensokyoest.ID);
+        BaseMod.addEvent(ProbabilitySpaceHypervessel.ID, ProbabilitySpaceHypervessel.class, Gensokyoest.ID);
+        BaseMod.addEvent(ThoseWhoFightMonsters.ID, ThoseWhoFightMonsters.class, Gensokyoest.ID);
         // =============== /EVENTS/ =================
 
         logger.info("Done loading badge Image and mod options");
@@ -710,6 +894,16 @@ public class GensokyoMod implements
         BaseMod.addRelic(new DirgeOfMelancholy(), RelicType.SHARED);
         BaseMod.addRelic(new SongOfSouls(), RelicType.SHARED);
 
+        //Act 3
+        BaseMod.addRelic(new EmptyGrave(), RelicType.SHARED);
+        BaseMod.addRelic(new DualWield(), RelicType.SHARED);
+        BaseMod.addRelic(new TheCrow(), RelicType.SHARED);
+
+        //Other relics
+        if (hasFriendlyMinions) {
+            BaseMod.addRelic(new Companionship(), RelicType.SHARED);
+        }
+
         logger.info("Done adding relics!");
     }
     
@@ -737,6 +931,11 @@ public class GensokyoMod implements
         BaseMod.addCard(new ReflexRadar());
         BaseMod.addCard(new MindShatter());
         BaseMod.addCard(new ShootingStar());
+        BaseMod.addCard(new Butterfly());
+        BaseMod.addCard(new CustomPotion());
+        BaseMod.addCard(new GreaterSplit());
+        BaseMod.addCard(new PrivateSquare());
+        BaseMod.addCard(new InfectedWound());
 
         //Urban Legends
         BaseMod.addCard(new MissMary());
@@ -757,6 +956,53 @@ public class GensokyoMod implements
         BaseMod.addCard(new Apocalypse());
         BaseMod.addCard(new SlitMouthedWoman());
         BaseMod.addCard(new Doppelganger());
+
+        //Pets
+        if (hasFriendlyMinions) {
+            BaseMod.addCard(new SummonYinYangFox());
+            BaseMod.addCard(new SummonFieryMouse());
+            BaseMod.addCard(new SummonJeweledCobra());
+            BaseMod.addCard(new SummonPsychicCat());
+        }
+
+        //Evolve cards
+        if (hasFriendlyMinions) {
+            BaseMod.addCard(new MysteriousEgg());
+            BaseMod.addCard(new ExoticEgg());
+        }
+        BaseMod.addCard(new BlemishedSteel());
+        BaseMod.addCard(new DepletedGenerator());
+        BaseMod.addCard(new LockedMedkit());
+        BaseMod.addCard(new RustyChest());
+        BaseMod.addCard(new ScrapIron());
+        BaseMod.addCard(new Shovel());
+        BaseMod.addCard(new TarnishedGold());
+        BaseMod.addCard(new TrainingManual());
+
+        //Item cards
+        BaseMod.addCard(new RPG());
+        BaseMod.addCard(new Taser());
+        BaseMod.addCard(new ReactiveArmor());
+        BaseMod.addCard(new OverchargedCore());
+        BaseMod.addCard(new MedicineKit());
+        BaseMod.addCard(new LifeforceConverter());
+
+        //Lunar cards
+        BaseMod.addCard(new BrilliantDragonBullet());
+        BaseMod.addCard(new SalamanderShield());
+        BaseMod.addCard(new BuddhistDiamond());
+        BaseMod.addCard(new NewMoon());
+        BaseMod.addCard(new MorningMist());
+        BaseMod.addCard(new EverlastingLife());
+        BaseMod.addCard(new LifeSpringInfinity());
+        BaseMod.addCard(new DreamlikeParadise());
+        BaseMod.addCard(new RainbowDanmaku());
+        BaseMod.addCard(new UnlikelyAid());
+        BaseMod.addCard(new MorningStar());
+        BaseMod.addCard(new RisingWorld());
+        BaseMod.addCard(new HouraiInAPot());
+        BaseMod.addCard(new Dawn());
+        BaseMod.addCard(new UnhurriedMind());
 
         if (hasMarisa) {
             BaseMod.addCard(new MarisaTwilightSpark());

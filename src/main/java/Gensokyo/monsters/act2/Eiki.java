@@ -63,16 +63,16 @@ public class Eiki extends AbstractSpriterMonster
 
     private static final int DEBUFF_AMOUNT = 1;
 
-    private static final int ROD_DAMAGE = 18;
-    private static final int A4_ROD_DAMAGE = 20;
+    private static final int ROD_DAMAGE = 20;
+    private static final int A4_ROD_DAMAGE = 22;
     private int rodDamage;
 
-    private static final int SIN_DAMAGE = 13;
-    private static final int A4_SIN_DAMAGE = 14;
+    private static final int SIN_DAMAGE = 15;
+    private static final int A4_SIN_DAMAGE = 16;
     private int sinDamage;
 
-    private static final int STRENGTH = 3;
-    private static final int A19_STRENGTH = 4;
+    private static final int STRENGTH = 4;
+    private static final int A19_STRENGTH = 6;
     private int strength;
 
     public int guiltCount;

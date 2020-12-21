@@ -35,6 +35,7 @@ import com.megacrit.cardcrawl.powers.StrengthPower;
 import com.megacrit.cardcrawl.powers.VulnerablePower;
 import com.megacrit.cardcrawl.powers.WeakPower;
 import com.megacrit.cardcrawl.relics.AbstractRelic;
+import com.megacrit.cardcrawl.unlock.UnlockTracker;
 import com.megacrit.cardcrawl.vfx.cardManip.ShowCardAndAddToHandEffect;
 import com.megacrit.cardcrawl.vfx.combat.GhostIgniteEffect;
 
@@ -158,6 +159,7 @@ public class Kaguya extends CustomMonster
         this.addToBot(new ApplyPowerAction(this, this, new DummyLunaticPrincess(this, strengthGain)));
         this.addToBot(new ApplyPowerAction(AbstractDungeon.player, this, new LunaticPrincess(AbstractDungeon.player, strengthGain, this, request)));
         AbstractDungeon.effectList.add(new ShowCardAndAddToHandEffect(request));
+        UnlockTracker.unlockCard(ImpossibleRequest.ID);
     }
     
     @Override

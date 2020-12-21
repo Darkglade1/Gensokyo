@@ -1,5 +1,6 @@
 package Gensokyo.rooms.nitori;
 
+import Gensokyo.GensokyoMod;
 import Gensokyo.rooms.nitori.helpers.NitoriStoreTools;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.Color;
@@ -10,19 +11,18 @@ import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.core.Settings;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.helpers.MathHelper;
-import com.megacrit.cardcrawl.localization.UIStrings;
 import com.megacrit.cardcrawl.vfx.BobEffect;
 
 import static Gensokyo.GensokyoMod.makeUIPath;
 import static Gensokyo.patches.NitoriShopPatches.NITORI_STORE;
 
 public class NitoriStoreScreen {
+    public static final String ID = GensokyoMod.makeID("NitoriShop");
+    public static final String[] TEXT = CardCrawlGame.languagePack.getUIString(ID).TEXT;
 
     protected static NitoriStoreTools.SpinningCardItems cards;
     protected static NitoriStoreTools.SpinningRelicItems relics;
     protected static NitoriStoreTools.CosmoBanners banners;
-    protected static NitoriStoreTools.purgeRelicsPage purgeRelics;
-    protected static NitoriStoreTools.randomRelicsPage randomRelics;
 
     protected static float yScale;
     protected static int currentRenderSwitch;
@@ -42,26 +42,26 @@ public class NitoriStoreScreen {
         seaImg = new Texture(seaImagePath);
         cards = new NitoriStoreTools.SpinningCardItems();
         relics = new NitoriStoreTools.SpinningRelicItems();
-        purgeRelics = new NitoriStoreTools.purgeRelicsPage();
-        randomRelics = new NitoriStoreTools.randomRelicsPage();
         banners = new NitoriStoreTools.CosmoBanners();
     }
 
     public static void open() {
         rugY = Settings.HEIGHT;
         pullY = Settings.HEIGHT;
-        //if (questLogStrings == null) questLogStrings = CardCrawlGame.languagePack.getUIString("QuestLog");
         AbstractDungeon.player.releaseCard();
         AbstractDungeon.screen = NITORI_STORE;
         AbstractDungeon.overlayMenu.showBlackScreen();
         AbstractDungeon.overlayMenu.proceedButton.hide();
-        AbstractDungeon.overlayMenu.cancelButton.show("Return");
-        AbstractDungeon.isScreenUp = true;
+        AbstractDungeon.overlayMenu.cancelButton.show(TEXT[0]);
+        //AbstractDungeon.isScreenUp = true;
 
         if (MathUtils.randomBoolean()) { CardCrawlGame.sound.play("MAP_OPEN", 0.1f);
         } else { CardCrawlGame.sound.play("MAP_OPEN_2", 0.1f); }
 
         yScale = 0.0f;
+
+        NitoriStoreScreen.setRenderSwitch(1); //automatically bring up the cards page
+        NitoriStoreScreen.setPullY(Settings.HEIGHT);
     }
 
     public static void close() {
@@ -93,12 +93,6 @@ public class NitoriStoreScreen {
             case 2:
                 relics.render(sb);
                 break;
-            case 3:
-                randomRelics.render(sb);
-                break;
-            case 4:
-                purgeRelics.render(sb);
-                break;
             default:
                 break;
         }
@@ -106,19 +100,12 @@ public class NitoriStoreScreen {
     }
 
     public static void update() {
-        purgeRelics.update();
         switch (currentRenderSwitch){
             case 1:
                 cards.update();
                 break;
             case 2:
                 relics.update();
-                break;
-            case 3:
-                randomRelics.update();
-                break;
-            case 4:
-                purgeRelics.update();
                 break;
             default:
                 break;

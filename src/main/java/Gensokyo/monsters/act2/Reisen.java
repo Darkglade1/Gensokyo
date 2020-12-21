@@ -168,12 +168,10 @@ public class Reisen extends CustomMonster
         Kune minion2 = new Kune(-300.0F, 0.0F, this, 1);
         minions[1] = minion2;
         AbstractDungeon.actionManager.addToBottom(new SpawnMonsterAction(minion2, true));
-        //AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(minion2, this, new ThingOfNightmares(minion2, this)));
 
         Kune minion1 = new Kune(-500.0F, 0.0F, this, 0);
         minions[0] = minion1;
         AbstractDungeon.actionManager.addToBottom(new SpawnMonsterAction(minion1, true));
-        //AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(minion1, this, new ThingOfNightmares(minion1, this)));
     }
 
     @Override

@@ -172,6 +172,41 @@
       "Whenever you play a Strike or Defend card, #yexhaust it."
     ]
   },
+  "Gensokyo:Companionship": {
+    "NAME": "Companionship",
+    "FLAVOR": "It's those small moments you end up remembering for the rest of your life.",
+    "DESCRIPTIONS": [
+      " Transfer up to #b", " #yBlock from you to your #ygensokyo:Pet."
+    ]
+  },
+  "Gensokyo:EmptyGrave": {
+    "NAME": "Empty Grave",
+    "FLAVOR": "I am not there. I did not die.",
+    "DESCRIPTIONS": [
+      "After climbing #b", " floors, heal #b", "% of your Max HP."
+    ]
+  },
+  "Gensokyo:DualWield": {
+    "NAME": "Dual Wield",
+    "FLAVOR": "Rip and tear, a bloody grin. \n Reap and sow, a horrid din.",
+    "DESCRIPTIONS": [
+      "Your single-target #yAttacks deal damage to ALL enemies."
+    ]
+  },
+  "Gensokyo:TheCrow": {
+    "NAME": "The Crow",
+    "FLAVOR": "Power beckons, sweet and smile. \n Madness answers, bleak and vile.",
+    "DESCRIPTIONS": [
+      "At the end of your turn, gain #b", " #yRitual and take damage equal to the amount of #yStrength you have."
+    ]
+  },
+  "Gensokyo:DummyBloodcastTooltip": {
+    "NAME": "Bloodcast",
+    "FLAVOR": "",
+    "DESCRIPTIONS": [
+      "When you have insufficient [E] to play this card, you may instead pay #b1 HP for every missing [E] ."
+    ]
+  },
   "Gensokyo:MarisaIngredientList": {
     "NAME": "Ingredient List",
     "FLAVOR": "A bunch of messy scribbles on a page. Apparently creates something known as the \"Improbability Potion\".",
@@ -193,27 +228,6 @@
     "FLAVOR": "Said to transform lead into gold.",
     "DESCRIPTIONS": [
       "At the start of your turn, #yexhaust a card and add a random card of the #ynext #yrarity to your hand."
-    ]
-  },
-  "Gensokyo:NitoriBomb": {
-    "NAME": "Fervent Star",
-    "FLAVOR": "Hey...! NL You're just going through the files and looking for stuff you missed, aren't you?",
-    "DESCRIPTIONS": [
-      "When purchased, remove #b%s card from your deck."
-    ]
-  },
-  "Gensokyo:NitoriRandom": {
-    "NAME": "Unknown Invention",
-    "FLAVOR": "Hey...! NL You're just going through the files and looking for stuff you missed, aren't you?",
-    "DESCRIPTIONS": [
-      "When purchased, gain a random common, uncommon or rare relic."
-    ]
-  },
-  "Gensokyo:NitoriTicket": {
-    "NAME": "Aqua Ticket",
-    "FLAVOR": "A memento from Nitori.",
-    "DESCRIPTIONS": [
-      "Items in Nitori's shop cost #b%1$s%% less. NL Gain #b%2$s #yGold. NL Whenever you climb a floor, gain #b%3$s #yGold. NL Whenever you add a card to your deck, gain #b%4$s #yGold."
     ]
   }
 }

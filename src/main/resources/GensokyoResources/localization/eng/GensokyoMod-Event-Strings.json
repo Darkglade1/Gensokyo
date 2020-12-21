@@ -653,6 +653,326 @@
       "[Leave]"
     ]
   },
+  "Gensokyo:TheDreamer": {
+    "NAME": "The Dreamer",
+    "DESCRIPTIONS": [
+      "\"Inside a #pdream, I laugh, and the world laughs with me.\" NL NL \"Inside a #pdream, I forget, and the world forgets with me.\" NL NL \"Inside a #pdream, I am the #yworld.\"",
+      "The dream smiles at you. \"Hello, ",
+      "!\" NL NL Inside a #pdream, the world dances around you, and you find yourself dancing around the world.",
+      "The #pdream fades away, and you feel a part of yourself fade away with it."
+    ],
+    "OPTIONS": [
+      "[Continue]",
+      "[Hello, world!] ",
+      "[Remain silent] ",
+      "#gGive #g",
+      " #gcard ",
+      " #gcards ",
+      "#gin #gyour #gdeck #gRetain.",
+      "#gin #gyour #gdeck #gEthereal.",
+      "#gin #gyour #gdeck #gExhaust.",
+      "Select ",
+      " Card ",
+      " Cards ",
+      "to give Retain.",
+      "to give Ethereal.",
+      "to give Exhaust.",
+      "[Locked] Requires: Non-Ethereal Card",
+      "[Locked] Requires: Card",
+      "[Leave]"
+    ]
+  },
+  "Gensokyo:IAmNotThere": {
+    "NAME": "I Am Not There",
+    "DESCRIPTIONS": [
+      "The village is quiet, enveloped in a #psomber atmosphere. Villagers dressed in #pblack trek across the streets, forming a long, mournful procession. NL NL In the distance, you see a crowd gathered around an upraised #pcoffin. NL NL Who was it, you wonder? NL NL Who were they to these people?",
+      "You blend into the crowd of onlookers around the #pcoffin. You watch along with the others as a man strode forth to stand atop a raised dais. NL NL \"Do not stand at my #pgrave and weep!\" NL NL The man paused, his voice @choking@ with #yemotion. \"That was her dying wish to us, to those she left behind. Even if we know she will return, years and years from now, that means little to us, for we will not see her again in our lifetimes. And so today we will be selfish and mourn, for today we have all lost someone precious to us.\"",
+      "As the ceremony progressed, you felt an #rache in your heart as well. NL NL Because even if you did not know the deceased, did not know who they were to these people, you could tell that these people were hurting from a #rwound that may never truly heal.",
+      "You did not feel the need to satisfy your curiosity on the matter."
+    ],
+    "OPTIONS": [
+      "[Continue]",
+      "[Attend] #rLose #r",
+      " #rMax #rHP. #gObtain #ga #gSpecial #gRelic.",
+      "[Leave]"
+    ]
+  },
+  "Gensokyo:CandidFriend": {
+    "NAME": "Candid Friend",
+    "DESCRIPTIONS": [
+      "In the middle of the Genbu Ravine, you notice a short girl sitting on a rug, fiddling away with tools. NL She seems to be busy, but still manages to talk to you while working. NL \"By the way, it's dangerous to go any further, so how about you prepare before you leave?\"",
+      "Nitori seems suprised. NL \"You wanted to fight me?\" NL \"I'd like to try some new weapons I made, so okay!\"",
+      "You leave, allowing her to continue working."
+    ],
+    "OPTIONS": [
+      "[ #rWarning! ] #rFight. #gReward: #g???",
+      "[Inspect Shop]",
+      "[Leave]",
+      "[Fight]"
+    ]
+  },
+  "Gensokyo:OwlFriend": {
+    "NAME": "Owl Friend",
+    "DESCRIPTIONS": [
+      "The forest around you is thick, but as you push through the trees to reach a clearing, you see a #pmysterious creature there. It turns to face you, speaking in a strangely distorted voice. NL NL \"Has a #gfriend come to #grest, NL NL Within the #ybowels of my #ynest?\"",
+      "You don't trust this creature, so you say your excuses and prepare to make a hasty retreat. NL NL \"Gifts I bear for those in #rneed. NL NL All yours, perhaps, for but a #rdeed.\"",
+      "The deed is short, swift, and #rbloody. The creature seems pleased by your decision. NL NL \"A monster is one with inhuman #rpower. NL NL So what is a human who makes others #rcower?\"",
+      "You don't trust the creature or its supposed gifts."
+    ],
+    "OPTIONS": [
+      "[Continue]",
+      "[Gift of Madness] #gObtain #ga #gSpecial #gRelic.",
+      "[Gift of Violence] #gObtain #ga #gSpecial #gRelic.",
+      " #rGive #r",
+      " #rcard ",
+      " #rcards ",
+      "#rin #ryour #rdeck #rAutoplay.",
+      "#rin #ryour #rdeck #rUnplayable.",
+      "Select ",
+      " Card ",
+      " Cards ",
+      "to give Autoplay.",
+      "to give Unplayable.",
+      "[Locked] Requires: Playable cards",
+      "[Leave]"
+    ]
+  },
+  "Gensokyo:PrincessOfTheMoon": {
+    "NAME": "Princess of the Moon",
+    "DESCRIPTIONS": [
+      "You find yourself in the bamboo #gforest again, and as you're trekking along, you come across a cabin in the woods. NL NL You peer in one of the windows and see a woman sitting on a couch. NL NL \"Ah, being able to visit teacher every so often is quite nice. But I wonder why she decided to lecture us on the merits between using #rforce or #gdiplomacy? Is it not obvious that #gdiplomacy is the superior choice? I think everyone would be happier if wars were won with #gwords rather than #rweapons.\"",
+      "The woman pauses, biting into a peach. NL NL \"What do you think, stranger? Would you rather conquer others with #gwords or #rweapons?\" NL NL You flinch from being addressed so suddenly, scrambling for a response.",
+      "\"You would agree with my sister, then? I should've expected as much from a denizen of this #pimpure planet.\" NL NL The woman sighs, clearly disappointed by your choice. NL NL \"But the way of words involves respecting the words of others as well, so I suppose I'll leave you to enact your wanton #rviolence.\" NL NL Space distorts around the woman, and with a brief flash of light, she disappears.",
+      "\"I'm glad to see you chose the civilized approach. Perhaps there's hope for this #pimpure planet after all.\" NL NL The woman smiled, pure and honest. NL NL \"Ah, but I must get going. My sister will worry if I tarry here for too long.\" NL NL Space distorts around the woman, and with a brief flash of light, she disappears.",
+      "You slip away, unwilling to engage the woman in a philosophical discussion."
+    ],
+    "OPTIONS": [
+      "[Continue]",
+      "[Weapons] #gRemove #g",
+      " #gSkills #gfrom #gyour #gdeck.",
+      "[Words] #gRemove #g",
+      " #gAttacks #gfrom #gyour #gdeck.",
+      "[Locked] Requires: Skills",
+      "[Locked] Requires: Attacks",
+      "Select Cards to Remove.",
+      "[Leave]"
+    ]
+  },
+  "Gensokyo:KappaWarehouse": {
+    "NAME": "Kappa Warehouse",
+    "DESCRIPTIONS": [
+      "You come across an abandoned warehouse in the woods. A sign on the door says, \"Kappa Territory! Keep Out!\" NL NL But you can't read the Kappa's language, so that sign can't stop you. NL NL You enter the warehouse and find all manner of odd #ycontraptions and #yartifacts stashed inside.",
+      "You grab something that seems vaguely useful. Perhaps it'll come in handy later.",
+      "You don't feel like trusting unfamiliar technology."
+    ],
+    "OPTIONS": [
+      "[Take something] #gObtain ",
+      ".",
+      "[Leave]"
+    ]
+  },
+  "Gensokyo:BloodForBlood": {
+    "NAME": "Blood for Blood",
+    "DESCRIPTIONS": [
+      "The #pgraveyard is chilling, both figuratively and literally. Perhaps skulking around in the #pdead of #pnight in a place like this wasn't such a great idea after all? NL NL You pause as you notice a tombstone with #rblood splattered over it. You feel drawn to it, eyes riveted on that #rblood-soaked marble; perhaps if you offered #rblood to it, you would be granted great #ypower.",
+      "Your #rblood seeps into the stone, and you hear a ghostly whisper in your ears. NL NL \"Another one in search of my guidance? Tonight sure has been busy for me.\" NL NL The #pspirit grins at you, #pdark and #psinister. NL NL \"But if it's #ypower you @want,@ it's #ypower you'll @get!\"@ NL NL She waves a hand, and you feel your #rblood boil and #yawaken.",
+      "Making a #rblood sacrifice in the #pdead of #pnight to a strange tombstone didn't sound like the greatest idea."
+    ],
+    "OPTIONS": [
+      "[Make a sacrifice] #rLose #r",
+      " #rHP.",
+      " #gGive #g",
+      " #gcard ",
+      " #gcards ",
+      "#gin #gyour #gdeck #gBloodcast.",
+      "Select ",
+      " Card ",
+      " Cards ",
+      "to give Bloodcast.",
+      "[Locked] Requires: Valid Cards",
+      "[Leave]"
+    ]
+  },
+  "Gensokyo:SomeoneElsesStory": {
+    "NAME": "Someone Else's Story",
+    "DESCRIPTIONS": [
+      "You find yourself in the midst of a festival, people of all shapes, sizes, and #punusual appendages bustling about around you. In the center of a crowd, you see someone who seems to be recounting a tale of long ago. NL NL \"And there we were, my #rmortal #renemy and I ready to fight to the @death@ once ~more~ -\" NL NL The woman hiccups, and you deduce that she is probably drunk.",
+      "\"And with a mighty blow, #gvictory was mine once again!\" NL NL The crowd cheers at the clearly exaggerated story, and you shake your head in disbelief before moving on.",
+      "\"Alas, my #rmortal #renemy got the better of me that day. But fret not, for I will soon have my #pvengeance on her!\" NL NL The crowd cheers at the clearly exaggerated story, and you shake your head in disbelief before moving on.",
+      "You briefly listen to the woman's tales of #pimpossible feats and #pimpossible requests. NL NL Most of it sounds unbelievable, but you feel like you still managed to learn something about the people of this land."
+    ],
+    "OPTIONS": [
+      "[Listen closely] #rFight #ra #rspecial #renemy. #gAdd #ga #grare #gLunar #gcard #gto #gyour #gdeck.",
+      "[Listen briefly] #gAdd #ga #gLunar #gcard #gto #gyour #gdeck.",
+      "[Leave]"
+    ]
+  },
+  "Gensokyo:MedicineSeller": {
+    "NAME": "Medicine Seller",
+    "DESCRIPTIONS": [
+      "You notice a #pshifty-looking character in the human village, moving between the houses and peddling her wares. The villagers seem to respond to her quite #gwarmly, so you decide to approach her as well to see what services she offers. NL NL The figure turns to you as you approach, smiling. NL NL \"Hey, want to buy a potion? I can custom make something to suit your needs!\"",
+      "\"Alright. Tell me what you want.\"",
+      "\"That should be good enough! Although if you throw in a little #yextra, I can #gspice it up even more. How about it?\"",
+      "\"There we go! Thank you for your patronage.\" NL NL The figure walks away, leaving you with your custom #ypotion in hand. Hopefully, it's worth all the #ymoney you spent on it.",
+      "\"Ah, that's alright then. Thank you for your patronage.\" NL NL The figure walks away, leaving you with your custom #ypotion in hand. Hopefully, it's worth all the money you spent on it.",
+      "You don’t need a #ypotion for your journey."
+    ],
+    "OPTIONS": [
+      "[Accept] #rLose #r",
+      " #rGold. ",
+      "#gCreate #ga #gcustom #gcard #gto #gadd #gto #gyour #gdeck.",
+      "#gGive #gthe #gcustom #gcard ",
+      ".",
+      "[Refuse] Keep the custom card as is.",
+      "[Leave]",
+      "[Locked] Requires: Gold",
+      "#gMake #gthe #gcustom #gcard #gcost #g",
+      "#gGive #gthe #gcustom #gcard #gRetain.",
+      "#gGive #gthe #gcustom #gcard #gInnate."
+    ]
+  },
+  "Gensokyo:ProphetOfDisaster": {
+    "NAME": "Prophet of Disaster",
+    "DESCRIPTIONS": [
+      "You see a woman sitting in the distance, gazing at a shape twirling and twisting in the palm of her hand. NL NL \"Disaster will soon #pbefall you.\" NL NL You are startled by her sudden words and even more startled by her sudden portent of your #pdoom. NL NL \"I can read it in the #yair around you. It shouldn't be a surprise, given how much conflict you've been embroiled in since you've come here.\"",
+      "She stands up, dispelling the figure dancing in her hand. \"But it is my duty to prevent #pcalamities from happening, so I am willing to lend you a little #gaid.\" NL NL You certainly wouldn't be averse to receiving some help.",
+      "The watery figure coalesced back into her palm, where it danced, twirled, and shape-shifted into a #yrelic that neatly fit into your hand. NL NL \"It's not much, but I wish you the best of luck.\" NL NL You thank the woman for her help before continuing on your way."
+    ],
+    "OPTIONS": [
+      "[Accept] ",
+      "#rLose #r",
+      " #rHP. ",
+      "#gChoose #g1 #gof #g",
+      " #gRare ",
+      " #gUncommon ",
+      " #gCommon ",
+      "#gRelics #gto #gobtain.",
+      "[Leave]",
+      "[Continue]"
+    ]
+  },
+  "Gensokyo:ProbabilitySpaceHypervessel": {
+    "NAME": "Probability Space Hypervessel",
+    "DESCRIPTIONS": [
+      "You find another building out in the middle of nowhere, so like the bundle of #ycuriosity that you are, you decide to investigate. Inside, you find reality to be strangely #pdistorted, almost #psluggish. In the distance, you see what appears to be another person. NL NL \"Hello! My creator is not here at the moment, so please come back later!\" You try to talk to this humanoid figure, but it merely continues to repeat those words at you, so you decide to ignore it. Some of the tools here look quite interesting, perhaps even useful.",
+      "You poke around the laboratory for a while. Hopefully, whoever owns this place doesn't mind the mess you made."
+    ],
+    "OPTIONS": [
+      "[Improve yourself] #gUpgrade #g",
+      " #grandom #gcard.",
+      "[Perform experiment] #gTransform #ga #gcard #ginto #ga #grandom #gRare #gcard.",
+      "[Swipe some flasks] #gObtain #g",
+      " #gPotions.",
+      "Choose a Card to Transform",
+      "[Leave]"
+    ]
+  },
+  "Gensokyo:ThoseWhoFightMonsters": {
+    "NAME": "Those Who Fight Monsters",
+    "DESCRIPTIONS": [
+      "You hear #rfighting up ahead, and you arrive to see two figures in the sky duking it out with both #yblade and #ybullet. NL NL Perhaps you could learn something if you stayed to observe the outcome?",
+      "You observe the #rwarrior #rin #rred, taking note of the great #ystrength and #ypower behind her swings. Yet you could tell there was something missing in her resolve, some hint of #pdoubt that prevented her from reaching her full potential.",
+      "You observe the #bmaid #bin #bblue, taking note of the great #yagility and #ydexterity she displayed in evading her opponent's strikes. Yet you could spot a hint of #parrogance in her movements, a stubborn #ppride that prevented her from being truly serious in this fight.",
+      "You don't want to risk getting caught in the crossfire of this fight."
+    ],
+    "OPTIONS": [
+      "[Observe the woman in red] #gObtain ",
+      "[Observe the maid in blue] #gObtain ",
+      ". #rBecome #rCursed #r- ",
+      ".",
+      "[Leave]"
+    ]
+  },
+  "Gensokyo:AliceEvent1": {
+    "NAME": "A Demon Lord's Daughter",
+    "DESCRIPTIONS": [
+      "You were the god of this world. But even a god could become #plonely. To your creations, you were a figure on a pedestal, an #puntouchable being forever out of their reach. NL NL Perhaps that was why when a small human girl fell into your realm, a frail little thing that could've been a snack for any passing #pdemon, you intervened. \"This girl is my daughter,\" you told your loyal subjects. \"You would do well to treat her as such.\" NL NL And as you made such a #yproclamation, you remembered how the girl -"
+    ],
+    "OPTIONS": [
+      "[Gazed at you in wonder] #gDraw #g", " #gextra #gcard #gat #gthe #gstart #gof #gyour #gturn.",
+      "[Smiled at you in joy] #gNext #gturn #gand #gevery #g", " #gturns, #ggain #g", " #gEnergy."
+    ]
+  },
+  "Gensokyo:AliceEvent2": {
+    "NAME": "Daughter of Evil",
+    "DESCRIPTIONS": [
+      "But although you were a #gcapable god, you were a #rterrible parent. You didn't understand why she wanted so much attention from you. You didn't understand why she looked so #phorrified when you #rexecuted a #rtreacherous #pdemon. You didn't understand why she started to avoid you, why she started to shrink away from your touch. NL NL And when she walked into your office exactly one year later and asked if you remembered what day it was, you answered promptly: \"Of course,\" you said. \"It's Tuesday.\" NL NL But that must not have been the answer she expected, for she -"
+    ],
+    "OPTIONS": [
+      "[Flew into a rage] #rThis #rturn #rand #revery #r", " #rturns, #rspawn #r", " #rExplosive #rDoll(s).",
+      "[Spun on her heel and ran away] #rPut #r", " ", " #rinto #ryour #rhand."
+    ]
+  },
+  "Gensokyo:AliceEvent3": {
+    "NAME": "The One Who Left",
+    "DESCRIPTIONS": [
+      "The encounter with that shrine maiden had left your world in #rruins and your daughter missing. But no matter what nook you peered into, no matter what cranny you searched, she was nowhere to be found. Finally, in the #rruins of the room that was once hers, you find a letter. It contained only a single word: \"Goodbye.\" NL NL It shouldn't have mattered to you. You had only taken the girl in on a mere #pwhim. So why did it #phurt so much? NL NL And so you broke down there, @crying@ amidst the #rshattered remains of your #ydreams."
+    ],
+    "OPTIONS": [
+      "[It's your fault] #rThe #renemy #rgains #r", " #rMetallicize.",
+      "[It's her fault] #rThe #renemy #rheals #r", " #rHP."
+    ]
+  },
+  "Gensokyo:YumekoEvent1": {
+    "NAME": "Pride and Joy",
+    "DESCRIPTIONS": [
+      "The act of creation involved both #rpain and #ypride. Like any other craft, it required practice, churning out dozens of lesser demons before you could create one that you could confidently claim was your #ystrongest, most #yperfect creation. NL NL If any of your creations could be called a labor of love, it would be that one. You still remembered that ~wondrous~ day when your #ydream #ychild opened her eyes for the first time, when she took her first few steps in this world of yours. You remembered how she -"
+    ],
+    "OPTIONS": [
+      "[Embraced you and lifted you into the air] #gGain #g", " #gStrength.",
+      "[Danced around the room, laughing] #gGain #g", " #gDexterity."
+    ]
+  },
+  "Gensokyo:YumekoEvent2": {
+    "NAME": "Great Expectations",
+    "DESCRIPTIONS": [
+      "She desired to be #yperfect. NL NL Every little #rmistake, every subtle #pinadequacy - your #ydream #ychild stamped out each and every one of her deficiencies. Yet no matter how many flaws she erased, another one always cropped up, another way in which she was less than #yperfect. NL NL And as you watched her toil away in her self-improvement, you wondered whose fault it was for her continued struggles. After all, she was supposed to be your strongest, most perfect creation; if she continued to fail, then it meant that -"
+    ],
+    "OPTIONS": [
+      "[You weren't good enough] #rPut #r", " ", " #rinto #ryour #rhand.",
+      "[She wasn't good enough] #rPut #r", " ", " #rinto #ryour #rhand."
+    ]
+  },
+  "Gensokyo:YumekoEvent3": {
+    "NAME": "The One She Failed",
+    "DESCRIPTIONS": [
+      "Your #ydream #ychild #rfailed. She couldn't stop the shrine maiden. She couldn't stop the witch. She couldn't stop the evil spirit. You had to intervene, you had to unleash the #pcatastrophe on your world, and now your #ydream #ychild was #pdead. NL NL But it wasn't her fault. She failed because you could not give her the potential she deserved. Her #rblood was on your hands. NL NL You cradled your #ydream #ychild's broken body to your chest and cried amidst the ruins of your home."
+    ],
+    "OPTIONS": [
+      "[It's your mistake] #rShuffle #r", " ", " #rinto #ryour #rdraw #rpile.",
+      "[You should've done better] #rShuffle #r", " ", " #rinto #ryour #rdiscard #rpile."
+    ]
+  },
+  "Gensokyo:SarielEvent1": {
+    "NAME": "Angel of Death",
+    "DESCRIPTIONS": [
+      "In this world of yours, every child you brought forth was another #ygem to #gcherish. But some gems developed #rrough surfaces and #rsharp edges, defying your rules and causing trouble for your other children. NL NL You needed someone who could hunt down the criminals and troublemakers of your world and bring them to justice, an angel of #pdeath who would enforce the laws of the god of this world. NL NL To this child, you gave the #yloyalty to follow your every command. To this angel, you gave -"
+    ],
+    "OPTIONS": [
+      "[Strength to surpass all others] #gEvery #g", "th #gAttack #gyou #gplay #gis #gplayed #gtwice.",
+      "[Agility to pursue all who might flee] #gEvery #g", "th #gSkill #gyou #gplay #gis #gplayed #gtwice."
+    ]
+  },
+  "Gensokyo:SarielEvent2": {
+    "NAME": "Good Angels Never Die",
+    "DESCRIPTIONS": [
+      "Your little angel was #yperfect. NL NL All it took was a few whispered words from you, and she would take care of the problems #yquickly and #yefficiently. Before long, you heard rumors of an angel of #pdeath spreading amongst your other children, a #preaper who hunted down those who would dare cause a disturbance. Soon enough, the troublemakers and criminals stopped appearing, and you no longer needed to send your angel out. NL NL Soon enough, you forgot that you even had an angel at all. Until one day, when she quietly slipped into your office and asked:"
+    ],
+    "OPTIONS": [
+      "[Give me someone to kill] #rYou #rgain #r", " #rConstricted.",
+      "[Why did you abandon me?] #rYou #rgain #r", " #rHex."
+    ]
+  },
+  "Gensokyo:SarielEvent3": {
+    "NAME": "The One Left Behind",
+    "DESCRIPTIONS": [
+      "You found her standing there amidst the #pruins of Makai, the lone figure who had been all but forgotten. NL NL How #pfoolish of you. If you could’ve spared a thought for your #yangel, perhaps you could’ve sent her after the intruders. Perhaps your angel could’ve succeeded where others could not and prevented the #pcatastrophe from occurring. NL NL Your hand reached out to her to find that she's as cold as death. You realized that she had long since turned to stone, waiting for an order that would never come."
+    ],
+    "OPTIONS": [
+      "[This is your tragedy] #rYou #rgain #r" , " #rWeak #rand #rFrail.",
+      "[This is your mistake] #rYou #rgain #r" , " #rEntangled."
+    ]
+  },
   "Gensokyo:MarisaAnOldGhost": {
     "NAME": "An Old Ghost",
     "DESCRIPTIONS": [
@@ -741,30 +1061,6 @@
       "[Locked] Requires: Upgradeable Spark",
       "[???]",
       "Choose a Card to Transform"
-    ]
-  },
-  "Gensokyo:CandidFriend": {
-    "NAME": "Candid Friend",
-    "DESCRIPTIONS": [
-      "In the middle of the Genbu Ravine, you notice a short girl sat on a rug, fiddling away with tools. NL She seems to be busy, but still manages to talk to you while working. NL \"By the way, it's dangerous if you go any further, so how about you prepare before you leave?\"",
-      "Nitori seems suprised. NL \"You wanted to fight me?\" NL \"I'd like to try some new weapons I made, so okay!\"",
-      "You leave, allowing her to continue working."
-    ],
-    "OPTIONS": [
-      "[ #rWarning! ] #rFight. #gReward: #g???",
-      "[Inspect Shop]",
-      "[Leave]",
-      "[Fight]"
-    ]
-  },
-  "Gensokyo:CandidFailure": {
-    "NAME": "Candid Friend",
-    "DESCRIPTIONS": [
-      "You sit on the ground at the Genbu Ravine, parallel to Nitori. NL \"Thanks for the battle, I don't get to try my weapons in combat that often.",
-      "You leave, allowing her to continue working."
-    ],
-    "OPTIONS": [
-      "[Leave]"
     ]
   }
 }

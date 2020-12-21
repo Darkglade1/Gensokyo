@@ -6,13 +6,13 @@
     <groupId>gensokyo</groupId>
     <artifactId>Gensokyo</artifactId>
     <name>Gensokyo</name>
-    <version>3.0.0</version>
-    <description>An alternate Act 1  and 2 mod inspired by Touhou Project.</description>
+    <version>4.0.0</version>
+    <description>An alternate Act 1, 2, and 3 mod inspired by Touhou Project.</description>
 
     <properties>
         <maven.compiler.source>1.8</maven.compiler.source>
         <maven.compiler.target>1.8</maven.compiler.target>
-        <SlayTheSpire.version>01-27-2020</SlayTheSpire.version>
+        <SlayTheSpire.version>11-30-2020</SlayTheSpire.version>
         <ModTheSpire.version>3.8.0</ModTheSpire.version>
         <!--CHANGE THIS TO YOUR STEAM INSTALLATION-->
         <Steam.path>C:\Program Files (x86)\Steam\steamapps</Steam.path>
@@ -57,6 +57,13 @@
             <version>0.9.0</version>
             <scope>system</scope>
             <systemPath>${Steam.path}/workshop/content/646570/1934902042/actlikeit.jar</systemPath>
+        </dependency>
+        <dependency>
+            <groupId>friendlyminions</groupId>
+            <artifactId>FriendlyMinions</artifactId>
+            <version>0.2.0</version>
+            <scope>system</scope>
+            <systemPath>${Steam.path}/workshop/content/646570/1612426481/FriendlyMinions.jar</systemPath>
         </dependency>
         <dependency>
             <groupId>ThMod</groupId>

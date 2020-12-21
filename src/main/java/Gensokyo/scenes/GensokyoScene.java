@@ -1,6 +1,7 @@
 package Gensokyo.scenes;
 
 import Gensokyo.dungeon.Gensokyo;
+import Gensokyo.dungeon.Gensokyoer;
 import Gensokyo.monsters.act1.Aya;
 import Gensokyo.monsters.act1.Cirno;
 import Gensokyo.monsters.act1.Kokoro;
@@ -24,8 +25,26 @@ import Gensokyo.monsters.act2.NormalEnemies.TanukiDog;
 import Gensokyo.monsters.act2.NormalEnemies.Wraith;
 import Gensokyo.monsters.act2.Reisen;
 import Gensokyo.monsters.act2.Tenshi;
-import Gensokyo.monsters.act2.Yuyuko;
+import Gensokyo.monsters.act3.Kasen;
+import Gensokyo.monsters.act3.Marisa;
+import Gensokyo.monsters.act3.Mokou;
+import Gensokyo.monsters.act3.NormalEnemies.AncientGuardian;
+import Gensokyo.monsters.act3.NormalEnemies.AtlasGolem;
+import Gensokyo.monsters.act3.NormalEnemies.Dawnsword;
+import Gensokyo.monsters.act3.NormalEnemies.Duskaxe;
+import Gensokyo.monsters.act3.NormalEnemies.FeralBat;
+import Gensokyo.monsters.act3.NormalEnemies.LoudBat;
+import Gensokyo.monsters.act3.NormalEnemies.MadBoulder;
+import Gensokyo.monsters.act3.NormalEnemies.Rafflesia;
+import Gensokyo.monsters.act3.NormalEnemies.SeedOfUnknown;
+import Gensokyo.monsters.act3.NormalEnemies.Sharpion;
+import Gensokyo.monsters.act3.NormalEnemies.VampireBat;
+import Gensokyo.monsters.act3.Shinki.Shinki;
+import Gensokyo.monsters.act3.Yuyuko;
 import Gensokyo.monsters.act1.marisaMonsters.Patchouli;
+import Gensokyo.monsters.act3.Doremy;
+import Gensokyo.monsters.act3.Flandre;
+import Gensokyo.monsters.act3.Remilia;
 import Gensokyo.rooms.nitori.Nitori;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.Color;
@@ -113,7 +132,7 @@ public class GensokyoScene extends AbstractScene {
                 } else if (mo instanceof Reisen) {
                     this.bg = this.atlas.findRegion("mod/ElegantPlace");
                 } else if (mo instanceof Koishi) {
-                    this.bg = this.atlas.findRegion("mod/Palace");
+                    this.bg = this.atlas.findRegion("mod/PalaceBright");
                 } else if (mo instanceof Yuyuko) {
                     this.bg = this.atlas.findRegion("mod/ElegantPlace");
                 } else if (mo instanceof Tenshi) {
@@ -135,25 +154,53 @@ public class GensokyoScene extends AbstractScene {
                     this.bg = this.atlas.findRegion("mod/Desert");
                 } else if (mo instanceof BigMudSlime || mo instanceof SlimeBunny) {
                     this.bg = this.atlas.findRegion("mod/Desert");
+                } else if (mo instanceof Doremy) {
+                    this.bg = this.atlas.findRegion("mod/DreamWorld");
+                } else if (mo instanceof Flandre || mo instanceof Remilia) {
+                    this.bg = this.atlas.findRegion("mod/Palace");
+                } else if (mo instanceof Mokou) {
+                    this.bg = this.atlas.findRegion("mod/BambooForest");
+                } else if (mo instanceof Marisa) {
+                    this.bg = this.atlas.findRegion("mod/HakureiShrine");
+                } else if (mo instanceof Shinki) {
+                    this.bg = this.atlas.findRegion("mod/FancyPlaceNight");
+                } else if (mo instanceof Kasen) {
+                    this.bg = this.atlas.findRegion("mod/Hermit");
+                } else if (mo instanceof SeedOfUnknown) {
+                    this.bg = this.atlas.findRegion("mod/Cave");
+                } else if (mo instanceof AncientGuardian) {
+                    this.bg = this.atlas.findRegion("mod/Desert");
+                } else if (mo instanceof Rafflesia) {
+                    this.bg = this.atlas.findRegion("mod/Forest");
+                } else if (mo instanceof AtlasGolem) {
+                    this.bg = this.atlas.findRegion("mod/Cave");
+                } else if (mo instanceof Duskaxe || mo instanceof Dawnsword) {
+                    this.bg = this.atlas.findRegion("mod/Ruins");
+                } else if (mo instanceof VampireBat || mo instanceof FeralBat || mo instanceof LoudBat) {
+                    this.bg = this.atlas.findRegion("mod/Forest");
+                } else if (mo instanceof Sharpion) {
+                    this.bg = this.atlas.findRegion("mod/Desert");
+                } else if (mo instanceof MadBoulder) {
+                    this.bg = this.atlas.findRegion("mod/Island");
                 } else {
-                    if (CardCrawlGame.dungeon instanceof Gensokyo) {
-                        this.bg = this.atlas.findRegion("mod/TanukiForest");
-                    } else {
+                    if (CardCrawlGame.dungeon instanceof Gensokyoer) {
                         this.bg = this.atlas.findRegion("mod/TanukiForestNight");
+                    } else {
+                        this.bg = this.atlas.findRegion("mod/TanukiForest");
                     }
                 }
             }
         } else if (room instanceof ShopRoom) {
-            if (CardCrawlGame.dungeon instanceof Gensokyo) {
-                this.bg = this.atlas.findRegion("mod/Shop");
-            } else {
+            if (CardCrawlGame.dungeon instanceof Gensokyoer) {
                 this.bg = this.atlas.findRegion("mod/HumanVillage");
+            } else {
+                this.bg = this.atlas.findRegion("mod/Shop");
             }
         } else {
-            if (CardCrawlGame.dungeon instanceof Gensokyo) {
-                this.bg = this.atlas.findRegion("mod/TanukiForest");
-            } else {
+            if (CardCrawlGame.dungeon instanceof Gensokyoer) {
                 this.bg = this.atlas.findRegion("mod/TanukiForestNight");
+            } else {
+                this.bg = this.atlas.findRegion("mod/TanukiForest");
             }
         }
         this.fadeInAmbiance();

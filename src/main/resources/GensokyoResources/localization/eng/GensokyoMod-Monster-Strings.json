@@ -232,35 +232,6 @@
       "Woah, I caught one!"
     ]
   },
-  "Gensokyo:Yuyuko": {
-    "MOVES": [
-      "Ghastly Dream",
-      "Law of Mortality",
-      "Resurrection Butterfly"
-    ],
-    "NAME": "Princess of the Netherworld",
-    "DIALOG": [
-      "A lovely day for death, isn't it?"
-    ]
-  },
-  "Gensokyo:BlueSoul": {
-    "MOVES": [
-
-    ],
-    "NAME": "Spirit",
-    "DIALOG": [
-
-    ]
-  },
-  "Gensokyo:PurpleSoul": {
-    "MOVES": [
-
-    ],
-    "NAME": "Spirit",
-    "DIALOG": [
-
-    ]
-  },
   "Gensokyo:Eiki": {
     "MOVES": [
       "Cleansed Crystal Judgement - ",
@@ -433,11 +404,341 @@
     ],
     "NAME": "Chomper"
   },
-  "Gensokyo:Nitori": {
+  "Gensokyo:YinYangFox": {
+    "NAME": "Yin Yang Fox",
+    "DIALOG": [
+      "Attack",
+      "Defend",
+      "Heal"
+    ],
+    "MOVES": [
+      "Pet deals ",
+      " damage to a random enemy.",
+      "You gain ",
+      " Block.",
+      "Pet heals ",
+      " HP."
+    ]
+  },
+  "Gensokyo:FieryMouse": {
+    "NAME": "Fiery Mouse",
+    "DIALOG": [
+      "Attack",
+      "Buff",
+      "Heal"
+    ],
+    "MOVES": [
+      "Pet deals ",
+      " damage to ALL enemies.",
+      "Pet loses ",
+      " HP and ",
+      "you gain ",
+      " Strength.",
+      "you heal ",
+      " HP."
+    ]
+  },
+  "Gensokyo:JeweledCobra": {
+    "NAME": "Jeweled Cobra",
+    "DIALOG": [
+      "Debuff",
+      "All Debuff",
+      "Defend"
+    ],
+    "MOVES": [
+      "Pet applies ",
+      " Poison to a random enemy.",
+      "Pet applies ",
+      " Poison to ALL enemies.",
+      "Pet gains ",
+      " Block."
+    ]
+  },
+  "Gensokyo:PsychicCat": {
+    "NAME": "Psychic Cat",
+    "DIALOG": [
+      "Debuff",
+      "Debuff",
+      "Draw"
+    ],
+    "MOVES": [
+      "Pet applies ",
+      " Weak to ALL enemies.",
+      "Pet applies ",
+      " Vulnerable to ALL enemies.",
+      "You draw ",
+      " card."
+    ]
+  },
+  "Gensokyo:Doremy": {
+    "MOVES": [
+      null,
+      null,
+      null,
+      "There's No Need to Wake Up Anymore",
+      "Ochre Confusion",
+      "Scarlet Nightmare"
+    ],
+    "NAME": "Ruler of Dreams",
+    "DIALOG": [
+      "Care for a sweet dream?",
+      "Good night.",
+      "Destroyer of Dreams"
+    ]
+  },
+  "Gensokyo:Flandre": {
+    "MOVES": [
+      "Bloody Catastrophe",
+      "Forbidden Fruit",
+      "Laevatein",
+      "And Then There Were None"
+    ],
+    "NAME": "Devil's Little Sister",
+    "DIALOG": [
+      "Let me play with this one, sister!",
+      "You can't stop me, sister!"
+    ]
+  },
+  "Gensokyo:Remilia": {
+    "MOVES": [
+      "Scarlet Shoot",
+      "Vampire Claw",
+      "Night Dance"
+    ],
+    "NAME": "Scarlet Devil",
+    "DIALOG": [
+      "You need to learn some restraint.",
+      "I hope you learned your lesson."
+    ]
+  },
+  "Gensokyo:Yuyuko": {
+    "MOVES": [
+      "Ghastly Dream",
+      "Law of Mortality",
+      "Resurrection Butterfly",
+      "Invitation from Nether Side",
+      "Saigyouji Parinirvana",
+      "Gifts to the Deceased"
+    ],
+    "NAME": "Princess of the Netherworld",
+    "DIALOG": [
+      "A lovely day for death, isn't it?",
+      "Teetering on the brink, are we? Allow me to push you over the edge."
+    ]
+  },
+  "Gensokyo:BlueSoul": {
     "MOVES": [
 
     ],
-    "NAME": "Lateral-Thinking Kappa"
+    "NAME": "Spirit",
+    "DIALOG": [
+
+    ]
+  },
+  "Gensokyo:PurpleSoul": {
+    "MOVES": [
+
+    ],
+    "NAME": "Spirit",
+    "DIALOG": [
+
+    ]
+  },
+  "Gensokyo:Mokou": {
+    "MOVES": [
+      "Blazing Kick",
+      "Honest Man's Death",
+      "Fujiyama Volcano",
+      "Phoenix Rebirth"
+    ],
+    "NAME": "Crimson Watchguard",
+    "DIALOG": [
+      "This time, I'll pound you into the ground!",
+      "Go ahead and try."
+    ]
+  },
+  "Gensokyo:Marisa": {
+    "MOVES": [
+      "Master Spark",
+      "Machine Gun Spark",
+      "Witching Blast",
+      "Starlight Starbright"
+    ],
+    "NAME": "Ordinary Magician",
+    "DIALOG": [
+      "Reimu couldn't handle you, huh? Guess it's my turn then!"
+    ]
+  },
+  "Gensokyo:Shinki": {
+    "MOVES": [
+
+    ],
+    "NAME": "Lonely God",
+    "DIALOG": [
+      "It's all my fault . . .",
+      "Perhaps there's still hope for me after all . . ."
+    ]
+  },
+  "Gensokyo:Alice": {
+    "MOVES": [
+      "Artful Sacrifice",
+      "Devilry Light Ray",
+      "Spectrum Mystery",
+      "Doll Judgement"
+    ],
+    "NAME": "The One Who Left",
+    "DIALOG": [
+      "At first, I was happy.",
+      "You were a terrible parent.",
+      "I left because of your arrogant short-sightedness.",
+      "Thank you for everything."
+    ]
+  },
+  "Gensokyo:Doll": {
+    "MOVES": [
+      null
+    ],
+    "NAME": "Doll",
+    "DIALOG": [
+
+    ]
+  },
+  "Gensokyo:Yumeko": {
+    "MOVES": [
+      "Judgement Blade",
+      "Misery Doll",
+      "Overwhelming Burden"
+    ],
+    "NAME": "The One She Failed",
+    "DIALOG": [
+      "I will repel this intruder, my lady!",
+      "It's your fault for leaving me with flaws.",
+      "You should've made me stronger!",
+      "Don't blame yourself for my failures."
+    ]
+  },
+  "Gensokyo:Sariel": {
+    "MOVES": [
+      "Touch of Death",
+      "Death Blow"
+    ],
+    "NAME": "The One Left Behind",
+    "DIALOG": [
+      "As you wish.",
+      "Why did you toss me aside?",
+      "I waited for you, but you never came.",
+      "It was nice while it lasted.",
+      "Let us dance until the moment you die."
+    ]
+  },
+  "Gensokyo:SeedOfUnknown": {
+    "MOVES": [
+    ],
+    "NAME": "Seed of Unknown",
+    "DIALOG": [
+    ]
+  },
+  "Gensokyo:AncientGuardian": {
+    "MOVES": [
+    ],
+    "NAME": "Ancient Guardian",
+    "DIALOG": [
+    ]
+  },
+  "Gensokyo:Rafflesia": {
+    "MOVES": [
+    ],
+    "NAME": "Rafflesia",
+    "DIALOG": [
+    ]
+  },
+  "Gensokyo:AtlasGolem": {
+    "MOVES": [
+      "Avalanche",
+      "Slow Start",
+      "Rock Polish"
+    ],
+    "NAME": "Atlas Golem",
+    "DIALOG": [
+    ]
+  },
+  "Gensokyo:Duskaxe": {
+    "MOVES": [
+      "Dusk Breaker",
+      "Twilight's Call"
+    ],
+    "NAME": "Duskaxe",
+    "DIALOG": [
+    ]
+  },
+  "Gensokyo:Dawnsword": {
+    "MOVES": [
+      "Crack of Dawn",
+      "Dawning Light"
+    ],
+    "NAME": "Dawnsword",
+    "DIALOG": [
+    ]
+  },
+  "Gensokyo:VampireBat": {
+    "MOVES": [
+
+    ],
+    "NAME": "Vampire Bat",
+    "DIALOG": [
+    ]
+  },
+  "Gensokyo:FeralBat": {
+    "MOVES": [
+
+    ],
+    "NAME": "Feral Bat",
+    "DIALOG": [
+    ]
+  },
+  "Gensokyo:LoudBat": {
+    "MOVES": [
+
+    ],
+    "NAME": "Loud Bat",
+    "DIALOG": [
+    ]
+  },
+  "Gensokyo:Sharpion": {
+    "MOVES": [
+
+    ],
+    "NAME": "Sharpion",
+    "DIALOG": [
+    ]
+  },
+  "Gensokyo:MadBoulder": {
+    "MOVES": [
+
+    ],
+    "NAME": "Mad Boulder",
+    "DIALOG": [
+    ]
+  },
+  "Gensokyo:Kasen": {
+    "MOVES": [
+      "Dragon Kick",
+      "Monkey's Paw",
+      "Hawk Beacon",
+      "Animal Companion"
+    ],
+    "NAME": "One Armed Horned Hermit",
+    "DIALOG": [
+      "Recklessness will not avail you here."
+    ]
+  },
+  "Gensokyo:Kume": {
+    "MOVES": [
+
+    ],
+    "NAME": "Kume",
+    "DIALOG": [
+    ]
   }
 }
 

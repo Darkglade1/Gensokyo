@@ -1,7 +1,5 @@
 package Gensokyo.rooms.nitori.helpers;
 
-import Gensokyo.cards.AbstractUrbanLegendCard;
-import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.relics.AbstractRelic;
 import com.megacrit.cardcrawl.unlock.UnlockTracker;
