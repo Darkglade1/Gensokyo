@@ -147,10 +147,6 @@
         "NAME": "Doppelganger",
         "DESCRIPTIONS": ["Your next #b", " card is", " cards are", " played twice."]
 },
-"Gensokyo:Reflowering": {
-        "NAME": "Reflowering",
-        "DESCRIPTIONS": ["Whenever a #ySpirit dies, loses #b", " #yStrength."]
-},
 "Gensokyo:NextTurnInnocence": {
         "NAME": "Innocence",
         "DESCRIPTIONS": ["Next turn, this creature's outgoing #yBlock gain is #ydoubled and converted to #ghealing instead."]
@@ -267,5 +263,113 @@
 "Gensokyo:Reflective": {
         "NAME": "Reflective",
         "DESCRIPTIONS": ["Whenever this creature fully #yblocks attack damage, deals #b", " damage back."]
+},
+"Gensokyo:PetPosition": {
+        "NAME": "Spell Card Rules",
+        "DESCRIPTIONS": ["Your #ypet is in the same #ylane as you."]
+},
+"Gensokyo:DreamEater": {
+        "NAME": "Dream Eater",
+        "DESCRIPTIONS": ["The first card you play this turn ", "is #rPurged and #rremoved #rfrom #ryour #rmaster #rdeck. If a card is removed this way, an effect occurs based on its rarity: ", " NL #yStarter: ", " NL #yCommon: ", " NL #yUncommon: ", " NL #yRare: ", "Gains #b", "Loses #b", " #yStrength.", " NL #pCurse: "]
+},
+"Gensokyo:EyesOfDeath": {
+        "NAME": "Eyes of Death Perception",
+        "DESCRIPTIONS": ["Whenever this creature attacks, apply #b", " #yDoom to its target."]
+},
+"Gensokyo:Doom": {
+        "NAME": "Doom",
+        "DESCRIPTIONS": ["Receive #b", "% more damage from #yAttacks.", " Wears off at end of round if this creature was NOT attacked this turn."]
+},
+"Gensokyo:AndThenThereWereNone": {
+        "NAME": "And Then There Were None",
+        "DESCRIPTIONS": ["#yDoom no longer wears off."]
+},
+"Gensokyo:Retribution": {
+        "NAME": "Retribution",
+        "DESCRIPTIONS": ["The next time this creature receives attack damage this turn, deals that much damage back to the attacker."]
+},
+"Gensokyo:SistersPosition": {
+        "NAME": "Spell Card Rules",
+        "DESCRIPTIONS": ["This creature is in lane #b" , ". It is your #gally and will focus on the #renemy.", ". It is the #renemy and will focus on #ryou."]
+},
+"Gensokyo:SistersPlayerPosition": {
+        "NAME": "Spell Card Rules",
+        "DESCRIPTIONS": ["You are in lane #b" , ". Whenever you play a #ySkill, move #yUp #b1 lane. Whenever you play an #yAttack, move #yDown #b1 lane. NL If your #gally is between you and the #renemy, your #gally will take the hit for you instead.", " NL #yLane #b", " is #runsafe."]
+},
+"Gensokyo:BorderOfDeath": {
+        "NAME": "Border of Death",
+        "DESCRIPTIONS": ["At the end of combat, gain #b", " Max HP."]
+},
+"Gensokyo:Deathtouch": {
+        "NAME": "Deathtouch",
+        "DESCRIPTIONS": ["Whenever you receive unblocked attack damage from this enemy, you #rlose that much #yMax #yHP this combat. NL Your #yMax #yHP cannot go below #b1. NL At the start of combat, your #ymax #yHP is reduced to your #ycurrent #yHP for this combat."]
+},
+"Gensokyo:Empower": {
+        "NAME": "Empower",
+        "DESCRIPTIONS": ["This creature's #yCurse has been increased by #b", "."]
+},
+"Gensokyo:SomeoneElse": {
+        "NAME": "Someone Else's Story",
+        "DESCRIPTIONS": ["#rDefeat merely takes you back to the event but forfeits the card reward. NL If you #gwin with at least #b", " HP remaining, the card reward is #yUpgraded. NL Your current and Max HP are restored to their original values after this encounter."]
+},
+"Gensokyo:ChargeUp": {
+        "NAME": "Charge Up",
+        "DESCRIPTIONS": ["Whenever you play #b", " cards, gains #b", " #yStrength. NL Loses all #yStrength after attacking."]
+},
+"Gensokyo:UnstableReality": {
+        "NAME": "Delusions of Grief",
+        "DESCRIPTIONS": ["This creature is your #gally. NL You #gwin when you defeat #b", " #yDelusions."]
+},
+"Gensokyo:DollJudgement": {
+        "NAME": "Little Legion",
+        "DESCRIPTIONS": ["Every #b", " turns, summons #b2 #yDolls."]
+},
+"Gensokyo:AliceEventEnergy": {
+        "NAME": "Energized",
+        "DESCRIPTIONS": ["Every #b", " turns, gain", " ."]
+},
+"Gensokyo:ExplosiveDoll": {
+        "NAME": "Explosive",
+        "DESCRIPTIONS": ["Will #rexplode ", "this turn,", "in #b", " turns,", " dealing #b", " damage to #yyou."]
+},
+"Gensokyo:BurdenOfFailure": {
+        "NAME": "Burden of Failure",
+        "DESCRIPTIONS": ["If this creature fails to deal unblocked attack damage when it attacks, gains #b", " #yStrength."]
+},
+"Gensokyo:DollMagnet": {
+        "NAME": "Doll Magnet",
+        "DESCRIPTIONS": ["Every #b", " turns, spawn #b", " additional Explosive Doll(s)."]
+},
+"Gensokyo:SarielEventPower": {
+        "NAME": "Angel's Grace",
+        "DESCRIPTIONS": ["Every #b", "th #yAttack", "th #ySkill", " you play is played twice."]
+},
+"Gensokyo:UnknownCurse": {
+        "NAME": "Unknown Curse",
+        "DESCRIPTIONS": ["Your cards have been #pobscured!"]
+},
+"Gensokyo:GuardianOfRelics": {
+        "NAME": "Guardian of Relics",
+        "DESCRIPTIONS": ["At the end of its turn, gains #yBlock equal to the number of #yRelics you have."]
+},
+"Gensokyo:Sinflower": {
+        "NAME": "Sinflower",
+        "DESCRIPTIONS": ["Whenever you attack this creature, remove your leftmost #ydebuff."]
+},
+"Gensokyo:Titan": {
+        "NAME": "Titan",
+        "DESCRIPTIONS": ["This creature's base attack damage is equal to half its current HP, up to a maximum of #b", "."]
+},
+"Gensokyo:DawningLight": {
+        "NAME": "Dawning Light",
+        "DESCRIPTIONS": ["If this creature inflicts unblocked attack damage this turn, it gains #b", " #yStrength."]
+},
+"Gensokyo:RuthlessStabs": {
+        "NAME": "Ruthless Stabs",
+        "DESCRIPTIONS": ["Whenever you receive unblocked attack damage from this enemy, shuffle an #rInfected #rWound into your discard pile."]
+},
+"Gensokyo:AnimalFriend": {
+        "NAME": "Animal Friend",
+        "DESCRIPTIONS": ["Whenever a minion dies, loses #b", " HP and gains #b", " #yStrength."]
 }
 }

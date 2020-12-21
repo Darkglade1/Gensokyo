@@ -1,7 +1,7 @@
 package Gensokyo.powers.act1;
 
 import Gensokyo.GensokyoMod;
-import Gensokyo.cards.ManorOfTheDishes;
+import Gensokyo.cards.UrbanLegend.ManorOfTheDishes;
 import Gensokyo.util.TextureLoader;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.TextureAtlas;

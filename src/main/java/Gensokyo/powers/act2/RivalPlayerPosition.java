@@ -34,8 +34,6 @@ public class RivalPlayerPosition extends AbstractPower {
 
     private static final Texture tex84 = TextureLoader.getTexture(makePowerPath("SpellCard84.png"));
     private static final Texture tex32 = TextureLoader.getTexture(makePowerPath("SpellCard32.png"));
-    private static final Texture X = TextureLoader.getTexture("GensokyoResources/images/monsters/Byakuren/X.png");
-    private TextureRegion X_REGION;
 
     private static float movement = 180.0F * Settings.scale;
     private float position1;
@@ -61,7 +59,6 @@ public class RivalPlayerPosition extends AbstractPower {
 
         this.region128 = new TextureAtlas.AtlasRegion(tex84, 0, 0, 84, 84);
         this.region48 = new TextureAtlas.AtlasRegion(tex32, 0, 0, 32, 32);
-        this.X_REGION = new TextureRegion(X);
         updateDescription();
     }
 

@@ -2,7 +2,7 @@ package Gensokyo.relics.act1.marisaRelics;
 
 import Gensokyo.GensokyoMod;
 import Gensokyo.actions.CallbackExhaustAction;
-import Gensokyo.cards.AbstractUrbanLegendCard;
+import Gensokyo.cards.UrbanLegend.AbstractUrbanLegendCard;
 import Gensokyo.relics.act1.OccultBall;
 import Gensokyo.util.TextureLoader;
 import basemod.abstracts.CustomRelic;

@@ -1,7 +1,7 @@
 package Gensokyo.monsters.act2.NormalEnemies;
 
 import Gensokyo.BetterSpriterAnimation;
-import Gensokyo.RazIntent.IntentEnums;
+import Gensokyo.CustomIntents.IntentEnums;
 import Gensokyo.monsters.AbstractSpriterMonster;
 import Gensokyo.vfx.FlexibleRainbowCardEffect;
 import com.megacrit.cardcrawl.actions.animations.VFXAction;

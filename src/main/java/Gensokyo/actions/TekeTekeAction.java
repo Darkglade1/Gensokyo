@@ -1,11 +1,11 @@
 package Gensokyo.actions;
 
-import Gensokyo.cards.TekeTeke;
+import Gensokyo.cards.UrbanLegend.TekeTeke;
 import com.badlogic.gdx.graphics.Color;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.common.ModifyDamageAction;
+import com.megacrit.cardcrawl.actions.common.ReduceCostAction;
 import com.megacrit.cardcrawl.actions.utility.WaitAction;
-import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.cards.DamageInfo.DamageType;
 import com.megacrit.cardcrawl.core.AbstractCreature;
@@ -70,7 +70,7 @@ public class TekeTekeAction extends AbstractGameAction {
             }
 
             int temp = AbstractDungeon.getCurrRoom().monsters.monsters.size();
-
+            int numTriggers = 0;
             for(int i = 0; i < temp; ++i) {
                 if (!AbstractDungeon.getCurrRoom().monsters.monsters.get(i).isDeadOrEscaped()) {
                     if (this.attackEffect == AttackEffect.POISON) {
@@ -91,12 +91,15 @@ public class TekeTekeAction extends AbstractGameAction {
                     if (target.currentHealth < threshold) {
                         belowHalf = true;
                     }
-                    if (aboveHalf && belowHalf && !card.triggered) {
-                        card.triggered = true;
-                        System.out.println(card.baseDamage);
-                        AbstractDungeon.actionManager.addToBottom(new ModifyDamageAction(card.uuid, card.magicNumber));
+                    if (aboveHalf && belowHalf) {
+                        numTriggers++;
                     }
                 }
+            }
+
+            for (int i = 0; i < numTriggers; i++) {
+                AbstractDungeon.actionManager.addToBottom(new ModifyDamageAction(card.uuid, card.magicNumber));
+                AbstractDungeon.actionManager.addToBottom(new ReduceCostAction(card.uuid, 1));
             }
 
 

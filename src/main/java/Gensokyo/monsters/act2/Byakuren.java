@@ -1,7 +1,7 @@
 package Gensokyo.monsters.act2;
 
 import Gensokyo.BetterSpriterAnimation;
-import Gensokyo.RazIntent.IntentEnums;
+import Gensokyo.CustomIntents.IntentEnums;
 import Gensokyo.actions.AnimatedMoveActualAction;
 import Gensokyo.actions.SetFlipAction;
 import Gensokyo.powers.act1.VigorPower;
@@ -40,12 +40,10 @@ import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.monsters.EnemyMoveInfo;
 import com.megacrit.cardcrawl.powers.StrengthPower;
 import com.megacrit.cardcrawl.stances.CalmStance;
-import com.megacrit.cardcrawl.vfx.AbstractGameEffect;
 import com.megacrit.cardcrawl.vfx.combat.LightningEffect;
 
 import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.Iterator;
 import java.util.Map;
 
 public class Byakuren extends CustomMonster
@@ -63,16 +61,16 @@ public class Byakuren extends CustomMonster
     private static final byte BUFF_BLOCK = 2;
     private static final byte AOE_ATTACK = 3;
 
-    private static final int NORMAL_ATTACK_DAMAGE = 36;
-    private static final int A4_NORMAL_ATTACK_DAMAGE = 40;
+    private static final int NORMAL_ATTACK_DAMAGE = 32;
+    private static final int A4_NORMAL_ATTACK_DAMAGE = 36;
     private int normalDamage;
 
-    private static final int AOE_DAMAGE = 24;
-    private static final int A4_AOE_DAMAGE = 26;
+    private static final int AOE_DAMAGE = 22;
+    private static final int A4_AOE_DAMAGE = 24;
     private int aoeDamage;
 
-    private static final int STRENGTH = 8;
-    private static final int A19_STRENGTH = 10;
+    private static final int STRENGTH = 6;
+    private static final int A19_STRENGTH = 8;
     private int strength;
 
     private static final int BLOCK = 15;
@@ -85,8 +83,8 @@ public class Byakuren extends CustomMonster
     private static final int AOE_COOLDOWN = 3;
     private int counter = -2; //Delay this by 2 turns the first time
 
-    private static final int HP = 400;
-    private static final int A9_HP = 420;
+    private static final int HP = 350;
+    private static final int A9_HP = 370;
 
     private float particleTimer;
     private float particleTimer2;

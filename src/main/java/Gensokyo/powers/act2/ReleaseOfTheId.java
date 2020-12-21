@@ -1,7 +1,7 @@
 package Gensokyo.powers.act2;
 
 import Gensokyo.GensokyoMod;
-import Gensokyo.actions.PlayIdCardAction;
+import Gensokyo.actions.PlayCardAction;
 import Gensokyo.util.TextureLoader;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.TextureAtlas;
@@ -52,7 +52,7 @@ public class ReleaseOfTheId extends AbstractPower {
     public void onCardDraw(AbstractCard card) {
         if (!triggered) {
             this.flash();
-            AbstractDungeon.actionManager.addToTop(new PlayIdCardAction(card, AbstractDungeon.getCurrRoom().monsters.getRandomMonster(null, true, AbstractDungeon.cardRandomRng), false));
+            AbstractDungeon.actionManager.addToTop(new PlayCardAction(card, AbstractDungeon.getCurrRoom().monsters.getRandomMonster(null, true, AbstractDungeon.cardRandomRng), false));
             triggered = true;
         }
     }

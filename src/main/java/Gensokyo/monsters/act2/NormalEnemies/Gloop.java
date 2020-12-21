@@ -56,6 +56,8 @@ public class Gloop extends AbstractSpriterMonster
     public Gloop(final float x, final float y, boolean canVulnerable) {
         super(Gloop.NAME, ID, HP_MAX, -5.0F, 0, 230.0f, 220.0f, null, x, y);
         this.animation = new BetterSpriterAnimation("GensokyoResources/images/monsters/Gloop/Spriter/GloopAnimation.scml");
+        int time = ((BetterSpriterAnimation)this.animation).myPlayer.getAnimation().length;
+        ((BetterSpriterAnimation)this.animation).myPlayer.setTime((int)(time * Math.random()));
         this.type = EnemyType.NORMAL;
         this.dialogX = (this.hb_x - 70.0F) * Settings.scale;
         this.dialogY -= (this.hb_y - 55.0F) * Settings.scale;

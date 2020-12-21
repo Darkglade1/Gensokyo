@@ -3,6 +3,8 @@ package Gensokyo.util;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.Texture.TextureFilter;
 import com.badlogic.gdx.utils.GdxRuntimeException;
+import com.evacipated.cardcrawl.modthespire.lib.SpirePatch;
+import com.evacipated.cardcrawl.modthespire.lib.SpirePrefixPatch;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
@@ -47,5 +49,17 @@ public class TextureLoader {
         Texture texture = new Texture(textureString);
         texture.setFilter(TextureFilter.Linear, TextureFilter.Linear);
         textures.put(textureString, texture);
+    }
+
+    @SuppressWarnings("unused")
+    @SpirePatch(clz = Texture.class, method="dispose")
+    public static class DisposeListener {
+        @SpirePrefixPatch
+        public static void DisposeListenerPatch(final Texture __instance) {
+            textures.entrySet().removeIf(entry -> {
+                if (entry.getValue().equals(__instance)) logger.info("TextureLoader | Removing Texture: " + entry.getKey());
+                return entry.getValue().equals(__instance);
+            });
+        }
     }
 }

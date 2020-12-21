@@ -1,12 +1,16 @@
 package Gensokyo.monsters.act1;
 
-import Gensokyo.actions.YinYangAttackAction;
+import Gensokyo.actions.SuicideActionAction;
 import Gensokyo.actions.YinYangMoveAction;
+import Gensokyo.minions.PetUtils;
 import Gensokyo.powers.act1.MonsterPosition;
+import Gensokyo.powers.act1.Position;
 import basemod.abstracts.CustomMonster;
 import basemod.animations.SpriterAnimation;
+import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.animations.VFXAction;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
+import com.megacrit.cardcrawl.actions.common.DamageAction;
 import com.megacrit.cardcrawl.actions.common.ReducePowerAction;
 import com.megacrit.cardcrawl.actions.common.RollMoveAction;
 import com.megacrit.cardcrawl.actions.common.SuicideAction;
@@ -15,6 +19,8 @@ import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.core.Settings;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.localization.MonsterStrings;
+import com.megacrit.cardcrawl.powers.AbstractPower;
+import kobting.friendlyminions.enums.MonsterIntentEnum;
 
 public class YinYangOrb extends CustomMonster {
     public static final String ID = "Gensokyo:YinYangOrb";
@@ -64,6 +70,9 @@ public class YinYangOrb extends CustomMonster {
     @Override
     public void die(boolean triggerRelics) {
         super.die(false);
+        for (AbstractPower power : this.powers) {
+            power.onDeath(); //manually call this cause apparently triggerRelics also determines if onDeath powers are called
+        }
         if (delay > 0) {
             master.orbs[delay - 1][position - 1].remove(this);
         }
@@ -77,8 +86,14 @@ public class YinYangOrb extends CustomMonster {
             break;
         case ATTACK:
             move();
-            AbstractDungeon.actionManager.addToBottom(new YinYangAttackAction(this.position, this.damage.get(0)));
-            AbstractDungeon.actionManager.addToBottom(new SuicideAction(this));
+            int playerPosition = 1;
+            if (AbstractDungeon.player.hasPower(Position.POWER_ID)) {
+                playerPosition = AbstractDungeon.player.getPower(Position.POWER_ID).amount;
+            }
+            if (playerPosition == this.position) {
+                AbstractDungeon.actionManager.addToBottom(new DamageAction(AbstractDungeon.player, this.damage.get(0), AbstractGameAction.AttackEffect.BLUNT_HEAVY, true));
+            }
+            addToBot(new SuicideActionAction(this));
             break;
         }
         AbstractDungeon.actionManager.addToBottom(new RollMoveAction(this));
