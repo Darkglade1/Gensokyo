@@ -11,7 +11,7 @@ import com.megacrit.cardcrawl.monsters.AbstractMonster;
 @SpirePatch(clz = AbstractMonster.class, method = "damage")
 public class PrivateSquarePatch {
 	public static void Prefix(final AbstractMonster __instance, final DamageInfo info) {
-		if (info.owner == AbstractDungeon.player && info.output > 0) {
+		if (info.output > 0) {
 			for (AbstractCard card : AbstractDungeon.player.hand.group) {
 				if (card.cardID.equals(PrivateSquare.ID)) {
 					AbstractDungeon.actionManager.addToTop(new ExhaustSpecificCardAction(card, AbstractDungeon.player.hand));
