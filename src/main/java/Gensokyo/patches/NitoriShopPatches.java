@@ -128,13 +128,13 @@ public class NitoriShopPatches {
             if(shopNodes.size() > 1) {
                 rand = AbstractDungeon.mapRng.random(shopNodes.size() - 1);
                 shopNodes.get(rand).setRoom(new NitoriRoom());
-                shopNodes.get(rand).hasEmeraldKey = true;
+                //shopNodes.get(rand).hasEmeraldKey = true;
             }
             else{
                 try{
                     rand2 = AbstractDungeon.mapRng.random(editableNodes.size() - 1);
                     editableNodes.get(rand2).setRoom(new NitoriRoom());
-                    editableNodes.get(rand2).hasEmeraldKey = true;
+                    //editableNodes.get(rand2).hasEmeraldKey = true;
                 }
                 catch (Exception e){}
             }
