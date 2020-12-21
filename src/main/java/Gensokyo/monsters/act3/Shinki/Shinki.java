@@ -166,6 +166,7 @@ public class Shinki extends AbstractSpriterMonster
             AbstractDungeon.actionManager.addToBottom(new TalkAction(this, DIALOG[1]));
             AbstractDungeon.actionManager.addToBottom(new EscapeAction(this));
             this.onBossVictoryLogic();
+            this.onFinalBossVictoryLogic();
         }
     }
 

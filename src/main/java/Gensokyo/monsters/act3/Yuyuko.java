@@ -371,6 +371,7 @@ public class Yuyuko extends AbstractSpriterMonster
             death.playerHpResetAmount = playerInitialCurrentHP; //prevent yuyuko from being a free heal
         }
         onBossVictoryLogic();
+        this.onFinalBossVictoryLogic();
     }
 
     //Runs a specific animation

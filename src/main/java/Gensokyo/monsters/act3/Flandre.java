@@ -321,5 +321,6 @@ public class Flandre extends AbstractSpriterMonster
         }
         this.onBossVictoryLogic();
         super.die(triggerRelics);
+        this.onFinalBossVictoryLogic();
     }
 }
