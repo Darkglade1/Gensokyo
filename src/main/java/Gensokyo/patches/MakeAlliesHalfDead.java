@@ -26,17 +26,17 @@ public class MakeAlliesHalfDead {
     public static void MakeAlliesHalfDeadReee(GameActionManager instance) {
         if (AbstractDungeon.getCurrRoom() != null) {
             for (AbstractMonster mo : AbstractDungeon.getCurrRoom().monsters.monsters) {
-                if (mo.id.equals(Remilia.ID) || mo.id.equals(Shinki.ID)) {
-                    AbstractDungeon.actionManager.addToBottom(new AbstractGameAction() {
-                        @Override
-                        public void update() {
-                            mo.halfDead = true;
-                            mo.healthBarUpdatedEvent();
-                            AbstractDungeon.onModifyPower(); //I need this here to fucking make sure alice and sariel intents get updated akdjgkadjgaldjbfag
-                            this.isDone = true;
-                        }
-                    });
-                    break;
+                if (!mo.isDead) {
+                    if (mo.id.equals(Remilia.ID) || mo.id.equals(Shinki.ID)) {
+                        AbstractDungeon.actionManager.addToBottom(new AbstractGameAction() {
+                            @Override
+                            public void update() {
+                                mo.halfDead = true;
+                                this.isDone = true;
+                            }
+                        });
+                        break;
+                    }
                 }
                 if (mo.id.equals(Yuyuko.ID)) {
                     AbstractDungeon.actionManager.addToBottom(new AbstractGameAction() {

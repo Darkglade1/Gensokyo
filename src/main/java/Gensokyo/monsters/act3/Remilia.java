@@ -17,6 +17,7 @@ import com.megacrit.cardcrawl.actions.common.DamageAction;
 import com.megacrit.cardcrawl.actions.common.EscapeAction;
 import com.megacrit.cardcrawl.actions.common.HealAction;
 import com.megacrit.cardcrawl.actions.common.RollMoveAction;
+import com.megacrit.cardcrawl.actions.unique.VampireDamageAction;
 import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.core.AbstractCreature;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
@@ -54,7 +55,8 @@ public class Remilia extends CustomMonster
 
     private static final int DEBUFF_AMT = 1;
 
-    private static final int HP = 100;
+    private static final int HP = 120;
+    private static final int A9_HP = 100;
 
     private static final int COOLDOWN = 2;
     private int counter = COOLDOWN;
@@ -77,8 +79,18 @@ public class Remilia extends CustomMonster
         this.dialogX = (this.hb_x - 70.0F) * Settings.scale;
         this.dialogY -= (this.hb_y - 55.0F) * Settings.scale;
 
+        if (AbstractDungeon.ascensionLevel >= 9) {
+            setHp(A9_HP);
+        } else {
+            setHp(HP);
+        }
+
         this.moves = new HashMap<>();
-        this.moves.put(ATTACK, new EnemyMoveInfo(ATTACK, Intent.ATTACK, NORMAL_ATTACK_DAMAGE, 0, false));
+        if (AbstractDungeon.ascensionLevel >= 19) {
+            this.moves.put(ATTACK, new EnemyMoveInfo(ATTACK, Intent.ATTACK, NORMAL_ATTACK_DAMAGE, 0, false));
+        } else {
+            this.moves.put(ATTACK, new EnemyMoveInfo(ATTACK, Intent.ATTACK_BUFF, NORMAL_ATTACK_DAMAGE, 0, false));
+        }
         this.moves.put(DEBUFF_ATTACK, new EnemyMoveInfo(DEBUFF_ATTACK, Intent.ATTACK_DEBUFF, DEBUFF_ATTACK_DAMAGE, 0, false));
         this.moves.put(HEAL, new EnemyMoveInfo(HEAL, Intent.BUFF, -1, 0, false));
 
@@ -88,11 +100,6 @@ public class Remilia extends CustomMonster
 
     @Override
     public void usePreBattleAction() {
-//        if (AbstractDungeon.cardRandomRng.randomBoolean()) {
-//            AbstractDungeon.getCurrRoom().playBgmInstantly("CosmicMind");
-//        } else {
-//            AbstractDungeon.getCurrRoom().playBgmInstantly("TrueAdmin");
-//        }
         for (AbstractMonster mo : AbstractDungeon.getCurrRoom().monsters.monsters) {
             if (mo instanceof Flandre) {
                 sister = (Flandre)mo;
@@ -112,14 +119,13 @@ public class Remilia extends CustomMonster
             }
         });
     }
-    
+
     @Override
     public void takeTurn() {
         this.addToBot(new AbstractGameAction() {
             @Override
             public void update() {
                 halfDead = false;
-                healthBarUpdatedEvent();
                 this.isDone = true;
             }
         });
@@ -136,7 +142,11 @@ public class Remilia extends CustomMonster
         switch (this.nextMove) {
             case ATTACK: {
                 runAnim("Attack");
-                AbstractDungeon.actionManager.addToBottom(new DamageAction(target, info, AbstractGameAction.AttackEffect.SLASH_HEAVY));
+                if (AbstractDungeon.ascensionLevel >= 19) {
+                    AbstractDungeon.actionManager.addToBottom(new DamageAction(target, info, AbstractGameAction.AttackEffect.SLASH_HEAVY));
+                } else {
+                    AbstractDungeon.actionManager.addToBottom(new VampireDamageAction(target, info, AbstractGameAction.AttackEffect.SLASH_HEAVY));
+                }
                 counter--;
                 break;
             }

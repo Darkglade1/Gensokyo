@@ -274,7 +274,7 @@
 },
 "Gensokyo:EyesOfDeath": {
         "NAME": "Eyes of Death Perception",
-        "DESCRIPTIONS": ["Whenever this creature attacks, apply #b", " #yDoom to its target."]
+        "DESCRIPTIONS": ["This creature deals #b", "% more damage when it consecutively attacks the same target."]
 },
 "Gensokyo:Doom": {
         "NAME": "Doom",

@@ -123,7 +123,7 @@ public class AtlasGolem extends AbstractSpriterMonster
         } else if (this.lastMove(UNKNOWN2)) {
             setAttack();
         } else if (this.lastMove(ATTACK)){
-            setMoveShortcut(UNKNOWN1);
+            setAttack();
         } else {
             setMoveShortcut(UNKNOWN1);
         }

@@ -50,8 +50,8 @@ public class Kokoro extends CustomMonster
     private static final byte MASK_MOVE_1 = 0;
     private static final byte MASK_MOVE_2 = 1;
     private static final byte MASK_CHANGE = 2;
-    private static final int HOPE_HEAL = 15;
-    private static final int A19_HOPE_HEAL = 18;
+    private static final int HOPE_HEAL = 10;
+    private static final int A19_HOPE_HEAL = 15;
     private static final int DEMON_STRENGTH = 1;
     private static final int A19_DEMON_STRENGTH = 2;
     private static final int LION_DAMAGE = 1;
@@ -115,17 +115,16 @@ public class Kokoro extends CustomMonster
         this.dialogX = (this.hb_x - 70.0F) * Settings.scale;
         this.dialogY -= (this.hb_y - 55.0F) * Settings.scale;
 
-        this.hopeHeal = HOPE_HEAL;
         this.demonStrength = DEMON_STRENGTH;
         this.lionDamage = LION_DAMAGE;
         if (AbstractDungeon.ascensionLevel >= 19) {
-            //this.hopeHeal = A19_HOPE_HEAL;
+            this.hopeHeal = A19_HOPE_HEAL;
             //this.demonStrength = A19_DEMON_STRENGTH;
             //this.lionDamage = A19_LION_DAMAGE;
             this.status = A19_FOX_STATUS_COUNT;
             this.maskStrengthBuff = A19_MASK_STRENGTH_BUFF;
         } else {
-//            this.hopeHeal = HOPE_HEAL;
+            this.hopeHeal = HOPE_HEAL;
 //            this.demonStrength = DEMON_STRENGTH;
 //            this.lionDamage = LION_DAMAGE;
             this.status = FOX_STATUS_COUNT;

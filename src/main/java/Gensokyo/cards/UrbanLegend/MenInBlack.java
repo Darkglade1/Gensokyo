@@ -27,7 +27,7 @@ public class MenInBlack extends AbstractUrbanLegendCard {
     public MenInBlack() {
         super(ID, IMG, COST, TYPE, RARITY, TARGET);
         magicNumber = baseMagicNumber = BUFF;
-        AlwaysRetainField.alwaysRetain.set(this, true);
+        selfRetain = true;
         exhaust = true;
         tags.add(Tags.URBAN_LEGEND);
     }

@@ -21,13 +21,13 @@ public class Kunekune extends AbstractUrbanLegendCard {
     private static final CardType TYPE = CardType.SKILL;
 
     private static final int COST = 3;
-    private static final int UPGRADED_COST = 2;
     private static final int DEBUFF = 2;
 
     public Kunekune() {
         super(ID, IMG, COST, TYPE, RARITY, TARGET);
         magicNumber = baseMagicNumber = DEBUFF;
         exhaust = true;
+        isEthereal = true;
         tags.add(Tags.URBAN_LEGEND);
     }
 
@@ -40,7 +40,7 @@ public class Kunekune extends AbstractUrbanLegendCard {
     public void upgrade() {
         if (!upgraded) {
             upgradeName();
-            upgradeBaseCost(UPGRADED_COST);
+            isEthereal = false;
             initializeDescription();
         }
     }

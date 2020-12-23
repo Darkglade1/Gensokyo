@@ -25,7 +25,7 @@ public class BlueCape extends AbstractUrbanLegendCard {
     public BlueCape() {
         super(ID, IMG, COST, TYPE, RARITY, TARGET);
         baseBlock = BLOCK;
-        AlwaysRetainField.alwaysRetain.set(this, true);
+        selfRetain = true;
         exhaust = true;
     }
 

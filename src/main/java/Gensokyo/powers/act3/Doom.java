@@ -20,7 +20,7 @@ public class Doom extends AbstractPower {
     public static final String NAME = powerStrings.NAME;
     public static final String[] DESCRIPTIONS = powerStrings.DESCRIPTIONS;
 
-    private static final float DOOM_PERCENT = 0.50f;
+    public static final float DOOM_PERCENT = 0.50f;
     private boolean attacked = false;
     public boolean wearOff;
 

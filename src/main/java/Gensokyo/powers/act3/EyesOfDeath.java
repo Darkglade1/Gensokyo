@@ -12,6 +12,7 @@ import com.megacrit.cardcrawl.localization.PowerStrings;
 import com.megacrit.cardcrawl.powers.AbstractPower;
 
 import static Gensokyo.GensokyoMod.makePowerPath;
+import static Gensokyo.powers.act3.Doom.DOOM_PERCENT;
 
 public class EyesOfDeath extends AbstractPower {
     public static final String POWER_ID = GensokyoMod.makeID("EyesOfDeath");
@@ -46,6 +47,6 @@ public class EyesOfDeath extends AbstractPower {
 
     @Override
     public void updateDescription() {
-        this.description = DESCRIPTIONS[0] + this.amount + DESCRIPTIONS[1];
+        this.description = DESCRIPTIONS[0] + (int)(DOOM_PERCENT * amount * 100) + DESCRIPTIONS[1];
     }
 }

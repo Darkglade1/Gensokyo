@@ -25,8 +25,11 @@ public class BetterDrawReductionPower extends AbstractPower {
         this.isTurnBased = true;
     }
 
+    @Override
     public void onInitialApplication() {
-        --AbstractDungeon.player.gameHandSize;
+        if (owner == AbstractDungeon.player) {
+            --AbstractDungeon.player.gameHandSize;
+        }
     }
 
     @Override
@@ -34,8 +37,11 @@ public class BetterDrawReductionPower extends AbstractPower {
         this.addToBot(new ReducePowerAction(this.owner, this.owner, POWER_ID, 1));
     }
 
+    @Override
     public void onRemove() {
-        ++AbstractDungeon.player.gameHandSize;
+        if (owner == AbstractDungeon.player) {
+            ++AbstractDungeon.player.gameHandSize;
+        }
     }
 
     public void updateDescription() {

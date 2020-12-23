@@ -44,17 +44,17 @@ public class Sumireko extends CustomMonster
     private static final byte BULLET_CANCEL = 2;
     private static final byte PSYCHOKINESIS = 3;
     private static final byte SUMMON = 4;
-    private static final int GUN_DAMAGE = 14;
-    private static final int GUN_ACT_DAMAGE_BONUS = 7;
-    private static final int A3_GUN_DAMAGE = 15;
-    private static final int PYROKINESIS_DAMAGE = 10;
-    private static final int PYROKINESIS_ACT_DAMAGE_BONUS = 5;
-    private static final int A3_PYROKINESIS_DAMAGE = 11;
+    private static final int GUN_DAMAGE = 16;
+    private static final int GUN_ACT_DAMAGE_BONUS = 8;
+    private static final int A3_GUN_DAMAGE = 18;
+    private static final int PYROKINESIS_DAMAGE = 12;
+    private static final int PYROKINESIS_ACT_DAMAGE_BONUS = 6;
+    private static final int A3_PYROKINESIS_DAMAGE = 13;
     private static final int BURN_AMT = 1;
     private static final int A18_BURN_AMT = 2;
-    private static final int BLOCK = 12;
-    private static final int BLOCK_ACT_BONUS = 6;
-    private static final int A8_BLOCK = 11;
+    private static final int BLOCK = 14;
+    private static final int BLOCK_ACT_BONUS = 7;
+    private static final int A8_BLOCK = 16;
     private static final int BUFFER_AMT = 1;
     private static final int DEBUFF_AMT = 1;
     private static final int HIGH_ACT_DEBUFF_AMT = 2;
@@ -63,11 +63,11 @@ public class Sumireko extends CustomMonster
     private static final float ACT_2_MULTIPLIER = 1.5f;
     private static final float ACT_3_MULTIPLIER = 2.0f;
     private static final float ACT_4_MULTIPLIER = 2.5f;
-    private static final float DOPPEL_MULTIPLIER = 0.75F;
-    private static final int HP_MIN = 100;
-    private static final int HP_MAX = 105;
-    private static final int A8_HP_MIN = 103;
-    private static final int A8_HP_MAX = 108;
+    private static final float DOPPEL_MULTIPLIER = 1.0F;
+    private static final int HP_MIN = 120;
+    private static final int HP_MAX = 125;
+    private static final int A8_HP_MIN = 123;
+    private static final int A8_HP_MAX = 128;
     private int gunDamage;
     private int pyroDamage;
     private int burnAmt;
@@ -183,7 +183,7 @@ public class Sumireko extends CustomMonster
             case SUMMON: {
                 runAnim("Special");
                 Sumireko doppel = new Sumireko(0.0F, 0.0F, true);
-                AbstractDungeon.actionManager.addToBottom(new SpawnMonsterAction(doppel, true));
+                AbstractDungeon.actionManager.addToBottom(new SpawnMonsterAction(doppel, false));
                 int position;
                 int amount2;
                 if (this.hasPower(Teleportation.POWER_ID)) {
@@ -259,16 +259,6 @@ public class Sumireko extends CustomMonster
         runAnim("Defeat");
         ((BetterSpriterAnimation)this.animation).startDying();
         super.die(triggerRelics);
-        if (!isDoppel) {
-            //kills off the doppel
-            for (AbstractMonster mo : AbstractDungeon.getCurrRoom().monsters.monsters) {
-                if (mo instanceof Sumireko) {
-                    if (!mo.isDead && !mo.isDying) {
-                        AbstractDungeon.actionManager.addToBottom(new SuicideAction(mo));
-                    }
-                }
-            }
-        }
     }
 
     //Runs a specific animation

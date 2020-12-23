@@ -36,10 +36,10 @@ public class BigMudSlime extends AbstractSpriterMonster
     public static final String[] DIALOG;
     private static final byte ATTACK = 0;
     private static final byte DEBUFF_ATTACK = 1;
-    private static final int ATTACK_DAMAGE = 22;
-    private static final int A2_ATTACK_DAMAGE = 24;
-    private static final int DEBUFF_ATTACK_DAMAGE = 18;
-    private static final int A2_DEBUFF_ATTACK_DAMAGE = 20;
+    private static final int ATTACK_DAMAGE = 21;
+    private static final int A2_ATTACK_DAMAGE = 23;
+    private static final int DEBUFF_ATTACK_DAMAGE = 17;
+    private static final int A2_DEBUFF_ATTACK_DAMAGE = 19;
     private static final int STATUS_AMT = 1;
     private static final int DEBUFF_AMT = 2;
     private static final int POWER_AMT = 2;

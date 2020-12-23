@@ -27,7 +27,7 @@ public class RedCape extends AbstractUrbanLegendCard {
     public RedCape() {
         super(ID, IMG, COST, TYPE, RARITY, TARGET);
         baseDamage = DAMAGE;
-        AlwaysRetainField.alwaysRetain.set(this, true);
+        selfRetain = true;
         exhaust = true;
     }
 

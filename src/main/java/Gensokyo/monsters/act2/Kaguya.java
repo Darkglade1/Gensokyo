@@ -85,7 +85,7 @@ public class Kaguya extends CustomMonster
     private int buddhistDiamondDamage5;
 
     public static final int PLAYER_STRENGTH_GAIN = 1;
-    public static final int STRENGTH_GAIN = 3;
+    public static final int STRENGTH_GAIN = 2;
     private int strengthGain;
 
     private static final int HP = 60;
