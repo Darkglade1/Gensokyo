@@ -90,6 +90,7 @@ public class SomeoneElsesStory extends AbstractImageEvent {
     }
 
     private void restoreHPAndOtherStuff() {
+        AbstractDungeon.getCurrRoom().endBattle();
         AbstractDungeon.player.currentHealth = playerOriginalCurrHP;
         AbstractDungeon.player.maxHealth = playerOriginalMaxHP;
         AbstractDungeon.actionManager.clear();

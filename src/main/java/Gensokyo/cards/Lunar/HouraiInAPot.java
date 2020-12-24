@@ -2,12 +2,14 @@ package Gensokyo.cards.Lunar;
 
 import Gensokyo.GensokyoMod;
 import Gensokyo.cards.AbstractDefaultCard;
+import com.megacrit.cardcrawl.actions.common.DrawCardAction;
 import com.megacrit.cardcrawl.actions.unique.GamblingChipAction;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 
 import static Gensokyo.GensokyoMod.makeCardPath;
+import static com.megacrit.cardcrawl.core.CardCrawlGame.languagePack;
 
 public class HouraiInAPot extends AbstractDefaultCard {
 
@@ -19,12 +21,13 @@ public class HouraiInAPot extends AbstractDefaultCard {
     private static final CardType TYPE = CardType.SKILL;
     public static final CardColor COLOR = GensokyoMod.Enums.LUNAR;
 
-    private static final int COST = 1;
-    private static final int UPGRADE_COST = 0;
+    private static final int COST = 0;
+    private static final int DRAW = 1;
 
     public HouraiInAPot() {
         super(ID, IMG, COST, TYPE, COLOR, RARITY, TARGET);
         selfRetain = true;
+        defaultSecondMagicNumber = defaultBaseSecondMagicNumber = DRAW;
     }
 
     @Override
@@ -35,10 +38,17 @@ public class HouraiInAPot extends AbstractDefaultCard {
     }
 
     @Override
+    public void triggerWhenDrawn() {
+        if (upgraded) {
+            addToBot(new DrawCardAction(defaultSecondMagicNumber));
+        }
+    }
+
+    @Override
     public void upgrade() {
         if (!upgraded) {
             upgradeName();
-            upgradeBaseCost(UPGRADE_COST);
+            rawDescription = languagePack.getCardStrings(cardID).UPGRADE_DESCRIPTION;
             initializeDescription();
         }
     }

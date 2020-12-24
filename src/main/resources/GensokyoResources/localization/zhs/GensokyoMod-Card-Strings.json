@@ -300,7 +300,8 @@
   },
   "Gensokyo:HouraiInAPot": {
     "NAME": "Hourai in a Pot",
-    "DESCRIPTION": "Discard any number of cards then draw that many."
+    "DESCRIPTION": "Discard any number of cards then draw that many.",
+    "UPGRADE_DESCRIPTION": "Discard any number of cards then draw that many. NL Whenever this card is drawn, draw !Gensokyo:SecondMagic! card."
   },
   "Gensokyo:Dawn": {
     "NAME": "Dawn",
