@@ -36,10 +36,10 @@ public class VampireBat extends AbstractSpriterMonster
 
     private static final int STRENGTH = 2;
 
-    private static final int HP_MIN = 29;
-    private static final int HP_MAX = 35;
-    private static final int A7_HP_MIN = 31;
-    private static final int A7_HP_MAX = 38;
+    private static final int HP_MIN = 32;
+    private static final int HP_MAX = 38;
+    private static final int A7_HP_MIN = 34;
+    private static final int A7_HP_MAX = 41;
 
     private Map<Byte, EnemyMoveInfo> moves;
 

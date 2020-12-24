@@ -44,10 +44,10 @@ public class LoudBat extends AbstractSpriterMonster
     private static final int A7_BLOCK_AMT = 9;
     private int block;
 
-    private static final int HP_MIN = 32;
-    private static final int HP_MAX = 36;
-    private static final int A7_HP_MIN = 34;
-    private static final int A7_HP_MAX = 40;
+    private static final int HP_MIN = 35;
+    private static final int HP_MAX = 39;
+    private static final int A7_HP_MIN = 37;
+    private static final int A7_HP_MAX = 43;
 
     private Map<Byte, EnemyMoveInfo> moves;
 

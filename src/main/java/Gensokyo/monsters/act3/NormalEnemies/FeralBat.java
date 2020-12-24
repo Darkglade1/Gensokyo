@@ -38,10 +38,10 @@ public class FeralBat extends AbstractSpriterMonster
     private static final int A17_STRENGTH = 3;
     private int strength;
 
-    private static final int HP_MIN = 27;
-    private static final int HP_MAX = 30;
-    private static final int A7_HP_MIN = 29;
-    private static final int A7_HP_MAX = 34;
+    private static final int HP_MIN = 30;
+    private static final int HP_MAX = 33;
+    private static final int A7_HP_MIN = 32;
+    private static final int A7_HP_MAX = 37;
 
     private Map<Byte, EnemyMoveInfo> moves;
 

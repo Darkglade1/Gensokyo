@@ -37,12 +37,12 @@ public class Sharpion extends AbstractSpriterMonster
     private static final int A2_ATTACK_DMG = 22;
     private int attackDmg;
 
-    private static final int DEBUFF_ATTACK_DAMAGE = 10;
-    private static final int A2_DEBUFF_ATTACK_DAMAGE = 11;
+    private static final int DEBUFF_ATTACK_DAMAGE = 12;
+    private static final int A2_DEBUFF_ATTACK_DAMAGE = 13;
     private int debuffAttackDamage;
 
-    private static final int MULTI_ATTACK_DAMAGE = 8;
-    private static final int A2_MULTI_ATTACK_DAMAGE = 9;
+    private static final int MULTI_ATTACK_DAMAGE = 9;
+    private static final int A2_MULTI_ATTACK_DAMAGE = 10;
     private static final int HITS = 2;
     private int multiAttackDamage;
 

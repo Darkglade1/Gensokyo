@@ -2,7 +2,7 @@ package Gensokyo.powers.act3;
 
 import Gensokyo.GensokyoMod;
 import Gensokyo.cards.InfectedWound;
-import com.megacrit.cardcrawl.actions.common.MakeTempCardInDiscardAction;
+import com.megacrit.cardcrawl.actions.common.MakeTempCardInDrawPileAction;
 import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.core.AbstractCreature;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
@@ -28,7 +28,7 @@ public class RuthlessStabs extends AbstractPower {
     @Override
     public void onInflictDamage(DamageInfo info, int damageAmount, AbstractCreature target) {
         if (damageAmount > 0 && info.type == DamageInfo.DamageType.NORMAL && target == AbstractDungeon.player) {
-            this.addToBot(new MakeTempCardInDiscardAction(new InfectedWound(), 1));
+            AbstractDungeon.actionManager.addToBottom(new MakeTempCardInDrawPileAction(new InfectedWound(), 1, true, true));
         }
     }
 
