@@ -9,11 +9,15 @@ import Gensokyo.powers.act3.Doom;
 import Gensokyo.powers.act3.EyesOfDeath;
 import Gensokyo.powers.act3.SistersPlayerPosition;
 import Gensokyo.powers.act3.SistersPosition;
+import Gensokyo.util.LaneVisual;
 import actlikeit.dungeons.CustomDungeon;
 import basemod.ReflectionHacks;
+import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.Texture;
+import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
+import com.megacrit.cardcrawl.actions.GameActionManager;
 import com.megacrit.cardcrawl.actions.animations.TalkAction;
 import com.megacrit.cardcrawl.actions.animations.VFXAction;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
@@ -89,6 +93,9 @@ public class Flandre extends AbstractSpriterMonster
     public float originalY;
 
     private Remilia sister;
+    private static float arrowTime = 0.0f;
+    private static float alpha = 0.0F;
+    private static float alphaSpeed = 3.0F;
 
     private Map<Byte, EnemyMoveInfo> moves;
 
@@ -325,5 +332,18 @@ public class Flandre extends AbstractSpriterMonster
         this.onBossVictoryLogic();
         super.die(triggerRelics);
         this.onFinalBossVictoryLogic();
+    }
+
+    @Override
+    public void render(SpriteBatch sb) {
+        super.render(sb);
+        if (AbstractDungeon.player.hasPower(SistersPlayerPosition.POWER_ID) && !AbstractDungeon.actionManager.turnHasEnded) {
+            arrowTime += Gdx.graphics.getDeltaTime();
+            alpha = alpha + Gdx.graphics.getDeltaTime() * alphaSpeed;
+            if (alpha > 1.0F) {
+                alpha = 1.0F;
+            }
+            LaneVisual.drawArrow(sb, this.hb, AbstractDungeon.player.hb, (100.0F * Settings.scale), arrowTime, alpha, null);
+        }
     }
 }
