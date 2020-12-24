@@ -1,5 +1,6 @@
 package Gensokyo.patches;
 
+import Gensokyo.monsters.act3.Flandre;
 import Gensokyo.powers.act1.LunacyPower;
 import com.evacipated.cardcrawl.modthespire.lib.ByRef;
 import com.evacipated.cardcrawl.modthespire.lib.LineFinder;
@@ -16,7 +17,7 @@ import javassist.CtBehavior;
 import java.util.ArrayList;
 
 
-// A patch to make mind controlled enemies properly target someone else
+// A patch to make these enemies properly target someone else
 public class LunacyRetargetPatch {
     @SpirePatch(
             clz = DamageAction.class,
@@ -28,7 +29,11 @@ public class LunacyRetargetPatch {
         public static void ChangeTarget(DamageAction instance, @ByRef DamageInfo[] info) {
             if (instance.source != null) {
                 if (instance.source.hasPower(LunacyPower.POWER_ID) && info[0].type == DamageInfo.DamageType.NORMAL) {
-                    instance.target = AbstractDungeon.getMonsters().getRandomMonster(null, true, AbstractDungeon.cardRandomRng);
+                    if (instance.source instanceof Flandre) {
+                        instance.target = instance.source; //hardcode to make Flandre always hit herself LOL
+                    } else {
+                        instance.target = AbstractDungeon.getMonsters().getRandomMonster(null, true, AbstractDungeon.cardRandomRng);
+                    }
                     if (instance.target != null) {
                         info[0].applyPowers(instance.source, instance.target);
                     }
@@ -54,7 +59,11 @@ public class LunacyRetargetPatch {
         public static void ChangeTarget(VampireDamageAction instance, @ByRef DamageInfo[] info) {
             if (instance.source != null) {
                 if (instance.source.hasPower(LunacyPower.POWER_ID) && info[0].type == DamageInfo.DamageType.NORMAL) {
-                    instance.target = AbstractDungeon.getMonsters().getRandomMonster(null, true, AbstractDungeon.cardRandomRng);
+                    if (instance.source instanceof Flandre) {
+                        instance.target = instance.source; //hardcode to make Flandre always hit herself LOL
+                    } else {
+                        instance.target = AbstractDungeon.getMonsters().getRandomMonster(null, true, AbstractDungeon.cardRandomRng);
+                    }
                     if (instance.target != null) {
                         info[0].applyPowers(instance.source, instance.target);
                     }

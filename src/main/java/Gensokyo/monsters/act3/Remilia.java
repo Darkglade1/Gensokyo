@@ -8,6 +8,7 @@ import Gensokyo.powers.act3.SistersPosition;
 import basemod.ReflectionHacks;
 import basemod.abstracts.CustomMonster;
 import com.badlogic.gdx.graphics.Color;
+import com.badlogic.gdx.graphics.Texture;
 import com.brashmonkey.spriter.Animation;
 import com.brashmonkey.spriter.Player;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
@@ -211,6 +212,8 @@ public class Remilia extends CustomMonster
                 ReflectionHacks.setPrivate(this, AbstractMonster.class, "intentDmg", info.output);
                 PowerTip intentTip = (PowerTip)ReflectionHacks.getPrivate(this, AbstractMonster.class, "intentTip");
                 intentTip.body = TEXT[10] + info.output + TEXT[11];
+                Texture attackImg = getAttackIntent(info.output);
+                ReflectionHacks.setPrivate(this, AbstractMonster.class, "intentImg", attackImg);
             }
         }
     }

@@ -209,7 +209,7 @@ public class PreviewIntent {
             case SLEEP:
                 return ImageMaster.INTENT_SLEEP_L;
             case STUN:
-                return null;
+                return ImageMaster.INTENT_STUN;
             default:
                 return ImageMaster.INTENT_UNKNOWN_L;
         }

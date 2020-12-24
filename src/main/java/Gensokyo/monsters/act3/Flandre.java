@@ -12,6 +12,7 @@ import Gensokyo.powers.act3.SistersPosition;
 import actlikeit.dungeons.CustomDungeon;
 import basemod.ReflectionHacks;
 import com.badlogic.gdx.graphics.Color;
+import com.badlogic.gdx.graphics.Texture;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.animations.TalkAction;
 import com.megacrit.cardcrawl.actions.animations.VFXAction;
@@ -287,6 +288,8 @@ public class Flandre extends AbstractSpriterMonster
                 } else {
                     intentTip.body = TEXT[2] + info.output + TEXT[3];
                 }
+                Texture attackImg = getAttackIntent(info.output);
+                ReflectionHacks.setPrivate(this, AbstractMonster.class, "intentImg", attackImg);
             }
         } else {
             super.applyPowers();

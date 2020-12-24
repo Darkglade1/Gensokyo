@@ -11,6 +11,7 @@ import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.math.MathUtils;
 import com.brashmonkey.spriter.Animation;
 import com.brashmonkey.spriter.Player;
+import com.evacipated.cardcrawl.mod.stslib.powers.StunMonsterPower;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.animations.TalkAction;
 import com.megacrit.cardcrawl.actions.animations.VFXAction;
@@ -302,7 +303,7 @@ public class Tenshi extends CustomMonster
     @Override
     public void renderIntent(SpriteBatch sb) {
         super.renderIntent(sb);
-        if (secondIntent != null && weather == WEATHER_1) {
+        if (secondIntent != null && weather == WEATHER_1 && !this.hasPower(StunMonsterPower.POWER_ID)) {
             secondIntent.update();
             secondIntent.render(sb);
         }
