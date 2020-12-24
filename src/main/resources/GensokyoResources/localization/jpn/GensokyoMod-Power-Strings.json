@@ -370,7 +370,7 @@
 },
 "Gensokyo:RuthlessStabs": {
         "NAME": "Ruthless Stabs",
-        "DESCRIPTIONS": ["Whenever you receive unblocked attack damage from this enemy, shuffle an #rInfected #rWound into your discard pile."]
+        "DESCRIPTIONS": ["Whenever you receive unblocked attack damage from this enemy, shuffle an #rInfected #rWound into your draw pile."]
 },
 "Gensokyo:AnimalFriend": {
         "NAME": "Animal Friend",

@@ -93,9 +93,6 @@ public class Flandre extends AbstractSpriterMonster
     public float originalY;
 
     private Remilia sister;
-    private static float arrowTime = 0.0f;
-    private static float alpha = 0.0F;
-    private static float alphaSpeed = 3.0F;
 
     private Map<Byte, EnemyMoveInfo> moves;
 
@@ -337,13 +334,8 @@ public class Flandre extends AbstractSpriterMonster
     @Override
     public void render(SpriteBatch sb) {
         super.render(sb);
-        if (AbstractDungeon.player.hasPower(SistersPlayerPosition.POWER_ID) && !AbstractDungeon.actionManager.turnHasEnded) {
-            arrowTime += Gdx.graphics.getDeltaTime();
-            alpha = alpha + Gdx.graphics.getDeltaTime() * alphaSpeed;
-            if (alpha > 1.0F) {
-                alpha = 1.0F;
-            }
-            LaneVisual.drawArrow(sb, this.hb, AbstractDungeon.player.hb, (100.0F * Settings.scale), arrowTime, alpha, null);
+        if (AbstractDungeon.player.hasPower(SistersPlayerPosition.POWER_ID) && !AbstractDungeon.actionManager.turnHasEnded && !this.isDeadOrEscaped()) {
+            LaneVisual.drawArrow(sb, this.hb, AbstractDungeon.player.hb, (100.0F * Settings.scale));
         }
     }
 }
