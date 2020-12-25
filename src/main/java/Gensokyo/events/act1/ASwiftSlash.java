@@ -29,8 +29,8 @@ public class ASwiftSlash extends AbstractImageEvent {
 
     private int screenNum = 0;
 
-    private static final float HEALTH_LOSS_PERCENTAGE = 0.10F;
-    private static final float HEALTH_LOSS_PERCENTAGE_HIGH_ASCENSION = 0.13F;
+    private static final float HEALTH_LOSS_PERCENTAGE = 0.15F;
+    private static final float HEALTH_LOSS_PERCENTAGE_HIGH_ASCENSION = 0.20F;
 
     private int healthdamage;
     private boolean pickCard = false;

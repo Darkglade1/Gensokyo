@@ -37,8 +37,8 @@ public class MedicineSeller extends AbstractImageEvent {
     private static final String[] OPTIONS = eventStrings.OPTIONS;
     public static final String IMG = makeEventPath("MedicineSeller.png");
 
-    public static final int INITIAL_GOLD_COST = 80;
-    public static final int BONUS_GOLD_COST = 40;
+    public static final int INITIAL_GOLD_COST = 60;
+    public static final int BONUS_GOLD_COST = 30;
     private static final int NUM_MODIFIERS = 3;
 
     private static final int BLOCK0 = 4;
