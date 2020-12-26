@@ -216,7 +216,7 @@
   },
   "Gensokyo:TrainingManual": {
     "NAME": "训练手册",
-    "DESCRIPTION": "升级一张牌."
+    "DESCRIPTION": "获得一张升级过的张牌."
   },
   "Gensokyo:LockedMedkit": {
     "NAME": "上锁的医疗箱",
@@ -252,11 +252,11 @@
   },
   "Gensokyo:BrilliantDragonBullet": {
     "NAME": "耀眼的龙玉",
-    "DESCRIPTION": "造成 !D! 点伤害. NL 抽取 !M! 张卡. 如果这张卡是攻击, 再造成 !D! 点伤害."
+    "DESCRIPTION": "造成 !D! 点伤害. NL 抽取 !M! 张卡. 如果抽到的卡是攻击, 再造成 !D! 点伤害."
   },
   "Gensokyo:SalamanderShield": {
     "NAME": "火蜥蜴盾牌",
-    "DESCRIPTION": "获得 !B! 格挡. NL 抽取 !M! 张卡. 如果这张卡是技能牌, 再获得 !B! 点格挡."
+    "DESCRIPTION": "获得 !B! 格挡. NL 抽取 !M! 张卡. 如果抽到的张卡是技能牌, 再获得 !B! 点格挡."
   },
   "Gensokyo:BuddhistDiamond": {
     "NAME": "佛体的金刚石",
@@ -296,7 +296,7 @@
   },
   "Gensokyo:RisingWorld": {
     "NAME": "世间开明",
-    "DESCRIPTION": "预见 !M!. NL 此次预见丢弃的卡将升级. NL 每当此卡抽到, 抽取 !Gensokyo:SecondMagic! 卡."
+    "DESCRIPTION": "预见 !M!. NL 此次预见丢弃的卡将升级. NL 每当抽到此卡, 抽取 !Gensokyo:SecondMagic! 卡."
   },
   "Gensokyo:HouraiInAPot": {
     "NAME": "壶中蓬莱",
