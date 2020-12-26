@@ -163,172 +163,172 @@
     "UPGRADE_DESCRIPTION": "保留 。 NL 将牌组中的一张牌的复制品加入手牌。 NL 消耗 。"
   },
   "Gensokyo:SummonYinYangFox": {
-    "NAME": "Yin Yang Fox",
-    "DESCRIPTION": "Summon a Yin Yang Fox gensokyo:Pet with !M! HP."
+    "NAME": "管狐",
+    "DESCRIPTION": "召唤一只拥有  !M! 生命值的 gensokyo:宠物 ."
   },
   "Gensokyo:SummonFieryMouse": {
-    "NAME": "Fiery Mouse",
-    "DESCRIPTION": "Summon a Fiery Mouse gensokyo:Pet with !M! HP."
+    "NAME": "火鼠",
+    "DESCRIPTION": "召唤一只拥有 !M! 生命值的 gensokyo:宠物 ."
   },
   "Gensokyo:SummonJeweledCobra": {
-    "NAME": "JeweledCobra",
-    "DESCRIPTION": "Summon a Jeweled Cobra gensokyo:Pet with !M! HP."
+    "NAME": "宝石眼镜蛇",
+    "DESCRIPTION": "召唤一只拥有 !M! 生命值的 gensokyo:宠物 ."
   },
   "Gensokyo:SummonPsychicCat": {
-    "NAME": "Psychic Cat",
-    "DESCRIPTION": "Summon a Psychic Cat gensokyo:Pet with !M! HP."
+    "NAME": "灵猫",
+    "DESCRIPTION": "召唤一只拥有 !M! 生命值的 gensokyo:宠物 ."
   },
   "Gensokyo:PetPreview": {
-    "NAME": "Moves",
+    "NAME": "移动",
     "DESCRIPTION": ""
   },
   "Gensokyo:MysteriousEgg": {
-    "NAME": "Mysterious Egg",
-    "DESCRIPTION": "Random gensokyo:Pet card."
+    "NAME": "神秘之蛋",
+    "DESCRIPTION": "获得随机 gensokyo:宠物 卡牌."
   },
   "Gensokyo:ExoticEgg": {
-    "NAME": "Exotic Egg",
-    "DESCRIPTION": "Random gensokyo:Pet card."
+    "NAME": "意界之蛋",
+    "DESCRIPTION": "获得随机 gensokyo:宠物 卡牌"
   },
   "Gensokyo:Shovel": {
-    "NAME": "Shovel",
-    "DESCRIPTION": "Random relic."
+    "NAME": "铲子",
+    "DESCRIPTION": "获得一个随机遗物."
   },
   "Gensokyo:BlemishedSteel": {
-    "NAME": "Blemished Steel",
-    "DESCRIPTION": "Random rare relic."
+    "NAME": "瑕疵之钢",
+    "DESCRIPTION": "获得随机稀有遗物."
   },
   "Gensokyo:DepletedGenerator": {
-    "NAME": "Depleted Generator",
-    "DESCRIPTION": "Rare card reward."
+    "NAME": "废弃发电机",
+    "DESCRIPTION": "奖励随机稀有卡牌."
   },
   "Gensokyo:ScrapIron": {
-    "NAME": "Scrap Iron",
-    "DESCRIPTION": "Random common relic."
+    "NAME": "废铁",
+    "DESCRIPTION": "随机普通遗物."
   },
   "Gensokyo:TarnishedGold": {
-    "NAME": "Tarnished Gold",
-    "DESCRIPTION": "!Gensokyo:SecondMagic! gold."
+    "NAME": "无色金",
+    "DESCRIPTION": "!Gensokyo:SecondMagic! 金币."
   },
   "Gensokyo:RustyChest": {
-    "NAME": "Rusty Chest",
-    "DESCRIPTION": "!Gensokyo:SecondMagic! gold."
+    "NAME": "锈迹箱子",
+    "DESCRIPTION": "!Gensokyo:SecondMagic! 金币."
   },
   "Gensokyo:TrainingManual": {
-    "NAME": "Training Manual",
-    "DESCRIPTION": "Upgraded card reward."
+    "NAME": "训练手册",
+    "DESCRIPTION": "升级一张牌."
   },
   "Gensokyo:LockedMedkit": {
-    "NAME": "Locked Medkit",
-    "DESCRIPTION": "Heal to full HP."
+    "NAME": "上锁的医疗箱",
+    "DESCRIPTION": "恢复所有生命值."
   },
   "Gensokyo:RPG": {
     "NAME": "RPG",
-    "DESCRIPTION": "Deal !D! damage to ALL enemies."
+    "DESCRIPTION": "对所有敌人造成 !D! 的伤害."
   },
   "Gensokyo:ReactiveArmor": {
-    "NAME": "Reactive Armor",
-    "DESCRIPTION": "Gain !B! Block for each enemy in combat."
+    "NAME": "反应装甲",
+    "DESCRIPTION": "每有一个敌人获得 !B! 点格挡."
   },
   "Gensokyo:Taser": {
-    "NAME": "Taser",
-    "DESCRIPTION": "Deal !D! damage. NL Apply !M! *Stun."
+    "NAME": "电击枪",
+    "DESCRIPTION": "造成 !D! 点伤害. NL 并追加 !M! *惊呆."
   },
   "Gensokyo:MedicineKit": {
-    "NAME": "Medicine Kit",
-    "DESCRIPTION": "Remove all of your debuffs and heal !M! HP for each debuff removed."
+    "NAME": "药物组件",
+    "DESCRIPTION": "移除你所有的不良状态，每移除一个不良状态恢复 !M! 生命值."
   },
   "Gensokyo:OverchargedCore": {
-    "NAME": "Overcharged Core",
-    "DESCRIPTION": "Gain !M! Strength, Dexterity, and Focus. NL Lose !M! HP."
+    "NAME": "核心过载",
+    "DESCRIPTION": "获得 !M! 点力量, 敏捷, 和集中. NL 失去 !M! 点生命值."
   },
   "Gensokyo:LifeforceConverter": {
-    "NAME": "Lifeforce Converter",
-    "DESCRIPTION": "Give ALL non-X-cost cards in your hand gensokyo:Bloodcast this combat."
+    "NAME": "生命力转换器",
+    "DESCRIPTION": "在本场战斗中给予你手中所有非X费牌 gensokyo:血祭 ."
   },
   "Gensokyo:Butterfly": {
-    "NAME": "Butterfly",
-    "DESCRIPTION": "Unplayable. NL If this card is exhausted, lose !M! Max HP this combat."
+    "NAME": "黄油",
+    "DESCRIPTION": "不能打出. NL 如果这种卡被消耗掉, 本场战斗失去 !M!点最大生命."
   },
   "Gensokyo:BrilliantDragonBullet": {
-    "NAME": "Brilliant Dragon Bullet",
-    "DESCRIPTION": "Deal !D! damage. NL Draw !M! card. If it's an Attack, deal !D! damage again."
+    "NAME": "耀眼的龙玉",
+    "DESCRIPTION": "造成 !D! 点伤害. NL 抽取 !M! 张卡. 如果这张卡是攻击, 再造成 !D! 点伤害."
   },
   "Gensokyo:SalamanderShield": {
-    "NAME": "Salamander Shield",
-    "DESCRIPTION": "Gain !B! Block. NL Draw !M! card. If it's a Skill, gain !B! Block again."
+    "NAME": "火蜥蜴盾牌",
+    "DESCRIPTION": "获得 !B! 格挡. NL 抽取 !M! 张卡. 如果这张卡是技能牌, 再获得 !B! 点格挡."
   },
   "Gensokyo:BuddhistDiamond": {
-    "NAME": "Buddhist Diamond",
-    "DESCRIPTION": "Deal !D! damage. NL When this card is discarded by Scry, increase its damage by !M! this combat."
+    "NAME": "佛体的金刚石",
+    "DESCRIPTION": "造成 !D! 点伤害. NL 每当这张卡因为预见而被丢弃时, 在本场战斗中增加 !M! 点伤害."
   },
   "Gensokyo:NewMoon": {
-    "NAME": "New Moon",
-    "DESCRIPTION": "Deal !D! damage. NL Put a card from your hand on top of your draw pile."
+    "NAME": "永夜归返-新月",
+    "DESCRIPTION": "造成 !D! 点伤害. NL 将手牌中的一张卡置入抽牌堆顶部."
   },
   "Gensokyo:MorningMist": {
-    "NAME": "Morning Mist",
-    "DESCRIPTION": "Gain !B! Block. NL Put a card from your discard pile on top of your draw pile."
+    "NAME": "永夜归返-朝霭",
+    "DESCRIPTION": "获得 !B! 点格挡. NL 从弃牌堆将一张卡放入抽牌堆顶部."
   },
   "Gensokyo:EverlastingLife": {
-    "NAME": "Everlasting Life",
-    "DESCRIPTION": "Gain !B! Block. NL Scry !M!."
+    "NAME": "永恒的生命",
+    "DESCRIPTION": "获得 !B! 格挡. NL 预见 !M!."
   },
   "Gensokyo:LifeSpringInfinity": {
-    "NAME": "Life Spring Infinity",
-    "DESCRIPTION": "Draw !M! cards. Gain !B! Block for every Skill drawn this way."
+    "NAME": "无限的生命之泉",
+    "DESCRIPTION": "抽取 !M! 张卡. 每抽取一张技能牌就获得 !B! 点格挡."
   },
   "Gensokyo:DreamlikeParadise": {
-    "NAME": "Dreamlike Paradise",
-    "DESCRIPTION": "Scry !M!. NL Cards discarded this way cost 0 until played. NL Whenever this card is drawn, draw !Gensokyo:SecondMagic! card."
+    "NAME": "梦色之乡",
+    "DESCRIPTION": "预见 !M!. NL 此次预见丢弃的卡直到打出前消耗变为0. NL 每当抽到此卡, 抽取 !Gensokyo:SecondMagic! 卡."
   },
   "Gensokyo:RainbowDanmaku": {
-    "NAME": "Rainbow Danmaku",
-    "DESCRIPTION": "Deal !D! damage. NL Scry !M!. NL For every Attack discarded this way, deal !D! damage again."
+    "NAME": "七色弹幕",
+    "DESCRIPTION": "造成 !D! 点伤害. NL 预见 !M!. NL 在此次预见中每丢弃一张卡, 再造成 !D! 点伤害."
   },
   "Gensokyo:UnlikelyAid": {
-    "NAME": "Unlikely Aid",
-    "DESCRIPTION": "Deal !D! damage. NL Choose 1 of !M! cards from your master deck to add to your hand. It costs 0 this turn and exhausts."
+    "NAME": "奇迹般的援助",
+    "DESCRIPTION": "造成 !D! 点伤害. NL 从 !M! 张你卡组中的牌中选择一张.本回合消耗为0且获得消耗."
   },
   "Gensokyo:MorningStar": {
-    "NAME": "Morning Star",
-    "DESCRIPTION": "Gain !B! Block. NL Deal !D! damage. NL Exhaust ALL your Status cards."
+    "NAME": "破晓明星",
+    "DESCRIPTION": "获得 !B! 点格挡. NL 造成 !D! 点伤害. NL 消耗你所有的状态牌（包括抽牌堆和弃牌堆）."
   },
   "Gensokyo:RisingWorld": {
-    "NAME": "Rising World",
-    "DESCRIPTION": "Scry !M!. NL Cards discarded this way are Upgraded. NL Whenever this card is drawn, draw !Gensokyo:SecondMagic! card."
+    "NAME": "世间开明",
+    "DESCRIPTION": "预见 !M!. NL 此次预见丢弃的卡将升级. NL 每当此卡抽到, 抽取 !Gensokyo:SecondMagic! 卡."
   },
   "Gensokyo:HouraiInAPot": {
-    "NAME": "Hourai in a Pot",
-    "DESCRIPTION": "Discard any number of cards then draw that many.",
-    "UPGRADE_DESCRIPTION": "Discard any number of cards then draw that many. NL Whenever this card is drawn, draw !Gensokyo:SecondMagic! card."
+    "NAME": "壶中蓬莱",
+    "DESCRIPTION": "弃掉任意数量的卡，然后抽等量卡.",
+    "UPGRADE_DESCRIPTION": "弃掉任意数量的卡，然后抽等量卡. NL 每当抽到此卡, 抽取 !Gensokyo:SecondMagic! 卡."
   },
   "Gensokyo:Dawn": {
-    "NAME": "Dawn",
-    "DESCRIPTION": "Whenever this card is drawn, gain [E] and draw !Gensokyo:SecondMagic! card.",
-    "UPGRADE_DESCRIPTION": "Whenever this card is drawn, gain [E] [E] and draw !Gensokyo:SecondMagic! card."
+    "NAME": "永夜归返-拂晓",
+    "DESCRIPTION": "每当抽到此卡, 获得 [E] 并抽取 !Gensokyo:SecondMagic! 卡.",
+    "UPGRADE_DESCRIPTION": "每当抽到此卡, 获得 [E] [E] 并抽取 !Gensokyo:SecondMagic! 卡."
   },
   "Gensokyo:UnhurriedMind": {
-    "NAME": "Unhurried Mind",
-    "DESCRIPTION": "Play the top !M! cards of your draw pile."
+    "NAME": "从容之心",
+    "DESCRIPTION": "打出抽牌堆顶上的 !M! 张卡."
   },
   "Gensokyo:CustomPotion": {
-    "NAME": "Custom Potion",
+    "NAME": "定制药水",
     "DESCRIPTION": ""
   },
   "Gensokyo:GreaterSplit": {
-    "NAME": "Greater Split: Vertical",
-    "DESCRIPTION": "Deal !D! damage. NL Apply !M! *Stun.",
-    "UPGRADE_DESCRIPTION": "Deal !D! damage and apply !M! *Stun to ALL enemies.",
-    "EXTENDED_DESCRIPTION": ["Greater Split: Horizontal"]
+    "NAME": "更大的分裂: 垂直",
+    "DESCRIPTION": "造成!D! 伤害. NL 并施加 !M! *惊呆.",
+    "UPGRADE_DESCRIPTION": "造成 !D! 伤害 对所有敌人施加 !M! *惊呆.",
+    "EXTENDED_DESCRIPTION": ["更大的分裂: 水平"]
   },
   "Gensokyo:PrivateSquare": {
-    "NAME": "Private Square",
-    "DESCRIPTION": "Take an extra turn after this one. End your turn. NL Add a copy of this card that costs !M! more to your hand. NL If any enemy takes damage while this is in your hand, exhaust it."
+    "NAME": "私人领域",
+    "DESCRIPTION": "本回合结束后获得一个额外回合. 结束你的回合. NL 将一张费用加 !M! 的复制加入你的手牌. NL 当此卡在手中时有任一敌人受到伤害，消耗此卡."
   },
   "Gensokyo:InfectedWound": {
-    "NAME": "Infected Wound",
-    "DESCRIPTION": "While this card is in your hand, you cannot play Attacks.",
-    "EXTENDED_DESCRIPTION": ["I cannot play Attacks because of Infected Wound!"]
+    "NAME": "伤口感染",
+    "DESCRIPTION": "当此卡在手中时，你不能攻击.",
+    "EXTENDED_DESCRIPTION": ["我伤口感染了，不能攻击!"]
   }
 }

@@ -265,111 +265,111 @@
         "DESCRIPTIONS": ["每当这名敌人完全 #y格挡 攻击伤害时，造成 #b", " 点伤害。"]
 },
 "Gensokyo:PetPosition": {
-        "NAME": "Spell Card Rules",
-        "DESCRIPTIONS": ["Your #ypet is in the same #ylane as you."]
+        "NAME": "宣告符卡规则",
+        "DESCRIPTIONS": ["你的 #y宠物 和你在同一 #y行."]
 },
 "Gensokyo:DreamEater": {
-        "NAME": "Dream Eater",
-        "DESCRIPTIONS": ["The first card you play this turn ", "is #rPurged and #rremoved #rfrom #ryour #rmaster #rdeck. If a card is removed this way, an effect occurs based on its rarity: ", " NL #yStarter: ", " NL #yCommon: ", " NL #yUncommon: ", " NL #yRare: ", "Gains #b", "Loses #b", " #yStrength.", " NL #pCurse: "]
+        "NAME": "梦境吞噬者",
+        "DESCRIPTIONS": ["本回合你打出的第一张卡 ", "将会 #r消耗 并从卡组中 #r移除. 如果通过移除了一张卡, 根据以下规则进行修正: ", " NL #y初始: ", " NL #y普通: ", " NL #y非常规: ", " NL #y吸引: ", "获得 #b", "失去 #b", " #y力量.", " NL #p诅咒: "]
 },
 "Gensokyo:EyesOfDeath": {
-        "NAME": "Eyes of Death Perception",
-        "DESCRIPTIONS": ["This creature deals #b", "% more damage when it consecutively attacks the same target."]
+        "NAME": "死亡感应之眼",
+        "DESCRIPTIONS": ["此生物连续攻击同一目标时，造成 #b", "% 的额外伤害."]
 },
 "Gensokyo:Doom": {
-        "NAME": "Doom",
-        "DESCRIPTIONS": ["Receive #b", "% more damage from #yAttacks.", " Wears off at end of round if this creature was NOT attacked this turn."]
+        "NAME": "厄运",
+        "DESCRIPTIONS": ["从 #y攻击 中受到 #b", "% 额外伤害.", " 如果这个生物本回合没有被攻击，在回合结束时会消失."]
 },
 "Gensokyo:AndThenThereWereNone": {
-        "NAME": "And Then There Were None",
-        "DESCRIPTIONS": ["#yDoom no longer wears off."]
+        "NAME": "无人之境",
+        "DESCRIPTIONS": ["#y厄运不再消散."]
 },
 "Gensokyo:Retribution": {
-        "NAME": "Retribution",
-        "DESCRIPTIONS": ["The next time this creature receives attack damage this turn, deals that much damage back to the attacker."]
+        "NAME": "复仇",
+        "DESCRIPTIONS": ["下次此生物在本回合受到攻击伤害时，对攻击者造成同样多的伤害."]
 },
 "Gensokyo:SistersPosition": {
-        "NAME": "Spell Card Rules",
-        "DESCRIPTIONS": ["This creature is in lane #b" , ". It is your #gally and will focus on the #renemy.", ". It is the #renemy and will focus on #ryou."]
+        "NAME": "宣读符卡规则",
+        "DESCRIPTIONS": ["这个生物在 #b 行" , ". 这是你的 #g盟友 她将专注于 #r敌人.", ". 这是 #r敌人她将专注于 #r你."]
 },
 "Gensokyo:SistersPlayerPosition": {
-        "NAME": "Spell Card Rules",
-        "DESCRIPTIONS": ["You are in lane #b" , ". Whenever you play a #ySkill, move #yUp #b1 lane. Whenever you play an #yAttack, move #yDown #b1 lane. NL If your #gally is between you and the #renemy, your #gally will take the hit for you instead.", " NL #yLane #b", " is #runsafe."]
+        "NAME": "宣读符卡规则",
+        "DESCRIPTIONS": ["你在第 #b" , " 行。每当你打出一张 #y技能牌 ，向 #y上 移动 #b1 行。每当你打出一张 #y攻击牌 ，向 #y下 移动 #b1 行. NL 如果你的 #g盟友 在你和 #r敌人 之间, 你的 #g盟友将会替你承担伤害.", " NL #y行#b", " 是 #正常运行."]
 },
 "Gensokyo:BorderOfDeath": {
-        "NAME": "Border of Death",
-        "DESCRIPTIONS": ["At the end of combat, gain #b", " Max HP."]
+        "NAME": "死亡的边界",
+        "DESCRIPTIONS": ["战斗结束, 获得 #b", " 最大生命."]
 },
 "Gensokyo:Deathtouch": {
-        "NAME": "Deathtouch",
-        "DESCRIPTIONS": ["Whenever you receive unblocked attack damage from this enemy, you #rlose that much #yMax #yHP this combat. NL Your #yMax #yHP cannot go below #b1. NL At the start of combat, your #ymax #yHP is reduced to your #ycurrent #yHP for this combat."]
+        "NAME": "临终关怀",
+        "DESCRIPTIONS": ["本次战斗每当你从这个敌人那里受到未被阻挡的攻击伤害, 你将 #r失去 等量 #y最大生命 . NL 你的 #y最大生命 不会低于 #b1. NL 在本次战斗开始时, 你的 #y最大生命 降低至你的 #y当前生命."]
 },
 "Gensokyo:Empower": {
-        "NAME": "Empower",
-        "DESCRIPTIONS": ["This creature's #yCurse has been increased by #b", "."]
+        "NAME": "诅咒",
+        "DESCRIPTIONS": ["这个生物的 #y诅咒 已经被提升到了 #b", "."]
 },
 "Gensokyo:SomeoneElse": {
-        "NAME": "Someone Else's Story",
-        "DESCRIPTIONS": ["#rDefeat merely takes you back to the event but forfeits the card reward. NL If you #gwin with at least #b", " HP remaining, the card reward is #yUpgraded. NL Your current and Max HP are restored to their original values after this encounter."]
+        "NAME": "其他人的故事",
+        "DESCRIPTIONS": ["#战败 不会死亡而是回到事件，但会失去奖励. NL 如果你 #g胜利 时至少有 #b", " 生命剩余, 卡牌奖励将会是 #y已经升级的. NL 你的当前生命值和最大生命值在这次战斗后会恢复到原来的值."]
 },
 "Gensokyo:ChargeUp": {
-        "NAME": "Charge Up",
-        "DESCRIPTIONS": ["Whenever you play #b", " cards, gains #b", " #yStrength. NL Loses all #yStrength after attacking."]
+        "NAME": "充电",
+        "DESCRIPTIONS": ["每当你打出张 #b", " 卡, 获得 #b", " #y力量. NL 攻击后失去所有 #y力量."]
 },
 "Gensokyo:UnstableReality": {
-        "NAME": "Delusions of Grief",
-        "DESCRIPTIONS": ["This creature is your #gally. NL You #gwin when you defeat #b", " #yDelusions."]
+        "NAME": "悲伤幻觉",
+        "DESCRIPTIONS": ["这个生物是你的 #g盟友. NL 当你打败 #b 时 #g胜利", " #y妄想症."]
 },
 "Gensokyo:DollJudgement": {
-        "NAME": "Little Legion",
-        "DESCRIPTIONS": ["Every #b", " turns, summons #b2 #yDolls."]
+        "NAME": "小小军势",
+        "DESCRIPTIONS": ["每 #b", " 回合, 召唤 #b2 #y人偶."]
 },
 "Gensokyo:AliceEventEnergy": {
-        "NAME": "Energized",
-        "DESCRIPTIONS": ["Every #b", " turns, gain", " ."]
+        "NAME": "通电",
+        "DESCRIPTIONS": ["每 #b", " 回合, 获得", " ."]
 },
 "Gensokyo:ExplosiveDoll": {
-        "NAME": "Explosive",
-        "DESCRIPTIONS": ["Will #rexplode ", "this turn,", "in #b", " turns,", " dealing #b", " damage to #yyou."]
+        "NAME": "爆炸",
+        "DESCRIPTIONS": ["将会 #r爆炸 ", "这个回合,", "在 #b", " 回合,", " 对 #y你 造成 #b", " 伤害."]
 },
 "Gensokyo:BurdenOfFailure": {
-        "NAME": "Burden of Failure",
-        "DESCRIPTIONS": ["If this creature fails to deal unblocked attack damage when it attacks, gains #b", " #yStrength."]
+        "NAME": "失败的负担",
+        "DESCRIPTIONS": ["如果该生物攻击时未能造成攻击伤害，则获得 #b", " #y力量."]
 },
 "Gensokyo:DollMagnet": {
-        "NAME": "Doll Magnet",
-        "DESCRIPTIONS": ["Every #b", " turns, spawn #b", " additional Explosive Doll(s)."]
+        "NAME": "玩偶磁铁",
+        "DESCRIPTIONS": ["每 #b", " 回合, 召唤 #b", " 追加爆炸人偶."]
 },
 "Gensokyo:SarielEventPower": {
-        "NAME": "Angel's Grace",
-        "DESCRIPTIONS": ["Every #b", "th #yAttack", "th #ySkill", " you play is played twice."]
+        "NAME": "天使的恩典",
+        "DESCRIPTIONS": ["每 #b", "次 #y攻击卡", "次 #y技能卡", " 将会打出两次."]
 },
 "Gensokyo:UnknownCurse": {
-        "NAME": "Unknown Curse",
-        "DESCRIPTIONS": ["Your cards have been #pobscured!"]
+        "NAME": "未知诅咒",
+        "DESCRIPTIONS": ["你的卡已经被 #p模糊 了!"]
 },
 "Gensokyo:GuardianOfRelics": {
-        "NAME": "Guardian of Relics",
-        "DESCRIPTIONS": ["At the end of its turn, gains #yBlock equal to the number of #yRelics you have."]
+        "NAME": "遗物守护者",
+        "DESCRIPTIONS": ["本回合结束, 你每有一个 #y遗物 就获得点 #y格挡 ."]
 },
 "Gensokyo:Sinflower": {
-        "NAME": "Sinflower",
-        "DESCRIPTIONS": ["Whenever you attack this creature, remove your leftmost #ydebuff."]
+        "NAME": "红花",
+        "DESCRIPTIONS": ["每当你攻击这个敌人, 移除你层数最多的 #y不良状态."]
 },
 "Gensokyo:Titan": {
-        "NAME": "Titan",
-        "DESCRIPTIONS": ["This creature's base attack damage is equal to half its current HP, up to a maximum of #b", "."]
+        "NAME": "泰坦",
+        "DESCRIPTIONS": ["此生物的基础攻击伤害等于其当前生命值的一半，最高可达 #b", "."]
 },
 "Gensokyo:DawningLight": {
-        "NAME": "Dawning Light",
-        "DESCRIPTIONS": ["If this creature inflicts unblocked attack damage this turn, it gains #b", " #yStrength."]
+        "NAME": "曙光",
+        "DESCRIPTIONS": ["如果此生物在本回合造成未被阻挡的攻击伤害，则获得 #b", " #y点力量."]
 },
 "Gensokyo:RuthlessStabs": {
-        "NAME": "Ruthless Stabs",
-        "DESCRIPTIONS": ["Whenever you receive unblocked attack damage from this enemy, shuffle an #rInfected #rWound into your draw pile."]
+        "NAME": "无情的刺伤",
+        "DESCRIPTIONS": ["每当你从这个敌人那里受到未被阻挡的攻击伤害时, 将 #r感染伤害 洗入你的抽牌堆."]
 },
 "Gensokyo:AnimalFriend": {
-        "NAME": "Animal Friend",
-        "DESCRIPTIONS": ["Whenever a minion dies, loses #b", " HP and gains #b", " #yStrength."]
+        "NAME": "动物伙伴",
+        "DESCRIPTIONS": ["每当一个爪牙阵亡, 失去 #b", " 生命然后获得 #b", " #y力量."]
 }
 }

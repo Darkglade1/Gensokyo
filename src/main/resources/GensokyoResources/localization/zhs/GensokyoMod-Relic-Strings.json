@@ -173,38 +173,38 @@
     ]
   },
   "Gensokyo:Companionship": {
-    "NAME": "Companionship",
-    "FLAVOR": "It's those small moments you end up remembering for the rest of your life.",
+    "NAME": "陪伴",
+    "FLAVOR": "这是那些你余生都会记住的小瞬间。",
     "DESCRIPTIONS": [
-      " Transfer up to #b", " #yBlock from you to your #ygensokyo:Pet."
+      " 获得 #b", " #y格挡 从你的 #ygensokyo:宠物 。"
     ]
   },
   "Gensokyo:EmptyGrave": {
-    "NAME": "Empty Grave",
-    "FLAVOR": "I am not there. I did not die.",
+    "NAME": "空坟墓",
+    "FLAVOR": "我未亡，不在此.",
     "DESCRIPTIONS": [
-      "After climbing #b", " floors, heal #b", "% of your Max HP."
+      "在攀爬 #b", " 层后, 恢复 #b", "% 的最大生命."
     ]
   },
   "Gensokyo:DualWield": {
-    "NAME": "Dual Wield",
-    "FLAVOR": "Rip and tear, a bloody grin. \n Reap and sow, a horrid din.",
+    "NAME": "顺劈",
+    "FLAVOR": "在撕咬中，咧嘴一笑。. \n 收获和播种，可怕的喧嚣R.",
     "DESCRIPTIONS": [
-      "Your single-target #yAttacks deal damage to ALL enemies."
+      "你的单目标 #y攻击 对所有敌人造成伤害."
     ]
   },
   "Gensokyo:TheCrow": {
-    "NAME": "The Crow",
-    "FLAVOR": "Power beckons, sweet and smile. \n Madness answers, bleak and vile.",
+    "NAME": "乌鸦",
+    "FLAVOR": "权力在召唤，甜蜜而微笑. \n 疯狂的回答，凄凉而卑鄙.",
     "DESCRIPTIONS": [
-      "At the end of your turn, gain #b", " #yRitual and take damage equal to the amount of #yStrength you have."
+      "你回合结束时, 获得 #b", " #y仪式 然后受到等同于 #y力量 的伤害."
     ]
   },
   "Gensokyo:DummyBloodcastTooltip": {
-    "NAME": "Bloodcast",
+    "NAME": "血祭",
     "FLAVOR": "",
     "DESCRIPTIONS": [
-      "When you have insufficient [E] to play this card, you may instead pay #b1 HP for every missing [E] ."
+      "如果你的 [E] 不足以打出这张卡, 你可以花费生命打出，每 #b1 生命等于 [E] ."
     ]
   },
   "Gensokyo:MarisaIngredientList": {

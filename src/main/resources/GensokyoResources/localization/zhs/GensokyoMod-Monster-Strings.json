@@ -405,69 +405,69 @@
     "NAME": "食人花"
   },
   "Gensokyo:YinYangFox": {
-    "NAME": "Yin Yang Fox",
+    "NAME": "管狐",
     "DIALOG": [
-      "Attack",
-      "Defend",
-      "Heal"
+      "攻击",
+      "防御",
+      "治疗"
     ],
     "MOVES": [
-      "Pet deals ",
-      " damage to a random enemy.",
-      "You gain ",
-      " Block.",
-      "Pet heals ",
-      " HP."
+      "宠物治疗",
+      " 伤害随机敌人.",
+      "你获得",
+      " 格挡.",
+      "宠物治疗",
+      " 生命."
     ]
   },
   "Gensokyo:FieryMouse": {
-    "NAME": "Fiery Mouse",
+    "NAME": "火鼠",
     "DIALOG": [
-      "Attack",
-      "Buff",
-      "Heal"
+     "攻击",
+      "防御",
+      "治疗"
     ],
     "MOVES": [
-      "Pet deals ",
-      " damage to ALL enemies.",
-      "Pet loses ",
-      " HP and ",
-      "you gain ",
-      " Strength.",
-      "you heal ",
-      " HP."
+      "宠物施加",
+      " 全体伤害.",
+      "宠物失去 ",
+      " 生命",
+      "你获得 ",
+      " 力量.",
+      "你治疗 ",
+      " 生命."
     ]
   },
   "Gensokyo:JeweledCobra": {
-    "NAME": "Jeweled Cobra",
+    "NAME": "宝石眼镜蛇",
     "DIALOG": [
-      "Debuff",
-      "All Debuff",
-      "Defend"
+      "下毒",
+      "全体下毒",
+      "防御"
     ],
     "MOVES": [
-      "Pet applies ",
-      " Poison to a random enemy.",
-      "Pet applies ",
-      " Poison to ALL enemies.",
-      "Pet gains ",
-      " Block."
+      "宠物随机 ",
+      " 对一名敌人下毒.",
+      "宠物对全体 ",
+      " 敌人下毒.",
+      " 宠物获得 ",
+      " 格挡."
     ]
   },
   "Gensokyo:PsychicCat": {
-    "NAME": "Psychic Cat",
+    "NAME": "灵猫",
     "DIALOG": [
-      "Debuff",
-      "Debuff",
-      "Draw"
+      "虚弱",
+      "易伤",
+      "抽牌"
     ],
     "MOVES": [
-      "Pet applies ",
-      " Weak to ALL enemies.",
-      "Pet applies ",
-      " Vulnerable to ALL enemies.",
-      "You draw ",
-      " card."
+      "宠物虚弱 ",
+      " 全体敌人.",
+      "宠物易伤 ",
+      " 全体敌人.",
+      "你 ",
+      " 抽卡."
     ]
   },
   "Gensokyo:Doremy": {
@@ -475,40 +475,40 @@
       null,
       null,
       null,
-      "There's No Need to Wake Up Anymore",
-      "Ochre Confusion",
-      "Scarlet Nightmare"
+      "不用再醒来",
+      "赭色混乱",
+      "猩红梦魇"
     ],
-    "NAME": "Ruler of Dreams",
+    "NAME": "梦境的支配者",
     "DIALOG": [
-      "Care for a sweet dream?",
-      "Good night.",
-      "Destroyer of Dreams"
+      "想做个美梦吗？",
+      "晚安，祝你好梦.",
+      "梦境的破坏者"
     ]
   },
   "Gensokyo:Flandre": {
     "MOVES": [
-      "Bloody Catastrophe",
-      "Forbidden Fruit",
-      "Laevatein",
-      "And Then There Were None"
+      "血腥的灾难",
+      "禁果",
+      "莱瓦汀",
+      "无人之境"
     ],
-    "NAME": "Devil's Little Sister",
+    "NAME": "恶魔之妹",
     "DIALOG": [
-      "Let me play with this one, sister!",
-      "You can't stop me, sister!"
+      "姐姐,让我和这家伙玩 !",
+      "姐姐, 你阻止不了我!"
     ]
   },
   "Gensokyo:Remilia": {
     "MOVES": [
-      "Scarlet Shoot",
-      "Vampire Claw",
-      "Night Dance"
+      "绯红之击",
+      "吸血鬼爪击",
+      "夜之舞"
     ],
-    "NAME": "Scarlet Devil",
+    "NAME": "猩红恶魔",
     "DIALOG": [
-      "You need to learn some restraint.",
-      "I hope you learned your lesson."
+      "你需要学会矜持.",
+      "我希望你功课做完了."
     ]
   },
   "Gensokyo:Yuyuko": {
@@ -516,14 +516,14 @@
       "惊梦",
       "生者必灭之理",
       "反魂蝶",
-      "Invitation to Nether Side",
-      "Saigyouji Parinirvana",
-      "Gifts to the Deceased"
+      "幽冥邀请",
+      "幽幽子的领域",
+      "给死者的礼物"
     ],
     "NAME": "亡灵公主",
     "DIALOG": [
       "死气宜人的一天, 对吧?",
-      "Teetering on the brink, are we? Allow me to push you over the edge."
+      "我们在悬崖边上摇摇欲坠，是吗？请让推你一把."
     ]
   },
   "Gensokyo:BlueSoul": {
@@ -546,137 +546,137 @@
   },
   "Gensokyo:Mokou": {
     "MOVES": [
-      "Blazing Kick",
-      "Honest Man's Death",
-      "Fujiyama Volcano",
-      "Phoenix Rebirth"
+      "凤翼天翔",
+      "正直者之死",
+      "凯风快晴　-不死的火山",
+      "凤凰涅槃"
     ],
-    "NAME": "Crimson Watchguard",
+    "NAME": "蓬莱人的外形",
     "DIALOG": [
-      "This time, I'll pound you into the ground!",
-      "Go ahead and try."
+      "是时候了，下地狱吧!",
+      "再来再来再来！."
     ]
   },
   "Gensokyo:Marisa": {
     "MOVES": [
-      "Master Spark",
-      "Machine Gun Spark",
-      "Witching Blast",
-      "Starlight Starbright"
+      "究极火花",
+      "机枪火花",
+      "魔力暴走",
+      "星光台风"
     ],
-    "NAME": "Ordinary Magician",
+    "NAME": "普通的魔法使",
     "DIALOG": [
-      "Reimu couldn't handle you, huh? Guess it's my turn then!"
+      "灵梦对付不了你，哈？轮到我上场了!"
     ]
   },
   "Gensokyo:Shinki": {
     "MOVES": [
 
     ],
-    "NAME": "Lonely God",
+    "NAME": "孤独的神明",
     "DIALOG": [
-      "It's all my fault . . .",
-      "Perhaps there's still hope for me after all . . ."
+      "都是我的错 . . .",
+      "也许还有一线希望 . . ."
     ]
   },
   "Gensokyo:Alice": {
     "MOVES": [
-      "Artful Sacrifice",
-      "Devilry Light Ray",
-      "Spectrum Mystery",
-      "Doll Judgement"
+      "狡猾的献祭",
+      "惨虐之光",
+      "魔彩光谱",
+      "人型审判"
     ],
-    "NAME": "The One Who Left",
+    "NAME": "离开的孩子",
     "DIALOG": [
-      "At first, I was happy.",
-      "You were a terrible parent.",
-      "I left because of your arrogant short-sightedness.",
-      "Thank you for everything."
+      "首先，我现在很快乐.",
+      "其次，你是个糟糕的母亲.",
+      "我离开是因为你傲慢的短视",
+      "感谢你付出的一切."
     ]
   },
   "Gensokyo:Doll": {
     "MOVES": [
       null
     ],
-    "NAME": "Doll",
+    "NAME": "人偶",
     "DIALOG": [
 
     ]
   },
   "Gensokyo:Yumeko": {
     "MOVES": [
-      "Judgement Blade",
-      "Misery Doll",
-      "Overwhelming Burden"
+      "审判斩击",
+      "悲惨人形",
+      "沉重的负担"
     ],
-    "NAME": "The One She Failed",
+    "NAME": "失败的孩子",
     "DIALOG": [
-      "I will repel this intruder, my lady!",
-      "It's your fault for leaving me with flaws.",
-      "You should've made me stronger!",
-      "Don't blame yourself for my failures."
+      "我将为您击败入侵者, 神绮大人!",
+      "我不完整都是你的错.",
+      "你当初就应该把我造得更好!",
+      "别为我的失败指责自己."
     ]
   },
   "Gensokyo:Sariel": {
     "MOVES": [
-      "Touch of Death",
-      "Death Blow"
+      "死亡一指",
+      "致命打击"
     ],
-    "NAME": "The One Left Behind",
+    "NAME": "被遗忘的孩子",
     "DIALOG": [
-      "As you wish.",
-      "Why did you toss me aside?",
-      "I waited for you, but you never came.",
-      "It was nice while it lasted.",
-      "Let us dance until the moment you die."
+      "如您所愿.",
+      "为什么要把我抛弃在一旁?",
+      "我一直在等那个永不到来的您！",
+      "让我们起舞直至死亡",
+      "我永远追随于您."
     ]
   },
   "Gensokyo:SeedOfUnknown": {
     "MOVES": [
     ],
-    "NAME": "Seed of Unknown",
+    "NAME": "未知的种子",
     "DIALOG": [
     ]
   },
   "Gensokyo:AncientGuardian": {
     "MOVES": [
     ],
-    "NAME": "Ancient Guardian",
+    "NAME": "远古守护者",
     "DIALOG": [
     ]
   },
   "Gensokyo:Rafflesia": {
     "MOVES": [
     ],
-    "NAME": "Rafflesia",
+    "NAME": "霸王花",
     "DIALOG": [
     ]
   },
   "Gensokyo:AtlasGolem": {
     "MOVES": [
-      "Avalanche",
-      "Slow Start",
-      "Rock Polish"
+      "雪崩击",
+      "稳步启动",
+      "岩切"
     ],
-    "NAME": "Atlas Golem",
+    "NAME": "阿特拉斯傀儡",
     "DIALOG": [
     ]
   },
   "Gensokyo:Duskaxe": {
     "MOVES": [
-      "Dusk Breaker",
-      "Twilight's Call"
+      "黄昏破坏者",
+      "暮色呼声"
     ],
-    "NAME": "Duskaxe",
+    "NAME": "黄昏斧",
     "DIALOG": [
     ]
   },
   "Gensokyo:Dawnsword": {
     "MOVES": [
-      "Crack of Dawn",
-      "Dawning Light"
+      "破晓",
+      "曙光"
     ],
-    "NAME": "Dawnsword",
+    "NAME": "曙光剑",
     "DIALOG": [
     ]
   },
@@ -684,7 +684,7 @@
     "MOVES": [
 
     ],
-    "NAME": "Vampire Bat",
+    "NAME": "吸血蝙蝠",
     "DIALOG": [
     ]
   },
@@ -692,7 +692,7 @@
     "MOVES": [
 
     ],
-    "NAME": "Feral Bat",
+    "NAME": "狂野蝙蝠",
     "DIALOG": [
     ]
   },
@@ -700,7 +700,7 @@
     "MOVES": [
 
     ],
-    "NAME": "Loud Bat",
+    "NAME": "喧嚣蝙蝠",
     "DIALOG": [
     ]
   },
@@ -708,7 +708,7 @@
     "MOVES": [
 
     ],
-    "NAME": "Sharpion",
+    "NAME": "蝎",
     "DIALOG": [
     ]
   },
@@ -716,27 +716,27 @@
     "MOVES": [
 
     ],
-    "NAME": "Mad Boulder",
+    "NAME": "疯狂巨石",
     "DIALOG": [
     ]
   },
   "Gensokyo:Kasen": {
     "MOVES": [
-      "Dragon Kick",
-      "Monkey's Paw",
-      "Hawk Beacon",
-      "Animal Companion"
+      "龙击",
+      "灵猴爪",
+      "鹰之标记",
+      "动物伙伴"
     ],
-    "NAME": "One Armed Horned Hermit",
+    "NAME": "独臂的隐居者",
     "DIALOG": [
-      "Recklessness will not avail you here."
+      "鲁莽无助于你."
     ]
   },
   "Gensokyo:Kume": {
     "MOVES": [
 
     ],
-    "NAME": "Kume",
+    "NAME": "久米",
     "DIALOG": [
     ]
   }

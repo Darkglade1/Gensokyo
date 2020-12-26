@@ -47,36 +47,36 @@
     "DESCRIPTION": "#y保留 。不会被 #y消耗 。 NL 无论此牌在何处，任务进度都会累积。"
   },
   {
-    "PROPER_NAME": "Pet",
+    "PROPER_NAME": "宠物",
     "NAMES": [
-      "Pet",
-      "pet"
+      "宠物",
+      "宠物"
     ],
-    "DESCRIPTION": "A summon that you can issue an order to every turn. If the pet dies, its respective pet card is removed from the deck. The pet’s HP persists between combats and is fully restored when you rest at a campfire. You can only have one pet summoned at a time."
+    "DESCRIPTION": "一个你可以向每一回合发出命令的召唤单位。如果宠物死亡，其相应的宠物卡将从卡组中移除。宠物的生命值在战斗之间不会重置，当你在营火旁休息时，它会完全恢复。一次只能召唤一只宠物。."
   },
   {
-    "PROPER_NAME": "Item",
+    "PROPER_NAME": "耐久",
     "NAMES": [
-      "Item",
-      "item"
+      "耐久",
+      "耐久"
     ],
-    "DESCRIPTION": "Removed from your master deck after being played the specified number of times."
+    "DESCRIPTION": "在被使用指定次数后从你的牌组中移除."
   },
   {
-    "PROPER_NAME": "Evolve",
+    "PROPER_NAME": "进化",
     "NAMES": [
-      "Evolve",
-      "evolve"
+      "进化",
+      "进化"
     ],
-    "DESCRIPTION": "Transforms into a special reward after being played the specified number of times."
+    "DESCRIPTION": "在达到指定使用次数后转化为特殊奖励."
   },
   {
-    "PROPER_NAME": "Bloodcast",
+    "PROPER_NAME": "血祭",
     "NAMES": [
-      "Bloodcast",
-      "bloodcast"
+      "血祭",
+      "血祭"
     ],
-    "DESCRIPTION": "When you have insufficient [E] to play this card, you may instead pay #b1 HP for every missing [E] ."
+    "DESCRIPTION": "当你没有足够的[E]打出这张牌时，你可以为每缺少1 [E]消耗1点生命将其打出 ."
   }
 ]
 
