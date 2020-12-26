@@ -50,6 +50,8 @@ public class Kokoro extends CustomMonster
     private static final byte MASK_MOVE_1 = 0;
     private static final byte MASK_MOVE_2 = 1;
     private static final byte MASK_CHANGE = 2;
+    private static final int SPIDER_STATUS = 1;
+    private static final int A19_SPIDER_STATUS = 2;
     private static final int HOPE_HEAL = 10;
     private static final int A19_HOPE_HEAL = 15;
     private static final int DEMON_STRENGTH = 1;
@@ -86,6 +88,7 @@ public class Kokoro extends CustomMonster
     private static final int LION_ATTACK_DAMAGE_2 = 6;
     private static final int A4_LION_ATTACK_DAMAGE_2 = 7;
     private static final int LION_ATTACK_2_HITS = 2;
+    private int spiderStatus;
     private int hopeHeal;
     private int demonStrength;
     private int lionDamage;
@@ -118,12 +121,14 @@ public class Kokoro extends CustomMonster
         this.demonStrength = DEMON_STRENGTH;
         this.lionDamage = LION_DAMAGE;
         if (AbstractDungeon.ascensionLevel >= 19) {
+            this.spiderStatus = A19_SPIDER_STATUS;
             this.hopeHeal = A19_HOPE_HEAL;
             //this.demonStrength = A19_DEMON_STRENGTH;
             //this.lionDamage = A19_LION_DAMAGE;
             this.status = A19_FOX_STATUS_COUNT;
             this.maskStrengthBuff = A19_MASK_STRENGTH_BUFF;
         } else {
+            this.spiderStatus = SPIDER_STATUS;
             this.hopeHeal = HOPE_HEAL;
 //            this.demonStrength = DEMON_STRENGTH;
 //            this.lionDamage = LION_DAMAGE;
@@ -253,7 +258,7 @@ public class Kokoro extends CustomMonster
                     AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(this, this, new FoxMask(this, 1)));
                 } else if (mask == SPIDER_MASK) {
                     AbstractDungeon.actionManager.addToBottom(new RemoveSpecificPowerAction(this, this, FoxMask.POWER_ID));
-                    AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(this, this, new SpiderMask(this)));
+                    AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(this, this, new SpiderMask(this, spiderStatus)));
                 } else if (mask == HOPE_MASK) {
                     AbstractDungeon.actionManager.addToBottom(new GainBlockAction(this, this, this.block));
                     AbstractDungeon.actionManager.addToBottom(new RemoveSpecificPowerAction(this, this, SpiderMask.POWER_ID));

@@ -53,7 +53,7 @@
 },
 "Gensokyo:SpiderMask": {
         "NAME": "Spider Mask",
-        "DESCRIPTIONS": ["Whenever you play an #yAttack, you cannot play any more #yAttacks for the rest of your turn."]
+        "DESCRIPTIONS": ["The first time you play an #yAttack each turn, put #b", " #rInfected #rWound into your hand."]
 },
 "Gensokyo:HopeMask": {
         "NAME": "Mask of Hope",

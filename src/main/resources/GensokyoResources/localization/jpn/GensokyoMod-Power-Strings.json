@@ -53,7 +53,7 @@
 },
 "Gensokyo:SpiderMask": {
         "NAME": "大蜘蛛面",
-        "DESCRIPTIONS": ["#yアタック をプレイすると、このターン他の #yアタック をプレイできなくなる。"]
+        "DESCRIPTIONS": ["The first time you play an #yAttack each turn, put #b", " #rInfected #rWound into your hand."]
 },
 "Gensokyo:HopeMask": {
         "NAME": "希望の面",
