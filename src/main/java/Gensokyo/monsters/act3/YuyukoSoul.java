@@ -62,7 +62,7 @@ public class YuyukoSoul extends AbstractSpriterMonster {
 
     @Override
     public void die(boolean triggerRelics) {
-        super.die(false);
+        super.die(triggerRelics);
         if (this instanceof BlueSoul) {
             master.blueSouls.remove(this);
             master.nextBlueSoul();
