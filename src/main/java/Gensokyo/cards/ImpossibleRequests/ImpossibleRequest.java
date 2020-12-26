@@ -114,9 +114,6 @@ public class ImpossibleRequest extends AbstractDefaultCard {
 
     @Override
     public boolean canUse(AbstractPlayer p, AbstractMonster m) {
-        if (cardToTransform != null) {
-            return super.canUse(p, m);
-        }
         return false;
     }
 
