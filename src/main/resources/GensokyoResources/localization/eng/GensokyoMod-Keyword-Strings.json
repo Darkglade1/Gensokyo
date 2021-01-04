@@ -3,7 +3,7 @@
     "NAMES": [
       "lunacy"
     ],
-    "DESCRIPTION": "Whenever a lunatic enemy attacks or applies a debuff, a random enemy is targeted instead."
+    "DESCRIPTION": "Whenever a lunatic enemy attacks, a random enemy is targeted instead."
   },
   {
     "PROPER_NAME": "Red Cape",

@@ -32,7 +32,11 @@ public class LunacyRetargetPatch {
                     if (instance.source instanceof Flandre) {
                         instance.target = instance.source; //hardcode to make Flandre always hit herself LOL
                     } else {
-                        instance.target = AbstractDungeon.getMonsters().getRandomMonster(null, true, AbstractDungeon.cardRandomRng);
+                        instance.target = LunacyPower.randomTarget;
+                        if (instance.target == null) {
+                            LunacyPower.randomTarget = AbstractDungeon.getMonsters().getRandomMonster(null, true, AbstractDungeon.cardRandomRng);
+                            instance.target = LunacyPower.randomTarget;
+                        }
                     }
                     if (instance.target != null) {
                         info[0].applyPowers(instance.source, instance.target);

@@ -33,7 +33,7 @@
 },
 "Gensokyo:LunacyPower": {
         "NAME": "疯狂",
-        "DESCRIPTIONS": ["每当这名敌人攻击或给予负面效果，指向一名随机敌人。"]
+        "DESCRIPTIONS": ["每当这名敌人攻击，指向一名随机敌人。"]
 },
 "Gensokyo:HAARPPower": {
         "NAME": "HAARP",

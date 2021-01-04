@@ -33,7 +33,7 @@ public class Kunekune extends AbstractUrbanLegendCard {
 
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
-        AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(m, p, new LunacyPower(m, p, this.magicNumber), this.magicNumber, AbstractGameAction.AttackEffect.NONE));
+        AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(m, p, new LunacyPower(m, this.magicNumber), this.magicNumber, AbstractGameAction.AttackEffect.NONE));
     }
 
     @Override

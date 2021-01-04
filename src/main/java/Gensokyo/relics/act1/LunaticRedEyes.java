@@ -36,7 +36,7 @@ public class LunaticRedEyes extends CustomRelic {
         Iterator var3 = AbstractDungeon.getCurrRoom().monsters.monsters.iterator();
         while(var3.hasNext()) {
             AbstractMonster mo = (AbstractMonster)var3.next();
-            AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(mo, AbstractDungeon.player, new LunacyPower(mo, AbstractDungeon.player, DEBUFF), DEBUFF));
+            AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(mo, AbstractDungeon.player, new LunacyPower(mo, DEBUFF), DEBUFF));
         }
     }
 
