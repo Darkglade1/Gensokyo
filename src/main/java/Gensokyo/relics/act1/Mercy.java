@@ -22,7 +22,7 @@ public class Mercy extends CustomRelic {
 
     private boolean triggered = false;
     private static int TRIGGER_COUNT = 2;
-    private static int BLOCK = 4;
+    private static int BLOCK = 3;
 
     public Mercy() {
         super(ID, IMG, OUTLINE, RelicTier.SPECIAL, LandingSound.MAGICAL);

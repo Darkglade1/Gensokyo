@@ -40,8 +40,8 @@ public class Aya extends CustomMonster
     private static final int NORMAL_ATTACK_DAMAGE = 6;
     private static final int A3_NORMAL_ATTACK_DAMAGE = 7;
     private static final int NORMAL_ATTACK_HITS = 2;
-    private static final int DEBUFF_ATTACK_DAMAGE = 8;
-    private static final int A3_DEBUFF_ATTACK_DAMAGE = 9;
+    private static final int DEBUFF_ATTACK_DAMAGE = 6;
+    private static final int A3_DEBUFF_ATTACK_DAMAGE = 7;
     private static final int DEBUFF_AMOUNT = 2;
     private static final int BLOCK = 9;
     private static final int A8_BLOCK = 10;
