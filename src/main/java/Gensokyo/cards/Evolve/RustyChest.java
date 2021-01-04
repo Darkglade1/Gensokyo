@@ -20,7 +20,7 @@ public class RustyChest extends AbstractEvolveCard {
     private static final int COST = 3;
     private static final int EVOLVE = 2;
 
-    public static final int GOLD = 250;
+    public static final int GOLD = 300;
 
     public RustyChest() {
         super(ID, IMG, COST, TYPE, RARITY, TARGET);

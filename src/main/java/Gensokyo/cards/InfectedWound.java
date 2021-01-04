@@ -1,12 +1,15 @@
 package Gensokyo.cards;
 
 import Gensokyo.GensokyoMod;
+import com.megacrit.cardcrawl.actions.AbstractGameAction;
+import com.megacrit.cardcrawl.actions.common.DamageAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
+import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
+import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 
 import static Gensokyo.GensokyoMod.makeCardPath;
-import static com.megacrit.cardcrawl.core.CardCrawlGame.languagePack;
 
 public class InfectedWound extends AbstractDefaultCard {
 
@@ -19,20 +22,19 @@ public class InfectedWound extends AbstractDefaultCard {
     public static final CardColor COLOR = CardColor.COLORLESS;
 
     private static final int COST = 2;
+    private static final int DAMAGE = 3;
 
     public InfectedWound() {
         super(ID, IMG, COST, TYPE, COLOR, RARITY, TARGET);
+        magicNumber = baseMagicNumber = DAMAGE;
         isEthereal = true;
         exhaust = true;
     }
 
     @Override
-    public boolean canPlay(AbstractCard card) {
-        if (card.type == CardType.ATTACK) {
-            card.cantUseMessage = languagePack.getCardStrings(cardID).EXTENDED_DESCRIPTION[0];
-            return false;
-        } else {
-            return true;
+    public void triggerOnOtherCardPlayed(AbstractCard c) {
+        if (c.type == CardType.ATTACK) {
+            this.addToBot(new DamageAction(AbstractDungeon.player, new DamageInfo(AbstractDungeon.player, magicNumber, DamageInfo.DamageType.THORNS), AbstractGameAction.AttackEffect.POISON, true));
         }
     }
 

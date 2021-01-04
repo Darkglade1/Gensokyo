@@ -104,15 +104,12 @@ public class FieldTripToAnotherWorld extends AbstractImageEvent {
     private AbstractCard getCard() {
         ArrayList<AbstractCard> rares = new ArrayList<>();
         ArrayList<AbstractCard> uncommons = new ArrayList<>();
-        ArrayList<AbstractCard> commons = new ArrayList<>();
 
         for (AbstractCard c : CardGroup.getGroupWithoutBottledCards(AbstractDungeon.player.masterDeck).group) {
             if (c.rarity == AbstractCard.CardRarity.RARE) {
                 rares.add(c);
             } else if (c.rarity == AbstractCard.CardRarity.UNCOMMON) {
                 uncommons.add(c);
-            } else if (c.rarity == AbstractCard.CardRarity.COMMON) {
-                commons.add(c);
             }
         }
         ArrayList<AbstractCard> usedList;
@@ -120,8 +117,6 @@ public class FieldTripToAnotherWorld extends AbstractImageEvent {
             usedList = rares;
         } else if (!uncommons.isEmpty()) {
             usedList = uncommons;
-        } else if (!commons.isEmpty()) {
-            usedList = commons;
         } else {
             return null;
         }
@@ -132,7 +127,7 @@ public class FieldTripToAnotherWorld extends AbstractImageEvent {
 
     public static boolean hasNonBasicCard() {
         for (AbstractCard c : CardGroup.getGroupWithoutBottledCards(AbstractDungeon.player.masterDeck).group) {
-            if (c.rarity != AbstractCard.CardRarity.BASIC) {
+            if (c.rarity != AbstractCard.CardRarity.BASIC && c.rarity != AbstractCard.CardRarity.COMMON) {
                 return true;
             }
         }

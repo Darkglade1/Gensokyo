@@ -328,7 +328,6 @@
   },
   "Gensokyo:InfectedWound": {
     "NAME": "伤口感染",
-    "DESCRIPTION": "当此卡在手中时，你不能攻击.",
-    "EXTENDED_DESCRIPTION": ["我伤口感染了，不能攻击!"]
+    "DESCRIPTION": "当此卡在手中时，受到 !M! 点伤害每当你打出一张 攻击牌."
   }
 }

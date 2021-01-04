@@ -20,7 +20,7 @@ public class TarnishedGold extends AbstractEvolveCard {
     private static final int COST = 1;
     private static final int EVOLVE = 3;
 
-    public static final int GOLD = 150;
+    public static final int GOLD = 200;
 
     public TarnishedGold() {
         super(ID, IMG, COST, TYPE, RARITY, TARGET);

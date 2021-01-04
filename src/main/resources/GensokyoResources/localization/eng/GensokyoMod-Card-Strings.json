@@ -328,7 +328,6 @@
   },
   "Gensokyo:InfectedWound": {
     "NAME": "Infected Wound",
-    "DESCRIPTION": "While this card is in your hand, you cannot play Attacks.",
-    "EXTENDED_DESCRIPTION": ["I cannot play Attacks because of Infected Wound!"]
+    "DESCRIPTION": "While this card is in your hand, take !M! damage whenever you play an Attack."
   }
 }
