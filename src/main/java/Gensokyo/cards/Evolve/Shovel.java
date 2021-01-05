@@ -2,6 +2,7 @@ package Gensokyo.cards.Evolve;
 
 import Gensokyo.CardMods.EvolveMod;
 import Gensokyo.GensokyoMod;
+import basemod.abstracts.CustomBottleRelic;
 import basemod.helpers.CardModifierManager;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.Settings;
@@ -33,6 +34,9 @@ public class Shovel extends AbstractEvolveCard {
     @Override
     public void triggerEvolve() {
         AbstractRelic relic = AbstractDungeon.returnRandomScreenlessRelic(AbstractDungeon.returnRandomRelicTier());
+        while (relic instanceof CustomBottleRelic) {
+            relic = AbstractDungeon.returnRandomScreenlessRelic(AbstractDungeon.returnRandomRelicTier());
+        }
         AbstractDungeon.getCurrRoom().spawnRelicAndObtain(Settings.WIDTH / 2.0F, Settings.HEIGHT / 2.0F, relic);
     }
 }
