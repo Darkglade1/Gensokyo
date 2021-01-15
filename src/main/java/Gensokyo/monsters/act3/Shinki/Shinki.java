@@ -115,7 +115,7 @@ public class Shinki extends AbstractSpriterMonster
         if (info.base > -1 && currentDelusion != null) {
             info.applyPowers(this, currentDelusion);
         }
-        if (currentDelusion == null) {
+        if (currentDelusion == null && delusionsDefeated < NUM_DELUSIONS_TO_FIGHT) {
             currentDelusion = delusionList.remove(0);
             runEvent(currentDelusion.event1);
             AbstractDungeon.actionManager.addToBottom(new SpawnMonsterAction(currentDelusion, false));
@@ -123,7 +123,7 @@ public class Shinki extends AbstractSpriterMonster
             threshold1Triggered = false;
             threshold2Triggered = false;
             AbstractDungeon.actionManager.addToBottom(new TalkAction(currentDelusion, currentDelusion.eventDialog(0)));
-        } else if (currentDelusion.currentHealth <= (int) (currentDelusion.maxHealth * THRESHOLD1) && !threshold1Triggered) {
+        } else if (currentDelusion != null && currentDelusion.currentHealth <= (int) (currentDelusion.maxHealth * THRESHOLD1) && !threshold1Triggered) {
             runEvent(currentDelusion.event2);
             threshold1Triggered = true;
             //hack to make sariel say something different depending on what event option got picked
@@ -134,7 +134,7 @@ public class Shinki extends AbstractSpriterMonster
                     AbstractDungeon.actionManager.addToBottom(new TalkAction(currentDelusion, currentDelusion.eventDialog(1)));
                 }
             });
-        } else if (currentDelusion.currentHealth <= (int) (currentDelusion.maxHealth * THRESHOLD2) && !threshold2Triggered) {
+        } else if (currentDelusion != null && currentDelusion.currentHealth <= (int) (currentDelusion.maxHealth * THRESHOLD2) && !threshold2Triggered) {
             runEvent(currentDelusion.event3);
             threshold2Triggered = true;
             AbstractDungeon.actionManager.addToBottom(new TalkAction(currentDelusion, currentDelusion.eventDialog(2)));

@@ -65,6 +65,22 @@ public class UnknownCurse extends AbstractPower {
         }
     }
 
+     @Override
+     public void onRemove() {
+         for (AbstractCard card : AbstractDungeon.player.drawPile.group) {
+             CardModifierManager.removeModifiersById(card, ObscureMod.ID, true);
+         }
+         for (AbstractCard card : AbstractDungeon.player.discardPile.group) {
+             CardModifierManager.removeModifiersById(card, ObscureMod.ID, true);
+         }
+         for (AbstractCard card : AbstractDungeon.player.hand.group) {
+             CardModifierManager.removeModifiersById(card, ObscureMod.ID, true);
+         }
+         for (AbstractCard card : AbstractDungeon.player.exhaustPile.group) {
+             CardModifierManager.removeModifiersById(card, ObscureMod.ID, true);
+         }
+     }
+
     @Override
     public void updateDescription() {
         this.description = DESCRIPTIONS[0];

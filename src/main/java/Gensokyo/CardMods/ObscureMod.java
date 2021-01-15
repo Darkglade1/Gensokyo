@@ -23,6 +23,9 @@ public class ObscureMod extends AbstractCardModifier {
     public static final String ID = GensokyoMod.makeID("ObscureMod");
     private static String obscuredText = CardCrawlGame.languagePack.getRelicStrings(UndefinedDarkness.ID).DESCRIPTIONS[2];
 
+    private TextureAtlas.AtlasRegion originalTexture;
+    private String originalName;
+
     public ObscureMod() {
         this.priority = 999; //need this to go last for modifyDescription
     }
@@ -34,6 +37,9 @@ public class ObscureMod extends AbstractCardModifier {
 
     @Override
     public void onInitialApplication(AbstractCard card) {
+        originalTexture = card.portrait;
+        originalName = card.name;
+
         if (card.type == AbstractCard.CardType.ATTACK) {
             card.portrait = attackImgAtlas;
         }
@@ -54,5 +60,11 @@ public class ObscureMod extends AbstractCardModifier {
     @Override
     public String modifyDescription(String rawDescription, AbstractCard card) {
         return obscuredText;
+    }
+
+    @Override
+    public void onRemove(AbstractCard card) {
+        card.portrait = originalTexture;
+        card.name = originalName;
     }
 }
