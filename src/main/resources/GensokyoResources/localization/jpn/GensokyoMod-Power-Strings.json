@@ -5,7 +5,7 @@
 },
 "Gensokyo:Vengeance": {
         "NAME": "復讐",
-        "DESCRIPTIONS": ["#r三途の水先案内人 は出会うたびに強くなる…"]
+        "DESCRIPTIONS": ["#r死の使い は出会うたびに強くなる…"]
 },
 "Gensokyo:UnstableBoundariesPower": {
         "NAME": "不安定な境界",
@@ -25,7 +25,7 @@
 },
 "Gensokyo:SpontaneousHumanCombustionPower": {
         "NAME": "人体自然発火現象",
-        "DESCRIPTIONS": ["ターン終了時に #b", " のダメージを受け、次のターンに受けるダメージを #b", " 増加する。"]
+        "DESCRIPTIONS": ["ターン終了時に #b", " ダメージを受け、次のターンに受けるダメージを #b", " 増加する。"]
 },
 "Gensokyo:ManorOfTheDishesPower": {
         "NAME": "皿屋敷",
@@ -33,7 +33,7 @@
 },
 "Gensokyo:LunacyPower": {
         "NAME": "狂気",
-        "DESCRIPTIONS": ["狂気状態の敵は、ランダムな敵を攻撃する。毎ターン狂気は #b1 減少する。"]
+        "DESCRIPTIONS": ["この敵はランダムな敵にアタックして、デバフを与える。ターン開始時、 #y狂気 が #b1 減少する。"]
 },
 "Gensokyo:HAARPPower": {
         "NAME": "ハープ",
@@ -45,7 +45,7 @@
 },
 "Gensokyo:SlitMouthedWomanPower": {
         "NAME": "口裂け女",
-        "DESCRIPTIONS": ["次に攻撃を受けたとき、攻撃を行った敵に #y弱体 #b", " を与える。もう1度攻撃を受けたとき、攻撃を行った敵は #y筋力 #b", " を失う。"]
+        "DESCRIPTIONS": ["次にアタックを受けたとき、アタックを行った敵に #y弱体 #b", " を与える。もう1度アタックを受けたとき、アタックを行った敵は #y筋力 #b", " を失う。"]
 },
 "Gensokyo:FoxMask": {
         "NAME": "妖狐面",
@@ -53,11 +53,11 @@
 },
 "Gensokyo:SpiderMask": {
         "NAME": "大蜘蛛面",
-        "DESCRIPTIONS": ["The first time you play an #yAttack each turn, put #b", " #rInfected #rWound into your hand."]
+        "DESCRIPTIONS": ["毎ターン初めて #yアタック をプレイしたとき、 #r感染創 を #b", " 枚手札に加える。"]
 },
 "Gensokyo:HopeMask": {
         "NAME": "希望の面",
-        "DESCRIPTIONS": ["敵のターン開始時、HPを #b", " 回復する。攻撃によって失ったHPに等しい値、このターンの回復量が減少する。"]
+        "DESCRIPTIONS": ["敵のターン開始時、HPを #b", " 回復する。 #yアタック によって失ったHPに等しい値、このターンの回復量が減少する。"]
 },
 "Gensokyo:DemonMask": {
         "NAME": "鬼婆面",
@@ -73,7 +73,7 @@
 },
 "Gensokyo:MonsterPositionPower": {
         "NAME": "スペルカードルール",
-        "DESCRIPTIONS": ["現在 #yレーン #b", " 。 #b", " ターンで到達。", " ターンで到達。", " 同じ #yレーン で到達したとき、ダメージを与える。"]
+        "DESCRIPTIONS": ["現在 #yレーン #b", " 。あと #b", " ターンで到達。", " ターンで到達。", " あなたと同じ #yレーン で到達したとき、あなたにダメージを与える。"]
 },
 "Gensokyo:HakureiShrineMaidenPower": {
         "NAME": "博麗の巫女",
@@ -81,23 +81,23 @@
 },
 "Gensokyo:SealedPower": {
         "NAME": "封印",
-        "DESCRIPTIONS": ["ターン開始時、カードを #b", " 枚捨てる。", " 枚捨てる。"]
+        "DESCRIPTIONS": ["ターン開始時、あなたはカードを #b", " 枚捨てる。", " 枚捨てる。"]
 },
 "Gensokyo:Evasive": {
         "NAME": "回避",
-        "DESCRIPTIONS": ["#b3 枚目ごとにプレイする #yアタック は、この敵に与えるダメージが #b0 になる。"]
+        "DESCRIPTIONS": ["プレイする #yアタック は #b3 枚ごとに、この敵に与えるダメージが #b0 になる。"]
 },
 "Gensokyo:IllusionaryDominance": {
         "NAME": "幻想風靡",
-        "DESCRIPTIONS": ["このターン、攻撃によってHPを失うと #y筋力 #b", " を失う。"]
+        "DESCRIPTIONS": ["このターンこの敵が、ブロックされていないダメージを受けると #y筋力 #b", " を失う。"]
 },
 "Gensokyo:Immortality": {
         "NAME": "不死",
         "DESCRIPTIONS": ["この敵が倒されるたび、次のターンにHPを最大まで回復して復活する。"]
 },
 "Gensokyo:FairyOfIce": {
-        "NAME": "Fairy of Ice",
-        "DESCRIPTIONS": ["On death, shuffles #b", " #yFrozen! into your discard pile."]
+        "NAME": "氷の妖精",
+        "DESCRIPTIONS": ["死亡時、 #b", " 枚の #y冷凍！ を捨て札に混ぜる。"]
 },
 "Gensokyo:FairyFury": {
         "NAME": "妖精の怒り",
@@ -132,32 +132,28 @@
         "DESCRIPTIONS": ["あと #b", " ダメージを受けたとき、 #b", " ダメージを与える。"]
 },
 "Gensokyo:Trickster": {
-        "NAME": "悪戯",
+        "NAME": "悪戯好き",
         "DESCRIPTIONS": ["ターンの最初にプレイするカードを #y廃棄 する。"]
 },
 "Gensokyo:ElementalBarrier": {
-        "NAME": "Elemental Barrier",
-        "DESCRIPTIONS": ["Can only take #b", " more damage this turn. Whenever an elemental orb dies, increase this amount by #b", " and shifts intent."]
+        "NAME": "エレメンタルバリア",
+        "DESCRIPTIONS": ["このターン、あと #b", " ダメージまでしかダメージを受けない。エレメンタルオーブが死亡するたび、この値を #b", " 増加し行動予定を変更する。"]
 },
 "Gensokyo:Teleportation": {
         "NAME": "テレポーテーション",
-        "DESCRIPTIONS": ["現在 #y左 にいる。", "現在 #y中央 にいる。", "現在 #y右 にいる。", " #b", " 枚のカードをプレイするたび、右方向にテレポートする。 #y中央 にいる場合、受けるダメージが #b50% 増加する。"]
+        "DESCRIPTIONS": ["現在 #y左 にいる。", "現在 #y中央 にいる。", "現在 #y右 にいる。", " #b", " 枚のカードをプレイするたび、右方向にテレポートする。 #y中央 にいる場合、 #yアタック で受けるダメージが #b50% 増加する。"]
 },
 "Gensokyo:DoppelgangerPower": {
         "NAME": "ドッペルゲンガー",
-        "DESCRIPTIONS": ["次の #b", " 枚のカードを", " 枚のカードを", " 2回プレイする。"]
-},
-"Gensokyo:Reflowering": {
-        "NAME": "返り咲き",
-        "DESCRIPTIONS": ["#y人魂 が倒されるたび、 #y筋力 を #b", " 失う。"]
+        "DESCRIPTIONS": ["次にプレイする #b", " カードを", " 枚のカードを", " 2回プレイする。"]
 },
 "Gensokyo:NextTurnInnocence": {
-        "NAME": "無罪",
-        "DESCRIPTIONS": ["次のターン、この敵の得る #yブロック を倍にし、それを回復に変換する。"]
+        "NAME": "潔白",
+        "DESCRIPTIONS": ["次のターン、この敵の行う #yブロック を倍にし、その値を回復に変換する。"]
 },
 "Gensokyo:Innocence": {
-        "NAME": "無罪",
-        "DESCRIPTIONS": ["このターン、この敵の得る #yブロック を倍にし、それを回復に変換する。"]
+        "NAME": "潔白",
+        "DESCRIPTIONS": ["このターン、この敵の行う #yブロック を倍にし、その値を回復に変換する。"]
 },
 "Gensokyo:MirrorPower": {
         "NAME": "鏡",
@@ -173,14 +169,14 @@
 },
 "Gensokyo:LunaticPrincess": {
         "NAME": "竹取飛翔",
-        "DESCRIPTIONS": ["Whenever the #pImpossible #pRequest is transformed, if you fulfilled the condition, you gain #b",
+        "DESCRIPTIONS": [" #p難題 が変化するたび、条件を満たしていた場合あなたは #b",
                         " NL ( ", " アタック", " スキル", " パワー", " 、", "をプレイ。)",
                         " 枚。)", " 枚。)",
                         " NL ( ",
                         " NL ( ", " ダメージ。)",
                         " NL ( ", " ブロック。)", " turns.)",
                         " NL (完了。)",
-                        " #yStrength. If you didn't fulfill the request, the enemy gains #b", " #yStrength."]
+                        " の #y筋力 を得る。条件を満たしていなかった場合、敵は #b", " の #y筋力 を得る。"]
 },
 "Gensokyo:BetterDrawReduction": {
         "NAME": "ドロー減少",
@@ -192,7 +188,7 @@
 },
 "Gensokyo:RivalPosition": {
         "NAME": "スペルカードルール",
-        "DESCRIPTIONS": ["現在 #yレーン #b", " 。 この敵は現在 #rライバル に集中している。 #rライバル が倒されると、 #rあなた に集中する。"]
+        "DESCRIPTIONS": ["現在 #yレーン #b", " 。 この敵は現在 #rライバル を標的にしている。 #rライバル が倒されると、 #rあなた を標的にする。"]
 },
 "Gensokyo:RivalPlayerPosition": {
         "NAME": "スペルカードルール",
@@ -200,11 +196,11 @@
 },
 "Gensokyo:TenDesires": {
         "NAME": "テンフォールドの垂聴",
-        "DESCRIPTIONS": ["この敵に与える #yアタック のダメージを、 #b2 回目ごとに無効化する。"]
+        "DESCRIPTIONS": ["この敵に与える #yアタック のダメージを、 #b2 回ごとに無効化する。"]
 },
 "Gensokyo:Purity": {
         "NAME": "清廉",
-        "DESCRIPTIONS": ["この敵に与える #yデバフ を、 #b2 回目ごとに無効化する。"]
+        "DESCRIPTIONS": ["この敵に与える #yデバフ を、 #b2 回ごとに無効化する。"]
 },
 "Gensokyo:Counter": {
         "NAME": "カウンター",
@@ -238,11 +234,11 @@
                         " NL あと #b",
                         " 以上のダメージを受けると、ラウンド終了時に #y天候 が変化する。",
                         "ラウンド終了時、 #y天候 が変化する。",
-                        "ターン開始時、 ",
+                        "ターン開始時、あなたは ",
                         " を得て、追加でカードを #b",
                         " 枚引く。",
                         " 枚引く。",
-                        " この敵は、そのターンに2回行動する。",
+                        " この敵は、1ターンに2回行動する。",
                         "ラウンド終了時、全てのキャラクターが #y脱力 #b",
                         " を得る。",
                         "ラウンド終了時、全てのキャラクターが #y弱体 #b",
@@ -258,7 +254,7 @@
 },
 "Gensokyo:Quicksand": {
         "NAME": "流砂",
-        "DESCRIPTIONS": ["この敵の #yアタック でダメージを受けるたび、 #y締め付け #b", " を得る。"]
+        "DESCRIPTIONS": ["この敵のアタックでダメージを受けるたび、あなたは #y締め付け #b", " を得る。"]
 },
 "Gensokyo:GlitterPower": {
         "NAME": "きらめき",
@@ -269,111 +265,111 @@
         "DESCRIPTIONS": ["#yアタック のダメージを完全に #yブロック するたび、 #b", " ダメージを与える。"]
 },
 "Gensokyo:PetPosition": {
-        "NAME": "Spell Card Rules",
-        "DESCRIPTIONS": ["Your #ypet is in the same #ylane as you."]
+        "NAME": "スペルカードルール",
+        "DESCRIPTIONS": ["#yペット はあなたと同じ #yレーン にいる。"]
 },
 "Gensokyo:DreamEater": {
-        "NAME": "Dream Eater",
-        "DESCRIPTIONS": ["The first card you play this turn ", "is #rPurged and #rremoved #rfrom #ryour #rmaster #rdeck. If a card is removed this way, an effect occurs based on its rarity: ", " NL #yStarter: ", " NL #yCommon: ", " NL #yUncommon: ", " NL #yRare: ", "Gains #b", "Loses #b", " #yStrength.", " NL #pCurse: "]
+        "NAME": "ドリームイーター",
+        "DESCRIPTIONS": ["このターン、最初にプレイしたカードは ", " #r消耗 され、 #rデッキから #r削除 される。この効果でカードを削除したとき、そのレアリティに基づいた効果が発生する。 ", " NL #yスターター ： ", " NL #yコモン ： ", " NL #yアンコモン ： ", " NL #yレア ： ", "#y筋力 #b+ #b", "#y筋力 #b- #b", " ", " NL #p呪い ： "]
 },
 "Gensokyo:EyesOfDeath": {
-        "NAME": "Eyes of Death Perception",
-        "DESCRIPTIONS": ["This creature deals #b", "% more damage when it consecutively attacks the same target."]
+        "NAME": "直死の魔眼",
+        "DESCRIPTIONS": ["この敵が同じ対象に連続してアタックを行うたび、対象へのダメージが #b", "% 増加する。"]
 },
 "Gensokyo:Doom": {
-        "NAME": "Doom",
-        "DESCRIPTIONS": ["Receive #b", "% more damage from #yAttacks.", " Wears off at end of round if this creature was NOT attacked this turn."]
+        "NAME": "破滅",
+        "DESCRIPTIONS": ["#yアタック で受けるダメージが #b", "% 増加する。", " このターン、アタックを受けなかった場合、ラウンド終了時に解除される。"]
 },
 "Gensokyo:AndThenThereWereNone": {
-        "NAME": "And Then There Were None",
-        "DESCRIPTIONS": ["#yDoom no longer wears off."]
+        "NAME": "そして誰もいなくなるか？",
+        "DESCRIPTIONS": ["#y破滅 を解除されなくなる。"]
 },
 "Gensokyo:Retribution": {
-        "NAME": "Retribution",
-        "DESCRIPTIONS": ["The next time this creature receives attack damage this turn, deals that much damage back to the attacker."]
+        "NAME": "報復",
+        "DESCRIPTIONS": ["このターン、 アタック によるダメージを受けたとき、 アタック を行った相手に同じダメージを与える。"]
 },
 "Gensokyo:SistersPosition": {
-        "NAME": "Spell Card Rules",
-        "DESCRIPTIONS": ["This creature is in lane #b" , ". It is your #gally and will focus on the #renemy.", ". It is the #renemy and will focus on #ryou."]
+        "NAME": "スペルカードルール",
+        "DESCRIPTIONS": ["現在 #yレーン #b" , " 。あなたの #g味方 であり #r敵 を標的にしている。", " 。 #r敵 であり #rあなた を標的にしている。"]
 },
 "Gensokyo:SistersPlayerPosition": {
-        "NAME": "Spell Card Rules",
-        "DESCRIPTIONS": ["You are in lane #b" , ". Whenever you play a #ySkill, move #yUp #b1 lane. Whenever you play an #yAttack, move #yDown #b1 lane. NL If your #gally is between you and the #renemy, your #gally will take the hit for you instead.", " NL #yLane #b", " is #runsafe."]
+        "NAME": "スペルカードルール",
+        "DESCRIPTIONS": ["現在 #yレーン #b" , " 。 #yスキル をプレイするたび、 #y上 の #yレーン に #b1 移動する。 #yアタック をプレイするたび、 #y下 の #yレーン に #b1 移動する。 NL あなたと #r敵 の間に、 #g味方 がいる場合。 #g味方 が #r攻撃対象 になる。", " NL #yレーン #b", " にいるとき、あなたは #r攻撃対象 になる。"]
 },
 "Gensokyo:BorderOfDeath": {
         "NAME": "Border of Death",
-        "DESCRIPTIONS": ["At the end of combat, gain #b", " Max HP."]
+        "DESCRIPTIONS": ["戦闘終了時、最大HPが #b", " 増加する。"]
 },
 "Gensokyo:Deathtouch": {
-        "NAME": "Deathtouch",
-        "DESCRIPTIONS": ["Whenever you receive unblocked attack damage from this enemy, you #rlose that much #yMax #yHP this combat. NL Your #yMax #yHP cannot go below #b1. NL At the start of combat, your #ymax #yHP is reduced to your #ycurrent #yHP for this combat."]
+        "NAME": "接死",
+        "DESCRIPTIONS": ["この敵のアタックで、ブロックされていないダメージを受けるたび、この戦闘中の #y最大HP を #r失う 。 NL #y最大HP は #b1 未満にならない。戦闘開始時、この戦闘中の #y最大HP は #y現在HP まで減少する。"]
 },
 "Gensokyo:Empower": {
-        "NAME": "Empower",
-        "DESCRIPTIONS": ["This creature's #yCurse has been increased by #b", "."]
+        "NAME": "呪力",
+        "DESCRIPTIONS": ["この敵の #y呪術 の威力が #b", " 増加する。"]
 },
 "Gensokyo:SomeoneElse": {
-        "NAME": "Someone Else's Story",
-        "DESCRIPTIONS": ["#rDefeat merely takes you back to the event but forfeits the card reward. NL If you #gwin with at least #b", " HP remaining, the card reward is #yUpgraded. NL Your current and Max HP are restored to their original values after this encounter."]
+        "NAME": "誰かの物語",
+        "DESCRIPTIONS": [" #r敗北 するとイベントに戻るが報酬は得られない。 NL #b", " 以上のHPを残して #g勝利 した場合、報酬のカードが #yアップグレード される。 NL 戦闘後、現在HPと最大HPは元の値に戻る。"]
 },
 "Gensokyo:ChargeUp": {
-        "NAME": "Charge Up",
-        "DESCRIPTIONS": ["Whenever you play #b", " cards, gains #b", " #yStrength. NL Loses all #yStrength after attacking."]
+        "NAME": "チャージアップ",
+        "DESCRIPTIONS": ["カードを #b", " 枚プレイするたび、 #y筋力 #b", " を得る。 アタック をすると全ての #y筋力 を失う。"]
 },
 "Gensokyo:UnstableReality": {
-        "NAME": "Delusions of Grief",
-        "DESCRIPTIONS": ["This creature is your #gally. NL You #gwin when you defeat #b", " #yDelusions."]
+        "NAME": "悲しい妄想",
+        "DESCRIPTIONS": ["あなたの #g味方 。 NL あなたは #b", " 体の #y妄想 を倒すことで戦闘に #g勝利 する。"]
 },
 "Gensokyo:DollJudgement": {
-        "NAME": "Little Legion",
-        "DESCRIPTIONS": ["Every #b", " turns, summons #b2 #yDolls."]
+        "NAME": "リトルレギオン",
+        "DESCRIPTIONS": [" #b", " ターンごとに、 #y人形 を #b2 体召喚する。"]
 },
 "Gensokyo:AliceEventEnergy": {
-        "NAME": "Energized",
-        "DESCRIPTIONS": ["Every #b", " turns, gain", " ."]
+        "NAME": "活性化",
+        "DESCRIPTIONS": [" #b", " ターンごとに、 ", " を得る。"]
 },
 "Gensokyo:ExplosiveDoll": {
-        "NAME": "Explosive",
-        "DESCRIPTIONS": ["Will #rexplode ", "this turn,", "in #b", " turns,", " dealing #b", " damage to #yyou."]
+        "NAME": "爆発",
+        "DESCRIPTIONS": [" ", "ターン開始時、", " #b", " ターン経過後、", " #r爆発 して #b", " ダメージを与える。"]
 },
 "Gensokyo:BurdenOfFailure": {
-        "NAME": "Burden of Failure",
-        "DESCRIPTIONS": ["If this creature fails to deal unblocked attack damage when it attacks, gains #b", " #yStrength."]
+        "NAME": "失敗の責任",
+        "DESCRIPTIONS": ["この敵がアタックをして、ブロックされていないダメージを与えられなかった場合、この敵は #y筋力 #b", " を得る。"]
 },
 "Gensokyo:DollMagnet": {
-        "NAME": "Doll Magnet",
-        "DESCRIPTIONS": ["Every #b", " turns, spawn #b", " additional Explosive Doll(s)."]
+        "NAME": "ドールマグネット",
+        "DESCRIPTIONS": [" #b", " ターンごとに、爆発人形が #b", " 体出現する。"]
 },
 "Gensokyo:SarielEventPower": {
-        "NAME": "Angel's Grace",
-        "DESCRIPTIONS": ["Every #b", "th #yAttack", "th #ySkill", " you play is played twice."]
+        "NAME": "天使の嗜み",
+        "DESCRIPTIONS": [" #b", " 枚目にプレイする #yアタック を", " 枚目にプレイする #yスキル を", " 2回プレイする。"]
 },
 "Gensokyo:UnknownCurse": {
-        "NAME": "Unknown Curse",
-        "DESCRIPTIONS": ["Your cards have been #pobscured!"]
+        "NAME": "正体不明の呪い",
+        "DESCRIPTIONS": ["カードが #p隠された！"]
 },
 "Gensokyo:GuardianOfRelics": {
-        "NAME": "Guardian of Relics",
-        "DESCRIPTIONS": ["At the end of its turn, gains #yBlock equal to the number of #yRelics you have."]
+        "NAME": "遺物の守護者",
+        "DESCRIPTIONS": ["ターン終了時、あなたの所持している #yレリック の数に等しい #yブロック を得る。"]
 },
 "Gensokyo:Sinflower": {
-        "NAME": "Sinflower",
-        "DESCRIPTIONS": ["Whenever you attack this creature, remove your leftmost #ydebuff."]
+        "NAME": "罪花",
+        "DESCRIPTIONS": ["この敵に #yアタック をするたび、あなたの左端のデバフを #y削除 する。"]
 },
 "Gensokyo:Titan": {
-        "NAME": "Titan",
-        "DESCRIPTIONS": ["This creature's base attack damage is equal to half its current HP, up to a maximum of #b", "."]
+        "NAME": "巨人",
+        "DESCRIPTIONS": ["この敵の基本アタックダメージは、この敵の現在HPの半分に等しく、その最大値は #b", " 。"]
 },
 "Gensokyo:DawningLight": {
-        "NAME": "Dawning Light",
-        "DESCRIPTIONS": ["If this creature inflicts unblocked attack damage this turn, it gains #b", " #yStrength."]
+        "NAME": "夜明けの光",
+        "DESCRIPTIONS": ["このターンこの敵が、ブロックされていないアタックのダメージを与えた場合、この敵は #y筋力 #b", " を得る。"]
 },
 "Gensokyo:RuthlessStabs": {
-        "NAME": "Ruthless Stabs",
-        "DESCRIPTIONS": ["Whenever you receive unblocked attack damage from this enemy, shuffle an #rInfected #rWound into your draw pile."]
+        "NAME": "無慈悲な一刺し",
+        "DESCRIPTIONS": ["この敵のアタックで、ブロックされていないダメージを受けるたび、 #r感染創 を山札に混ぜる。"]
 },
 "Gensokyo:AnimalFriend": {
-        "NAME": "Animal Friend",
-        "DESCRIPTIONS": ["Whenever a minion dies, loses #b", " HP and gains #b", " #yStrength."]
+        "NAME": "動物の友",
+        "DESCRIPTIONS": ["ミニオンが倒されるたび、HPを #b", " 失い #y筋力 #b", " を得る。"]
 }
 }

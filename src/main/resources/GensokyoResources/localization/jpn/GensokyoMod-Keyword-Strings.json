@@ -3,79 +3,75 @@
     "NAMES": [
       "狂気"
     ],
-    "DESCRIPTION": "狂気状態の敵は、ランダムな敵を攻撃する。毎ターン狂気は #b1 減少する。"
+    "DESCRIPTION": "狂気状態の敵はランダムな敵にアタックして、デバフを与える。毎ターン狂気は #b1 減少する。"
   },
   {
-    "PROPER_NAME": "赤い紙",
+    "PROPER_NAME": "赤マント",
     "NAMES": [
-      "赤い紙",
-      "赤い紙+"
+      "赤マント",
+      "赤マント+"
     ],
     "DESCRIPTION": "ダメージを与えるコスト1の #yアタック 。 #y保留 、 #y廃棄"
   },
   {
-    "PROPER_NAME": "青い紙",
+    "PROPER_NAME": "青マント",
     "NAMES": [
-      "青い紙",
-      "青い紙+"
+      "青マント",
+      "青マント+"
     ],
     "DESCRIPTION": "#yブロック を得るコスト1の #yスキル 。 #y保留 、 #y廃棄"
   },
   {
     "NAMES": [
-      "vigor"
+      "活力"
     ],
-    "DESCRIPTION": "Vigorous creatures deal #b34% more attack damage."
+    "DESCRIPTION": "#yアタック で与えるダメージが #b34% 増加する。"
   },
   {
     "NAMES": [
-      "fortitude"
+      "不屈"
     ],
-    "DESCRIPTION": "Fortified creatures receive #b33% less attack damage."
+    "DESCRIPTION": "#yアタック で受けるダメージが #b33% 減少する。"
   },
   {
     "NAMES": [
-      "sturdy"
+      "頑強"
     ],
-    "DESCRIPTION": "Sturdy creatures gain #b34% more block."
+    "DESCRIPTION": "カードから得られる #yブロック が #b34% 増加する。"
   },
   {
     "PROPER_NAME": "難題",
     "NAMES": [
       "難題"
     ],
-    "DESCRIPTION": "#y保留 、 #y廃棄 不可。 NL このカードの場所に関わらず、 #y難題 は進行する。"
+    "DESCRIPTION": "#y保留 。 #y廃棄 不可。 NL このカードの場所に関わらず、 #y難題 は進行する。"
   },
   {
-    "PROPER_NAME": "Pet",
+    "PROPER_NAME": "ペット",
     "NAMES": [
-      "Pet",
-      "pet"
+      "ペット"
     ],
-    "DESCRIPTION": "A summon that you can issue an order to every turn. If the pet dies, its respective pet card is removed from the deck. The pet’s HP persists between combats and is fully restored when you rest at a campfire. You can only have one pet summoned at a time."
+    "DESCRIPTION": "毎ターンコマンドを選択できる味方を召喚する。ペットが死亡した場合、そのカードはデッキから削除される。ペットのHPは戦闘終了後も引き継がれ、休憩時に全回復する。一度に召喚できるペットは1体のみ。"
   },
   {
-    "PROPER_NAME": "Item",
+    "PROPER_NAME": "道具",
     "NAMES": [
-      "Item",
-      "item"
+      "道具"
     ],
-    "DESCRIPTION": "Removed from your master deck after being played the specified number of times."
+    "DESCRIPTION": "指定された回数プレイすると、デッキから削除される。"
   },
   {
-    "PROPER_NAME": "Evolve",
+    "PROPER_NAME": "進化",
     "NAMES": [
-      "Evolve",
-      "evolve"
+      "進化"
     ],
-    "DESCRIPTION": "Transforms into a special reward after being played the specified number of times."
+    "DESCRIPTION": "指定された回数プレイしたとき、カードの効果が発動する。"
   },
   {
-    "PROPER_NAME": "Bloodcast",
+    "PROPER_NAME": "ブラッドキャスト",
     "NAMES": [
-      "Bloodcast",
-      "bloodcast"
+      "ブラッドキャスト"
     ],
-    "DESCRIPTION": "When you have insufficient [E] to play this card, you may instead pay #b1 HP for every missing [E] ."
+    "DESCRIPTION": "このカードをプレイする [E] が足りない場合、足りない [E] につき #b1 HPを支払うことでプレイできる。"
   }
 ]

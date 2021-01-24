@@ -22,14 +22,14 @@
   },
   "Gensokyo:CelestialsFlawlessClothing": {
     "NAME": "天衣無縫",
-    "FLAVOR": "天にも昇る心地だ。",
+    "FLAVOR": "天にも昇る着心地。",
     "DESCRIPTIONS": [
-      "戦闘不能時、HPを最大まで回復して復活し、 #r三途の水先案内人 と遭遇する。この効果は戦闘中にのみ発動し、 #r三途の水先案内人 がいるときは発動しない。"
+      "戦闘不能時、HPを最大まで回復して復活し、 #r死の使い と遭遇する。この効果は戦闘中にのみ発動し、 #r死の使い がいるときは発動しない。"
     ]
   },
   "Gensokyo:OccultBall": {
     "NAME": "オカルトボール",
-    "FLAVOR": "七つ集めると願いが適うらしい。",
+    "FLAVOR": "七つ集めると願いが叶うらしい。",
     "DESCRIPTIONS": [
       "戦闘開始時、手札にランダムな #y都市伝説 のカードを #b1 枚加える。 #yオカルトボール はたまに入手できる。",
       "戦闘開始時、 #b2 枚のランダムな #y都市伝説 のカードから #b1 枚選び、手札に加える。 #yオカルトボール はたまに入手できる。",
@@ -40,28 +40,28 @@
   },
   "Gensokyo:LunaticRedEyes": {
     "NAME": "ルナティックレッドアイズ",
-    "FLAVOR": "These eyes have no effect on you. After all, you're already insane.",
+    "FLAVOR": "あなたはこの目の影響を受けない。既に正気ではないからだ。",
     "DESCRIPTIONS": [
       "戦闘開始時、敵全体に #ygensokyo:狂気 #b", " を与える。"
     ]
   },
   "Gensokyo:PortableGap": {
     "NAME": "携帯スキマ",
-    "FLAVOR": "As you stare into the abyss, a thousand eyes stare back at you.",
+    "FLAVOR": "深淵を覗くと、千の目が覗き返してくる。",
     "DESCRIPTIONS": [
       "次の部屋を選択するとき、あなたは道と距離を無視して飛ぶことができる。この効果を使用するたび、最大HPを #b", " 失う。"
     ]
   },
   "Gensokyo:NagashiBinaDoll": {
     "NAME": "流し雛",
-    "FLAVOR": "If you look closely, you can almost see the tendrils of misfortune seeping into the doll.",
+    "FLAVOR": "よく見ると人毛が編みこんである。",
     "DESCRIPTIONS": [
       "ターン終了時、手札のランダムな #p呪い を #b1 枚 #y廃棄 する。"
     ]
   },
   "Gensokyo:YoukaiFlower": {
     "NAME": "妖怪フラワー",
-    "FLAVOR": "The flower seems to be watching you, always craning its neck to follow you around wherever you are.",
+    "FLAVOR": "この花はいつもあなたを見ていて、どこにいても常にあなたのいる方向に首をねじっている。",
     "DESCRIPTIONS": [
       "#b",
       " ターンごとに、 [E] [E] を獲得。"
@@ -69,84 +69,84 @@
   },
   "Gensokyo:Bombinomicon": {
     "NAME": "ボミノミコン",
-    "FLAVOR": "Explode spectacularly on death.",
+    "FLAVOR": "死ぬと華やかに爆発する。",
     "DESCRIPTIONS": [
       "戦闘開始時、 #y保留 と #y廃棄 を追加した #y爆弾+ を #b1 枚手札に加える。", "保留 NL ", " NL 廃棄"
     ]
   },
   "Gensokyo:BookOfSpecters": {
     "NAME": "亡霊の書",
-    "FLAVOR": "A book written by a lonely necromancer who just wanted to make some friends.",
+    "FLAVOR": "友達の欲しい孤独なネクロマンサーが書いた本。",
     "DESCRIPTIONS": [
       "ターン開始時、追加でカードを #b", " 枚引く。この方法で引いた #yアタック 以外のカードを捨てる。"
     ]
   },
   "Gensokyo:UndefinedDarkness": {
     "NAME": "アンディファインドダークネス",
-    "FLAVOR": "Fear comes in all shapes and sizes.",
+    "FLAVOR": "恐怖にはいろいろな形がある。",
     "DESCRIPTIONS": [
-      "次の #b", " 回の戦闘では、カードを #p不明瞭 にする。その後、 #y特別なレリック を獲得可能。", "？？？"
+      "次の #b", " 回の戦闘では、カードが #p不明瞭 になる。その後、 #y特別なレリック を獲得可能。", "？？？"
     ]
   },
   "Gensokyo:ConquerorOfFear": {
     "NAME": "恐怖の征服者",
-    "FLAVOR": "The only thing we have to fear is fear itself.",
+    "FLAVOR": "我々が恐れるべきは、恐れそのものだ。",
     "DESCRIPTIONS": [
-      "捨て札が #b", " 枚以上になると、 #y筋力 と #y敏捷性 を #b", " を得る。"
+      "捨て札が #b", " 枚以上になると、 #y筋力 と #y敏捷性 を #b", " 得る。"
     ]
   },
   "Gensokyo:DayTheSeaSplit": {
     "NAME": "海が割れる日",
-    "FLAVOR": "The sea, once it casts its spell, holds one in its net of wonder forever.",
+    "FLAVOR": " 海。一度その魔法にかかると、その素晴らしい世界に、永遠に心を奪われ、探求しつづけることになる。",
     "DESCRIPTIONS": [
       "次の #b", " 回の戦闘では、プレイした #yスキル を #y廃棄 する。その後、 #y特別なレリック を獲得可能。"
     ]
   },
   "Gensokyo:MosesMiracle": {
     "NAME": "モーゼの奇跡",
-    "FLAVOR": "\"A miracle that parts the sea. Which makes it easy to catch fish, apparently.\" - The Grimoire of Marisa",
+    "FLAVOR": "「海を分断する奇跡。魚が捕まえやすくなる。」-The Grimoire of Marisa",
     "DESCRIPTIONS": [
       "デッキをシャッフルするたび、手札に #y奇跡 を加える。"
     ]
   },
   "Gensokyo:FoxMask": {
     "NAME": "妖狐面",
-    "FLAVOR": "A mask for the serious and determined.",
+    "FLAVOR": "真正直さと決意の面。",
     "DESCRIPTIONS": [
       "#y状態異常 を引くたび、カードを #b", " 枚引く。"
     ]
   },
   "Gensokyo:SpiderMask": {
     "NAME": "大蜘蛛面",
-    "FLAVOR": "A mask for the angry and enraged.",
+    "FLAVOR": "憤怒と激高の面。",
     "DESCRIPTIONS": [
       "毎ターン、最初に #yアタック をプレイしたとき、ランダムな敵に #y弱体 #b", " を与える。"
     ]
   },
   "Gensokyo:MaskOfHope": {
     "NAME": "希望の面",
-    "FLAVOR": "A mask for humor and cheer.",
+    "FLAVOR": "おかしさと歓声の面。",
     "DESCRIPTIONS": [
       "戦闘中初めてHPを失うと、 #y一時的なHP を #b", " を獲得する。"
     ]
   },
   "Gensokyo:DemonMask": {
     "NAME": "鬼婆面",
-    "FLAVOR": "A mask for thunderous surprise.",
+    "FLAVOR": "衝撃的な面。",
     "DESCRIPTIONS": [
       "このターン、 #yアタック 以外を1枚もプレイしなかった場合、次ターン開始時、 #y筋力 #b", " を得る。"
     ]
   },
   "Gensokyo:LionMask": {
     "NAME": "獅子面",
-    "FLAVOR": "A mask for the joyful and delighted.",
+    "FLAVOR": "嬉しさと喜びの面。",
     "DESCRIPTIONS": [
       "#yスキル をプレイするたび、ランダムな敵に #b", " ダメージを与える。"
     ]
   },
   "Gensokyo:RedStar": {
     "NAME": "レッドスター",
-    "FLAVOR": "An ill omen feared by many.",
+    "FLAVOR": "不吉の前兆。",
     "DESCRIPTIONS": [
       "次のボスとの戦闘では、最大HPが #b", "% 減少する。その後、 #y特別なカード を獲得可能。"
     ]
@@ -167,67 +167,67 @@
   },
   "Gensokyo:SongOfSouls": {
     "NAME": "魂の唄",
-    "FLAVOR": "元気な唄は日々のために。",
+    "FLAVOR": "いつもの唄は日々のために。",
     "DESCRIPTIONS": [
       "ストライクまたは防御をプレイしたとき、それを #y廃棄 する。"
     ]
   },
   "Gensokyo:Companionship": {
-    "NAME": "Companionship",
-    "FLAVOR": "It's those small moments you end up remembering for the rest of your life.",
+    "NAME": "仲間",
+    "FLAVOR": "あの瞬間は一生忘れないだろう。",
     "DESCRIPTIONS": [
-      " Transfer up to #b", " #yBlock from you to your #ygensokyo:Pet."
+      " NL あなたの #yブロック を #b", " #yブロック 、 #ygensokyo:ペット に与える。"
     ]
   },
   "Gensokyo:EmptyGrave": {
-    "NAME": "Empty Grave",
-    "FLAVOR": "I am not there. I did not die.",
+    "NAME": "空の墓",
+    "FLAVOR": "そこに私はいません。まだ死んでいないから。",
     "DESCRIPTIONS": [
-      "After climbing #b", " floors, heal #b", "% of your Max HP."
+      " #b", " 部屋ごとに最大HPの #b", "% を回復する。"
     ]
   },
   "Gensokyo:DualWield": {
-    "NAME": "Dual Wield",
-    "FLAVOR": "Rip and tear, a bloody grin. \n Reap and sow, a horrid din.",
+    "NAME": "諸手の籠手",
+    "FLAVOR": "引き裂き、血塗れニヤニヤ笑い。撒いては、刈り取り悲鳴が響く。",
     "DESCRIPTIONS": [
-      "Your single-target #yAttacks deal damage to ALL enemies."
+      "単体の #yアタック が敵全体にダメージを与えるようになる。"
     ]
   },
   "Gensokyo:TheCrow": {
-    "NAME": "The Crow",
-    "FLAVOR": "Power beckons, sweet and smile. \n Madness answers, bleak and vile.",
+    "NAME": "鴉のマスク",
+    "FLAVOR": "力が手招き、甘い声。 \n 狂気が応え、闇が来る。",
     "DESCRIPTIONS": [
-      "At the end of your turn, gain #b", " #yRitual and take damage equal to the amount of #yStrength you have."
+      "ターン終了時、 #y儀式 #b", " を獲得し、現在の #y筋力 の値に等しいダメージを受ける。"
     ]
   },
   "Gensokyo:DummyBloodcastTooltip": {
-    "NAME": "Bloodcast",
+    "NAME": "ブラッドキャスト",
     "FLAVOR": "",
     "DESCRIPTIONS": [
-      "When you have insufficient [E] to play this card, you may instead pay #b1 HP for every missing [E] ."
+      "このカードをプレイする [E] が足りない場合、足りない [E] につき #b1 HPを支払うことでプレイできる。"
     ]
   },
   "Gensokyo:MarisaIngredientList": {
-    "NAME": "Ingredient List",
-    "FLAVOR": "A bunch of messy scribbles on a page. Apparently creates something known as the \"Improbability Potion\".",
+    "NAME": "材料表",
+    "FLAVOR": "乱雑な走り書きのされた紙。「インポッシブルポーション」の作成方法らしい。",
     "DESCRIPTIONS": [
-      "#yIngredients: NL 1. Encounter #b", " normal", " #relite", " enemy. ", " enemies. ", " #pevent. ", " #pevents. ", "/",
-      " NL 2. Obtain #b", " Common", " #bUncommon", " #yRare", " card. ", " cards. ",
-      " NL 3. Once the first two steps are complete, #gbrew the potion at a #ycampfire."
+      "#y材料: NL 1. #b", " 体の通常の敵", " 体の #rエリート ", " と遭遇する。", "と遭遇する。", " 回 #pイベント と遭遇する。", " 回 #pイベント と遭遇する。", "/",
+      " NL 2. #b", " 枚のコモン", " 枚の #bアンコモン", " 枚の #yレア", " カードを獲得する。", " カードを獲得する。",
+      " NL 3. 上記2つの内容を完了後、キャンプファイヤーでポーションを #g醸造 する。"
     ]
   },
   "Gensokyo:MarisaImprobabilityPotion": {
-    "NAME": "Improbability Potion",
-    "FLAVOR": "It bestows the user with the ability to defy all odds.",
+    "NAME": "インポッシブルポーション",
+    "FLAVOR": "不可能を可能にする能力を授ける。",
     "DESCRIPTIONS": [
-      " [#2aecd7]Usable [#2aecd7]once [#2aecd7]per [#2aecd7]combat.[] NL Lose #b", " HP. Gain #b", " #yStrength and #yDexterity."
+      " [#2aecd7]戦闘ごとに1回使用可能。[] NL HPを #b", " 失う。 #y筋力 と #y敏捷性 を #b", " 獲得する。"
     ]
   },
   "Gensokyo:MarisaPhilosophersStone": {
-    "NAME": "Philosopher's Stone",
-    "FLAVOR": "Said to transform lead into gold.",
+    "NAME": "賢者の石",
+    "FLAVOR": "鉛を金に変えると言われている。",
     "DESCRIPTIONS": [
-      "At the start of your turn, #yexhaust a card and add a random card of the #ynext #yrarity to your hand."
+      "ターン開始時、手札のカードを一枚 #y廃棄 し、より #y高いレアリティ のカードを1枚手札に追加する。"
     ]
   }
 }

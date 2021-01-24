@@ -1,73 +1,73 @@
 ﻿{
   "Gensokyo:CrescentMoonSlash": {
     "NAME": "弦月斬",
-    "DESCRIPTION": "敵全体に !D! ダメージを与える。 NL この攻撃で敵を倒したとき、このカードの効果を繰り返す。"
+    "DESCRIPTION": "敵全体に !D! ダメージを与える。 NL この攻撃で敵を倒したとき、このカードの効果が再発生する。"
   },
   "Gensokyo:MissMary": {
-    "NAME": "メリーさん",
-    "DESCRIPTION": "敵全体に 弱体 !M! を与える。 NL 廃棄"
+    "NAME": "メリーさんの電話",
+    "DESCRIPTION": "敵全体に 弱体 !M! を与える。"
   },
   "Gensokyo:SpontaneousHumanCombustion": {
     "NAME": "人体自然発火現象",
-    "DESCRIPTION": " 筋力 !M! を得る。 NL ターン終了時に !Gensokyo:SecondMagic! のダメージを受ける。 NL このダメージは毎ターン  !Gensokyo:SecondMagic! 増加する。"
+    "DESCRIPTION": " 筋力 !M! を得る。 NL ターン終了時に !Gensokyo:SecondMagic! ダメージを受ける。 NL このダメージは毎ターン  !Gensokyo:SecondMagic! 増加する。"
   },
   "Gensokyo:RedCapeBlueCape": {
-    "NAME": "赤い紙、青い紙",
-    "DESCRIPTION": " !B! ブロック を得る。 NL !D! ダメージを与える。 NL gensokyo:赤い紙 と gensokyo:青い紙 を手札に加える。",
-    "UPGRADE_DESCRIPTION": " !B! ブロック を得る。 NL !D! ダメージを与える。 NL gensokyo:赤い紙+ と gensokyo:青い紙+ を手札に加える。"
+    "NAME": "赤マント青マント",
+    "DESCRIPTION": " !B! ブロック を得る。 NL !D! ダメージを与える。 NL gensokyo:赤マント と gensokyo:青マント を手札に加える。",
+    "UPGRADE_DESCRIPTION": " !B! ブロック を得る。 NL !D! ダメージを与える。 NL gensokyo:赤マント+ と gensokyo:青マント+ を手札に加える。"
   },
   "Gensokyo:RedCape": {
-    "NAME": "赤い紙",
-    "DESCRIPTION": "保留 NL !D! ダメージを与える。 NL 廃棄"
+    "NAME": "赤マント",
+    "DESCRIPTION": "!D! ダメージを与える。"
   },
   "Gensokyo:BlueCape": {
-    "NAME": "青い紙",
-    "DESCRIPTION": "保留 NL !B! ブロック を得る。 NL 廃棄"
+    "NAME": "青マント",
+    "DESCRIPTION": "!B! ブロック を得る。"
   },
   "Gensokyo:TekeTeke": {
     "NAME": "テケテケ",
-    "DESCRIPTION": "敵全体に !D! ダメージを !Gensokyo:SecondMagic! 回与える。 NL この攻撃で敵のHPを半分以下にしたとき、戦闘終了までダメージが !M! 増加。"
+    "DESCRIPTION": "敵全体に !D! ダメージを !Gensokyo:SecondMagic! 回与える。 NL この攻撃で敵のHPを半分以下にするたび、戦闘終了までダメージを !M! 増加させ、そのコストを1減らす。"
   },
   "Gensokyo:Kunekune": {
     "NAME": "くねくね",
-    "DESCRIPTION": "gensokyo:狂気 !M! を与える。 NL 廃棄"
+    "DESCRIPTION": "gensokyo:狂気 !M! を与える。"
   },
   "Gensokyo:HAARP": {
-    "NAME": "ハープ",
+    "NAME": "HAARP",
     "DESCRIPTION": "ターン開始時、 ライトニング !M! を 生成 する。"
   },
   "Gensokyo:MenInBlack": {
-    "NAME": "メンインブラック",
-    "DESCRIPTION": "保留 NL 無形 !M! を得る。 NL 廃棄"
+    "NAME": "M.I.B",
+    "DESCRIPTION": "無形 !M! を得る。"
   },
   "Gensokyo:LittleGreenMen": {
     "NAME": "リトルグリーンマン",
     "DESCRIPTION": "[E] [E] を得る。 NL このカードのコピーを山札の一番上に置く。",
-    "UPGRADE_DESCRIPTION": "保留 NL [E] [E] を得る。 NL このカードのコピーを山札の一番上に置く。"
+    "UPGRADE_DESCRIPTION": "[E] [E] を得る。 NL このカードのコピーを山札の一番上に置く。"
   },
   "Gensokyo:TurboGranny": {
-    "NAME": "ターボババア",
-    "DESCRIPTION": "敏捷性 !M! を得る。 NL プレートアーマー  !Gensokyo:SecondMagic! を　　　　　　 NL 得る。"
+    "NAME": "ターボババァ",
+    "DESCRIPTION": "敏捷性 !M! を得る。 NL *プレートアーマー  !Gensokyo:SecondMagic! を　　　　　　 NL 得る。"
   },
   "Gensokyo:MonkeysPaw": {
     "NAME": "猿の手",
-    "DESCRIPTION": "現在HPの半分を失う。 NL この効果で失ったHPの !M! 倍のゴールドを得る。 NL 廃棄"
+    "DESCRIPTION": "現在HPの半分を失う。 NL この効果で失ったHPの !M! 倍のゴールドを得る。"
   },
   "Gensokyo:ManorOfTheDishes": {
-    "NAME": "皿屋敷",
+    "NAME": "番町皿屋敷",
     "DESCRIPTION": "カードを !Gensokyo:SecondMagic! 枚プレイするたび、 無形 !M! を得る。"
   },
   "Gensokyo:LochNessMonster": {
-    "NAME": "ネッシー",
+    "NAME": "ネス湖の怪物ネッシー",
     "DESCRIPTION": "!D! ダメージを !M! 回与える。"
   },
   "Gensokyo:GapWoman": {
     "NAME": "隙間女",
-    "DESCRIPTION": "敵全体に 脱力 !M! を与える。 NL 廃棄"
+    "DESCRIPTION": "敵全体に 脱力 !M! を与える。"
   },
   "Gensokyo:EightFeetTall": {
-    "NAME": "八尺様",
-    "DESCRIPTION": "ボス以外の敵を !M! ターン後に死亡させる。 NL 廃棄"
+    "NAME": "八尺さま",
+    "DESCRIPTION": "ボス以外の敵を !M! ターン後に死亡させる。"
   },
   "Gensokyo:SevenSchoolMysteries": {
     "NAME": "学校の七不思議",
@@ -79,32 +79,32 @@
   },
   "Gensokyo:SlitMouthedWoman": {
     "NAME": "口裂け女",
-    "DESCRIPTION": "次に攻撃を受けたとき、攻撃を行った敵に 弱体 !M! を与える。 NL もう1度攻撃を受けたとき、攻撃を行った敵は 筋力 !M! を失う。 NL 廃棄"
+    "DESCRIPTION": "次に攻撃を受けたとき、攻撃を行った敵に 弱体 !M! を与える。 NL もう1度攻撃を受けたとき、攻撃を行った敵は 筋力 !M! を失う。"
   },
   "Gensokyo:Frozen": {
     "NAME": "冷凍！",
-    "DESCRIPTION": "このカードを引いたとき、そのコストを !M! 減少する。 NL 廃棄"
+    "DESCRIPTION": "このカードを引いたとき、そのコストを !M! 減少する。"
   },
   "Gensokyo:MarisaTwilightSpark": {
-    "NAME": "Twilight Spark",
-    "DESCRIPTION": "Exhaust any number of cards. Increase this card's damage by !M! for each card exhausted. Counts as a Skill. NL Amplify  [E]  [E]  [E] : Deal !D! damage to ALL enemies instead. Counts as an Attack."
+    "NAME": "トワイライトスパーク",
+    "DESCRIPTION": "手札から好きな枚数を廃棄する。この効果で廃棄したカード1枚につき、戦闘終了までダメージを !M! 増加する。「スキル」として扱われる。 NL 増幅 [E] [E] [E] :すべての敵に !D! ダメージを与える。「アタック」として扱われる。"
   },
   "Gensokyo:BlessingOfVigor": {
-    "NAME": "Blessing of Vigor",
-    "DESCRIPTION": "Unplayable. NL Whenever you draw this card, draw a card and gain !M! gensokyo:Vigor."
+    "NAME": "生命の祝福",
+    "DESCRIPTION": "使用不可 NL このカードを引くたび、カードを1枚引き gensokyo:活力 !M! を得る。"
   },
   "Gensokyo:BlessingOfFortitude": {
-    "NAME": "Blessing of Fortitude",
-    "DESCRIPTION": "Unplayable. NL Whenever you draw this card, draw a card and gain !M! gensokyo:Fortitude."
+    "NAME": "勇気の祝福",
+    "DESCRIPTION": "使用不可 NL このカードを引くたび、カードを1枚引き gensokyo:不屈 !M! を得る。"
   },
   "Gensokyo:BlessingOfConstitution": {
-    "NAME": "Blessing of Constitution",
-    "DESCRIPTION": "Unplayable. NL Whenever you draw this card, draw a card and gain !M! gensokyo:Sturdy."
+    "NAME": "約束の祝福",
+    "DESCRIPTION": "使用不可 NL このカードを引くたび、カードを1枚引き gensokyo:頑強 !M! を得る。"
   },
   "Gensokyo:Doppelganger": {
     "NAME": "ドッペルゲンガー",
-    "DESCRIPTION": "保留 NL 占術 X NL 次の X 枚のカードを2回プレイする。 NL 廃棄",
-    "UPGRADE_DESCRIPTION": "保留 NL 占術 X + 1 NL 次の X + 1 枚のカードを2回プレイする。 NL 廃棄"
+    "DESCRIPTION": "占術 X NL 次の X 枚のカードを2回プレイする。",
+    "UPGRADE_DESCRIPTION": "占術 X + 1 NL 次の X + 1 枚のカードを2回プレイする。"
   },
   "Gensokyo:ImpossibleRequest": {
     "NAME": "難題",
@@ -132,12 +132,12 @@
   },
   "Gensokyo:FourOfAKind": {
     "NAME": "禁忌「フォーオブアカインド」",
-    "DESCRIPTION": "エセリアル NL このターン、次のカードを !M! 回多くプレイする。 NL この戦闘中、同名のカードの複製効果を !Gensokyo:SecondMagic! 増加する。 NL 1ターンに1回プレイ可能。 NL 廃棄",
-    "UPGRADE_DESCRIPTION": "このターン、次のカードを !M! 回多くプレイする。 NL この戦闘中、同名のカードの複製効果を !Gensokyo:SecondMagic! 増加する。 NL 1ターンに1回プレイ可能。 NL 廃棄",
+    "DESCRIPTION": "このターン、次にプレイするカードを !M! 回多くプレイする。 NL 戦闘終了まで同名カードの複製効果を !Gensokyo:SecondMagic! 増加する。 NL 1ターンに1枚プレイ可能。",
+    "UPGRADE_DESCRIPTION": "このターン、次にプレイするカードを !M! 回多くプレイする。 NL 戦闘終了まで同名カードの複製効果を !Gensokyo:SecondMagic! 増加する。 NL 1ターンに1枚プレイ可能。",
     "EXTENDED_DESCRIPTION": ["禁忌「フォーオブアカインド」は1ターンに1枚しかプレイできない。"]
   },
   "Gensokyo:AllTheWorldsEvil": {
-    "NAME": "諸悪の根源",
+    "NAME": "この世全ての悪",
     "DESCRIPTION": "全てのキャラクターに 弱体 !M! を与える。"
   },
   "Gensokyo:EmbersOfLove": {
@@ -150,184 +150,184 @@
   },
   "Gensokyo:ReflexRadar": {
     "NAME": "リフレクスレーダー",
-    "DESCRIPTION": "カードを !M! 枚引く。 NL 廃棄",
+    "DESCRIPTION": "カードを !M! 枚引く。",
     "UPGRADE_DESCRIPTION": "カードを !M! 枚引く。"
   },
   "Gensokyo:MindShatter": {
     "NAME": "マインドシェイカー",
-    "DESCRIPTION": "廃棄 したカードの内 廃棄 カード以外のすべてを山札に戻す。 NL この方法で山札に戻したカードの枚数ｘ !M! HPを失う。"
+    "DESCRIPTION": "廃棄 したカードの内 廃棄 カード以外のすべてを山札に戻す。 NL この方法で山札に戻したカード1枚につき、HPを !M! を失う。"
   },
   "Gensokyo:ShootingStar": {
     "NAME": "流れ星",
-    "DESCRIPTION": "デッキにある流れ星以外のカードを複製し、1枚手札に加える。 NL 廃棄",
-    "UPGRADE_DESCRIPTION": "保留 NL デッキにある流れ星以外のカードを複製し、1枚手札に加える。 NL 廃棄"
+    "DESCRIPTION": "デッキにある流れ星以外のカードを1枚複製し、手札に加える。",
+    "UPGRADE_DESCRIPTION": "デッキにある流れ星以外のカードを1枚複製し、手札に加える。"
   },
   "Gensokyo:SummonYinYangFox": {
-    "NAME": "Yin Yang Fox",
-    "DESCRIPTION": "Summon a Yin Yang Fox gensokyo:Pet with !M! HP."
+    "NAME": "陰陽狐",
+    "DESCRIPTION": "gensokyo:ペット の陰陽狐を召喚する。 NL HPは !M! 。"
   },
   "Gensokyo:SummonFieryMouse": {
-    "NAME": "Fiery Mouse",
-    "DESCRIPTION": "Summon a Fiery Mouse gensokyo:Pet with !M! HP."
+    "NAME": "火鼠",
+    "DESCRIPTION": "gensokyo:ペット の火鼠を召喚する。 NL HPは !M! 。"
   },
   "Gensokyo:SummonJeweledCobra": {
-    "NAME": "JeweledCobra",
-    "DESCRIPTION": "Summon a Jeweled Cobra gensokyo:Pet with !M! HP."
+    "NAME": "ジュエルコブラ",
+    "DESCRIPTION": "gensokyo:ペット のジュエルコブラを召喚する。 NL HPは !M! 。"
   },
   "Gensokyo:SummonPsychicCat": {
-    "NAME": "Psychic Cat",
-    "DESCRIPTION": "Summon a Psychic Cat gensokyo:Pet with !M! HP."
+    "NAME": "サイコキャット",
+    "DESCRIPTION": "gensokyo:ペット のサイコキャットを召喚する。 NL HPは !M! 。"
   },
   "Gensokyo:PetPreview": {
-    "NAME": "Moves",
+    "NAME": "行動内容",
     "DESCRIPTION": ""
   },
   "Gensokyo:MysteriousEgg": {
-    "NAME": "Mysterious Egg",
-    "DESCRIPTION": "Random gensokyo:Pet card."
+    "NAME": "不思議な卵",
+    "DESCRIPTION": "ランダムな gensokyo:ペット カードを獲得。"
   },
   "Gensokyo:ExoticEgg": {
-    "NAME": "Exotic Egg",
-    "DESCRIPTION": "Random gensokyo:Pet card."
+    "NAME": "珍しい卵",
+    "DESCRIPTION": "ランダムな gensokyo:ペット カードを獲得。"
   },
   "Gensokyo:Shovel": {
-    "NAME": "Shovel",
-    "DESCRIPTION": "Random relic."
+    "NAME": "ショベル",
+    "DESCRIPTION": "ランダムなレリックを獲得。"
   },
   "Gensokyo:BlemishedSteel": {
-    "NAME": "Blemished Steel",
-    "DESCRIPTION": "Random rare relic."
+    "NAME": "質の悪い鋼",
+    "DESCRIPTION": "ランダムなレアレリックを獲得。"
   },
   "Gensokyo:DepletedGenerator": {
-    "NAME": "Depleted Generator",
-    "DESCRIPTION": "Rare card reward."
+    "NAME": "枯渇した発電機",
+    "DESCRIPTION": "報酬にレアカードを追加。"
   },
   "Gensokyo:ScrapIron": {
-    "NAME": "Scrap Iron",
-    "DESCRIPTION": "Random common relic."
+    "NAME": "鉄くず",
+    "DESCRIPTION": "ランダムなコモンレリックを獲得。"
   },
   "Gensokyo:TarnishedGold": {
-    "NAME": "Tarnished Gold",
-    "DESCRIPTION": "!Gensokyo:SecondMagic! gold."
+    "NAME": "曇った金",
+    "DESCRIPTION": "!Gensokyo:SecondMagic! ゴールドを獲得。"
   },
   "Gensokyo:RustyChest": {
-    "NAME": "Rusty Chest",
-    "DESCRIPTION": "!Gensokyo:SecondMagic! gold."
+    "NAME": "錆びた箱",
+    "DESCRIPTION": "!Gensokyo:SecondMagic! ゴールドを獲得。"
   },
   "Gensokyo:TrainingManual": {
-    "NAME": "Training Manual",
-    "DESCRIPTION": "Upgraded card reward."
+    "NAME": "訓練マニュアル",
+    "DESCRIPTION": "報酬に アップグレード されたカードを追加。"
   },
   "Gensokyo:LockedMedkit": {
-    "NAME": "Locked Medkit",
-    "DESCRIPTION": "Heal to full HP."
+    "NAME": "鍵のかかった医療キット",
+    "DESCRIPTION": "HPを全回復する。"
   },
   "Gensokyo:RPG": {
     "NAME": "RPG",
-    "DESCRIPTION": "Deal !D! damage to ALL enemies."
+    "DESCRIPTION": "敵全体に !D! ダメージを与える。"
   },
   "Gensokyo:ReactiveArmor": {
-    "NAME": "Reactive Armor",
-    "DESCRIPTION": "Gain !B! Block for each enemy in combat."
+    "NAME": "リアクティブアーマー",
+    "DESCRIPTION": "戦闘中の敵1体につき !B! ブロックを得る。"
   },
   "Gensokyo:Taser": {
-    "NAME": "Taser",
-    "DESCRIPTION": "Deal !D! damage. NL Apply !M! *Stun."
+    "NAME": "テーザー",
+    "DESCRIPTION": "!D! ダメージを与える。 NL *スタン !M! を与える。"
   },
   "Gensokyo:MedicineKit": {
-    "NAME": "Medicine Kit",
-    "DESCRIPTION": "Remove all of your debuffs and heal !M! HP for each debuff removed."
+    "NAME": "薬箱",
+    "DESCRIPTION": "自分にかかっているすべてのデバフを取り除き、取り除いたデバフ1つにつきHPを !M! 回復する。"
   },
   "Gensokyo:OverchargedCore": {
-    "NAME": "Overcharged Core",
-    "DESCRIPTION": "Gain !M! Strength, Dexterity, and Focus. NL Lose !M! HP."
+    "NAME": "オーバーチャージコア",
+    "DESCRIPTION": " 筋力 、 敏捷性 、 集中力 を !M! 得る。 NL HPを !M! 失う。"
   },
   "Gensokyo:LifeforceConverter": {
-    "NAME": "Lifeforce Converter",
-    "DESCRIPTION": "Give ALL non-X-cost cards in your hand gensokyo:Bloodcast this combat."
+    "NAME": "ライフフォースコンバーター",
+    "DESCRIPTION": "戦闘終了まで、手札のコストX以外のカードに gensokyo:ブラッドキャスト を追加する。"
   },
   "Gensokyo:Butterfly": {
-    "NAME": "Butterfly",
-    "DESCRIPTION": "Unplayable. NL If this card is exhausted, lose !M! Max HP this combat."
+    "NAME": "蝶",
+    "DESCRIPTION": "使用不可 NL このカードを廃棄したとき、戦闘終了まで最大HPを !M! 失う。"
   },
   "Gensokyo:BrilliantDragonBullet": {
-    "NAME": "Brilliant Dragon Bullet",
-    "DESCRIPTION": "Deal !D! damage. NL Draw !M! card. If it's an Attack, deal !D! damage again."
+    "NAME": "ブリリアントドラゴンバレッタ",
+    "DESCRIPTION": " !D! ダメージを与える。 NL カードを !M! 枚引きそれが「アタック」の場合、 !D! ダメージを与える。"
   },
   "Gensokyo:SalamanderShield": {
-    "NAME": "Salamander Shield",
-    "DESCRIPTION": "Gain !B! Block. NL Draw !M! card. If it's a Skill, gain !B! Block again."
+    "NAME": "サラマンダーシールド",
+    "DESCRIPTION": " !B! ブロックを得る。 NL カードを !M! 枚引きそれが「スキル」の場合、 !B! ブロックを得る。"
   },
   "Gensokyo:BuddhistDiamond": {
-    "NAME": "Buddhist Diamond",
-    "DESCRIPTION": "Deal !D! damage. NL When this card is discarded by Scry, increase its damage by !M! this combat."
+    "NAME": "ブディストダイアモンド",
+    "DESCRIPTION": " !D! ダメージを与える。 NL 占術 でこのカードを捨てるたび、戦闘終了までダメージが !M! 増加する。"
   },
   "Gensokyo:NewMoon": {
-    "NAME": "New Moon",
-    "DESCRIPTION": "Deal !D! damage. NL Put a card from your hand on top of your draw pile."
+    "NAME": "初月",
+    "DESCRIPTION": " !D! ダメージを与える。 NL 手札のカードを1枚山札の一番上に置く。"
   },
   "Gensokyo:MorningMist": {
-    "NAME": "Morning Mist",
-    "DESCRIPTION": "Gain !B! Block. NL Put a card from your discard pile on top of your draw pile."
+    "NAME": "朝靄",
+    "DESCRIPTION": " !B! ブロックを得る。 NL 捨て札のカードを1枚山札の一番上に置く。"
   },
   "Gensokyo:EverlastingLife": {
-    "NAME": "Everlasting Life",
-    "DESCRIPTION": "Gain !B! Block. NL Scry !M!."
+    "NAME": "永命線",
+    "DESCRIPTION": " !B! ブロックを得る。 NL 占術 !M!"
   },
   "Gensokyo:LifeSpringInfinity": {
-    "NAME": "Life Spring Infinity",
-    "DESCRIPTION": "Draw !M! cards. Gain !B! Block for every Skill drawn this way."
+    "NAME": "ライフスプリングインフィニティ",
+    "DESCRIPTION": "カードを !M! 枚引く。引いた「スキル」1枚につき、 !B! ブロックを得る。"
   },
   "Gensokyo:DreamlikeParadise": {
-    "NAME": "Dreamlike Paradise",
-    "DESCRIPTION": "Scry !M!. NL Cards discarded this way cost 0 until played. NL Whenever this card is drawn, draw !Gensokyo:SecondMagic! card."
+    "NAME": "夢色の郷",
+    "DESCRIPTION": "占術 !M! NL この効果で捨てたカードは、プレイされるまでそのコストが0になる。 NL このカードを引くたび、カードを !Gensokyo:SecondMagic! 枚引く。"
   },
   "Gensokyo:RainbowDanmaku": {
-    "NAME": "Rainbow Danmaku",
-    "DESCRIPTION": "Deal !D! damage. NL Scry !M!. NL For every Attack discarded this way, deal !D! damage again."
+    "NAME": "虹色の弾幕",
+    "DESCRIPTION": " !D! ダメージを与える。 NL 占術 !M! NL この効果で捨てた「アタック」1枚につき、 !D! ダメージを与える。"
   },
   "Gensokyo:UnlikelyAid": {
-    "NAME": "Unlikely Aid",
-    "DESCRIPTION": "Deal !D! damage. NL Choose 1 of !M! cards from your master deck to add to your hand. It costs 0 this turn and exhausts."
+    "NAME": "予期せぬ助力",
+    "DESCRIPTION": " !D! ダメージを与える。 NL デッキのカードから !M! 枚のうち1枚を複製し、手札に加える。この複製は 廃棄 が追加され、このターンコストが0になる。"
   },
   "Gensokyo:MorningStar": {
-    "NAME": "Morning Star",
-    "DESCRIPTION": "Gain !B! Block. NL Deal !D! damage. NL Exhaust ALL your Status cards."
+    "NAME": "明けの明星",
+    "DESCRIPTION": " !B! ブロックを得る。 NL !D! ダメージを与える。 NL 全ての 状態異常 を 廃棄する。"
   },
   "Gensokyo:RisingWorld": {
-    "NAME": "Rising World",
-    "DESCRIPTION": "Scry !M!. NL Cards discarded this way are Upgraded. NL Whenever this card is drawn, draw !Gensokyo:SecondMagic! card."
+    "NAME": "世明け",
+    "DESCRIPTION": "占術 !M! NL この効果で捨てたカードを戦闘終了まで アップグレード する。 NL このカードを引くたび、カードを !Gensokyo:SecondMagic! 枚引く。"
   },
   "Gensokyo:HouraiInAPot": {
-    "NAME": "Hourai in a Pot",
-    "DESCRIPTION": "Discard any number of cards then draw that many.",
-    "UPGRADE_DESCRIPTION": "Discard any number of cards then draw that many. NL Whenever this card is drawn, draw !Gensokyo:SecondMagic! card."
+    "NAME": "蓬莱壺中",
+    "DESCRIPTION": "好きなカードを捨てて同じ枚数のカードを引く。",
+    "UPGRADE_DESCRIPTION": "好きなカードを捨てて同じ枚数のカードを引く。 NL このカードを引くたび、カードを !Gensokyo:SecondMagic! 枚引く。"
   },
   "Gensokyo:Dawn": {
-    "NAME": "Dawn",
-    "DESCRIPTION": "Whenever this card is drawn, gain [E] and draw !Gensokyo:SecondMagic! card.",
-    "UPGRADE_DESCRIPTION": "Whenever this card is drawn, gain [E] [E] and draw !Gensokyo:SecondMagic! card."
+    "NAME": "夜明け",
+    "DESCRIPTION": "このカードを引くたび、 [E] を得てカードを !Gensokyo:SecondMagic! 枚引く。",
+    "UPGRADE_DESCRIPTION": "このカードを引くたび、 [E] [E] を得てカードを !Gensokyo:SecondMagic! 枚引く。"
   },
   "Gensokyo:UnhurriedMind": {
-    "NAME": "Unhurried Mind",
-    "DESCRIPTION": "Play the top !M! cards of your draw pile."
+    "NAME": "焦れぬ心",
+    "DESCRIPTION": "山札の一番上のカードをプレイする。"
   },
   "Gensokyo:CustomPotion": {
-    "NAME": "Custom Potion",
+    "NAME": "カスタムポーション",
     "DESCRIPTION": ""
   },
   "Gensokyo:GreaterSplit": {
-    "NAME": "Greater Split: Vertical",
-    "DESCRIPTION": "Deal !D! damage. NL Apply !M! *Stun.",
-    "UPGRADE_DESCRIPTION": "Deal !D! damage and apply !M! *Stun to ALL enemies.",
-    "EXTENDED_DESCRIPTION": ["Greater Split: Horizontal"]
+    "NAME": "大切断-縦",
+    "DESCRIPTION": " !D! ダメージを与える。 NL *スタン !M! を与える。",
+    "UPGRADE_DESCRIPTION": "敵全体に !D! ダメージと NL *スタン !M! を与える。",
+    "EXTENDED_DESCRIPTION": ["大切断-縦"]
   },
   "Gensokyo:PrivateSquare": {
-    "NAME": "Private Square",
-    "DESCRIPTION": "Take an extra turn after this one. End your turn. NL Add a copy of this card that costs !M! more to your hand. NL If any enemy takes damage while this is in your hand, exhaust it."
+    "NAME": "プライベートスクウェア",
+    "DESCRIPTION": "このターンに続いて追加の1ターンを行う。ターンを終了する。コストが !M! 増加した、このカードのコピーを1枚手札に加える。 NL このカードが手札にあるときに敵がダメージを受けた場合、このカードを 廃棄 する。"
   },
   "Gensokyo:InfectedWound": {
-    "NAME": "Infected Wound",
-    "DESCRIPTION": "While this card is in your hand, take !M! damage whenever you play an Attack."
+    "NAME": "感染創",
+    "DESCRIPTION": "手札にある状態で「アタック」をプレイするたび、 !M! ダメージを受ける。"
   }
 }

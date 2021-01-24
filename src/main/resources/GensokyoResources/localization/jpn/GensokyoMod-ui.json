@@ -9,8 +9,8 @@
   },
   "Gensokyo:Brew Option": {
     "TEXT": [
-      "Brew",
-      "Brew the Improbability Potion"
+      "醸造",
+      "インポッシブルポーションを醸造する。"
     ]
   },
   "Gensokyo:Occult Ball Option": {
@@ -21,7 +21,7 @@
   },
   "Gensokyo:OccultBallAction": {
     "TEXT": [
-      "Choose an Urban Legend to add to your hand.",
+      "手札に加える都市伝説を1枚選択。",
       "手札に加える都市伝説を", "枚選択。"
     ]
   },
@@ -29,14 +29,14 @@
     "TEXT": [
       "幻想郷",
       "レベル2",
-      "この土地の住人は #p不思議 で、 #p戸惑う ことも少なくない。しかし、彼女たちの滅茶苦茶でふざけた態度は、とても #g新鮮 だ。もう思い出すこともできない停滞したあの塔へ、また招かれるまでの休息なのだろうか。",
+      "この土地の住人は #p不思議 で、 #p戸惑う ことも少なくない。しかし、彼女たちの滅茶苦茶でふざけた態度は、とても #g新鮮 だ。もう思い出すこともできない停滞したあの塔へ、また招かれるまでの猶予がありがたい。",
       "幻想世界での旅を続ける。"
     ]
   },
   "Gensokyo:DeathIntent": {
     "TEXT": [
-      "Death",
-      "This enemy intends to #rkill you."
+      "死",
+      "この敵が予定しているのはあなたを #r殺す こと。"
     ]
   },
   "Gensokyo:AreaAttackIntent": {
@@ -53,14 +53,14 @@
   },
   "Gensokyo:RivalIntents": {
     "TEXT": [
-      "この敵が予定しているのは #rあなた へ #yアタック による #b",
+      "この敵が予定しているのは #rあなた への #yアタック による #b",
       " ダメージ、 #rクロスファイア 。",
-      "この敵が予定しているのは #pライバル へ #yアタック による #b",
+      "この敵が予定しているのは #pライバル への #yアタック による #b",
       " ダメージ。",
-      "この敵が予定しているのは #rあなた へ #yアタック による #b",
+      "この敵が予定しているのは #rあなた への #yアタック による #b",
       " のダメージを #b",
       " 回、 #rクロスファイア 。",
-      "この敵が予定しているのは #pライバル へ #yアタック による #b",
+      "この敵が予定しているのは #pライバル への #yアタック による #b",
       " のダメージを #b",
       " 回。",
       "この敵が予定しているのは #rあなた へ #yデバフ を与えること。 #rクロスファイア 。",
@@ -69,125 +69,125 @@
   },
   "Gensokyo:Gensokyoest": {
     "TEXT": [
-      "Gensokyo",
-      "Act 3",
-      "This land exists in #pparallel, yet appears like a #ptime #plong #pgone. The further you venture, the more #gnostalgic you feel.",
-      "Continue your adventure in the land of illusions."
+      "幻想郷",
+      "レベル3",
+      "この土地は時間と空間が #p平行 しており、 #p古く からある存在のようだ。旅をするほどに #g懐かしさ を覚える。",
+      "幻想世界での旅を続ける。"
     ]
   },
   "Gensokyo:RetainMod": {
     "TEXT": [
-      "Retain. NL "
+      "保留 NL "
     ]
   },
   "Gensokyo:EtherealMod": {
     "TEXT": [
-      "Ethereal. NL "
+      "エセリアル NL "
     ]
   },
   "Gensokyo:ExhaustMod": {
     "TEXT": [
-      " NL Exhaust."
+      " NL 廃棄"
     ]
   },
   "Gensokyo:ItemMod": {
     "TEXT": [
-      " NL gensokyo:Item ",
-      "."
+      " NL gensokyo:道具 ",
+      ""
     ]
   },
   "Gensokyo:EvolveMod": {
     "TEXT": [
-      " NL gensokyo:Evolve ",
-      "."
+      " NL gensokyo:進化 ",
+      ""
     ]
   },
   "Gensokyo:PetMisc": {
     "TEXT": [
-      "I can only have one pet out at a time!"
-    ]
+      "一度に出せるペットは1体だけ！"
+      ]
   },
   "Gensokyo:BloodcastMod": {
     "TEXT": [
-      "gensokyo:Bloodcast. NL "
+      "gensokyo:ブラッドキャスト NL "
     ]
   },
   "Gensokyo:SistersIntents": {
     "TEXT": [
-      "This enemy will #yAttack #ryou for #b",
-      " damage because your #gally is NOT in the way.",
-      "This enemy intends to NL #yAttack your #gally for #b",
-      " damage because your #gally is in the way.",
-      "This enemy will #yAttack #ryou for #b",
-      " damage #b",
-      " times because your #gally is NOT in the way.",
-      "This enemy intends to NL #yAttack your #gally for #b",
-      " damage #b",
-      " times because your #gally is in the way.",
-      "Your #gally intends to #yAttack the #renemy for #b",
-      " damage."
+      "この敵が予定しているのは #rあなた への #yアタック による #b",
+      " ダメージ。あなたの #g味方 はダメージを受けない。",
+      " #g味方 の妨害により、この敵が予定しているのは あなたの #g味方 への #yアタック による #b",
+      " ダメージ。",
+      "この敵が予定しているのは #rあなた への #yアタック による #b",
+      " のダメージを #b",
+      " 回。あなたの #g味方 はダメージを受けない。",
+      " #g味方 の妨害により、この敵が予定しているのは あなたの #g味方 への #yアタック による #b",
+      " のダメージを #b",
+      " 回。",
+      "あなたの #g味方 が予定しているのは #r敵 への #yアタック による #b",
+      " ダメージ。"
     ]
   },
   "Gensokyo:CurseAttackIntent": {
     "TEXT": [
-      "Curse",
-      "This enemy intends to reduce your #yMax #yHP by #b", " this combat."
+      "呪術",
+      "この敵が予定しているのはあなたのこの戦闘中の #y最大HP を #b", " 減らすこと。"
     ]
   },
   "Gensokyo:AutoplayMod": {
     "TEXT": [
-      "Autoplay. NL "
+      "自動使用 NL "
     ]
   },
   "Gensokyo:UnplayableMod": {
     "TEXT": [
-      "Unplayable. NL "
+      "使用不可 NL "
     ]
   },
   "Gensokyo:BlockMod": {
     "TEXT": [
-      "Gain ", " Block",
-      " NL Gain !B! Block."
+      " ", " ブロックを得る。",
+      " NL !B! ブロックを得る。"
     ]
   },
   "Gensokyo:DamageMod": {
     "TEXT": [
-      "Deal ", " damage",
-      " NL Deal !D! damage."
+      " ", " ダメージを与える。",
+      " NL !D! ダメージを与える。"
     ]
   },
   "Gensokyo:DrawMod": {
     "TEXT": [
-      "Draw ", " card(s)",
-      " NL Draw ", " card.", " cards."
+      "カードを ", " 枚引く。",
+      " NL カードを ", " 枚引く。", " 枚引く。"
     ]
   },
   "Gensokyo:WeakMod": {
     "TEXT": [
-      "Apply ", " Weak",
-      " NL Apply ", " Weak."
+      "脱力 ", " を与える。",
+      " NL 脱力 ", " を与える。"
     ]
   },
   "Gensokyo:VulnerableMod": {
     "TEXT": [
-      "Apply ", " Vulnerable",
-      " NL Apply ", " Vulnerable."
+      "弱体 ", " を与える。",
+      " NL 弱体 ", " を与える。"
     ]
   },
   "Gensokyo:PoisonMod": {
     "TEXT": [
-      "Apply ", " Poison",
-      " NL Apply ", " Poison."
+      "毒 ", " を与える。",
+      " NL 毒 ", " を与える。"
     ]
   },
   "Gensokyo:InnateMod": {
     "TEXT": [
-      "Innate. NL "
+      "天賦 NL "
     ]
   },
   "Gensokyo:NitoriShop": {
     "TEXT": [
-      "Leave"
+      "立ち去る"
     ]
   }
 }

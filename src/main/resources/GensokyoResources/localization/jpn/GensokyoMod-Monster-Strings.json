@@ -5,44 +5,44 @@
       "八重霧の渡し",
       "余命幾許も無し"
     ],
-    "NAME": "三途の水先案内人",
+    "NAME": "死の使い",
     "DIALOG": [
-      "ちゃんと支払ってもらうよ。",
-      "やっぱり私が頑張らないと…",
+      "割に合わない仕事だなあ。",
+      "やっぱり私がやらなきゃいけないよなあ…",
       "またお前さんか？",
       "そろそろ死んでくれないか。"
     ]
   },
   "Gensokyo:Yukari": {
     "MOVES": [
-      "Fantasy Maniacal Rift",
-      "Bewitching Bait",
-      "Spacetime Seam",
-      "Full Moon Umbrella",
-      "Aimless Journey to the Abandoned Station",
-      "Quadruple Barrier"
+      "幻想狂想穴",
+      "魅惑のエサ",
+      "時空の綻び",
+      "円月傘",
+      "ぶらり廃駅下車の旅",
+      "四重結界"
     ],
     "NAME": "境界の妖怪",
     "DIALOG": [
-      "You've been stirring up a little too much trouble for my liking."
+      "貴方は少し問題を起こしすぎね。"
     ]
   },
   "Gensokyo:Kokoro": {
     "MOVES": [
-      "Mask Change"
+      "面の変更"
     ],
     "NAME": "表情豊かなポーカーフェイス"
   },
   "Gensokyo:Reimu": {
     "MOVES": [
-      "Yin-Yang Treasured Orbs",
-      "Great Duplex Barrier",
-      "Evil-Sealing Circle"
+      "陰陽宝玉",
+      "二重大結界",
+      "封魔陣"
     ],
     "NAME": "楽園の素敵な巫女",
     "DIALOG": [
-      "Another day, another incident.",
-      "I won't hold back for you, Marisa."
+      "また異変かしら。",
+      "手加減はしないわよ、魔理沙。"
     ]
   },
   "Gensokyo:YinYangOrb": {
@@ -53,26 +53,26 @@
   },
   "Gensokyo:Aya": {
     "MOVES": [
-      "Illusionary Dominance",
-      "Dashing Grace",
-      "Gale Fan"
+      "幻想風靡",
+      "疾走優美",
+      "烈風扇"
     ],
     "NAME": "伝統の幻想ブン屋",
     "DIALOG": [
-      "This'll make for a great news article!"
+      "これはいい記事になりますね！"
     ]
   },
   "Gensokyo:Cirno": {
     "MOVES": [
-      "Boast",
-      "Perfect Freeze",
-      "Icicle Bomb"
+      "威張る",
+      "パーフェクトフリーズ",
+      "アイシクルボム"
     ],
     "NAME": "湖上の氷精",
     "DIALOG": [
-      "I am the STRONGEST!",
-      "Another victory for fairies!",
-      "Don't underestimate us!"
+      "あたいったら最強ね！",
+      "これが妖精のもう一つの戦い方よ！",
+      "バカにしないでくれる！"
     ]
   },
   "Gensokyo:SunflowerFairy": {
@@ -101,11 +101,11 @@
   },
   "Gensokyo:Mamizou": {
     "MOVES": [
-      "Futatsuiwa Clan's Curse"
+      "二ッ岩家の裁き"
     ],
     "NAME": "捕らぬ狸のディスガイザー",
     "DIALOG": [
-      "Oh, I guess you found me out."
+      "おやおや、見つかってしまったようじゃのう。"
     ]
   },
   "Gensokyo:RedKodama": {
@@ -136,11 +136,11 @@
     "MOVES": [
 
     ],
-    "NAME": "執念深い魂"
+    "NAME": "怨霊"
   },
   "Gensokyo:LivingMonolith": {
     "MOVES": [
-      "Charging Up!"
+      "充電中！"
     ],
     "NAME": "リビングモノリス"
   },
@@ -172,79 +172,358 @@
     "MOVES": [
 
     ],
-    "NAME": "狐"
+    "NAME": "きつね"
   },
   "Gensokyo:Patchouli": {
     "MOVES": [
-      "Agni Shine",
-      "Royal Flare",
-      "Bury in Lake",
-      "Princess Undine",
-      "Sylphy Horn",
-      "Green Storm",
-      "Silver Dragon",
-      "Metal Fatigue",
-      "Lazy Trilithon",
-      "Trilithon Shake"
+      "アグニシャイン",
+      "ロイヤルフレア",
+      "ベリーインレイク",
+      "プリンセスウンディネ",
+      "シルフィホルン",
+      "グリーンストーム",
+      "シルバードラゴン",
+      "メタルファティーグ",
+      "レイジィトリリトン",
+      "トリリトンシェイク"
     ],
-    "NAME": "Unmoving Great Library"
+    "NAME": "動かない大図書館"
   },
   "Gensokyo:FireOrb": {
     "MOVES": [
 
     ],
-    "NAME": "Fire"
+    "NAME": "ファイア"
   },
   "Gensokyo:WaterOrb": {
     "MOVES": [
 
     ],
-    "NAME": "Water"
+    "NAME": "ウォーター"
   },
   "Gensokyo:WoodOrb": {
     "MOVES": [
 
     ],
-    "NAME": "Wood"
+    "NAME": "ウッド"
   },
   "Gensokyo:MetalOrb": {
     "MOVES": [
 
     ],
-    "NAME": "Metal"
+    "NAME": "メタル"
   },
   "Gensokyo:EarthOrb": {
     "MOVES": [
 
     ],
-    "NAME": "Earth"
+    "NAME": "アース"
   },
   "Gensokyo:Sumireko": {
     "MOVES": [
-      "3D Printer Gun",
-      "Pyrokinesis",
-      "Bullet Cancel",
-      "Psychokinesis",
-      "Summon Doppelganger"
+      "3Dプリンターガン",
+      "パイロキネシス",
+      "バレットキャンセル",
+      "サイコキネシス",
+      "サモンドッペルゲンガー"
     ],
     "NAME": "秘封倶楽部初代会長",
     "DIALOG": [
-      "Woah, I caught one!"
+      "よし、捕まえた！"
+    ]
+  },
+  "Gensokyo:Eiki": {
+    "MOVES": [
+      "浄玻璃の鏡-",
+      "彷徨える大罪",
+      "有罪か無罪か",
+      "悔悟の棒"
+    ],
+    "NAME": "楽園の最高裁判長",
+    "DIALOG": [
+      "犯した罪から逃れることはできません。",
+      "乗り越えましたか、流石です。",
+      "ちゃんと仕事をしていますね。良いことです。"
+    ]
+  },
+  "Gensokyo:Mirror": {
+    "MOVES": [
+      "有罪",
+      "無罪",
+      "中立"
+    ],
+    "NAME": "浄玻璃の鏡",
+    "DIALOG": [
+
+    ]
+  },
+  "Gensokyo:Kaguya": {
+    "MOVES": [
+      "ブリリアントドラゴンバレッタ",
+      "ブディストダイアモンド"
+    ],
+    "NAME": "永遠と須臾の罪人",
+    "DIALOG": [
+      "あなたはどんな面白いものを見せてくれるのかしら。",
+      "なかなか楽しかったわ。"
+    ]
+  },
+  "Gensokyo:Byakuren": {
+    "MOVES": [
+      "スターメイルシュトロム",
+      "魔神復誦",
+      "超人",
+      "インドラの雷"
+    ],
+    "NAME": "封印された大魔法使い",
+    "DIALOG": [
+      "貴方の力は必要ありません、神子。",
+      "あなたは不死ではなかったのですか。"
+    ]
+  },
+  "Gensokyo:Miko": {
+    "MOVES": [
+      "黄金の剣",
+      "縮地のマント",
+      "デザイアの求魂",
+      "十七条のレーザー",
+      "赤マント青マント"
+    ],
+    "NAME": "聖徳道士",
+    "DIALOG": [
+      "お前の考えは間違っているぞ、白蓮！",
+      "怠けてばかりいるからだ。"
+    ]
+  },
+  "Gensokyo:Reisen": {
+    "MOVES": [
+      "ディスオーダーアイ",
+      "ルナティックブラスト",
+      "マインドウェーブ",
+      "テンドリルオブインサニティ"
+    ],
+    "NAME": "狂気の月の兎",
+    "DIALOG": [
+      "通してあげたいのですがそれはできません。",
+      "あの時の、お久しぶりです！",
+      "ごめんなさい、あなたでも通すことはできません。"
+    ]
+  },
+  "Gensokyo:Kune": {
+    "MOVES": [
+
+    ],
+    "NAME": "くね",
+    "DIALOG": [
+
+    ]
+  },
+  "Gensokyo:Koishi": {
+    "MOVES": [
+      "イドの開放",
+      "キャッチアンドローズ",
+      "スティンギングマインド"
+    ],
+    "NAME": "空想上の人格保持者",
+    "DIALOG": [
+      "楽しそーう！"
+    ]
+  },
+  "Gensokyo:Tenshi": {
+    "MOVES": [
+      "天地開闢プレス",
+      "守りの要",
+      "天空の霊石"
+    ],
+    "NAME": "非想非非想天の娘",
+    "DIALOG": [
+      "お前の全てを見せてみろ！",
+      "ああ、私の楽しみを台無しにした奴じゃないか。",
+      "今度はお前の番だ！"
+    ]
+  },
+  "Gensokyo:Swordslinger": {
+    "MOVES": [
+      "刃を研ぐ"
+    ],
+    "NAME": "ソードスリンガー"
+  },
+  "Gensokyo:Wraith": {
+    "MOVES": [
+     ""
+    ],
+    "NAME": "レイス"
+  },
+  "Gensokyo:BigMudSlime": {
+    "MOVES": [
+      ""
+    ],
+    "NAME": "ビッグマッドスライム"
+  },
+  "Gensokyo:SlimeBunny": {
+    "MOVES": [
+      null,
+      "浄化",
+      null
+    ],
+    "NAME": "スライムバニー"
+  },
+  "Gensokyo:CosmicMonolith": {
+    "MOVES": [
+      "チャージアップレイ",
+      null,
+      "終末"
+    ],
+    "NAME": "コズミックモノリス"
+  },
+  "Gensokyo:TanukiDog": {
+    "MOVES": [
+      null,
+      null,
+      "怒り"
+    ],
+    "NAME": "たぬき犬"
+  },
+  "Gensokyo:Gloop": {
+    "MOVES": [
+      "きらめき",
+      null,
+      null
+    ],
+    "NAME": "グループ"
+  },
+  "Gensokyo:AngelMirror": {
+    "MOVES": [
+
+    ],
+    "NAME": "天使の鏡"
+  },
+  "Gensokyo:Chomper": {
+    "MOVES": [
+
+    ],
+    "NAME": "チョンパー"
+  },
+  "Gensokyo:YinYangFox": {
+    "NAME": "陰陽狐",
+    "DIALOG": [
+      "アタック",
+      "ディフェンス",
+      "ヒール"
+    ],
+    "MOVES": [
+      "ペットがランダムな敵に ",
+      " ダメージを与える。",
+      "あなたは ",
+      " ブロックを得る。",
+      "ペットのHPを ",
+      " 回復する。"
+    ]
+  },
+  "Gensokyo:FieryMouse": {
+    "NAME": "火鼠",
+    "DIALOG": [
+      "アタック",
+      "バフ",
+      "ヒール"
+    ],
+    "MOVES": [
+      "ペットが全ての敵に ",
+      " ダメージを与える。",
+      "ペットがHPを ",
+      " 失い、 ",
+      "あなたは筋力 ",
+      " を得る。",
+      "あなたのHPを ",
+      " 回復する。"
+    ]
+  },
+  "Gensokyo:JeweledCobra": {
+    "NAME": "ジュエルコブラ",
+    "DIALOG": [
+      "デバフ",
+      "オールデバフ",
+      "ディフェンス"
+    ],
+    "MOVES": [
+      "ペットがランダムな敵に毒 ",
+      " を与える。",
+      "ペットが全ての敵に毒 ",
+      " を与える。",
+      "ペットが ",
+      " ブロックを得る。"
+    ]
+  },
+  "Gensokyo:PsychicCat": {
+    "NAME": "サイコキャット",
+    "DIALOG": [
+      "デバフ",
+      "デバフ",
+      "ドロー"
+    ],
+    "MOVES": [
+      "ペットが全ての敵に脱力 ",
+      " を与える。",
+      "ペットが全ての敵に弱体化 ",
+      " を与える。",
+      "あなたはカードを ",
+      " 枚引く。"
+    ]
+  },
+  "Gensokyo:Doremy": {
+    "MOVES": [
+      null,
+      null,
+      null,
+      "もう目覚めなくて良いのよ",
+      "刈安色の迷夢",
+      "緋色の悪夢"
+    ],
+    "NAME": "夢の支配者",
+    "DIALOG": [
+      "甘い夢はいかがですか？",
+      "おやすみなさい。",
+      "夢の破壊者。"
+    ]
+  },
+  "Gensokyo:Flandre": {
+    "MOVES": [
+      "ブラッディカタストロフ",
+      "フォービドゥンフルーツ",
+      "レーヴァテイン",
+      "そして誰もいなくなるか？"
+    ],
+    "NAME": "悪魔の妹",
+    "DIALOG": [
+      "お姉様、これで遊びましょう！",
+      "お姉様じゃ私は止められないわ！"
+    ]
+  },
+  "Gensokyo:Remilia": {
+    "MOVES": [
+      "スカーレットシュート",
+      "ヴァンパイアクロウ",
+      "ナイトダンス"
+    ],
+    "NAME": "紅い悪魔",
+    "DIALOG": [
+      "貴方は少し我慢というものを覚えなさい。",
+      "これで少しは懲りてくれると良いのだけど。"
     ]
   },
   "Gensokyo:Yuyuko": {
     "MOVES": [
-      "Ghastly Dream",
-      "Law of Mortality",
-      "Resurrection Bfutterfly",
-      "Invitation from Nether Side",
-      "Saigyouji Parinirvana",
-      "Gifts to the Deceased"
+      "ギャストリドリーム",
+      "生者必滅の理",
+      "反魂蝶",
+      "対岸の誘い",
+      "西行寺無余涅槃",
+      "故人のお届け物"
     ],
     "NAME": "亡霊の姫君",
     "DIALOG": [
-      "A lovely day for death, isn't it?",
-      "Teetering on the brink, are we? Allow me to push you over the edge."
+      "死ぬにはいい日、そうは思わない？",
+      "死にそうなの？私が背中を押してあげるわ。"
     ]
   },
   "Gensokyo:BlueSoul": {
@@ -265,418 +544,139 @@
 
     ]
   },
-  "Gensokyo:Eiki": {
-    "MOVES": [
-      "Cleansed Crystal Judgement - ",
-      "Wandering Sin",
-      "Guilty or Not Guilty",
-      "Rod of Remorse"
-    ],
-    "NAME": "楽園の最高裁判長",
-    "DIALOG": [
-      "You cannot escape the sins of your past.",
-      "Your resilience is impressive.",
-      "Good to see you're not slacking off."
-    ]
-  },
-  "Gensokyo:Mirror": {
-    "MOVES": [
-      "Guilt",
-      "Innocence",
-      "Balance"
-    ],
-    "NAME": "Cleansed Crystal Mirror",
-    "DIALOG": [
-
-    ]
-  },
-  "Gensokyo:Kaguya": {
-    "MOVES": [
-      "Brilliant Dragon Bullet",
-      "Buddhist Diamond"
-    ],
-    "NAME": "永遠と須臾の罪人",
-    "DIALOG": [
-      "I do hope you'll make this entertaining for me.",
-      "Well, that was fun."
-    ]
-  },
-  "Gensokyo:Byakuren": {
-    "MOVES": [
-      "Star Maelstrom",
-      "Devil's Recitation",
-      "Superhuman Self",
-      "Indra's Thunder"
-    ],
-    "NAME": "封印された大魔法使い",
-    "DIALOG": [
-      "Your wicked magic has no place here, Miko.",
-      "It seems your immortality was just a fraud."
-    ]
-  },
-  "Gensokyo:Miko": {
-    "MOVES": [
-      "Golden Sword",
-      "Shukuchi Cape",
-      "Wishful Soul of Desire",
-      "Laser of Seventeen Articles",
-      "Red Cape Blue Cape"
-    ],
-    "NAME": "聖徳道士",
-    "DIALOG": [
-      "Your beliefs are a sham!",
-      "Your lack of training was your downfall."
-    ]
-  },
-  "Gensokyo:Reisen": {
-    "MOVES": [
-      "Disorder Eye",
-      "Lunatic Blast",
-      "Mind Wave",
-      "Tendrils of Insanity"
-    ],
-    "NAME": "狂気の月の兎",
-    "DIALOG": [
-      "I'm afraid I can't let you pass.",
-      "Oh, I remember you!",
-      "Sorry, but I can't make an exception for you."
-    ]
-  },
-  "Gensokyo:Kune": {
-    "MOVES": [
-
-    ],
-    "NAME": "くね",
-    "DIALOG": [
-
-    ]
-  },
-  "Gensokyo:Koishi": {
-    "MOVES": [
-      "Release of the Id",
-      "Catch and Rose",
-      "Stinging Mind"
-    ],
-    "NAME": "空想上の人格保持者",
-    "DIALOG": [
-      "This'll be fun!"
-    ]
-  },
-  "Gensokyo:Tenshi": {
-    "MOVES": [
-      "World Creation Press",
-      "Guarding Keystone",
-      "Spiritual Stone"
-    ],
-    "NAME": "非想非非想天の娘",
-    "DIALOG": [
-      "Give it all you've got!",
-      "Oh, aren't you the one who ruined my fun?",
-      "Guess I'll have to settle for you instead!"
-    ]
-  },
-  "Gensokyo:Swordslinger": {
-    "MOVES": [
-      "Sharpen"
-    ],
-    "NAME": "ソードスリンガー"
-  },
-  "Gensokyo:Wraith": {
-    "MOVES": [
-     ""
-    ],
-    "NAME": "レイス"
-  },
-  "Gensokyo:BigMudSlime": {
-    "MOVES": [
-      ""
-    ],
-    "NAME": "ビッグマッドスライム"
-  },
-  "Gensokyo:SlimeBunny": {
-    "MOVES": [
-      null,
-      "Purify",
-      null
-    ],
-    "NAME": "スライムバニー"
-  },
-  "Gensokyo:CosmicMonolith": {
-    "MOVES": [
-      "Charge-Up Ray",
-      null,
-      "Doomsday"
-    ],
-    "NAME": "コズミックモノリス"
-  },
-  "Gensokyo:TanukiDog": {
-    "MOVES": [
-      null,
-      null,
-      "Berserk"
-    ],
-    "NAME": "狸犬"
-  },
-  "Gensokyo:Gloop": {
-    "MOVES": [
-      "Glitter",
-      null,
-      null
-    ],
-    "NAME": "グループ"
-  },
-  "Gensokyo:AngelMirror": {
-    "MOVES": [
-
-    ],
-    "NAME": "エンジェルミラー"
-  },
-  "Gensokyo:Chomper": {
-    "MOVES": [
-
-    ],
-    "NAME": "チョンパー"
-  },
-  "Gensokyo:YinYangFox": {
-    "NAME": "Yin Yang Fox",
-    "DIALOG": [
-      "Attack",
-      "Defend",
-      "Heal"
-    ],
-    "MOVES": [
-      "Pet deals ",
-      " damage to a random enemy.",
-      "You gain ",
-      " Block.",
-      "Pet heals ",
-      " HP."
-    ]
-  },
-  "Gensokyo:FieryMouse": {
-    "NAME": "Fiery Mouse",
-    "DIALOG": [
-      "Attack",
-      "Buff",
-      "Heal"
-    ],
-    "MOVES": [
-      "Pet deals ",
-      " damage to ALL enemies.",
-      "Pet loses ",
-      " HP and ",
-      "you gain ",
-      " Strength.",
-      "you heal ",
-      " HP."
-    ]
-  },
-  "Gensokyo:JeweledCobra": {
-    "NAME": "Jeweled Cobra",
-    "DIALOG": [
-      "Debuff",
-      "All Debuff",
-      "Defend"
-    ],
-    "MOVES": [
-      "Pet applies ",
-      " Poison to a random enemy.",
-      "Pet applies ",
-      " Poison to ALL enemies.",
-      "Pet gains ",
-      " Block."
-    ]
-  },
-  "Gensokyo:PsychicCat": {
-    "NAME": "Psychic Cat",
-    "DIALOG": [
-      "Debuff",
-      "Debuff",
-      "Draw"
-    ],
-    "MOVES": [
-      "Pet applies ",
-      " Weak to ALL enemies.",
-      "Pet applies ",
-      " Vulnerable to ALL enemies.",
-      "You draw ",
-      " card."
-    ]
-  },
-  "Gensokyo:Doremy": {
-    "MOVES": [
-      null,
-      null,
-      null,
-      "There's No Need to Wake Up Anymore",
-      "Ochre Confusion",
-      "Scarlet Nightmare"
-    ],
-    "NAME": "Ruler of Dreams",
-    "DIALOG": [
-      "Care for a sweet dream?",
-      "Good night.",
-      "Destroyer of Dreams"
-    ]
-  },
-  "Gensokyo:Flandre": {
-    "MOVES": [
-      "Bloody Catastrophe",
-      "Forbidden Fruit",
-      "Laevatein",
-      "And Then There Were None"
-    ],
-    "NAME": "Devil's Little Sister",
-    "DIALOG": [
-      "Let me play with this one, sister!",
-      "You can't stop me, sister!"
-    ]
-  },
-  "Gensokyo:Remilia": {
-    "MOVES": [
-      "Scarlet Shoot",
-      "Vampire Claw",
-      "Night Dance"
-    ],
-    "NAME": "Scarlet Devil",
-    "DIALOG": [
-      "You need to learn some restraint.",
-      "I hope you learned your lesson."
-    ]
-  },
   "Gensokyo:Mokou": {
     "MOVES": [
-      "Blazing Kick",
-      "Honest Man's Death",
-      "Fujiyama Volcano",
-      "Phoenix Rebirth"
+      "火焔脚",
+      "正直者の死",
+      "フジヤマヴォルケイノ",
+      "フェニックス再誕"
     ],
-    "NAME": "Crimson Watchguard",
+    "NAME": "紅の自警隊",
     "DIALOG": [
-      "This time, I'll pound you into the ground!",
-      "Go ahead and try."
+      "今回はお前に土を舐めさせてやる！",
+      "出切るものならやってみなさい。"
     ]
   },
   "Gensokyo:Marisa": {
     "MOVES": [
-      "Master Spark",
-      "Machine Gun Spark",
-      "Witching Blast",
-      "Starlight Starbright"
+      "マスタースパーク",
+      "マシンガンスパーク",
+      "ウィッチングブラスト",
+      "スターライトスターブライト"
     ],
-    "NAME": "Ordinary Magician",
+    "NAME": "普通の魔法使い",
     "DIALOG": [
-      "Reimu couldn't handle you, huh? Guess it's my turn then!"
+      "霊夢にやられなかったのかお前？じゃあ私の出番だな！"
     ]
   },
   "Gensokyo:Shinki": {
     "MOVES": [
 
     ],
-    "NAME": "Lonely God",
+    "NAME": "孤独な神",
     "DIALOG": [
-      "It's all my fault . . .",
-      "Perhaps there's still hope for me after all . . ."
+      "私が全て悪いの…",
+      "少しは前を向いてみようかしら…"
     ]
   },
   "Gensokyo:Alice": {
     "MOVES": [
-      "Artful Sacrifice",
-      "Devilry Light Ray",
-      "Spectrum Mystery",
-      "Doll Judgement"
+      "アーティフルサクリファイス",
+      "デヴィリーライトレイ",
+      "スペクトルミステリー",
+      "人形裁判"
     ],
-    "NAME": "The One Who Left",
+    "NAME": "去った子",
     "DIALOG": [
-      "At first, I was happy.",
-      "You were a terrible parent.",
-      "I left because of your arrogant short-sightedness.",
-      "Thank you for everything."
+      "最初はとても幸せだった。",
+      "あなたは酷い親だった。",
+      "あなたの身勝手さに着いていけなかった。",
+      "感謝しています、ありがとう。"
     ]
   },
   "Gensokyo:Doll": {
     "MOVES": [
       null
     ],
-    "NAME": "Doll",
+    "NAME": "人形",
     "DIALOG": [
 
     ]
   },
   "Gensokyo:Yumeko": {
     "MOVES": [
-      "Judgement Blade",
-      "Misery Doll",
-      "Overwhelming Burden"
+      "ジャッジメントブレイド",
+      "悲しき人形",
+      "過負荷"
     ],
-    "NAME": "The One She Failed",
+    "NAME": "失敗した子",
     "DIALOG": [
-      "I will repel this intruder, my lady!",
-      "It's your fault for leaving me with flaws.",
-      "You should've made me stronger!",
-      "Don't blame yourself for my failures."
+      "神綺様、侵入者は私が始末します！",
+      "私の欠陥はあなたのせいです。",
+      "何故もっと強く作ってくれなかったの！",
+      "私の失敗を自分のせいにしないでください。"
     ]
   },
   "Gensokyo:Sariel": {
     "MOVES": [
-      "Touch of Death",
-      "Death Blow"
+      "死の接触",
+      "デスブロー"
     ],
-    "NAME": "The One Left Behind",
+    "NAME": "忘れられた子",
     "DIALOG": [
-      "As you wish.",
-      "Why did you toss me aside?",
-      "I waited for you, but you never came.",
-      "It was nice while it lasted.",
-      "Let us dance until the moment you die."
+      "仰せのままに。",
+      "私は不要なのですか？",
+      "いくら待てどもあなたは来ませんでした。",
+      "あなたと過ごした日々は幸せだった。",
+      "あなたが死ぬ日まで私は踊りましょう。"
     ]
   },
   "Gensokyo:SeedOfUnknown": {
     "MOVES": [
     ],
-    "NAME": "Seed of Unknown",
+    "NAME": "正体不明の種",
     "DIALOG": [
     ]
   },
   "Gensokyo:AncientGuardian": {
     "MOVES": [
     ],
-    "NAME": "Ancient Guardian",
+    "NAME": "古代のガーディアン",
     "DIALOG": [
     ]
   },
   "Gensokyo:Rafflesia": {
     "MOVES": [
     ],
-    "NAME": "Rafflesia",
+    "NAME": "ラフレシア",
     "DIALOG": [
     ]
   },
   "Gensokyo:AtlasGolem": {
     "MOVES": [
-      "Avalanche",
-      "Slow Start",
-      "Rock Polish"
+      "雪崩",
+      "スロースタート",
+      "ロックポリッシュ"
     ],
-    "NAME": "Atlas Golem",
+    "NAME": "アトラスゴーレム",
     "DIALOG": [
     ]
   },
   "Gensokyo:Duskaxe": {
     "MOVES": [
-      "Dusk Breaker",
-      "Twilight's Call"
+      "夕暮れの一撃",
+      "黄昏の呼び声"
     ],
-    "NAME": "Duskaxe",
+    "NAME": "夕暮れの斧",
     "DIALOG": [
     ]
   },
   "Gensokyo:Dawnsword": {
     "MOVES": [
-      "Crack of Dawn",
-      "Dawning Light"
+      "夜明けの裁断",
+      "夜明けの光"
     ],
-    "NAME": "Dawnsword",
+    "NAME": "夜明けの剣",
     "DIALOG": [
     ]
   },
@@ -684,7 +684,7 @@
     "MOVES": [
 
     ],
-    "NAME": "Vampire Bat",
+    "NAME": "ヴァンパイアバット",
     "DIALOG": [
     ]
   },
@@ -692,7 +692,7 @@
     "MOVES": [
 
     ],
-    "NAME": "Feral Bat",
+    "NAME": "フィラルバット",
     "DIALOG": [
     ]
   },
@@ -700,7 +700,7 @@
     "MOVES": [
 
     ],
-    "NAME": "Loud Bat",
+    "NAME": "ラウドバット",
     "DIALOG": [
     ]
   },
@@ -708,7 +708,7 @@
     "MOVES": [
 
     ],
-    "NAME": "Sharpion",
+    "NAME": "シャーピオン",
     "DIALOG": [
     ]
   },
@@ -716,27 +716,27 @@
     "MOVES": [
 
     ],
-    "NAME": "Mad Boulder",
+    "NAME": "マッドボルダー",
     "DIALOG": [
     ]
   },
   "Gensokyo:Kasen": {
     "MOVES": [
-      "Dragon Kick",
-      "Monkey's Paw",
-      "Hawk Beacon",
-      "Animal Companion"
+      "ドラゴンキック",
+      "猿の手",
+      "ホークビーコン",
+      "動物の友"
     ],
-    "NAME": "One Armed Horned Hermit",
+    "NAME": "片腕有角の仙人",
     "DIALOG": [
-      "Recklessness will not avail you here."
+      "無謀なだけじゃ私には勝てないわよ。"
     ]
   },
   "Gensokyo:Kume": {
     "MOVES": [
 
     ],
-    "NAME": "Kume",
+    "NAME": "久米",
     "DIALOG": [
     ]
   }
