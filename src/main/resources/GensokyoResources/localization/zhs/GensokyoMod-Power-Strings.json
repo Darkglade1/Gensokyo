@@ -33,7 +33,7 @@
 },
 "Gensokyo:LunacyPower": {
         "NAME": "疯狂",
-        "DESCRIPTIONS": ["每当这名敌人攻击，指向一名随机敌人。"]
+        "DESCRIPTIONS": ["每当这名敌人攻击或给予负面效果，指向一名随机敌人。"]
 },
 "Gensokyo:HAARPPower": {
         "NAME": "HAARP",
@@ -53,7 +53,7 @@
 },
 "Gensokyo:SpiderMask": {
         "NAME": "大蜘蛛面",
-        "DESCRIPTIONS": ["每回合第一次打出 #y攻击牌 时， 将 #b", " 伤口感染 置入 你的 手牌."]
+        "DESCRIPTIONS": ["每当你打出一张 #y攻击牌 ，本回合你不能打出 #y攻击牌 。"]
 },
 "Gensokyo:HopeMask": {
         "NAME": "希望之面",
@@ -207,8 +207,8 @@
         "DESCRIPTIONS": ["下", " 次 ", " 次 ", "这名敌人造成 #y攻击伤害 时，同样对自己造成伤害 。"]
 },
 "Gensokyo:WishfulSoul": {
-        "NAME": "Strength Drain",
-        "DESCRIPTIONS": ["回合结束时，最多失去 #b", " 点 #y正数力量 并给予 #负面状态源 等量的 #y负数力量 。"]
+        "NAME": "力量枯竭",
+        "DESCRIPTIONS": ["回合结束时，最多失去 #b", " 点 #y正数力量 并给予等量的 #y负数力量 。"]
 },
 "Gensokyo:LunaticRedEyes": {
         "NAME": "幻胧月睨",
@@ -266,110 +266,110 @@
 },
 "Gensokyo:PetPosition": {
         "NAME": "宣告符卡规则",
-        "DESCRIPTIONS": ["你的 #y宠物 和你在同一 #y行."]
+        "DESCRIPTIONS": ["你的 #y宠物 和你在同一 #y行。"]
 },
 "Gensokyo:DreamEater": {
         "NAME": "梦境吞噬者",
-        "DESCRIPTIONS": ["本回合你打出的第一张卡 ", "将会 #r消耗 并从卡组中 #r移除. 如果通过移除了一张卡, 根据以下规则进行修正: ", " NL #y初始: ", " NL #y普通: ", " NL #y非常规: ", " NL #y吸引: ", "获得 #b", "失去 #b", " #y力量.", " NL #p诅咒: "]
+        "DESCRIPTIONS": ["本回合你打出的第一张卡 ", "将会 #r消耗 并从卡组中 #r移除。 如果通过移除了一张卡, 根据以下规则进行修正: ", " NL #y初始: ", " NL #y普通: ", " NL #y非常规: ", " NL #y吸引: ", "获得 #b", "失去 #b", " #y力量。", " NL #p诅咒: "]
 },
 "Gensokyo:EyesOfDeath": {
         "NAME": "死亡感应之眼",
-        "DESCRIPTIONS": ["此生物连续攻击同一目标时，造成 #b", "% 的额外伤害."]
+        "DESCRIPTIONS": ["此生物连续攻击同一目标时，造成 #b", "% 的额外伤害。"]
 },
 "Gensokyo:Doom": {
         "NAME": "厄运",
-        "DESCRIPTIONS": ["从 #y攻击 中受到 #b", "% 额外伤害.", " 如果这个生物本回合没有被攻击，在回合结束时会消失."]
+        "DESCRIPTIONS": ["从 #y攻击 中受到 #b", "% 额外伤害。", " 如果这个生物本回合没有被攻击，在回合结束时会消失。"]
 },
 "Gensokyo:AndThenThereWereNone": {
         "NAME": "无人之境",
-        "DESCRIPTIONS": ["#y厄运不再消散."]
+        "DESCRIPTIONS": ["#y厄运不再消散。"]
 },
 "Gensokyo:Retribution": {
         "NAME": "复仇",
-        "DESCRIPTIONS": ["下次此生物在本回合受到攻击伤害时，对攻击者造成同样多的伤害."]
+        "DESCRIPTIONS": ["下次此生物在本回合受到攻击伤害时，对攻击者造成同样多的伤害。"]
 },
 "Gensokyo:SistersPosition": {
         "NAME": "宣读符卡规则",
-        "DESCRIPTIONS": ["这个生物在 #b 行" , ". 这是你的 #g盟友 她将专注于 #r敌人.", ". 这是 #r敌人她将专注于 #r你."]
+        "DESCRIPTIONS": ["这个生物在 #b 行" , "。 这是你的 #g盟友 她将专注于 #r敌人。", "。 这是 #r敌人她将专注于 #r你。"]
 },
 "Gensokyo:SistersPlayerPosition": {
-        "NAME": "宣读符卡规则",
-        "DESCRIPTIONS": ["你在第 #b" , " 行。每当你打出一张 #y技能牌 ，向 #y上 移动 #b1 行。每当你打出一张 #y攻击牌 ，向 #y下 移动 #b1 行. NL 如果你的 #g盟友 在你和 #r敌人 之间, 你的 #g盟友将会替你承担伤害.", " NL #y行#b", " 是 #正常运行."]
+        "NAME": "符卡规则",
+        "DESCRIPTIONS": ["你在第 #b" , " 行。每当你打出一张 #y技能牌 ，向 #y上 移动 #b1 行。每当你打出一张 #y攻击牌 ，向 #y下 移动 #b1 行。 NL 如果你的 #g盟友 在你和 #r敌人 之间, 你的 #g盟友 将会替你承担伤害。", " NL 第 #b", " #y行 是 #安定行 。"]
 },
 "Gensokyo:BorderOfDeath": {
         "NAME": "死亡的边界",
-        "DESCRIPTIONS": ["战斗结束, 获得 #b", " 最大生命."]
+        "DESCRIPTIONS": ["本场战斗结束时，获得 #b", " 点最大生命。"]
 },
 "Gensokyo:Deathtouch": {
-        "NAME": "临终关怀",
-        "DESCRIPTIONS": ["本次战斗每当你从这个敌人那里受到未被阻挡的攻击伤害, 你将 #r失去 等量 #y最大生命 . NL 你的 #y最大生命 不会低于 #b1. NL 在本次战斗开始时, 你的 #y最大生命 降低至你的 #y当前生命."]
+        "NAME": "死亡之触",
+        "DESCRIPTIONS": ["本场战斗每当你从这名敌人受到了未被格挡的攻击伤害，你将 #r失去 等量 #y最大生命 。 NL 你的 #y最大生命 不会低于 #b1。 NL 在本场战斗开始时，你的 #y最大生命 降低至你的 #y当前生命 。"]
 },
 "Gensokyo:Empower": {
-        "NAME": "诅咒",
-        "DESCRIPTIONS": ["这个生物的 #y诅咒 已经被提升到了 #b", "."]
+        "NAME": "强化",
+        "DESCRIPTIONS": ["这个单位的 #y诅咒 已经提升到了 #b", " 点。"]
 },
 "Gensokyo:SomeoneElse": {
         "NAME": "其他人的故事",
-        "DESCRIPTIONS": ["#战败 不会死亡而是回到事件，但会失去奖励. NL 如果你 #g胜利 时至少有 #b", " 生命剩余, 卡牌奖励将会是 #y已经升级的. NL 你的当前生命值和最大生命值在这次战斗后会恢复到原来的值."]
+        "DESCRIPTIONS": ["本场战斗 #战败 不会死亡而是回到事件，但会失去奖励。 NL 如果你 #g胜利 时至少有 #b", " 生命剩余，卡牌奖励将会是已 #y升级 的。 NL 你的当前生命和最大生命在本场战斗后会恢复到原来的值。"]
 },
 "Gensokyo:ChargeUp": {
-        "NAME": "充电",
-        "DESCRIPTIONS": ["每当你打出张 #b", " 卡, 获得 #b", " #y力量. NL 攻击后失去所有 #y力量."]
+        "NAME": "蓄力",
+        "DESCRIPTIONS": ["每当你打出 #b", " 张牌，获得 #b", " 点 #y力量 。 NL 打出攻击牌后失去所有 #y力量 。"]
 },
 "Gensokyo:UnstableReality": {
         "NAME": "悲伤幻觉",
-        "DESCRIPTIONS": ["这个生物是你的 #g盟友. NL 当你打败 #b 时 #g胜利", " #y妄想症."]
+        "DESCRIPTIONS": ["这个单位是你的 #g同伴 。 NL 胜利条件：打败 #b", " #y妄想症 。"]
 },
 "Gensokyo:DollJudgement": {
         "NAME": "小小军势",
-        "DESCRIPTIONS": ["每 #b", " 回合, 召唤 #b2 #y人偶."]
+        "DESCRIPTIONS": ["每 #b", " 个回合，召唤 #b2 个 #y人偶 。"]
 },
 "Gensokyo:AliceEventEnergy": {
         "NAME": "通电",
-        "DESCRIPTIONS": ["每 #b", " 回合, 获得", " ."]
+        "DESCRIPTIONS": ["每 #b", " 回合, 获得", " 。"]
 },
 "Gensokyo:ExplosiveDoll": {
         "NAME": "爆炸",
-        "DESCRIPTIONS": ["将会 #r爆炸 ", "这个回合,", "在 #b", " 回合,", " 对 #y你 造成 #b", " 伤害."]
+        "DESCRIPTIONS": ["将会 ", " 在这个回合 #r爆炸 ，", "在 #b", " 个回合后，#r爆炸 ", " 对 #y你 造成 #b", " 点伤害。"]
 },
 "Gensokyo:BurdenOfFailure": {
         "NAME": "失败的负担",
-        "DESCRIPTIONS": ["如果该生物攻击时未能造成攻击伤害，则获得 #b", " #y力量."]
+        "DESCRIPTIONS": ["如果这个单位攻击时未能造成未被格挡的伤害，其获得 #b", " 点 #y力量 。"]
 },
 "Gensokyo:DollMagnet": {
         "NAME": "玩偶磁铁",
-        "DESCRIPTIONS": ["每 #b", " 回合, 召唤 #b", " 追加爆炸人偶."]
+        "DESCRIPTIONS": ["每 #b", " 个回合，额外召唤 #b", " 个爆炸人偶。"]
 },
 "Gensokyo:SarielEventPower": {
         "NAME": "天使的恩典",
-        "DESCRIPTIONS": ["每 #b", "次 #y攻击卡", "次 #y技能卡", " 将会打出两次."]
+        "DESCRIPTIONS": ["每 #b", "张 #y攻击牌", "张 #y技能牌 ", " 将会打出两次。"]
 },
 "Gensokyo:UnknownCurse": {
         "NAME": "未知诅咒",
-        "DESCRIPTIONS": ["你的卡已经被 #p模糊 了!"]
+        "DESCRIPTIONS": ["你的卡牌变得 #p模糊不清 了！"]
 },
 "Gensokyo:GuardianOfRelics": {
         "NAME": "遗物守护者",
-        "DESCRIPTIONS": ["本回合结束, 你每有一个 #y遗物 就获得点 #y格挡 ."]
+        "DESCRIPTIONS": ["它的回合回合结束时，其获得你 #y遗物 数量的 #y格挡 。"]
 },
 "Gensokyo:Sinflower": {
         "NAME": "红花",
-        "DESCRIPTIONS": ["每当你攻击这个敌人, 移除你层数最多的 #y不良状态."]
+        "DESCRIPTIONS": ["每当你攻击这个敌人，移除你层数最多的 #y负面效果 。"]
 },
 "Gensokyo:Titan": {
         "NAME": "泰坦",
-        "DESCRIPTIONS": ["此生物的基础攻击伤害等于其当前生命值的一半，最高可达 #b", "."]
+        "DESCRIPTIONS": ["这个单位的基础攻击伤害等于其当前生命的一半，至多 #b", " 点。"]
 },
 "Gensokyo:DawningLight": {
         "NAME": "曙光",
-        "DESCRIPTIONS": ["如果此生物在本回合造成未被阻挡的攻击伤害，则获得 #b", " #y点力量."]
+        "DESCRIPTIONS": ["如果这个单位在本回合受到了未被本当的攻击伤害，获得 #b", " 点 #y力量 。"]
 },
 "Gensokyo:RuthlessStabs": {
         "NAME": "无情的刺伤",
-        "DESCRIPTIONS": ["每当你从这个敌人那里受到未被阻挡的攻击伤害时, 将 #r感染伤害 洗入你的抽牌堆."]
+        "DESCRIPTIONS": ["每当你从这名敌人受到未被格挡的攻击伤害时，将 #r伤口感染 洗入你的抽牌堆。"]
 },
 "Gensokyo:AnimalFriend": {
         "NAME": "动物伙伴",
-        "DESCRIPTIONS": ["每当一个爪牙阵亡, 失去 #b", " 生命然后获得 #b", " #y力量."]
+        "DESCRIPTIONS": ["每当一名爪牙阵亡，失去 #b", " 点生命并获得 #b", " 点 #y力量 。"]
 }
 }

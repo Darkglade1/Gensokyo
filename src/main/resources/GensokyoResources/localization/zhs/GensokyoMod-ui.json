@@ -71,118 +71,118 @@
     "TEXT": [
       "幻想乡",
       "第三阶段",
-      "这片大陆存在于 #p平行时空, 看起来已经存在了 #p很久很久. 你越深入, 越让你 #g怀念.",
-      "继续你在幻想之地的冒险."
+      "这片大陆存在于 #p平行时空 ，看起来已经存在了 #p很久很久 。你越深入，越让你 #g怀念 。",
+      "继续你在幻想之地的冒险。"
     ]
   },
   "Gensokyo:RetainMod": {
     "TEXT": [
-      "保留. NL "
+      " 保留 。 NL "
     ]
   },
   "Gensokyo:EtherealMod": {
     "TEXT": [
-      "虚无. NL "
+      " 虚无 。 NL "
     ]
   },
   "Gensokyo:ExhaustMod": {
     "TEXT": [
-      " NL 消耗."
+      " NL 消耗 。"
     ]
   },
   "Gensokyo:ItemMod": {
     "TEXT": [
       " NL gensokyo:耐久 ",
-      "."
+      " 。"
     ]
   },
   "Gensokyo:EvolveMod": {
     "TEXT": [
       " NL gensokyo:进化 ",
-      "."
+      " 。"
     ]
   },
   "Gensokyo:PetMisc": {
     "TEXT": [
-      "我最多同时召唤一个宠物!"
+      "我最多同时召唤一个宠物！"
     ]
   },
   "Gensokyo:BloodcastMod": {
     "TEXT": [
-      "gensokyo:血祭. NL "
+      " gensokyo:血祭 。 NL "
     ]
   },
   "Gensokyo:SistersIntents": {
     "TEXT": [
-      "这个敌人将要对 #r你造成 #b",
-      " 伤害 因为你的 #g盟友 不在攻击路径上.",
-      "这个敌人打算NL #y攻击 你的 #盟友 并造成 #b",
-      " 伤害 因为你的 #g盟友 在攻击路径.",
-      "这个敌人将要对 #y攻击 #r你 并造成 #b",
-      " 伤害 #b",
-      " 次因为你的  #g盟友 不在攻击路径上.",
-      "这个敌人打算NL #y攻击 你的 #盟友 并造成 #b",
-      " 伤害 #b",
-      " 次因为你的  #g盟友  在攻击路径上.",
-      "你的 #g盟友 打算 #y攻击  #r敌人 并造成 #b",
-      " 伤害."
+      "因为你的 #g盟友 不在攻击路径上。 NL 这名敌人将要对 #r你造成 #b",
+      " 点伤害。",
+      "因为你的 #g盟友 在攻击路径上。 NL 这名敌人将要 #y攻击 你的 #g盟友 并造成 #b",
+      " 点伤害。",
+      "因为你的 #g盟友 不在攻击路径上。 NL 这名敌人将要对 #r你 #y攻击 并造成 #b",
+      " 点伤害 #b",
+      " 次。",
+      "因为你的 #g盟友 在攻击路径上。 NL 这名敌人将要 #y攻击 你的 #g盟友 并造成 #b",
+      " 点伤害 #b",
+      " 次",
+      "你的 #g盟友 打算 #y攻击 #r敌人 并造成 #b",
+      " 点伤害。"
     ]
   },
   "Gensokyo:CurseAttackIntent": {
     "TEXT": [
       "恶咒",
-      "这个敌人将要降低你的 #y最大生命值 #b", " 在本场战斗中."
+      "这个敌人将要在本场战斗中降低你的 #y最大生命值 #b", " 点。"
     ]
   },
   "Gensokyo:AutoplayMod": {
     "TEXT": [
-      "自动打出. NL "
+      " 自动打出 。 NL "
     ]
   },
   "Gensokyo:UnplayableMod": {
     "TEXT": [
-      "不能打出. NL "
+      " 不能被打出 。 NL "
     ]
   },
   "Gensokyo:BlockMod": {
     "TEXT": [
-      "获得 ", " 格挡",
-      " NL 获得 !B! 格挡."
+      "获得 ", " 点格挡",
+      " NL 获得 !B! 点 格挡 。"
     ]
   },
   "Gensokyo:DamageMod": {
     "TEXT": [
-      "造成 ", " 伤害",
-      " NL 造成 !D! 伤害."
+      "造成 ", " 点伤害",
+      " NL 造成 !D! 点伤害。"
     ]
   },
   "Gensokyo:DrawMod": {
     "TEXT": [
-      "抽 ", " 卡",
-      " NL 抽 ", " 卡.", " 卡."
+      "抽 ", " 张牌",
+      " NL 抽 ", " 张牌。", " 张牌。"
     ]
   },
   "Gensokyo:WeakMod": {
     "TEXT": [
-      "给予 ", " 虚弱",
-      " NL 给予 ", " 虚弱."
+      "给予 ", " 层虚弱",
+      " NL 给予 ", " 虚弱 。"
     ]
   },
   "Gensokyo:VulnerableMod": {
     "TEXT": [
-      "给予 ", " 易伤",
-      " NL 给予 ", " 易伤."
+      "给予 ", " 层易伤",
+      " NL 给予 ", " 层 易伤 。"
     ]
   },
   "Gensokyo:PoisonMod": {
     "TEXT": [
-      "给予 ", " 中毒",
-      " NL 给予 ", " 中毒."
+      "给予 ", " 层中毒",
+      " NL 给予 ", " 层 中毒 。"
     ]
   },
   "Gensokyo:InnateMod": {
     "TEXT": [
-      "固有. NL "
+      "固有 。 NL "
     ]
   },
   "Gensokyo:NitoriShop": {
