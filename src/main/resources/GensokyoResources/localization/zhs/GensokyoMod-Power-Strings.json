@@ -53,7 +53,7 @@
 },
 "Gensokyo:SpiderMask": {
         "NAME": "大蜘蛛面",
-        "DESCRIPTIONS": ["每当你打出一张 #y攻击牌 ，本回合你不能打出 #y攻击牌 。"]
+        "DESCRIPTIONS": ["每回合第一次打出 #y攻击牌 时，将 #b","张 #y伤口感染 加入你的手牌。"]
 },
 "Gensokyo:HopeMask": {
         "NAME": "希望之面",
