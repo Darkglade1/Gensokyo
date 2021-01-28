@@ -489,16 +489,12 @@ public class GensokyoMod implements
         BaseMod.registerModBadge(badgeTexture, MODNAME, AUTHOR, DESCRIPTION, settingsPanel);
 
         //Act 1
-        (new Gensokyo()).addAct(Exordium.ID);
-        (new Gensokyoer()).addAct(TheCity.ID);
-        (new Gensokyoest()).addAct(TheBeyond.ID);
+        Gensokyo gensokyo = new Gensokyo();
+        Gensokyoer gensokyoer = new Gensokyoer();
+        Gensokyoest gensokyoest = new Gensokyoest();
 
 
         //Act 1
-        BaseMod.addMonster(Yukari.ID, (BaseMod.GetMonster)Yukari::new);
-        BaseMod.addMonster(Kokoro.ID, (BaseMod.GetMonster)Kokoro::new);
-        BaseMod.addMonster(Reimu.ID, (BaseMod.GetMonster)Reimu::new);
-
         BaseMod.addMonster(Aya.ID, (BaseMod.GetMonster)Aya::new);
         BaseMod.addMonster(Cirno.ID, "Cirno", () -> new MonsterGroup(
                 new AbstractMonster[] {
@@ -531,28 +527,26 @@ public class GensokyoMod implements
                 }));
         BaseMod.addMonster(EncounterIDs.PYTHON_AND_KODAMA, "Python_and_Kodama", () -> new MonsterGroup(generatePythonAndKodomaGroup()));
 
-        BaseMod.addBoss(Gensokyo.ID, Yukari.ID, "GensokyoResources/images/monsters/Yukari/Yukari.png", "GensokyoResources/images/monsters/Yukari/YukariOutline.png");
-        BaseMod.addBoss(Gensokyo.ID, Kokoro.ID, "GensokyoResources/images/monsters/Kokoro/Kokoro.png", "GensokyoResources/images/monsters/Kokoro/KokoroOutline.png");
-        BaseMod.addBoss(Gensokyo.ID, Reimu.ID, "GensokyoResources/images/monsters/Reimu/Reimu.png", "GensokyoResources/images/monsters/Reimu/ReimuOutline.png");
+        gensokyo.addBoss(Reimu.ID, (BaseMod.GetMonster)Reimu::new, "GensokyoResources/images/monsters/Reimu/Reimu.png", "GensokyoResources/images/monsters/Reimu/ReimuOutline.png");
+        gensokyo.addBoss(Yukari.ID, (BaseMod.GetMonster)Yukari::new, "GensokyoResources/images/monsters/Yukari/Yukari.png", "GensokyoResources/images/monsters/Yukari/YukariOutline.png");
+        gensokyo.addBoss(Kokoro.ID, (BaseMod.GetMonster)Kokoro::new, "GensokyoResources/images/monsters/Kokoro/Kokoro.png", "GensokyoResources/images/monsters/Kokoro/KokoroOutline.png");
 
 
         //Act 2
         CustomIntent.add(new AreaAttackIntent());
         CustomIntent.add(new PurifyIntent());
-        BaseMod.addMonster(Kaguya.ID, (BaseMod.GetMonster) Kaguya::new);
-        BaseMod.addMonster(Eiki.ID, (BaseMod.GetMonster) Eiki::new);
-        BaseMod.addMonster(EncounterIDs.ETERNAL_RIVALS, "Eternal Rivals", () -> new MonsterGroup(
-                new AbstractMonster[] {
-                        new Byakuren(-960.0F, 0.0F),
-                        new Miko(),
-                }));
+
         BaseMod.addMonster(Reisen.ID, (BaseMod.GetMonster) Reisen::new);
         BaseMod.addMonster(Koishi.ID, (BaseMod.GetMonster) Koishi::new);
         BaseMod.addMonster(Tenshi.ID, (BaseMod.GetMonster) Tenshi::new);
 
-        BaseMod.addBoss(Gensokyoer.ID, Kaguya.ID, "GensokyoResources/images/monsters/Kaguya/Kaguya.png", "GensokyoResources/images/monsters/Kaguya/KaguyaOutline.png");
-        BaseMod.addBoss(Gensokyoer.ID, Eiki.ID, "GensokyoResources/images/monsters/Eiki/Eiki.png", "GensokyoResources/images/monsters/Eiki/EikiOutline.png");
-        BaseMod.addBoss(Gensokyoer.ID, EncounterIDs.ETERNAL_RIVALS, "GensokyoResources/images/monsters/Byakuren/Rival.png", "GensokyoResources/images/monsters/Byakuren/RivalOutline.png");
+        gensokyoer.addBoss(EncounterIDs.ETERNAL_RIVALS, () -> new MonsterGroup(
+                new AbstractMonster[] {
+                        new Byakuren(-960.0F, 0.0F),
+                        new Miko(),
+                }), "GensokyoResources/images/monsters/Byakuren/Rival.png", "GensokyoResources/images/monsters/Byakuren/RivalOutline.png");
+        gensokyoer.addBoss(Kaguya.ID, (BaseMod.GetMonster) Kaguya::new, "GensokyoResources/images/monsters/Kaguya/Kaguya.png", "GensokyoResources/images/monsters/Kaguya/KaguyaOutline.png");
+        gensokyoer.addBoss(Eiki.ID, (BaseMod.GetMonster) Eiki::new, "GensokyoResources/images/monsters/Eiki/Eiki.png", "GensokyoResources/images/monsters/Eiki/EikiOutline.png");
 
         BaseMod.addMonster(Swordslinger.ID, (BaseMod.GetMonster)Swordslinger::new);
         BaseMod.addMonster(Wraith.ID, (BaseMod.GetMonster)Wraith::new);
@@ -603,17 +597,13 @@ public class GensokyoMod implements
         CustomIntent.add(new DeathIntent());
         CustomIntent.add(new CurseAttackIntent());
 
-        BaseMod.addMonster(EncounterIDs.SCARLET_DEVILS, "Scarlet Devils", () -> new MonsterGroup(
+        gensokyoest.addBoss(Yuyuko.ID, (BaseMod.GetMonster) Yuyuko::new, "GensokyoResources/images/monsters/Yuyuko/Yuyuko.png", "GensokyoResources/images/monsters/Yuyuko/YuyukoOutline.png");
+        gensokyoest.addBoss(EncounterIDs.SCARLET_DEVILS, () -> new MonsterGroup(
                 new AbstractMonster[] {
                         new Remilia(-480.0F, 0.0F),
                         new Flandre(),
-                }));
-        BaseMod.addMonster(Yuyuko.ID, (BaseMod.GetMonster) Yuyuko::new);
-        BaseMod.addMonster(Shinki.ID, (BaseMod.GetMonster) Shinki::new);
-
-        BaseMod.addBoss(Gensokyoest.ID, EncounterIDs.SCARLET_DEVILS, "GensokyoResources/images/monsters/Flandre/Sisters.png", "GensokyoResources/images/monsters/Flandre/SistersOutline.png");
-        BaseMod.addBoss(Gensokyoest.ID, Yuyuko.ID, "GensokyoResources/images/monsters/Yuyuko/Yuyuko.png", "GensokyoResources/images/monsters/Yuyuko/YuyukoOutline.png");
-        BaseMod.addBoss(Gensokyoest.ID, Shinki.ID, "GensokyoResources/images/monsters/Shinki/Shinki.png", "GensokyoResources/images/monsters/Shinki/ShinkiOutline.png");
+                }), "GensokyoResources/images/monsters/Flandre/Sisters.png", "GensokyoResources/images/monsters/Flandre/SistersOutline.png");
+        gensokyoest.addBoss(Shinki.ID, (BaseMod.GetMonster) Shinki::new, "GensokyoResources/images/monsters/Shinki/Shinki.png", "GensokyoResources/images/monsters/Shinki/ShinkiOutline.png");
 
         BaseMod.addMonster(Doremy.ID, (BaseMod.GetMonster) Doremy::new);
         BaseMod.addMonster(Marisa.ID, (BaseMod.GetMonster) Marisa::new);
@@ -650,6 +640,10 @@ public class GensokyoMod implements
                         new MadBoulder(-150.0F, 0.0F),
                         new MadBoulder(150.0F, 0.0F)
                 }));
+
+        gensokyo.addAct(Exordium.ID);
+        gensokyoer.addAct(TheCity.ID);
+        gensokyoest.addAct(TheBeyond.ID);
 
 
         // =============== EVENTS =================
