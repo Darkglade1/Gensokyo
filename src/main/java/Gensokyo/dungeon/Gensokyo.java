@@ -30,7 +30,6 @@ public class Gensokyo extends actlikeit.dungeons.CustomDungeon {
 
     public Gensokyo() {
         super(NAME, ID, "images/ui/event/panel.png", false, 3, 12, 10);
-        this.onEnterEvent(NeowEvent.class);
         this.setMainMusic("audio/music/Gensokyo/ThemeOfEasternStory.ogg");
         this.addTempMusic("Necrofantasia", "audio/music/Gensokyo/Necrofantasia.ogg");
         this.addTempMusic("TheLostEmotion", "audio/music/Gensokyo/TheLostEmotion.ogg");
