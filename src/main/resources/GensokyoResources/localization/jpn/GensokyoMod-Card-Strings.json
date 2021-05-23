@@ -228,7 +228,7 @@
   },
   "Gensokyo:ReactiveArmor": {
     "NAME": "リアクティブアーマー",
-    "DESCRIPTION": "戦闘中の敵1体につき !B! ブロックを得る。"
+    "DESCRIPTION": "戦闘中の敵1体につき !B! ブロック を得る。"
   },
   "Gensokyo:Taser": {
     "NAME": "テーザー",
@@ -256,7 +256,7 @@
   },
   "Gensokyo:SalamanderShield": {
     "NAME": "サラマンダーシールド",
-    "DESCRIPTION": " !B! ブロックを得る。 NL カードを !M! 枚引きそれが「スキル」の場合、 !B! ブロックを得る。"
+    "DESCRIPTION": " !B! ブロック を得る。 NL カードを !M! 枚引きそれが「スキル」の場合、 !B! ブロック を得る。"
   },
   "Gensokyo:BuddhistDiamond": {
     "NAME": "ブディストダイアモンド",
@@ -268,15 +268,15 @@
   },
   "Gensokyo:MorningMist": {
     "NAME": "朝靄",
-    "DESCRIPTION": " !B! ブロックを得る。 NL 捨て札のカードを1枚山札の一番上に置く。"
+    "DESCRIPTION": " !B! ブロック を得る。 NL 捨て札のカードを1枚山札の一番上に置く。"
   },
   "Gensokyo:EverlastingLife": {
     "NAME": "永命線",
-    "DESCRIPTION": " !B! ブロックを得る。 NL 占術 !M!"
+    "DESCRIPTION": " !B! ブロック を得る。 NL 占術 !M!"
   },
   "Gensokyo:LifeSpringInfinity": {
     "NAME": "ライフスプリングインフィニティ",
-    "DESCRIPTION": "カードを !M! 枚引く。引いた「スキル」1枚につき、 !B! ブロックを得る。"
+    "DESCRIPTION": "カードを !M! 枚引く。引いた「スキル」1枚につき、 !B! ブロック を得る。"
   },
   "Gensokyo:DreamlikeParadise": {
     "NAME": "夢色の郷",
@@ -288,11 +288,11 @@
   },
   "Gensokyo:UnlikelyAid": {
     "NAME": "予期せぬ助力",
-    "DESCRIPTION": " !D! ダメージを与える。 NL デッキのカードから !M! 枚のうち1枚を複製し、手札に加える。この複製は 廃棄 が追加され、このターンコストが0になる。"
+    "DESCRIPTION": " !D! ダメージを与える。 NL デッキのカードから !M! 枚のうち1枚を複製し、手札に加える。この複製には 廃棄 が追加され、このターンそのコストは0。"
   },
   "Gensokyo:MorningStar": {
     "NAME": "明けの明星",
-    "DESCRIPTION": " !B! ブロックを得る。 NL !D! ダメージを与える。 NL 全ての 状態異常 を 廃棄する。"
+    "DESCRIPTION": " !B! ブロック を得る。 NL !D! ダメージを与える。 NL 全ての 状態異常 を 廃棄する。"
   },
   "Gensokyo:RisingWorld": {
     "NAME": "世明け",

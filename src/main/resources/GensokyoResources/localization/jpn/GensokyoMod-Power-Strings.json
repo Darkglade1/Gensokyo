@@ -36,7 +36,7 @@
         "DESCRIPTIONS": ["この敵はランダムな敵にアタックして、デバフを与える。ターン開始時、 #y狂気 が #b1 減少する。"]
 },
 "Gensokyo:HAARPPower": {
-        "NAME": "ハープ",
+        "NAME": "HAARP",
         "DESCRIPTIONS": ["ターン開始時、 #yライトニング #b", " を 生成 する。"]
 },
 "Gensokyo:SevenSchoolMysteriesPower": {
@@ -270,7 +270,7 @@
 },
 "Gensokyo:DreamEater": {
         "NAME": "ドリームイーター",
-        "DESCRIPTIONS": ["このターン、最初にプレイしたカードは ", " #r消耗 され、 #rデッキから #r削除 される。この効果でカードを削除したとき、そのレアリティに基づいた効果が発生する。 ", " NL #yスターター ： ", " NL #yコモン ： ", " NL #yアンコモン ： ", " NL #yレア ： ", "#y筋力 #b+ #b", "#y筋力 #b- #b", " ", " NL #p呪い ： "]
+        "DESCRIPTIONS": ["このターン、最初にプレイしたカードは ", " #rパージ され、 #rデッキから #r削除 される。この効果でカードを削除したとき、そのレアリティに基づいた効果が発生する。 ", " NL #yスターター ： ", " NL #yコモン ： ", " NL #yアンコモン ： ", " NL #yレア ： ", "この敵の #y筋力 #b+ #b", "この敵の #y筋力 #b- #b", " ", " NL #p呪い ： "]
 },
 "Gensokyo:EyesOfDeath": {
         "NAME": "直死の魔眼",
