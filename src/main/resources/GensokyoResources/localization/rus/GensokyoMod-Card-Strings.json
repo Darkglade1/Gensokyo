@@ -1,0 +1,337 @@
+{
+  "Gensokyo:CrescentMoonSlash": {
+    "NAME": "Разрез полумесяцем",
+    "DESCRIPTION": "Наносит !D! урона ВСЕМ врагам. NL Разыгрывается снова, если убивает врага."
+  },
+  "Gensokyo:MissMary": {
+    "NAME": "Мэрри-сан",
+    "DESCRIPTION": "Накладывает !M! Уязвимости на ВСЕХ врагов."
+  },
+  "Gensokyo:SpontaneousHumanCombustion": {
+    "NAME": "Самовозгорание человека",
+    "DESCRIPTION": "Даёт !M! Силы. NL В конце каждого вашего хода наносит вам !Gensokyo:SecondMagic! урона и увеличивает его на !Gensokyo:SecondMagic! ."
+  },
+  "Gensokyo:RedCapeBlueCape": {
+    "NAME": "Ака Манто",
+    "DESCRIPTION": "Даёт !B! Защиты. NL Наносит !D! урона. NL Добавляет gensokyo:Красный_Плащ и gensokyo:Синий_Плащ в руку.",
+    "UPGRADE_DESCRIPTION": "Даёт !B! Защиты. NL Наносит !D! урона. NL Добавляет gensokyo:Красный_Плащ+ и gensokyo:Синий_Плащ+ в руку."
+  },
+  "Gensokyo:RedCape": {
+    "NAME": "Красный плащ",
+    "DESCRIPTION": "Наносит !D! урона."
+  },
+  "Gensokyo:BlueCape": {
+    "NAME": "Синий плащ",
+    "DESCRIPTION": "Даёт !B! Защиты."
+  },
+  "Gensokyo:TekeTeke": {
+    "NAME": "Теке-теке",
+    "DESCRIPTION": "Наносит !D! урона !Gensokyo:SecondMagic! раза ВСЕМ врагам. NL Увеличивает свой урон на !M! и уменьшает свою стоимость на 1 до конца боя, когда урон опускает ОЗ врага ниже половины."
+  },
+  "Gensokyo:Kunekune": {
+    "NAME": "Кунэкунэ",
+    "DESCRIPTION": "Накладывает !M! gensokyo:Сумасшествия."
+  },
+  "Gensokyo:HAARP": {
+    "NAME": "HAARP",
+    "DESCRIPTION": "В начале каждого вашего хода Заряжает !M! Сферы Молнии."
+  },
+  "Gensokyo:MenInBlack": {
+    "NAME": "Люди в чёрном",
+    "DESCRIPTION": "Даёт !M! Неосязаемости."
+  },
+  "Gensokyo:LittleGreenMen": {
+    "NAME": "Зелёные человечки",
+    "DESCRIPTION": "Даёт [E] [E]. NL Добавляет свою копию на верх стопки добора.",
+    "UPGRADE_DESCRIPTION": "Даёт [E] [E]. NL Добавляет свою копию на верх стопки добора."
+  },
+  "Gensokyo:TurboGranny": {
+    "NAME": "Турбо-бабушка",
+    "DESCRIPTION": "Даёт !M! Ловкости. NL Даёт !Gensokyo:SecondMagic! *Панциря."
+  },
+  "Gensokyo:MonkeysPaw": {
+    "NAME": "Обезьянья лапка",
+    "DESCRIPTION": "Отнимает половину ваших ОЗ. NL Даёт !M! Золота за каждое потерянное ОЗ."
+  },
+  "Gensokyo:ManorOfTheDishes": {
+    "NAME": "Поместье посуды",
+    "DESCRIPTION": "Даёт !M! Неосязаемости, когда вы разыгрываете !Gensokyo:SecondMagic! карт."
+  },
+  "Gensokyo:LochNessMonster": {
+    "NAME": "Лох-нэсское чудовище",
+    "DESCRIPTION": "Наносит !D! урона !M! раза."
+  },
+  "Gensokyo:GapWoman": {
+    "NAME": "Девушка в щели",
+    "DESCRIPTION": "Накладывает !M! Слабости на ВСЕХ врагов."
+  },
+  "Gensokyo:EightFeetTall": {
+    "NAME": "Ростом восемь футов",
+    "DESCRIPTION": "Убивает цель не являющуюся боссом через !M! хода."
+  },
+  "Gensokyo:SevenSchoolMysteries": {
+    "NAME": "Семь школьных легенд",
+    "DESCRIPTION": "Даёт !M! Силы и !M! Ловкости, когда вы разыгрываете !Gensokyo:SecondMagic! карты в одном ходу."
+  },
+  "Gensokyo:Apocalypse": {
+    "NAME": "Апокалипсис",
+    "DESCRIPTION": "Наносит !D! урона ВСЕМ врагам и !M! урона вам."
+  },
+  "Gensokyo:SlitMouthedWoman": {
+    "NAME": "Девушка с разрезом",
+    "DESCRIPTION": "Накладывает !M! Уязвимости на след. атакующего. NL Отнимает !M! Силы у второго атакующего."
+  },
+  "Gensokyo:Frozen": {
+    "NAME": "Заморозка!",
+    "DESCRIPTION": "Снижает свою стоимость на !M! до конца боя, когда вы берёте эту карту."
+  },
+  "Gensokyo:MarisaTwilightSpark": {
+    "NAME": "Сумрачная искра",
+    "DESCRIPTION": "Сжигает любое количество карт. Увеличивает свой урон !M! за каждую сожжённую. Считается за Навык. NL Усиление  [E]  [E]  [E] : Наносит !D! урона ВСЕМ врагам. Считается за Атаку."
+  },
+  "Gensokyo:BlessingOfVigor": {
+    "NAME": "Благословение бодрости",
+    "DESCRIPTION": "Неиграбельная. NL Вы берёте карту и получаете !M! gensokyo:Бодрости, когда берёте эту карту."
+  },
+  "Gensokyo:BlessingOfFortitude": {
+    "NAME": "Благословение стойкости",
+    "DESCRIPTION": "Неиграбельная. NL Вы берёте карту и получаете !M! gensokyo:Стойкости, когда берёте эту карту."
+  },
+  "Gensokyo:BlessingOfConstitution": {
+    "NAME": "Благословение здоровья",
+    "DESCRIPTION": "Неиграбельная. NL Вы берёте карту и получаете !M! gensokyo:Крепости, когда берёте эту карту."
+  },
+  "Gensokyo:Doppelganger": {
+    "NAME": "Доппельгангер",
+    "DESCRIPTION": "Вы Предсказываете X карт. NL Следующие X карт разыгрываются дважды.",
+    "UPGRADE_DESCRIPTION": "Вы Предсказываете X + 1 карт. NL Следующие X + 1 карт разыгрываются дважды."
+  },
+  "Gensokyo:ImpossibleRequest": {
+    "NAME": "Невыпонимый запрос",
+    "DESCRIPTION": "gensokyo:Невыпонимый_Запрос."
+  },
+  "Gensokyo:BuddhaStoneBowl": {
+    "NAME": "Каменная чаша Будды",
+    "DESCRIPTION": "gensokyo:Невыпонимый_Запрос. NL Разыграть Атаку, Навык и Талант в одном ходу."
+  },
+  "Gensokyo:BulletBranchOfHourai": {
+    "NAME": "Жемчужная хорайская ветвь",
+    "DESCRIPTION": "gensokyo:Невыпонимый_Запрос. NL Разыграть !M! карт в одном ходу."
+  },
+  "Gensokyo:FireRatsRobe": {
+    "NAME": "Мантия огненной крысы",
+    "DESCRIPTION": "gensokyo:Невыпонимый_Запрос. NL Добрать !M! карт в одном ходу."
+  },
+  "Gensokyo:JewelFromTheDragonsNeck": {
+    "NAME": "Драгоценность с шеи дракона",
+    "DESCRIPTION": "gensokyo:Невыпонимый_Запрос. NL Нанести !M! урона в одном ходу."
+  },
+  "Gensokyo:SwallowsCowrieShell": {
+    "NAME": "Ласточкина раковина Каури",
+    "DESCRIPTION": "gensokyo:Невыпонимый_Запрос. NL Получить !M! Защиты в одном ходу."
+  },
+  "Gensokyo:FourOfAKind": {
+    "NAME": "Табу «Каре»",
+    "DESCRIPTION": "В этом ходу след. разыгранная карта разыграется !M! доп. раз(а). NL Увеличивает эффект ВСЕХ своих копий на !Gensokyo:SecondMagic! до конца боя. NL Может быть разыграна один раз за ход.",
+    "UPGRADE_DESCRIPTION": "В этом ходу след. разыгранная карта разыграется !M! доп. раз(а). NL Увеличивает эффект ВСЕХ своих копий на !Gensokyo:SecondMagic! до конца боя. NL Может быть разыграна один раз за ход.",
+    "EXTENDED_DESCRIPTION": [
+      "Я могу разыграть только 1 Табу «Каре» в ходу."
+    ]
+  },
+  "Gensokyo:AllTheWorldsEvil": {
+    "NAME": "Зло всего мира",
+    "DESCRIPTION": "Накладывает !M! Уязвимости на ВСЕХ."
+  },
+  "Gensokyo:EmbersOfLove": {
+    "NAME": "Тлеющая любовь",
+    "DESCRIPTION": "Даёт !M! Силы случайному врагу."
+  },
+  "Gensokyo:Philosophy": {
+    "NAME": "Философия презираемых",
+    "DESCRIPTION": "Вы получаете !M! урона в конце каждого вашего хода."
+  },
+  "Gensokyo:ReflexRadar": {
+    "NAME": "Рефлекторный радар",
+    "DESCRIPTION": "Вы берёте !M! карту.",
+    "UPGRADE_DESCRIPTION": "Вы берёте !M! карту."
+  },
+  "Gensokyo:MindShatter": {
+    "NAME": "Разрушение разума",
+    "DESCRIPTION": "Замешивает ВСЕ не сжигающиеся сожжённые карты в стопку добора. NL Отнимает !M! ОЗ за каждую замешенную карту."
+  },
+  "Gensokyo:ShootingStar": {
+    "NAME": "Падающая звезда",
+    "DESCRIPTION": "Добавляет копию другой карты из колоды в руку.",
+    "UPGRADE_DESCRIPTION": "Добавляет копию другой карты из колоды в руку."
+  },
+  "Gensokyo:SummonYinYangFox": {
+    "NAME": "Инь-Ян лиса",
+    "DESCRIPTION": "Призывает gensokyo:Питомца «Инь-Ян лиса» с !M! ОЗ."
+  },
+  "Gensokyo:SummonFieryMouse": {
+    "NAME": "Пламенная мышь",
+    "DESCRIPTION": "Призывает gensokyo:Питомца «Пламенная мышь» c !M! ОЗ."
+  },
+  "Gensokyo:SummonJeweledCobra": {
+    "NAME": "Инкрустированная кобра",
+    "DESCRIPTION": "Призывает gensokyo:Питомца «Икрустированная кобра» с !M! ОЗ."
+  },
+  "Gensokyo:SummonPsychicCat": {
+    "NAME": "Кот-экстрасенс",
+    "DESCRIPTION": "Призывает gensokyo:Питомца «Кот-экстрасенс» с !M! ОЗ."
+  },
+  "Gensokyo:ПитомцаPreview": {
+    "NAME": "Действия",
+    "DESCRIPTION": ""
+  },
+  "Gensokyo:MysteriousEgg": {
+    "NAME": "Мистическое яйцо",
+    "DESCRIPTION": "Случайная карта gensokyo:Питомца."
+  },
+  "Gensokyo:ExoticEgg": {
+    "NAME": "Экзотическое яйцо",
+    "DESCRIPTION": "Случайная карта gensokyo:Питомца."
+  },
+  "Gensokyo:Shovel": {
+    "NAME": "Лопата",
+    "DESCRIPTION": "Случайная реликвия."
+  },
+  "Gensokyo:BlemishedSteel": {
+    "NAME": "Испорченная сталь",
+    "DESCRIPTION": "Случайная редкая реликвия."
+  },
+  "Gensokyo:DepletedGenerator": {
+    "NAME": "Истощённый генератор",
+    "DESCRIPTION": "Набор редких карт."
+  },
+  "Gensokyo:ScrapIron": {
+    "NAME": "Железный лом",
+    "DESCRIPTION": "Случайная обычная реликвия."
+  },
+  "Gensokyo:TarnishedGold": {
+    "NAME": "Тёмное золото",
+    "DESCRIPTION": "!Gensokyo:SecondMagic! золота."
+  },
+  "Gensokyo:RustyChest": {
+    "NAME": "Ржавый сундук",
+    "DESCRIPTION": "!Gensokyo:SecondMagic! золота."
+  },
+  "Gensokyo:TrainingManual": {
+    "NAME": "Тренировочное пособие",
+    "DESCRIPTION": "Набор улучшенных карт."
+  },
+  "Gensokyo:LockedMedkit": {
+    "NAME": "Закрытая аптечка",
+    "DESCRIPTION": "Восполняет все ОЗ."
+  },
+  "Gensokyo:RPG": {
+    "NAME": "РПГ",
+    "DESCRIPTION": "Наносит !D! урона ВСЕМ врагам."
+  },
+  "Gensokyo:ReactiveArmor": {
+    "NAME": "Силовой щит",
+    "DESCRIPTION": "Даёт !B! Защиты за каждого врага в бою."
+  },
+  "Gensokyo:Taser": {
+    "NAME": "Электрошокер",
+    "DESCRIPTION": "Наносит !D! урона. NL Накладывает !M! *Оглушения."
+  },
+  "Gensokyo:MedicineKit": {
+    "NAME": "Аптечка",
+    "DESCRIPTION": "Снимает все отриц. эффекты и восполняет !M! ОЗ за каждый снятый эффект."
+  },
+  "Gensokyo:OverchargedCore": {
+    "NAME": "Перегруженное ядро",
+    "DESCRIPTION": "Даёт !M! Силы, Ловкости, и Фокуса. NL Отнимает !M! ОЗ."
+  },
+  "Gensokyo:LifeforceConverter": {
+    "NAME": "Преобразователь жизни",
+    "DESCRIPTION": "Добавляет всем картам в руке gensokyo:Кровокаст до конца боя."
+  },
+  "Gensokyo:Butterfly": {
+    "NAME": "Бабочка",
+    "DESCRIPTION": "Неиграбельная. NL Отнимает !M! Макс. ОЗ до конца боя, когда Сжигается."
+  },
+  "Gensokyo:BrilliantDragonBullet": {
+    "NAME": "Пуля бриллиантового дракона",
+    "DESCRIPTION": "Наносит !D! урона. NL Вы берёте !M! карту. Если вы берёте Атаку, наносит !D! урона."
+  },
+  "Gensokyo:SalamanderShield": {
+    "NAME": "Щит саламандры",
+    "DESCRIPTION": "Даёт !B! Защиты. NL Вы берёте !M! карту. Если вы берёте Навык, даёт !B! Защиты."
+  },
+  "Gensokyo:BuddhistDiamond": {
+    "NAME": "Буддистский алмаз",
+    "DESCRIPTION": "Наносит !D! урона. NL Увеличивает свой урон на !M! до конца боя, когда сбрасывается предсказанием."
+  },
+  "Gensokyo:NewMoon": {
+    "NAME": "Новолуние",
+    "DESCRIPTION": "Наносит !D! урона. NL Кладёт карты в руке на верх стопки добора."
+  },
+  "Gensokyo:MorningMist": {
+    "NAME": "Утренний туман",
+    "DESCRIPTION": "Даёт !B! Защиты. NL Кладёт карту из стопки сброса на верх стопки добора."
+  },
+  "Gensokyo:EverlastingLife": {
+    "NAME": "Бесконечная жизнь",
+    "DESCRIPTION": "Даёт !B! Защиты. NL Вы Предсказываете !M! карты."
+  },
+  "Gensokyo:LifeSpringInfinity": {
+    "NAME": "Бесконечный родник жизни",
+    "DESCRIPTION": "Вы берёте !M! карты. Даёт !B! Защиты, за каждый Навык, который вы берёте."
+  },
+  "Gensokyo:DreamlikeParadise": {
+    "NAME": "Сказочный рай",
+    "DESCRIPTION": "Вы Предсказываете !M! карты и снижаете стоимость сброшенных до 0. NL . NL Вы берёте !Gensokyo:SecondMagic! карту, когда берёте эту карту."
+  },
+  "Gensokyo:RainbowDanmaku": {
+    "NAME": "Радужное даммаку",
+    "DESCRIPTION": "Наносит !D! урона. NL Вы Предсказываете !M! карты и за каждую сброшеную Атаку наносите !D! урона."
+  },
+  "Gensokyo:UnlikelyAid": {
+    "NAME": "Маловероятная помощь",
+    "DESCRIPTION": "Наносит !D! урона. NL Выберите 1 из !M! карт из колоды и добавьте её в руку. Она будет стоить 0 и Сжигаться."
+  },
+  "Gensokyo:MorningStar": {
+    "NAME": "Утренняя звезда",
+    "DESCRIPTION": "Даёт !B! Защиты. NL Наносит !D! урона. NL Сжигает все Статусы в колоде."
+  },
+  "Gensokyo:RisingWorld": {
+    "NAME": "Просыпающийся мир",
+    "DESCRIPTION": "Вы Предсказываете !M! карты и Улучшаете каждую сброшенную. NL Вы берёте !Gensokyo:SecondMagic! карту, когда берёте эту карту."
+  },
+  "Gensokyo:HouraiInAPot": {
+    "NAME": "Хорай в горшке",
+    "DESCRIPTION": "Вы сбрасываете и берёте любое количество карт.",
+    "UPGRADE_DESCRIPTION": "Вы сбрасываете и берёте любое количество карт. NL Вы берёте !Gensokyo:SecondMagic! карту, когда берёте эту карту."
+  },
+  "Gensokyo:Dawn": {
+    "NAME": "Рассвет",
+    "DESCRIPTION": "Вы получаете [E] и берёте !Gensokyo:SecondMagic! карту, когда берёте эту карту.",
+    "UPGRADE_DESCRIPTION": "Вы получаете [E] [E] и берёте !Gensokyo:SecondMagic! карту, когда берёте эту карту."
+  },
+  "Gensokyo:UnhurriedMind": {
+    "NAME": "Терпеливый разум",
+    "DESCRIPTION": "Разыгрывает !M! карты с верха стопки добора."
+  },
+  "Gensokyo:CustomPotion": {
+    "NAME": "Собственное зелье",
+    "DESCRIPTION": ""
+  },
+  "Gensokyo:GreaterSplit": {
+    "NAME": "Великое вертикальное деление",
+    "DESCRIPTION": "Наносит !D! урона. NL Накладывает !M! *Оглушения.",
+    "UPGRADE_DESCRIPTION": "Наносит !D! урона и накладывает !M! *Оглушения на всех врагов.",
+    "EXTENDED_DESCRIPTION": [
+      "Великое горизонтальное деление"
+    ]
+  },
+  "Gensokyo:PrivateSquare": {
+    "NAME": "Личное пространство",
+    "DESCRIPTION": "Вы получаете дополнительный ход. Завершает ваш ход. NL Добавляет свою копию в руку с увеличенной на !M! стоимостью. NL Сжигается, если враг получит урон пока она в руке."
+  },
+  "Gensokyo:InfectedWound": {
+    "NAME": "Заражённая рана",
+    "DESCRIPTION": "Пока находится в руке, наносит !M! урона, когда вы разыгрываете Атаку."
+  }
+}

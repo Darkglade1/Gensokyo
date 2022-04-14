@@ -12,7 +12,7 @@
       "red_cape",
       "Red_Cape"
     ],
-    "DESCRIPTION": "A 1 cost Attack that deals damage, Retains, and exhausts."
+    "DESCRIPTION": "A 1 cost #yAttack that deals damage, #yRetains, and #yexhausts."
   },
   {
     "PROPER_NAME": "Blue Cape",
@@ -21,7 +21,7 @@
       "blue_cape",
       "Blue_Cape"
     ],
-    "DESCRIPTION": "A 1 cost Skill that gains Block, Retains, and exhausts."
+    "DESCRIPTION": "A 1 cost #ySkill that gains #yBlock, #yRetains, and #yexhausts."
   },
   {
     "NAMES": [
@@ -39,7 +39,7 @@
     "NAMES": [
       "sturdy"
     ],
-    "DESCRIPTION": "Sturdy creatures gain #b34% more block."
+    "DESCRIPTION": "Sturdy creatures gain #b34% more #yBlock."
   },
   {
     "PROPER_NAME": "Impossible Request",
@@ -72,7 +72,7 @@
       "Evolve",
       "evolve"
     ],
-    "DESCRIPTION": "Transforms into a special reward after being played the specified number of times."
+    "DESCRIPTION": "#yTransforms into a special reward after being played the specified number of times."
   },
   {
     "PROPER_NAME": "Bloodcast",
