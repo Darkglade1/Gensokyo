@@ -209,16 +209,16 @@
   },
   "Gensokyo:MarisaIngredientList": {
     "NAME": "Список ингридиентов",
-    "FLAVOR": "A bunch of messy scribbles on a page. Apparently creates something known as the \"Improbability Potion\".",
+    "FLAVOR": "Эта куча неразборчивых каракуль на листочке, по-видимому, создаёт вещь под названием \"Невероятное зелье\".",
     "DESCRIPTIONS": [
-      "#yIngredients: NL 1. Encounter #b", " normal", " #relite", " enemy. ", " enemies. ", " #pevent. ", " #pevents. ", "/",
-      " NL 2. Obtain #b", " Common", " #bUncommon", " #yRare", " card. ", " cards. ",
-      " NL 3. Once the first two steps are complete, #gbrew the potion at a #ycampfire."
-    ]
+      "#yИнгредиенты: NL 1. Встретить #b", " обычного(ых)", " #rэлитного(ых)", " врага. ", " врагов. ", " #pсобытие. ", " #pсобытия. ", "/",
+      " NL 2. Получить #b", " Обычную(ых)", " #bНеобычную(ых)", " #yРедкую(их)", " карту. ", " карты. ",
+      " NL 3. #gСварить зелье в #yлагере, когда два пункта выше будут выполнены."
+    ] // выполненя UwU
   },
   "Gensokyo:MarisaImprobabilityPotion": {
-    "NAME": "Improbability Potion",
-    "FLAVOR": "It bestows the user with the ability to defy all odds.",
+    "NAME": "Невероятное зелье",
+    "FLAVOR": "Дарует пользователю возможность превозмочь все неприятности.",
     "DESCRIPTIONS": [
       " [#2aecd7]Можно [#2aecd7]использовать [#2aecd7]один [#2aecd7]раз [#2aecd7]за [#2aecd7]бой.[] NL Отнимает #b", " ОЗ. Даёт #b", " #yСилы и #yЛовкости."
     ]

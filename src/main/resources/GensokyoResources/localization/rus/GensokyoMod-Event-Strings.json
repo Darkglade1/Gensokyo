@@ -1015,8 +1015,8 @@
   "Gensokyo:MarisaJustAVisit": {
     "NAME": "Просто визит",
     "DESCRIPTIONS": [
-      "As you cruise through the air on your broom, you spot a familiar red torii gate off to the side. It's been a while since you’ve dropped by, hasn't it? NL NL Landing in front of the #ydonation box, you notice that it’s as #pbarren as ever. NL NL Maybe . . . you should do something about that.",
-      "The #ycoins rattle quietly as they strike the bottom, and you feel a bit more at ease. This upcoming winter was looking to be rather chilly, after all. NL NL «Мариса? Что ты здесь делаешь?» NL NL You leap away from the box as Reimu steps out of the shrine, eyeing you curiously. You tell her that you’re just here to bug her. NL NL «Вижу у тебя нет получше идеи чем заняться. Давай заходи, а то ещё может подхватишь #bпростуду.» NL NL You grin as you make yourself at home while she goes to brew tea.",
+      "Вы замечаете знакомые красные ворота тории, когда беззаботно пролетаете на метле по воздуху. Прошло много времени с последнего посещения этого храма. NL NL Приземлившись вы видите, что ящик для #yпожертвований всё так же #pпуст. NL NL Может быть . . . следует что-нибудь с этим сделать.",
+      "#yМонеты тихонько позвякали о деревянное дно, и вы почувствовали себя спокойнее. Предстоящая зима обещала быть морозной. NL NL «Мариса? Что ты здесь делаешь?» NL NL Вы отпрыгиваете от коробки вслед любопытному выглядыванию Рейму и говорите, что вы здесь просто подасаждать ей. NL NL «Вижу у тебя нет получше идеи чем заняться. Давай заходи, а то ещё может подхватишь #bпростуду.» NL NL Вы улыбаетесь, чувствуя себя как дома, пока она идёт заваривать чай.",
       "Вы зеваете с #pпоникшим взглядом. Как бы вам не хотелось погулять ещё немного, но надо удоволетворять потребности тела. NL NL Лучше направиться домой и немного отдохнуть."
     ],
     "OPTIONS": [
@@ -1031,56 +1031,56 @@
   "Gensokyo:MarisaBookThief": {
     "NAME": "Книжный вор",
     "DESCRIPTIONS": [
-      "You see that Meiling is #pasleep at her post. Once inside the manor, you can hear the sounds of Sakuya busying herself in the kitchen. NL NL How could you pass up such a perfect opportunity? NL NL You slip inside the mansion's library without a sound. Now, which book should you take today? Which grimoire of #pdark, #p@forbidden@ #psorcery, which tome of #y@crackling,@ #yelectrifying magic would nab your attention this time?",
-      "The book is locked with a complex magic seal. Getting it open will be a #ppain, but with such tight security, surely something #yworthwhile must be inside, right? NL NL «Oh, it’s you again.» You spin around. Patchouli is standing there, observing you with an exasperated look. NL NL «If you think I'm letting you have that book without a fight . . .» She raises a hand, and #belemental orbs of #ypower answer her call. «Well, I’m sure you know the drill by now.»",
-      "«Hmm? I didn't think you had it in you to give up quietly.» NL NL You sheepishly laugh, claiming that this book simply didn't look to be worth the effort. NL NL «Is that so?» She snatches the book from your hand and places it back on the shelf. «In that case, I trust that you can see yourself out, yes?» NL NL You quickly backpedal out of there, leaving empty-handed for once.",
-      "On second thought, taking another book when you haven't even finished reading your most recently »borrowed» book seemed a bit pointless."
+      "Перед глазами Мэйлин #pспит на своём посту, а из особняка слышно насколько Сакуя занята на кухне. NL NL Нельзя же упустить такую идеальную возможность? NL NL Вы бесшумно прокрадываетесь в библиотеку особняка. Теперь какую же книгу взять сегодня? Может гримуар #pтёмного #p@запретного@ #pволшебства или том #y@трескающейся@ #yэлектрической магии. Что же зацепило ваше внимание на этот раз?",
+      "На книге стоит сложная магическая печать. Открыть её будет #pнепросто, но раз тут такая хорошая защита, то внутри должно быть что-то #yценное, верно? NL NL «Ах, это снова ты.» Вы оборачиваетесь. Пачули стоит с раздражением оглядывая вас. NL NL «Если ты думала, что я отдам эту книгу без боя . . .» Она подняла руку, а сферы #bэлементальных #yсил последовали за ней. «Ну, думаю ты уже знаешь что следует делать.»",
+      "«Хмм? Не думала, что ты хоть когда-нибудь тихо сдашься.» NL NL Вы с застенчивым смешком объясняете, что эта книга просто не стоит таких усилий. NL NL «Да?» Она забрала у вас книгу и поставила обратно на полку. «В таком случае, ты же сможешь дойти до выхода сама?» NL NL Вы быстро отступаете, оставшись на этот раз с пустыми руками.",
+      "С другой стороны, брать новую книгу, когда вы ещё не дочитали последнюю «заимствованную» книгу, казалось немного бессмысленным."
     ],
     "OPTIONS": [
       "[Взять книгу] #gВыбрать #g1 #gиз #g10 #gкарт #gи #gдобавить #gеё #gв #gколоду.",
-      "[Stand your ground] #rСразиться. #gПолучить #gособую #gреликвию.",
-      "[Surrender the book] #rПотерять ",
+      "[Стоять на своём] #rСразиться. #gПолучить #gособую #gреликвию.",
+      "[Отдать книгу] #rПотерять ",
       "[Уйти]",
       "Выберите карту, которую хотите добавить в колоду."
     ]
   },
   "Gensokyo:MarisaAHazardousHobby": {
-    "NAME": "A Hazardous Hobby",
+    "NAME": "Рисковое хобби",
     "DESCRIPTIONS": [
-      "You #rbarge into Kourindou, making a #rracket. Kourin doesn't even look up as you enter. NL NL «Are you here to pawn off something you »collected» again?» NL NL You grin as you tell him that it is so. Although, if he picked up something #yinteresting lately, you wouldn't mind trading for it instead. NL NL «The most exciting thing that popped in recently was a piece of #ypaper with some #yscribbles on it. I couldn't decipher most of it, but I did spot the word »potion» in there a few times.»",
-      "He shows you the #ypaper in question, and you immediately find your curiosity piqued. The ingredients were unusual, the process was unconventional, and the result seemed dubious at best . . . NL NL But it was exactly the #puncertainty of it all that made potion-brewing so #gthrilling. NL NL «Oh? Caught your fancy, did it?»",
-      "You grimace as you notice him send you a knowing look. There went any prospect of weaseling the recipe out of him for free. NL NL «Well? Do you want the money or the paper?»",
-      "As much as the recipe intrigued you, you were unfortunately strapped for cash at the moment. NL NL A shame. Maybe next time.",
-      "You would have to steal some more extermination requests from Reimu to make up the financial deficit, but . . . NL NL Somehow, you already knew that this #ypotion would be worth it.",
-      "«I see this is a tough decision for you. Well, feel free to come back once you've made up your mind.»"
+      "Вы #rврываетесь в Кориндо, поднимая #rшум. Корин даже не взглянул узнать кто вошёл. NL NL «Ты здесь, чтобы снова спихнуть то, что ты \"собрала\"?» NL NL Вы с ухмылкой говорите, что это именно так. Хотя, вы возражаете против обмена, если он подобрал недавно что-нибудь #yинтересное. NL NL «Самая захватывающая вещь из недавнего - кусочек #yбумаги с какими-то #yкаракулями. Я смог несколько раз разобрать слово «зелье» на нём, но расшифровать полностью не вышло.»",
+      "Он показал #yлисток о котором говорил, и тот тут же взбудоражил ваше любопытство. Ингредиенты были необычны, процесс нетрадиционен, а результат в лучшем случае сомнительным . . . NL NL Но именно #pнеопределённость всего этого и делает варку зелий такой #gзахватывающей. NL NL «О? Тебе понравилось?»",
+      "Вы морщитесь, когда замечаете на сеье его понимающий взгляд, который не оставил и шанса выудить рецепт бесплатно. NL NL «Так что, будешь брать деньги или бумажку?»",
+      "Как бы вас не заинтресовал рецепт, но к сожалению на данный момент ваш кошелёк пуст. NL NL Позор. Может в следующий раз.",
+      "Придётся украсть пару запросов на уничтожение Рейму, чтобы восполнить денежный недостаток но . . . NL NL Каким-то образом вы уже знали, что это #yзелье стоит того.",
+      "«Смотрю это довольно трудный выбор для тебя. Ладно, вернись когда надумаешь что взять.»"
     ],
     "OPTIONS": [
       "[Продолжить]",
-      "[Money] #rПотерять ",
-      "[Recipe] #rПотерять ",
+      "[Деньги] #rПотерять ",
+      "[Рецепт] #rПотерять ",
       ". #gПолучить #g",
       " #gзолота.",
       ". #gПолучить #gособую #gреликвию.",
-      "[Can't decide]",
+      "[Не могу решить]",
       "[Закрыто] Требуется не начальная карта и не проклятие",
       "[Уйти]"
     ]
   },
   "Gensokyo:MarisaWalpurgisnacht": {
-    "NAME": "Walpurgisnacht",
+    "NAME": "Вальпургиева ночь",
     "DESCRIPTIONS": [
-      "Tonight is a #yspecial night. And not just because for once, you would be stepping in Voile as a guest instead of an intruder. NL NL «You’re late, Marisa. Alice and I have been waiting on you for a while now.» NL NL You toss the bag of ingredients you had been asked to bring onto a table. Gathering them up hadn't been easy, y'know? Some of them were quite #yrare. NL NL Patchy sighs as she looks over the regents. «I suppose that's fair. In any case, it is time to begin the ritual.»",
-      "You feel the #yspark of @excitement@ well up within you as you follow her. Walpurgisnacht was the night where the powers of witches like them were at their peak, and if Patchy’s plan worked out, they would be able to harness a little bit of that extra power all year long! NL NL Alice looks up as the two of you approach, glancing away from the intricate #pmagic #pcircle drawn on the ground. «Ah, you’re finally here. The circle is as flawless as it'll ever be, so all that remains is to decide who goes first.»",
-      "«So eager to be the guinea pig, are you?» Alice gestures for you to stand in the circle. «But I suppose that's just like you.» NL NL As the ceremony begins, you feel something #rburn inside you, a #rcinder that smolders and grows. It #rconsumes #peverything in its path, an #pinsatiable #phunger that swells into a #r@blazing@ #r@inferno@ - NL NL Your eyes shoot open. You can feel it. You can feel that your #yspark had grown, that it had gotten #ybrighter, stronger. NL NL You couldn't wait to unleash it upon the world.",
-      "«As the one who created the magic circle we will all be using, it behooves me to ensure that it works properly, so I suppose I will be the one to take the plunge.» NL NL Alice steps into the circle, and you take your place among the outskirts. The ceremony is short, brief, and disappointingly lacking a spectacular light show. NL NL You notice it when Alice opens her eyes. There is #psomething within those depths, something that hadn't been there before. NL NL What did she see, you wonder? What will #yyou see, you wonder?",
-      "«As the one who came up with this plan, I think it is only proper if I lead the way.» NL NL Patchy steps into the circle, and you take your place among the outskirts. The ceremony is short, brief, and disappointingly lacking a spectacular light show. NL NL You notice it when Patchy opens her eyes. There is #psomething within those depths, something that hadn't been there before. NL NL What did she see, you wonder? What will #yyou see, you wonder?"
+      "Сегодня #yособенная ночь. И не только потому, что на этот раз вы войдёте в библиотеку как гость, а не нарушитель. NL NL «Ты опоздала, Мариса. Мы с Алисой ждём тебя уже некоторое время.» NL NL Вы бросаете на стол мешок с ингредиентами, которые просили собрать. Найти их было нелегко, ведь некоторые достаточно #yредкие знаешь ли. NL NL Пачули вздохнула, оглянув реагенты. «Ладно, хватит оправданий, время начать ритуал.»",
+      "Вы почувствовали @возбуждение@ от вспыхнувшей внутри #yискры, когда последовали за ней. Вальпургиева ночь - ночь повышающая силу таких ведьм как вы до предела, если план Пачули сработает, то у вас выйдет пользоваться каплей этой силы в течение целого года! NL NL Приблизившись, Алиса подняла глаза, отводя взгляд от замысловатого #pмагического #pкруга на полу. «Мы наконец дошли. Круг безупречен, как никогда, остаётся только решить, кто пойдёт первым.»",
+      "«Тебе так нетерпится стать подопытным кроликом?» Алиса жестом провожает вас в круг. «Но думаю в этом вся ты.» NL NL С начала церемонии, вы чувствовали, как внутри что-то #rгорит, а #rзола тлеет и растёт. Оно #rпоглощает #pвсё на своём пути, #pнеутолимый #pголод, который разрастается в #r@пылающий@ #r@ад@ - NL NL Вы открыли глаза. Вы чувствуете. Чувствуете насколько ваша #yискра возросла, насколько стала #yярче и сильнее. NL NL Вам нетерпелось показать её всему миру.",
+      "Как та, что создала этот круг, думаю, я должна убедиться в его безопасности и сделать шаг первой.» NL NL Алиса ступает в круг, а вы занимаете своё место с краю. Церемония короткая и, к сожалению, лишена впечатляющего светового шоу. NL NL После того как Алиса открыла глаза, вы заметили, что у неё в глубине теперь есть #pчто-то чего там до этого не было. NL NL Интересно, что увидела она? А что увидите #yвы?",
+      "«Как та, кому пришла эта задумка, думаю, будет правильно, если я пойду первой.» NL NL Пачули ступает в круг, а вы занимаете своё место с краю. Церемония короткая и, к сожалению, лишена впечатляющего светового шоу. NL NL После того как Пачули открыла глаза, вы заметили, что у неё в глубине теперь есть #pчто-то чего там до этого не было. NL NL Интересно, что увидела она? А что увидите #yвы?"
     ],
     "OPTIONS": [
       "[Продолжить]",
-      "[Offer to go first] #rПотерять #r",
+      "[Пойти первой] #rПотерять #r",
       " #rОЗ. #gУлучшить #gвсе #gИскры.",
-      "[Let Alice go first] #gПолучить Подарок Алисы+.",
-      "[Let Patchouli go first] #gПреобразовать #gкарту #gв #gслуч. #gРедкую #gкарту.",
+      "[Дать Алисе пойти] #gПолучить Подарок Алисы+.",
+      "[Дать Пачули пойти] #gПреобразовать #gкарту #gв #gслуч. #gРедкую #gкарту.",
       "[Закрыто] Требуется улучшаемая искра",
       "[???]",
       "Выберите карту, которую хотите преобразовать"
