@@ -1,0 +1,233 @@
+{
+  "Gensokyo:PerfectCherryBlossom": {
+    "NAME": "퍼펙트 체리 블로섬",
+    "FLAVOR": "외로운 소녀와 친구가 되어준 은혜입니다.",
+    "DESCRIPTIONS": [
+      "다음번에 죽게 되면, 죽는 대신 최대 체력의 #b10%를 회복합니다. 죽을때마다, 모든 적을 #r처치합니다."
+    ]
+  },
+  "Gensokyo:Mercy": {
+    "NAME": "자비",
+    "FLAVOR": "악을 끊을수 있는것은 정의나 용기, 영웅적 행위가 아닌 자비입니다.",
+    "DESCRIPTIONS": [
+      "매 턴 #y스킬 카드를 #b", " , 번 사용하면, #y방어도를 #b", " 얻습니다."
+    ]
+  },
+  "Gensokyo:Justice": {
+    "NAME": "정의",
+    "FLAVOR": "죽은 자는 정의를 부르짖을수 없죠. 그들을 위해 정의를 집행하는건 산 자의 의무니까요.",
+    "DESCRIPTIONS": [
+      "매 턴 #y공격 카드를 #b", " 번 사용하면, 적 전체에게 피해를 #b", " 줍니다."
+    ]
+  },
+  "Gensokyo:CelestialsFlawlessClothing": {
+    "NAME": "천의무봉",
+    "FLAVOR": "마치 천국같은 기분이군요.",
+    "DESCRIPTIONS": [
+      "전투에서 죽으면, 체력을 전부 회복하고 적군 #r사신 이 현재 전투에 참여합니다. 이 효과는 전투 중에만 발동하며, #r사신이 존재하면 이 효과가 발동하지 않습니다."
+    ]
+  },
+  "Gensokyo:OccultBall": {
+    "NAME": "오컬트 볼",
+    "FLAVOR": "7개의 구슬을 모으면, 원하는 소원을 들어준다고 합니다.",
+    "DESCRIPTIONS": [
+      "전투 시작시, 무작위 #y도시 #y전설 카드를 손으로 가져옵니다. #y오컬트 #y볼은 확률적으로 보상에 추가됩니다.",
+      "전투 시작시, 무작위 #y도시 #y전설 카드를 #b2장 중 하나를 골라 손으로 가져옵니다. #y오컬트 #y볼은 확률적으로 보상에 추가됩니다.",
+      "전투 시작시, 무작위 #y도시 #y전설 카드를 #b3장 중 하나를 골라 손으로 가져옵니다. #y오컬트 #y볼은 확률적으로 보상에 추가됩니다.",
+      "전투 시작시, 강화된 무작위 #y도시 #y전설 카드 #b3장을 손으로 가져옵니다.",
+      "전투 시작시, 강화된 #y도시 #y전설 카드 #b3장을 선택하여 손으로 가져옵니다",
+    ]
+  },
+  "Gensokyo:LunaticRedEyes": {
+    "NAME": "광기의 붉은 눈",
+    "FLAVOR": "이 눈이 당신에게는 별 효과가 없는것 같습니다. 이미 제정신이 아니니까 말이죠.",
+    "DESCRIPTIONS": [
+      "매 전투 시작시, 적 전체에게 #ygensokyo:광기 를 #b", " 부여합니다."
+    ]
+  },
+  "Gensokyo:PortableGap": {
+    "NAME": "휴대용 스키마",
+    "FLAVOR": "이 공허 속 안을 들여다보니, 엄청난 수의 눈이 당신을 쳐다봅니다.",
+    "DESCRIPTIONS": [
+      "이제부터 다음 방을 선택할때 원하는 위치로 이동할 수 있습니다. 이 효과를 사용하면, 최대 체력을 #b", " #r잃습니다."
+    ]
+  },
+  "Gensokyo:NagashiBinaDoll": {
+    "NAME": "나가시비나 인형",
+    "FLAVOR": "자세히 들여다보면, 액운의 기운이 인형에 스며드는것을 볼 수 있습니다.",
+    "DESCRIPTIONS": [
+      "매 턴 종료시, 손에 있는 무작위 #p저주 카드를 #y소멸시킵니다."
+    ]
+  },
+  "Gensokyo:YoukaiFlower": {
+    "NAME": "요괴 꽃",
+    "FLAVOR": "이 꽃은 마치 당신이 어디있든간에, 계속해서 쳐다보려고 목을 꺾고 있는것처럼 보입니다.",
+    "DESCRIPTIONS": [
+      "매 #b",
+      " 턴마다, [E] [E] 를 얻습니다."
+    ]
+  },
+  "Gensokyo:Bombinomicon": {
+    "NAME": "보미노미콘",
+    "FLAVOR": "사망시 장대한 폭발이 일어납니다.",
+    "DESCRIPTIONS": [
+      "전투 시작시, #y보존에 #y소멸 효과가 부여된 #y폭탄+ 카드를 손으로 가져옵니다.", "보존. NL ", " NL 소멸."
+    ]
+  },
+  "Gensokyo:BookOfSpecters": {
+    "NAME": "망령의 책",
+    "FLAVOR": "친구를 사귀고 싶었던 외로운 네크로맨서가 쓴 책입니다.",
+    "DESCRIPTIONS": [
+      "매 턴 시작시, 카드를 #b", " 장 뽑습니다. 뽑아온 카드들이 #y공격 #y카드가 #r아니라면, 그 카드를 버립니다. "
+    ]
+  },
+  "Gensokyo:UndefinedDarkness": {
+    "NAME": "정체불명의 어둠",
+    "FLAVOR": "공포에는 여러가지 형태가 있죠.",
+    "DESCRIPTIONS": [
+      "다음 #b", " 번의 전투 동안 카드의 효과가 #p가려집니다. 전투 후, #y특별한 #y유물을 얻습니다.", "???"
+    ]
+  },
+  "Gensokyo:ConquerorOfFear": {
+    "NAME": "공포를 극복한 자",
+    "FLAVOR": "우리가 두려워해야할 것은 공포 그 자체입니다.",
+    "DESCRIPTIONS": [
+      "버린 카드 더미에 카드가 #b", " 장 이상 존재할 경우, #y힘과 #y민첩을 #b", " 얻습니다."
+    ]
+  },
+  "Gensokyo:DayTheSeaSplit": {
+    "NAME": "바다가 갈라지는 날",
+    "FLAVOR": "바다, 한 번이라도 그 마법에 빠지면, 그 멋진 세계에 영원히 빠져들고 탐구하게 됩니다.",
+    "DESCRIPTIONS": [
+      "다음 #b", " 번의 전투 동안 #y스킬 카드를 사용하면 #y소멸합니다. 전투 후, #y특별한 #y유물을 얻습니다."
+    ]
+  },
+  "Gensokyo:MosesMiracle": {
+    "NAME": "모세의 기적",
+    "FLAVOR": "\"바다를 가르는 기적. 물고기 잡이가 쉬워진다.\" - The Grimoire of Marisa",
+    "DESCRIPTIONS": [
+      "덱을 섞을때마다, #y기적 1장을 손으로 가져옵니다."
+    ]
+  },
+  "Gensokyo:FoxMask": {
+    "NAME": "여우 가면",
+    "FLAVOR": "성실함과 결의의 가면.",
+    "DESCRIPTIONS": [
+      "#y상태이상 카드를 뽑을때마다, 카드를 #b", " 장 뽑습니다."
+    ]
+  },
+  "Gensokyo:SpiderMask": {
+    "NAME": "거미 가면",
+    "FLAVOR": "노여움과 분노의 가면.",
+    "DESCRIPTIONS": [
+      "매 턴 처음으로 #y공격 카드를 사용하면, 무작위 적에게 #y취약을 #b", " 부여합니다."
+    ]
+  },
+  "Gensokyo:MaskOfHope": {
+    "NAME": "희망의 가면",
+    "FLAVOR": "우스움과 격려의 가면.",
+    "DESCRIPTIONS": [
+      "매 전투에서 처음으로 체력을 잃으면, #y임시 #y체력 #b", " 을 얻습니다."
+    ]
+  },
+  "Gensokyo:DemonMask": {
+    "NAME": "오니 가면",
+    "FLAVOR": "충격적인 가면.",
+    "DESCRIPTIONS": [
+      "매 턴 종료시, 이번 턴에 #y공격 카드만 사용했다면, #y힘을 #b", " 얻습니다."
+    ]
+  },
+  "Gensokyo:LionMask": {
+    "NAME": "사자 가면",
+    "FLAVOR": "행복과 기쁨의 가면.",
+    "DESCRIPTIONS": [
+      "#y스킬 카드를 사용할 때마다, 무작위 적에게 피해를 #b", " 줍니다."
+    ]
+  },
+  "Gensokyo:RedStar": {
+    "NAME": "붉은 별",
+    "FLAVOR": "불길한 전조입니다.",
+    "DESCRIPTIONS": [
+      "다음 보스 전투에서 당신의 최대 체력이 #b", "% 감소합니다. 전투 후, #y특별한 #y카드를 얻습니다."
+    ]
+  },
+  "Gensokyo:ChorusOfJoy": {
+    "NAME": "환희의 합창",
+    "FLAVOR": "우울한 시간을 위한 즐거운 멜로디.",
+    "DESCRIPTIONS": [
+      "전투 시작시, [E] 를 얻고 카드를 #b", " 장 버립니다.", " 장 버립니다."
+    ]
+  },
+  "Gensokyo:DirgeOfMelancholy": {
+    "NAME": "우울의 만가",
+    "FLAVOR": "그리운 시절을 위한 애절한 멜로디.",
+    "DESCRIPTIONS": [
+      "전투 시작시, [E] 를 잃고 모든 적이 #y힘을 #b", " 잃습니다."
+    ]
+  },
+  "Gensokyo:SongOfSouls": {
+    "NAME": "영혼의 노래",
+    "FLAVOR": "어느 때나 어울리는 청아한 멜로디.",
+    "DESCRIPTIONS": [
+      "타격과 수비 카드를 사용하면, #y소멸시킵니다."
+    ]
+  },
+  "Gensokyo:Companionship": {
+    "NAME": "우정",
+    "FLAVOR": "이런건 평생 기억하게 되는 그런 작은 순간들입니다.",
+    "DESCRIPTIONS": [
+      " #ygensokyo:펫 에게 당신이 가진 #y방어도를 #b", " 씩 나누어줄 수 있습니다."
+    ]
+  },
+  "Gensokyo:EmptyGrave": {
+    "NAME": "빈 무덤",
+    "FLAVOR": "전 거기에 없습니다. 아직 죽지 않았으니까요.",
+    "DESCRIPTIONS": [
+      "#b", " 층을 올라가면, 최대 체력의 #b", "% 만큼을 회복합니다."
+    ]
+  },
+  "Gensokyo:DualWield": {
+    "NAME": "쌍수 무기",
+    "FLAVOR": "찢고 죽인다, 피로 뒤덮일때까지. \n 끔찍한 소리와 함께 뿌린대로 거두리라.",
+    "DESCRIPTIONS": [
+      "단일 대상으로 하는 #y공격 피해가 모든 적에게 적용됩니다."
+    ]
+  },
+  "Gensokyo:TheCrow": {
+    "NAME": "까마귀 마스크",
+    "FLAVOR": "힘이 손짓하며, 달콤한 목소리를 낸다. \n 광기가 답하고, 어둠으로 오염된다.",
+    "DESCRIPTIONS": [
+      "매 턴 종료시, #y의식을 #b", " 얻고 현재 #y힘 수치와 동일한 피해를 입게 됩니다."
+    ]
+  },
+  "Gensokyo:DummyBloodcastTooltip": {
+    "NAME": "피의 계약",
+    "FLAVOR": "",
+    "DESCRIPTIONS": [
+      "이 카드를 사용하는데에 필요한 [E] 가 부족하다면, 부족한 [E] 만큼 체력을 #b1 잃고 이 카드를 사용합니다."
+    ]
+  },
+  "Gensokyo:MarisaIngredientList": {
+    "NAME": "재료 목록",
+    "FLAVOR": "한 페이지에 적혀있는 난잡한 글씨들. \"역전의 포션\" 이라는것을 만들수 있는것 같습니다.",
+    "DESCRIPTIONS": [
+      "#yIngredients: NL 1. #b", " 명의 일반 ", " #r엘리트", " 적군과 조우하라. ", " 적군과 조우하라. ", " 회의 #p이벤트를 조우하라. ", " 회의 #p이벤트를 조우하라. ", "/",
+      " NL 2. #b", " 개의 일반", " 개의 #b특별", " 개의 #y희귀", " 카드를 획득해라. ", " 카드를 획득해라. ",
+      " NL 3. 두가지 조건을 성공시켰다면, #y모닥불에서 #g포션을 #g양조할 수 있다."
+    ]
+  },
+  "Gensokyo:MarisaImprobabilityPotion": {
+    "NAME": "역전의 포션",
+    "FLAVOR": "사용자에게 불가능을 가능하게 만들어주는 힘을 부여합니다.",
+    "DESCRIPTIONS": [
+      " [#2aecd7]전투에서 [#2aecd7]1번만 [#2aecd7]사용할수 [#2aecd7]있습니다.[] NL 체력을 #b", " 잃습니다. #y힘과 #y민첩을 #b", " 얻습니다."
+    ]
+  },
+  "Gensokyo:MarisaPhilosophersStone": {
+    "NAME": "현자의 돌",
+    "FLAVOR": "납을 금으로 만들수 있다고 하네요.",
+    "DESCRIPTIONS": [
+      "매 턴 시작시, 카드를 1장 #y소멸시키고 무작위 #y높은 #y등급의 카드를 손으로 가져옵니다."
+    ]
+  }
+}

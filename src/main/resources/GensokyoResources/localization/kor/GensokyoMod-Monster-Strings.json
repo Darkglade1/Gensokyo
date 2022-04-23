@@ -1,0 +1,745 @@
+{
+  "Gensokyo:Komachi": {
+    "MOVES": [
+      "사신의 낫",
+      "첩첩이 낀 안개 건너기",
+      "얼마 남지 않은 여생"
+    ],
+    "NAME": "사신",
+    "DIALOG": [
+      "수지가 안 맞는 일인데.",
+      "내가 나서지 않으면 안 되겠는데 . . .",
+      "또 너야?",
+      "좀 죽어주지 않을래?"
+    ]
+  },
+  "Gensokyo:Yukari": {
+    "MOVES": [
+      "환상광상혈",
+      "매혹적인 떡밥",
+      "시공의 틈",
+      "엔월산",
+      "폐역 하차 여행",
+      "사중 결계"
+    ],
+    "NAME": "경계의 요괴",
+    "DIALOG": [
+      "네가 이곳에서 문제를 일으키는 범인이구나."
+    ]
+  },
+  "Gensokyo:Kokoro": {
+    "MOVES": [
+      "마스크 변경"
+    ],
+    "NAME": "풍부한 표정의 포커페이스"
+  },
+  "Gensokyo:Reimu": {
+    "MOVES": [
+      "음양보옥",
+      "이중 대결계",
+      "봉마진"
+    ],
+    "NAME": "낙원의 무녀",
+    "DIALOG": [
+      "또 이변이네.",
+      "마리사, 봐주지는 않을거야."
+    ]
+  },
+  "Gensokyo:YinYangOrb": {
+    "MOVES": [
+      ""
+    ],
+    "NAME": "음양옥"
+  },
+  "Gensokyo:Aya": {
+    "MOVES": [
+      "환상풍미",
+      "질주풍미",
+      "질풍선"
+    ],
+    "NAME": "환상의 신문 기자",
+    "DIALOG": [
+      "좋은 기삿거리가 되겠네요!"
+    ]
+  },
+  "Gensokyo:Cirno": {
+    "MOVES": [
+      "격려",
+      "퍼펙트 프리즈",
+      "아이시클 봄"
+    ],
+    "NAME": "최강의 요정",
+    "DIALOG": [
+      "나는 최강이야!",
+      "우리 요정들이 또 다시 이긴것 같네!",
+      "우릴 얕보지 말아줄래!"
+    ]
+  },
+  "Gensokyo:SunflowerFairy": {
+    "MOVES": [
+
+    ],
+    "NAME": "해바라기 요정"
+  },
+  "Gensokyo:ZombieFairy": {
+    "MOVES": [
+
+    ],
+    "NAME": "좀비 요정"
+  },
+  "Gensokyo:GreaterFairy": {
+    "MOVES": [
+
+    ],
+    "NAME": "대요정"
+  },
+  "Gensokyo:MaidFairy": {
+    "MOVES": [
+
+    ],
+    "NAME": "요정 메이드"
+  },
+  "Gensokyo:Mamizou": {
+    "MOVES": [
+      "후타츠이와 가문의 재판"
+    ],
+    "NAME": "너구리 변장술사",
+    "DIALOG": [
+      "아무래도 들켜버린것 같구나."
+    ]
+  },
+  "Gensokyo:RedKodama": {
+    "MOVES": [
+
+    ],
+    "NAME": "털구슬"
+  },
+  "Gensokyo:GreyKodama": {
+    "MOVES": [
+
+    ],
+    "NAME": "털구슬"
+  },
+  "Gensokyo:YellowKodama": {
+    "MOVES": [
+
+    ],
+    "NAME": "털구슬"
+  },
+  "Gensokyo:WhiteKodama": {
+    "MOVES": [
+
+    ],
+    "NAME": "털구슬"
+  },
+  "Gensokyo:VengefulSpirit": {
+    "MOVES": [
+
+    ],
+    "NAME": "원령"
+  },
+  "Gensokyo:LivingMonolith": {
+    "MOVES": [
+      "충전 완료!"
+    ],
+    "NAME": "살아있는 모노리스"
+  },
+  "Gensokyo:CorruptedTreant": {
+    "MOVES": [
+
+    ],
+    "NAME": "오염된 나무정령"
+  },
+  "Gensokyo:Python": {
+    "MOVES": [
+
+    ],
+    "NAME": "비단뱀"
+  },
+  "Gensokyo:Gryphon": {
+    "MOVES": [
+
+    ],
+    "NAME": "그리폰"
+  },
+  "Gensokyo:MoonRabbit": {
+    "MOVES": [
+
+    ],
+    "NAME": "달토끼"
+  },
+  "Gensokyo:Kitsune": {
+    "MOVES": [
+
+    ],
+    "NAME": "여우"
+  },
+  "Gensokyo:Patchouli": {
+    "MOVES": [
+      "아그니 샤인",
+      "로얄 플레어",
+      "버리 인 레이크",
+      "프린세스 운디네",
+      "실피 호른",
+      "그린 스톰",
+      "실버 드래곤",
+      "메탈 퍼티그",
+      "레이지 트릴리톤",
+      "트릴리톤 셰이크"
+    ],
+    "NAME": "움직이지 않는 대도서관"
+  },
+  "Gensokyo:FireOrb": {
+    "MOVES": [
+
+    ],
+    "NAME": "화염"
+  },
+  "Gensokyo:WaterOrb": {
+    "MOVES": [
+
+    ],
+    "NAME": "물"
+  },
+  "Gensokyo:WoodOrb": {
+    "MOVES": [
+
+    ],
+    "NAME": "나무"
+  },
+  "Gensokyo:MetalOrb": {
+    "MOVES": [
+
+    ],
+    "NAME": "금속"
+  },
+  "Gensokyo:EarthOrb": {
+    "MOVES": [
+
+    ],
+    "NAME": "대지"
+  },
+  "Gensokyo:Sumireko": {
+    "MOVES": [
+      "3D 프린터 건",
+      "파이로키네시스",
+      "불릿 캔슬",
+      "싸이코키네시스",
+      "도플갱어 소환"
+    ],
+    "NAME": "비봉 클럽 초대 회장",
+    "DIALOG": [
+      "음, 드디어 따라잡았네!"
+    ]
+  },
+  "Gensokyo:Eiki": {
+    "MOVES": [
+      "정파리 심판 - ",
+      "방황하는 죄",
+      "유죄일까 무죄일까",
+      "회오의 봉"
+    ],
+    "NAME": "낙원의 고위재판장",
+    "DIALOG": [
+      "과거의 죄악으로부터 도망칠 수는 없습니다.",
+      "당신의 극복력이 대단하시군요.",
+      "이번엔 게으름을 안 피우셔서 다행입니다."
+    ]
+  },
+  "Gensokyo:Mirror": {
+    "MOVES": [
+      "유죄",
+      "무죄",
+      "중립"
+    ],
+    "NAME": "정파리 거울",
+    "DIALOG": [
+
+    ]
+  },
+  "Gensokyo:Kaguya": {
+    "MOVES": [
+      "브릴리언트 드래곤 불릿",
+      "부디스트 다이아몬드"
+    ],
+    "NAME": "영원과 수유의 죄인",
+    "DIALOG": [
+      "날 즐겁게 해주지 않겠니?",
+      "정말 즐거웠어."
+    ]
+  },
+  "Gensokyo:Byakuren": {
+    "MOVES": [
+      "스타 마엘스트롬",
+      "마신복송",
+      "초인",
+      "인드라의 번개"
+    ],
+    "NAME": "봉인되어있던 대마법사",
+    "DIALOG": [
+      "당신의 힘 같은건 필요 없습니다, 미코.",
+      "불멸이라고 하시더니, 거짓이었나보네요."
+    ]
+  },
+  "Gensokyo:Miko": {
+    "MOVES": [
+      "황금의 검",
+      "축지의 망토",
+      "욕망의 구혼",
+      "십칠조의 레이저",
+      "빨간 망토 파란 망토"
+    ],
+    "NAME": "성덕도사",
+    "DIALOG": [
+      "네 믿음은 엉터리에 불과해!",
+      "네 훈련 부족이 널 몰락시켰다."
+    ]
+  },
+  "Gensokyo:Reisen": {
+    "MOVES": [
+      "광기의 눈",
+      "루나틱 블래스트",
+      "마인드 웨이브",
+      "광기의 덩굴손"
+    ],
+    "NAME": "광기의 달토끼",
+    "DIALOG": [
+      "미안하지만 여길 지나갈 수는 없어.",
+      "아, 오랜만이네!",
+      "하지만, 아무리 당신이라도 예외는 없어."
+    ]
+  },
+  "Gensokyo:Kune": {
+    "MOVES": [
+
+    ],
+    "NAME": "쿠네",
+    "DIALOG": [
+
+    ]
+  },
+  "Gensokyo:Koishi": {
+    "MOVES": [
+      "이드의 해방",
+      "캐치 앤드 로즈",
+      "스팅깅 마인드"
+    ],
+    "NAME": "상상 속의 인격 보유자",
+    "DIALOG": [
+      "즐겁게 놀자!"
+    ]
+  },
+  "Gensokyo:Tenshi": {
+    "MOVES": [
+      "천지개벽 프레스",
+      "천벌의 돌기둥",
+      "천공의 영석"
+    ],
+    "NAME": "천계의 아가씨",
+    "DIALOG": [
+      "네 전력을 보여주길 바래!",
+      "뭐야, 또 내 즐거움을 망치려고 온거야?",
+      "그럼 널 대신 가지고 놀면서 만족해야겠네!"
+    ]
+  },
+  "Gensokyo:Swordslinger": {
+    "MOVES": [
+      "갈고 닦기"
+    ],
+    "NAME": "소드슬링거"
+  },
+  "Gensokyo:Wraith": {
+    "MOVES": [
+     ""
+    ],
+    "NAME": "망령"
+  },
+  "Gensokyo:BigMudSlime": {
+    "MOVES": [
+      ""
+    ],
+    "NAME": "거대 진흙 슬라임"
+  },
+  "Gensokyo:SlimeBunny": {
+    "MOVES": [
+      null,
+      "정화",
+      null
+    ],
+    "NAME": "토끼 슬라임"
+  },
+  "Gensokyo:CosmicMonolith": {
+    "MOVES": [
+      "충전형 레이저",
+      null,
+      "멸절"
+    ],
+    "NAME": "코즈믹 모노리스"
+  },
+  "Gensokyo:TanukiDog": {
+    "MOVES": [
+      null,
+      null,
+      "광폭화"
+    ],
+    "NAME": "너굴멍이"
+  },
+  "Gensokyo:Gloop": {
+    "MOVES": [
+      "반짝이",
+      null,
+      null
+    ],
+    "NAME": "아름다운 끈적이"
+  },
+  "Gensokyo:AngelMirror": {
+    "MOVES": [
+
+    ],
+    "NAME": "천사 거울"
+  },
+  "Gensokyo:Chomper": {
+    "MOVES": [
+
+    ],
+    "NAME": "먹깨비"
+  },
+  "Gensokyo:YinYangFox": {
+    "NAME": "음양 여우",
+    "DIALOG": [
+      "공격",
+      "방어",
+      "회복"
+    ],
+    "MOVES": [
+      "펫이이 무작위 적에게 ",
+      " 의 피해로 공격합니다.",
+      "당신에게 방어도를 ",
+      " 부여합니다.",
+      "펫이이 체력을 ",
+      " 회복합니다."
+    ]
+  },
+  "Gensokyo:FieryMouse": {
+    "NAME": "불쥐",
+    "DIALOG": [
+      "공격",
+      "버프",
+      "회복"
+    ],
+    "MOVES": [
+      "펫이 적 전체에게 ",
+      " 의 피해로 공격합니다.",
+      "펫이 체력을 ",
+      " 만큼 잃고 ",
+      "당신에게 힘을 ",
+      " 부여합니다.",
+      "당신의 체력을 ",
+      " 회복시킵니다."
+    ]
+  },
+  "Gensokyo:JeweledCobra": {
+    "NAME": "보석 코브라",
+    "DIALOG": [
+      "디버프",
+      "전체 디버프",
+      "방어"
+    ],
+    "MOVES": [
+      "펫이 무작위 적에게 중독을 ",
+      " 부여합니다.",
+      "펫이 적 전체에 중독을 ",
+      " 부여합니다.",
+      "펫이 방어도를 ",
+      " 얻습니다."
+    ]
+  },
+  "Gensokyo:PsychicCat": {
+    "NAME": "초능력 고양이",
+    "DIALOG": [
+      "디버프",
+      "디버프",
+      "드로우"
+    ],
+    "MOVES": [
+      "펫이 적 전체에게 약화를 ",
+      " 부여합니다.",
+      "펫이 적 전체에게 취약을 ",
+      " 부여합니다.",
+      "카드를 ",
+      " 장 뽑습니다."
+    ]
+  },
+  "Gensokyo:Doremy": {
+    "MOVES": [
+      null,
+      null,
+      null,
+      "이제 일어나지 않아도 돼",
+      "황색의 미몽",
+      "비색의 악몽"
+    ],
+    "NAME": "꿈의 지배자",
+    "DIALOG": [
+      "달콤한 꿈을 원하시나요?",
+      "편히 주무시기를.",
+      "꿈 파괴자"
+    ]
+  },
+  "Gensokyo:Flandre": {
+    "MOVES": [
+      "블러디 카타스트로피",
+      "포비든 프루츠",
+      "레바테인",
+      "그리고 아무도 없게 되는가?"
+    ],
+    "NAME": "악마의 여동생",
+    "DIALOG": [
+      "저 손님들과 같이 놀자, 언니!",
+      "아무리 언니라도 날 막을수는 없어!"
+    ]
+  },
+  "Gensokyo:Remilia": {
+    "MOVES": [
+      "스칼렛 슛",
+      "뱀파이어 클로",
+      "나이트 댄스"
+    ],
+    "NAME": "붉은 악마",
+    "DIALOG": [
+      "자제력이란걸 좀 배우는게 어때?",
+      "이걸로 싫증이 났으면 좋겠네."
+    ]
+  },
+  "Gensokyo:Yuyuko": {
+    "MOVES": [
+      "개스틀리 드림",
+      "생자필멸의 이치",
+      "반혼접",
+      "대안의 유혹",
+      "사이교우지 무여열반",
+      "고인의 소포"
+    ],
+    "NAME": "명계의 망령",
+    "DIALOG": [
+      "죽기에 참 아름다운 날이야, 그렇지?",
+      "벼랑 끝에 몰리셨네. 내가 친히 그 밑으로 밀어드릴게."
+    ]
+  },
+  "Gensokyo:BlueSoul": {
+    "MOVES": [
+
+    ],
+    "NAME": "영혼",
+    "DIALOG": [
+
+    ]
+  },
+  "Gensokyo:PurpleSoul": {
+    "MOVES": [
+
+    ],
+    "NAME": "영혼",
+    "DIALOG": [
+
+    ]
+  },
+  "Gensokyo:Mokou": {
+    "MOVES": [
+      "블레이징 킥",
+      "정직한 자의 죽음",
+      "후지야마 볼케이노",
+      "피닉스 재탄생"
+    ],
+    "NAME": "붉은 자경단",
+    "DIALOG": [
+      "이번에는, 널 땅바닥으로 내리꽂아버리겠어!",
+      "할 수 있으면 해보시지."
+    ]
+  },
+  "Gensokyo:Marisa": {
+    "MOVES": [
+      "마스터 스파크",
+      "머신건 스파크",
+      "위칭 블래스트",
+      "스타라이트 스타브라이트"
+    ],
+    "NAME": "평범한 마법사",
+    "DIALOG": [
+      "레이무가 널 상대로 졌단 말이지? 그럼 이제 내 턴이네!"
+    ]
+  },
+  "Gensokyo:Shinki": {
+    "MOVES": [
+
+    ],
+    "NAME": "외로운 신",
+    "DIALOG": [
+      "전부 내 잘못이야 . . .",
+      "어쩌면 아직 내게 희망이 남았을지도 몰라 . . ."
+    ]
+  },
+  "Gensokyo:Alice": {
+    "MOVES": [
+      "아트풀 새크리파이스",
+      "데블리 라이트 레이",
+      "스펙트로 미스터리",
+      "저지먼트 돌"
+    ],
+    "NAME": "떠나간 자",
+    "DIALOG": [
+      "처음에는 정말 행복했었는데.",
+      "당신은 정말 모진 부모였어.",
+      "당신을 더 이상 따라가지 못했기에 떠난거야.",
+      "전부 고마웠어."
+    ]
+  },
+  "Gensokyo:Doll": {
+    "MOVES": [
+      null
+    ],
+    "NAME": "인형",
+    "DIALOG": [
+
+    ]
+  },
+  "Gensokyo:Yumeko": {
+    "MOVES": [
+      "저지먼트 블레이드",
+      "미저리 돌",
+      "과부하"
+    ],
+    "NAME": "실패한 자",
+    "DIALOG": [
+      "침입자는 제가 처리하겠습니다, 아가씨!",
+      "어째서 제게 결점을 남기신건가요.",
+      "어째서 저를 더욱 강하게 만들어주지 않으신겁니까!",
+      "제 일로 아가씨가 괴로워하지 마시길."
+    ]
+  },
+  "Gensokyo:Sariel": {
+    "MOVES": [
+      "죽음의 손길",
+      "파멸의 일격"
+    ],
+    "NAME": "잊혀진 자",
+    "DIALOG": [
+      "분부하신대로.",
+      "제가 쓸모 없으셨던겁니까?",
+      "당신을 계속 기다려왔지만, 당신은 저를 그대로 놓아두고 가셨죠.",
+      "당신과 보낸 날들은 행복했었어요.",
+      "저희가 죽는 그 순간까지 춤을 춰봐요."
+    ]
+  },
+  "Gensokyo:SeedOfUnknown": {
+    "MOVES": [
+    ],
+    "NAME": "정체불명의 씨앗",
+    "DIALOG": [
+    ]
+  },
+  "Gensokyo:AncientGuardian": {
+    "MOVES": [
+    ],
+    "NAME": "고대의 수호자",
+    "DIALOG": [
+    ]
+  },
+  "Gensokyo:Rafflesia": {
+    "MOVES": [
+    ],
+    "NAME": "라플레시아",
+    "DIALOG": [
+    ]
+  },
+  "Gensokyo:AtlasGolem": {
+    "MOVES": [
+      "산사태",
+      "슬로우 스타트",
+      "록 폴리쉬"
+    ],
+    "NAME": "아틀라스 골렘",
+    "DIALOG": [
+    ]
+  },
+  "Gensokyo:Duskaxe": {
+    "MOVES": [
+      "황혼 파괴자",
+      "황혼의 부름"
+    ],
+    "NAME": "황혼의 도끼",
+    "DIALOG": [
+    ]
+  },
+  "Gensokyo:Dawnsword": {
+    "MOVES": [
+      "새벽의 균열",
+      "새벽의 빛"
+    ],
+    "NAME": "새벽의 검",
+    "DIALOG": [
+    ]
+  },
+  "Gensokyo:VampireBat": {
+    "MOVES": [
+
+    ],
+    "NAME": "흡혈 박쥐",
+    "DIALOG": [
+    ]
+  },
+  "Gensokyo:FeralBat": {
+    "MOVES": [
+
+    ],
+    "NAME": "뼈다귀 박쥐",
+    "DIALOG": [
+    ]
+  },
+  "Gensokyo:LoudBat": {
+    "MOVES": [
+
+    ],
+    "NAME": "시끄러운 박쥐",
+    "DIALOG": [
+    ]
+  },
+  "Gensokyo:Sharpion": {
+    "MOVES": [
+
+    ],
+    "NAME": "날선게",
+    "DIALOG": [
+    ]
+  },
+  "Gensokyo:MadBoulder": {
+    "MOVES": [
+
+    ],
+    "NAME": "화난 돌덩이",
+    "DIALOG": [
+    ]
+  },
+  "Gensokyo:Kasen": {
+    "MOVES": [
+      "드래곤 킥",
+      "원숭이 팔",
+      "호크 비콘",
+      "동물 친구들"
+    ],
+    "NAME": "편완유각의 선인",
+    "DIALOG": [
+      "무모하기만 하면 승리를 보장할수 없어요."
+    ]
+  },
+  "Gensokyo:Kume": {
+    "MOVES": [
+
+    ],
+    "NAME": "칸다",
+    "DIALOG": [
+    ]
+  }
+}
+
+

@@ -59,14 +59,14 @@
             <systemPath>${Steam.path}/workshop/content/646570/1934902042/actlikeit.jar</systemPath>
         </dependency>
         <dependency>
-            <groupId>friendlyminions</groupId>
+            <groupId>com.evacipated.cardcrawl.mod</groupId>
             <artifactId>FriendlyMinions</artifactId>
             <version>0.2.0</version>
             <scope>system</scope>
             <systemPath>${Steam.path}/workshop/content/646570/1612426481/FriendlyMinions.jar</systemPath>
         </dependency>
         <dependency>
-            <groupId>ThMod</groupId>
+            <groupId>com.evacipated.cardcrawl.mod</groupId>
             <artifactId>ThMod</artifactId>
             <version>v0.14.17</version>
             <scope>system</scope>

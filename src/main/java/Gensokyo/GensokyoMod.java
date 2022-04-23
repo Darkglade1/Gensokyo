@@ -1021,6 +1021,9 @@ public class GensokyoMod implements
             case JPN:
                 ret += "jpn/";
                 break;
+            case KOR:
+                ret += "kor/";
+                break;
             case RUS:
                 ret += "rus/";
                 break;

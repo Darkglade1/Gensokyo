@@ -1,0 +1,333 @@
+{
+  "Gensokyo:CrescentMoonSlash": {
+    "NAME": "현월참",
+    "DESCRIPTION": "적 전체에게 피해를 !D! 줍니다. NL 이 효과로 적을 죽이면, 피해를 한 번 더 줍니다."
+  },
+  "Gensokyo:MissMary": {
+    "NAME": "메리씨",
+    "DESCRIPTION": "적 전체에 취약을 !M! 부여합니다."
+  },
+  "Gensokyo:SpontaneousHumanCombustion": {
+    "NAME": "인체 자연 발화 현상",
+    "DESCRIPTION": "힘을 !M! 얻습니다. NL 매 턴 시작시, !Gensokyo:SecondMagic! 피해를 받고 이 효과로 받는 피해량이 !Gensokyo:SecondMagic! 증가합니다."
+  },
+  "Gensokyo:RedCapeBlueCape": {
+    "NAME": "빨간 망토 파란 망토",
+    "DESCRIPTION": "방어도를 !B! 얻습니다. NL 피해를 !D! 줍니다. NL  빨간 망토 카드와 파란 망토 카드를 손으로 가져옵니다.",
+    "UPGRADE_DESCRIPTION": "방어도를 !B! 얻습니다. NL 피해를 !D! 줍니다. NL Add 빨간 망토+ 카드와 파란 망토+ 카드를 손으로 가져옵니다."
+  },
+  "Gensokyo:RedCape": {
+    "NAME": "빨간 망토",
+    "DESCRIPTION": "피해를 !D! 줍니다."
+  },
+  "Gensokyo:BlueCape": {
+    "NAME": "파란 망토",
+    "DESCRIPTION": "방어도를 !B! 얻습니다."
+  },
+  "Gensokyo:TekeTeke": {
+    "NAME": "테케테케",
+    "DESCRIPTION": "적 전체에게 !D! 피해를 !Gensokyo:SecondMagic! 번 줍니다. NL 이 효과로 적의 체력을 50% 이하로 만들었다면, 이 카드의 비용이 1 감소하고 피해량이 !M! 증가합니다."
+  },
+  "Gensokyo:Kunekune": {
+    "NAME": "쿠네쿠네",
+    "DESCRIPTION": "gensokyo:광기 를 !M! 부여합니다."
+  },
+  "Gensokyo:HAARP": {
+    "NAME": "HAARP",
+    "DESCRIPTION": "매 턴 시작시, 전기를 !M! 번 영창합니다."
+  },
+  "Gensokyo:MenInBlack": {
+    "NAME": "맨 인 블랙",
+    "DESCRIPTION": "불가침을 !M! 얻습니다."
+  },
+  "Gensokyo:LittleGreenMen": {
+    "NAME": "리틀 그린맨",
+    "DESCRIPTION": " [E] [E] 를 얻습니다. NL 이 카드를 복사하여 뽑을 카드 더미 맨 위로 올립니다.",
+    "UPGRADE_DESCRIPTION": "[E] [E] 를 얻습니다. NL 이 카드를 복사하여 뽑을 카드 더미 맨 위로 올립니다."
+  },
+  "Gensokyo:TurboGranny": {
+    "NAME": "터보 할머니",
+    "DESCRIPTION": "민첩을 !M! 얻습니다. NL *판금 *갑옷을 !Gensokyo:SecondMagic! 얻습니다."
+  },
+  "Gensokyo:MonkeysPaw": {
+    "NAME": "원숭이 손",
+    "DESCRIPTION": "현재 체력의 절반을 잃습니다. NL 이 효과로 잃은 체력만큼 골드를 !M! 얻습니다."
+  },
+  "Gensokyo:ManorOfTheDishes": {
+    "NAME": "사라야시키",
+    "DESCRIPTION": "카드를 !Gensokyo:SecondMagic! 장 사용할때마다, 불가침을 !M! 얻습니다."
+  },
+  "Gensokyo:LochNessMonster": {
+    "NAME": "네스 호의 괴물",
+    "DESCRIPTION": "!D! 피해를 !M! 번 줍니다."
+  },
+  "Gensokyo:GapWoman": {
+    "NAME": "틈새의 여자",
+    "DESCRIPTION": "적 전체에게 약화를 !M! 부여합니다."
+  },
+  "Gensokyo:EightFeetTall": {
+    "NAME": "팔척귀신",
+    "DESCRIPTION": "보스가 아닌 적들이 !M! 턴 후에 즉사합니다."
+  },
+  "Gensokyo:SevenSchoolMysteries": {
+    "NAME": "학교 7대 불가사의",
+    "DESCRIPTION": "한 턴에 카드를 !Gensokyo:SecondMagic! 장 사용하면, 힘을 !M! 얻고 민첩을 !M! 얻습니다."
+  },
+  "Gensokyo:Apocalypse": {
+    "NAME": "종말",
+    "DESCRIPTION": "적 전체에 피해를 !D! 줍니다. NL !M! 피해를 받습니다."
+  },
+  "Gensokyo:SlitMouthedWoman": {
+    "NAME": "빨간 마스크",
+    "DESCRIPTION": "공격을 1회 받으면, 공격 대상에게 취약을 !M! 부여합니다. NL 공격을 2회 받으면, 공격 대상이 힘을 !M! 잃습니다."
+  },
+  "Gensokyo:Frozen": {
+    "NAME": "동결됨!",
+    "DESCRIPTION": "이 카드가 뽑히면, 이번 전투동안 이 카드의 비용이 !M! 감소합니다."
+  },
+  "Gensokyo:MarisaTwilightSpark": {
+    "NAME": "트와일라잇 스파크",
+    "DESCRIPTION": "카드를 원하는만큼 선택해 소멸시킵니다. 소멸시킨 카드 1장당 이 카드의 피해량이 !M! 증가합니다. 스킬 카드 판정입니다. NL 증폭  [E]  [E]  [E] : 대신 모든 적에게 피해를 !D! 줍니다. 공격 카드 판정입니다."
+  },
+  "Gensokyo:BlessingOfVigor": {
+    "NAME": "활기의 축복",
+    "DESCRIPTION": "사용불가. NL 이 카드를 뽑으면, 카드를 1장 뽑고 !M! gensokyo:활기 를 !M! 얻습니다."
+  },
+  "Gensokyo:BlessingOfFortitude": {
+    "NAME": "불굴의 축복",
+    "DESCRIPTION": "사용불가. NL 이 카드를 뽑으면, 카드를 1장 뽑고 gensokyo:불굴 을 !M! 얻습니다."
+  },
+  "Gensokyo:BlessingOfConstitution": {
+    "NAME": "완강의 축복",
+    "DESCRIPTION": "사용불가. NL 이 카드를 뽑으면, 카드를 1장 뽑고 gensokyo:완강 을 !M! 얻습니다."
+  },
+  "Gensokyo:Doppelganger": {
+    "NAME": "도플갱어",
+    "DESCRIPTION": "예지 X. NL 다음 X 장의 카드가 2번 사용됩니다.",
+    "UPGRADE_DESCRIPTION": "예지 X + 1. NL 다음 X + 1 장의 카드가 2번 사용됩니다."
+  },
+  "Gensokyo:ImpossibleRequest": {
+    "NAME": "난제",
+    "DESCRIPTION": "gensokyo:난제."
+  },
+  "Gensokyo:BuddhaStoneBowl": {
+    "NAME": "부처의 석발",
+    "DESCRIPTION": "gensokyo:난제. NL 한 턴에 공격, 스킬, 파워 카드를 사용하세요."
+  },
+  "Gensokyo:BulletBranchOfHourai": {
+    "NAME": "봉래의 탄의 가지",
+    "DESCRIPTION": "gensokyo:난제. NL 한 턴에 카드를 !M! 장 사용하세요."
+  },
+  "Gensokyo:FireRatsRobe": {
+    "NAME": "불쥐의 가죽옷",
+    "DESCRIPTION": "gensokyo:난제. NL 한 턴에 카드를 !M! 장 뽑으세요."
+  },
+  "Gensokyo:JewelFromTheDragonsNeck": {
+    "NAME": "용 목의 구슬",
+    "DESCRIPTION": "gensokyo:난제. NL 한 턴에 !M! 피해를 입히세요."
+  },
+  "Gensokyo:SwallowsCowrieShell": {
+    "NAME": "제비의 자안패",
+    "DESCRIPTION": "gensokyo:난제. NL 한 턴에 방어도를 !M! 이상 얻으세요."
+  },
+  "Gensokyo:FourOfAKind": {
+    "NAME": "금기 \"포 오브 어 카인드\"",
+    "DESCRIPTION": "이번 턴에 사용하는 다음 카드가 !M! 번 사용됩니다. NL 이번 전투동안 이 카드의 효과가 !Gensokyo:SecondMagic! 상승합니다. NL 한 턴에 1번만 사용할 수 있습니다.",
+    "UPGRADE_DESCRIPTION": "이번 턴에 사용하는 다음 카드가 !M! 번 사용됩니다. NL 이번 전투동안 이 카드의 효과가 !Gensokyo:SecondMagic! 상승합니다. NL 한 턴에 1번만 사용할 수 있습니다.",
+    "EXTENDED_DESCRIPTION": ["이 금기 \"포 오브 어 카인드\" 카드는 한 턴에 1번만 사용할 수 있어."]
+  },
+  "Gensokyo:AllTheWorldsEvil": {
+    "NAME": "이 세상의 모든 악",
+    "DESCRIPTION": "모든 생물에게 취약을 !M! 부여합니다."
+  },
+  "Gensokyo:EmbersOfLove": {
+    "NAME": "사랑의 매화",
+    "DESCRIPTION": "무작위 적이 힘을 !M! 얻습니다."
+  },
+  "Gensokyo:Philosophy": {
+    "NAME": "미움 받는 자의 필로소피",
+    "DESCRIPTION": "턴 종료시, 피해를 !M! 받습니다."
+  },
+  "Gensokyo:ReflexRadar": {
+    "NAME": "리플렉스 레이더",
+    "DESCRIPTION": "카드를 !M! 장 뽑습니다.",
+    "UPGRADE_DESCRIPTION": "카드를 !M! 장 뽑습니다."
+  },
+  "Gensokyo:MindShatter": {
+    "NAME": "마인드 셰이커",
+    "DESCRIPTION": "소멸 카드 더미에 존재하는 소멸하지 않는 모든 카드를 뽑을 카드 더미에 넣습니다. NL 이동시킨 카드 1장당, 체력을 !M! 잃습니다."
+  },
+  "Gensokyo:ShootingStar": {
+    "NAME": "유성",
+    "DESCRIPTION": "덱에 있는 카드 1장을 복사하여 손으로 가져옵니다.",
+    "UPGRADE_DESCRIPTION": "덱에 있는 카드 1장을 복사하여 손으로 가져옵니다."
+  },
+  "Gensokyo:SummonYinYangFox": {
+    "NAME": "음양 여우",
+    "DESCRIPTION": "체력 !M! 의 음양 여우 gensokyo:펫 을 소환합니다.  !M! HP."
+  },
+  "Gensokyo:SummonFieryMouse": {
+    "NAME": "불쥐",
+    "DESCRIPTION": "체력 !M! 의 불쥐 gensokyo:펫 을 소환합니다."
+  },
+  "Gensokyo:SummonJeweledCobra": {
+    "NAME": "보석 코브라",
+    "DESCRIPTION": "체력 !M! 의 보석 코브라 gensokyo:펫 을 소환합니다."
+  },
+  "Gensokyo:SummonPsychicCat": {
+    "NAME": "초능력 고양이",
+    "DESCRIPTION": "체력 !M! 의 초능력 고양이 gensokyo:펫 을 소환합니다."
+  },
+  "Gensokyo:PetPreview": {
+    "NAME": "의도",
+    "DESCRIPTION": ""
+  },
+  "Gensokyo:MysteriousEgg": {
+    "NAME": "이상한 알",
+    "DESCRIPTION": "무작위 gensokyo:펫 카드 보상."
+  },
+  "Gensokyo:ExoticEgg": {
+    "NAME": "신기한 알",
+    "DESCRIPTION": "무작위 gensokyo:펫 카드 보상."
+  },
+  "Gensokyo:Shovel": {
+    "NAME": "삽",
+    "DESCRIPTION": "무작위 유물 보상."
+  },
+  "Gensokyo:BlemishedSteel": {
+    "NAME": "얼룩덜룩한 강철",
+    "DESCRIPTION": "무작위 희귀 유물 보상."
+  },
+  "Gensokyo:DepletedGenerator": {
+    "NAME": "방전된 발전기",
+    "DESCRIPTION": "희귀 카드 보상."
+  },
+  "Gensokyo:ScrapIron": {
+    "NAME": "고철",
+    "DESCRIPTION": "무작위 일반 유물 보상."
+  },
+  "Gensokyo:TarnishedGold": {
+    "NAME": "변색된 금",
+    "DESCRIPTION": "!Gensokyo:SecondMagic! 골드 보상."
+  },
+  "Gensokyo:RustyChest": {
+    "NAME": "녹슨 상자",
+    "DESCRIPTION": "!Gensokyo:SecondMagic! 골드 보상."
+  },
+  "Gensokyo:TrainingManual": {
+    "NAME": "훈련 비법",
+    "DESCRIPTION": "강화된 카드 보상."
+  },
+  "Gensokyo:LockedMedkit": {
+    "NAME": "잠겨있는 구급상자",
+    "DESCRIPTION": "체력을 전부 회복."
+  },
+  "Gensokyo:RPG": {
+    "NAME": "RPG",
+    "DESCRIPTION": "적 전체에 피해를 !D! 줍니다."
+  },
+  "Gensokyo:ReactiveArmor": {
+    "NAME": "반응 갑옷",
+    "DESCRIPTION": "전투에 존재하는 적 하나당 방어도를 !B! 얻습니다."
+  },
+  "Gensokyo:Taser": {
+    "NAME": "테이저",
+    "DESCRIPTION": "피해를 !D! 줍니다. NL *기절을 !M! 부여합니다."
+  },
+  "Gensokyo:MedicineKit": {
+    "NAME": "구급상자",
+    "DESCRIPTION": "해로운 효과를 전부 제거하고, 제거한 디버프 하나당 체력을 !M! 회복합니다."
+  },
+  "Gensokyo:OverchargedCore": {
+    "NAME": "과부하 코어",
+    "DESCRIPTION": "힘, 민첩, 밀집을 !M! 얻습니다. NL 체력을 !M! 잃습니다."
+  },
+  "Gensokyo:LifeforceConverter": {
+    "NAME": "생명력 전환기",
+    "DESCRIPTION": "손 안에 있는 비용 X의 카드를 제외한 모든 카드에 피의 계약을 부여합니다."
+  },
+  "Gensokyo:Butterfly": {
+    "NAME": "나비",
+    "DESCRIPTION": "사용불가. NL 이 카드가 소멸되면, 이번 전투 동안 최대 체력이 !M! 감소합니다."
+  },
+  "Gensokyo:BrilliantDragonBullet": {
+    "NAME": "브릴리언트 드래곤 바레트",
+    "DESCRIPTION": "피해를 !D! 줍니다. NL 카드를 !M! 장 뽑습니다. 뽑은 카드가 공격 카드였다면, 다시 피해를 !D! 줍니다."
+  },
+  "Gensokyo:SalamanderShield": {
+    "NAME": "샐러맨더 실드",
+    "DESCRIPTION": "방어도를 !B! 얻습니다. NL 카드를 !M! 장 뽑습니다. 뽑은 카드가 스킬 카드였다면, 방어도를 !B! 얻습니다."
+  },
+  "Gensokyo:BuddhistDiamond": {
+    "NAME": "부디스트 다이아몬드",
+    "DESCRIPTION": "피해를 !D! 줍니다. NL 이 카드가 예지 효과로 버려지게 되면, 이번 전투동안 이 카드의 피해량이 !M! 증가합니다."
+  },
+  "Gensokyo:NewMoon": {
+    "NAME": "첫 달",
+    "DESCRIPTION": "피해를 !D! 줍니다. NL 손에 있는 카드 1장을 선택하여 뽑을 카드 더미 맨 위로 올립니다."
+  },
+  "Gensokyo:MorningMist": {
+    "NAME": "아침 아지랑이",
+    "DESCRIPTION": "방어도를 !B! 얻습니다. NL 버린 카드 더미에 있는 카드를 뽑을 카드 더미 맨 위로 올립니다."
+  },
+  "Gensokyo:EverlastingLife": {
+    "NAME": "영명선",
+    "DESCRIPTION": "방어도를 !B! 얻습니다. NL 예지 !M!."
+  },
+  "Gensokyo:LifeSpringInfinity": {
+    "NAME": "라이프 스프링 인피니티",
+    "DESCRIPTION": "카드를 !M! 장 뽑습니다. 이 효과로 스킬 카드를 뽑을 때마다, 방어도를 !B! 얻습니다."
+  },
+  "Gensokyo:DreamlikeParadise": {
+    "NAME": "꿈빛 고향",
+    "DESCRIPTION": "예지 !M!. NL 이 카드의 예지 효과로 카드를 버리면, 버린 카드의 비용은 사용하기 전까지 0 이 됩니다. NL 이 카드가 뽑히면, 카드를 !Gensokyo:SecondMagic! 장 뽑습니다."
+  },
+  "Gensokyo:RainbowDanmaku": {
+    "NAME": "무지개빛 탄막",
+    "DESCRIPTION": "피해를 !D! 줍니다. NL 예지 !M!. NL 이 카드의 예지 효과로 공격 카드를 버리면, 다시 피해를 !D! 줍니다."
+  },
+  "Gensokyo:UnlikelyAid": {
+    "NAME": "예기치않은 조력",
+    "DESCRIPTION": "피해를 !D! 줍니다. NL  원래 덱에 있는 1 ~ !M! 장의 카드를 선택하여 손으로 가져옵니다. 가져온 카드는 이번 턴동안 비용이 0이 되고 소멸이 부여됩니다."
+  },
+  "Gensokyo:MorningStar": {
+    "NAME": "새벽의 명성",
+    "DESCRIPTION": "방어도를 !B! 얻습니다. NL 피해를 !D! 줍니다. NL 모든 상태이상 카드를 소멸합니다."
+  },
+  "Gensokyo:RisingWorld": {
+    "NAME": "밝아오는 세계",
+    "DESCRIPTION": "예지 !M!. NL 이 카드의 예지 효과로 카드를 버리면, 버린 카드들이 이번 전투동안 강화됩니다. NL 이 카드가 뽑히면, 카드를 !Gensokyo:SecondMagic! 장 뽑습니다."
+  },
+  "Gensokyo:HouraiInAPot": {
+    "NAME": "봉래호중",
+    "DESCRIPTION": "손에 있는 카드를 전부 버립니다. 그 수만큼 카드를 다시 뽑습니다.",
+    "UPGRADE_DESCRIPTION": "손에 있는 카드를 전부 버립니다. 그 수만큼 카드를 다시 뽑습니다. NL 이 카드가 뽑히면, 카드를 !Gensokyo:SecondMagic! 장 뽑습니다."
+  },
+  "Gensokyo:Dawn": {
+    "NAME": "새벽",
+    "DESCRIPTION": "이 카드가 뽑히면, [E] 를 얻고 카드를 !Gensokyo:SecondMagic! 장 뽑습니다.",
+    "UPGRADE_DESCRIPTION": "이 카드가 뽑히면, [E] [E] 를 얻고 카드를 !Gensokyo:SecondMagic! 장 뽑습니다."
+  },
+  "Gensokyo:UnhurriedMind": {
+    "NAME": "침착한 마음",
+    "DESCRIPTION": "뽑을 카드 더미 위쪽에 있는 !M! 장의 카드를 사용합니다."
+  },
+  "Gensokyo:CustomPotion": {
+    "NAME": "맞춤 제작 포션",
+    "DESCRIPTION": ""
+  },
+  "Gensokyo:GreaterSplit": {
+    "NAME": "대절단: 세로",
+    "DESCRIPTION": "피해를 !D! 줍니다. NL *기절을 !M! 부여합니다.",
+    "UPGRADE_DESCRIPTION": "적 전체에게 피해를 !D! 주고 *기절을 !M! 부여합니다.",
+    "EXTENDED_DESCRIPTION": ["대절단: 가로"]
+  },
+  "Gensokyo:PrivateSquare": {
+    "NAME": "프라이빗 스퀘어",
+    "DESCRIPTION": "이번 턴 후에 내 턴을 추가로 진행합니다. 턴을 종료합니다. NL 비용이 !M! 증가한 상태로 이 카드를 복사하여 손으로 가져옵니다. NL 이 카드가 손에 있을때 적에게 피해를 입히면, 이 카드는 소멸합니다."
+  },
+  "Gensokyo:InfectedWound": {
+    "NAME": "감염된 부상",
+    "DESCRIPTION": "이 카드가 손에 있는 상태로 공격 카드를 사용하면, !M! 피해를 받습니다."
+  }
+}

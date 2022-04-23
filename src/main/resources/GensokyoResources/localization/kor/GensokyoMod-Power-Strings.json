@@ -1,0 +1,375 @@
+{
+"Gensokyo:DeathMark": {
+        "NAME": "죽음의 표식",
+        "DESCRIPTIONS": ["#b", " 턴 후에 죽습니다.", " 턴 후에 죽습니다."]
+},
+"Gensokyo:Vengeance": {
+        "NAME": "복수",
+        "DESCRIPTIONS": ["매번 사신을 만날때마다 사신이 더욱 #r강력해져서 돌아옵니다."]
+},
+"Gensokyo:UnstableBoundariesPower": {
+        "NAME": "불안정한 결계",
+        "DESCRIPTIONS": [" #b", " 장의 카드를 사용할때마다, 모든 생물의 #g이로운 효과와 #p해로운 효과를 그 반대의 효과로 #y변환 시킵니다."]
+},
+"Gensokyo:FortitudePower": {
+        "NAME": "불굴",
+        "DESCRIPTIONS": ["#b", " 턴 동안 #y공격으로 받는 피해량이 #b33% 감소합니다.", " 턴 동안 #y공격으로 받는 피해량이 #b33% 감소합니다."]
+},
+"Gensokyo:VigorPower": {
+        "NAME": "활기",
+        "DESCRIPTIONS": [" #b", " 턴 동안 #y공격의 피해량이 #b34% 증가합니다.", " 턴 동안 #y공격의 피해량이 #b34% 증가합니다."]
+},
+"Gensokyo:SturdyPower": {
+        "NAME": "완강",
+        "DESCRIPTIONS": ["#b", " 턴 동안 #y방어도를 #b34% 만큼 추가로 획득합니다. ", " 턴 동안 #y방어도를 #b34% 만큼 추가로 획득합니다."]
+},
+"Gensokyo:SpontaneousHumanCombustionPower": {
+        "NAME": "인체 자연 발화 현상",
+        "DESCRIPTIONS": ["턴 종료시, #b", " 피해를 받고 이 효과로 받는 피해량이 #b", " 증가합니다."]
+},
+"Gensokyo:ManorOfTheDishesPower": {
+        "NAME": "사라야시키",
+        "DESCRIPTIONS": ["카드를 #b", " 장 사용할 때마다, #y불가침을 #b", " 얻습니다."]
+},
+"Gensokyo:LunacyPower": {
+        "NAME": "광기",
+        "DESCRIPTIONS": ["이 적이 공격하면, 플레이어가 아닌 무작위 적을 공격합니다."]
+},
+"Gensokyo:HAARPPower": {
+        "NAME": "HAARP",
+        "DESCRIPTIONS": ["매 턴 시작시, #y전기를 #b", " 번 #y영창합니다."]
+},
+"Gensokyo:SevenSchoolMysteriesPower": {
+        "NAME": "학교 7대 불가사의",
+        "DESCRIPTIONS": ["한 턴에 카드를 #b", " 장 사용하면, #y힘을 #b", " 얻고 #y민첩을 #b", " 얻습니다."]
+},
+"Gensokyo:SlitMouthedWomanPower": {
+        "NAME": "빨간 마스크",
+        "DESCRIPTIONS": ["첫번째로 적에게 공격을 받으면, 공격한 대상에게 #y취약을 #b", " 부여합니다. 2번째로 적에게 공격을 받으면, 공격한 대상이 #y힘을 #b", " 잃습니다."]
+},
+"Gensokyo:FoxMask": {
+        "NAME": "여우 가면",
+        "DESCRIPTIONS": ["#y공격 #y카드를 #y제외한 카드를 사용할 때마다, #y어지러움 #b", " 장을 뽑을 카드 더미에 넣습니다."]
+},
+"Gensokyo:SpiderMask": {
+        "NAME": "거미 가면",
+        "DESCRIPTIONS": ["매 턴 처음으로 #y공격 카드를 사용하면, 손으로 #b", " 장의 #r감염된 #r부상 을 가져옵니다."]
+},
+"Gensokyo:HopeMask": {
+        "NAME": "희망의 가면",
+        "DESCRIPTIONS": ["매 턴 시작시, #y체력을 #b", " 회복합니다. 막히지 않은 피해를 받으면, 받은 피해만큼 회복량이 감소합니다."]
+},
+"Gensokyo:DemonMask": {
+        "NAME": "악마 가면",
+        "DESCRIPTIONS": ["#y공격 카드를 사용할 때마다, #y힘을 #b", " 얻습니다."]
+},
+"Gensokyo:LionMask": {
+        "NAME": "사자 가면",
+        "DESCRIPTIONS": ["#y스킬 카드를 사용할 때마다, #b", " 피해를 받습니다."]
+},
+"Gensokyo:PositionPower": {
+        "NAME": "스펠 카드 룰",
+        "DESCRIPTIONS": ["현재 #b", " 레인에 있습니다. #y스킬 카드를 사용하면, 위쪽 레인으로 #b1칸 #y이동합니다. #y공격 카드를 사용하면, 아래쪽 레인으로 #b1칸 #y이동합니다."]
+},
+"Gensokyo:MonsterPositionPower": {
+        "NAME": "스펠 카드 룰",
+        "DESCRIPTIONS": ["이 투사체는 #b", " 레인에 있습니다. #b", " 턴 후에 도착지점에 도달합니다.", " 턴 후에 도착지점에 도달합니다.", " 이 투사체와 동일한 레인에 있다면 피해를 입게 됩니다."]
+},
+"Gensokyo:HakureiShrineMaidenPower": {
+        "NAME": "하쿠레이 신사의 무녀",
+        "DESCRIPTIONS": ["매 턴 종료시, #y음양옥을 #b2개 생성합니다. 살아있는 #y음양옥이 없을 경우, 음양옥을 #b4개 생성하고 #y힘을 #b", " 얻습니다."]
+},
+"Gensokyo:SealedPower": {
+        "NAME": "봉인",
+        "DESCRIPTIONS": ["매 턴 시작시, 카드를 #b", " 장 버립니다.", " 장 버립니다."]
+},
+"Gensokyo:Evasive": {
+        "NAME": "회피",
+        "DESCRIPTIONS": ["매번 #b3번째로 사용하는 #y공격 카드의 피해량이 #b0 이 됩니다."]
+},
+"Gensokyo:IllusionaryDominance": {
+        "NAME": "환상풍미",
+        "DESCRIPTIONS": ["이 턴에 이 적이 막히지 않은 피해를 받으면, #y힘을 #b", " 잃습니다."]
+},
+"Gensokyo:Immortality": {
+        "NAME": "불멸",
+        "DESCRIPTIONS": ["이 적이 죽으면, 다음 턴에 체력을 전부 회복하고 부활합니다."]
+},
+"Gensokyo:FairyOfIce": {
+        "NAME": "얼음의 요정",
+        "DESCRIPTIONS": ["사망시,  #b", " 장의 #y동결됨! 카드를 버린 카드 더미에 넣습니다."]
+},
+"Gensokyo:FairyFury": {
+        "NAME": "요정의 분노",
+        "DESCRIPTIONS": ["#y요정이 죽을때마다, #y힘을 #b", " 얻습니다. 이 효과는 그 어떤 효과로도 제거, 변경이 불가능합니다."]
+},
+"Gensokyo:Strongest": {
+        "NAME": "강함",
+        "DESCRIPTIONS": ["턴 종료시, 이 적의 #y힘이 1 이상이라면, 전투에서 도주합니다."]
+},
+"Gensokyo:DisguisePower": {
+        "NAME": "???",
+        "DESCRIPTIONS": ["과연 이게 본인들의 진짜 모습일까요...?", "변장술사의 변장을 벗겨냈습니다!"]
+},
+"Gensokyo:PolymorphPower": {
+        "NAME": "변이됨",
+        "DESCRIPTIONS": ["#b", " 턴 동안 #y공격의 피해량이 #b0 이 됩니다.", " 턴 동안 #y공격의 피해량이 #b0 이 됩니다."]
+},
+"Gensokyo:Grudge": {
+        "NAME": "원한",
+        "DESCRIPTIONS": ["턴 종료시, #y힘을 #b0으로 초기화시킨뒤, #y저주 카드 수량만큼 힘을 얻습니다."]
+},
+"Gensokyo:StrengthInNumbers": {
+        "NAME": "싸움은 머릿수야",
+        "DESCRIPTIONS": ["적이 죽을때마다, 이번턴동안 #y힘을 #b", " 잃습니다."]
+},
+"Gensokyo:CowardlyImmortality": {
+        "NAME": "불멸",
+        "DESCRIPTIONS": ["이 생물이 죽으면, 다음 턴에 체력을 전부 회복하고 부활합니다. #b", " 번 사망하면 전투에서 도주합니다.", " 번 사망하면 전투에서 도주합니다."]
+},
+"Gensokyo:RottingWood": {
+        "NAME": "썩은 나무",
+        "DESCRIPTIONS": ["피해를 #b", " 이상 받으면, 당신에게 피해를 #b", " 입힙니다."]
+},
+"Gensokyo:Trickster": {
+        "NAME": "장난꾸러기",
+        "DESCRIPTIONS": ["매 턴 처음으로 사용하는 카드가 #y소멸합니다."]
+},
+"Gensokyo:ElementalBarrier": {
+        "NAME": "엘리멘탈 배리어",
+        "DESCRIPTIONS": ["이 턴에 최대 #b", " 의 피해만 입습니다. 원소 구체가 파괴되면, 이 수치가 #b", " 증가하고 의도를 변경합니다."]
+},
+"Gensokyo:Teleportation": {
+        "NAME": "텔레포테이션",
+        "DESCRIPTIONS": ["이 생물의 현재 위치는 #y왼쪽입니다.", "이 생물의 현재 위치는 #y중앙입니다.", "이 생물의 현재 위치는 #y오른쪽입니다.", " 카드를 #b", " 장 사용하면, 오른쪽으로 순간이동합니다. #y중앙에 위치한 생물은 #y공격으로 받는 피해량이 #b50% 증가합니다."]
+},
+"Gensokyo:DoppelgangerPower": {
+        "NAME": "도플갱어",
+        "DESCRIPTIONS": ["다음에 사용하는 카드 #b", " 장이", " 장이", " 2번 사용됩니다."]
+},
+"Gensokyo:NextTurnInnocence": {
+        "NAME": "결백",
+        "DESCRIPTIONS": ["다음 턴, 이 적이 얻는 #y방어도가 2배가 되고 그 수치만큼 체력을 #g회복합니다."]
+},
+"Gensokyo:Innocence": {
+        "NAME": "결백",
+        "DESCRIPTIONS": ["이번 턴에 이 적이 얻는 #y방어도가 2배가 되고 그 수치만큼 체력을 #g회복합니다."]
+},
+"Gensokyo:MirrorPower": {
+        "NAME": "거울",
+        "DESCRIPTIONS": ["이번 턴에 #y공격 #y카드 사용 횟수가 #y스킬 사용 횟수보다 많으면, 다음 턴의 의도는 #y공격이 됩니다. NL 이번 턴에 #y스킬 #y카드의 사용 횟수가 #y공격 사용 횟수보다 많으면, 다음 턴의 의도는 #y방어가 됩니다. NL 이번 턴에 #y공격, #y스킬 카드 사용 횟수가 동일하다면, 다음 턴의 의도는 #y버프가 됩니다.", " NL 현재 #b", " 장의 #y공격과 #b", " 장의 #y공격과 #b", " 장의 #y스킬 카드를 사용했습니다.", " 장의 #y스킬 카드를 사용했습니다."]
+},
+"Gensokyo:HouraiImmortal": {
+        "NAME": "봉래인",
+        "DESCRIPTIONS": ["이 적이 죽으면, 즉시 체력을 전부 회복하고 #y즉시 #y부활합니다.  #b", " 번 사망하면 전투에서 도주합니다.", " 번 사망하면 전투에서 도주합니다."]
+},
+"Gensokyo:DummyLunaticPrincess": {
+        "NAME": "달의 공주님",
+        "DESCRIPTIONS": ["이 적이 죽으면, #p난제 카드의 요구사항을 다음 요구사항으로 #y변환합니다. 난제 카드의 요구 사항을 달성했다면, #y힘을 #b", " 얻습니다. 요구 사항을 #r달성하지 #r못했다면, 이 적이 #y힘을 #b", " 얻습니다."]
+},
+"Gensokyo:LunaticPrincess": {
+        "NAME": "달의 공주님",
+        "DESCRIPTIONS": ["#p난제 카드가 바뀌었을때, 요구 사항을 충족한 상태라면, #y힘을 #b",
+                        " NL (현재 ", " 공격", " 스킬", " 파워", " , ", "를 사용했습니다.)",
+                        " 장.)", " 장.)",
+                        " NL (현재 ",
+                        " NL (현재 피해를 ", " 만큼 입혔습니다.)",
+                        " NL (현재 방어도를 ", " 만큼 얻었습니다.)", " turns.)",
+                        " NL (달성 완료).",
+                        " 얻습니다. 요구 사항을 충족하지 못 했다면, 적이 #y힘을 #b", " 얻습니다."]
+},
+"Gensokyo:BetterDrawReduction": {
+        "NAME": "드로우 감소",
+        "DESCRIPTIONS": ["다음 턴에, 카드를 #b", " 장 적게 뽑습니다.", " 장 적게 뽑습니다."]
+},
+"Gensokyo:TabooFourOfAKindPower": {
+        "NAME": "금기 \"포 오브 어카인드\"",
+        "DESCRIPTIONS": ["이번 턴 동안, 다음에 사용하는 카드가 #b", " 번 사용됩니다. ", "번.", "반."]
+},
+"Gensokyo:RivalPosition": {
+        "NAME": "스펠 카드 룰",
+        "DESCRIPTIONS": ["이 생물은 현재 #b" , " 레인에 있습니다. 이들은 기본적으로 #r라이벌을 공격하며, 라이벌이 #r죽으면, #r당신을 공격하게 됩니다."]
+},
+"Gensokyo:RivalPlayerPosition": {
+        "NAME": "스펠 카드 룰",
+        "DESCRIPTIONS": ["현재 #b" , " 레인에 있습니다. #y스킬 카드를 사용하면, 위쪽 레인으로 #b1칸 #y이동합니다. #y공격 카드를 사용하면, 아래쪽 레인으로 #b1칸 #y이동합니다. NL 만약 #r십자포화 #r지점에 위치해있다면, 라이벌들에게 공격 당하게 됩니다.", " NL 현재 #b", " #y레인은 #r십자포화 #r지점 입니다."]
+},
+"Gensokyo:TenDesires": {
+        "NAME": "텐폴드의 수청",
+        "DESCRIPTIONS": ["이 적이 #y공격 #y피해를 받으면, 다음번에 받는 공격 피해를 #y무효화 합니다."]
+},
+"Gensokyo:Purity": {
+        "NAME": "정화",
+        "DESCRIPTIONS": ["이 적이 #p해로운 #p효과를 받으면, 다음번에 받는 해로운 효과에 #y면역이 됩니다."]
+},
+"Gensokyo:Counter": {
+        "NAME": "카운터",
+        "DESCRIPTIONS": ["다음번에 이 적이 적에게 ", " ", " 회의 ", " 공격을 가하면, 이 적은 자신의 피해량만큼 동일한 피해를 입게 됩니다."]
+},
+"Gensokyo:WishfulSoul": {
+        "NAME": "힘 흡수",
+        "DESCRIPTIONS": ["턴 종료시, #y추가 #y힘이 #b", " 감소하고 이 효과로 감소당한 #y힘을 자신이 얻습니다."]
+},
+"Gensokyo:LunaticRedEyes": {
+        "NAME": "루나틱 레드 아이",
+        "DESCRIPTIONS": ["매번 카드를 #b2장 사용할 때마다, 카드를 #y소멸시킵니다."]
+},
+"Gensokyo:ReleaseOfTheId": {
+        "NAME": "이드의 해방",
+        "DESCRIPTIONS": ["매 턴 시작시, [E] 를 잃습니다. 매 턴 첫번째로 뽑히는 카드가 자동으로 사용됩니다."]
+},
+"Gensokyo:ThirdEyePower": {
+        "NAME": "서드 아이",
+        "DESCRIPTIONS": ["전투 종료시, 임시로 지급된 #y얼어붙은 #y눈 유물을 잃습니다."]
+},
+"Gensokyo:PhilosophyPower": {
+        "NAME": "미움 받는 자",
+        "DESCRIPTIONS": ["턴 종료시, #b", " 피해를 받습니다."]
+},
+"Gensokyo:Weather": {
+        "NAME": "날씨",
+        "DESCRIPTIONS": ["벚꽃눈",
+                        "폭풍",
+                        "지진",
+                        " NL 피해를 #b",
+                        " 이상 받으면, 턴 종료시 날씨를 바꿉니다.",
+                        "턴 종료시 날씨를 바꿉니다.",
+                        "매 턴 시작시, gain ",
+                        " 를 얻고 카드를 #b",
+                        " 장 뽑습니다",
+                        " 장 뽑습니다.",
+                        " 이 적은 한 턴에 2번씩 행동합니다.",
+                        "턴 종료시, 모든 생물에게 #y약화를 #b",
+                        " 부여합니다.",
+                        "턴 종료시, 모든 생물에게 #y취약을 #b",
+                        " 부여합니다."]
+},
+"Gensokyo:Reckless": {
+        "NAME": "난폭함",
+        "DESCRIPTIONS": ["#y방어도를 얻으면, 획득한 방어도 수치만큼 이번 턴 동안 이 생물의 #y힘이 감소합니다."]
+},
+"Gensokyo:Spooked": {
+        "NAME": "공포",
+        "DESCRIPTIONS": ["이번 턴에 #b", " 이상의 피해를 받으면, #y불가침을 #b", " 얻습니다."]
+},
+"Gensokyo:Quicksand": {
+        "NAME": "퀵샌드",
+        "DESCRIPTIONS": ["이 적에게 막히지 않은 피해를 받으면, #y포박을 #b", " 부여받습니다."]
+},
+"Gensokyo:GlitterPower": {
+        "NAME": "반짝이",
+        "DESCRIPTIONS": ["매 턴 종료시, 이 효과의 수치만큼 피해를 #b", " 받습니다. NL #b", " 피해를 받게 됩니다."]
+},
+"Gensokyo:Reflective": {
+        "NAME": "반사",
+        "DESCRIPTIONS": ["이 생물이 #y방어도로 피해를 완전히 막아내면, 공격한 대상에게 피해를 #b", " 줍니다."]
+},
+"Gensokyo:PetPosition": {
+        "NAME": "스펠 카드 룰",
+        "DESCRIPTIONS": ["당신의 #y애완동물이 동일한 #y레인에 있습니다."]
+},
+"Gensokyo:DreamEater": {
+        "NAME": "꿈을 먹는자",
+        "DESCRIPTIONS": ["이번턴에 처음 사용하는 카드가 ", " #r제외당하고, #r덱에서 #r영구적으로 #r제거됩니다. 이 효과로 카드가 제거되면, 카드 등급에 따른 효과를 받습니다: ", " NL #y기본: ", " NL #y일반: ", " NL #y특별: ", " NL #y희귀: ", "이 적이 획득: #b", "이 적이 손실: #b", " #y힘.", " NL #p저주: "]
+},
+"Gensokyo:EyesOfDeath": {
+        "NAME": "직사의 마안",
+        "DESCRIPTIONS": ["이 적이 동일한 대상을 공격할 때마다 그 적에게 주는 피해량이 #b", "% 증가합니다."]
+},
+"Gensokyo:Doom": {
+        "NAME": "파멸",
+        "DESCRIPTIONS": ["#y공격으로 받는 피해량이 #b", "% 증가합니다.", " 이번 턴에 공격받지 않았다면 이 효과가 제거됩니다."]
+},
+"Gensokyo:AndThenThereWereNone": {
+        "NAME": "그리고 아무도 없게 되는가?",
+        "DESCRIPTIONS": ["더이상 #y파멸 효과가 제거되지 않습니다."]
+},
+"Gensokyo:Retribution": {
+        "NAME": "보복",
+        "DESCRIPTIONS": ["이번 턴 동안 이 생물이 적에게 공격받으면, 받은 피해만큼 공격한 대상에게 동일한 피해를 입힙니다."]
+},
+"Gensokyo:SistersPosition": {
+        "NAME": "스펠 카드 룰",
+        "DESCRIPTIONS": ["이 생물은 #b" , " 레인에 있습니다. #g아군은 #r적에게 공격을 가합니다. ", " 레인에 있습니다. #r이 #r적은 당신만을 공격하려고 합니다."]
+},
+"Gensokyo:SistersPlayerPosition": {
+        "NAME": "스펠 카드 룰",
+        "DESCRIPTIONS": ["현재 #b" , " 레인에 있습니다. #y스킬 카드를 사용하면, 위쪽 레인으로 #b1칸 #y이동합니다. #y공격 카드를 사용하면, 아래쪽 레인으로 #b1칸 이동합니다. NL 만약 #g아군이 #r적의 공격 범위 내에 있다면, #g아군이 대신 그 공격을 맞게 됩니다.", " NL #y #b", " 레인은 적의 #r공격 #r범위입니다."]
+},
+"Gensokyo:BorderOfDeath": {
+        "NAME": "Border of Death",
+        "DESCRIPTIONS": ["전투 종료시, 최대 체력을 #b", " 얻습니다."]
+},
+"Gensokyo:Deathtouch": {
+        "NAME": "치명적인 손길",
+        "DESCRIPTIONS": ["이 적에게 막히지 않은 피해를 받으면, 그 수치만큼의 최대 체력을 이번 전투 동안 #r잃습니다. NL #y최대 #y체력은 #b1 이하로 내려가지 않습니다 NL 이 전투에서의 최대 체력은 전투 시작 시점의 #y현재 #y체력과 동일해집니다."]
+},
+"Gensokyo:Empower": {
+        "NAME": "저주력",
+        "DESCRIPTIONS": ["이 생물의 #y저주 공격의 효과가 #b", " 증가합니다."]
+},
+"Gensokyo:SomeoneElse": {
+        "NAME": "누군가의 이야기",
+        "DESCRIPTIONS": ["이 전투에서 #r패배해도 죽지 않고 이벤트로 돌아가지만, 카드 보상은 받을수 없습니다. NL 체력을 #b", " 이상 남긴채로 전투에서 #g승리하면, 카드 보상이 #y강화됩니다. NL 현재 체력과 최대 체력은 이벤트 전투가 끝난 뒤 원래대로 다시 되돌아옵니다."]
+},
+"Gensokyo:ChargeUp": {
+        "NAME": "충전",
+        "DESCRIPTIONS": ["카드를 #b", " 장 사용하면, #y힘을 #b", " 얻습니다. NL 공격하게 되면 획득했던 #y힘이 전부 제거됩니다."]
+},
+"Gensokyo:UnstableReality": {
+        "NAME": "슬픔 속의 망상",
+        "DESCRIPTIONS": ["이 자는 당신의 #g아군입니다. NL #b", " 가지의 #y망상을 처치하면 이 전투에서 #g승리합니다."]
+},
+"Gensokyo:DollJudgement": {
+        "NAME": "리틀 레기온",
+        "DESCRIPTIONS": ["매 #b", " 턴마다, #b2 개의 #y인형을 소환합니다."]
+},
+"Gensokyo:AliceEventEnergy": {
+        "NAME": "혈기활성",
+        "DESCRIPTIONS": ["매 #b", " 턴마다, ", " 를 얻습니다."]
+},
+"Gensokyo:ExplosiveDoll": {
+        "NAME": "폭파",
+        "DESCRIPTIONS": [" ", " 이번 턴에,", " #b", " 턴 후에,", " #r자폭하고 당신에게 #b", " 피해를 입힙니다."]
+},
+"Gensokyo:BurdenOfFailure": {
+        "NAME": "실패의 책임",
+        "DESCRIPTIONS": ["이 적이 대상에게 막히지 않은 피해를 입히지 못하면, #y힘을 #b", " 얻습니다."]
+},
+"Gensokyo:DollMagnet": {
+        "NAME": "인형 자석",
+        "DESCRIPTIONS": ["매 #b", " 턴마다,  #b", " 개의 자폭 인형들을 추가로 생성합니다."]
+},
+"Gensokyo:SarielEventPower": {
+        "NAME": "천사의 은총",
+        "DESCRIPTIONS": ["매 #b", " 번째로 사용하는 #y공격", " 번째로 사용하는 #y스킬", " 카드가 2번 사용됩니다."]
+},
+"Gensokyo:UnknownCurse": {
+        "NAME": "정체불명의 저주",
+        "DESCRIPTIONS": ["당신의 카드 효과를 #p알 #p수 #p없게 #p되었습니다!"]
+},
+"Gensokyo:GuardianOfRelics": {
+        "NAME": "유물 수호자",
+        "DESCRIPTIONS": ["매 턴 종료시, 현재 보유한 #y유물의 개수만큼 #y방어도를 얻습니다."]
+},
+"Gensokyo:Sinflower": {
+        "NAME": "죄악의 꽃",
+        "DESCRIPTIONS": ["이 적을 공격할때마다, 가장 왼쪽에 있는 #y해로운 #y효과를 제거합니다."]
+},
+"Gensokyo:Titan": {
+        "NAME": "타이탄",
+        "DESCRIPTIONS": ["이 적의 기본 피해량은 이 적의 체력의 50%만큼 비례합니다. 최대 피해량은 #b", " 입니다."]
+},
+"Gensokyo:DawningLight": {
+        "NAME": "새벽의 빛",
+        "DESCRIPTIONS": ["이번 턴에 적에게 막히지 않은 피해를 입히면, #y힘을 #b", " 얻습니다."]
+},
+"Gensokyo:RuthlessStabs": {
+        "NAME": "무자비한 찌르기",
+        "DESCRIPTIONS": ["이 적에게 막히지 않은 피해를 받으면, #r감염된 #r부상 카드를 뽑을 카드 더미에 넣습니다."]
+},
+"Gensokyo:AnimalFriend": {
+        "NAME": "동물들의 친구",
+        "DESCRIPTIONS": ["하수인이 죽을때마다, 체력을 #b", " 잃고 #y힘을 #b", " 얻습니다."]
+}
+}
