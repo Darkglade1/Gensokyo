@@ -107,28 +107,28 @@
     "UPGRADE_DESCRIPTION": "Вы Предсказываете X + 1 карт. NL Следующие X + 1 карт разыгрываются дважды."
   },
   "Gensokyo:ImpossibleRequest": {
-    "NAME": "Невыпонимый запрос",
-    "DESCRIPTION": "gensokyo:Невыпонимый_Запрос."
+    "NAME": "Невыполнимый запрос",
+    "DESCRIPTION": "gensokyo:Невыполнимый_Запрос."
   },
   "Gensokyo:BuddhaStoneBowl": {
     "NAME": "Каменная чаша Будды",
-    "DESCRIPTION": "gensokyo:Невыпонимый_Запрос. NL Разыграть Атаку, Навык и Талант в одном ходу."
+    "DESCRIPTION": "gensokyo:Невыполнимый_Запрос. NL Разыграть Атаку, Навык и Талант в одном ходу."
   },
   "Gensokyo:BulletBranchOfHourai": {
     "NAME": "Жемчужная хорайская ветвь",
-    "DESCRIPTION": "gensokyo:Невыпонимый_Запрос. NL Разыграть !M! карт в одном ходу."
+    "DESCRIPTION": "gensokyo:Невыполнимый_Запрос. NL Разыграть !M! карт в одном ходу."
   },
   "Gensokyo:FireRatsRobe": {
     "NAME": "Мантия огненной крысы",
-    "DESCRIPTION": "gensokyo:Невыпонимый_Запрос. NL Добрать !M! карт в одном ходу."
+    "DESCRIPTION": "gensokyo:Невыполнимый_Запрос. NL Добрать !M! карт в одном ходу."
   },
   "Gensokyo:JewelFromTheDragonsNeck": {
     "NAME": "Драгоценность с шеи дракона",
-    "DESCRIPTION": "gensokyo:Невыпонимый_Запрос. NL Нанести !M! урона в одном ходу."
+    "DESCRIPTION": "gensokyo:Невыполнимый_Запрос. NL Нанести !M! урона в одном ходу."
   },
   "Gensokyo:SwallowsCowrieShell": {
     "NAME": "Ласточкина раковина Каури",
-    "DESCRIPTION": "gensokyo:Невыпонимый_Запрос. NL Получить !M! Защиты в одном ходу."
+    "DESCRIPTION": "gensokyo:Невыполнимый_Запрос. NL Получить !M! Защиты в одном ходу."
   },
   "Gensokyo:FourOfAKind": {
     "NAME": "Табу «Каре»",
