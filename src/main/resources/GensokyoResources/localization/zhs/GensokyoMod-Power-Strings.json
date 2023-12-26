@@ -77,7 +77,7 @@
 },
 "Gensokyo:HakureiShrineMaidenPower": {
         "NAME": "博丽神社的巫女",
-        "DESCRIPTIONS": ["她的回合结束时，将召唤 #b2 个 #y阴阳玉 。如果场上没有 #y阴阳玉 ，将召唤 #b4 个并获得 #b", " 点 #y力量 。"]
+        "DESCRIPTIONS": ["她的回合结束时，将召唤 #b2 个 #y阴阳玉 。如果场上没有 #y阴阳玉 ，将召唤 #b4 个并获得 #b", " 点 #y力量 。 NL NL 随机攻击目标总会以这个生物为目标。"]
 },
 "Gensokyo:SealedPower": {
         "NAME": "封印",

@@ -77,7 +77,7 @@
 },
 "Gensokyo:HakureiShrineMaidenPower": {
         "NAME": "Hakurei Shrine Maiden",
-        "DESCRIPTIONS": ["At the end of her turn, summon #b2 #yYin-Yang #yOrbs. If there are no #yYin-Yang #yOrbs alive, summon #b4 instead and gains #b", " #yStrength."]
+        "DESCRIPTIONS": ["At the end of her turn, summon #b2 #yYin-Yang #yOrbs. If there are no #yYin-Yang #yOrbs alive, summon #b4 instead and gains #b", " #yStrength. NL NL Random targeting effects always target this creature."]
 },
 "Gensokyo:SealedPower": {
         "NAME": "Sealed",

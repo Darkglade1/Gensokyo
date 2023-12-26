@@ -77,7 +77,7 @@
 },
 "Gensokyo:HakureiShrineMaidenPower": {
         "NAME": "하쿠레이 신사의 무녀",
-        "DESCRIPTIONS": ["매 턴 종료시, #y음양옥을 #b2개 생성합니다. 살아있는 #y음양옥이 없을 경우, 음양옥을 #b4개 생성하고 #y힘을 #b", " 얻습니다."]
+        "DESCRIPTIONS": ["매 턴 종료시, #y음양옥을 #b2개 생성합니다. 살아있는 #y음양옥이 없을 경우, 음양옥을 #b4개 생성하고 #y힘을 #b", " 얻습니다. NL NL 무작위 지정 효과들은 전부 이 적을 우선으로 합니다."]
 },
 "Gensokyo:SealedPower": {
         "NAME": "봉인",

@@ -77,7 +77,7 @@
 },
 "Gensokyo:HakureiShrineMaidenPower": {
         "NAME": "博麗の巫女",
-        "DESCRIPTIONS": ["敵のターン終了時、 #y陰陽玉 を #b2 体召喚する。 #y陰陽玉 が一つも存在しない場合、 #y陰陽玉 を #b4 体召喚し、 #y筋力 #b", " を得る。"]
+        "DESCRIPTIONS": ["敵のターン終了時、 #y陰陽玉 を #b2 体召喚する。 #y陰陽玉 が一つも存在しない場合、 #y陰陽玉 を #b4 体召喚し、 #y筋力 #b", " を得る。 NL NL ランダムな相手を対象にとる効果は、常にこの敵を対象とする。 "]
 },
 "Gensokyo:SealedPower": {
         "NAME": "封印",
