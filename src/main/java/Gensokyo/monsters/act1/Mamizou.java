@@ -271,13 +271,7 @@ public class Mamizou extends CustomMonster
                     this.setMove(FORM_MOVE_1, Intent.ATTACK, this.damage.get(1).base);
                 }
             } else if (form == NOB_FORM) {
-                if (lastMove(TRANSFORM)) {
-                    this.setMove(FORM_MOVE_1, Intent.ATTACK_DEBUFF, this.damage.get(2).base);
-                } else if (!lastMove(FORM_MOVE_1) && !lastMoveBefore(FORM_MOVE_1)) {
-                    this.setMove(FORM_MOVE_1, Intent.ATTACK_DEBUFF, this.damage.get(2).base);
-                } else {
-                    this.setMove(FORM_MOVE_2, Intent.ATTACK, this.damage.get(3).base);
-                }
+                this.setMove(FORM_MOVE_2, Intent.ATTACK, this.damage.get(3).base);
             }
         }
     }

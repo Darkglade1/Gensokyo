@@ -22,10 +22,10 @@ public class BuddhistDiamond extends AbstractDefaultCard implements OnDiscardedB
     public static final CardColor COLOR = GensokyoMod.Enums.LUNAR;
 
     private static final int COST = 2;
-    private static final int DAMAGE = 24;
-    private static final int UPGRADE_PLUS_DMG = 6;
-    private static final int DAMAGE_INCREASE = 16;
-    private static final int UPGRADE_DAMAGE_INCREASE = 4;
+    private static final int DAMAGE = 20;
+    private static final int UPGRADE_PLUS_DMG = 5;
+    private static final int DAMAGE_INCREASE = 10;
+    private static final int UPGRADE_DAMAGE_INCREASE = 2;
 
     public BuddhistDiamond() {
         super(ID, IMG, COST, TYPE, COLOR, RARITY, TARGET);

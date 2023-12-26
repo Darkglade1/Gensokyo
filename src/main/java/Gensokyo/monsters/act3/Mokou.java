@@ -55,29 +55,29 @@ public class Mokou extends CustomMonster
 
     private static final int BLAZING_KICK_DAMAGE = 24;
     private static final int A4_BLAZING_KICK_DAMAGE = 26;
-    private static final int PHASE2_BLAZING_KICK_DAMAGE = 45;
-    private static final int A4_PHASE2_BLAZING_KICK_DAMAGE = 50;
+    private static final int PHASE2_BLAZING_KICK_DAMAGE = 40;
+    private static final int A4_PHASE2_BLAZING_KICK_DAMAGE = 45;
     private int blazingKickDamage;
 
     private static final int HONEST_MAN_DEATH_DAMAGE = 8;
     private static final int A4_HONEST_MAN_DEATH_DAMAGE = 9;
     private static final int HITS = 2;
-    private static final int PHASE2_HONEST_MAN_DEATH_DAMAGE = 11;
-    private static final int A4_PHASE2_HONEST_MAN_DEATH_DAMAGE = 12;
+    private static final int PHASE2_HONEST_MAN_DEATH_DAMAGE = 10;
+    private static final int A4_PHASE2_HONEST_MAN_DEATH_DAMAGE = 11;
     private static final int PHASE2_HITS = 3;
     private int honestManDeathDamage;
     private int hits;
 
     private static final int FUJIYAMA_VOLCANO_DAMAGE = 18;
     private static final int A4_FUJIYAMA_VOLCANO_DAMAGE = 20;
-    private static final int PHASE2_FUJIYAMA_VOLCANO_DAMAGE = 30;
-    private static final int A4_PHASE2_FUJIYAMA_VOLCANO_DAMAGE = 33;
+    private static final int PHASE2_FUJIYAMA_VOLCANO_DAMAGE = 27;
+    private static final int A4_PHASE2_FUJIYAMA_VOLCANO_DAMAGE = 30;
     private int fujiyamaVolcanoDamage;
 
     private static final int BLOCK = 10;
     private static final int A9_BLOCK = 12;
-    private static final int PHASE2_BLOCK = 20;
-    private static final int A9_PHASE2_BLOCK = 24;
+    private static final int PHASE2_BLOCK = 13;
+    private static final int A9_PHASE2_BLOCK = 16;
     private int block;
 
     private static final int VIGOR_AMT = 2;
@@ -90,8 +90,8 @@ public class Mokou extends CustomMonster
 
     private static final int HP = 70;
     private static final int A9_HP = 74;
-    private static final int PHASE2_HP = 500;
-    private static final int A9_PHASE2_HP = 530;
+    private static final int PHASE2_HP = 400;
+    private static final int A9_PHASE2_HP = 420;
     private int originalMaxHP;
 
     private static final int COOLDOWN = 2;
