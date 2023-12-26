@@ -2,21 +2,7 @@ package Gensokyo.monsters.act3;
 
 import Gensokyo.BetterSpriterAnimation;
 import Gensokyo.GensokyoMod;
-import Gensokyo.cards.Lunar.BrilliantDragonBullet;
-import Gensokyo.cards.Lunar.BuddhistDiamond;
-import Gensokyo.cards.Lunar.Dawn;
-import Gensokyo.cards.Lunar.DreamlikeParadise;
-import Gensokyo.cards.Lunar.EverlastingLife;
-import Gensokyo.cards.Lunar.HouraiInAPot;
-import Gensokyo.cards.Lunar.LifeSpringInfinity;
-import Gensokyo.cards.Lunar.MorningMist;
-import Gensokyo.cards.Lunar.MorningStar;
-import Gensokyo.cards.Lunar.NewMoon;
-import Gensokyo.cards.Lunar.RainbowDanmaku;
-import Gensokyo.cards.Lunar.RisingWorld;
-import Gensokyo.cards.Lunar.SalamanderShield;
-import Gensokyo.cards.Lunar.UnhurriedMind;
-import Gensokyo.cards.Lunar.UnlikelyAid;
+import Gensokyo.cards.Lunar.*;
 import Gensokyo.events.act3.SomeoneElsesStory;
 import Gensokyo.monsters.act2.Kaguya;
 import Gensokyo.powers.act1.VigorPower;
@@ -31,11 +17,7 @@ import com.brashmonkey.spriter.Player;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.animations.TalkAction;
 import com.megacrit.cardcrawl.actions.animations.VFXAction;
-import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
-import com.megacrit.cardcrawl.actions.common.DamageAction;
-import com.megacrit.cardcrawl.actions.common.GainBlockAction;
-import com.megacrit.cardcrawl.actions.common.MakeTempCardInDiscardAction;
-import com.megacrit.cardcrawl.actions.common.RollMoveAction;
+import com.megacrit.cardcrawl.actions.common.*;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.cards.status.Burn;
@@ -46,7 +28,9 @@ import com.megacrit.cardcrawl.localization.MonsterStrings;
 import com.megacrit.cardcrawl.monsters.EnemyMoveInfo;
 import com.megacrit.cardcrawl.powers.FrailPower;
 import com.megacrit.cardcrawl.powers.WeakPower;
+import com.megacrit.cardcrawl.relics.AbstractRelic;
 import com.megacrit.cardcrawl.rooms.EventRoom;
+import com.megacrit.cardcrawl.ui.panels.EnergyPanel;
 import com.megacrit.cardcrawl.unlock.UnlockTracker;
 import com.megacrit.cardcrawl.vfx.combat.GhostIgniteEffect;
 
@@ -121,6 +105,10 @@ public class Mokou extends CustomMonster
 
     private Map<Byte, EnemyMoveInfo> moves;
     private Kaguya kaguya = null;
+
+    public ArrayList<AbstractRelic> playerRelics = new ArrayList<>();
+    public int playerEnergy;
+    public int playerCardDraw;
 
     public Mokou() {
         this(0.0f, 0.0f);
@@ -200,13 +188,23 @@ public class Mokou extends CustomMonster
     @Override
     public void usePreBattleAction() {
         CustomDungeon.playTempMusicInstantly("ImmortalSmoke");
+
         kaguya = new Kaguya(-1600.0F, -30.0f);
         kaguya.setFlip(true, false);
         kaguya.drawX = AbstractDungeon.player.drawX;
         bonus = (int)(KAGUYA_HP * BONUS_THRESHOLD);
+        
         SomeoneElse power = new SomeoneElse(AbstractDungeon.player, bonus, this);
         power.updateDescription();
         AbstractDungeon.player.powers.add(power);
+
+        playerRelics.addAll(AbstractDungeon.player.relics);
+        AbstractDungeon.player.relics.clear();
+        playerEnergy = AbstractDungeon.player.energy.energy;
+        playerCardDraw = AbstractDungeon.player.gameHandSize;
+        AbstractDungeon.player.energy.energy = 5;
+        EnergyPanel.totalCount = 5 - playerEnergy; //that way when the initial energy is added it adds up to 5
+        AbstractDungeon.player.gameHandSize = 5;
 
         addToBot(new AbstractGameAction() {
             @Override

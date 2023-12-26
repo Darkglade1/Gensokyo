@@ -27,10 +27,7 @@ import com.megacrit.cardcrawl.core.Settings;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.helpers.ImageMaster;
 import com.megacrit.cardcrawl.localization.MonsterStrings;
-import com.megacrit.cardcrawl.powers.FrailPower;
-import com.megacrit.cardcrawl.powers.StrengthPower;
-import com.megacrit.cardcrawl.powers.VulnerablePower;
-import com.megacrit.cardcrawl.powers.WeakPower;
+import com.megacrit.cardcrawl.powers.*;
 
 public class Yukari extends CustomMonster
 {
@@ -71,11 +68,17 @@ public class Yukari extends CustomMonster
     private int wound;
     private boolean useTrain = false;
     private boolean useTrainTexture = false;
+    private boolean isEnraged = false;
     private static final int HP = 220;
     private static final int A9_HP = 230;
 
     public Yukari() {
         this(0.0f, 0.0f);
+    }
+
+    public Yukari(boolean isEnraged) {
+        this();
+        this.isEnraged = isEnraged;
     }
 
     public Yukari(final float x, final float y) {
@@ -120,6 +123,9 @@ public class Yukari extends CustomMonster
     public void usePreBattleAction() {
         AbstractDungeon.getCurrRoom().playBgmInstantly("Necrofantasia");
         AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(this, this, new UnstableBoundariesPower(this)));
+        if (this.isEnraged) {
+            AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(this, this, new AngerPower(this, 2)));
+        }
     }
     
     @Override

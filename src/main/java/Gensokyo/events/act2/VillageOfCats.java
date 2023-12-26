@@ -26,7 +26,6 @@ public class VillageOfCats extends AbstractImageEvent {
 
     private static final int MAX_HP = 5;
     private static final int NUM_RARE_RELICS = 2;
-    private static final int GOLD = 100;
 
     private AbstractMonster enemy;
     private boolean hasGap;
@@ -45,7 +44,7 @@ public class VillageOfCats extends AbstractImageEvent {
         } else {
             imageEventText.setDialogOption(OPTIONS[0] + MAX_HP + OPTIONS[1]);
         }
-        enemy = new Yukari();
+        enemy = new Yukari(true);
         imageEventText.setDialogOption(OPTIONS[3] + FontHelper.colorString(enemy.name, "r") + OPTIONS[4] + NUM_RARE_RELICS + OPTIONS[5]);
     }
 
@@ -78,7 +77,6 @@ public class VillageOfCats extends AbstractImageEvent {
                         for (int i = 0; i < NUM_RARE_RELICS; i++) {
                             AbstractDungeon.getCurrRoom().addRelicToRewards(AbstractRelic.RelicTier.RARE);
                         }
-                        AbstractDungeon.getCurrRoom().addGoldToRewards(GOLD);
                         AbstractDungeon.getCurrRoom().eliteTrigger = true;
                         AbstractDungeon.scene.nextRoom(AbstractDungeon.getCurrRoom()); //switches bg
                         this.enterCombatFromImage();

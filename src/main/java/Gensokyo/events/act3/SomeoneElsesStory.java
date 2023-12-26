@@ -1,20 +1,7 @@
 package Gensokyo.events.act3;
 
 import Gensokyo.GensokyoMod;
-import Gensokyo.cards.Lunar.BrilliantDragonBullet;
-import Gensokyo.cards.Lunar.Dawn;
-import Gensokyo.cards.Lunar.DreamlikeParadise;
-import Gensokyo.cards.Lunar.EverlastingLife;
-import Gensokyo.cards.Lunar.HouraiInAPot;
-import Gensokyo.cards.Lunar.LifeSpringInfinity;
-import Gensokyo.cards.Lunar.MorningMist;
-import Gensokyo.cards.Lunar.MorningStar;
-import Gensokyo.cards.Lunar.NewMoon;
-import Gensokyo.cards.Lunar.RainbowDanmaku;
-import Gensokyo.cards.Lunar.RisingWorld;
-import Gensokyo.cards.Lunar.SalamanderShield;
-import Gensokyo.cards.Lunar.UnhurriedMind;
-import Gensokyo.cards.Lunar.UnlikelyAid;
+import Gensokyo.cards.Lunar.*;
 import Gensokyo.monsters.act3.Mokou;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
@@ -22,8 +9,10 @@ import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.events.AbstractImageEvent;
 import com.megacrit.cardcrawl.localization.EventStrings;
 import com.megacrit.cardcrawl.monsters.MonsterGroup;
+import com.megacrit.cardcrawl.relics.AbstractRelic;
 import com.megacrit.cardcrawl.rewards.RewardItem;
 import com.megacrit.cardcrawl.rooms.AbstractRoom;
+import com.megacrit.cardcrawl.ui.panels.EnergyPanel;
 
 import java.util.ArrayList;
 import java.util.Collections;
@@ -45,6 +34,8 @@ public class SomeoneElsesStory extends AbstractImageEvent {
     private int playerOriginalCurrHP;
     private int playerOriginalMaxHP;
     private boolean winTriggered = false;
+
+    private Mokou mokou;
 
     public SomeoneElsesStory() {
         super(NAME, DESCRIPTIONS[0], IMG);
@@ -93,6 +84,9 @@ public class SomeoneElsesStory extends AbstractImageEvent {
         AbstractDungeon.getCurrRoom().endBattle();
         AbstractDungeon.player.currentHealth = playerOriginalCurrHP;
         AbstractDungeon.player.maxHealth = playerOriginalMaxHP;
+        AbstractDungeon.player.relics.addAll(mokou.playerRelics);
+        AbstractDungeon.player.energy.energy = mokou.playerEnergy;
+        AbstractDungeon.player.gameHandSize = mokou.playerCardDraw;
         AbstractDungeon.actionManager.clear();
         AbstractDungeon.overlayMenu.hideCombatPanels();
     }
@@ -147,10 +141,12 @@ public class SomeoneElsesStory extends AbstractImageEvent {
                         AbstractDungeon.player.currentHealth = KAGUYA_HP;
                         AbstractDungeon.player.maxHealth = KAGUYA_HP;
 
-                        AbstractDungeon.getCurrRoom().monsters = new MonsterGroup(new Mokou(0.0F, 0.0F));
+                        mokou = new Mokou(0.0f, 0.0f);
+                        AbstractDungeon.getCurrRoom().monsters = new MonsterGroup(mokou);
                         AbstractDungeon.getCurrRoom().rewards.clear();
                         AbstractDungeon.getCurrRoom().eliteTrigger = true;
                         AbstractDungeon.scene.nextRoom(AbstractDungeon.getCurrRoom()); //switches bg
+
                         this.enterCombatFromImage();
                         break;
                     case 1: // Listen briefly

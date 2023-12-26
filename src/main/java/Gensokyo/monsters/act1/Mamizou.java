@@ -64,8 +64,6 @@ public class Mamizou extends CustomMonster
     private static final int A3_SENTRY_DAMAGE = 10;
     private static final int SENTRY_DAZES = 2;
     private static final int A18_SENTRY_DAZES = 3;
-    //private static final int SENTRY_ATTACK_DAZES = 1;
-    //private static final int A18_SENTRY_ATTACK_DAZES = 2;
     private static final int LAGA_ATTACK = 18;
     private static final int A3_LAGA_ATTACK = 20;
     private static final int DEBUFF_AMOUNT = 1;
@@ -89,7 +87,6 @@ public class Mamizou extends CustomMonster
     private static final int A_8_SENTRY_TEMP_HP = 27;
     private int sentryDamage;
     private int sentryDazes;
-    //private int sentryAttackDazes;
     private int lagaAttack;
     private int lagaDebuff;
     private int nobDebuff;
@@ -116,18 +113,15 @@ public class Mamizou extends CustomMonster
         this.dialogX = (this.hb_x - 70.0F) * Settings.scale;
         this.dialogY -= (this.hb_y - 55.0F) * Settings.scale;
 
-        this.lagaDebuff = DEBUFF_AMOUNT;
         if (AbstractDungeon.ascensionLevel >= 18) {
             this.nobStrength = A18_NOB_STRENGTH;
             this.sentryDazes = A18_SENTRY_DAZES;
-            //this.sentryAttackDazes = A18_SENTRY_ATTACK_DAZES;
-            //this.lagaDebuff = A18_DEBUFF_AMOUNT;
+            this.lagaDebuff = A18_DEBUFF_AMOUNT;
             this.metallicize = A18_METALLICIZE;
         } else {
             this.nobStrength = NOB_STRENGTH;
             this.sentryDazes = SENTRY_DAZES;
-            //this.sentryAttackDazes = SENTRY_ATTACK_DAZES;
-            //this.lagaDebuff = DEBUFF_AMOUNT;
+            this.lagaDebuff = DEBUFF_AMOUNT;
             this.metallicize = METALLCIZE;
         }
         if (AbstractDungeon.ascensionLevel >= 8) {
