@@ -8,6 +8,8 @@ import Gensokyo.powers.act2.RivalPlayerPosition;
 import Gensokyo.powers.act2.RivalPosition;
 import Gensokyo.powers.act2.TenDesires;
 import Gensokyo.powers.act2.WishfulSoul;
+import Gensokyo.powers.act3.SistersPlayerPosition;
+import Gensokyo.util.LaneVisual;
 import Gensokyo.vfx.EmptyEffect;
 import Gensokyo.vfx.FlexibleDivinityParticleEffect;
 import Gensokyo.vfx.FlexibleStanceAuraEffect;
@@ -368,6 +370,9 @@ public class Miko extends CustomMonster
                     AbstractDungeon.effectsQueue.add(new FlexibleStanceAuraEffect(DivinityStance.STANCE_ID, this));
                 }
             }
+        }
+        if (AbstractDungeon.player.hasPower(RivalPlayerPosition.POWER_ID) && !AbstractDungeon.actionManager.turnHasEnded && !this.isDeadOrEscaped()) {
+            LaneVisual.drawArrow(sb, this.hb, this.rival.hb, (100.0F * Settings.scale));
         }
     }
     

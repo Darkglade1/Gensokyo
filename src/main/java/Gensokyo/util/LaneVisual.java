@@ -1,5 +1,6 @@
 package Gensokyo.util;
 
+import Gensokyo.powers.act2.RivalPlayerPosition;
 import Gensokyo.powers.act3.SistersPlayerPosition;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.Color;
@@ -78,10 +79,19 @@ public class LaneVisual {
         sb.begin();
 
         sb.setColor(Color.WHITE);
-        if (((SistersPlayerPosition) AbstractDungeon.player.getPower(SistersPlayerPosition.POWER_ID)).isInUnsafeLane()) {
-            sb.draw(attackerIcon, AbstractDungeon.player.hb.cX - 64.0F, AbstractDungeon.player.hb.cY - 64.0F, 64.0F, 64.0F, 128.0F, 128.0F, Settings.scale, Settings.scale, 0.0F, 0, 0, 128, 128, false, false);
-        } else {
-            sb.draw(attackerIcon, v2.x, v2.y - 100.0F * Settings.scale, 64.0F, 64.0F, 128.0F, 128.0F, Settings.scale, Settings.scale, 0.0F, 0, 0, 128, 128, false, false);
+        if (AbstractDungeon.player.hasPower(SistersPlayerPosition.POWER_ID)) {
+            if (((SistersPlayerPosition) AbstractDungeon.player.getPower(SistersPlayerPosition.POWER_ID)).isInUnsafeLane()) {
+                sb.draw(attackerIcon, AbstractDungeon.player.hb.cX - 64.0F, AbstractDungeon.player.hb.cY - 64.0F, 64.0F, 64.0F, 128.0F, 128.0F, Settings.scale, Settings.scale, 0.0F, 0, 0, 128, 128, false, false);
+            } else {
+                sb.draw(attackerIcon, v2.x, v2.y - 100.0F * Settings.scale, 64.0F, 64.0F, 128.0F, 128.0F, Settings.scale, Settings.scale, 0.0F, 0, 0, 128, 128, false, false);
+            }
+        }
+        if (AbstractDungeon.player.hasPower(RivalPlayerPosition.POWER_ID)) {
+            if (((RivalPlayerPosition) AbstractDungeon.player.getPower(RivalPlayerPosition.POWER_ID)).isInUnsafeLane()) {
+                sb.draw(attackerIcon, AbstractDungeon.player.hb.cX - 64.0F, AbstractDungeon.player.hb.cY - 64.0F, 64.0F, 64.0F, 128.0F, 128.0F, Settings.scale, Settings.scale, 0.0F, 0, 0, 128, 128, false, false);
+            } else {
+                sb.draw(attackerIcon, h2.cX - 64.0F, h2.cY - 64.0F, 64.0F, 64.0F, 128.0F, 128.0F, Settings.scale, Settings.scale, 0.0F, 0, 0, 128, 128, false, false);
+            }
         }
     }
 }
